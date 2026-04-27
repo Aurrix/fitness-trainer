@@ -1,0 +1,234 @@
+{
+  "id": "barbell-incline-press",
+  "displayLabel": "Barbell Incline Press",
+  "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><p>Reference this movement in program files with the exercise id <code>barbell-incline-press</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "barbell total including the bar",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              29,
+              34
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              64,
+              73
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              94,
+              106
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              29,
+              34
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              64,
+              73
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              94,
+              106
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              26,
+              31
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              58,
+              66
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              85,
+              96
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              10,
+              12
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              32,
+              36
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              51,
+              58
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              10,
+              12
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              32,
+              36
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              51,
+              58
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              9,
+              11
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              29,
+              32
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              46,
+              52
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.5
+    }
+  ]
+}

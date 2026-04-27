@@ -1,0 +1,2927 @@
+{
+  "id": "high-frequency-full-body",
+  "displayLabel": "High Frequency Full Body",
+  "shortDescription": "10-week five-day full body strength and hypertrophy program.",
+  "descriptionHtml": "<p>10-week five-day full body strength and hypertrophy program.</p><p><strong>Structure:</strong> 10 weeks, 5 scheduled sessions per week, 50 referenced exercise ids.</p><p><strong>Weekly split:</strong> Lower Focused Full Body, Chest Focused Full Body, Back Focused Full Body, Lower Focused Full Body 2, and Deltoid Focused Full Body.</p><ul><li><strong>Goal:</strong> hypertrophy</li><li><strong>Level:</strong> intermediate</li><li><strong>Duration:</strong> 10 weeks</li><li><strong>Tags:</strong> full body and 5 days per week</li></ul>",
+  "goal": "hypertrophy",
+  "level": "intermediate",
+  "duration": "10 weeks",
+  "tags": [
+    "full body",
+    "5 days per week"
+  ],
+  "weeks": [
+    {
+      "week": 1,
+      "phase": "Block 1",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Lower Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "4",
+              "reps": "4",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 82.5%"
+            },
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "lying-leg-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "pronated-pulldown",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "supinated-ez-bar-curl",
+              "sets": "3",
+              "reps": "15/15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE9"
+            },
+            {
+              "exerciseId": "hanging-leg-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Chest Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "3",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 85%"
+            },
+            {
+              "exerciseId": "low-to-high-cable-flye",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust-or-romanian-deadlift",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE6"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "arnold-press",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-3 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "tricep-pressdown",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "hex-bar-or-smith-machine-shrug",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "weighted-pull-up",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "humble-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": "3",
+              "reps": "15",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE6"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-rope-upright-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "hammer-curl",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE9"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Focused Full Body 2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "4",
+              "reps": "2",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 85%"
+            },
+            {
+              "exerciseId": "dip",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "glute-ham-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE6"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-pull-over",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "rope-face-pull",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "ez-bar-skull-crusher",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Deltoid Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 3 sets. 75%"
+            },
+            {
+              "exerciseId": "egyptian-lateral-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "incline-dumbbell-curl",
+              "sets": "2",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "bicycle-crunch",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": "2",
+              "reps": "RPE only",
+              "rest": "1-2 min",
+              "notes": "RPE6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "phase": "Block 1",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Lower Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 77.5%"
+            },
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "lying-leg-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "pronated-pulldown",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "supinated-ez-bar-curl",
+              "sets": "3",
+              "reps": "15/15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE9"
+            },
+            {
+              "exerciseId": "hanging-leg-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Chest Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "5",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 80%"
+            },
+            {
+              "exerciseId": "low-to-high-cable-flye",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust-or-romanian-deadlift",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE6"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "arnold-press",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-3 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "tricep-pressdown",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "hex-bar-or-smith-machine-shrug",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "weighted-pull-up",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "humble-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": "3",
+              "reps": "15",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE6"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-rope-upright-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "hammer-curl",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE9"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Focused Full Body 2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "5",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 80%"
+            },
+            {
+              "exerciseId": "dip",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "glute-ham-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-pull-over",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "rope-face-pull",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "ez-bar-skull-crusher",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Deltoid Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 3 sets. 65%"
+            },
+            {
+              "exerciseId": "egyptian-lateral-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "incline-dumbbell-curl",
+              "sets": "2",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "bicycle-crunch",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": "2",
+              "reps": "RPE only",
+              "rest": "1-2 min",
+              "notes": "RPE6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "phase": "Block 1",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Lower Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "4",
+              "reps": "4",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 85%"
+            },
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "lying-leg-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "pronated-pulldown",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "supinated-ez-bar-curl",
+              "sets": "3",
+              "reps": "15/15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE10"
+            },
+            {
+              "exerciseId": "hanging-leg-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Chest Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "3",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 87.5%"
+            },
+            {
+              "exerciseId": "low-to-high-cable-flye",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE9"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust-or-romanian-deadlift",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "arnold-press",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-3 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "tricep-pressdown",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "hex-bar-or-smith-machine-shrug",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "weighted-pull-up",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "humble-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE9"
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": "3",
+              "reps": "15",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-rope-upright-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "hammer-curl",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE9"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Focused Full Body 2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "4",
+              "reps": "2",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 87.5%"
+            },
+            {
+              "exerciseId": "dip",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "glute-ham-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-pull-over",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "rope-face-pull",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "ez-bar-skull-crusher",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Deltoid Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 3 sets. 77.5%"
+            },
+            {
+              "exerciseId": "egyptian-lateral-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE9"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "incline-dumbbell-curl",
+              "sets": "2",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "bicycle-crunch",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": "2",
+              "reps": "RPE only",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "phase": "Block 1",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Lower Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 80%"
+            },
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "lying-leg-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "pronated-pulldown",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "supinated-ez-bar-curl",
+              "sets": "3",
+              "reps": "15/15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE10"
+            },
+            {
+              "exerciseId": "hanging-leg-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Chest Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "5",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 82.5%"
+            },
+            {
+              "exerciseId": "low-to-high-cable-flye",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE9"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust-or-romanian-deadlift",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "arnold-press",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-3 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "tricep-pressdown",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "hex-bar-or-smith-machine-shrug",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "weighted-pull-up",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "humble-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE9"
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": "3",
+              "reps": "15",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-rope-upright-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "hammer-curl",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE9"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Focused Full Body 2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "5",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 82.5%"
+            },
+            {
+              "exerciseId": "dip",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "glute-ham-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-pull-over",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "rope-face-pull",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "ez-bar-skull-crusher",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Deltoid Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 3 sets. 67.5%"
+            },
+            {
+              "exerciseId": "egyptian-lateral-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE9"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "incline-dumbbell-curl",
+              "sets": "2",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "bicycle-crunch",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": "2",
+              "reps": "RPE only",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "phase": "Block 2",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Lower Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "1",
+              "reps": "3-5",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 87.5%"
+            },
+            {
+              "exerciseId": "back-squat",
+              "sets": "2",
+              "reps": "5",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 82.5%"
+            },
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. 80%"
+            },
+            {
+              "exerciseId": "swiss-ball-leg-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "chin-up",
+              "sets": "4",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "supinated-ez-bar-curl",
+              "sets": "3",
+              "reps": "10+2",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE10"
+            },
+            {
+              "exerciseId": "ab-wheel-rollout",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Chest Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "3",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 87.5%"
+            },
+            {
+              "exerciseId": "low-incline-dumbbell-press",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust-or-romanian-deadlift",
+              "sets": "4",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "dumbbell-row",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "4",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "overhead-tricep-extension",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "hex-bar-or-smith-machine-shrug",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "weighted-pull-up",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "4",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "single-leg-leg-press",
+              "sets": "4",
+              "reps": "15",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "eccentric-accentuated-standing-calf-raise",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-rope-upright-row",
+              "sets": "4",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "cable-single-arm-curl",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Focused Full Body 2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "1",
+              "reps": "2",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 90%"
+            },
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "2",
+              "rest": "3-5 min",
+              "notes": "80%"
+            },
+            {
+              "exerciseId": "decline-bench-press",
+              "sets": "4",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "glute-ham-raise",
+              "sets": "4",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-pull-over",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "ez-bar-skull-crusher",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Deltoid Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 3 sets. 80%"
+            },
+            {
+              "exerciseId": "cable-lateral-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "pendlay-row",
+              "sets": "4",
+              "reps": "10",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "4",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "ez-bar-curl-21s",
+              "sets": "2",
+              "reps": "7/7/7",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-crunch",
+              "sets": "4",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": "2",
+              "reps": "RPE only",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "phase": "Block 2",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Lower Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "1",
+              "reps": "2",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 92.5%"
+            },
+            {
+              "exerciseId": "back-squat",
+              "sets": "2",
+              "reps": "3",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 85%"
+            },
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. 75%"
+            },
+            {
+              "exerciseId": "swiss-ball-leg-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "chin-up",
+              "sets": "4",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "supinated-ez-bar-curl",
+              "sets": "3",
+              "reps": "10+2",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE10"
+            },
+            {
+              "exerciseId": "ab-wheel-rollout",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Chest Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "5",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 85%"
+            },
+            {
+              "exerciseId": "low-incline-dumbbell-press",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust-or-romanian-deadlift",
+              "sets": "4",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "dumbbell-row",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "4",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "overhead-tricep-extension",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "hex-bar-or-smith-machine-shrug",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "weighted-pull-up",
+              "sets": "4",
+              "reps": "3",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "4",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "single-leg-leg-press",
+              "sets": "4",
+              "reps": "15",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "eccentric-accentuated-standing-calf-raise",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-rope-upright-row",
+              "sets": "4",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "cable-single-arm-curl",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Focused Full Body 2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "1",
+              "reps": "4",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 85%"
+            },
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "4",
+              "rest": "3-5 min",
+              "notes": "75%"
+            },
+            {
+              "exerciseId": "decline-bench-press",
+              "sets": "4",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "glute-ham-raise",
+              "sets": "4",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-pull-over",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "reverse-pec-deck",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "ez-bar-skull-crusher",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Deltoid Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "4",
+              "rest": "2-3 min",
+              "notes": "Warm-up 3 sets. 82.5%"
+            },
+            {
+              "exerciseId": "cable-lateral-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "pendlay-row",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "4",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "ez-bar-curl-21s",
+              "sets": "2",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "cable-crunch",
+              "sets": "4",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE7"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": "2",
+              "reps": "RPE only",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "phase": "Block 2",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Lower Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "1",
+              "reps": "8",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 82.5%"
+            },
+            {
+              "exerciseId": "back-squat",
+              "sets": "2",
+              "reps": "8",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 70%"
+            },
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. 65%"
+            },
+            {
+              "exerciseId": "swiss-ball-leg-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "chin-up",
+              "sets": "4",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "supinated-ez-bar-curl",
+              "sets": "3",
+              "reps": "10+2",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE10"
+            },
+            {
+              "exerciseId": "ab-wheel-rollout",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Chest Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 77.5%"
+            },
+            {
+              "exerciseId": "low-incline-dumbbell-press",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust-or-romanian-deadlift",
+              "sets": "4",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "dumbbell-row",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "4",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "overhead-tricep-extension",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "hex-bar-or-smith-machine-shrug",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "weighted-pull-up",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "4",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "single-leg-leg-press",
+              "sets": "4",
+              "reps": "15",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "eccentric-accentuated-standing-calf-raise",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-rope-upright-row",
+              "sets": "4",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "cable-single-arm-curl",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Focused Full Body 2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "1",
+              "reps": "6",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 82.5%"
+            },
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-5 min",
+              "notes": "70%"
+            },
+            {
+              "exerciseId": "decline-bench-press",
+              "sets": "4",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "glute-ham-raise",
+              "sets": "4",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-pull-over",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "reverse-pec-deck",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "ez-bar-skull-crusher",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Deltoid Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 3 sets. 80%"
+            },
+            {
+              "exerciseId": "cable-lateral-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "pendlay-row",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "4",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "ez-bar-curl-21s",
+              "sets": "2",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-crunch",
+              "sets": "4",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": "2",
+              "reps": "RPE only",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "phase": "Block 2",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Lower Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "1",
+              "reps": "2",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 92.5%"
+            },
+            {
+              "exerciseId": "back-squat",
+              "sets": "2",
+              "reps": "2",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 85%"
+            },
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "5",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. 80%"
+            },
+            {
+              "exerciseId": "swiss-ball-leg-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "chin-up",
+              "sets": "4",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "supinated-ez-bar-curl",
+              "sets": "3",
+              "reps": "10+2",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE10"
+            },
+            {
+              "exerciseId": "ab-wheel-rollout",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Chest Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "4",
+              "reps": "2",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 90%"
+            },
+            {
+              "exerciseId": "low-incline-dumbbell-press",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust-or-romanian-deadlift",
+              "sets": "4",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "dumbbell-row",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "4",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "overhead-tricep-extension",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "hex-bar-or-smith-machine-shrug",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "weighted-pull-up",
+              "sets": "4",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "4",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "single-leg-leg-press",
+              "sets": "4",
+              "reps": "15",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "eccentric-accentuated-standing-calf-raise",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-rope-upright-row",
+              "sets": "4",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "cable-single-arm-curl",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Focused Full Body 2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "1",
+              "reps": "2",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 95%"
+            },
+            {
+              "exerciseId": "deadlift",
+              "sets": "1",
+              "reps": "3",
+              "rest": "3-5 min",
+              "notes": "85%"
+            },
+            {
+              "exerciseId": "decline-bench-press",
+              "sets": "4",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "glute-ham-raise",
+              "sets": "4",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-pull-over",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "reverse-pec-deck",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "ez-bar-skull-crusher",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Deltoid Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "5",
+              "reps": "3",
+              "rest": "2-3 min",
+              "notes": "Warm-up 3 sets. 87.5%"
+            },
+            {
+              "exerciseId": "cable-lateral-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "pendlay-row",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "4",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "ez-bar-curl-21s",
+              "sets": "2",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-crunch",
+              "sets": "4",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": "2",
+              "reps": "RPE only",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "phase": "Deload",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Lower Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "4",
+              "reps": "4",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 75%"
+            },
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "4",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. 70%"
+            },
+            {
+              "exerciseId": "lying-leg-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "pronated-pulldown",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "supinated-ez-bar-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "cable-crunch",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Chest Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "3",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 80%"
+            },
+            {
+              "exerciseId": "low-to-high-cable-flye",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE6"
+            },
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "3",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. 75%"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-3 min",
+              "notes": "RPE6"
+            },
+            {
+              "exerciseId": "tricep-pressdown",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE6"
+            },
+            {
+              "exerciseId": "hex-bar-or-smith-machine-shrug",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "wide-grip-lat-pulldown",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE6"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE6"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "cable-rope-upright-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE6"
+            },
+            {
+              "exerciseId": "hammer-curl",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE6"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Focused Full Body 2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "2",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 80%"
+            },
+            {
+              "exerciseId": "decline-bench-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "glute-ham-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE6"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "cable-pull-over",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "rope-face-pull",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "ez-bar-skull-crusher",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Deltoid Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 3 sets. 75%"
+            },
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "2",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. 85%"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "incline-dumbbell-curl",
+              "sets": "2",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "bicycle-crunch",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": "2",
+              "reps": "RPE only",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "phase": "AMRAP",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Lower Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "1",
+              "reps": "AMRAP",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 90%"
+            },
+            {
+              "exerciseId": "back-squat",
+              "sets": "2",
+              "reps": "6",
+              "rest": "2-4 min",
+              "notes": "80%"
+            },
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE5"
+            },
+            {
+              "exerciseId": "lying-leg-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "pronated-pulldown",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "supinated-ez-bar-curl",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE9"
+            },
+            {
+              "exerciseId": "cable-crunch",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE6"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Chest Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "1",
+              "reps": "AMRAP",
+              "rest": "2-4 min",
+              "notes": "Warm-up 3 sets. 92.5%"
+            },
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "2",
+              "reps": "5",
+              "rest": "2-4 min",
+              "notes": "85%"
+            },
+            {
+              "exerciseId": "low-to-high-cable-flye",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE9"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust-or-romanian-deadlift",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE5"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "arnold-press",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-3 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "tricep-pressdown",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE9"
+            },
+            {
+              "exerciseId": "hex-bar-or-smith-machine-shrug",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE10"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "weighted-pull-up",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE9"
+            },
+            {
+              "exerciseId": "humble-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": "3",
+              "reps": "15",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE8"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-rope-upright-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "hammer-curl",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE10"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Focused Full Body 2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "1",
+              "reps": "AMRAP",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 90%"
+            },
+            {
+              "exerciseId": "deadlift",
+              "sets": "2",
+              "reps": "5",
+              "rest": "3-5 min",
+              "notes": "Warm-up 3 sets. 85%"
+            },
+            {
+              "exerciseId": "decline-bench-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "Warm-up 2 sets. RPE7"
+            },
+            {
+              "exerciseId": "glute-ham-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE8"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "cable-pull-over",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "rope-face-pull",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "ez-bar-skull-crusher",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Deltoid Focused Full Body",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "4",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "Warm-up 3 sets. 80%"
+            },
+            {
+              "exerciseId": "egyptian-lateral-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE9"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-3 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "incline-dumbbell-curl",
+              "sets": "2",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE10"
+            },
+            {
+              "exerciseId": "bicycle-crunch",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "Warm-up 1 sets. RPE8"
+            },
+            {
+              "exerciseId": "push-up",
+              "sets": "2",
+              "reps": "RPE only",
+              "rest": "1-2 min",
+              "notes": "RPE7"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "name": "Block 1",
+      "weeks": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "Block 2",
+      "weeks": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "Deload",
+      "weeks": [
+        9
+      ]
+    },
+    {
+      "name": "AMRAP",
+      "weeks": [
+        10
+      ]
+    }
+  ]
+}

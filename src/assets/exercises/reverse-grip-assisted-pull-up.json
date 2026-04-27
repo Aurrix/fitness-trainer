@@ -1,0 +1,240 @@
+{
+  "id": "reverse-grip-assisted-pull-up",
+  "displayLabel": "Reverse Grip Assisted Pull-Up",
+  "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> Reverse Grip Assisted Pullup</li></ul>",
+  "aliases": [
+    "Reverse Grip Assisted Pullup"
+  ],
+  "substitutionExerciseIds": [],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "assistanceKg",
+    "measurement": {
+      "basis": "assistance load offset on the machine or band; higher values mean more help",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              18,
+              32
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              8,
+              18
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              0,
+              8
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              19,
+              34
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              8,
+              19
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              0,
+              8
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              22,
+              38
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              10,
+              22
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              0,
+              10
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              25,
+              40
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              12,
+              24
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              2,
+              10
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              26,
+              42
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              13,
+              25
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              2,
+              11
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              30,
+              48
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              14,
+              29
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              2,
+              12
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "biceps-long-head",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    }
+  ]
+}

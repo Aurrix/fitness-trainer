@@ -1,0 +1,238 @@
+{
+  "id": "hammer-strength-machine-press",
+  "displayLabel": "Hammer Strength Machine Press",
+  "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><p>Reference this movement in program files with the exercise id <code>hammer-strength-machine-press</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "selected machine stack or plate-loaded resistance",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              19,
+              23
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              60,
+              70
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              94,
+              110
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              19,
+              23
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              60,
+              70
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              94,
+              110
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              17,
+              21
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              54,
+              63
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              85,
+              99
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              6,
+              7
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              25,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              42,
+              50
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              6,
+              7
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              25,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              42,
+              50
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              23,
+              27
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              38,
+              45
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "side-delts",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.3
+    }
+  ]
+}

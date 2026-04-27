@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "cadence": "monthly",
+    "units": "absolute centimeters per 30.4 days",
+    "version": 3,
+    "sources": [
+      {
+        "id": "arazi-2021",
+        "title": "Effects of different resistance training frequencies on body composition and muscular performance adaptations in men",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8067909/"
+      },
+      {
+        "id": "candow-2012",
+        "title": "The effects of six weeks of supplementation with multi-ingredient performance supplements and resistance training on anabolic hormones, body composition, strength, and power in resistance-trained men",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3542109/"
+      },
+      {
+        "id": "cureton-1988",
+        "title": "Muscle hypertrophy in men and women",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3173042/"
+      },
+      {
+        "id": "ugurlu-2024",
+        "title": "Dose-response effects of 8-week resistance training on body composition and muscular performance in untrained young women",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11537639/"
+      },
+      {
+        "id": "albalawi-2023",
+        "title": "The effects of exercise training on body composition in postmenopausal women: a systematic review and meta-analysis",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10306117/"
+      }
+    ],
+    "inferenceNote": "These are evidence-informed modeled monthly circumference-change ranges, not directly validated targets. Direct circumference-change trials exist mainly for chest, arms, thighs, waist, and hips in limited populations. Shoulders, forearms, calves, hips-as-growth, older age groups, and advanced trainee values are scaled from related circumference, lean-mass, muscle-thickness, and resistance-training adaptation findings. Month-to-month tape measurements may have enough error to obscure small changes, especially for forearms, calves, and advanced trainees."
+  },
+  "bodyParts": {
+    "male": {
+      "18-29": {
+        "beginner": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.35, 0.9] },
+          "chestCm": { "direction": "grow", "optimal": [0.5, 1.3] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.8, 0.25] },
+          "hipsCm": { "direction": "grow", "optimal": [0.15, 0.55] },
+          "armsCm": { "direction": "grow", "optimal": [0.2, 0.6] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.05, 0.2] },
+          "thighsCm": { "direction": "grow", "optimal": [0.3, 0.85] },
+          "calvesCm": { "direction": "grow", "optimal": [0.03, 0.18] }
+        },
+        "intermediate": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.2, 0.5] },
+          "chestCm": { "direction": "grow", "optimal": [0.25, 0.75] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.55, 0.3] },
+          "hipsCm": { "direction": "grow", "optimal": [0.08, 0.3] },
+          "armsCm": { "direction": "grow", "optimal": [0.1, 0.35] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.02, 0.12] },
+          "thighsCm": { "direction": "grow", "optimal": [0.18, 0.5] },
+          "calvesCm": { "direction": "grow", "optimal": [0.02, 0.1] }
+        },
+        "advanced": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.08, 0.28] },
+          "chestCm": { "direction": "grow", "optimal": [0.12, 0.4] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.35, 0.35] },
+          "hipsCm": { "direction": "grow", "optimal": [0.03, 0.16] },
+          "armsCm": { "direction": "grow", "optimal": [0.04, 0.18] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.0, 0.06] },
+          "thighsCm": { "direction": "grow", "optimal": [0.08, 0.25] },
+          "calvesCm": { "direction": "grow", "optimal": [0.0, 0.05] }
+        }
+      },
+      "30-44": {
+        "beginner": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.3, 0.75] },
+          "chestCm": { "direction": "grow", "optimal": [0.4, 1.1] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.7, 0.3] },
+          "hipsCm": { "direction": "grow", "optimal": [0.12, 0.45] },
+          "armsCm": { "direction": "grow", "optimal": [0.16, 0.5] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.04, 0.16] },
+          "thighsCm": { "direction": "grow", "optimal": [0.25, 0.7] },
+          "calvesCm": { "direction": "grow", "optimal": [0.03, 0.15] }
+        },
+        "intermediate": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.16, 0.42] },
+          "chestCm": { "direction": "grow", "optimal": [0.22, 0.62] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.45, 0.32] },
+          "hipsCm": { "direction": "grow", "optimal": [0.06, 0.25] },
+          "armsCm": { "direction": "grow", "optimal": [0.08, 0.28] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.01, 0.1] },
+          "thighsCm": { "direction": "grow", "optimal": [0.14, 0.42] },
+          "calvesCm": { "direction": "grow", "optimal": [0.01, 0.08] }
+        },
+        "advanced": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.06, 0.22] },
+          "chestCm": { "direction": "grow", "optimal": [0.09, 0.32] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.3, 0.38] },
+          "hipsCm": { "direction": "grow", "optimal": [0.02, 0.12] },
+          "armsCm": { "direction": "grow", "optimal": [0.03, 0.14] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.0, 0.05] },
+          "thighsCm": { "direction": "grow", "optimal": [0.06, 0.2] },
+          "calvesCm": { "direction": "grow", "optimal": [0.0, 0.04] }
+        }
+      },
+      "45+": {
+        "beginner": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.22, 0.6] },
+          "chestCm": { "direction": "grow", "optimal": [0.3, 0.85] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.55, 0.35] },
+          "hipsCm": { "direction": "grow", "optimal": [0.08, 0.35] },
+          "armsCm": { "direction": "grow", "optimal": [0.12, 0.38] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.03, 0.12] },
+          "thighsCm": { "direction": "grow", "optimal": [0.18, 0.55] },
+          "calvesCm": { "direction": "grow", "optimal": [0.02, 0.12] }
+        },
+        "intermediate": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.12, 0.34] },
+          "chestCm": { "direction": "grow", "optimal": [0.16, 0.5] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.35, 0.38] },
+          "hipsCm": { "direction": "grow", "optimal": [0.04, 0.2] },
+          "armsCm": { "direction": "grow", "optimal": [0.06, 0.22] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.01, 0.08] },
+          "thighsCm": { "direction": "grow", "optimal": [0.1, 0.32] },
+          "calvesCm": { "direction": "grow", "optimal": [0.01, 0.07] }
+        },
+        "advanced": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.04, 0.18] },
+          "chestCm": { "direction": "grow", "optimal": [0.06, 0.25] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.25, 0.42] },
+          "hipsCm": { "direction": "grow", "optimal": [0.0, 0.1] },
+          "armsCm": { "direction": "grow", "optimal": [0.02, 0.1] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.0, 0.04] },
+          "thighsCm": { "direction": "grow", "optimal": [0.04, 0.16] },
+          "calvesCm": { "direction": "grow", "optimal": [0.0, 0.03] }
+        }
+      }
+    },
+    "female": {
+      "18-29": {
+        "beginner": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.25, 0.7] },
+          "chestCm": { "direction": "grow", "optimal": [0.3, 0.85] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.8, 0.25] },
+          "hipsCm": { "direction": "grow", "optimal": [0.25, 0.75] },
+          "armsCm": { "direction": "grow", "optimal": [0.14, 0.45] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.03, 0.16] },
+          "thighsCm": { "direction": "grow", "optimal": [0.3, 0.75] },
+          "calvesCm": { "direction": "grow", "optimal": [0.03, 0.16] }
+        },
+        "intermediate": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.14, 0.4] },
+          "chestCm": { "direction": "grow", "optimal": [0.16, 0.5] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.55, 0.3] },
+          "hipsCm": { "direction": "grow", "optimal": [0.14, 0.42] },
+          "armsCm": { "direction": "grow", "optimal": [0.07, 0.25] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.01, 0.1] },
+          "thighsCm": { "direction": "grow", "optimal": [0.18, 0.45] },
+          "calvesCm": { "direction": "grow", "optimal": [0.01, 0.1] }
+        },
+        "advanced": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.05, 0.2] },
+          "chestCm": { "direction": "grow", "optimal": [0.06, 0.24] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.35, 0.35] },
+          "hipsCm": { "direction": "grow", "optimal": [0.05, 0.22] },
+          "armsCm": { "direction": "grow", "optimal": [0.02, 0.12] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.0, 0.05] },
+          "thighsCm": { "direction": "grow", "optimal": [0.08, 0.24] },
+          "calvesCm": { "direction": "grow", "optimal": [0.0, 0.05] }
+        }
+      },
+      "30-44": {
+        "beginner": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.2, 0.58] },
+          "chestCm": { "direction": "grow", "optimal": [0.24, 0.7] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.7, 0.3] },
+          "hipsCm": { "direction": "grow", "optimal": [0.2, 0.62] },
+          "armsCm": { "direction": "grow", "optimal": [0.1, 0.36] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.02, 0.13] },
+          "thighsCm": { "direction": "grow", "optimal": [0.25, 0.62] },
+          "calvesCm": { "direction": "grow", "optimal": [0.02, 0.13] }
+        },
+        "intermediate": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.1, 0.32] },
+          "chestCm": { "direction": "grow", "optimal": [0.12, 0.4] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.45, 0.32] },
+          "hipsCm": { "direction": "grow", "optimal": [0.1, 0.34] },
+          "armsCm": { "direction": "grow", "optimal": [0.05, 0.2] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.0, 0.08] },
+          "thighsCm": { "direction": "grow", "optimal": [0.14, 0.38] },
+          "calvesCm": { "direction": "grow", "optimal": [0.0, 0.08] }
+        },
+        "advanced": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.04, 0.16] },
+          "chestCm": { "direction": "grow", "optimal": [0.05, 0.2] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.3, 0.38] },
+          "hipsCm": { "direction": "grow", "optimal": [0.04, 0.18] },
+          "armsCm": { "direction": "grow", "optimal": [0.01, 0.09] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.0, 0.04] },
+          "thighsCm": { "direction": "grow", "optimal": [0.06, 0.2] },
+          "calvesCm": { "direction": "grow", "optimal": [0.0, 0.04] }
+        }
+      },
+      "45+": {
+        "beginner": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.16, 0.48] },
+          "chestCm": { "direction": "grow", "optimal": [0.18, 0.58] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.55, 0.35] },
+          "hipsCm": { "direction": "grow", "optimal": [0.14, 0.5] },
+          "armsCm": { "direction": "grow", "optimal": [0.08, 0.28] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.01, 0.1] },
+          "thighsCm": { "direction": "grow", "optimal": [0.18, 0.5] },
+          "calvesCm": { "direction": "grow", "optimal": [0.01, 0.1] }
+        },
+        "intermediate": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.08, 0.26] },
+          "chestCm": { "direction": "grow", "optimal": [0.09, 0.32] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.35, 0.38] },
+          "hipsCm": { "direction": "grow", "optimal": [0.06, 0.26] },
+          "armsCm": { "direction": "grow", "optimal": [0.03, 0.15] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.0, 0.06] },
+          "thighsCm": { "direction": "grow", "optimal": [0.1, 0.3] },
+          "calvesCm": { "direction": "grow", "optimal": [0.0, 0.06] }
+        },
+        "advanced": {
+          "shouldersCm": { "direction": "grow", "optimal": [0.02, 0.12] },
+          "chestCm": { "direction": "grow", "optimal": [0.03, 0.16] },
+          "waistCm": { "direction": "maintainOrReduce", "optimal": [-0.25, 0.42] },
+          "hipsCm": { "direction": "grow", "optimal": [0.02, 0.14] },
+          "armsCm": { "direction": "grow", "optimal": [0.0, 0.08] },
+          "forearmsCm": { "direction": "grow", "optimal": [0.0, 0.03] },
+          "thighsCm": { "direction": "grow", "optimal": [0.04, 0.16] },
+          "calvesCm": { "direction": "grow", "optimal": [0.0, 0.03] }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "id": "cable-pull-through",
+  "displayLabel": "Cable Pull-through",
+  "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><ul><li><strong>Also listed as:</strong> Cable Pull-Through</li></ul>",
+  "aliases": [
+    "Cable Pull-Through"
+  ],
+  "substitutionExerciseIds": [],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "selected cable stack weight",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              10,
+              12
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              38,
+              45
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              64,
+              72
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              10,
+              12
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              38,
+              45
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              64,
+              72
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              9,
+              11
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              34,
+              41
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              57,
+              65
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              8,
+              10
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              27,
+              33
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              45,
+              51
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              8,
+              10
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              27,
+              33
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              45,
+              51
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              7,
+              9
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              24,
+              29
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              41,
+              46
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.6
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.4
+    }
+  ]
+}

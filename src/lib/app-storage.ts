@@ -1,0 +1,14 @@
+export const LOCAL_STORAGE_KEYS = {
+  activeWorkout: 'fitness-trainer.active-workout',
+  bodyCompositionEntries: 'fitness-trainer.body-composition-entries',
+  customPrograms: 'fitness-trainer.custom-programs',
+  exerciseStats: 'fitness-trainer.exercise-stats',
+  fitnessProfile: 'fitness-trainer.fitness-profile',
+  mainProgramId: 'fitness-trainer.main-program-id',
+  programProgress: 'fitness-trainer.program-progress',
+  programDayLogs: 'fitness-trainer.program-day-logs',
+  programStats: 'fitness-trainer.program-stats',
+  savedProgramIds: 'fitness-trainer.saved-program-ids',
+  statsPreferences: 'fitness-trainer.stats-preferences',
+  workoutLogs: 'fitness-trainer.workout-logs',
+} as const

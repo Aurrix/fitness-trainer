@@ -1,13 +1,118 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+:root {
+  --bg: #efe5d7;
+  --bg-deep: #e5d4bf;
+  --surface: rgba(255, 250, 244, 0.88);
+  --line: rgba(15, 43, 72, 0.1);
+  --ink: #536171;
+  --ink-strong: #152a43;
+  --muted: #617286;
+  --muted-strong: #476177;
+  --accent: #f97341;
+  --accent-strong: #1a4f86;
+  --shadow-soft: 0 14px 34px rgba(29, 45, 63, 0.08);
+  --shadow-strong: 0 24px 80px rgba(18, 28, 44, 0.18);
+
+  color-scheme: light;
+  font-family:
+    Aptos,
+    'Segoe UI Variable Display',
+    'Trebuchet MS',
     sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  font-weight: 400;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.5), transparent 26%),
+    linear-gradient(180deg, #f5ecdf 0%, #eadcc8 56%, #e6d6c1 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(36, 156, 255, 0.14), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(249, 138, 75, 0.18), transparent 30%);
+  pointer-events: none;
+}
+
+#root {
+  width: min(100%, 520px);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family:
+    Bahnschrift,
+    Aptos Display,
+    'Segoe UI Variable Display',
+    sans-serif;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--ink-strong);
+}
+
+h1 {
+  font-size: clamp(30px, 7vw, 42px);
+}
+
+h2 {
+  font-size: clamp(24px, 6vw, 32px);
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 17px;
+}
+
+p {
+  margin: 0;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(15, 43, 72, 0.08);
+  color: var(--ink-strong);
+  font-family: 'Cascadia Code', Consolas, monospace;
+  font-size: 0.92em;
 }

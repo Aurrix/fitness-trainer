@@ -1,0 +1,160 @@
+{
+  "id": "standing-calf-raise",
+  "displayLabel": "Standing Calf Raise",
+  "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><ul><li><strong>Also listed as:</strong> STANDING CALF RAISE and Standing Calf Raise (machine)</li><li><strong>Common substitutions:</strong> Leg Press Calf Press and Seated Calf Raise</li></ul>",
+  "aliases": [
+    "STANDING CALF RAISE",
+    "Standing Calf Raise (machine)"
+  ],
+  "substitutionExerciseIds": [
+    "leg-press-calf-press",
+    "seated-calf-raise"
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "strict bodyweight reps",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              15,
+              30
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              30,
+              60
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              60,
+              100
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              15,
+              30
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              30,
+              60
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              60,
+              100
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              13,
+              26
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              26,
+              51
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              51,
+              85
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              15,
+              30
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              30,
+              55
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              50,
+              90
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              15,
+              30
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              30,
+              55
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              50,
+              90
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              13,
+              26
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              26,
+              47
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              43,
+              77
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "soleus",
+      "factor": 0.7
+    }
+  ]
+}

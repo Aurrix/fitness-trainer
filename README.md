@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# Fitness Trainer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Mobile-first fitness tracker built with React, TypeScript, Vite, Zustand, Dexie, and a PWA shell.
 
-## Available Scripts
+## Development
 
-In the project directory, you can run:
+```bash
+npm install
+npm run dev
+```
 
-### `npm start`
+Useful commands:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `npm run lint`
+- `npm run build`
+- `npm run enrich:exercises`
+- `npm run sync:content`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Data Persistence
 
-### `npm test`
+The app stores user data locally on the device in IndexedDB through Dexie.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Database name: `fitness-trainer-db`
+- Table: `appState`
+- Persistence model: key/value records with `updatedAt`
+- Migration behavior: if a key does not exist in IndexedDB yet, the app attempts to read the legacy `localStorage` value once and writes it into IndexedDB
 
-### `npm run build`
+Current persisted keys:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `fitness-trainer.fitness-profile`
+  User profile fields such as gender, age, height, weight, body-fat percentage, activity level, goal, effort scale, and weekly workout target.
+- `fitness-trainer.active-workout`
+  The in-progress workout session, including selected day, exercise order, per-exercise status, notes, and per-set logging.
+- `fitness-trainer.workout-logs`
+  Finished workout sessions stored as workout history.
+- `fitness-trainer.program-day-logs`
+  Finished program day snapshots with timestamps, per-exercise summaries, and per-muscle aggregates.
+- `fitness-trainer.exercise-stats`
+  Exercise-specific progression history used by the exercise detail view.
+- `fitness-trainer.body-composition-entries`
+  Body stats snapshots, including weight, body-fat percentage, and body measurements.
+- `fitness-trainer.custom-programs`
+  User-created programs stored on-device.
+- `fitness-trainer.saved-program-ids`
+  Library programs starred/saved by the user.
+- `fitness-trainer.main-program-id`
+  The currently selected main program.
+- `fitness-trainer.program-stats`
+  Aggregated program-level interaction stats such as starts, completions, minutes, and recent events.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## When Data Is Written
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Profile changes are persisted immediately.
+- Body stats entries are saved when the body form is submitted.
+- Active workout state is persisted on every meaningful change:
+  set input changes, added sets, completion/skip toggles, added exercises, removals, reorder operations, and notes.
+- Exercise stats and program day logs are generated when a workout day is finished.
+- Program history and program aggregate stats are appended/updated when a workout day is started, replaced, discarded, or completed.
 
-### `npm run eject`
+## Calculations
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### General
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- BMI:
+  `weightKg / (heightMeters * heightMeters)`
+- Lean mass:
+  `weightKg * (1 - bodyFatPercentage / 100)`
+- Session date key:
+  local calendar day extracted from the workout timestamp and stored as `YYYY-MM-DD`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Workout Logging
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- A set is considered logged if any of these fields has a value:
+  `duration`, `weightKg`, `reps`, or `effort`
+- Per-exercise performed set count:
+  number of sets with any logged content
+- Total reps:
+  sum of numeric `reps` across logged sets
+- Total duration:
+  sum of numeric `duration` across logged sets
+- Max weight:
+  maximum numeric `weightKg` across logged sets
+- Total volume:
+  `sum(weightKg * reps)` when both exist for a set
+  If reps are missing but weight exists, the set contributes `weightKg`
 
-## Learn More
+### Program Progression
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Day completion ratio:
+  `completedExerciseCount / totalExerciseCount * 100`
+- Strength score:
+  for each exercise, take the best estimated 1RM from its logged sets and sum those best values across the day
+- Estimated 1RM formula:
+  `weightKg * (1 + reps / 30)`
+- Weekly consistency:
+  sessions grouped by week, with Monday used as the week start
+- Muscle target coefficient:
+  each exercise distributes `1 / muscleGroupCount` to each mapped muscle group
+- Program day muscle totals:
+  sum of target coefficients, sets, reps, duration, and volume from all exercises that hit the muscle
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Body Composition
 
-### Code Splitting
+- Weight delta:
+  latest saved weight minus earliest saved weight
+- Body fat delta:
+  latest saved body-fat percentage minus earliest saved body-fat percentage
+- Waist delta:
+  latest saved waist measurement minus earliest saved waist measurement
+- Measurement comparison chart:
+  compares earliest saved values vs latest saved values for tracked body areas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Where Stats Are Shown
 
-### Analyzing the Bundle Size
+- `Stats > Program`
+  Program-level charts for strength trend, completion, duration, and weekly consistency.
+- `Stats > Body`
+  Weight, body-fat, lean-mass, and body-measurement charts.
+- Exercise detail view
+  Exercise-specific progression charts such as max weight, volume, reps, duration, and latest logged effort.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Notes
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- All data is currently device-local. There is no backend sync yet.
+- Exercise-specific stats are intentionally shown in the exercise detail sheet instead of the main stats screen.
+- Chart views currently focus on recent history windows to stay compact on mobile.

@@ -1,0 +1,166 @@
+{
+  "id": "dip",
+  "displayLabel": "Dip",
+  "shortDescription": "Dip variation for chest and triceps with a strong stretch under load.",
+  "descriptionHtml": "<p>Dip variation for chest and triceps with a strong stretch under load.</p><ul><li><strong>Common substitutions:</strong> Assisted Dip, Close-grip Bench Press, and Machine Dip</li></ul>",
+  "aliases": [],
+  "substitutionExerciseIds": [
+    "assisted-dip",
+    "close-grip-bench-press",
+    "machine-dip"
+  ],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "strict bodyweight reps",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              2,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              18
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              18,
+              30
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              2,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              18
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              18,
+              30
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              2,
+              5
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              9,
+              15
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              15,
+              26
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              1,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              22
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              1,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              22
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              1,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              10
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              10,
+              19
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.4
+    }
+  ]
+}

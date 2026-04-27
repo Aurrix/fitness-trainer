@@ -1,0 +1,162 @@
+{
+  "id": "deficit-push-up",
+  "displayLabel": "Deficit Push-up",
+  "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><p>Reference this movement in program files with the exercise id <code>deficit-push-up</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "strict bodyweight reps",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              8,
+              20
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              20,
+              40
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              40,
+              60
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              8,
+              20
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              20,
+              40
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              40,
+              60
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              7,
+              17
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              17,
+              34
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              34,
+              51
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              5,
+              15
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              15,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              30,
+              50
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              5,
+              15
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              15,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              30,
+              50
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              13
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              13,
+              26
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              26,
+              43
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.5
+    }
+  ]
+}

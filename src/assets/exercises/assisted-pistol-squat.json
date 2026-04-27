@@ -1,0 +1,170 @@
+{
+  "id": "assisted-pistol-squat",
+  "displayLabel": "Assisted Pistol Squat",
+  "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+  "descriptionHtml": "<p>Squat variation for lower-body strength and quad and glute development.</p><p>Reference this movement in program files with the exercise id <code>assisted-pistol-squat</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "bodyweight reps with light hand assistance from a strap or support",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              3,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              20
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              3,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              20
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              3,
+              5
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              10
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              10,
+              17
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              3,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              20
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              3,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              20
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              3,
+              5
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              10
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              10,
+              17
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.5
+    }
+  ]
+}

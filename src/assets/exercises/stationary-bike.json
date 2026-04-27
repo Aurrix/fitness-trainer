@@ -1,0 +1,187 @@
+{
+  "id": "stationary-bike",
+  "displayLabel": "Stationary Bike",
+  "category": "Cardio",
+  "type": "continues",
+  "shortDescription": "Continuous bike session recorded by duration and effort instead of set-based targets.",
+  "descriptionHtml": "<p>Continuous bike session recorded by duration and effort instead of set-based targets.</p><ul><li><strong>Track:</strong> duration, cadence or distance, and perceived effort.</li><li><strong>Typical uses:</strong> recovery rides, aerobic base work, and interval conditioning.</li></ul>",
+  "aliases": [
+    "Exercise Bike",
+    "Indoor Bike"
+  ],
+  "equipment": [
+    "Stationary Bike"
+  ],
+  "instructions": [
+    "Choose a resistance level that matches the target effort.",
+    "Ride continuously for the planned duration.",
+    "Log session duration and effort after the ride."
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "durationMinutes",
+    "measurement": {
+      "basis": "continuous work duration at a sustainable training pace",
+      "unit": "minutes"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "durationMinutesRange": [
+              20,
+              30
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              30,
+              50
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              45,
+              75
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "durationMinutesRange": [
+              19,
+              29
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              29,
+              48
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              43,
+              71
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "durationMinutesRange": [
+              17,
+              26
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              26,
+              43
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              38,
+              64
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "durationMinutesRange": [
+              20,
+              30
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              30,
+              50
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              45,
+              75
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "durationMinutesRange": [
+              19,
+              29
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              29,
+              48
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              43,
+              71
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "durationMinutesRange": [
+              17,
+              26
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              26,
+              43
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              38,
+              64
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    "cardio",
+    "endurance",
+    "conditioning"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.4
+    }
+  ]
+}

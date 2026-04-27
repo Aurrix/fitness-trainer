@@ -1,0 +1,162 @@
+{
+  "id": "glute-bridge",
+  "displayLabel": "Glute Bridge",
+  "shortDescription": "Resistance training exercise used across the imported workout books.",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><p>Reference this movement in program files with the exercise id <code>glute-bridge</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "strict bodyweight reps",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              20
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              20,
+              35
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              35,
+              50
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              20
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              20,
+              35
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              35,
+              50
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              10,
+              17
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              17,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              30,
+              43
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              20
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              20,
+              35
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              35,
+              50
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              20
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              20,
+              35
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              35,
+              50
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              10,
+              17
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              17,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              30,
+              43
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.6
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.4
+    }
+  ]
+}

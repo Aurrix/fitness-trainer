@@ -1,0 +1,158 @@
+{
+  "id": "lateral-band-walk",
+  "displayLabel": "Lateral Band Walk",
+  "shortDescription": "Resistance training exercise used across the imported workout books.",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><p>Reference this movement in program files with the exercise id <code>lateral-band-walk</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "steps per side with a light-to-moderate loop band",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              10,
+              16
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              16,
+              24
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              24,
+              36
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              10,
+              16
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              16,
+              24
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              24,
+              36
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              9,
+              14
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              14,
+              20
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              20,
+              31
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              10,
+              16
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              16,
+              24
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              24,
+              36
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              10,
+              16
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              16,
+              24
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              24,
+              36
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              9,
+              14
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              14,
+              20
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              20,
+              31
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-med",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-min",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.5
+    }
+  ]
+}

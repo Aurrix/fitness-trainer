@@ -1,0 +1,158 @@
+{
+  "id": "decline-crunch",
+  "displayLabel": "Decline Crunch",
+  "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><p>Reference this movement in program files with the exercise id <code>decline-crunch</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "strict bodyweight reps",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              20
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              20,
+              35
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              35,
+              50
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              20
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              20,
+              35
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              35,
+              50
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              10,
+              17
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              17,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              30,
+              43
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              10,
+              18
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              18,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              30,
+              45
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              10,
+              18
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              18,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              30,
+              45
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              9,
+              15
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              15,
+              26
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              26,
+              38
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 0.6
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.4
+    }
+  ]
+}

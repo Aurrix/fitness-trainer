@@ -1,0 +1,234 @@
+{
+  "id": "lying-dumbbell-pullover",
+  "displayLabel": "Lying Dumbbell Pullover",
+  "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><p>Reference this movement in program files with the exercise id <code>lying-dumbbell-pullover</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "single dumbbell total load",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              8,
+              10
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              24,
+              29
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              38,
+              43
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              8,
+              10
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              24,
+              29
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              38,
+              43
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              8,
+              9
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              22,
+              26
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              34,
+              39
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              3,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              12,
+              15
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              21,
+              24
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              3,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              12,
+              15
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              21,
+              24
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              3,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              11,
+              13
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              19,
+              21
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.3
+    },
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.2
+    }
+  ]
+}

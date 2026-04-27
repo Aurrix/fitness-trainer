@@ -1,0 +1,236 @@
+{
+  "id": "assisted-dip",
+  "displayLabel": "Assisted Dip",
+  "shortDescription": "Dip variation for chest and triceps with a strong stretch under load.",
+  "descriptionHtml": "<p>Dip variation for chest and triceps with a strong stretch under load.</p><ul><li><strong>Also listed as:</strong> ASSISTED DIP</li></ul>",
+  "aliases": [
+    "ASSISTED DIP"
+  ],
+  "substitutionExerciseIds": [],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "assistanceKg",
+    "measurement": {
+      "basis": "assistance load offset on the machine or band; higher values mean more help",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              10,
+              24
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              2,
+              10
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              0,
+              5
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              11,
+              25
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              2,
+              11
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              0,
+              5
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              12,
+              29
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              2,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              0,
+              6
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              18,
+              30
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              6,
+              16
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              0,
+              6
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              19,
+              32
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              6,
+              17
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              0,
+              6
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ],
+            "assistanceRangeKg": [
+              22,
+              36
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "assistanceRangeKg": [
+              7,
+              19
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "assistanceRangeKg": [
+              0,
+              7
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.4
+    }
+  ]
+}

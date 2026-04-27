@@ -1,0 +1,187 @@
+{
+  "id": "elliptical-trainer",
+  "displayLabel": "Elliptical Trainer",
+  "category": "Cardio",
+  "type": "continues",
+  "shortDescription": "Low-impact cardio effort on an elliptical tracked by duration and perceived effort.",
+  "descriptionHtml": "<p>Low-impact cardio effort on an elliptical tracked by duration and perceived effort.</p><ul><li><strong>Track:</strong> duration, pace, and perceived effort.</li><li><strong>Typical uses:</strong> low-impact conditioning, warm-ups, and recovery sessions.</li></ul>",
+  "aliases": [
+    "Elliptical",
+    "Cross Trainer"
+  ],
+  "equipment": [
+    "Elliptical Trainer"
+  ],
+  "instructions": [
+    "Start at an easy cadence and settle into the planned effort zone.",
+    "Maintain smooth continuous movement for the full duration.",
+    "Log the session duration and effort after finishing."
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "durationMinutes",
+    "measurement": {
+      "basis": "continuous work duration at a sustainable training pace",
+      "unit": "minutes"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "durationMinutesRange": [
+              20,
+              30
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              30,
+              50
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              45,
+              75
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "durationMinutesRange": [
+              19,
+              29
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              29,
+              48
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              43,
+              71
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "durationMinutesRange": [
+              17,
+              26
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              26,
+              43
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              38,
+              64
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "durationMinutesRange": [
+              20,
+              30
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              30,
+              50
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              45,
+              75
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "durationMinutesRange": [
+              19,
+              29
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              29,
+              48
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              43,
+              71
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "durationMinutesRange": [
+              17,
+              26
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              26,
+              43
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              38,
+              64
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    "cardio",
+    "conditioning",
+    "low-impact"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.6
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "soleus",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.4
+    }
+  ]
+}

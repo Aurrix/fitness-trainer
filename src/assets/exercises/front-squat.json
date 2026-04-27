@@ -1,0 +1,238 @@
+{
+  "id": "front-squat",
+  "displayLabel": "Front Squat",
+  "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+  "descriptionHtml": "<p>Squat variation for lower-body strength and quad and glute development.</p><p>Reference this movement in program files with the exercise id <code>front-squat</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "barbell total including the bar",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              35,
+              42
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              80,
+              91
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              118,
+              132
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              35,
+              42
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              80,
+              91
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              118,
+              132
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              32,
+              38
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              72,
+              82
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              106,
+              119
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              17,
+              20
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              45,
+              51
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              70,
+              79
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              17,
+              20
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              45,
+              51
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              70,
+              79
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              15,
+              18
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              40,
+              46
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              63,
+              71
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.5
+    }
+  ]
+}

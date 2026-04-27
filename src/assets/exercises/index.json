@@ -1,0 +1,1336 @@
+{
+  "manifests": [
+    {
+      "id": "ab-wheel-rollout",
+      "displayLabel": "Ab Wheel Rollout",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "ab-wheel-rollout.json"
+    },
+    {
+      "id": "adductor-machine",
+      "displayLabel": "Adductor Machine",
+      "shortDescription": "Hip accessory movement for the glutes or inner thigh.",
+      "file": "adductor-machine.json"
+    },
+    {
+      "id": "any-bent-leg-calf-raise",
+      "displayLabel": "Any Bent Leg Calf Raise",
+      "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+      "file": "any-bent-leg-calf-raise.json"
+    },
+    {
+      "id": "arnold-press",
+      "displayLabel": "Arnold Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "arnold-press.json"
+    },
+    {
+      "id": "assisted-dip",
+      "displayLabel": "Assisted Dip",
+      "shortDescription": "Dip variation for chest and triceps with a strong stretch under load.",
+      "file": "assisted-dip.json"
+    },
+    {
+      "id": "assisted-pistol-squat",
+      "displayLabel": "Assisted Pistol Squat",
+      "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+      "file": "assisted-pistol-squat.json"
+    },
+    {
+      "id": "assisted-pull-up",
+      "displayLabel": "Assisted Pull-Up",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "assisted-pull-up.json"
+    },
+    {
+      "id": "back-extension",
+      "displayLabel": "Back Extension",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "back-extension.json"
+    },
+    {
+      "id": "back-squat",
+      "displayLabel": "Back Squat",
+      "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+      "file": "back-squat.json"
+    },
+    {
+      "id": "barbell-bench-press",
+      "displayLabel": "Barbell Bench Press",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "barbell-bench-press.json"
+    },
+    {
+      "id": "barbell-bent-over-row",
+      "displayLabel": "Barbell Bent Over Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "barbell-bent-over-row.json"
+    },
+    {
+      "id": "barbell-concentration-curl",
+      "displayLabel": "Barbell Concentration Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "barbell-concentration-curl.json"
+    },
+    {
+      "id": "barbell-hip-thrust-or-romanian-deadlift",
+      "displayLabel": "Barbell Hip Thrust Or Romanian Deadlift",
+      "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+      "file": "barbell-hip-thrust-or-romanian-deadlift.json"
+    },
+    {
+      "id": "barbell-hip-thrust",
+      "displayLabel": "Barbell Hip Thrust",
+      "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+      "file": "barbell-hip-thrust.json"
+    },
+    {
+      "id": "barbell-incline-press",
+      "displayLabel": "Barbell Incline Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "barbell-incline-press.json"
+    },
+    {
+      "id": "barbell-shrug",
+      "displayLabel": "Barbell Shrug",
+      "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
+      "file": "barbell-shrug.json"
+    },
+    {
+      "id": "behind-the-back-cable-curl",
+      "displayLabel": "Behind-the-back Cable Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "behind-the-back-cable-curl.json"
+    },
+    {
+      "id": "bent-over-smith-row",
+      "displayLabel": "Bent Over Smith Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "bent-over-smith-row.json"
+    },
+    {
+      "id": "bicycle-crunch",
+      "displayLabel": "Bicycle Crunch",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "bicycle-crunch.json"
+    },
+    {
+      "id": "bodyweight-crunch",
+      "displayLabel": "Bodyweight Crunch",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "bodyweight-crunch.json"
+    },
+    {
+      "id": "bulgarian-split-squat",
+      "displayLabel": "Bulgarian Split Squat",
+      "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+      "file": "bulgarian-split-squat.json"
+    },
+    {
+      "id": "cable-adductor-raises",
+      "displayLabel": "Cable Adductor Raises",
+      "shortDescription": "Hip accessory movement for the glutes or inner thigh.",
+      "file": "cable-adductor-raises.json"
+    },
+    {
+      "id": "cable-concentration-curl",
+      "displayLabel": "Cable Concentration Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "cable-concentration-curl.json"
+    },
+    {
+      "id": "cable-crunch",
+      "displayLabel": "Cable Crunch",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "cable-crunch.json"
+    },
+    {
+      "id": "cable-curl-21s",
+      "displayLabel": "Cable Curl 21s",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "cable-curl-21s.json"
+    },
+    {
+      "id": "cable-curl",
+      "displayLabel": "Cable Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "cable-curl.json"
+    },
+    {
+      "id": "cable-flye",
+      "displayLabel": "Cable Flye",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "cable-flye.json"
+    },
+    {
+      "id": "cable-lateral-raise",
+      "displayLabel": "Cable Lateral Raise",
+      "shortDescription": "Shoulder isolation movement for the side or rear delts.",
+      "file": "cable-lateral-raise.json"
+    },
+    {
+      "id": "cable-pull-over",
+      "displayLabel": "Cable Pull-Over",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "cable-pull-over.json"
+    },
+    {
+      "id": "cable-pull-through",
+      "displayLabel": "Cable Pull-through",
+      "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+      "file": "cable-pull-through.json"
+    },
+    {
+      "id": "cable-reverse-flye",
+      "displayLabel": "Cable Reverse Flye",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "cable-reverse-flye.json"
+    },
+    {
+      "id": "cable-rope-upright-row",
+      "displayLabel": "Cable Rope Upright Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "cable-rope-upright-row.json"
+    },
+    {
+      "id": "cable-seated-row",
+      "displayLabel": "Cable Seated Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "cable-seated-row.json"
+    },
+    {
+      "id": "cable-single-arm-curl",
+      "displayLabel": "Cable Single-Arm Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "cable-single-arm-curl.json"
+    },
+    {
+      "id": "cable-single-arm-row",
+      "displayLabel": "Cable Single-arm Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "cable-single-arm-row.json"
+    },
+    {
+      "id": "cable-tricep-kickback",
+      "displayLabel": "Cable Tricep Kickback",
+      "shortDescription": "Triceps accessory movement for elbow extension volume.",
+      "file": "cable-tricep-kickback.json"
+    },
+    {
+      "id": "calf-raise-machine",
+      "displayLabel": "Calf Raise Machine",
+      "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+      "file": "calf-raise-machine.json"
+    },
+    {
+      "id": "calf-raise-on-leg-press-machine",
+      "displayLabel": "Calf Raise On Leg Press Machine",
+      "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+      "file": "calf-raise-on-leg-press-machine.json"
+    },
+    {
+      "id": "captain-s-chair-crunch",
+      "displayLabel": "Captain's Chair Crunch",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "captain-s-chair-crunch.json"
+    },
+    {
+      "id": "chest-supported-dumbbell-row",
+      "displayLabel": "Chest-supported Dumbbell Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "chest-supported-dumbbell-row.json"
+    },
+    {
+      "id": "chest-supported-row",
+      "displayLabel": "Chest-supported Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "chest-supported-row.json"
+    },
+    {
+      "id": "chest-supported-t-bar-row-pronated-grip",
+      "displayLabel": "Chest-supported T-Bar Row (pronated Grip)",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "chest-supported-t-bar-row-pronated-grip.json"
+    },
+    {
+      "id": "chest-supported-t-bar-row",
+      "displayLabel": "Chest-Supported T-Bar Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "chest-supported-t-bar-row.json"
+    },
+    {
+      "id": "chin-up",
+      "displayLabel": "Chin-Up",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "chin-up.json"
+    },
+    {
+      "id": "close-grip-bench-press",
+      "displayLabel": "Close-grip Bench Press",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "close-grip-bench-press.json"
+    },
+    {
+      "id": "conventional-deadlift",
+      "displayLabel": "Conventional Deadlift",
+      "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+      "file": "conventional-deadlift.json"
+    },
+    {
+      "id": "crunch",
+      "displayLabel": "Crunch",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "crunch.json"
+    },
+    {
+      "id": "deadlift",
+      "displayLabel": "Deadlift",
+      "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+      "file": "deadlift.json"
+    },
+    {
+      "id": "decline-barbell-press",
+      "displayLabel": "Decline Barbell Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "decline-barbell-press.json"
+    },
+    {
+      "id": "decline-bench-press",
+      "displayLabel": "Decline Bench Press",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "decline-bench-press.json"
+    },
+    {
+      "id": "decline-crunch",
+      "displayLabel": "Decline Crunch",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "decline-crunch.json"
+    },
+    {
+      "id": "decline-dumbbell-press",
+      "displayLabel": "Decline Dumbbell Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "decline-dumbbell-press.json"
+    },
+    {
+      "id": "decline-leg-raise",
+      "displayLabel": "Decline Leg Raise",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "decline-leg-raise.json"
+    },
+    {
+      "id": "deficit-push-up",
+      "displayLabel": "Deficit Push-up",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "deficit-push-up.json"
+    },
+    {
+      "id": "dip",
+      "displayLabel": "Dip",
+      "shortDescription": "Dip variation for chest and triceps with a strong stretch under load.",
+      "file": "dip.json"
+    },
+    {
+      "id": "dumbbell-bench-press",
+      "displayLabel": "Dumbbell Bench Press",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "dumbbell-bench-press.json"
+    },
+    {
+      "id": "dumbbell-bent-over-lateral-raise",
+      "displayLabel": "Dumbbell Bent Over Lateral Raise",
+      "shortDescription": "Shoulder isolation movement for the side or rear delts.",
+      "file": "dumbbell-bent-over-lateral-raise.json"
+    },
+    {
+      "id": "dumbbell-chest-supported-row",
+      "displayLabel": "Dumbbell Chest-supported Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "dumbbell-chest-supported-row.json"
+    },
+    {
+      "id": "dumbbell-concentration-curl",
+      "displayLabel": "Dumbbell Concentration Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "dumbbell-concentration-curl.json"
+    },
+    {
+      "id": "dumbbell-curl-21s",
+      "displayLabel": "Dumbbell Curl 21s",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "dumbbell-curl-21s.json"
+    },
+    {
+      "id": "dumbbell-curl",
+      "displayLabel": "Dumbbell Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "dumbbell-curl.json"
+    },
+    {
+      "id": "dumbbell-floor-press",
+      "displayLabel": "Dumbbell Floor Press",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "dumbbell-floor-press.json"
+    },
+    {
+      "id": "dumbbell-fly",
+      "displayLabel": "Dumbbell Fly",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "dumbbell-fly.json"
+    },
+    {
+      "id": "dumbbell-flye",
+      "displayLabel": "Dumbbell Flye",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "dumbbell-flye.json"
+    },
+    {
+      "id": "dumbbell-incline-press",
+      "displayLabel": "Dumbbell Incline Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "dumbbell-incline-press.json"
+    },
+    {
+      "id": "dumbbell-kickback",
+      "displayLabel": "Dumbbell Kickback",
+      "shortDescription": "Triceps accessory movement for elbow extension volume.",
+      "file": "dumbbell-kickback.json"
+    },
+    {
+      "id": "dumbbell-lateral-raise",
+      "displayLabel": "Dumbbell Lateral Raise",
+      "shortDescription": "Shoulder isolation movement for the side or rear delts.",
+      "file": "dumbbell-lateral-raise.json"
+    },
+    {
+      "id": "dumbbell-leg-curl",
+      "displayLabel": "Dumbbell Leg Curl",
+      "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
+      "file": "dumbbell-leg-curl.json"
+    },
+    {
+      "id": "dumbbell-monkey-shrug",
+      "displayLabel": "Dumbbell Monkey Shrug",
+      "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
+      "file": "dumbbell-monkey-shrug.json"
+    },
+    {
+      "id": "dumbbell-overhead-triceps-extension",
+      "displayLabel": "Dumbbell Overhead Triceps Extension",
+      "shortDescription": "Triceps accessory movement for elbow extension volume.",
+      "file": "dumbbell-overhead-triceps-extension.json"
+    },
+    {
+      "id": "dumbbell-preacher-curl",
+      "displayLabel": "Dumbbell Preacher Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "dumbbell-preacher-curl.json"
+    },
+    {
+      "id": "dumbbell-press",
+      "displayLabel": "Dumbbell Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "dumbbell-press.json"
+    },
+    {
+      "id": "dumbbell-row",
+      "displayLabel": "Dumbbell Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "dumbbell-row.json"
+    },
+    {
+      "id": "dumbbell-seal-row",
+      "displayLabel": "Dumbbell Seal Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "dumbbell-seal-row.json"
+    },
+    {
+      "id": "dumbbell-seated-shoulder-press",
+      "displayLabel": "Dumbbell Seated Shoulder Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "dumbbell-seated-shoulder-press.json"
+    },
+    {
+      "id": "dumbbell-shrug",
+      "displayLabel": "Dumbbell Shrug",
+      "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
+      "file": "dumbbell-shrug.json"
+    },
+    {
+      "id": "dumbbell-single-leg-hip-thrust",
+      "displayLabel": "Dumbbell Single-Leg Hip Thrust",
+      "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+      "file": "dumbbell-single-leg-hip-thrust.json"
+    },
+    {
+      "id": "dumbbell-skull-crusher",
+      "displayLabel": "Dumbbell Skull Crusher",
+      "shortDescription": "Triceps accessory movement for elbow extension volume.",
+      "file": "dumbbell-skull-crusher.json"
+    },
+    {
+      "id": "dumbbell-standing-calf-raise",
+      "displayLabel": "Dumbbell Standing Calf Raise",
+      "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+      "file": "dumbbell-standing-calf-raise.json"
+    },
+    {
+      "id": "dumbbell-step-up",
+      "displayLabel": "Dumbbell Step-up",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "dumbbell-step-up.json"
+    },
+    {
+      "id": "dumbbell-supinated-curl",
+      "displayLabel": "Dumbbell Supinated Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "dumbbell-supinated-curl.json"
+    },
+    {
+      "id": "dumbbell-walking-lunge",
+      "displayLabel": "Dumbbell Walking Lunge",
+      "shortDescription": "Single-leg lower-body movement for quad, glute, and stability work.",
+      "file": "dumbbell-walking-lunge.json"
+    },
+    {
+      "id": "eccentric-accentuated-standing-calf-raise",
+      "displayLabel": "Eccentric-Accentuated Standing Calf Raise",
+      "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+      "file": "eccentric-accentuated-standing-calf-raise.json"
+    },
+    {
+      "id": "egyptian-cable-raise",
+      "displayLabel": "Egyptian Cable Raise",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "egyptian-cable-raise.json"
+    },
+    {
+      "id": "egyptian-lateral-raise",
+      "displayLabel": "Egyptian Lateral Raise",
+      "shortDescription": "Shoulder isolation movement for the side or rear delts.",
+      "file": "egyptian-lateral-raise.json"
+    },
+    {
+      "id": "ez-bar-curl-21s",
+      "displayLabel": "EZ Bar Curl 21s",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "ez-bar-curl-21s.json"
+    },
+    {
+      "id": "ez-bar-curl",
+      "displayLabel": "EZ Bar Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "ez-bar-curl.json"
+    },
+    {
+      "id": "ez-bar-pronated-curl",
+      "displayLabel": "EZ Bar Pronated Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "ez-bar-pronated-curl.json"
+    },
+    {
+      "id": "ez-bar-skull-crusher",
+      "displayLabel": "EZ Bar Skull Crusher",
+      "shortDescription": "Triceps accessory movement for elbow extension volume.",
+      "file": "ez-bar-skull-crusher.json"
+    },
+    {
+      "id": "ez-concentration-curl",
+      "displayLabel": "EZ Concentration Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "ez-concentration-curl.json"
+    },
+    {
+      "id": "ez-preacher-curl",
+      "displayLabel": "EZ Preacher Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "ez-preacher-curl.json"
+    },
+    {
+      "id": "face-pull",
+      "displayLabel": "Face Pull",
+      "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
+      "file": "face-pull.json"
+    },
+    {
+      "id": "flat-dumbbell-press",
+      "displayLabel": "Flat Dumbbell Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "flat-dumbbell-press.json"
+    },
+    {
+      "id": "floor-press",
+      "displayLabel": "Floor Press",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "floor-press.json"
+    },
+    {
+      "id": "french-press",
+      "displayLabel": "French Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "french-press.json"
+    },
+    {
+      "id": "front-squat",
+      "displayLabel": "Front Squat",
+      "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+      "file": "front-squat.json"
+    },
+    {
+      "id": "glute-bridge",
+      "displayLabel": "Glute Bridge",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "glute-bridge.json"
+    },
+    {
+      "id": "glute-ham-raise",
+      "displayLabel": "Glute Ham Raise",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "glute-ham-raise.json"
+    },
+    {
+      "id": "goblet-squat",
+      "displayLabel": "Goblet Squat",
+      "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+      "file": "goblet-squat.json"
+    },
+    {
+      "id": "hack-squat",
+      "displayLabel": "Hack Squat",
+      "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+      "file": "hack-squat.json"
+    },
+    {
+      "id": "hammer-curl",
+      "displayLabel": "Hammer Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "hammer-curl.json"
+    },
+    {
+      "id": "hammer-strength-decline-press",
+      "displayLabel": "Hammer Strength Decline Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "hammer-strength-decline-press.json"
+    },
+    {
+      "id": "hammer-strength-machine-incline-press",
+      "displayLabel": "Hammer Strength Machine Incline Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "hammer-strength-machine-incline-press.json"
+    },
+    {
+      "id": "hammer-strength-machine-press",
+      "displayLabel": "Hammer Strength Machine Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "hammer-strength-machine-press.json"
+    },
+    {
+      "id": "hanging-leg-raise",
+      "displayLabel": "Hanging Leg Raise",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "hanging-leg-raise.json"
+    },
+    {
+      "id": "helms-row",
+      "displayLabel": "Helms Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "helms-row.json"
+    },
+    {
+      "id": "hex-bar-or-smith-machine-shrug",
+      "displayLabel": "Hex Bar Or Smith Machine Shrug",
+      "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
+      "file": "hex-bar-or-smith-machine-shrug.json"
+    },
+    {
+      "id": "hex-bar-shrug",
+      "displayLabel": "Hex Bar Shrug",
+      "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
+      "file": "hex-bar-shrug.json"
+    },
+    {
+      "id": "hollow-body-hold",
+      "displayLabel": "Hollow Body Hold",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "hollow-body-hold.json"
+    },
+    {
+      "id": "humble-row",
+      "displayLabel": "Humble Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "humble-row.json"
+    },
+    {
+      "id": "hyperextension",
+      "displayLabel": "Hyperextension",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "hyperextension.json"
+    },
+    {
+      "id": "incline-dumbbell-curl",
+      "displayLabel": "Incline Dumbbell Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "incline-dumbbell-curl.json"
+    },
+    {
+      "id": "incline-dumbbell-press",
+      "displayLabel": "Incline Dumbbell Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "incline-dumbbell-press.json"
+    },
+    {
+      "id": "incline-pectoral-flye-cable",
+      "displayLabel": "Incline Pectoral Flye (cable)",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "incline-pectoral-flye-cable.json"
+    },
+    {
+      "id": "incline-pectoral-flye-dumbbell",
+      "displayLabel": "Incline Pectoral Flye (dumbbell)",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "incline-pectoral-flye-dumbbell.json"
+    },
+    {
+      "id": "jm-press",
+      "displayLabel": "Jm Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "jm-press.json"
+    },
+    {
+      "id": "kneeling-cable-crunch",
+      "displayLabel": "Kneeling Cable Crunch",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "kneeling-cable-crunch.json"
+    },
+    {
+      "id": "lat-prayer",
+      "displayLabel": "Lat Prayer",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "lat-prayer.json"
+    },
+    {
+      "id": "lat-pulldown",
+      "displayLabel": "Lat Pulldown",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "lat-pulldown.json"
+    },
+    {
+      "id": "lateral-band-walk",
+      "displayLabel": "Lateral Band Walk",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "lateral-band-walk.json"
+    },
+    {
+      "id": "lateral-raise-dumbbell",
+      "displayLabel": "Lateral Raise (dumbbell)",
+      "shortDescription": "Shoulder isolation movement for the side or rear delts.",
+      "file": "lateral-raise-dumbbell.json"
+    },
+    {
+      "id": "lateral-raise-machine",
+      "displayLabel": "Lateral Raise (machine)",
+      "shortDescription": "Shoulder isolation movement for the side or rear delts.",
+      "file": "lateral-raise-machine.json"
+    },
+    {
+      "id": "laterally-dumbbell-seated-shoulder-press",
+      "displayLabel": "Laterally Dumbbell Seated Shoulder Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "laterally-dumbbell-seated-shoulder-press.json"
+    },
+    {
+      "id": "leg-curl",
+      "displayLabel": "Leg Curl",
+      "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
+      "file": "leg-curl.json"
+    },
+    {
+      "id": "leg-extension-machine-hip-thrust",
+      "displayLabel": "Leg Extension Machine Hip Thrust",
+      "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+      "file": "leg-extension-machine-hip-thrust.json"
+    },
+    {
+      "id": "leg-extension",
+      "displayLabel": "Leg Extension",
+      "shortDescription": "Knee-extension isolation movement for focused quad work.",
+      "file": "leg-extension.json"
+    },
+    {
+      "id": "leg-press-calf-press",
+      "displayLabel": "Leg Press Calf Press",
+      "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+      "file": "leg-press-calf-press.json"
+    },
+    {
+      "id": "leg-press",
+      "displayLabel": "Leg Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "leg-press.json"
+    },
+    {
+      "id": "long-lever-plank",
+      "displayLabel": "Long-lever Plank",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "long-lever-plank.json"
+    },
+    {
+      "id": "low-incline-barbell-press",
+      "displayLabel": "Low Incline Barbell Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "low-incline-barbell-press.json"
+    },
+    {
+      "id": "low-incline-dumbbell-press",
+      "displayLabel": "Low Incline Dumbbell Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "low-incline-dumbbell-press.json"
+    },
+    {
+      "id": "low-incline-machine-press",
+      "displayLabel": "Low Incline Machine Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "low-incline-machine-press.json"
+    },
+    {
+      "id": "low-to-high-cable-flye",
+      "displayLabel": "Low To High Cable Flye",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "low-to-high-cable-flye.json"
+    },
+    {
+      "id": "lying-dumbbell-pullover",
+      "displayLabel": "Lying Dumbbell Pullover",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "lying-dumbbell-pullover.json"
+    },
+    {
+      "id": "lying-leg-curl",
+      "displayLabel": "Lying Leg Curl",
+      "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
+      "file": "lying-leg-curl.json"
+    },
+    {
+      "id": "machine-chest-press",
+      "displayLabel": "Machine Chest Press",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "machine-chest-press.json"
+    },
+    {
+      "id": "machine-dip",
+      "displayLabel": "Machine Dip",
+      "shortDescription": "Dip variation for chest and triceps with a strong stretch under load.",
+      "file": "machine-dip.json"
+    },
+    {
+      "id": "machine-incline-chest-press",
+      "displayLabel": "Machine Incline Chest Press",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "machine-incline-chest-press.json"
+    },
+    {
+      "id": "machine-lateral-raise",
+      "displayLabel": "Machine Lateral Raise",
+      "shortDescription": "Shoulder isolation movement for the side or rear delts.",
+      "file": "machine-lateral-raise.json"
+    },
+    {
+      "id": "machine-row-both-with-chest-support",
+      "displayLabel": "Machine Row (both With Chest Support)",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "machine-row-both-with-chest-support.json"
+    },
+    {
+      "id": "machine-shoulder-press",
+      "displayLabel": "Machine Shoulder Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "machine-shoulder-press.json"
+    },
+    {
+      "id": "neutral-grip-pull-up",
+      "displayLabel": "Neutral-grip Pull-up",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "neutral-grip-pull-up.json"
+    },
+    {
+      "id": "neutral-grip-pulldown",
+      "displayLabel": "Neutral-grip Pulldown",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "neutral-grip-pulldown.json"
+    },
+    {
+      "id": "overhead-cable-extension",
+      "displayLabel": "Overhead Cable Extension",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "overhead-cable-extension.json"
+    },
+    {
+      "id": "overhead-press",
+      "displayLabel": "Overhead Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "overhead-press.json"
+    },
+    {
+      "id": "overhead-tricep-extension",
+      "displayLabel": "Overhead Tricep Extension",
+      "shortDescription": "Triceps accessory movement for elbow extension volume.",
+      "file": "overhead-tricep-extension.json"
+    },
+    {
+      "id": "pec-deck",
+      "displayLabel": "Pec Deck",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "pec-deck.json"
+    },
+    {
+      "id": "pectoral-flye-cable",
+      "displayLabel": "Pectoral Flye (cable)",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "pectoral-flye-cable.json"
+    },
+    {
+      "id": "pectoral-flye-machine",
+      "displayLabel": "Pectoral Flye (machine)",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "pectoral-flye-machine.json"
+    },
+    {
+      "id": "pendlay-row",
+      "displayLabel": "Pendlay Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "pendlay-row.json"
+    },
+    {
+      "id": "pin-press",
+      "displayLabel": "Pin Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "pin-press.json"
+    },
+    {
+      "id": "plank",
+      "displayLabel": "Plank",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "plank.json"
+    },
+    {
+      "id": "plate-loaded-hip-abduction",
+      "displayLabel": "Plate-loaded Hip Abduction",
+      "shortDescription": "Hip accessory movement for the glutes or inner thigh.",
+      "file": "plate-loaded-hip-abduction.json"
+    },
+    {
+      "id": "pronated-pulldown",
+      "displayLabel": "Pronated Pulldown",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "pronated-pulldown.json"
+    },
+    {
+      "id": "pull-up",
+      "displayLabel": "Pull-Up",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "pull-up.json"
+    },
+    {
+      "id": "push-up",
+      "displayLabel": "Push-Up",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "push-up.json"
+    },
+    {
+      "id": "rear-delt-flye-cable",
+      "displayLabel": "Rear Delt Flye (cable)",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "rear-delt-flye-cable.json"
+    },
+    {
+      "id": "rear-delt-flye-dumbbell",
+      "displayLabel": "Rear Delt Flye (dumbbell)",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "rear-delt-flye-dumbbell.json"
+    },
+    {
+      "id": "rear-delt-flye-machine",
+      "displayLabel": "Rear Delt Flye (machine)",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "rear-delt-flye-machine.json"
+    },
+    {
+      "id": "reverse-cable-crossover",
+      "displayLabel": "Reverse Cable Crossover",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "reverse-cable-crossover.json"
+    },
+    {
+      "id": "reverse-cable-flye",
+      "displayLabel": "Reverse Cable Flye",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "reverse-cable-flye.json"
+    },
+    {
+      "id": "reverse-crunch",
+      "displayLabel": "Reverse Crunch",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "reverse-crunch.json"
+    },
+    {
+      "id": "reverse-dumbbell-flye",
+      "displayLabel": "Reverse Dumbbell Flye",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "reverse-dumbbell-flye.json"
+    },
+    {
+      "id": "reverse-grip-assisted-pull-up",
+      "displayLabel": "Reverse Grip Assisted Pull-Up",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "reverse-grip-assisted-pull-up.json"
+    },
+    {
+      "id": "reverse-grip-lat-pulldown",
+      "displayLabel": "Reverse Grip Lat Pulldown",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "reverse-grip-lat-pulldown.json"
+    },
+    {
+      "id": "reverse-hyper",
+      "displayLabel": "Reverse Hyper",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "reverse-hyper.json"
+    },
+    {
+      "id": "reverse-lunge",
+      "displayLabel": "Reverse Lunge",
+      "shortDescription": "Single-leg lower-body movement for quad, glute, and stability work.",
+      "file": "reverse-lunge.json"
+    },
+    {
+      "id": "reverse-pec-deck",
+      "displayLabel": "Reverse Pec Deck",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "reverse-pec-deck.json"
+    },
+    {
+      "id": "roman-chair-leg-raise",
+      "displayLabel": "Roman Chair Leg Raise",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "roman-chair-leg-raise.json"
+    },
+    {
+      "id": "romanian-deadlift",
+      "displayLabel": "Romanian Deadlift",
+      "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+      "file": "romanian-deadlift.json"
+    },
+    {
+      "id": "rope-face-pull",
+      "displayLabel": "Rope Face Pull",
+      "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
+      "file": "rope-face-pull.json"
+    },
+    {
+      "id": "rope-hammer-curl",
+      "displayLabel": "Rope Hammer Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "rope-hammer-curl.json"
+    },
+    {
+      "id": "rope-overhead-triceps-extension",
+      "displayLabel": "Rope Overhead Triceps Extension",
+      "shortDescription": "Triceps accessory movement for elbow extension volume.",
+      "file": "rope-overhead-triceps-extension.json"
+    },
+    {
+      "id": "seal-row",
+      "displayLabel": "Seal Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "seal-row.json"
+    },
+    {
+      "id": "seated-barbell-overhead-press",
+      "displayLabel": "Seated Barbell Overhead Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "seated-barbell-overhead-press.json"
+    },
+    {
+      "id": "seated-calf-raise",
+      "displayLabel": "Seated Calf Raise",
+      "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+      "file": "seated-calf-raise.json"
+    },
+    {
+      "id": "seated-face-pull",
+      "displayLabel": "Seated Face Pull",
+      "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
+      "file": "seated-face-pull.json"
+    },
+    {
+      "id": "seated-hammer-curl",
+      "displayLabel": "Seated Hammer Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "seated-hammer-curl.json"
+    },
+    {
+      "id": "seated-hip-abduction",
+      "displayLabel": "Seated Hip Abduction",
+      "shortDescription": "Hip accessory movement for the glutes or inner thigh.",
+      "file": "seated-hip-abduction.json"
+    },
+    {
+      "id": "seated-leg-curl",
+      "displayLabel": "Seated Leg Curl",
+      "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
+      "file": "seated-leg-curl.json"
+    },
+    {
+      "id": "seated-smith-press",
+      "displayLabel": "Seated Smith Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "seated-smith-press.json"
+    },
+    {
+      "id": "shoulder-press-machine",
+      "displayLabel": "Shoulder Press Machine",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "shoulder-press-machine.json"
+    },
+    {
+      "id": "side-plank",
+      "displayLabel": "Side Plank",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "side-plank.json"
+    },
+    {
+      "id": "single-arm-dumbbell-curl",
+      "displayLabel": "Single-arm Dumbbell Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "single-arm-dumbbell-curl.json"
+    },
+    {
+      "id": "single-arm-machine-row",
+      "displayLabel": "Single Arm Machine Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "single-arm-machine-row.json"
+    },
+    {
+      "id": "single-arm-pulldown",
+      "displayLabel": "Single-Arm Pulldown",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "single-arm-pulldown.json"
+    },
+    {
+      "id": "single-arm-rope-tricep-extension",
+      "displayLabel": "Single-arm Rope Tricep Extension",
+      "shortDescription": "Triceps accessory movement for elbow extension volume.",
+      "file": "single-arm-rope-tricep-extension.json"
+    },
+    {
+      "id": "single-leg-extension",
+      "displayLabel": "Single Leg Extension",
+      "shortDescription": "Knee-extension isolation movement for focused quad work.",
+      "file": "single-leg-extension.json"
+    },
+    {
+      "id": "single-leg-leg-curl",
+      "displayLabel": "Single-Leg Leg Curl",
+      "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
+      "file": "single-leg-leg-curl.json"
+    },
+    {
+      "id": "single-leg-leg-extension",
+      "displayLabel": "Single-Leg Leg Extension",
+      "shortDescription": "Knee-extension isolation movement for focused quad work.",
+      "file": "single-leg-leg-extension.json"
+    },
+    {
+      "id": "single-leg-leg-press",
+      "displayLabel": "Single-Leg Leg Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "single-leg-leg-press.json"
+    },
+    {
+      "id": "single-leg-lying-leg-curl",
+      "displayLabel": "Single-Leg Lying Leg Curl",
+      "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
+      "file": "single-leg-lying-leg-curl.json"
+    },
+    {
+      "id": "single-leg-press",
+      "displayLabel": "Single Leg Press",
+      "shortDescription": "Single-leg lower-body movement for quad, glute, and stability work.",
+      "file": "single-leg-press.json"
+    },
+    {
+      "id": "sissy-squat",
+      "displayLabel": "Sissy Squat",
+      "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+      "file": "sissy-squat.json"
+    },
+    {
+      "id": "sliding-leg-curl",
+      "displayLabel": "Sliding Leg Curl",
+      "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
+      "file": "sliding-leg-curl.json"
+    },
+    {
+      "id": "slow-eccentric-leg-press-toe-press",
+      "displayLabel": "Slow-eccentric Leg Press Toe Press",
+      "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+      "file": "slow-eccentric-leg-press-toe-press.json"
+    },
+    {
+      "id": "smith-machine-bench-press",
+      "displayLabel": "Smith Machine Bench Press",
+      "shortDescription": "Pressing variation for chest, front delts, and triceps.",
+      "file": "smith-machine-bench-press.json"
+    },
+    {
+      "id": "smith-machine-calf-raise",
+      "displayLabel": "Smith Machine Calf Raise",
+      "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+      "file": "smith-machine-calf-raise.json"
+    },
+    {
+      "id": "smith-machine-pendlay-row",
+      "displayLabel": "Smith Machine Pendlay Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "smith-machine-pendlay-row.json"
+    },
+    {
+      "id": "smith-machine-shrug",
+      "displayLabel": "Smith Machine Shrug",
+      "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
+      "file": "smith-machine-shrug.json"
+    },
+    {
+      "id": "smith-machine-split-squat",
+      "displayLabel": "Smith Machine Split Squat",
+      "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+      "file": "smith-machine-split-squat.json"
+    },
+    {
+      "id": "smith-machine-squat",
+      "displayLabel": "Smith Machine Squat",
+      "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+      "file": "smith-machine-squat.json"
+    },
+    {
+      "id": "standing-cable-flye",
+      "displayLabel": "Standing Cable Flye",
+      "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
+      "file": "standing-cable-flye.json"
+    },
+    {
+      "id": "standing-cable-hip-abduction",
+      "displayLabel": "Standing Cable Hip Abduction",
+      "shortDescription": "Hip accessory movement for the glutes or inner thigh.",
+      "file": "standing-cable-hip-abduction.json"
+    },
+    {
+      "id": "standing-calf-raise",
+      "displayLabel": "Standing Calf Raise",
+      "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
+      "file": "standing-calf-raise.json"
+    },
+    {
+      "id": "standing-dumbbell-shoulder-press",
+      "displayLabel": "Standing Dumbbell Shoulder Press",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "standing-dumbbell-shoulder-press.json"
+    },
+    {
+      "id": "standing-oblique-crunch",
+      "displayLabel": "Standing Oblique Crunch",
+      "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+      "file": "standing-oblique-crunch.json"
+    },
+    {
+      "id": "static-lunge",
+      "displayLabel": "Static Lunge",
+      "shortDescription": "Single-leg lower-body movement for quad, glute, and stability work.",
+      "file": "static-lunge.json"
+    },
+    {
+      "id": "sumo-deadlift",
+      "displayLabel": "Sumo Deadlift",
+      "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+      "file": "sumo-deadlift.json"
+    },
+    {
+      "id": "supinated-ez-bar-curl",
+      "displayLabel": "Supinated EZ Bar Curl",
+      "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
+      "file": "supinated-ez-bar-curl.json"
+    },
+    {
+      "id": "supinated-pulldown",
+      "displayLabel": "Supinated Pulldown",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "supinated-pulldown.json"
+    },
+    {
+      "id": "swiss-ball-leg-curl",
+      "displayLabel": "Swiss Ball Leg Curl",
+      "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
+      "file": "swiss-ball-leg-curl.json"
+    },
+    {
+      "id": "t-bar-row",
+      "displayLabel": "T-Bar Row",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "t-bar-row.json"
+    },
+    {
+      "id": "tricep-extension-machine",
+      "displayLabel": "Tricep Extension Machine",
+      "shortDescription": "Triceps accessory movement for elbow extension volume.",
+      "file": "tricep-extension-machine.json"
+    },
+    {
+      "id": "tricep-pressdown",
+      "displayLabel": "Tricep Pressdown",
+      "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
+      "file": "tricep-pressdown.json"
+    },
+    {
+      "id": "upright-row-cable",
+      "displayLabel": "Upright Row (cable)",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "upright-row-cable.json"
+    },
+    {
+      "id": "upright-row-ez-bar",
+      "displayLabel": "Upright Row (ez Bar)",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "upright-row-ez-bar.json"
+    },
+    {
+      "id": "v-sit-up",
+      "displayLabel": "V Sit-up",
+      "shortDescription": "Resistance training exercise used across the imported workout books.",
+      "file": "v-sit-up.json"
+    },
+    {
+      "id": "walking-lunge",
+      "displayLabel": "Walking Lunge",
+      "shortDescription": "Single-leg lower-body movement for quad, glute, and stability work.",
+      "file": "walking-lunge.json"
+    },
+    {
+      "id": "weighted-dip",
+      "displayLabel": "Weighted Dip",
+      "shortDescription": "Dip variation for chest and triceps with a strong stretch under load.",
+      "file": "weighted-dip.json"
+    },
+    {
+      "id": "weighted-pull-up",
+      "displayLabel": "Weighted Pull-Up",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "weighted-pull-up.json"
+    },
+    {
+      "id": "wide-grip-lat-pulldown",
+      "displayLabel": "Wide Grip Lat Pulldown",
+      "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+      "file": "wide-grip-lat-pulldown.json"
+    }
+  ]
+}

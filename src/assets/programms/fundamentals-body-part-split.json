@@ -1,0 +1,1919 @@
+{
+  "id": "fundamentals-body-part-split",
+  "displayLabel": "Fundamentals Body Part Split",
+  "shortDescription": "8-week five-day body-part hypertrophy split from the fundamentals book.",
+  "descriptionHtml": "<p>8-week five-day body-part hypertrophy split from the fundamentals book.</p><p><strong>Structure:</strong> 8 weeks, 5 scheduled sessions per week, 48 referenced exercise ids.</p><p><strong>Weekly split:</strong> Chest &amp; Triceps, Legs &amp; Abs #1, Back &amp; Biceps, Legs &amp; Abs #2, and Shoulders &amp; Arms.</p><ul><li><strong>Goal:</strong> hypertrophy</li><li><strong>Level:</strong> beginner</li><li><strong>Duration:</strong> 8 weeks</li><li><strong>Tags:</strong> body part split and 5 days per week</li></ul>",
+  "goal": "hypertrophy",
+  "level": "beginner",
+  "duration": "8 weeks",
+  "tags": [
+    "body part split",
+    "5 days per week"
+  ],
+  "weeks": [
+    {
+      "week": 1,
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Chest & Triceps",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. TUCK ELBOWS AT A 45 degrees ANGLE, SQUEEZE YOUR SHOULDER BLADES AND STAY FIRM"
+            },
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED AND DEPRESSED"
+            },
+            {
+              "exerciseId": "cable-flye",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED, PULL YOUR INNER ELBOWS TOGETHER (NOT"
+            },
+            {
+              "exerciseId": "assisted-dip",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE 7. TUCK ELBOWS AT A 45 degrees ANGLE, LEAN YOUR TORSO FORWARD 15 degrees"
+            },
+            {
+              "exerciseId": "dumbbell-skull-crusher",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR ELBOWS INLINE WITH THE TOP OF YOUR HEAD, DON'T LET YOUR UPPER"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Legs & Abs #1",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. SIT BACK AND DOWN, 15 degrees TOE FLARE, DRIVE YOUR KNEES OUT LATERALLY"
+            },
+            {
+              "exerciseId": "romanian-deadlift",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 7. MAINTAIN A NEUTRAL LOWER BACK, SET YOUR HIPS BACK, DON'T ALLOW YOUR"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. TUCK YOUR CHIN AND RIB CAGE DOWN, ONLY MOVE YOUR HIPS. USE A PAD"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR QUADS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "leg-curl",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "2",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 7. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "crunch",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 7. FOCUS ON FLEXING YOUR SPINE, DON'T YANK YOUR HEAD WITH YOUR ARMS"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back & Biceps",
+          "items": [
+            {
+              "exerciseId": "reverse-grip-lat-pulldown",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. PULL YOUR ELBOWS DOWN AGAINST YOUR SIDES, USE SHOULDER WIDTH GRIP"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 8. USE A V-BAR GRIP, LET YOUR SCAPULAE PROTRACT DURING THE ECCENTRIC"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. RETRACT YOUR SCAPULAE DURING THE CONCENTRIC, PROTRACT YOUR SCAPULAE"
+            },
+            {
+              "exerciseId": "seated-face-pull",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PULL YOUR ARMS BACK AND OUT"
+            },
+            {
+              "exerciseId": "dumbbell-supinated-curl",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. DRIVE YOUR PINKY INTO THE HANDLE HARDER THAN YOUR POINTER FINGER"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Legs & Abs #2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "5",
+              "rest": "3-4 min",
+              "notes": "RPE 7. BRACE YOUR LATS, CHEST TALL, HIPS HIGH, PULL THE SLACK OUT OF THE BAR PRIOR"
+            },
+            {
+              "exerciseId": "dumbbell-walking-lunge",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 8. 10 STEPS EACH LEG. TAKE MEDIUM STRIDES, LET YOUR TORSO LEAN FORWARD"
+            },
+            {
+              "exerciseId": "single-leg-leg-extension",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR QUADS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "single-leg-lying-leg-curl",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 7. KEEP YOUR BUTT IN THE SEAT, FOCUS ON SQUEEZING YOUR GLUTES TO MAKE THE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "plank",
+              "sets": "3",
+              "reps": "20SEC",
+              "rest": "1-2 min",
+              "notes": "RPE 8. SQUEEZE YOUR GLUTES, KEEP YOUR HIPS LOW"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Shoulders & Arms",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. SQUEEZE YOUR GLUTES TO KEEP YOUR TORSO UPRIGHT, CLEAR YOUR HEAD OUT OF"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TILT THE DUMBBELL SUCH THAT YOUR PINKY COMES UP FIRST"
+            },
+            {
+              "exerciseId": "cable-reverse-flye",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PROTRACT YOUR SCAPULAE, SWEEP THE WEIGHT OUT AND BACK"
+            },
+            {
+              "exerciseId": "single-arm-rope-tricep-extension",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PULL YOUR ARM BEHIND YOUR TORSO, DON'T MOVE YOUR UPPER ARM"
+            },
+            {
+              "exerciseId": "cable-single-arm-curl",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FACE AWAY FROM THE CABLE YOU ARE USING, KEEP YOUR ARM BEHIND YOUR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Chest & Triceps",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. TUCK ELBOWS AT A 45 degrees ANGLE, SQUEEZE YOUR SHOULDER BLADES AND STAY FIRM"
+            },
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED AND DEPRESSED"
+            },
+            {
+              "exerciseId": "cable-flye",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED, PULL YOUR INNER ELBOWS TOGETHER (NOT"
+            },
+            {
+              "exerciseId": "assisted-dip",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE 7. TUCK ELBOWS AT A 45 degrees ANGLE, LEAN YOUR TORSO FORWARD 15 degrees"
+            },
+            {
+              "exerciseId": "dumbbell-skull-crusher",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR ELBOWS INLINE WITH THE TOP OF YOUR HEAD, DON'T LET YOUR UPPER"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Legs & Abs #1",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. SIT BACK AND DOWN, 15 degrees TOE FLARE, DRIVE YOUR KNEES OUT LATERALLY"
+            },
+            {
+              "exerciseId": "romanian-deadlift",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 7. MAINTAIN A NEUTRAL LOWER BACK, SET YOUR HIPS BACK, DON'T ALLOW YOUR"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. TUCK YOUR CHIN AND RIB CAGE DOWN, ONLY MOVE YOUR HIPS. USE A PAD"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR QUADS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "leg-curl",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "2",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 7. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "crunch",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 7. FOCUS ON FLEXING YOUR SPINE, DON'T YANK YOUR HEAD WITH YOUR ARMS"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back & Biceps",
+          "items": [
+            {
+              "exerciseId": "reverse-grip-lat-pulldown",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. PULL YOUR ELBOWS DOWN AGAINST YOUR SIDES, USE SHOULDER WIDTH GRIP"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 8. USE A V-BAR GRIP, LET YOUR SCAPULAE PROTRACT DURING THE ECCENTRIC"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. RETRACT YOUR SCAPULAE DURING THE CONCENTRIC, PROTRACT YOUR SCAPULAE"
+            },
+            {
+              "exerciseId": "seated-face-pull",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PULL YOUR ARMS BACK AND OUT"
+            },
+            {
+              "exerciseId": "dumbbell-supinated-curl",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. DRIVE YOUR PINKY INTO THE HANDLE HARDER THAN YOUR POINTER FINGER"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Legs & Abs #2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "5",
+              "rest": "3-4 min",
+              "notes": "RPE 7. BRACE YOUR LATS, CHEST TALL, HIPS HIGH, PULL THE SLACK OUT OF THE BAR PRIOR"
+            },
+            {
+              "exerciseId": "dumbbell-walking-lunge",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 8. 10 STEPS EACH LEG. TAKE MEDIUM STRIDES, LET YOUR TORSO LEAN FORWARD"
+            },
+            {
+              "exerciseId": "single-leg-leg-extension",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR QUADS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "single-leg-lying-leg-curl",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 7. KEEP YOUR BUTT IN THE SEAT, FOCUS ON SQUEEZING YOUR GLUTES TO MAKE THE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "plank",
+              "sets": "3",
+              "reps": "20SEC",
+              "rest": "1-2 min",
+              "notes": "RPE 8. SQUEEZE YOUR GLUTES, KEEP YOUR HIPS LOW"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Shoulders & Arms",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. SQUEEZE YOUR GLUTES TO KEEP YOUR TORSO UPRIGHT, CLEAR YOUR HEAD OUT OF"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TILT THE DUMBBELL SUCH THAT YOUR PINKY COMES UP FIRST"
+            },
+            {
+              "exerciseId": "cable-reverse-flye",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PROTRACT YOUR SCAPULAE, SWEEP THE WEIGHT OUT AND BACK"
+            },
+            {
+              "exerciseId": "single-arm-rope-tricep-extension",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PULL YOUR ARM BEHIND YOUR TORSO, DON'T MOVE YOUR UPPER ARM"
+            },
+            {
+              "exerciseId": "cable-single-arm-curl",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FACE AWAY FROM THE CABLE YOU ARE USING, KEEP YOUR ARM BEHIND YOUR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Chest & Triceps",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. TUCK ELBOWS AT A 45 degrees ANGLE, SQUEEZE YOUR SHOULDER BLADES AND STAY FIRM"
+            },
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED AND DEPRESSED"
+            },
+            {
+              "exerciseId": "cable-flye",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED, PULL YOUR INNER ELBOWS TOGETHER (NOT"
+            },
+            {
+              "exerciseId": "assisted-dip",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE 7. TUCK ELBOWS AT A 45 degrees ANGLE, LEAN YOUR TORSO FORWARD 15 degrees"
+            },
+            {
+              "exerciseId": "dumbbell-skull-crusher",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR ELBOWS INLINE WITH THE TOP OF YOUR HEAD, DON'T LET YOUR UPPER"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Legs & Abs #1",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. SIT BACK AND DOWN, 15 degrees TOE FLARE, DRIVE YOUR KNEES OUT LATERALLY"
+            },
+            {
+              "exerciseId": "romanian-deadlift",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 7. MAINTAIN A NEUTRAL LOWER BACK, SET YOUR HIPS BACK, DON'T ALLOW YOUR"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. TUCK YOUR CHIN AND RIB CAGE DOWN, ONLY MOVE YOUR HIPS. USE A PAD"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR QUADS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "leg-curl",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "2",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 7. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "crunch",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 7. FOCUS ON FLEXING YOUR SPINE, DON'T YANK YOUR HEAD WITH YOUR ARMS"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back & Biceps",
+          "items": [
+            {
+              "exerciseId": "reverse-grip-lat-pulldown",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. PULL YOUR ELBOWS DOWN AGAINST YOUR SIDES, USE SHOULDER WIDTH GRIP"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 8. USE A V-BAR GRIP, LET YOUR SCAPULAE PROTRACT DURING THE ECCENTRIC"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. RETRACT YOUR SCAPULAE DURING THE CONCENTRIC, PROTRACT YOUR SCAPULAE"
+            },
+            {
+              "exerciseId": "seated-face-pull",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PULL YOUR ARMS BACK AND OUT"
+            },
+            {
+              "exerciseId": "dumbbell-supinated-curl",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. DRIVE YOUR PINKY INTO THE HANDLE HARDER THAN YOUR POINTER FINGER"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Legs & Abs #2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "5",
+              "rest": "3-4 min",
+              "notes": "RPE 7. BRACE YOUR LATS, CHEST TALL, HIPS HIGH, PULL THE SLACK OUT OF THE BAR PRIOR"
+            },
+            {
+              "exerciseId": "dumbbell-walking-lunge",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 8. 10 STEPS EACH LEG. TAKE MEDIUM STRIDES, LET YOUR TORSO LEAN FORWARD"
+            },
+            {
+              "exerciseId": "single-leg-leg-extension",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR QUADS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "single-leg-lying-leg-curl",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 7. KEEP YOUR BUTT IN THE SEAT, FOCUS ON SQUEEZING YOUR GLUTES TO MAKE THE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "plank",
+              "sets": "3",
+              "reps": "20SEC",
+              "rest": "1-2 min",
+              "notes": "RPE 8. SQUEEZE YOUR GLUTES, KEEP YOUR HIPS LOW"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Shoulders & Arms",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. SQUEEZE YOUR GLUTES TO KEEP YOUR TORSO UPRIGHT, CLEAR YOUR HEAD OUT OF"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TILT THE DUMBBELL SUCH THAT YOUR PINKY COMES UP FIRST"
+            },
+            {
+              "exerciseId": "cable-reverse-flye",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PROTRACT YOUR SCAPULAE, SWEEP THE WEIGHT OUT AND BACK"
+            },
+            {
+              "exerciseId": "single-arm-rope-tricep-extension",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PULL YOUR ARM BEHIND YOUR TORSO, DON'T MOVE YOUR UPPER ARM"
+            },
+            {
+              "exerciseId": "cable-single-arm-curl",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FACE AWAY FROM THE CABLE YOU ARE USING, KEEP YOUR ARM BEHIND YOUR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Chest & Triceps",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. TUCK ELBOWS AT A 45 degrees ANGLE, SQUEEZE YOUR SHOULDER BLADES AND STAY FIRM"
+            },
+            {
+              "exerciseId": "dumbbell-incline-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED AND DEPRESSED"
+            },
+            {
+              "exerciseId": "cable-flye",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED, PULL YOUR INNER ELBOWS TOGETHER (NOT"
+            },
+            {
+              "exerciseId": "assisted-dip",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE 7. TUCK ELBOWS AT A 45 degrees ANGLE, LEAN YOUR TORSO FORWARD 15 degrees"
+            },
+            {
+              "exerciseId": "dumbbell-skull-crusher",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR ELBOWS INLINE WITH THE TOP OF YOUR HEAD, DON'T LET YOUR UPPER"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Legs & Abs #1",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. SIT BACK AND DOWN, 15 degrees TOE FLARE, DRIVE YOUR KNEES OUT LATERALLY"
+            },
+            {
+              "exerciseId": "romanian-deadlift",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 7. MAINTAIN A NEUTRAL LOWER BACK, SET YOUR HIPS BACK, DON'T ALLOW YOUR"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. TUCK YOUR CHIN AND RIB CAGE DOWN, ONLY MOVE YOUR HIPS. USE A PAD"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR QUADS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "leg-curl",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "2",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 7. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "crunch",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 7. FOCUS ON FLEXING YOUR SPINE, DON'T YANK YOUR HEAD WITH YOUR ARMS"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back & Biceps",
+          "items": [
+            {
+              "exerciseId": "reverse-grip-lat-pulldown",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. PULL YOUR ELBOWS DOWN AGAINST YOUR SIDES, USE SHOULDER WIDTH GRIP"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 8. USE A V-BAR GRIP, LET YOUR SCAPULAE PROTRACT DURING THE ECCENTRIC"
+            },
+            {
+              "exerciseId": "chest-supported-t-bar-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. RETRACT YOUR SCAPULAE DURING THE CONCENTRIC, PROTRACT YOUR SCAPULAE"
+            },
+            {
+              "exerciseId": "seated-face-pull",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PULL YOUR ARMS BACK AND OUT"
+            },
+            {
+              "exerciseId": "dumbbell-supinated-curl",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. DRIVE YOUR PINKY INTO THE HANDLE HARDER THAN YOUR POINTER FINGER"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Legs & Abs #2",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "5",
+              "rest": "3-4 min",
+              "notes": "RPE 7. BRACE YOUR LATS, CHEST TALL, HIPS HIGH, PULL THE SLACK OUT OF THE BAR PRIOR"
+            },
+            {
+              "exerciseId": "dumbbell-walking-lunge",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 8. 10 STEPS EACH LEG. TAKE MEDIUM STRIDES, LET YOUR TORSO LEAN FORWARD"
+            },
+            {
+              "exerciseId": "single-leg-leg-extension",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR QUADS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "single-leg-lying-leg-curl",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 7. KEEP YOUR BUTT IN THE SEAT, FOCUS ON SQUEEZING YOUR GLUTES TO MAKE THE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "plank",
+              "sets": "3",
+              "reps": "20SEC",
+              "rest": "1-2 min",
+              "notes": "RPE 8. SQUEEZE YOUR GLUTES, KEEP YOUR HIPS LOW"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Shoulders & Arms",
+          "items": [
+            {
+              "exerciseId": "overhead-press",
+              "sets": "3",
+              "reps": "6",
+              "rest": "3-4 min",
+              "notes": "RPE 7. SQUEEZE YOUR GLUTES TO KEEP YOUR TORSO UPRIGHT, CLEAR YOUR HEAD OUT OF"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TILT THE DUMBBELL SUCH THAT YOUR PINKY COMES UP FIRST"
+            },
+            {
+              "exerciseId": "cable-reverse-flye",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PROTRACT YOUR SCAPULAE, SWEEP THE WEIGHT OUT AND BACK"
+            },
+            {
+              "exerciseId": "single-arm-rope-tricep-extension",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PULL YOUR ARM BEHIND YOUR TORSO, DON'T MOVE YOUR UPPER ARM"
+            },
+            {
+              "exerciseId": "cable-single-arm-curl",
+              "sets": "2",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FACE AWAY FROM THE CABLE YOU ARE USING, KEEP YOUR ARM BEHIND YOUR"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Chest & Triceps",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "3-4 min",
+              "notes": "RPE 8. TUCK ELBOWS AT A 45 degrees ANGLE, SQUEEZE YOUR SHOULDER BLADES AND STAY FIRM"
+            },
+            {
+              "exerciseId": "machine-incline-chest-press",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED AND DEPRESSED"
+            },
+            {
+              "exerciseId": "pec-deck",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED, PULL YOUR INNER ELBOWS TOGETHER (NOT"
+            },
+            {
+              "exerciseId": "assisted-dip",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TUCK ELBOWS AT A 45 degrees ANGLE, LEAN YOUR TORSO FORWARD 15 degrees"
+            },
+            {
+              "exerciseId": "cable-tricep-kickback",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR ELBOWS BEHIND YOUR TORSO, DON'T LET YOUR UPPER ARM MOVE"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Legs & Abs #1",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "5",
+              "rest": "3-4 min",
+              "notes": "RPE 8. BRACE YOUR LATS, CHEST TALL, HIPS HIGH, PULL THE SLACK OUT OF THE BAR PRIOR"
+            },
+            {
+              "exerciseId": "goblet-squat",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. HOLD A DUMBBELL DIRECTLY UNDERNEATH YOUR CHIN, SIT BACK AND DOWN,"
+            },
+            {
+              "exerciseId": "dumbbell-single-leg-hip-thrust",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 9. PLACE THE DUMBBELL ON YOUR WORKING THIGH, TUCK YOUR CHIN AND RIB"
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. MEDIUM FEET PLACEMENT ON THE PLATFORM, DON'T ALLOW YOUR LOWER BACK"
+            },
+            {
+              "exerciseId": "lying-leg-curl",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 9. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "bicycle-crunch",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON FLEXING AND ROTATING YOUR SPINE, BRING YOUR LEFT ELBOW TO"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back & Biceps",
+          "items": [
+            {
+              "exerciseId": "lat-pulldown",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "RPE 8. PULL YOUR ELBOWS STRAIGHT OUT TO YOUR SIDES, USE A 1.5X SHOULDER WIDTH"
+            },
+            {
+              "exerciseId": "dumbbell-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. BRACE ONTO A BENCH FOR SUPPORT, PULL YOUR ELBOW AGAINST YOUR SIDES"
+            },
+            {
+              "exerciseId": "barbell-bent-over-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. LEAN YOUR TORSO OVER AT A 45 degrees ANGLE, KEEP YOUR LOWER BACK NEUTRAL,"
+            },
+            {
+              "exerciseId": "reverse-pec-deck",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PROTRACT YOUR SCAPULAE, SWEEP THE WEIGHT OUT AND BACK"
+            },
+            {
+              "exerciseId": "ez-bar-curl",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. DRIVE YOUR PINKY INTO THE HANDLE HARDER THAN YOUR POINTER FINGER"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Legs & Abs #2",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "3",
+              "reps": "8",
+              "rest": "3-4 min",
+              "notes": "RPE 8. SIT BACK AND DOWN, 15 degrees TOE FLARE, DRIVE YOUR KNEES OUT LATERALLY"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. TUCK YOUR CHIN AND RIB CAGE DOWN, ONLY MOVE YOUR HIPS. USE A PAD"
+            },
+            {
+              "exerciseId": "romanian-deadlift",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. MAINTAIN A NEUTRAL LOWER BACK, SET YOUR HIPS BACK, DON'T ALLOW YOUR"
+            },
+            {
+              "exerciseId": "seated-leg-curl",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 9. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 9. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "hanging-leg-raise",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON FLEXING YOUR LOWER BACK, PERFORM OFF OF CAPTAIN'S CHAIR"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "RPE 9. KEEP YOUR BUTT IN THE SEAT, FOCUS ON SQUEEZING YOUR GLUTES TO MAKE THE"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Shoulders & Arms",
+          "items": [
+            {
+              "exerciseId": "dumbbell-seated-shoulder-press",
+              "sets": "3",
+              "reps": "10",
+              "rest": "3-4 min",
+              "notes": "RPE 8. BRING THE DUMBBELL ALL THE WAY DOWN TO YOUR SHOULDERS, KEEP YOUR"
+            },
+            {
+              "exerciseId": "cable-lateral-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE 8. LEAN AWAY FROM THE MACHINE, ARMS STRAIGHT OUT TO YOUR SIDE"
+            },
+            {
+              "exerciseId": "dumbbell-bent-over-lateral-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. LEAN OVER SUCH THAT YOUR TORSO IS PARALLEL WITH THE GROUND, RAISE YOUR"
+            },
+            {
+              "exerciseId": "dumbbell-floor-press",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TUCK YOUR ELBOWS AGAINST YOUR SIDES"
+            },
+            {
+              "exerciseId": "hammer-curl",
+              "sets": "2",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 8. NEUTRAL GRIP, PREVENT YOUR UPPER ARM FROM MOVING"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Chest & Triceps",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "3-4 min",
+              "notes": "RPE 8. TUCK ELBOWS AT A 45 degrees ANGLE, SQUEEZE YOUR SHOULDER BLADES AND STAY FIRM"
+            },
+            {
+              "exerciseId": "machine-incline-chest-press",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED AND DEPRESSED"
+            },
+            {
+              "exerciseId": "pec-deck",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED, PULL YOUR INNER ELBOWS TOGETHER (NOT"
+            },
+            {
+              "exerciseId": "assisted-dip",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TUCK ELBOWS AT A 45 degrees ANGLE, LEAN YOUR TORSO FORWARD 15 degrees"
+            },
+            {
+              "exerciseId": "cable-tricep-kickback",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR ELBOWS BEHIND YOUR TORSO, DON'T LET YOUR UPPER ARM MOVE"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Legs & Abs #1",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "5",
+              "rest": "3-4 min",
+              "notes": "RPE 8. BRACE YOUR LATS, CHEST TALL, HIPS HIGH, PULL THE SLACK OUT OF THE BAR PRIOR"
+            },
+            {
+              "exerciseId": "goblet-squat",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. HOLD A DUMBBELL DIRECTLY UNDERNEATH YOUR CHIN, SIT BACK AND DOWN,"
+            },
+            {
+              "exerciseId": "dumbbell-single-leg-hip-thrust",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 9. PLACE THE DUMBBELL ON YOUR WORKING THIGH, TUCK YOUR CHIN AND RIB"
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. MEDIUM FEET PLACEMENT ON THE PLATFORM, DON'T ALLOW YOUR LOWER BACK"
+            },
+            {
+              "exerciseId": "lying-leg-curl",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 9. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "bicycle-crunch",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON FLEXING AND ROTATING YOUR SPINE, BRING YOUR LEFT ELBOW TO"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back & Biceps",
+          "items": [
+            {
+              "exerciseId": "lat-pulldown",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "RPE 8. PULL YOUR ELBOWS STRAIGHT OUT TO YOUR SIDES, USE A 1.5X SHOULDER WIDTH"
+            },
+            {
+              "exerciseId": "dumbbell-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. BRACE ONTO A BENCH FOR SUPPORT, PULL YOUR ELBOW AGAINST YOUR SIDES"
+            },
+            {
+              "exerciseId": "barbell-bent-over-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. LEAN YOUR TORSO OVER AT A 45 degrees ANGLE, KEEP YOUR LOWER BACK NEUTRAL,"
+            },
+            {
+              "exerciseId": "reverse-pec-deck",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PROTRACT YOUR SCAPULAE, SWEEP THE WEIGHT OUT AND BACK"
+            },
+            {
+              "exerciseId": "ez-bar-curl",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. DRIVE YOUR PINKY INTO THE HANDLE HARDER THAN YOUR POINTER FINGER"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Legs & Abs #2",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "3",
+              "reps": "8",
+              "rest": "3-4 min",
+              "notes": "RPE 8. SIT BACK AND DOWN, 15 degrees TOE FLARE, DRIVE YOUR KNEES OUT LATERALLY"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. TUCK YOUR CHIN AND RIB CAGE DOWN, ONLY MOVE YOUR HIPS. USE A PAD"
+            },
+            {
+              "exerciseId": "romanian-deadlift",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. MAINTAIN A NEUTRAL LOWER BACK, SET YOUR HIPS BACK, DON'T ALLOW YOUR"
+            },
+            {
+              "exerciseId": "seated-leg-curl",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 9. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 9. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "hanging-leg-raise",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON FLEXING YOUR LOWER BACK, PERFORM OFF OF CAPTAIN'S CHAIR"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "RPE 9. KEEP YOUR BUTT IN THE SEAT, FOCUS ON SQUEEZING YOUR GLUTES TO MAKE THE"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Shoulders & Arms",
+          "items": [
+            {
+              "exerciseId": "dumbbell-seated-shoulder-press",
+              "sets": "3",
+              "reps": "10",
+              "rest": "3-4 min",
+              "notes": "RPE 8. BRING THE DUMBBELL ALL THE WAY DOWN TO YOUR SHOULDERS, KEEP YOUR"
+            },
+            {
+              "exerciseId": "cable-lateral-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE 8. LEAN AWAY FROM THE MACHINE, ARMS STRAIGHT OUT TO YOUR SIDE"
+            },
+            {
+              "exerciseId": "dumbbell-bent-over-lateral-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. LEAN OVER SUCH THAT YOUR TORSO IS PARALLEL WITH THE GROUND, RAISE YOUR"
+            },
+            {
+              "exerciseId": "dumbbell-floor-press",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TUCK YOUR ELBOWS AGAINST YOUR SIDES"
+            },
+            {
+              "exerciseId": "hammer-curl",
+              "sets": "2",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 8. NEUTRAL GRIP, PREVENT YOUR UPPER ARM FROM MOVING"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Chest & Triceps",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "3-4 min",
+              "notes": "RPE 8. TUCK ELBOWS AT A 45 degrees ANGLE, SQUEEZE YOUR SHOULDER BLADES AND STAY FIRM"
+            },
+            {
+              "exerciseId": "machine-incline-chest-press",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED AND DEPRESSED"
+            },
+            {
+              "exerciseId": "pec-deck",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED, PULL YOUR INNER ELBOWS TOGETHER (NOT"
+            },
+            {
+              "exerciseId": "assisted-dip",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TUCK ELBOWS AT A 45 degrees ANGLE, LEAN YOUR TORSO FORWARD 15 degrees"
+            },
+            {
+              "exerciseId": "cable-tricep-kickback",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR ELBOWS BEHIND YOUR TORSO, DON'T LET YOUR UPPER ARM MOVE"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Legs & Abs #1",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "5",
+              "rest": "3-4 min",
+              "notes": "RPE 8. BRACE YOUR LATS, CHEST TALL, HIPS HIGH, PULL THE SLACK OUT OF THE BAR PRIOR"
+            },
+            {
+              "exerciseId": "goblet-squat",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. HOLD A DUMBBELL DIRECTLY UNDERNEATH YOUR CHIN, SIT BACK AND DOWN,"
+            },
+            {
+              "exerciseId": "dumbbell-single-leg-hip-thrust",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 9. PLACE THE DUMBBELL ON YOUR WORKING THIGH, TUCK YOUR CHIN AND RIB"
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. MEDIUM FEET PLACEMENT ON THE PLATFORM, DON'T ALLOW YOUR LOWER BACK"
+            },
+            {
+              "exerciseId": "lying-leg-curl",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 9. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "bicycle-crunch",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON FLEXING AND ROTATING YOUR SPINE, BRING YOUR LEFT ELBOW TO"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back & Biceps",
+          "items": [
+            {
+              "exerciseId": "lat-pulldown",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "RPE 8. PULL YOUR ELBOWS STRAIGHT OUT TO YOUR SIDES, USE A 1.5X SHOULDER WIDTH"
+            },
+            {
+              "exerciseId": "dumbbell-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. BRACE ONTO A BENCH FOR SUPPORT, PULL YOUR ELBOW AGAINST YOUR SIDES"
+            },
+            {
+              "exerciseId": "barbell-bent-over-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. LEAN YOUR TORSO OVER AT A 45 degrees ANGLE, KEEP YOUR LOWER BACK NEUTRAL,"
+            },
+            {
+              "exerciseId": "reverse-pec-deck",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PROTRACT YOUR SCAPULAE, SWEEP THE WEIGHT OUT AND BACK"
+            },
+            {
+              "exerciseId": "ez-bar-curl",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. DRIVE YOUR PINKY INTO THE HANDLE HARDER THAN YOUR POINTER FINGER"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Legs & Abs #2",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "3",
+              "reps": "8",
+              "rest": "3-4 min",
+              "notes": "RPE 8. SIT BACK AND DOWN, 15 degrees TOE FLARE, DRIVE YOUR KNEES OUT LATERALLY"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. TUCK YOUR CHIN AND RIB CAGE DOWN, ONLY MOVE YOUR HIPS. USE A PAD"
+            },
+            {
+              "exerciseId": "romanian-deadlift",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. MAINTAIN A NEUTRAL LOWER BACK, SET YOUR HIPS BACK, DON'T ALLOW YOUR"
+            },
+            {
+              "exerciseId": "seated-leg-curl",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 9. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 9. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "hanging-leg-raise",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON FLEXING YOUR LOWER BACK, PERFORM OFF OF CAPTAIN'S CHAIR"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "RPE 9. KEEP YOUR BUTT IN THE SEAT, FOCUS ON SQUEEZING YOUR GLUTES TO MAKE THE"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Shoulders & Arms",
+          "items": [
+            {
+              "exerciseId": "dumbbell-seated-shoulder-press",
+              "sets": "3",
+              "reps": "10",
+              "rest": "3-4 min",
+              "notes": "RPE 8. BRING THE DUMBBELL ALL THE WAY DOWN TO YOUR SHOULDERS, KEEP YOUR"
+            },
+            {
+              "exerciseId": "cable-lateral-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE 8. LEAN AWAY FROM THE MACHINE, ARMS STRAIGHT OUT TO YOUR SIDE"
+            },
+            {
+              "exerciseId": "dumbbell-bent-over-lateral-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. LEAN OVER SUCH THAT YOUR TORSO IS PARALLEL WITH THE GROUND, RAISE YOUR"
+            },
+            {
+              "exerciseId": "dumbbell-floor-press",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TUCK YOUR ELBOWS AGAINST YOUR SIDES"
+            },
+            {
+              "exerciseId": "hammer-curl",
+              "sets": "2",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 8. NEUTRAL GRIP, PREVENT YOUR UPPER ARM FROM MOVING"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Chest & Triceps",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "3",
+              "reps": "8",
+              "rest": "3-4 min",
+              "notes": "RPE 8. TUCK ELBOWS AT A 45 degrees ANGLE, SQUEEZE YOUR SHOULDER BLADES AND STAY FIRM"
+            },
+            {
+              "exerciseId": "machine-incline-chest-press",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED AND DEPRESSED"
+            },
+            {
+              "exerciseId": "pec-deck",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR SCAPULAE RETRACTED, PULL YOUR INNER ELBOWS TOGETHER (NOT"
+            },
+            {
+              "exerciseId": "assisted-dip",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TUCK ELBOWS AT A 45 degrees ANGLE, LEAN YOUR TORSO FORWARD 15 degrees"
+            },
+            {
+              "exerciseId": "cable-tricep-kickback",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. KEEP YOUR ELBOWS BEHIND YOUR TORSO, DON'T LET YOUR UPPER ARM MOVE"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Legs & Abs #1",
+          "items": [
+            {
+              "exerciseId": "deadlift",
+              "sets": "3",
+              "reps": "5",
+              "rest": "3-4 min",
+              "notes": "RPE 8. BRACE YOUR LATS, CHEST TALL, HIPS HIGH, PULL THE SLACK OUT OF THE BAR PRIOR"
+            },
+            {
+              "exerciseId": "goblet-squat",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. HOLD A DUMBBELL DIRECTLY UNDERNEATH YOUR CHIN, SIT BACK AND DOWN,"
+            },
+            {
+              "exerciseId": "dumbbell-single-leg-hip-thrust",
+              "sets": "3",
+              "reps": "10",
+              "rest": "2-3 min",
+              "notes": "RPE 9. PLACE THE DUMBBELL ON YOUR WORKING THIGH, TUCK YOUR CHIN AND RIB"
+            },
+            {
+              "exerciseId": "leg-press",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. MEDIUM FEET PLACEMENT ON THE PLATFORM, DON'T ALLOW YOUR LOWER BACK"
+            },
+            {
+              "exerciseId": "lying-leg-curl",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 9. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "bicycle-crunch",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON FLEXING AND ROTATING YOUR SPINE, BRING YOUR LEFT ELBOW TO"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Back & Biceps",
+          "items": [
+            {
+              "exerciseId": "lat-pulldown",
+              "sets": "3",
+              "reps": "6",
+              "rest": "2-3 min",
+              "notes": "RPE 8. PULL YOUR ELBOWS STRAIGHT OUT TO YOUR SIDES, USE A 1.5X SHOULDER WIDTH"
+            },
+            {
+              "exerciseId": "dumbbell-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. BRACE ONTO A BENCH FOR SUPPORT, PULL YOUR ELBOW AGAINST YOUR SIDES"
+            },
+            {
+              "exerciseId": "barbell-bent-over-row",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. LEAN YOUR TORSO OVER AT A 45 degrees ANGLE, KEEP YOUR LOWER BACK NEUTRAL,"
+            },
+            {
+              "exerciseId": "reverse-pec-deck",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. PROTRACT YOUR SCAPULAE, SWEEP THE WEIGHT OUT AND BACK"
+            },
+            {
+              "exerciseId": "ez-bar-curl",
+              "sets": "3",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. DRIVE YOUR PINKY INTO THE HANDLE HARDER THAN YOUR POINTER FINGER"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Legs & Abs #2",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "3",
+              "reps": "8",
+              "rest": "3-4 min",
+              "notes": "RPE 8. SIT BACK AND DOWN, 15 degrees TOE FLARE, DRIVE YOUR KNEES OUT LATERALLY"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust",
+              "sets": "3",
+              "reps": "8",
+              "rest": "2-3 min",
+              "notes": "RPE 8. TUCK YOUR CHIN AND RIB CAGE DOWN, ONLY MOVE YOUR HIPS. USE A PAD"
+            },
+            {
+              "exerciseId": "romanian-deadlift",
+              "sets": "3",
+              "reps": "12",
+              "rest": "2-3 min",
+              "notes": "RPE 8. MAINTAIN A NEUTRAL LOWER BACK, SET YOUR HIPS BACK, DON'T ALLOW YOUR"
+            },
+            {
+              "exerciseId": "seated-leg-curl",
+              "sets": "3",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 9. FOCUS ON SQUEEZING YOUR HAMSTRINGS TO MAKE THE WEIGHT MOVE"
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 9. PRESS ALL THE WAY UP TO YOUR TOES, STRETCH YOUR CALVES AT THE BOTTOM,"
+            },
+            {
+              "exerciseId": "hanging-leg-raise",
+              "sets": "3",
+              "reps": "6",
+              "rest": "1-2 min",
+              "notes": "RPE 8. FOCUS ON FLEXING YOUR LOWER BACK, PERFORM OFF OF CAPTAIN'S CHAIR"
+            },
+            {
+              "exerciseId": "seated-hip-abduction",
+              "sets": "3",
+              "reps": "20",
+              "rest": "1-2 min",
+              "notes": "RPE 9. KEEP YOUR BUTT IN THE SEAT, FOCUS ON SQUEEZING YOUR GLUTES TO MAKE THE"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Shoulders & Arms",
+          "items": [
+            {
+              "exerciseId": "dumbbell-seated-shoulder-press",
+              "sets": "3",
+              "reps": "10",
+              "rest": "3-4 min",
+              "notes": "RPE 8. BRING THE DUMBBELL ALL THE WAY DOWN TO YOUR SHOULDERS, KEEP YOUR"
+            },
+            {
+              "exerciseId": "cable-lateral-raise",
+              "sets": "3",
+              "reps": "10",
+              "rest": "1-2 min",
+              "notes": "RPE 8. LEAN AWAY FROM THE MACHINE, ARMS STRAIGHT OUT TO YOUR SIDE"
+            },
+            {
+              "exerciseId": "dumbbell-bent-over-lateral-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "1-2 min",
+              "notes": "RPE 8. LEAN OVER SUCH THAT YOUR TORSO IS PARALLEL WITH THE GROUND, RAISE YOUR"
+            },
+            {
+              "exerciseId": "dumbbell-floor-press",
+              "sets": "2",
+              "reps": "15",
+              "rest": "1-2 min",
+              "notes": "RPE 8. TUCK YOUR ELBOWS AGAINST YOUR SIDES"
+            },
+            {
+              "exerciseId": "hammer-curl",
+              "sets": "2",
+              "reps": "8",
+              "rest": "1-2 min",
+              "notes": "RPE 8. NEUTRAL GRIP, PREVENT YOUR UPPER ARM FROM MOVING"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

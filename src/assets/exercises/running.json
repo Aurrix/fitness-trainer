@@ -1,0 +1,187 @@
+{
+  "id": "running",
+  "displayLabel": "Running",
+  "category": "Cardio",
+  "type": "continues",
+  "shortDescription": "Continuous outdoor or treadmill running session tracked by duration and perceived effort.",
+  "descriptionHtml": "<p>Continuous outdoor or treadmill running session tracked by duration and perceived effort.</p><ul><li><strong>Track:</strong> duration, distance, and perceived effort.</li><li><strong>Typical uses:</strong> easy aerobic work, tempo intervals, and conditioning finishers.</li></ul>",
+  "aliases": [
+    "Jogging",
+    "Treadmill Run"
+  ],
+  "equipment": [
+    "Treadmill"
+  ],
+  "instructions": [
+    "Set the intended duration before starting.",
+    "Keep pace aligned with the planned effort target.",
+    "Log the session duration and perceived effort after finishing."
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "durationMinutes",
+    "measurement": {
+      "basis": "continuous work duration at a sustainable training pace",
+      "unit": "minutes"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "durationMinutesRange": [
+              15,
+              25
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              25,
+              45
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              40,
+              70
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "durationMinutesRange": [
+              14,
+              24
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              24,
+              43
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              38,
+              67
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "durationMinutesRange": [
+              13,
+              21
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              21,
+              38
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              34,
+              60
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "durationMinutesRange": [
+              15,
+              25
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              25,
+              45
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              40,
+              70
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "durationMinutesRange": [
+              14,
+              24
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              24,
+              43
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              38,
+              67
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "durationMinutesRange": [
+              13,
+              21
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              21,
+              38
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              34,
+              60
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    "cardio",
+    "endurance",
+    "conditioning"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "soleus",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.5
+    }
+  ]
+}

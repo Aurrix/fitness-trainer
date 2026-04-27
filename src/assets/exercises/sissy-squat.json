@@ -1,0 +1,162 @@
+{
+  "id": "sissy-squat",
+  "displayLabel": "Sissy Squat",
+  "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
+  "descriptionHtml": "<p>Squat variation for lower-body strength and quad and glute development.</p><p>Reference this movement in program files with the exercise id <code>sissy-squat</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Advanced",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "strict bodyweight reps",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              5,
+              8
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              15
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              15,
+              25
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              5,
+              8
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              15
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              15,
+              25
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              7
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              7,
+              13
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              13,
+              21
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              15
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              20
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              4,
+              8
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              15
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              20
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              3,
+              7
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              7,
+              13
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              10,
+              17
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.3
+    }
+  ]
+}

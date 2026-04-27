@@ -1,0 +1,234 @@
+{
+  "id": "weighted-dip",
+  "displayLabel": "Weighted Dip",
+  "shortDescription": "Dip variation for chest and triceps with a strong stretch under load.",
+  "descriptionHtml": "<p>Dip variation for chest and triceps with a strong stretch under load.</p><p>Reference this movement in program files with the exercise id <code>weighted-dip</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Advanced",
+  "strengthBenchmarks": {
+    "kind": "externalLoadKg",
+    "measurement": {
+      "basis": "external load added to bodyweight with a belt or vest",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              12
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              15,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              30,
+              50
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              12
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              15,
+              30
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              30,
+              50
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              11
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              14,
+              27
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              27,
+              45
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              8,
+              18
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              18,
+              30
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              8,
+              18
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              18,
+              30
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              5
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              7,
+              16
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              16,
+              27
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.4
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "manifests": [
+    {
+      "id": "fundamentals-body-part-split",
+      "displayLabel": "Fundamentals Body Part Split",
+      "shortDescription": "8-week five-day body-part hypertrophy split from the fundamentals book.",
+      "goal": "hypertrophy",
+      "level": "beginner",
+      "duration": "8 weeks",
+      "file": "fundamentals-body-part-split.json"
+    },
+    {
+      "id": "fundamentals-full-body",
+      "displayLabel": "Fundamentals Full Body",
+      "shortDescription": "8-week three-day full body hypertrophy base-building program.",
+      "goal": "hypertrophy",
+      "level": "beginner",
+      "duration": "8 weeks",
+      "file": "fundamentals-full-body.json"
+    },
+    {
+      "id": "fundamentals-lower-upper",
+      "displayLabel": "Fundamentals Lower / Upper",
+      "shortDescription": "8-week four-day lower and upper hypertrophy base-building split.",
+      "goal": "hypertrophy",
+      "level": "beginner",
+      "duration": "8 weeks",
+      "file": "fundamentals-lower-upper.json"
+    },
+    {
+      "id": "high-frequency-full-body",
+      "displayLabel": "High Frequency Full Body",
+      "shortDescription": "10-week five-day full body strength and hypertrophy program.",
+      "goal": "hypertrophy",
+      "level": "intermediate",
+      "duration": "10 weeks",
+      "file": "high-frequency-full-body.json"
+    },
+    {
+      "id": "ppl-v2-intermediate",
+      "displayLabel": "PPL V2 Intermediate",
+      "shortDescription": "10-week six-day push, pull, legs hypertrophy program.",
+      "goal": "hypertrophy",
+      "level": "intermediate",
+      "duration": "10 weeks",
+      "file": "ppl-v2-intermediate.json"
+    }
+  ]
+}

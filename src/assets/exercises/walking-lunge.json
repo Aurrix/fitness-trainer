@@ -1,0 +1,170 @@
+{
+  "id": "walking-lunge",
+  "displayLabel": "Walking Lunge",
+  "shortDescription": "Single-leg lower-body movement for quad, glute, and stability work.",
+  "descriptionHtml": "<p>Single-leg lower-body movement for quad, glute, and stability work.</p><p>Reference this movement in program files with the exercise id <code>walking-lunge</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "strict bodyweight reps per leg",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              16
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              16,
+              24
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              16
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              16,
+              24
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              5,
+              9
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              9,
+              14
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              14,
+              20
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              16
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              16,
+              24
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              16
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              16,
+              24
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              5,
+              9
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              9,
+              14
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              14,
+              20
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.5
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "id": "plank",
+  "displayLabel": "Plank",
+  "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Also listed as:</strong> PLANK</li></ul>",
+  "aliases": [
+    "PLANK"
+  ],
+  "substitutionExerciseIds": [],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "holdSeconds",
+    "measurement": {
+      "basis": "strict bodyweight hold duration",
+      "unit": "seconds"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "holdSecondsRange": [
+              30,
+              60
+            ]
+          },
+          "intermediate": {
+            "holdSecondsRange": [
+              60,
+              120
+            ]
+          },
+          "advanced": {
+            "holdSecondsRange": [
+              120,
+              180
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "holdSecondsRange": [
+              29,
+              57
+            ]
+          },
+          "intermediate": {
+            "holdSecondsRange": [
+              57,
+              114
+            ]
+          },
+          "advanced": {
+            "holdSecondsRange": [
+              114,
+              171
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "holdSecondsRange": [
+              24,
+              48
+            ]
+          },
+          "intermediate": {
+            "holdSecondsRange": [
+              48,
+              96
+            ]
+          },
+          "advanced": {
+            "holdSecondsRange": [
+              96,
+              144
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "holdSecondsRange": [
+              30,
+              60
+            ]
+          },
+          "intermediate": {
+            "holdSecondsRange": [
+              60,
+              120
+            ]
+          },
+          "advanced": {
+            "holdSecondsRange": [
+              120,
+              180
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "holdSecondsRange": [
+              29,
+              57
+            ]
+          },
+          "intermediate": {
+            "holdSecondsRange": [
+              57,
+              114
+            ]
+          },
+          "advanced": {
+            "holdSecondsRange": [
+              114,
+              171
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "holdSecondsRange": [
+              24,
+              48
+            ]
+          },
+          "intermediate": {
+            "holdSecondsRange": [
+              48,
+              96
+            ]
+          },
+          "advanced": {
+            "holdSecondsRange": [
+              96,
+              144
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "transverse-abdominis",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 0.5
+    }
+  ]
+}

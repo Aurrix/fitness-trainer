@@ -1,0 +1,242 @@
+{
+  "id": "conventional-deadlift",
+  "displayLabel": "Conventional Deadlift",
+  "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
+  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><p>Reference this movement in program files with the exercise id <code>conventional-deadlift</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "barbell total including the bar",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              51,
+              61
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              109,
+              125
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              160,
+              180
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              51,
+              61
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              109,
+              125
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              160,
+              180
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              46,
+              55
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              98,
+              112
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              144,
+              162
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              25,
+              30
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              63,
+              71
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              96,
+              108
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              25,
+              30
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              63,
+              71
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              96,
+              108
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              22,
+              27
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              56,
+              64
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              6
+            ],
+            "loadRangeKg": [
+              86,
+              97
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-traps",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "forearm-flexors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.4
+    }
+  ]
+}

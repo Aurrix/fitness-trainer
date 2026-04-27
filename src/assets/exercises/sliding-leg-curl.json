@@ -1,0 +1,162 @@
+{
+  "id": "sliding-leg-curl",
+  "displayLabel": "Sliding Leg Curl",
+  "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
+  "descriptionHtml": "<p>Knee-flexion isolation movement for the hamstrings.</p><p>Reference this movement in program files with the exercise id <code>sliding-leg-curl</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "strict bodyweight reps",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              5,
+              8
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              14
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              14,
+              22
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              5,
+              8
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              14
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              14,
+              22
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              7
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              7,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              19
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              4,
+              7
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              7,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              18
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              4,
+              7
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              7,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              18
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              3,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              10,
+              15
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.3
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "id": "glute-ham-raise",
+  "displayLabel": "Glute Ham Raise",
+  "shortDescription": "Resistance training exercise used across the imported workout books.",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Common substitutions:</strong> Cable Pull-through, Glute Bridge, and Reverse Hyper</li></ul>",
+  "aliases": [],
+  "substitutionExerciseIds": [
+    "cable-pull-through",
+    "glute-bridge",
+    "reverse-hyper"
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "strict bodyweight reps",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              3,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              20
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              3,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              12,
+              20
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              3,
+              5
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              5,
+              10
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              10,
+              17
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              1,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              8
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              15
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              1,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              8
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              15
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              1,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              3,
+              7
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              7,
+              13
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.3
+    }
+  ]
+}

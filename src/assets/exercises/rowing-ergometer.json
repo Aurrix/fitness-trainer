@@ -1,0 +1,187 @@
+{
+  "id": "rowing-ergometer",
+  "displayLabel": "Rowing Ergometer",
+  "category": "Cardio",
+  "type": "continues",
+  "shortDescription": "Continuous rowing machine effort tracked primarily by duration and effort.",
+  "descriptionHtml": "<p>Continuous rowing machine effort tracked primarily by duration and effort.</p><ul><li><strong>Track:</strong> duration, pace, and perceived effort.</li><li><strong>Typical uses:</strong> warm-ups, interval conditioning, and low-impact endurance work.</li></ul>",
+  "aliases": [
+    "Rowing Machine",
+    "Erg Row"
+  ],
+  "equipment": [
+    "Rowing Ergometer"
+  ],
+  "instructions": [
+    "Set the damper and pace appropriate for the planned effort.",
+    "Maintain consistent stroke rhythm for the target duration.",
+    "Log the duration and effort once the piece is complete."
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "durationMinutes",
+    "measurement": {
+      "basis": "continuous work duration at a sustainable training pace",
+      "unit": "minutes"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "durationMinutesRange": [
+              10,
+              20
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              20,
+              35
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              30,
+              50
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "durationMinutesRange": [
+              10,
+              19
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              19,
+              33
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              29,
+              48
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "durationMinutesRange": [
+              9,
+              17
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              17,
+              30
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              26,
+              43
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "durationMinutesRange": [
+              10,
+              20
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              20,
+              35
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              30,
+              50
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "durationMinutesRange": [
+              10,
+              19
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              19,
+              33
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              29,
+              48
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "durationMinutesRange": [
+              9,
+              17
+            ]
+          },
+          "intermediate": {
+            "durationMinutesRange": [
+              17,
+              30
+            ]
+          },
+          "advanced": {
+            "durationMinutesRange": [
+              26,
+              43
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    "cardio",
+    "conditioning",
+    "machine"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearm-flexors",
+      "factor": 0.5
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "id": "pull-up",
+  "displayLabel": "Pull-Up",
+  "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><p>Reference this movement in program files with the exercise id <code>pull-up</code>.</p>",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "bodyweightReps",
+    "measurement": {
+      "basis": "strict bodyweight reps",
+      "unit": "reps"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              1,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              14
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              15,
+              25
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              1,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              14
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              15,
+              25
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              1,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              7,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              13,
+              21
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              1,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              8
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              14
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              1,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              8
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              14
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              1,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              3,
+              7
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              7,
+              12
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.4
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "id": "weighted-pull-up",
+  "displayLabel": "Weighted Pull-Up",
+  "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> Weighted Pullup</li><li><strong>Common substitutions:</strong> Lat Pulldown and Neutral-grip Pull-up</li></ul>",
+  "aliases": [
+    "Weighted Pullup"
+  ],
+  "substitutionExerciseIds": [
+    "lat-pulldown",
+    "neutral-grip-pull-up"
+  ],
+  "difficulty": "Advanced",
+  "strengthBenchmarks": {
+    "kind": "externalLoadKg",
+    "measurement": {
+      "basis": "external load added to bodyweight with a belt or vest",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              8
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              10,
+              22
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              25,
+              45
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              8
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              10,
+              22
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              25,
+              45
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              7
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              9,
+              20
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              23,
+              41
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              5,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              12,
+              20
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              5,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              12,
+              20
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              0,
+              4
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              4,
+              6
+            ],
+            "externalLoadRangeKg": [
+              5,
+              11
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              3,
+              5
+            ],
+            "externalLoadRangeKg": [
+              11,
+              18
+            ]
+          }
+        }
+      }
+    }
+  },
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.4
+    }
+  ]
+}
