@@ -2,6 +2,12 @@
 
 Mobile-first fitness tracker built with React, TypeScript, Vite, Zustand, Dexie, and a PWA shell.
 
+## Open the app
+
+Live app: [https://aurrix.github.io/fitness-trainer/](https://aurrix.github.io/fitness-trainer/)
+
+Replace the link above with your real GitHub Pages URL if needed.
+
 ## Development
 
 ```bash
@@ -119,8 +125,105 @@ Current persisted keys:
 - Exercise detail view
   Exercise-specific progression charts such as max weight, volume, reps, duration, and latest logged effort.
 
-## Notes
+## Install the app
 
-- All data is currently device-local. There is no backend sync yet.
-- Exercise-specific stats are intentionally shown in the exercise detail sheet instead of the main stats screen.
-- Chart views currently focus on recent history windows to stay compact on mobile.
+Words Memorizer works directly in the browser, but installing it makes it feel more like a native app.
+
+### iPhone
+
+Use **Safari**:
+
+1. Open the live app.
+2. Tap **Share**.
+3. Tap **Add to Home Screen**.
+4. Turn on **Open as Web App** if shown.
+5. Tap **Add**.
+
+### iPad
+
+Use **Safari**:
+
+1. Open the live app.
+2. Tap **Share**.
+3. Tap **More** if needed.
+4. Tap **Add to Home Screen**.
+5. Turn on **Open as Web App** if shown.
+6. Tap **Add**.
+
+### Android
+
+Use **Chrome**:
+
+1. Open the live app.
+2. Tap the browser menu.
+3. Tap **Add to Home screen**.
+4. Tap **Install** if Chrome offers the install flow.
+5. Follow the prompts.
+
+If the site is offered only as a shortcut, you can still add it and launch it from your Home Screen.
+
+### Windows
+
+Use **Microsoft Edge** or **Chrome**:
+
+- In **Edge**:
+    1. Open the live app.
+    2. If Edge offers install in the address bar, use it.
+    3. Or open `...` -> **More tools** -> **Apps** -> **Install this site as an app**.
+
+- In **Chrome**:
+    1. Open the live app.
+    2. If Chrome shows the install icon in the address bar, click it.
+    3. Or open `...` -> **Cast, save, and share** -> **Install page as app**.
+
+### macOS / Linux
+
+Use **Chrome** or another Chromium-based browser with PWA install support:
+
+1. Open the live app.
+2. Use the install icon in the address bar if available.
+3. If not, open the browser menu and choose the install option for the page/app.
+
+## Browser support
+
+The app is best used in modern browsers with support for:
+
+- IndexedDB / local browser storage
+- installable web apps / PWAs
+- Web Speech API for microphone input and text-to-speech
+
+Some features may vary by browser. If speech features are unavailable, the rest of the app still works normally.
+
+## Data and privacy
+
+- Your words are stored locally in your browser on the current device.
+- Different browsers keep separate local storage.
+- Clearing browser storage may remove your saved words and stats.
+
+If you want to keep long-term study data, avoid clearing site data for the app.
+
+## Troubleshooting
+
+### I do not see the install option
+
+- Refresh the page once after opening it
+- Make sure you are using a supported browser
+- Try Chrome, Edge, or Safari on the platforms above
+- If install still does not appear, use the app in the browser
+
+### I do not see microphone or speaker icons
+
+- Your browser may not support the required speech APIs
+- Your device or browser permissions may block microphone access
+- Text input and study mode still work without speech features
+
+## Official install help
+
+If browser menus change over time, these official guides are the best fallback:
+
+- Chrome on desktop: [Use web apps](https://support.google.com/chrome/answer/9658361?co=genie.platform%3DDesktop&hl=en)
+- Chrome on Android: [Use web apps](https://support.google.com/chrome/answer/9658361?co=GENIE.Platform%3DAndroid&hl=en)
+- Chrome shortcuts on Android: [Create shortcuts for websites in Chrome](https://support.google.com/chrome/answer/15085120?co=GENIE.Platform%3DAndroid&hl=en)
+- Safari on iPhone: [Turn a website into an app in Safari on iPhone](https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/ios)
+- Safari on iPad: [Turn a website into an app in Safari on iPad](https://support.apple.com/en-tj/guide/ipad/ipad8f1f7a29/ipados)
+- Microsoft Edge: [Install, manage, or uninstall apps in Microsoft Edge](https://support.microsoft.com/en-us/topic/install-manage-or-uninstall-apps-in-microsoft-edge-0c156575-a94a-45e4-a54f-3a84846f6113)
