@@ -38,7 +38,11 @@ jobs:
         with:
           node-version: 24
       - name: Setup Project
-        run: npm ci
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+          npm cache clean --force
+          npm ci
       - name: Build
         run: npm run build
       - name: Upload artifact
