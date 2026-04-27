@@ -1,0 +1,69 @@
+{
+  "id": "weekly-body-check-in",
+  "title": "Weekly body check-in",
+  "category": "body",
+  "tone": "neutral",
+  "priority": 100,
+  "variables": {
+    "daysSinceLastLog": {
+      "keyword": "daysSinceLastBodyEntry"
+    },
+    "daysSinceLastReminder": {
+      "keyword": "daysSinceTimestamp",
+      "args": [
+        {
+          "keyword": "lastReminderAt"
+        }
+      ]
+    }
+  },
+  "when": {
+    "all": [
+      {
+        "truthy": {
+          "keyword": "reminderEnabled"
+        }
+      },
+      {
+        "eq": [
+          {
+            "keyword": "notificationPermission"
+          },
+          "granted"
+        ]
+      },
+      {
+        "gte": [
+          {
+            "var": "daysSinceLastLog"
+          },
+          7
+        ]
+      },
+      {
+        "any": [
+          {
+            "falsy": {
+              "keyword": "lastReminderAt"
+            }
+          },
+          {
+            "gte": [
+              {
+                "var": "daysSinceLastReminder"
+              },
+              7
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "details": [
+    "Keep body measurements current so suggestions and trends stay accurate."
+  ],
+  "messages": {
+    "summary": "It has been {{daysSinceLastLog}} days since your last body-composition log.",
+    "action": "Open the Stats tab and save a new weight or body-fat entry."
+  }
+}

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Activity, BarChart3 } from 'lucide-react'
 import { LineChart } from '@mui/x-charts/LineChart'
 import {
@@ -21,8 +22,10 @@ import type { AppProgram } from '../lib/app-types'
 import type { FitnessProfile } from '../lib/fitness-profile'
 import {
   buildExerciseProgressionBreakdown,
+  buildExerciseProgressTimeline,
   buildMuscleProgressionBreakdown,
   buildMuscleProgressProfile,
+  buildMuscleProgressTimeline,
   buildProgramSessionPoints,
   buildWeeklyFrequency,
   derivePlannedSessionsPerWeek,
@@ -32,7 +35,8 @@ import {
   type MuscleProgressEntry,
 } from '../lib/progression'
 import type { ProgramStatsRecord } from '../services/program-stats'
-import MuscleVisualizer from './MuscleVisualizer'
+import BottomSheet from './BottomSheet'
+import GrowthLaggingMapCard from '../pages/progression/components/GrowthLaggingMapCard'
 
 type ProgramProgressionPanelProps = {
   exerciseStatsStore: ExerciseStatsStore
@@ -84,13 +88,44 @@ function formatRangeValue([min, max]: [number, number], unit: string) {
   return `${Math.round(min)}-${Math.round(max)} ${normalizedUnit}`
 }
 
+type BreakdownBadge = {
+  description: string
+  details: string[]
+  kicker: string
+  label: string
+  title: string
+  tone: 'negative' | 'neutral' | 'positive'
+}
+
 type BreakdownRow = {
+  badges: BreakdownBadge[]
+  description: string
+  details: string[]
   id: string
+  kicker: string
   label: string
   metaLines: string[]
+  sparkline?: {
+    color: string
+    data: Array<number | null>
+  } | null
   tone: 'negative' | 'neutral' | 'positive'
+  title: string
   value: string
   valueMeta: string | null
+}
+
+type BreakdownInfo = Pick<BreakdownRow, 'description' | 'details' | 'kicker' | 'title'> | Pick<
+  BreakdownBadge,
+  'description' | 'details' | 'kicker' | 'title'
+>
+
+function formatPercentValue(value: number) {
+  return `${formatSignedNumber(value * 100, 0)}%`
+}
+
+function formatConfidenceLabel(value: number) {
+  return `${Math.round(value * 100)}% confidence weight`
 }
 
 function buildBreakdownRows(
@@ -107,59 +142,150 @@ function buildBreakdownRows(
               exercise.scoreUnit,
             )}`
           : null
+      const rawRelativeChange =
+        (exercise.laterAverageScore - exercise.earlierAverageScore) /
+        Math.max(Math.abs(exercise.earlierAverageScore), 1)
+      const volumeDelta =
+        exercise.latestVolumeKg !== null || exercise.previousVolumeKg !== null
+          ? (exercise.latestVolumeKg ?? 0) - (exercise.previousVolumeKg ?? 0)
+          : null
+      const comparisonUnit =
+        exercise.benchmarkComparison?.measurementUnit === 'minutes'
+          ? 'min'
+          : exercise.benchmarkComparison?.measurementUnit ?? ''
 
       return {
-      id: exercise.exerciseKey,
-      label: exercise.exerciseName,
-      metaLines: [
-        exercise.latestScore !== null
-          ? `${exercise.scoreLabel} ${formatMetricValue(exercise.latestScore, exercise.scoreUnit)} · ${exercise.sampleCount} logs`
-          : `${exercise.sampleCount} logs`,
-        exercise.benchmarkComparison
-          ? `Avg ${formatRangeValue(
-              exercise.benchmarkComparison.benchmarkRange,
-              exercise.benchmarkComparison.measurementUnit,
-            )} · ${formatSignedNumber(
-              exercise.benchmarkComparison.comparisonPercent,
-              0,
-            )}% vs avg`
-          : 'No peer benchmark for this exercise yet',
-        exercise.latestVolumeKg !== null || exercise.previousVolumeKg !== null
-          ? `Volume ${formatSignedMetricValue(
-              (exercise.latestVolumeKg ?? 0) - (exercise.previousVolumeKg ?? 0),
-              'kg',
-            )}`
-          : null,
-      ].filter(Boolean) as string[],
-      tone:
-        exercise.coefficient > 0.03
-          ? ('positive' as const)
-          : exercise.coefficient < -0.03
-            ? ('negative' as const)
-            : ('neutral' as const),
-      valueMeta:
-        deltaLabel && exercise.benchmarkComparison
-          ? `${deltaLabel} · ${formatSignedMetricValue(
-              exercise.benchmarkComparison.comparisonDelta,
-              exercise.benchmarkComparison.measurementUnit === 'minutes'
-                ? 'min'
-                : exercise.benchmarkComparison.measurementUnit,
-            )}`
-          : deltaLabel ??
-            (exercise.benchmarkComparison
-              ? formatSignedMetricValue(
-                  exercise.benchmarkComparison.comparisonDelta,
-                  exercise.benchmarkComparison.measurementUnit === 'minutes'
-                    ? 'min'
-                    : exercise.benchmarkComparison.measurementUnit,
-                )
-              : null),
-      value: formatCoefficient(exercise.coefficient),
-    }})
+        badges: [
+          exercise.benchmarkComparison
+            ? {
+                description:
+                  'Compares your latest benchmark-relevant performance against the midpoint of the matching peer average range for this exercise.',
+                details: [
+                  `Benchmark range: ${formatRangeValue(
+                    exercise.benchmarkComparison.benchmarkRange,
+                    exercise.benchmarkComparison.measurementUnit,
+                  )}`,
+                  `Latest value: ${formatMetricValue(
+                    exercise.benchmarkComparison.latestValue,
+                    comparisonUnit,
+                  )}`,
+                  `Difference vs midpoint: ${formatSignedMetricValue(
+                    exercise.benchmarkComparison.comparisonDelta,
+                    comparisonUnit,
+                  )}`,
+                  `Relative difference: ${formatSignedNumber(
+                    exercise.benchmarkComparison.comparisonPercent,
+                    0,
+                  )}%`,
+                ],
+                kicker: 'Peer Average',
+                label: `Avg ${formatSignedNumber(
+                  exercise.benchmarkComparison.comparisonPercent,
+                  0,
+                )}%`,
+                title: `${exercise.exerciseName} average comparison`,
+                tone: exercise.benchmarkComparison.comparisonTone,
+              }
+            : null,
+          deltaLabel
+            ? {
+                description:
+                  'Shows how the latest logged performance for this exercise changed versus the previous logged performance.',
+                details: [
+                  `Previous: ${formatMetricValue(
+                    exercise.previousScore,
+                    exercise.scoreUnit,
+                  )}`,
+                  `Latest: ${formatMetricValue(exercise.latestScore, exercise.scoreUnit)}`,
+                  `Change: ${deltaLabel}`,
+                ],
+                kicker: 'Latest Change',
+                label: deltaLabel,
+                title: `${exercise.exerciseName} latest ${exercise.scoreLabel.toLowerCase()} change`,
+                tone:
+                  exercise.previousScore !== null && exercise.latestScore !== null
+                    ? exercise.latestScore > exercise.previousScore
+                      ? 'positive'
+                      : exercise.latestScore < exercise.previousScore
+                        ? 'negative'
+                        : 'neutral'
+                    : 'neutral',
+              }
+            : null,
+          volumeDelta !== null
+            ? {
+                description:
+                  'Shows how the latest logged session volume changed versus the previous logged session volume for this exercise.',
+                details: [
+                  `Previous volume: ${formatVolumeValue(exercise.previousVolumeKg)}`,
+                  `Latest volume: ${formatVolumeValue(exercise.latestVolumeKg)}`,
+                  `Change: ${formatSignedMetricValue(volumeDelta, 'kg')}`,
+                ],
+                kicker: 'Session Volume',
+                label: `Vol ${formatSignedMetricValue(volumeDelta, 'kg')}`,
+                title: `${exercise.exerciseName} volume change`,
+                tone: volumeDelta > 0 ? 'positive' : volumeDelta < 0 ? 'negative' : 'neutral',
+              }
+            : null,
+        ].filter((badge): badge is BreakdownBadge => badge !== null),
+        description:
+          'Progress coefficient compares the later average exercise performance against the earlier average, then dampens the result when the sample size is small.',
+        details: [
+          `Earlier average ${exercise.scoreLabel}: ${formatMetricValue(
+            exercise.earlierAverageScore,
+            exercise.scoreUnit,
+          )}`,
+          `Later average ${exercise.scoreLabel}: ${formatMetricValue(
+            exercise.laterAverageScore,
+            exercise.scoreUnit,
+          )}`,
+          `Raw relative change: ${formatPercentValue(rawRelativeChange)}`,
+          `${formatConfidenceLabel(exercise.confidence)} based on ${exercise.sampleCount} logged sessions`,
+          `Final coefficient: ${formatCoefficient(exercise.coefficient)}`,
+        ],
+        id: exercise.exerciseKey,
+        kicker: 'Exercise Progress',
+        label: exercise.exerciseName,
+        metaLines: [
+          exercise.latestScore !== null
+            ? `${exercise.scoreLabel} ${formatMetricValue(exercise.latestScore, exercise.scoreUnit)} / ${exercise.sampleCount} logs`
+            : `${exercise.sampleCount} logs`,
+          exercise.benchmarkComparison
+            ? `Average ${formatRangeValue(
+                exercise.benchmarkComparison.benchmarkRange,
+                exercise.benchmarkComparison.measurementUnit,
+              )} / ${formatSignedMetricValue(
+                exercise.benchmarkComparison.comparisonDelta,
+                comparisonUnit,
+              )} vs midpoint`
+            : 'No peer benchmark for this exercise yet',
+        ],
+        tone:
+          exercise.coefficient > 0.03
+            ? ('positive' as const)
+            : exercise.coefficient < -0.03
+              ? ('negative' as const)
+              : ('neutral' as const),
+        sparkline: null,
+        title: `${exercise.exerciseName} progression coefficient`,
+        valueMeta: null,
+        value: formatCoefficient(exercise.coefficient),
+      }
+    })
   }
 
   return muscles.slice(0, 8).map((muscle) => ({
+    badges: [],
+    description:
+      'Muscle coefficient is the weighted average of exercise progression coefficients for exercises that target this muscle.',
+    details: [
+      `Contributing exercises: ${muscle.contributorCount}`,
+      `Logged samples across contributors: ${muscle.sampleCount}`,
+      `Uses exercise target coefficients to weight chest, back, arm, leg and similar overlap`,
+      `Final coefficient: ${formatCoefficient(muscle.coefficient)}`,
+    ],
     id: muscle.slug,
+    kicker: 'Muscle Progress',
     label: muscle.label,
     metaLines: [
       muscle.exerciseNames.length > 0
@@ -172,6 +298,8 @@ function buildBreakdownRows(
         : muscle.coefficient < -0.03
           ? ('negative' as const)
           : ('neutral' as const),
+    sparkline: null,
+    title: `${muscle.label} progression coefficient`,
     valueMeta: null,
     value: formatCoefficient(muscle.coefficient),
   }))
@@ -187,6 +315,9 @@ export default function ProgramProgressionPanel({
   statsPreferences,
   workoutLogs,
 }: ProgramProgressionPanelProps) {
+  const [selectedInfo, setSelectedInfo] = useState<BreakdownInfo | null>(null)
+  const [showStrengthTrendPreview, setShowStrengthTrendPreview] = useState(false)
+
   if (!mainProgram) {
     return (
       <section className="section-card">
@@ -243,11 +374,49 @@ export default function ProgramProgressionPanel({
     [...muscleBreakdown]
       .filter((entry) => entry.coefficient < -0.01)
       .sort((left, right) => left.coefficient - right.coefficient)[0] ?? null
+  const muscleTimeline = buildMuscleProgressTimeline(
+    mainProgram.id,
+    exerciseStatsStore,
+    strengthRange,
+    muscleBreakdown.slice(0, 8).map((entry) => entry.slug),
+  )
+  const exerciseTimeline = buildExerciseProgressTimeline(
+    mainProgram.id,
+    exerciseStatsStore,
+    strengthRange,
+    exerciseBreakdown.slice(0, 8).map((entry) => entry.exerciseKey),
+  )
+  const muscleTimelineLookup = new Map(
+    muscleTimeline.series.map((entry, index) => [
+      entry.slug,
+      {
+        color: ['#f97316', '#0ea5e9', '#22c55e', '#7c3aed', '#ef4444', '#14b8a6'][index % 6],
+        data: entry.data,
+      },
+    ]),
+  )
+  const exerciseTimelineLookup = new Map(
+    exerciseTimeline.series.map((entry, index) => [
+      entry.exerciseKey,
+      {
+        color: ['#f97316', '#0ea5e9', '#22c55e', '#7c3aed', '#ef4444', '#14b8a6'][index % 6],
+        data: entry.data,
+      },
+    ]),
+  )
   const breakdownRows = buildBreakdownRows(
     statsPreferences.muscleProgressView,
     exerciseBreakdown,
     muscleBreakdown,
-  )
+  ).map((row) => ({
+    ...row,
+    sparkline:
+      statsPreferences.muscleProgressView === 'exercises'
+        ? (exerciseTimelineLookup.get(row.id) ?? null)
+        : (muscleTimelineLookup.get(row.id as any) ?? null),
+  }))
+  const showVolumeTrendChart = strengthPoints.length > 10
+  const showExecutionTrendChart = strengthPoints.length > 10
 
   function updateProgramRange(range: StatsRangePreset) {
     onUpdateStatsPreferences((currentPreferences) => ({
@@ -267,6 +436,7 @@ export default function ProgramProgressionPanel({
   }
 
   function updateStrengthRange(range: StatsRangePreset) {
+    setShowStrengthTrendPreview(true)
     onUpdateStatsPreferences((currentPreferences) => ({
       ...currentPreferences,
       muscleProgressRange: range,
@@ -278,6 +448,10 @@ export default function ProgramProgressionPanel({
       ...currentPreferences,
       muscleProgressView: view,
     }))
+  }
+
+  function showDefaultStrengthView() {
+    setShowStrengthTrendPreview(false)
   }
 
   if (!programPoints.length && !exerciseBreakdown.length) {
@@ -432,6 +606,29 @@ export default function ProgramProgressionPanel({
           </span>
           <span className="trend-tile__label">Volume</span>
           <strong>{formatVolumeValue(latestStrengthPoint?.totalVolumeKg ?? null)}</strong>
+          {showVolumeTrendChart ? (
+            <LineChart
+              className="trend-tile__chart"
+              colors={['#f97316']}
+              height={72}
+              margin={{ top: 6, right: 0, bottom: 0, left: 0 }}
+              series={[
+                {
+                  area: true,
+                  data: strengthPoints.map((point) => point.totalVolumeKg ?? 0),
+                  label: 'Volume',
+                  showMark: false,
+                },
+              ]}
+              xAxis={[
+                {
+                  data: strengthPoints.map((point) => point.label),
+                  scaleType: 'point',
+                },
+              ]}
+              yAxis={[{ width: 0 }]}
+            />
+          ) : null}
           <div className="trend-tile__footer">
             <span className="trend-tile__delta">
               <span>{formatSignedNumber(volumeDelta, 0)} kg</span>
@@ -446,6 +643,29 @@ export default function ProgramProgressionPanel({
           </span>
           <span className="trend-tile__label">Execution</span>
           <strong>{Math.round(completionAverage)}%</strong>
+          {showExecutionTrendChart ? (
+            <LineChart
+              className="trend-tile__chart"
+              colors={['#0ea5e9']}
+              height={72}
+              margin={{ top: 6, right: 0, bottom: 0, left: 0 }}
+              series={[
+                {
+                  area: true,
+                  data: strengthPoints.map((point) => point.completionRatio),
+                  label: 'Completion',
+                  showMark: false,
+                },
+              ]}
+              xAxis={[
+                {
+                  data: strengthPoints.map((point) => point.label),
+                  scaleType: 'point',
+                },
+              ]}
+              yAxis={[{ max: 100, min: 0, width: 0 }]}
+            />
+          ) : null}
           <div className="trend-tile__footer">
             <span className="trend-tile__delta">
               <span>{formatSetCountValue(latestProgramPoint?.totalSetCount ?? null)}</span>
@@ -455,100 +675,41 @@ export default function ProgramProgressionPanel({
         </article>
       </div>
 
-      <MuscleVisualizer
-        className="progression-muscle-card"
-        compact
-        detailSheetDescription="Positive values mean the later block of logged performance is stronger than the earlier block; negative values highlight lagging areas."
-        detailsMode="sheet"
-        emptyDescription="Complete more logged sessions to map growth vs lagging muscle groups."
-        footer={
-          <>
-            <div className="progression-breakdown__header">
-              <div>
-                <strong>Breakdown</strong>
-                <p className="muted">
-                  Coefficient compares later average performance against the earlier average and
-                  dampens noisy low-sample lifts.
-                </p>
-              </div>
-              <div className="segmented-control segmented-control--two progression-breakdown__toggle">
-                <button
-                  type="button"
-                  className={statsPreferences.muscleProgressView === 'muscles' ? 'is-active' : ''}
-                  onClick={() => updateBreakdownView('muscles')}
-                >
-                  Muscles
-                </button>
-                <button
-                  type="button"
-                  className={statsPreferences.muscleProgressView === 'exercises' ? 'is-active' : ''}
-                  onClick={() => updateBreakdownView('exercises')}
-                >
-                  Exercises
-                </button>
-              </div>
-            </div>
-
-            <div className="stats-mini-table">
-              {breakdownRows.length ? (
-                breakdownRows.map((row) => (
-                  <div key={row.id} className={`stats-mini-table__row is-${row.tone}`}>
-                    <div className="stats-mini-table__copy">
-                      <strong>{row.label}</strong>
-                      {row.metaLines.map((line) => (
-                        <span key={line}>{line}</span>
-                      ))}
-                    </div>
-                    <div className="stats-mini-table__value-stack">
-                      <span className="stats-mini-table__value">{row.value}</span>
-                      {row.valueMeta ? (
-                        <span className="stats-mini-table__value-meta">{row.valueMeta}</span>
-                      ) : null}
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="empty-state compact-empty-state">
-                  <p>No strength samples yet for this range.</p>
-                </div>
-              )}
-            </div>
-          </>
-        }
+      <GrowthLaggingMapCard
+        breakdownRows={breakdownRows}
         gender={fitnessProfile.gender}
-        kicker="Strength"
+        onSelectInfo={setSelectedInfo}
+        onUpdateBreakdownView={updateBreakdownView}
+        onUpdateRange={updateStrengthRange}
+        onUseDefaultView={showDefaultStrengthView}
         profile={progressProfile}
-        showSheetPreview={false}
-        title="Growth vs lagging map"
-        toolbar={
-          <>
-            <div className="mini-chip-row">
-              {statsRangePresetOptions.map((option) => (
-                <button
-                  key={option.value}
-                  type="button"
-                  className={
-                    option.value === strengthRange ? 'chip-button is-active' : 'chip-button'
-                  }
-                  onClick={() => updateStrengthRange(option.value)}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-            <div className="progression-muscle-summary">
-              <span className="pill pill--subtle">
-                Top gainer:{' '}
-                {topGainer ? `${topGainer.label} ${formatCoefficient(topGainer.coefficient)}` : 'N/A'}
-              </span>
-              <span className="pill pill--subtle">
-                Lagging:{' '}
-                {topLagger ? `${topLagger.label} ${formatCoefficient(topLagger.coefficient)}` : 'N/A'}
-              </span>
-            </div>
-          </>
+        selectedRange={strengthRange}
+        showTrendPreview={showStrengthTrendPreview}
+        topGainerLabel={
+          topGainer ? `${topGainer.label} ${formatCoefficient(topGainer.coefficient)}` : 'N/A'
         }
+        topLaggerLabel={
+          topLagger ? `${topLagger.label} ${formatCoefficient(topLagger.coefficient)}` : 'N/A'
+        }
+        view={statsPreferences.muscleProgressView}
       />
+
+      {selectedInfo ? (
+        <BottomSheet
+          description={selectedInfo.description}
+          kicker={selectedInfo.kicker}
+          onClose={() => setSelectedInfo(null)}
+          title={selectedInfo.title}
+        >
+          <div className="info-sheet-list">
+            {selectedInfo.details.map((detail) => (
+              <div key={detail} className="info-sheet-list__item">
+                {detail}
+              </div>
+            ))}
+          </div>
+        </BottomSheet>
+      ) : null}
     </>
   )
 }

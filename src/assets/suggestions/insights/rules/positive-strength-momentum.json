@@ -1,0 +1,59 @@
+{
+  "id": "positive-strength-momentum",
+  "title": "Strength momentum is building",
+  "category": "progression",
+  "tone": "positive",
+  "priority": 66,
+  "variables": {
+    "improvingExercises": {
+      "keyword": "exerciseSubset",
+      "options": {
+        "lookbackDays": 60,
+        "maxExercises": 3,
+        "minPositiveCoefficient": 0.08,
+        "minimumSamples": 3,
+        "mode": "progressing"
+      }
+    },
+    "improvingExerciseCount": {
+      "keyword": "length",
+      "args": [
+        {
+          "var": "improvingExercises"
+        }
+      ]
+    },
+    "improvingExerciseNames": {
+      "keyword": "exerciseNames",
+      "args": [
+        {
+          "var": "improvingExercises"
+        }
+      ]
+    },
+    "improvingExerciseDetails": {
+      "keyword": "exerciseDetails",
+      "args": [
+        {
+          "var": "improvingExercises"
+        },
+        "progressing"
+      ]
+    }
+  },
+  "when": {
+    "gt": [
+      {
+        "var": "improvingExerciseCount"
+      },
+      0
+    ]
+  },
+  "details": [
+    "{{improvingExerciseDetails}}"
+  ],
+  "messages": {
+    "summary": "{{improvingExerciseNames}} are moving up across recent logs.",
+    "action": "Keep the setup stable and progress with small jumps instead of changing exercises too soon."
+  }
+}

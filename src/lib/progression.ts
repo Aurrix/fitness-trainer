@@ -108,9 +108,12 @@ export type ProgramSessionPoint = {
 export type ExerciseProgressEntry = {
   benchmarkComparison: ExerciseStrengthBenchmarkComparison | null
   coefficient: number
+  confidence: number
+  earlierAverageScore: number
   exerciseKey: string
   exerciseName: string
   lastRecordedAt: string | null
+  laterAverageScore: number
   latestVolumeKg: number | null
   latestScore: number | null
   muscleGroups: string[]
@@ -124,10 +127,33 @@ export type ExerciseProgressEntry = {
 
 export type MuscleProgressEntry = {
   coefficient: number
+  contributorCount: number
   exerciseNames: string[]
   label: string
   sampleCount: number
   slug: Slug
+}
+
+export type MuscleProgressTimelineSeries = {
+  data: Array<number | null>
+  label: string
+  slug: Slug
+}
+
+export type MuscleProgressTimeline = {
+  labels: string[]
+  series: MuscleProgressTimelineSeries[]
+}
+
+export type ExerciseProgressTimelineSeries = {
+  data: Array<number | null>
+  exerciseKey: string
+  label: string
+}
+
+export type ExerciseProgressTimeline = {
+  labels: string[]
+  series: ExerciseProgressTimelineSeries[]
 }
 
 export type ExerciseStrengthBenchmarkComparison = {
@@ -1168,7 +1194,10 @@ export function calculateExerciseProgressionCoefficient(
 
   return {
     coefficient,
+    confidence,
+    earlierAverageScore: earlierAverage,
     lastRecordedAt: latestSample?.recordedAt ?? null,
+    laterAverageScore: laterAverage,
     latestScore: latestSample?.score ?? null,
     sampleCount: usableHistory.length,
     scoreLabel: latestSample?.scoreLabel ?? usableHistory[0]!.scoreLabel,
@@ -1228,9 +1257,12 @@ export function buildExerciseProgressionBreakdown(
         {
           benchmarkComparison,
           coefficient: progression.coefficient,
+          confidence: progression.confidence,
+          earlierAverageScore: progression.earlierAverageScore,
           exerciseKey,
           exerciseName: record.exerciseName,
           lastRecordedAt: progression.lastRecordedAt,
+          laterAverageScore: progression.laterAverageScore,
           latestScore,
           latestVolumeKg: latestSample?.totalVolumeKg ?? null,
           muscleGroups:
@@ -1296,12 +1328,225 @@ export function buildMuscleProgressionBreakdown(exercises: ExerciseProgressEntry
   return [...buckets.entries()]
     .map(([slug, bucket]) => ({
       coefficient: bucket.weight ? bucket.coefficientTotal / bucket.weight : 0,
+      contributorCount: bucket.exerciseNames.size,
       exerciseNames: [...bucket.exerciseNames].sort(),
       label: bucket.label,
       sampleCount: bucket.sampleCount,
       slug,
     }))
     .sort((left, right) => Math.abs(right.coefficient) - Math.abs(left.coefficient))
+}
+
+export function buildMuscleProgressTimeline(
+  programId: string | null,
+  statsStore: ExerciseStatsStore,
+  range: '30d' | '90d' | '180d' | '365d' | 'all',
+  focusSlugs: Slug[],
+) {
+  if (!programId || !focusSlugs.length) {
+    return { labels: [], series: [] } as MuscleProgressTimeline
+  }
+
+  const buckets = new Map<
+    string,
+    Map<
+      Slug,
+      {
+        coefficientTotal: number
+        weight: number
+      }
+    >
+  >()
+
+  for (const record of Object.values(statsStore.byExerciseKey)) {
+    const filteredHistory = record.progressionHistory.filter((sample) => {
+      if (sample.programId !== programId) {
+        return false
+      }
+
+      if (range === 'all') {
+        return true
+      }
+
+      const latestRecordedAt = record.progressionHistory[0]?.recordedAt ?? null
+      const startDate = getDateRangeStart(range, latestRecordedAt)
+      return startDate ? toDate(sample.recordedAt) >= startDate : true
+    })
+
+    const scoredHistory = [...filteredHistory]
+      .filter((sample) => !sample.skipped)
+      .map((sample) => {
+        const score = getPerformanceScore(sample)
+        return score ? { ...sample, ...score } : null
+      })
+      .filter(
+        (
+          sample,
+        ): sample is ExercisePerformanceSample & { score: number; scoreLabel: string } =>
+          sample !== null,
+      )
+      .sort((left, right) => left.recordedAt.localeCompare(right.recordedAt))
+
+    for (let index = 1; index < scoredHistory.length; index += 1) {
+      const progression = calculateExerciseProgressionCoefficient(scoredHistory.slice(0, index + 1))
+
+      if (!progression) {
+        continue
+      }
+
+      const sample = scoredHistory[index]!
+      const dateKey = sample.recordedAt.slice(0, 10)
+      const coefficients =
+        progression.targetCoefficients.length > 0
+          ? progression.targetCoefficients
+          : sample.muscleGroups.length
+            ? sample.muscleGroups.map((muscleGroup) => ({
+                coefficient: 1 / sample.muscleGroups.length,
+                muscleGroup,
+              }))
+            : []
+
+      for (const target of coefficients) {
+        const slug = mapExerciseMuscleGroupToBodySlug(target.muscleGroup)
+
+        if (!slug || !focusSlugs.includes(slug)) {
+          continue
+        }
+
+        const byDate = buckets.get(dateKey) ?? new Map()
+        const currentBucket = byDate.get(slug) ?? {
+          coefficientTotal: 0,
+          weight: 0,
+        }
+
+        currentBucket.coefficientTotal += progression.coefficient * target.coefficient
+        currentBucket.weight += target.coefficient
+        byDate.set(slug, currentBucket)
+        buckets.set(dateKey, byDate)
+      }
+    }
+  }
+
+  const labels = [...buckets.keys()].sort()
+  const series = focusSlugs
+    .map((slug) => ({
+      data: labels.map((label) => {
+        const bucket = buckets.get(label)?.get(slug)
+        return bucket && bucket.weight ? bucket.coefficientTotal / bucket.weight : null
+      }),
+      label: muscleLabels[slug] ?? slug,
+      slug,
+    }))
+    .filter((entry) => entry.data.some((value) => value !== null))
+
+  return {
+    labels: labels.map((label) => formatShortDate(label)),
+    series,
+  } satisfies MuscleProgressTimeline
+}
+
+export function buildExerciseProgressTimeline(
+  programId: string | null,
+  statsStore: ExerciseStatsStore,
+  range: '30d' | '90d' | '180d' | '365d' | 'all',
+  focusExerciseKeys: string[],
+) {
+  if (!programId || !focusExerciseKeys.length) {
+    return { labels: [], series: [] } as ExerciseProgressTimeline
+  }
+
+  const seriesByExercise = new Map<
+    string,
+    Array<{
+      coefficient: number
+      date: string
+    }>
+  >()
+
+  for (const [exerciseKey, record] of Object.entries(statsStore.byExerciseKey)) {
+    if (!focusExerciseKeys.includes(exerciseKey)) {
+      continue
+    }
+
+    const filteredHistory = record.progressionHistory.filter((sample) => {
+      if (sample.programId !== programId) {
+        return false
+      }
+
+      if (range === 'all') {
+        return true
+      }
+
+      const latestRecordedAt = record.progressionHistory[0]?.recordedAt ?? null
+      const startDate = getDateRangeStart(range, latestRecordedAt)
+      return startDate ? toDate(sample.recordedAt) >= startDate : true
+    })
+
+    const scoredHistory = [...filteredHistory]
+      .filter((sample) => !sample.skipped)
+      .map((sample) => {
+        const score = getPerformanceScore(sample)
+        return score ? { ...sample, ...score } : null
+      })
+      .filter(
+        (
+          sample,
+        ): sample is ExercisePerformanceSample & { score: number; scoreLabel: string } =>
+          sample !== null,
+      )
+      .sort((left, right) => left.recordedAt.localeCompare(right.recordedAt))
+
+    const points: Array<{ coefficient: number; date: string }> = []
+
+    for (let index = 1; index < scoredHistory.length; index += 1) {
+      const progression = calculateExerciseProgressionCoefficient(scoredHistory.slice(0, index + 1))
+
+      if (!progression) {
+        continue
+      }
+
+      points.push({
+        coefficient: progression.coefficient,
+        date: scoredHistory[index]!.recordedAt.slice(0, 10),
+      })
+    }
+
+    if (points.length) {
+      seriesByExercise.set(exerciseKey, points)
+    }
+  }
+
+  const labelSet = new Set<string>()
+
+  for (const points of seriesByExercise.values()) {
+    for (const point of points) {
+      labelSet.add(point.date)
+    }
+  }
+
+  const labels = [...labelSet].sort()
+  const series = focusExerciseKeys
+    .map((exerciseKey) => {
+      const points = seriesByExercise.get(exerciseKey)
+
+      if (!points?.length) {
+        return null
+      }
+
+      const byDate = new Map(points.map((point) => [point.date, point.coefficient]))
+
+      return {
+        data: labels.map((label) => byDate.get(label) ?? null),
+        exerciseKey,
+        label: statsStore.byExerciseKey[exerciseKey]?.exerciseName ?? exerciseKey,
+      }
+    })
+    .filter((entry): entry is ExerciseProgressTimelineSeries => entry !== null)
+
+  return {
+    labels: labels.map((label) => formatShortDate(label)),
+    series,
+  } satisfies ExerciseProgressTimeline
 }
 
 function getCoefficientColor(value: number) {

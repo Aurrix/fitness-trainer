@@ -1,0 +1,59 @@
+{
+  "id": "exercise-regression",
+  "title": "Performance slipped on a few exercises",
+  "category": "recovery",
+  "tone": "attention",
+  "priority": 78,
+  "variables": {
+    "decliningExercises": {
+      "keyword": "exerciseSubset",
+      "options": {
+        "lookbackDays": 60,
+        "maxExercises": 2,
+        "minNegativeCoefficient": -0.08,
+        "minimumSamples": 3,
+        "mode": "regression"
+      }
+    },
+    "decliningExerciseCount": {
+      "keyword": "length",
+      "args": [
+        {
+          "var": "decliningExercises"
+        }
+      ]
+    },
+    "decliningExerciseNames": {
+      "keyword": "exerciseNames",
+      "args": [
+        {
+          "var": "decliningExercises"
+        }
+      ]
+    },
+    "decliningExerciseDetails": {
+      "keyword": "exerciseDetails",
+      "args": [
+        {
+          "var": "decliningExercises"
+        },
+        "regression"
+      ]
+    }
+  },
+  "when": {
+    "gt": [
+      {
+        "var": "decliningExerciseCount"
+      },
+      0
+    ]
+  },
+  "details": [
+    "{{decliningExerciseDetails}}"
+  ],
+  "messages": {
+    "summary": "{{decliningExerciseNames}} are trending down compared with your earlier sessions.",
+    "action": "Check recovery, sleep, exercise order, and whether a light deload week would help."
+  }
+}

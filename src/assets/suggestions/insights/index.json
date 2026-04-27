@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "rules": [
+    "rules/main-program-missing.json",
+    "rules/start-main-program.json",
+    "rules/body-data-missing.json",
+    "rules/body-check-overdue.json",
+    "rules/low-workout-frequency.json",
+    "rules/training-inactivity.json",
+    "rules/low-session-completion.json",
+    "rules/stalled-strength.json",
+    "rules/exercise-regression.json",
+    "rules/positive-strength-momentum.json",
+    "rules/weight-and-fat-rising.json",
+    "rules/recomposition-positive.json",
+    "rules/consistent-training.json",
+    "rules/fat-loss-on-track.json"
+  ]
+}

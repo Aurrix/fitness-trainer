@@ -1,0 +1,70 @@
+{
+  "id": "fat-loss-on-track",
+  "title": "Fat-loss trend is moving",
+  "category": "body",
+  "tone": "positive",
+  "priority": 60,
+  "variables": {
+    "bodyFatDelta": {
+      "keyword": "bodyMetricDelta",
+      "args": [
+        "bodyFatPercentage"
+      ],
+      "options": {
+        "lookbackDays": 90
+      }
+    },
+    "goal": {
+      "keyword": "goal"
+    },
+    "weightDelta": {
+      "keyword": "bodyMetricDelta",
+      "args": [
+        "weightKg"
+      ],
+      "options": {
+        "lookbackDays": 90
+      }
+    }
+  },
+  "when": {
+    "all": [
+      {
+        "eq": [
+          {
+            "var": "goal"
+          },
+          "fat-loss"
+        ]
+      },
+      {
+        "any": [
+          {
+            "lte": [
+              {
+                "var": "bodyFatDelta"
+              },
+              -0.5
+            ]
+          },
+          {
+            "lte": [
+              {
+                "var": "weightDelta"
+              },
+              -0.8
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "details": [
+    "Goal context: {{goal}}.",
+    "Trend window: last 90 days."
+  ],
+  "messages": {
+    "summary": "Your fat-loss trend is moving in the intended direction.",
+    "action": "Keep the current pace and avoid cutting calories harder unless training performance drops."
+  }
+}

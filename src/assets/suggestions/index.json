@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "id": "insights",
+      "file": "insights/index.json"
+    },
+    {
+      "id": "reminders",
+      "file": "reminders/index.json"
+    }
+  ]
+}

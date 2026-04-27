@@ -1,0 +1,42 @@
+{
+  "id": "body-check-overdue",
+  "title": "Body check-in is due",
+  "category": "body",
+  "tone": "neutral",
+  "priority": 72,
+  "variables": {
+    "bodyEntryCount": {
+      "keyword": "bodyStatCount"
+    },
+    "daysSinceLastLog": {
+      "keyword": "daysSinceLastBodyEntry"
+    }
+  },
+  "when": {
+    "all": [
+      {
+        "gte": [
+          {
+            "var": "bodyEntryCount"
+          },
+          2
+        ]
+      },
+      {
+        "gte": [
+          {
+            "var": "daysSinceLastLog"
+          },
+          10
+        ]
+      }
+    ]
+  },
+  "details": [
+    "Last body snapshot: {{daysSinceLastLog}} days ago."
+  ],
+  "messages": {
+    "summary": "Your body-composition trend is getting stale after {{daysSinceLastLog}} days without a new entry.",
+    "action": "Add a quick weight or body-fat snapshot before judging the trend."
+  }
+}

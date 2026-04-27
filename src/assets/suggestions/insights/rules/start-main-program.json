@@ -1,0 +1,36 @@
+{
+  "id": "start-main-program",
+  "title": "Start your main program",
+  "category": "setup",
+  "tone": "neutral",
+  "priority": 88,
+  "variables": {
+    "sessionCount": {
+      "keyword": "programSessionCount"
+    }
+  },
+  "when": {
+    "all": [
+      {
+        "falsy": {
+          "keyword": "mainProgramIsEmpty"
+        }
+      },
+      {
+        "eq": [
+          {
+            "var": "sessionCount"
+          },
+          0
+        ]
+      }
+    ]
+  },
+  "details": [
+    "Main program: {{mainProgramName}}."
+  ],
+  "messages": {
+    "summary": "{{mainProgramName}} is selected, but there are no completed sessions yet.",
+    "action": "Run the first workout day so the app can start comparing frequency and progression."
+  }
+}

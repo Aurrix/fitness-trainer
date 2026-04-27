@@ -1,0 +1,59 @@
+{
+  "id": "stalled-strength",
+  "title": "Some lifts look stalled",
+  "category": "progression",
+  "tone": "attention",
+  "priority": 80,
+  "variables": {
+    "stalledExercises": {
+      "keyword": "exerciseSubset",
+      "options": {
+        "lookbackDays": 60,
+        "maxAbsCoefficient": 0.03,
+        "maxExercises": 3,
+        "minimumSamples": 3,
+        "mode": "stalled"
+      }
+    },
+    "stalledExerciseCount": {
+      "keyword": "length",
+      "args": [
+        {
+          "var": "stalledExercises"
+        }
+      ]
+    },
+    "stalledExerciseNames": {
+      "keyword": "exerciseNames",
+      "args": [
+        {
+          "var": "stalledExercises"
+        }
+      ]
+    },
+    "stalledExerciseDetails": {
+      "keyword": "exerciseDetails",
+      "args": [
+        {
+          "var": "stalledExercises"
+        },
+        "stalled"
+      ]
+    }
+  },
+  "when": {
+    "gt": [
+      {
+        "var": "stalledExerciseCount"
+      },
+      0
+    ]
+  },
+  "details": [
+    "{{stalledExerciseDetails}}"
+  ],
+  "messages": {
+    "summary": "{{stalledExerciseNames}} have been mostly flat across the last 60 days.",
+    "action": "If form is solid, try a small jump next time: add 2.5 kg, add 1-2 reps, or add one more hard set."
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "low-session-completion",
+  "title": "Sessions are ending short",
+  "category": "consistency",
+  "tone": "attention",
+  "priority": 74,
+  "variables": {
+    "completionAverage": {
+      "keyword": "programCompletionAverage",
+      "options": {
+        "lookbackSessions": 6
+      }
+    },
+    "completionAverageFormatted": {
+      "keyword": "formatNumber",
+      "args": [
+        {
+          "var": "completionAverage"
+        }
+      ],
+      "options": {
+        "digits": 0
+      }
+    },
+    "sessionCount": {
+      "keyword": "programSessionCount"
+    }
+  },
+  "when": {
+    "all": [
+      {
+        "gte": [
+          {
+            "var": "sessionCount"
+          },
+          3
+        ]
+      },
+      {
+        "lt": [
+          {
+            "var": "completionAverage"
+          },
+          75
+        ]
+      }
+    ]
+  },
+  "details": [
+    "Average completion across recent sessions: {{completionAverageFormatted}}%."
+  ],
+  "messages": {
+    "summary": "Recent sessions average {{completionAverageFormatted}}% completion.",
+    "action": "Trim one accessory or move it later so the main work gets finished consistently."
+  }
+}

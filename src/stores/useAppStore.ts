@@ -54,6 +54,8 @@ type AppStoreState = {
   isHydrated: boolean
   isHydrating: boolean
   mainProgramId: string | null
+  reminderEnabled: boolean
+  reminderLastSentAt: string | null
   programProgressStore: ProgramProgressStore
   programDayLogs: ProgramDayLog[]
   programStatsStore: ProgramStatsStore
@@ -68,6 +70,8 @@ type AppStoreState = {
   setExerciseStatsStore: (updater: StateUpdater<ExerciseStatsStore>) => void
   setFitnessProfile: (updater: StateUpdater<FitnessProfile>) => void
   setMainProgramId: (value: string | null) => void
+  setReminderEnabled: (value: boolean) => void
+  setReminderLastSentAt: (value: string | null) => void
   setProgramProgressStore: (updater: StateUpdater<ProgramProgressStore>) => void
   setProgramDayLogs: (updater: StateUpdater<ProgramDayLog[]>) => void
   setProgramStatsStore: (updater: StateUpdater<ProgramStatsStore>) => void
@@ -85,6 +89,10 @@ function resolveUpdater<T>(current: T, updater: StateUpdater<T>) {
 }
 
 function normalizeMainProgramId(value: unknown) {
+  return typeof value === 'string' && value.trim() ? value : null
+}
+
+function normalizeNullableTimestamp(value: unknown) {
   return typeof value === 'string' && value.trim() ? value : null
 }
 
@@ -151,6 +159,8 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       storedActiveWorkout,
       storedExerciseStats,
       storedMainProgramId,
+      storedReminderEnabled,
+      storedReminderLastSentAt,
       storedProgramProgress,
       storedProgramDayLogs,
       storedSavedExerciseIds,
@@ -165,6 +175,8 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       safeRead(LOCAL_STORAGE_KEYS.activeWorkout),
       safeRead(LOCAL_STORAGE_KEYS.exerciseStats),
       safeRead(LOCAL_STORAGE_KEYS.mainProgramId),
+      safeRead(LOCAL_STORAGE_KEYS.reminderEnabled),
+      safeRead(LOCAL_STORAGE_KEYS.reminderLastSentAt),
       safeRead(LOCAL_STORAGE_KEYS.programProgress),
       safeRead(LOCAL_STORAGE_KEYS.programDayLogs),
       safeRead(LOCAL_STORAGE_KEYS.savedExerciseIds),
@@ -182,6 +194,8 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       isHydrated: true,
       isHydrating: false,
       mainProgramId: normalizeMainProgramId(storedMainProgramId),
+      reminderEnabled: storedReminderEnabled === true,
+      reminderLastSentAt: normalizeNullableTimestamp(storedReminderLastSentAt),
       programProgressStore: normalizeProgramProgressStore(storedProgramProgress),
       programDayLogs: normalizeProgramDayLogs(storedProgramDayLogs),
       programStatsStore: normalizeProgramStatsStore(storedProgramStats),
@@ -194,6 +208,8 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
   isHydrated: false,
   isHydrating: false,
   mainProgramId: null,
+  reminderEnabled: false,
+  reminderLastSentAt: null,
   programProgressStore: defaultProgramProgressStore,
   programDayLogs: [],
   programStatsStore: defaultProgramStatsStore,
@@ -213,6 +229,8 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       exerciseStatsStore: nextExerciseStatsStore,
       fitnessProfile: nextFitnessProfile,
       mainProgramId: null,
+      reminderEnabled: false,
+      reminderLastSentAt: null,
       programProgressStore: nextProgramProgressStore,
       programDayLogs: [],
       programStatsStore: nextProgramStatsStore,
@@ -229,6 +247,8 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       [LOCAL_STORAGE_KEYS.exerciseStats, nextExerciseStatsStore],
       [LOCAL_STORAGE_KEYS.fitnessProfile, nextFitnessProfile],
       [LOCAL_STORAGE_KEYS.mainProgramId, null],
+      [LOCAL_STORAGE_KEYS.reminderEnabled, false],
+      [LOCAL_STORAGE_KEYS.reminderLastSentAt, null],
       [LOCAL_STORAGE_KEYS.programProgress, nextProgramProgressStore],
       [LOCAL_STORAGE_KEYS.programDayLogs, []],
       [LOCAL_STORAGE_KEYS.programStats, nextProgramStatsStore],
@@ -323,6 +343,18 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       mainProgramId: value,
     })
     void persistState(LOCAL_STORAGE_KEYS.mainProgramId, value)
+  },
+  setReminderEnabled(value) {
+    set({
+      reminderEnabled: value,
+    })
+    void persistState(LOCAL_STORAGE_KEYS.reminderEnabled, value)
+  },
+  setReminderLastSentAt(value) {
+    set({
+      reminderLastSentAt: value,
+    })
+    void persistState(LOCAL_STORAGE_KEYS.reminderLastSentAt, value)
   },
   setProgramProgressStore(updater) {
     set((state) => {

@@ -9,7 +9,8 @@ import {
   TrendingUp,
 } from 'lucide-react'
 import { LineChart } from '@mui/x-charts/LineChart'
-import { useMemo, useState, type CSSProperties, type FormEvent } from 'react'
+import { SparkLineChart } from '@mui/x-charts/SparkLineChart'
+import { useMemo, useState, type FormEvent } from 'react'
 import armsImage from '../assets/images/bodyparts/arms.png'
 import calvesImage from '../assets/images/bodyparts/calves.png'
 import chestImage from '../assets/images/bodyparts/chest.png'
@@ -52,6 +53,7 @@ import {
   type BodyPartProgressKey,
 } from '../lib/progression'
 import BottomSheet from './BottomSheet'
+import GrowthMapCard from '../pages/progression/components/GrowthMapCard'
 
 type BodyCompositionPanelProps = {
   bodyStatsEntries: BodyStatEntry[]
@@ -102,6 +104,15 @@ const bodyPartImages: Record<BodyPartProgressKey, string> = {
   shouldersCm: shouldersImage,
   thighsCm: thighsImage,
   waistCm: waistImage,
+}
+
+const metricChartThreshold = 10
+
+const bodyMetricChartColors: Record<BodyMetricKey, string> = {
+  weightKg: '#f97316',
+  bodyFatPercentage: '#dc2626',
+  leanMassKg: '#16a34a',
+  bmi: '#2563eb',
 }
 
 function parseNullableNumber(value: string) {
@@ -327,73 +338,58 @@ export default function BodyCompositionPanel({
         </div>
 
         <div className="trend-tile-grid">
-          {metricTiles.map(({ currentValue, metricKey, summary }) => (
-            <button
-              key={metricKey}
-              type="button"
-              className={`trend-tile trend-tile--${summary.tone}`}
-              onClick={() => setActiveDrilldown({ key: metricKey, kind: 'metric' })}
-            >
-              <span className="trend-tile__icon" aria-hidden="true">
-                {getMetricIcon(metricKey)}
-              </span>
-              <span className="trend-tile__label">{bodyMetricLabels[metricKey]}</span>
-              <strong>{formatMetricValue(metricKey, currentValue)}</strong>
-              <div className="trend-tile__footer">
-                <span className="trend-tile__delta">
-                  <TrendGlyph direction={summary.direction} />
-                  <span>{formatDeltaWithUnit(summary.change, bodyMetricUnits[metricKey])}</span>
-                </span>
-                <span className="trend-tile__status">{summary.label}</span>
-              </div>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-card stats-section-card">
-        <div className="section-header">
-          <div>
-            <p className="kicker">Body Parts</p>
-            <h3>Growth map</h3>
-            <p className="muted">
-              Compare circumference trends against the saved age, gender, and experience profile.
-            </p>
-          </div>
-          <span className="pill pill--subtle">{entryCoverage} areas tracked</span>
-        </div>
-
-        <div className="body-part-grid">
-          {bodyPartTiles.map(({ bodyPartKey, summary }) => {
-            const tileStyle = {
-              '--body-part-image': `url("${bodyPartImages[bodyPartKey]}")`,
-            } as CSSProperties
-
+          {metricTiles.map(({ currentValue, metricKey, series, summary }) => {
             return (
               <button
-                key={bodyPartKey}
+                key={metricKey}
                 type="button"
-                className={`body-part-tile body-part-tile--${summary.tone}`}
-                style={tileStyle}
-                onClick={() => setActiveDrilldown({ key: bodyPartKey, kind: 'part' })}
+                className={`trend-tile trend-tile--${summary.tone}`}
+                onClick={() => setActiveDrilldown({ key: metricKey, kind: 'metric' })}
               >
-                <div className="body-part-tile__backdrop" aria-hidden="true" />
-                <div className="body-part-tile__content">
-                  <div className="body-part-tile__header">
-                    <span>{bodyPartProgressLabels[bodyPartKey]}</span>
+                <span className="trend-tile__icon" aria-hidden="true">
+                  {getMetricIcon(metricKey)}
+                </span>
+                <span className="trend-tile__label">{bodyMetricLabels[metricKey]}</span>
+                <strong>{formatMetricValue(metricKey, currentValue)}</strong>
+                {series.length > metricChartThreshold ? (
+                  <div className="trend-tile__chart" aria-hidden="true">
+                    <SparkLineChart
+                      area
+                      color={bodyMetricChartColors[metricKey]}
+                      data={series.map((point) => point.value)}
+                      height={64}
+                      margin={{ top: 6, right: 2, bottom: 6, left: 2 }}
+                      showHighlight={false}
+                      showTooltip={false}
+                      xAxis={{
+                        data: series.map((point) => point.label),
+                        scaleType: 'point',
+                      }}
+                    />
+                  </div>
+                ) : null}
+                <div className="trend-tile__footer">
+                  <span className="trend-tile__delta">
                     <TrendGlyph direction={summary.direction} />
-                  </div>
-                  <strong>{formatBodyPartValue(summary.current)}</strong>
-                  <div className="body-part-tile__footer">
-                    <span>{formatMonthlyRate(summary.monthlyRate)}</span>
-                    <span>{summary.label}</span>
-                  </div>
+                    <span>{formatDeltaWithUnit(summary.change, bodyMetricUnits[metricKey])}</span>
+                  </span>
+                  <span className="trend-tile__status">{summary.label}</span>
                 </div>
               </button>
             )
           })}
         </div>
       </section>
+
+      <GrowthMapCard
+        bodyPartImages={bodyPartImages}
+        bodyPartTiles={bodyPartTiles}
+        entryCoverage={entryCoverage}
+        formatBodyPartValue={formatBodyPartValue}
+        formatMonthlyRate={formatMonthlyRate}
+        onOpenBodyPart={(key) => setActiveDrilldown({ key, kind: 'part' })}
+        renderTrendGlyph={(direction) => <TrendGlyph direction={direction} />}
+      />
 
       {activeMetricTile ? (
         <BottomSheet

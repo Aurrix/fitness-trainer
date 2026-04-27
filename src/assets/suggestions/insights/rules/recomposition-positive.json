@@ -1,0 +1,84 @@
+{
+  "id": "recomposition-positive",
+  "title": "Body recomposition is moving well",
+  "category": "body",
+  "tone": "positive",
+  "priority": 65,
+  "variables": {
+    "bodyFatDelta": {
+      "keyword": "bodyMetricDelta",
+      "args": [
+        "bodyFatPercentage"
+      ],
+      "options": {
+        "lookbackDays": 90
+      }
+    },
+    "bodyFatDrop": {
+      "keyword": "abs",
+      "args": [
+        {
+          "var": "bodyFatDelta"
+        }
+      ]
+    },
+    "bodyFatDropFormatted": {
+      "keyword": "formatNumber",
+      "args": [
+        {
+          "var": "bodyFatDrop"
+        }
+      ],
+      "options": {
+        "digits": 1
+      }
+    },
+    "leanMassDelta": {
+      "keyword": "bodyMetricDelta",
+      "args": [
+        "leanMassKg"
+      ],
+      "options": {
+        "lookbackDays": 90
+      }
+    },
+    "leanMassDeltaFormatted": {
+      "keyword": "formatNumber",
+      "args": [
+        {
+          "var": "leanMassDelta"
+        }
+      ],
+      "options": {
+        "digits": 1
+      }
+    }
+  },
+  "when": {
+    "all": [
+      {
+        "gte": [
+          {
+            "var": "leanMassDelta"
+          },
+          0.5
+        ]
+      },
+      {
+        "lte": [
+          {
+            "var": "bodyFatDelta"
+          },
+          -0.5
+        ]
+      }
+    ]
+  },
+  "details": [
+    "Trend window: last 90 days."
+  ],
+  "messages": {
+    "summary": "Lean mass is up {{leanMassDeltaFormatted}} kg while body fat is down {{bodyFatDropFormatted}}% across the recent trend window.",
+    "action": "Keep the current training and nutrition pattern stable and avoid changing too many variables."
+  }
+}

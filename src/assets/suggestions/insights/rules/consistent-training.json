@@ -1,0 +1,81 @@
+{
+  "id": "consistent-training",
+  "title": "Weekly rhythm is holding",
+  "category": "consistency",
+  "tone": "positive",
+  "priority": 61,
+  "variables": {
+    "actualSessions": {
+      "keyword": "weeklySessionAverage",
+      "options": {
+        "lookbackWeeks": 6
+      }
+    },
+    "actualSessionsRounded": {
+      "keyword": "formatNumber",
+      "args": [
+        {
+          "var": "actualSessions"
+        }
+      ],
+      "options": {
+        "digits": 1
+      }
+    },
+    "recentWeekCount": {
+      "keyword": "recentWeeklySessionCount",
+      "options": {
+        "lookbackWeeks": 6
+      }
+    },
+    "targetSessions": {
+      "keyword": "plannedSessionsPerWeek"
+    },
+    "targetThreshold": {
+      "keyword": "multiply",
+      "args": [
+        {
+          "var": "targetSessions"
+        },
+        0.9
+      ]
+    }
+  },
+  "when": {
+    "all": [
+      {
+        "gte": [
+          {
+            "var": "targetSessions"
+          },
+          2
+        ]
+      },
+      {
+        "gte": [
+          {
+            "var": "recentWeekCount"
+          },
+          3
+        ]
+      },
+      {
+        "gte": [
+          {
+            "var": "actualSessions"
+          },
+          {
+            "var": "targetThreshold"
+          }
+        ]
+      }
+    ]
+  },
+  "details": [
+    "Recent weekly average: {{actualSessionsRounded}} sessions."
+  ],
+  "messages": {
+    "summary": "You are close to your planned weekly rhythm at {{actualSessionsRounded}} sessions per week.",
+    "action": "Keep the schedule stable and make progression changes inside the workouts."
+  }
+}

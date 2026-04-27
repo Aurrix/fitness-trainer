@@ -1,0 +1,173 @@
+{
+  "id": "arnold-split-classic",
+  "displayLabel": "Arnold Split Classic",
+  "shortDescription": "8-week six-day chest and back, shoulders and arms, legs hypertrophy split.",
+  "descriptionHtml": "<p>8-week six-day chest and back, shoulders and arms, legs hypertrophy split.</p><p><strong>Structure:</strong> 8 weeks, 6 scheduled sessions per week, 33 referenced exercise ids.</p><p><strong>Weekly split:</strong> Chest &amp; Back, Shoulders &amp; Arms, Legs, Chest &amp; Back, Shoulders &amp; Arms, and Legs.</p><ul><li><strong>Goal:</strong> hypertrophy</li><li><strong>Level:</strong> intermediate</li><li><strong>Duration:</strong> 8 weeks</li><li><strong>Tags:</strong> arnold split and 6 days per week</li></ul>",
+  "goal": "hypertrophy",
+  "level": "intermediate",
+  "duration": "8 weeks",
+  "tags": [
+    "arnold split",
+    "6 days per week"
+  ],
+  "weeks": [
+    {
+      "week": "1-4",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Chest & Back #1",
+          "items": [
+            { "exerciseId": "barbell-bench-press", "sets": "4", "reps": "6-8", "rest": "2-3 min", "notes": "RPE 7-8" },
+            { "exerciseId": "lat-pulldown", "sets": "4", "reps": "8-10", "rest": "2-3 min", "notes": "Drive elbows down" },
+            { "exerciseId": "incline-dumbbell-press", "sets": "3", "reps": "8-10", "rest": "2 min", "notes": "Controlled stretch" },
+            { "exerciseId": "chest-supported-t-bar-row", "sets": "3", "reps": "8-10", "rest": "2 min", "notes": "RPE 8" },
+            { "exerciseId": "pec-deck", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Squeeze hard" },
+            { "exerciseId": "lat-prayer", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Stretch and shorten the lats" }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Shoulders & Arms #1",
+          "items": [
+            { "exerciseId": "seated-smith-press", "sets": "4", "reps": "8-10", "rest": "2-3 min", "notes": "Smooth lockout" },
+            { "exerciseId": "lateral-raise-machine", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "RPE 8-9" },
+            { "exerciseId": "rear-delt-flye-machine", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Control the arc" },
+            { "exerciseId": "ez-bar-curl", "sets": "3", "reps": "10-12", "rest": "1-2 min", "notes": "Full range" },
+            { "exerciseId": "dumbbell-supinated-curl", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Hard supination" },
+            { "exerciseId": "ez-bar-skull-crusher", "sets": "3", "reps": "10-12", "rest": "1-2 min", "notes": "Keep elbows in place" },
+            { "exerciseId": "tricep-pressdown", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Lock out each rep" }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Legs #1",
+          "items": [
+            { "exerciseId": "back-squat", "sets": "4", "reps": "6-8", "rest": "2-3 min", "notes": "RPE 7-8" },
+            { "exerciseId": "romanian-deadlift", "sets": "3", "reps": "8-10", "rest": "2-3 min", "notes": "Brace and hinge" },
+            { "exerciseId": "leg-press", "sets": "3", "reps": "10-12", "rest": "2 min", "notes": "Deep range" },
+            { "exerciseId": "leg-extension", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Squeeze the quads" },
+            { "exerciseId": "seated-leg-curl", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Hard squeeze" },
+            { "exerciseId": "standing-calf-raise", "sets": "4", "reps": "10-15", "rest": "1-2 min", "notes": "Full stretch" }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Chest & Back #2",
+          "items": [
+            { "exerciseId": "machine-incline-chest-press", "sets": "4", "reps": "8-10", "rest": "2-3 min", "notes": "RPE 8" },
+            { "exerciseId": "reverse-grip-lat-pulldown", "sets": "4", "reps": "8-10", "rest": "2-3 min", "notes": "Drive elbows to the ribs" },
+            { "exerciseId": "machine-chest-press", "sets": "3", "reps": "10-12", "rest": "2 min", "notes": "Close to failure" },
+            { "exerciseId": "cable-seated-row", "sets": "3", "reps": "10-12", "rest": "2 min", "notes": "Pause against the torso" },
+            { "exerciseId": "cable-flye", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Stretch and squeeze" },
+            { "exerciseId": "seated-face-pull", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Upper-back finish" }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Shoulders & Arms #2",
+          "items": [
+            { "exerciseId": "overhead-press", "sets": "4", "reps": "6-8", "rest": "2-3 min", "notes": "Brace hard" },
+            { "exerciseId": "dumbbell-lateral-raise", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Continuous tension" },
+            { "exerciseId": "rear-delt-flye-cable", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Sweep wide" },
+            { "exerciseId": "incline-dumbbell-curl", "sets": "3", "reps": "10-12", "rest": "1-2 min", "notes": "Long ROM" },
+            { "exerciseId": "hammer-curl", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Neutral grip" },
+            { "exerciseId": "rope-overhead-triceps-extension", "sets": "3", "reps": "10-12", "rest": "1-2 min", "notes": "Stretch the long head" },
+            { "exerciseId": "tricep-pressdown", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Take close to failure" }
+          ]
+        },
+        {
+          "day": 6,
+          "displayLabel": "Legs #2",
+          "items": [
+            { "exerciseId": "front-squat", "sets": "4", "reps": "6-8", "rest": "2-3 min", "notes": "Stay tall" },
+            { "exerciseId": "barbell-hip-thrust", "sets": "3", "reps": "8-10", "rest": "2-3 min", "notes": "Pause at lockout" },
+            { "exerciseId": "walking-lunge", "sets": "2", "reps": "20/20", "rest": "2 min", "notes": "10 steps each leg" },
+            { "exerciseId": "lying-leg-curl", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Control the lowering" },
+            { "exerciseId": "leg-extension", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Squeeze the quads" },
+            { "exerciseId": "seated-calf-raise", "sets": "4", "reps": "12-15", "rest": "1-2 min", "notes": "Long stretch" }
+          ]
+        }
+      ]
+    },
+    {
+      "week": "5-8",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Chest & Back #1",
+          "items": [
+            { "exerciseId": "barbell-bench-press", "sets": "4", "reps": "5-7", "rest": "2-3 min", "notes": "Progress load week to week" },
+            { "exerciseId": "weighted-pull-up", "sets": "3", "reps": "6-8", "rest": "2-3 min", "notes": "Use assisted pull-up if needed" },
+            { "exerciseId": "incline-dumbbell-press", "sets": "3", "reps": "8-10", "rest": "2 min", "notes": "RPE 8-9" },
+            { "exerciseId": "chest-supported-t-bar-row", "sets": "3", "reps": "8-10", "rest": "2 min", "notes": "Heavy but clean" },
+            { "exerciseId": "pec-deck", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Peak contraction" },
+            { "exerciseId": "lat-prayer", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Stretch and shorten" }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Shoulders & Arms #1",
+          "items": [
+            { "exerciseId": "seated-smith-press", "sets": "4", "reps": "6-8", "rest": "2-3 min", "notes": "Progress load" },
+            { "exerciseId": "lateral-raise-machine", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Near failure" },
+            { "exerciseId": "rear-delt-flye-machine", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "No trap shrugging" },
+            { "exerciseId": "ez-bar-curl", "sets": "3", "reps": "8-10", "rest": "1-2 min", "notes": "Heavy controlled curls" },
+            { "exerciseId": "dumbbell-supinated-curl", "sets": "2", "reps": "10-12", "rest": "1-2 min", "notes": "Controlled supination" },
+            { "exerciseId": "ez-bar-skull-crusher", "sets": "3", "reps": "8-10", "rest": "1-2 min", "notes": "RPE 8-9" },
+            { "exerciseId": "tricep-pressdown", "sets": "2", "reps": "10-12", "rest": "1-2 min", "notes": "Lock out every rep" }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Legs #1",
+          "items": [
+            { "exerciseId": "back-squat", "sets": "4", "reps": "5-7", "rest": "2-3 min", "notes": "RPE 8" },
+            { "exerciseId": "romanian-deadlift", "sets": "4", "reps": "8-10", "rest": "2-3 min", "notes": "Tight lats and hamstring stretch" },
+            { "exerciseId": "hack-squat", "sets": "3", "reps": "10-12", "rest": "2 min", "notes": "Deep ROM" },
+            { "exerciseId": "leg-extension", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Continuous tension" },
+            { "exerciseId": "seated-leg-curl", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Hard squeeze" },
+            { "exerciseId": "standing-calf-raise", "sets": "4", "reps": "10-15", "rest": "1-2 min", "notes": "Pause top and bottom" }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Chest & Back #2",
+          "items": [
+            { "exerciseId": "machine-incline-chest-press", "sets": "4", "reps": "8-10", "rest": "2-3 min", "notes": "Final set near failure" },
+            { "exerciseId": "reverse-grip-lat-pulldown", "sets": "4", "reps": "8-10", "rest": "2-3 min", "notes": "Elbows to ribs" },
+            { "exerciseId": "machine-chest-press", "sets": "3", "reps": "10-12", "rest": "2 min", "notes": "RPE 8-9" },
+            { "exerciseId": "cable-seated-row", "sets": "3", "reps": "10-12", "rest": "2 min", "notes": "Pause against the torso" },
+            { "exerciseId": "cable-flye", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Controlled squeeze" },
+            { "exerciseId": "seated-face-pull", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Pull apart" }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Shoulders & Arms #2",
+          "items": [
+            { "exerciseId": "overhead-press", "sets": "4", "reps": "5-7", "rest": "2-3 min", "notes": "Brace and drive" },
+            { "exerciseId": "dumbbell-lateral-raise", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Add partials at the end if needed" },
+            { "exerciseId": "rear-delt-flye-cable", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Sweep wide" },
+            { "exerciseId": "incline-dumbbell-curl", "sets": "3", "reps": "10-12", "rest": "1-2 min", "notes": "Long ROM" },
+            { "exerciseId": "hammer-curl", "sets": "2", "reps": "10-12", "rest": "1-2 min", "notes": "Neutral grip" },
+            { "exerciseId": "rope-overhead-triceps-extension", "sets": "3", "reps": "10-12", "rest": "1-2 min", "notes": "Stretch the long head" },
+            { "exerciseId": "tricep-pressdown", "sets": "2", "reps": "10-12", "rest": "1-2 min", "notes": "Close to failure" }
+          ]
+        },
+        {
+          "day": 6,
+          "displayLabel": "Legs #2",
+          "items": [
+            { "exerciseId": "front-squat", "sets": "4", "reps": "5-7", "rest": "2-3 min", "notes": "Stay upright through the set" },
+            { "exerciseId": "barbell-hip-thrust", "sets": "4", "reps": "8-10", "rest": "2-3 min", "notes": "Hard glute lockout" },
+            { "exerciseId": "walking-lunge", "sets": "2", "reps": "20/20", "rest": "2 min", "notes": "10 steps each leg" },
+            { "exerciseId": "lying-leg-curl", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Control the lowering" },
+            { "exerciseId": "leg-extension", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Squeeze the quads" },
+            { "exerciseId": "seated-calf-raise", "sets": "4", "reps": "12-15", "rest": "1-2 min", "notes": "Long stretch" }
+          ]
+        }
+      ]
+    }
+  ]
+}

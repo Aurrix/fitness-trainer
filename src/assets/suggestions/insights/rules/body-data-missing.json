@@ -1,0 +1,35 @@
+{
+  "id": "body-data-missing",
+  "title": "Log body check-ins",
+  "category": "body",
+  "tone": "neutral",
+  "priority": 90,
+  "variables": {
+    "entryCount": {
+      "keyword": "bodyStatCount"
+    },
+    "entryVerb": {
+      "keyword": "isAre",
+      "args": [
+        {
+          "var": "entryCount"
+        }
+      ]
+    }
+  },
+  "when": {
+    "lt": [
+      {
+        "var": "entryCount"
+      },
+      2
+    ]
+  },
+  "details": [
+    "Weight and body-fat trends need repeated entries before the app can detect meaningful direction."
+  ],
+  "messages": {
+    "summary": "Body analysis needs at least 2 check-ins. Right now there {{entryVerb}} {{entryCount}}.",
+    "action": "Log body weight and, if possible, body-fat once or twice per week."
+  }
+}

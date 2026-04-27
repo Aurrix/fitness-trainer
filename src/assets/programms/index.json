@@ -1,6 +1,15 @@
 {
   "manifests": [
     {
+      "id": "arnold-split-classic",
+      "displayLabel": "Arnold Split Classic",
+      "shortDescription": "8-week six-day chest and back, shoulders and arms, legs hypertrophy split.",
+      "goal": "hypertrophy",
+      "level": "intermediate",
+      "duration": "8 weeks",
+      "file": "arnold-split-classic.json"
+    },
+    {
       "id": "fundamentals-body-part-split",
       "displayLabel": "Fundamentals Body Part Split",
       "shortDescription": "8-week five-day body-part hypertrophy split from the fundamentals book.",
@@ -37,6 +46,33 @@
       "file": "high-frequency-full-body.json"
     },
     {
+      "id": "full-body-5-day-muscle-focus",
+      "displayLabel": "Full Body 5-Day Muscle Focus",
+      "shortDescription": "8-week five-day full body hypertrophy plan where every session trains the whole body with a different muscle emphasis.",
+      "goal": "hypertrophy",
+      "level": "intermediate",
+      "duration": "8 weeks",
+      "file": "full-body-5-day-muscle-focus.json"
+    },
+    {
+      "id": "phat-5-day-power-hypertrophy",
+      "displayLabel": "PHAT 5-Day Power Hypertrophy",
+      "shortDescription": "8-week five-day power and hypertrophy split based around heavy upper/lower days and three volume days.",
+      "goal": "strength and hypertrophy",
+      "level": "advanced",
+      "duration": "8 weeks",
+      "file": "phat-5-day-power-hypertrophy.json"
+    },
+    {
+      "id": "phul-power-hypertrophy",
+      "displayLabel": "PHUL Power Hypertrophy",
+      "shortDescription": "8-week four-day upper/lower split alternating power work and hypertrophy volume.",
+      "goal": "strength and hypertrophy",
+      "level": "intermediate",
+      "duration": "8 weeks",
+      "file": "phul-power-hypertrophy.json"
+    },
+    {
       "id": "ppl-v2-intermediate",
       "displayLabel": "PPL V2 Intermediate",
       "shortDescription": "10-week six-day push, pull, legs hypertrophy program.",
@@ -44,6 +80,33 @@
       "level": "intermediate",
       "duration": "10 weeks",
       "file": "ppl-v2-intermediate.json"
+    },
+    {
+      "id": "ppl-3-day-beginner",
+      "displayLabel": "PPL 3-Day Beginner",
+      "shortDescription": "8-week three-day push, pull, legs hypertrophy program for lifters who want a simple split.",
+      "goal": "hypertrophy",
+      "level": "beginner",
+      "duration": "8 weeks",
+      "file": "ppl-3-day-beginner.json"
+    },
+    {
+      "id": "torso-limbs-hypertrophy",
+      "displayLabel": "Torso / Limbs Hypertrophy",
+      "shortDescription": "8-week four-day torso and limbs split for balanced upper-body and lower-body volume.",
+      "goal": "hypertrophy",
+      "level": "intermediate",
+      "duration": "8 weeks",
+      "file": "torso-limbs-hypertrophy.json"
+    },
+    {
+      "id": "upper-lower-intermediate",
+      "displayLabel": "Upper / Lower Intermediate",
+      "shortDescription": "8-week four-day upper and lower hypertrophy split with extra volume and progression room.",
+      "goal": "hypertrophy",
+      "level": "intermediate",
+      "duration": "8 weeks",
+      "file": "upper-lower-intermediate.json"
     }
   ]
 }

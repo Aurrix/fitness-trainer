@@ -1,0 +1,17 @@
+{
+  "id": "main-program-missing",
+  "title": "Set a main program",
+  "category": "setup",
+  "tone": "neutral",
+  "priority": 100,
+  "variables": {},
+  "when": {
+    "truthy": {
+      "keyword": "mainProgramIsEmpty"
+    }
+  },
+  "messages": {
+    "summary": "Choose one main program so workout frequency and progression checks can be evaluated in context.",
+    "action": "Open the program library or your profile and set the one you want to follow most."
+  }
+}

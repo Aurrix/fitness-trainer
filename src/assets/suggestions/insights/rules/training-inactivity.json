@@ -1,0 +1,42 @@
+{
+  "id": "training-inactivity",
+  "title": "Training has gone quiet",
+  "category": "consistency",
+  "tone": "attention",
+  "priority": 83,
+  "variables": {
+    "daysSinceLastSession": {
+      "keyword": "daysSinceLastProgramSession"
+    },
+    "sessionCount": {
+      "keyword": "programSessionCount"
+    }
+  },
+  "when": {
+    "all": [
+      {
+        "gt": [
+          {
+            "var": "sessionCount"
+          },
+          0
+        ]
+      },
+      {
+        "gte": [
+          {
+            "var": "daysSinceLastSession"
+          },
+          7
+        ]
+      }
+    ]
+  },
+  "details": [
+    "Last main-program session: {{daysSinceLastSession}} days ago."
+  ],
+  "messages": {
+    "summary": "It has been {{daysSinceLastSession}} days since your last main-program session.",
+    "action": "Schedule the smallest version of the next workout, even if it is only the key lifts."
+  }
+}

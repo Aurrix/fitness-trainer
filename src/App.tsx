@@ -38,6 +38,7 @@ import type {
   AppProgram,
   BannerTone,
   ExerciseFilter,
+  InsightsView,
   LibraryView,
   ProgramFilter,
   WorkoutDayOption,
@@ -90,10 +91,11 @@ import {
 } from './services/program-stats'
 import LibraryPage from './pages/LibraryPage'
 import ProfilePage from './pages/ProfilePage'
-import ProgramsPage from './pages/ProgramsPage'
+import InsightsPage from './pages/InsightsPage'
 import ProgressionPage from './pages/ProgressionPage'
 import WorkoutPage from './pages/WorkoutPage'
 import {
+  getInsightsPath,
   getLibraryPath,
   getPrimaryRoutePath,
 } from './routes'
@@ -368,6 +370,7 @@ function App() {
   )
   const [draft, setDraft] = useState<ProgramDraft>(() => createEmptyDraft())
   const libraryView = route.libraryView ?? 'home'
+  const insightsView = route.insightsView ?? 'home'
 
   const deferredProgramQuery = useDeferredValue(programQuery.trim().toLowerCase())
   const deferredExerciseQuery = useDeferredValue(exerciseQuery.trim().toLowerCase())
@@ -386,12 +389,6 @@ function App() {
   const mainProgram = selectedMainProgram ?? createDefaultMainProgram()
   const launchProgram = activeProgramSession?.program ?? mainProgram
   const mainProgramStats = getProgramStatsRecord(programStatsStore, mainProgram?.id ?? null)
-  const savedPrograms = programs.filter((program) => {
-    return (
-      program.programSource === 'library' &&
-      (savedProgramIdSet.has(program.id) || program.id === mainProgramId)
-    )
-  })
   const workoutWeeks = buildWorkoutWeeks(launchProgram)
   const fallbackWorkoutDay = workoutWeeks[0]?.dayOptions[0] ?? null
   const persistedWorkoutSectionId = resolvePersistedWorkoutSectionId(
@@ -748,7 +745,7 @@ function App() {
     startTransition(() => {
       setSelectedProgramId(null)
       setSelectedExerciseId(null)
-      navigate(getPrimaryRoutePath('my-programs'))
+      navigate(getPrimaryRoutePath('insights'))
     })
   }
 
@@ -771,7 +768,7 @@ function App() {
     setDraft(programToDraft(program))
     startTransition(() => {
       setSelectedProgramId(null)
-      navigate(getPrimaryRoutePath('my-programs'))
+      navigate(getPrimaryRoutePath('insights'))
     })
   }
 
@@ -787,7 +784,7 @@ function App() {
     setDraft(customProgramToDraft(customProgram))
     startTransition(() => {
       setSelectedProgramId(null)
-      navigate(getPrimaryRoutePath('my-programs'))
+      navigate(getPrimaryRoutePath('insights'))
     })
   }
 
@@ -991,7 +988,7 @@ function App() {
     setDraft(createEmptyDraft())
     startTransition(() => {
       setSelectedProgramId(savedProgram.id)
-      navigate(getPrimaryRoutePath('my-programs'))
+      navigate(getPrimaryRoutePath('insights'))
     })
   }
 
@@ -2007,21 +2004,19 @@ function App() {
           />
         ) : null}
 
-        {isAppReady && activeTab === 'my-programs' ? (
-          <ProgramsPage
+        {isAppReady && activeTab === 'insights' ? (
+          <InsightsPage
+            bodyStatsEntries={bodyCompositionEntries}
             contentExercises={contentLibrary.exercises}
-            customPrograms={customAppPrograms}
             draft={draft}
+            exerciseStatsStore={exerciseStatsStore}
+            fitnessProfile={fitnessProfile}
+            insightsView={insightsView}
             isBuilderOpen={isBuilderOpen}
-            isMainProgramEmpty={isMainProgramEmpty}
             mainProgram={mainProgram}
-            onChangeMainProgram={openMainProgramPicker}
             onAddExerciseToSection={addExerciseToSection}
             onAddSection={addSection}
             onCloseBuilder={() => setIsBuilderOpen(false)}
-            onDeleteCustomProgram={deleteCustomProgram}
-            onEditCustomProgram={editCustomProgram}
-            onOpenProgram={openProgram}
             onRemoveExerciseFromSection={removeExerciseFromSection}
             onRemoveSection={removeSection}
             onResetBuilder={() => {
@@ -2029,13 +2024,12 @@ function App() {
               setDraft(createEmptyDraft())
             }}
             onSaveDraft={saveDraft}
-            onSelectProgramAsMain={selectProgramAsMain}
-            onStartWorkout={startWorkout}
-            onToggleSavedProgram={toggleSavedProgram}
+            onSetInsightsView={(view: InsightsView) => navigate(getInsightsPath(view))}
             onUpdateDraftExercise={updateDraftExercise}
             onUpdateDraftField={updateDraftField}
             onUpdateSectionField={updateSectionField}
-            savedPrograms={savedPrograms}
+            programDayLogs={programDayLogs}
+            workoutLogs={workoutLogs}
           />
         ) : null}
 

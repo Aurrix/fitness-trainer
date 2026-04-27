@@ -59,9 +59,9 @@ export default function ProfilePage({
           </div>
         </div>
 
-        <article className="program-card program-card--featured">
+        <article className="program-card program-card--featured profile-main-program-card">
           <div className="section-header">
-            <div>
+            <div className="profile-main-program-card__header">
               <span className="pill">{isMainProgramEmpty ? 'Default' : 'Selected'}</span>
               <h3>{mainProgram.name}</h3>
               <p className="muted">
@@ -71,7 +71,7 @@ export default function ProfilePage({
             </div>
           </div>
 
-          <div className="tag-row">
+          <div className="tag-row profile-main-program-card__tags">
             <span className="pill pill--subtle">{mainProgram.sections.length} days</span>
             <span className="pill pill--subtle">{countExercises(mainProgram)} exercises</span>
             {!isMainProgramEmpty ? (
@@ -79,13 +79,21 @@ export default function ProfilePage({
             ) : null}
           </div>
 
-          <div className="row-actions">
+          <div className="row-actions profile-main-program-card__actions">
             {!isMainProgramEmpty ? (
-              <button type="button" className="secondary-button" onClick={onOpenMainProgram}>
+              <button
+                type="button"
+                className="secondary-button profile-main-program-card__action"
+                onClick={onOpenMainProgram}
+              >
                 View Program
               </button>
             ) : null}
-            <button type="button" className="primary-button" onClick={onChangeMainProgram}>
+            <button
+              type="button"
+              className="primary-button profile-main-program-card__action"
+              onClick={onChangeMainProgram}
+            >
               Change Program
             </button>
           </div>

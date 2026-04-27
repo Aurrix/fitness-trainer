@@ -1,0 +1,80 @@
+{
+  "id": "weight-and-fat-rising",
+  "title": "Body-composition trend is drifting up",
+  "category": "body",
+  "tone": "attention",
+  "priority": 76,
+  "variables": {
+    "bodyFatDelta": {
+      "keyword": "bodyMetricDelta",
+      "args": [
+        "bodyFatPercentage"
+      ],
+      "options": {
+        "lookbackDays": 90
+      }
+    },
+    "bodyFatDeltaFormatted": {
+      "keyword": "formatNumber",
+      "args": [
+        {
+          "var": "bodyFatDelta"
+        }
+      ],
+      "options": {
+        "digits": 1
+      }
+    },
+    "goal": {
+      "keyword": "goal"
+    },
+    "weightDelta": {
+      "keyword": "bodyMetricDelta",
+      "args": [
+        "weightKg"
+      ],
+      "options": {
+        "lookbackDays": 90
+      }
+    },
+    "weightDeltaFormatted": {
+      "keyword": "formatNumber",
+      "args": [
+        {
+          "var": "weightDelta"
+        }
+      ],
+      "options": {
+        "digits": 1
+      }
+    }
+  },
+  "when": {
+    "all": [
+      {
+        "gte": [
+          {
+            "var": "weightDelta"
+          },
+          1
+        ]
+      },
+      {
+        "gte": [
+          {
+            "var": "bodyFatDelta"
+          },
+          0.8
+        ]
+      }
+    ]
+  },
+  "details": [
+    "Goal context: {{goal}}.",
+    "Trend window: last 90 days."
+  ],
+  "messages": {
+    "summary": "Weight is up {{weightDeltaFormatted}} kg and body fat is up {{bodyFatDeltaFormatted}}% over the recent trend window.",
+    "action": "Consider adding cardio, tightening food consistency, or reducing surplus size for a few weeks."
+  }
+}

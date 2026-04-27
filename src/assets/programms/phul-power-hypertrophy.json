@@ -1,0 +1,245 @@
+{
+  "id": "phul-power-hypertrophy",
+  "displayLabel": "PHUL Power Hypertrophy",
+  "shortDescription": "8-week four-day upper/lower split alternating power work and hypertrophy volume.",
+  "descriptionHtml": "<p>8-week four-day upper/lower split alternating power work and hypertrophy volume.</p><p><strong>Structure:</strong> 8 weeks, 4 scheduled sessions per week, 40+ referenced exercise ids.</p><p><strong>Weekly split:</strong> Upper Power, Lower Power, Upper Hypertrophy, and Lower Hypertrophy.</p><ul><li><strong>Goal:</strong> strength and hypertrophy</li><li><strong>Level:</strong> intermediate</li><li><strong>Duration:</strong> 8 weeks</li><li><strong>Tags:</strong> PHUL, upper lower, powerbuilding, and 4 days per week</li></ul>",
+  "goal": "strength and hypertrophy",
+  "level": "intermediate",
+  "duration": "8 weeks",
+  "tags": [
+    "phul",
+    "upper lower",
+    "powerbuilding",
+    "4 days per week"
+  ],
+  "weeks": [
+    {
+      "week": "1-2",
+      "phase": "Base Volume",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Upper Power",
+          "items": [
+            { "exerciseId": "barbell-bench-press", "sets": "4", "reps": "4-6", "rest": "3-4 min", "notes": "RPE 7-8" },
+            { "exerciseId": "barbell-bent-over-row", "sets": "4", "reps": "4-6", "rest": "3-4 min", "notes": "Keep torso stable" },
+            { "exerciseId": "overhead-press", "sets": "3", "reps": "5-7", "rest": "2-3 min", "notes": "Brace hard" },
+            { "exerciseId": "weighted-pull-up", "sets": "3", "reps": "5-7", "rest": "2-3 min", "notes": "Use assisted pull-up if needed" },
+            { "exerciseId": "close-grip-bench-press", "sets": "3", "reps": "6-8", "rest": "2-3 min", "notes": "Triceps-focused press" },
+            { "exerciseId": "ez-bar-curl", "sets": "3", "reps": "8-10", "rest": "1-2 min", "notes": "Heavy but controlled" }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Lower Power",
+          "items": [
+            { "exerciseId": "back-squat", "sets": "4", "reps": "4-6", "rest": "3-4 min", "notes": "RPE 7-8" },
+            { "exerciseId": "deadlift", "sets": "3", "reps": "3-5", "rest": "3-5 min", "notes": "Clean reps only" },
+            { "exerciseId": "leg-press", "sets": "3", "reps": "8-10", "rest": "2-3 min", "notes": "Controlled depth" },
+            { "exerciseId": "leg-curl", "sets": "3", "reps": "8-10", "rest": "1-2 min", "notes": "Pause the squeeze" },
+            { "exerciseId": "standing-calf-raise", "sets": "4", "reps": "8-12", "rest": "1-2 min", "notes": "Full stretch" },
+            { "exerciseId": "cable-crunch", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "Brace before each rep" }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Upper Hypertrophy",
+          "items": [
+            { "exerciseId": "incline-dumbbell-press", "sets": "3", "reps": "8-12", "rest": "2 min", "notes": "RPE 8" },
+            { "exerciseId": "cable-seated-row", "sets": "3", "reps": "8-12", "rest": "2 min", "notes": "Pause against the torso" },
+            { "exerciseId": "machine-chest-press", "sets": "3", "reps": "10-12", "rest": "1-2 min", "notes": "Close to failure" },
+            { "exerciseId": "lat-pulldown", "sets": "3", "reps": "10-12", "rest": "1-2 min", "notes": "Drive elbows down" },
+            { "exerciseId": "dumbbell-lateral-raise", "sets": "3", "reps": "12-20", "rest": "1-2 min", "notes": "Keep tension on delts" },
+            { "exerciseId": "rear-delt-flye-machine", "sets": "3", "reps": "12-20", "rest": "1-2 min", "notes": "Sweep wide" },
+            { "exerciseId": "tricep-pressdown", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "Full lockout" },
+            { "exerciseId": "incline-dumbbell-curl", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "Long range" }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Hypertrophy",
+          "items": [
+            { "exerciseId": "front-squat", "sets": "3", "reps": "8-10", "rest": "2-3 min", "notes": "Stay upright" },
+            { "exerciseId": "barbell-hip-thrust", "sets": "3", "reps": "8-12", "rest": "2-3 min", "notes": "Pause at lockout" },
+            { "exerciseId": "walking-lunge", "sets": "2", "reps": "20/20", "rest": "2 min", "notes": "10 steps each leg" },
+            { "exerciseId": "leg-extension", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Squeeze the quads" },
+            { "exerciseId": "seated-leg-curl", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Control the eccentric" },
+            { "exerciseId": "seated-calf-raise", "sets": "4", "reps": "12-20", "rest": "1-2 min", "notes": "Slow stretch" },
+            { "exerciseId": "hanging-leg-raise", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "Avoid swinging" }
+          ]
+        }
+      ]
+    },
+    {
+      "week": "3-4",
+      "phase": "Progressive Load",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Upper Power",
+          "items": [
+            { "exerciseId": "barbell-bench-press", "sets": "5", "reps": "3-5", "rest": "3-4 min", "notes": "Add load if all sets are clean" },
+            { "exerciseId": "barbell-bent-over-row", "sets": "5", "reps": "3-5", "rest": "3-4 min", "notes": "Heavy rows without heaving" },
+            { "exerciseId": "overhead-press", "sets": "4", "reps": "4-6", "rest": "2-3 min", "notes": "RPE 8" },
+            { "exerciseId": "weighted-pull-up", "sets": "4", "reps": "4-6", "rest": "2-3 min", "notes": "Full stretch" },
+            { "exerciseId": "weighted-dip", "sets": "3", "reps": "6-8", "rest": "2-3 min", "notes": "Use assisted dip if needed" },
+            { "exerciseId": "hammer-curl", "sets": "3", "reps": "8-10", "rest": "1-2 min", "notes": "Neutral grip" }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Lower Power",
+          "items": [
+            { "exerciseId": "back-squat", "sets": "5", "reps": "3-5", "rest": "3-4 min", "notes": "RPE 8" },
+            { "exerciseId": "deadlift", "sets": "4", "reps": "3-5", "rest": "3-5 min", "notes": "Stop before form breaks" },
+            { "exerciseId": "hack-squat", "sets": "3", "reps": "8-10", "rest": "2-3 min", "notes": "Deep range" },
+            { "exerciseId": "lying-leg-curl", "sets": "3", "reps": "8-10", "rest": "1-2 min", "notes": "Hamstring focus" },
+            { "exerciseId": "standing-calf-raise", "sets": "4", "reps": "8-12", "rest": "1-2 min", "notes": "Pause top and bottom" },
+            { "exerciseId": "ab-wheel-rollout", "sets": "3", "reps": "8-12", "rest": "1-2 min", "notes": "Keep ribs down" }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Upper Hypertrophy",
+          "items": [
+            { "exerciseId": "dumbbell-incline-press", "sets": "4", "reps": "8-12", "rest": "2 min", "notes": "Progress reps first" },
+            { "exerciseId": "chest-supported-t-bar-row", "sets": "4", "reps": "8-12", "rest": "2 min", "notes": "Pause the squeeze" },
+            { "exerciseId": "pectoral-flye-machine", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Deep stretch" },
+            { "exerciseId": "lat-prayer", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Lats only" },
+            { "exerciseId": "cable-lateral-raise", "sets": "4", "reps": "12-20", "rest": "1-2 min", "notes": "Lead with elbows" },
+            { "exerciseId": "rope-face-pull", "sets": "3", "reps": "12-20", "rest": "1-2 min", "notes": "Pull apart" },
+            { "exerciseId": "rope-overhead-triceps-extension", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "Long-head stretch" },
+            { "exerciseId": "cable-curl", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "Constant tension" }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Hypertrophy",
+          "items": [
+            { "exerciseId": "front-squat", "sets": "4", "reps": "8-10", "rest": "2-3 min", "notes": "Quad focus" },
+            { "exerciseId": "barbell-hip-thrust", "sets": "4", "reps": "8-12", "rest": "2-3 min", "notes": "Glute lockout" },
+            { "exerciseId": "bulgarian-split-squat", "sets": "3", "reps": "8-10/8-10", "rest": "2 min", "notes": "Each leg" },
+            { "exerciseId": "leg-extension", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Controlled lockout" },
+            { "exerciseId": "seated-leg-curl", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Drive heels down" },
+            { "exerciseId": "leg-press-calf-press", "sets": "4", "reps": "12-20", "rest": "1-2 min", "notes": "Full calf ROM" },
+            { "exerciseId": "cable-crunch", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Round the spine" }
+          ]
+        }
+      ]
+    },
+    {
+      "week": "5-6",
+      "phase": "High Effort",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Upper Power",
+          "items": [
+            { "exerciseId": "barbell-bench-press", "sets": "4", "reps": "3-5", "rest": "3-4 min", "notes": "RPE 8-9" },
+            { "exerciseId": "weighted-pull-up", "sets": "4", "reps": "4-6", "rest": "3 min", "notes": "Heavy vertical pull" },
+            { "exerciseId": "overhead-press", "sets": "3", "reps": "4-6", "rest": "2-3 min", "notes": "Strong lockout" },
+            { "exerciseId": "chest-supported-t-bar-row", "sets": "3", "reps": "6-8", "rest": "2-3 min", "notes": "Heavy squeeze" },
+            { "exerciseId": "close-grip-bench-press", "sets": "3", "reps": "6-8", "rest": "2 min", "notes": "Triceps overload" },
+            { "exerciseId": "ez-bar-curl", "sets": "3", "reps": "8-10", "rest": "1-2 min", "notes": "No swinging" }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Lower Power",
+          "items": [
+            { "exerciseId": "back-squat", "sets": "4", "reps": "3-5", "rest": "3-4 min", "notes": "RPE 8-9" },
+            { "exerciseId": "deadlift", "sets": "3", "reps": "2-4", "rest": "3-5 min", "notes": "Explosive from the floor" },
+            { "exerciseId": "leg-press", "sets": "3", "reps": "6-8", "rest": "2-3 min", "notes": "Heavy controlled reps" },
+            { "exerciseId": "lying-leg-curl", "sets": "3", "reps": "8-10", "rest": "1-2 min", "notes": "Full squeeze" },
+            { "exerciseId": "standing-calf-raise", "sets": "5", "reps": "8-12", "rest": "1-2 min", "notes": "Peak contraction" },
+            { "exerciseId": "hanging-leg-raise", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "No swing" }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Upper Hypertrophy",
+          "items": [
+            { "exerciseId": "incline-dumbbell-press", "sets": "4", "reps": "8-12", "rest": "2 min", "notes": "Final set near failure" },
+            { "exerciseId": "cable-seated-row", "sets": "4", "reps": "8-12", "rest": "2 min", "notes": "Full stretch" },
+            { "exerciseId": "machine-chest-press", "sets": "3", "reps": "10-12", "rest": "1-2 min", "notes": "RPE 9" },
+            { "exerciseId": "reverse-grip-lat-pulldown", "sets": "3", "reps": "10-12", "rest": "1-2 min", "notes": "Elbows to ribs" },
+            { "exerciseId": "dumbbell-lateral-raise", "sets": "4", "reps": "12-20", "rest": "1-2 min", "notes": "Add partials if needed" },
+            { "exerciseId": "rear-delt-flye-machine", "sets": "4", "reps": "12-20", "rest": "1-2 min", "notes": "Near failure" },
+            { "exerciseId": "tricep-pressdown", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "Hard lockout" },
+            { "exerciseId": "incline-dumbbell-curl", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "Deep stretch" }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Hypertrophy",
+          "items": [
+            { "exerciseId": "hack-squat", "sets": "4", "reps": "8-10", "rest": "2-3 min", "notes": "Deep reps" },
+            { "exerciseId": "barbell-hip-thrust", "sets": "4", "reps": "8-12", "rest": "2 min", "notes": "Hard glute lockout" },
+            { "exerciseId": "walking-lunge", "sets": "3", "reps": "20/20", "rest": "2 min", "notes": "10 steps each leg" },
+            { "exerciseId": "leg-extension", "sets": "4", "reps": "12-15", "rest": "1-2 min", "notes": "Quad burn" },
+            { "exerciseId": "seated-leg-curl", "sets": "4", "reps": "12-15", "rest": "1-2 min", "notes": "Hamstring burn" },
+            { "exerciseId": "seated-calf-raise", "sets": "5", "reps": "12-20", "rest": "1-2 min", "notes": "Slow negative" },
+            { "exerciseId": "cable-crunch", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Controlled flexion" }
+          ]
+        }
+      ]
+    },
+    {
+      "week": "7-8",
+      "phase": "Peak and Deload",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Upper Power",
+          "items": [
+            { "exerciseId": "barbell-bench-press", "sets": "3", "reps": "3-5", "rest": "3-4 min", "notes": "Week 7 hard, week 8 reduce load 10%" },
+            { "exerciseId": "barbell-bent-over-row", "sets": "3", "reps": "3-5", "rest": "3-4 min", "notes": "Week 8 should feel fast" },
+            { "exerciseId": "overhead-press", "sets": "3", "reps": "5-7", "rest": "2-3 min", "notes": "Leave 2 reps in reserve on week 8" },
+            { "exerciseId": "lat-pulldown", "sets": "3", "reps": "8-10", "rest": "2 min", "notes": "Controlled reps" },
+            { "exerciseId": "tricep-pressdown", "sets": "2", "reps": "10-12", "rest": "1-2 min", "notes": "Pump work" },
+            { "exerciseId": "ez-bar-curl", "sets": "2", "reps": "10-12", "rest": "1-2 min", "notes": "Pump work" }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Lower Power",
+          "items": [
+            { "exerciseId": "back-squat", "sets": "3", "reps": "3-5", "rest": "3-4 min", "notes": "Week 7 hard, week 8 reduce load 10%" },
+            { "exerciseId": "romanian-deadlift", "sets": "3", "reps": "6-8", "rest": "2-3 min", "notes": "Keep tension, avoid grinding" },
+            { "exerciseId": "leg-press", "sets": "2", "reps": "10-12", "rest": "2 min", "notes": "Moderate volume" },
+            { "exerciseId": "leg-curl", "sets": "2", "reps": "10-12", "rest": "1-2 min", "notes": "Smooth reps" },
+            { "exerciseId": "standing-calf-raise", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "Full ROM" },
+            { "exerciseId": "plank", "sets": "3", "reps": "30-60 sec", "rest": "1-2 min", "notes": "Brace hard" }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Upper Hypertrophy",
+          "items": [
+            { "exerciseId": "incline-dumbbell-press", "sets": "3", "reps": "10-12", "rest": "2 min", "notes": "Stop shy of failure on week 8" },
+            { "exerciseId": "cable-seated-row", "sets": "3", "reps": "10-12", "rest": "2 min", "notes": "Controlled squeeze" },
+            { "exerciseId": "cable-flye", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Easy pump" },
+            { "exerciseId": "lat-prayer", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Easy pump" },
+            { "exerciseId": "dumbbell-lateral-raise", "sets": "3", "reps": "12-20", "rest": "1-2 min", "notes": "Clean reps" },
+            { "exerciseId": "rear-delt-flye-machine", "sets": "2", "reps": "12-20", "rest": "1-2 min", "notes": "Clean reps" },
+            { "exerciseId": "rope-overhead-triceps-extension", "sets": "2", "reps": "10-15", "rest": "1-2 min", "notes": "Moderate effort" },
+            { "exerciseId": "cable-curl", "sets": "2", "reps": "10-15", "rest": "1-2 min", "notes": "Moderate effort" }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Lower Hypertrophy",
+          "items": [
+            { "exerciseId": "front-squat", "sets": "3", "reps": "8-10", "rest": "2-3 min", "notes": "Clean reps" },
+            { "exerciseId": "barbell-hip-thrust", "sets": "3", "reps": "8-12", "rest": "2 min", "notes": "Smooth lockout" },
+            { "exerciseId": "bulgarian-split-squat", "sets": "2", "reps": "8-10/8-10", "rest": "2 min", "notes": "Each leg" },
+            { "exerciseId": "leg-extension", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Moderate effort" },
+            { "exerciseId": "seated-leg-curl", "sets": "2", "reps": "12-15", "rest": "1-2 min", "notes": "Moderate effort" },
+            { "exerciseId": "seated-calf-raise", "sets": "3", "reps": "12-20", "rest": "1-2 min", "notes": "Full ROM" },
+            { "exerciseId": "hanging-leg-raise", "sets": "2", "reps": "10-15", "rest": "1-2 min", "notes": "Controlled reps" }
+          ]
+        }
+      ]
+    }
+  ]
+}

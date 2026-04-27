@@ -1,4 +1,4 @@
-import type { AppTab, LibraryView } from './lib/app-types'
+import type { AppTab, InsightsView, LibraryView } from './lib/app-types'
 
 export type AppRouteId =
   | 'workout'
@@ -6,7 +6,10 @@ export type AppRouteId =
   | 'library-programs'
   | 'library-exercises'
   | 'progression'
-  | 'programs'
+  | 'insights'
+  | 'insights-notifications'
+  | 'insights-advice'
+  | 'insights-analysis'
   | 'profile'
 
 export type AppRoute = {
@@ -14,6 +17,7 @@ export type AppRoute = {
   path: string
   primaryTab: AppTab
   title: string
+  insightsView?: InsightsView
   libraryView?: LibraryView
 }
 
@@ -52,10 +56,32 @@ export const APP_ROUTES: AppRoute[] = [
     title: 'Stats',
   },
   {
-    id: 'programs',
-    path: '/programs',
-    primaryTab: 'my-programs',
-    title: 'Programs',
+    id: 'insights',
+    path: '/insights',
+    primaryTab: 'insights',
+    title: 'Insights',
+    insightsView: 'home',
+  },
+  {
+    id: 'insights-notifications',
+    path: '/insights/notifications',
+    primaryTab: 'insights',
+    title: 'Notifications',
+    insightsView: 'notifications',
+  },
+  {
+    id: 'insights-advice',
+    path: '/insights/advice',
+    primaryTab: 'insights',
+    title: 'Advice',
+    insightsView: 'advice',
+  },
+  {
+    id: 'insights-analysis',
+    path: '/insights/analysis',
+    primaryTab: 'insights',
+    title: 'Analysis',
+    insightsView: 'analysis',
   },
   {
     id: 'profile',
@@ -70,6 +96,7 @@ export const DEFAULT_ROUTE = APP_ROUTES[0]
 const routeByPath = new Map(APP_ROUTES.map((route) => [route.path, route]))
 const routeById = new Map(APP_ROUTES.map((route) => [route.id, route]))
 const LEGACY_ROUTE_REDIRECTS = new Map<string, string>([
+  ['/programs', '/insights'],
   ['/progression/body', '/progression'],
   ['/progression/overview', '/progression'],
   ['/progression/muscles', '/progression'],
@@ -139,14 +166,27 @@ export function getProgressionPath() {
   return '/progression'
 }
 
+export function getInsightsPath(view: InsightsView = 'home') {
+  switch (view) {
+    case 'notifications':
+      return '/insights/notifications'
+    case 'advice':
+      return '/insights/advice'
+    case 'analysis':
+      return '/insights/analysis'
+    default:
+      return '/insights'
+  }
+}
+
 export function getPrimaryRoutePath(tab: AppTab) {
   switch (tab) {
     case 'library':
       return getLibraryPath()
     case 'progression':
       return getProgressionPath()
-    case 'my-programs':
-      return '/programs'
+    case 'insights':
+      return getInsightsPath()
     case 'settings':
       return '/profile'
     default:

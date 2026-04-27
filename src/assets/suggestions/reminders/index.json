@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "rules": [
+    "rules/weekly-body-check-in.json"
+  ]
+}

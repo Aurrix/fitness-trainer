@@ -1,7 +1,7 @@
 import {
   ChartColumnIncreasing,
   CirclePlay,
-  FolderHeart,
+  Lightbulb,
   LibraryBig,
   Play,
   Square,
@@ -81,11 +81,11 @@ export default function BottomNav({
           <span className="bottom-nav__spacer" aria-hidden="true" />
           <button
             type="button"
-            className={activeTab === 'my-programs' ? 'is-active' : ''}
-            onClick={() => onSetActiveTab('my-programs')}
+            className={activeTab === 'insights' ? 'is-active' : ''}
+            onClick={() => onSetActiveTab('insights')}
           >
-            <FolderHeart size={18} />
-            <span>Programs</span>
+            <Lightbulb size={18} />
+            <span>Insights</span>
           </button>
           <button
             type="button"

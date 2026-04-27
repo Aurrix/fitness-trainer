@@ -208,7 +208,7 @@ export default function LibraryPage({
                             fill={savedProgramIdSet.has(program.id) ? 'currentColor' : 'none'}
                           />
                         </button>
-                        <div>
+                        <div className="program-card__title-copy">
                           <span className="pill">
                             {program.programSource === 'custom' ? 'Custom' : 'Library'}
                           </span>
@@ -232,7 +232,7 @@ export default function LibraryPage({
                       `${countExercises(program)} exercises across ${program.sections.length} days.`}
                   </p>
 
-                  <div className="tag-row">
+                  <div className="tag-row program-card__meta">
                     <span className="pill pill--subtle">{program.sections.length} days</span>
                     <span className="pill pill--subtle">{countExercises(program)} exercises</span>
                     {program.duration ? (
