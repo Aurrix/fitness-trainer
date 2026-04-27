@@ -2,7 +2,7 @@
   "id": "barbell-bench-press",
   "displayLabel": "Barbell Bench Press",
   "shortDescription": "Pressing variation for chest, front delts, and triceps.",
-  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Also listed as:</strong> BARBELL BENCH PRESS and Flat Barbell Press</li><li><strong>Common substitutions:</strong> Dumbbell Press, Machine Chest Press, and Smith Machine Bench Press</li></ul>",
+  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Also listed as:</strong> BARBELL BENCH PRESS and Flat Barbell Press</li><li><strong>Common substitutions:</strong> Dumbbell Press, Machine Chest Press, Smith Machine Bench Press, and Deficit Push-up</li></ul>",
   "aliases": [
     "BARBELL BENCH PRESS",
     "Flat Barbell Press"
@@ -10,7 +10,40 @@
   "substitutionExerciseIds": [
     "dumbbell-press",
     "machine-chest-press",
-    "smith-machine-bench-press"
+    "smith-machine-bench-press",
+    "deficit-push-up"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.5
+    }
   ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
@@ -217,25 +250,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "middle-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.5
-    }
-  ]
+  }
 }

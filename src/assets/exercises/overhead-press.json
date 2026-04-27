@@ -2,14 +2,45 @@
   "id": "overhead-press",
   "displayLabel": "Overhead Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Also listed as:</strong> Barbell Overhead Press, MILITARY PRESS, and Overhead Barbell Press</li><li><strong>Common substitutions:</strong> Seated Barbell Overhead Press</li></ul>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Also listed as:</strong> Barbell Overhead Press, MILITARY PRESS, and Overhead Barbell Press</li><li><strong>Common substitutions:</strong> Seated Barbell Overhead Press, Arnold Press, Dumbbell Seated Shoulder Press, and Laterally Dumbbell Seated Shoulder Press</li></ul>",
   "aliases": [
     "Barbell Overhead Press",
     "MILITARY PRESS",
     "Overhead Barbell Press"
   ],
   "substitutionExerciseIds": [
-    "seated-barbell-overhead-press"
+    "seated-barbell-overhead-press",
+    "arnold-press",
+    "dumbbell-seated-shoulder-press",
+    "laterally-dumbbell-seated-shoulder-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "side-delts",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.3
+    }
   ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
@@ -216,29 +247,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "side-delts",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 0.3
-    }
-  ]
+  }
 }

@@ -2,9 +2,38 @@
   "id": "decline-leg-raise",
   "displayLabel": "Decline Leg Raise",
   "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
-  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><p>Reference this movement in program files with the exercise id <code>decline-leg-raise</code>.</p>",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Common substitutions:</strong> Hanging Leg Raise, Roman Chair Leg Raise, V Sit-up, and Reverse Crunch</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "hanging-leg-raise",
+    "roman-chair-leg-raise",
+    "v-sit-up",
+    "reverse-crunch"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "hip-flexors",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "transverse-abdominis",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -138,25 +167,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lower-abs",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "hip-flexors",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "obliques",
-      "factor": 0.3
-    }
-  ]
+  }
 }

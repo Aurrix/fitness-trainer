@@ -2,11 +2,33 @@
   "id": "low-to-high-cable-flye",
   "displayLabel": "Low To High Cable Flye",
   "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
-  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><ul><li><strong>Common substitutions:</strong> Dumbbell Flye and Pec Deck</li></ul>",
+  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><ul><li><strong>Common substitutions:</strong> Dumbbell Flye, Pec Deck, Incline Pectoral Flye (cable), and Incline Pectoral Flye (dumbbell)</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
     "dumbbell-flye",
-    "pec-deck"
+    "pec-deck",
+    "incline-pectoral-flye-cable",
+    "incline-pectoral-flye-dumbbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.2
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -213,17 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.3
-    }
-  ]
+  }
 }

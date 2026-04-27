@@ -2,9 +2,34 @@
   "id": "ez-bar-pronated-curl",
   "displayLabel": "EZ Bar Pronated Curl",
   "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
-  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><p>Reference this movement in program files with the exercise id <code>ez-bar-pronated-curl</code>.</p>",
+  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Common substitutions:</strong> Hammer Curl, Rope Hammer Curl, Seated Hammer Curl, and Barbell Concentration Curl</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "hammer-curl",
+    "rope-hammer-curl",
+    "seated-hammer-curl",
+    "barbell-concentration-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "forearm-extensors",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,25 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "brachioradialis",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "forearm-extensors",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.3
-    }
-  ]
+  }
 }

@@ -59,6 +59,7 @@ type AppStoreState = {
   programStatsStore: ProgramStatsStore
   resetPersistedState: () => Promise<void>
   resetProgressionState: () => Promise<void>
+  savedExerciseIds: string[]
   savedProgramIds: string[]
   setStatsPreferences: (updater: StateUpdater<StatsPreferences>) => void
   setActiveWorkout: (updater: StateUpdater<ActiveWorkout | null>) => void
@@ -70,6 +71,7 @@ type AppStoreState = {
   setProgramProgressStore: (updater: StateUpdater<ProgramProgressStore>) => void
   setProgramDayLogs: (updater: StateUpdater<ProgramDayLog[]>) => void
   setProgramStatsStore: (updater: StateUpdater<ProgramStatsStore>) => void
+  setSavedExerciseIds: (updater: StateUpdater<string[]>) => void
   setSavedProgramIds: (updater: StateUpdater<string[]>) => void
   setWorkoutLogs: (updater: StateUpdater<WorkoutLog[]>) => void
   statsPreferences: StatsPreferences
@@ -86,7 +88,7 @@ function normalizeMainProgramId(value: unknown) {
   return typeof value === 'string' && value.trim() ? value : null
 }
 
-function normalizeSavedProgramIds(value: unknown) {
+function normalizeStoredIdList(value: unknown) {
   if (!Array.isArray(value)) {
     return []
   }
@@ -151,6 +153,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       storedMainProgramId,
       storedProgramProgress,
       storedProgramDayLogs,
+      storedSavedExerciseIds,
       storedSavedProgramIds,
       storedStatsPreferences,
       storedProgramStats,
@@ -164,6 +167,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       safeRead(LOCAL_STORAGE_KEYS.mainProgramId),
       safeRead(LOCAL_STORAGE_KEYS.programProgress),
       safeRead(LOCAL_STORAGE_KEYS.programDayLogs),
+      safeRead(LOCAL_STORAGE_KEYS.savedExerciseIds),
       safeRead(LOCAL_STORAGE_KEYS.savedProgramIds),
       safeRead(LOCAL_STORAGE_KEYS.statsPreferences),
       safeRead(LOCAL_STORAGE_KEYS.programStats),
@@ -181,7 +185,8 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       programProgressStore: normalizeProgramProgressStore(storedProgramProgress),
       programDayLogs: normalizeProgramDayLogs(storedProgramDayLogs),
       programStatsStore: normalizeProgramStatsStore(storedProgramStats),
-      savedProgramIds: normalizeSavedProgramIds(storedSavedProgramIds),
+      savedExerciseIds: normalizeStoredIdList(storedSavedExerciseIds),
+      savedProgramIds: normalizeStoredIdList(storedSavedProgramIds),
       statsPreferences: normalizeStatsPreferences(storedStatsPreferences),
       workoutLogs: normalizeWorkoutLogs(storedWorkoutLogs),
     })
@@ -192,6 +197,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
   programProgressStore: defaultProgramProgressStore,
   programDayLogs: [],
   programStatsStore: defaultProgramStatsStore,
+  savedExerciseIds: [],
   statsPreferences: defaultStatsPreferences,
   async resetPersistedState() {
     const nextFitnessProfile = createDefaultFitnessProfile()
@@ -210,6 +216,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       programProgressStore: nextProgramProgressStore,
       programDayLogs: [],
       programStatsStore: nextProgramStatsStore,
+      savedExerciseIds: [],
       savedProgramIds: [],
       statsPreferences: nextStatsPreferences,
       workoutLogs: [],
@@ -225,6 +232,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       [LOCAL_STORAGE_KEYS.programProgress, nextProgramProgressStore],
       [LOCAL_STORAGE_KEYS.programDayLogs, []],
       [LOCAL_STORAGE_KEYS.programStats, nextProgramStatsStore],
+      [LOCAL_STORAGE_KEYS.savedExerciseIds, []],
       [LOCAL_STORAGE_KEYS.savedProgramIds, []],
       [LOCAL_STORAGE_KEYS.statsPreferences, nextStatsPreferences],
       [LOCAL_STORAGE_KEYS.workoutLogs, []],
@@ -254,6 +262,15 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       [LOCAL_STORAGE_KEYS.programStats, nextProgramStatsStore],
       [LOCAL_STORAGE_KEYS.workoutLogs, []],
     ])
+  },
+  setSavedExerciseIds(updater) {
+    set((state) => {
+      const nextValue = normalizeStoredIdList(resolveUpdater(state.savedExerciseIds, updater))
+      void persistState(LOCAL_STORAGE_KEYS.savedExerciseIds, nextValue)
+      return {
+        savedExerciseIds: nextValue,
+      }
+    })
   },
   savedProgramIds: [],
   setActiveWorkout(updater) {
@@ -338,7 +355,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
   },
   setSavedProgramIds(updater) {
     set((state) => {
-      const nextValue = normalizeSavedProgramIds(resolveUpdater(state.savedProgramIds, updater))
+      const nextValue = normalizeStoredIdList(resolveUpdater(state.savedProgramIds, updater))
       void persistState(LOCAL_STORAGE_KEYS.savedProgramIds, nextValue)
       return {
         savedProgramIds: nextValue,

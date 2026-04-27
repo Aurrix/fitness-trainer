@@ -1,14 +1,57 @@
 {
   "id": "stationary-bike",
   "displayLabel": "Stationary Bike",
-  "category": "Cardio",
-  "type": "continues",
   "shortDescription": "Continuous bike session recorded by duration and effort instead of set-based targets.",
-  "descriptionHtml": "<p>Continuous bike session recorded by duration and effort instead of set-based targets.</p><ul><li><strong>Track:</strong> duration, cadence or distance, and perceived effort.</li><li><strong>Typical uses:</strong> recovery rides, aerobic base work, and interval conditioning.</li></ul>",
+  "descriptionHtml": "<p>Continuous bike session recorded by duration and effort instead of set-based targets.</p><ul><li><strong>Also listed as:</strong> Exercise Bike and Indoor Bike</li><li><strong>Common substitutions:</strong> Running, Elliptical Trainer, Rowing Ergometer, and Front Squat</li></ul>",
   "aliases": [
     "Exercise Bike",
     "Indoor Bike"
   ],
+  "substitutionExerciseIds": [
+    "running",
+    "elliptical-trainer",
+    "rowing-ergometer",
+    "front-squat"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-intermedius",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "soleus",
+      "factor": 0.3
+    }
+  ],
+  "difficulty": "Beginner",
+  "category": "Cardio",
+  "type": "continues",
   "equipment": [
     "Stationary Bike"
   ],
@@ -17,7 +60,6 @@
     "Ride continuously for the planned duration.",
     "Log session duration and effort after the ride."
   ],
-  "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "durationMinutes",
     "measurement": {
@@ -155,33 +197,5 @@
     "cardio",
     "endurance",
     "conditioning"
-  ],
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "vastus-medialis",
-      "factor": 0.9
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "gastrocnemius",
-      "factor": 0.4
-    }
   ]
 }

@@ -2,11 +2,40 @@
   "id": "pec-deck",
   "displayLabel": "Pec Deck",
   "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
-  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><ul><li><strong>Also listed as:</strong> PEC DECK</li></ul>",
+  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><ul><li><strong>Also listed as:</strong> PEC DECK</li><li><strong>Common substitutions:</strong> Dumbbell Fly, Dumbbell Flye, Cable Flye, and Pectoral Flye (cable)</li></ul>",
   "aliases": [
     "PEC DECK"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "dumbbell-fly",
+    "dumbbell-flye",
+    "cable-flye",
+    "pectoral-flye-cable"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.3
+    },
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 0.3
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.2
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,17 +241,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "middle-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.3
-    }
-  ]
+  }
 }

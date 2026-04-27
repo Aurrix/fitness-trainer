@@ -2,9 +2,30 @@
   "id": "standing-oblique-crunch",
   "displayLabel": "Standing Oblique Crunch",
   "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
-  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><p>Reference this movement in program files with the exercise id <code>standing-oblique-crunch</code>.</p>",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Common substitutions:</strong> Bicycle Crunch, Bodyweight Crunch, Cable Crunch, and Captain&#39;s Chair Crunch</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "bicycle-crunch",
+    "bodyweight-crunch",
+    "cable-crunch",
+    "captain-s-chair-crunch"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -138,21 +159,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "obliques",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "lower-abs",
-      "factor": 0.4
-    }
-  ]
+  }
 }

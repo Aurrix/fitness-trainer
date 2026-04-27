@@ -2,9 +2,38 @@
   "id": "jm-press",
   "displayLabel": "Jm Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><p>Reference this movement in program files with the exercise id <code>jm-press</code>.</p>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Common substitutions:</strong> Close-grip Bench Press, Pin Press, French Press, and EZ Bar Skull Crusher</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "close-grip-bench-press",
+    "pin-press",
+    "french-press",
+    "ez-bar-skull-crusher"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,29 +239,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "side-delts",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 0.3
-    }
-  ]
+  }
 }

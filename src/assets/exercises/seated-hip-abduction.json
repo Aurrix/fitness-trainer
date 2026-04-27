@@ -2,12 +2,35 @@
   "id": "seated-hip-abduction",
   "displayLabel": "Seated Hip Abduction",
   "shortDescription": "Hip accessory movement for the glutes or inner thigh.",
-  "descriptionHtml": "<p>Hip accessory movement for the glutes or inner thigh.</p><ul><li><strong>Also listed as:</strong> MACHINE SEATED HIP ABDUCTION</li><li><strong>Common substitutions:</strong> Lateral Band Walk</li></ul>",
+  "descriptionHtml": "<p>Hip accessory movement for the glutes or inner thigh.</p><ul><li><strong>Also listed as:</strong> MACHINE SEATED HIP ABDUCTION</li><li><strong>Common substitutions:</strong> Lateral Band Walk, Plate-loaded Hip Abduction, Standing Cable Hip Abduction, and Machine Glute Kickback</li></ul>",
   "aliases": [
     "MACHINE SEATED HIP ABDUCTION"
   ],
   "substitutionExerciseIds": [
-    "lateral-band-walk"
+    "lateral-band-walk",
+    "plate-loaded-hip-abduction",
+    "standing-cable-hip-abduction",
+    "machine-glute-kickback"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-med",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-min",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "tensor-fasciae-latae",
+      "factor": 0.5
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -214,21 +237,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-med",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "glute-min",
-      "factor": 0.9
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.5
-    }
-  ]
+  }
 }

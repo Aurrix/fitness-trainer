@@ -1,8 +1,20 @@
+import {copyFile} from 'node:fs/promises'
 import {resolve} from 'node:path'
 import type {Plugin, ResolvedConfig} from 'vite'
 import {defineConfig} from 'vite'
 import react, {reactCompilerPreset} from '@vitejs/plugin-react'
 import babel from '@rolldown/plugin-babel'
+
+function normalizeBasePath(value?: string): string {
+    const trimmed = value?.trim()
+
+    if (!trimmed || trimmed === "/") {
+        return "/"
+    }
+
+    const withLeadingSlash = trimmed.startsWith("/") ? trimmed : `/${trimmed}`
+    return withLeadingSlash.endsWith("/") ? withLeadingSlash : `${withLeadingSlash}/`
+}
 
 function fitnessTrainerPwa(): Plugin {
     let config: ResolvedConfig
@@ -28,13 +40,15 @@ function fitnessTrainerPwa(): Plugin {
                 clientsClaim: true,
                 skipWaiting: true,
             })
+
+            await copyFile(resolve(outDir, 'index.html'), resolve(outDir, '404.html'))
         },
     }
 }
 
 // https://vite.dev/config/
 export default defineConfig({
-    base: "/fitness-trainer",
+    base: normalizeBasePath(process.env.BASE_PATH),
     plugins: [
         react(),
         babel({presets: [reactCompilerPreset()]}),

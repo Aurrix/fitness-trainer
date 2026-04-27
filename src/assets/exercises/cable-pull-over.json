@@ -2,10 +2,33 @@
   "id": "cable-pull-over",
   "displayLabel": "Cable Pull-Over",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Common substitutions:</strong> Lying Dumbbell Pullover</li></ul>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Common substitutions:</strong> Lying Dumbbell Pullover, Lat Prayer, Assisted Pull-Up, and Chin-Up</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
-    "lying-dumbbell-pullover"
+    "lying-dumbbell-pullover",
+    "lat-prayer",
+    "assisted-pull-up",
+    "chin-up"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "serratus-anterior",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.4
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -212,25 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lats",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "teres-major",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.3
-    },
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 0.2
-    }
-  ]
+  }
 }

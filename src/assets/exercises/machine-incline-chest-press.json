@@ -2,11 +2,44 @@
   "id": "machine-incline-chest-press",
   "displayLabel": "Machine Incline Chest Press",
   "shortDescription": "Pressing variation for chest, front delts, and triceps.",
-  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Also listed as:</strong> MACHINE INCLINE CHEST PRESS</li></ul>",
+  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Also listed as:</strong> MACHINE INCLINE CHEST PRESS</li><li><strong>Common substitutions:</strong> Hammer Strength Machine Incline Press, Low Incline Machine Press, Barbell Incline Press, and Dumbbell Incline Press</li></ul>",
   "aliases": [
     "MACHINE INCLINE CHEST PRESS"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "hammer-strength-machine-incline-press",
+    "low-incline-machine-press",
+    "barbell-incline-press",
+    "dumbbell-incline-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,25 +245,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.5
-    }
-  ]
+  }
 }

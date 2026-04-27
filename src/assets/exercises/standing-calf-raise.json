@@ -2,14 +2,28 @@
   "id": "standing-calf-raise",
   "displayLabel": "Standing Calf Raise",
   "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
-  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><ul><li><strong>Also listed as:</strong> STANDING CALF RAISE and Standing Calf Raise (machine)</li><li><strong>Common substitutions:</strong> Leg Press Calf Press and Seated Calf Raise</li></ul>",
+  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><ul><li><strong>Also listed as:</strong> STANDING CALF RAISE and Standing Calf Raise (machine)</li><li><strong>Common substitutions:</strong> Leg Press Calf Press, Seated Calf Raise, Calf Raise Machine, and Calf Raise On Leg Press Machine</li></ul>",
   "aliases": [
     "STANDING CALF RAISE",
     "Standing Calf Raise (machine)"
   ],
   "substitutionExerciseIds": [
     "leg-press-calf-press",
-    "seated-calf-raise"
+    "seated-calf-raise",
+    "calf-raise-machine",
+    "calf-raise-on-leg-press-machine"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "soleus",
+      "factor": 0.8
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -144,17 +158,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "gastrocnemius",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "soleus",
-      "factor": 0.7
-    }
-  ]
+  }
 }

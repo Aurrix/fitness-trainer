@@ -2,11 +2,44 @@
   "id": "cable-pull-through",
   "displayLabel": "Cable Pull-through",
   "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
-  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><ul><li><strong>Also listed as:</strong> Cable Pull-Through</li></ul>",
+  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><ul><li><strong>Also listed as:</strong> Cable Pull-Through</li><li><strong>Common substitutions:</strong> Reverse Hyper, Sumo Deadlift, Back Extension, and Conventional Deadlift</li></ul>",
   "aliases": [
     "Cable Pull-Through"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "reverse-hyper",
+    "sumo-deadlift",
+    "back-extension",
+    "conventional-deadlift"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,25 +245,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "glute-med",
-      "factor": 0.6
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "spinal-erectors",
-      "factor": 0.4
-    }
-  ]
+  }
 }

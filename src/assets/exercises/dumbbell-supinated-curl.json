@@ -2,11 +2,36 @@
   "id": "dumbbell-supinated-curl",
   "displayLabel": "Dumbbell Supinated Curl",
   "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
-  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Also listed as:</strong> DUMBBELL SUPINATED CURL</li></ul>",
+  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Also listed as:</strong> DUMBBELL SUPINATED CURL</li><li><strong>Common substitutions:</strong> Dumbbell Curl 21s, Dumbbell Curl, Single-arm Dumbbell Curl, and Cable Curl</li></ul>",
   "aliases": [
     "DUMBBELL SUPINATED CURL"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "dumbbell-curl-21s",
+    "dumbbell-curl",
+    "single-arm-dumbbell-curl",
+    "cable-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "biceps-long-head",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,25 +237,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "biceps-long-head",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "brachioradialis",
-      "factor": 0.5
-    }
-  ]
+  }
 }

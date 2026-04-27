@@ -1,0 +1,238 @@
+{
+  "id": "neck-lateral-flexion",
+  "displayLabel": "Neck Lateral Flexion",
+  "shortDescription": "Neck accessory movement for side-to-side cervical strength and stability.",
+  "descriptionHtml": "<p>Neck accessory movement for side-to-side cervical strength and stability.</p><ul><li><strong>Also listed as:</strong> Cervical Lateral Flexion and Side Neck Raise</li><li><strong>Common substitutions:</strong> Neck Flexion, Neck Extension, Barbell Shrug, and Cable Lateral Raise</li></ul>",
+  "aliases": [
+    "Cervical Lateral Flexion",
+    "Side Neck Raise"
+  ],
+  "substitutionExerciseIds": [
+    "neck-flexion",
+    "neck-extension",
+    "barbell-shrug",
+    "cable-lateral-raise"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "neck",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "sternocleidomastoid",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upper-traps",
+      "factor": 0.3
+    }
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "selected neck machine, cable, or plate load for one side",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              2
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              8,
+              10
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              2
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              8,
+              10
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              2
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              4,
+              6
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              7,
+              9
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              1
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              1
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              1
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              4,
+              5
+            ]
+          }
+        }
+      }
+    }
+  }
+}

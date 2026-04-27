@@ -2,9 +2,38 @@
   "id": "leg-extension-machine-hip-thrust",
   "displayLabel": "Leg Extension Machine Hip Thrust",
   "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
-  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><p>Reference this movement in program files with the exercise id <code>leg-extension-machine-hip-thrust</code>.</p>",
+  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><ul><li><strong>Common substitutions:</strong> Barbell Hip Thrust, Dumbbell Single-Leg Hip Thrust, Glute Bridge, and Barbell Hip Thrust Or Romanian Deadlift</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "barbell-hip-thrust",
+    "dumbbell-single-leg-hip-thrust",
+    "glute-bridge",
+    "barbell-hip-thrust-or-romanian-deadlift"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-min",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,24 +239,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "vastus-medialis",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "vastus-intermedius",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": []
+  }
 }

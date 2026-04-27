@@ -2,11 +2,48 @@
   "id": "dumbbell-walking-lunge",
   "displayLabel": "Dumbbell Walking Lunge",
   "shortDescription": "Single-leg lower-body movement for quad, glute, and stability work.",
-  "descriptionHtml": "<p>Single-leg lower-body movement for quad, glute, and stability work.</p><ul><li><strong>Also listed as:</strong> DUMBBELL WALKING LUNGE</li></ul>",
+  "descriptionHtml": "<p>Single-leg lower-body movement for quad, glute, and stability work.</p><ul><li><strong>Also listed as:</strong> DUMBBELL WALKING LUNGE</li><li><strong>Common substitutions:</strong> Dumbbell Step-up, Assisted Pistol Squat, Bulgarian Split Squat, and Reverse Lunge</li></ul>",
   "aliases": [
     "DUMBBELL WALKING LUNGE"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "dumbbell-step-up",
+    "assisted-pistol-squat",
+    "bulgarian-split-squat",
+    "reverse-lunge"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "vastus-intermedius",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,33 +249,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-med",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "vastus-medialis",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "adductor-magnus",
-      "factor": 0.5
-    }
-  ]
+  }
 }

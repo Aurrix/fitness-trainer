@@ -2,9 +2,46 @@
   "id": "hammer-strength-machine-press",
   "displayLabel": "Hammer Strength Machine Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><p>Reference this movement in program files with the exercise id <code>hammer-strength-machine-press</code>.</p>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Common substitutions:</strong> Machine Chest Press, Smith Machine Bench Press, Barbell Bench Press, and Deficit Push-up</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "machine-chest-press",
+    "smith-machine-bench-press",
+    "barbell-bench-press",
+    "deficit-push-up"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,29 +247,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "side-delts",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 0.3
-    }
-  ]
+  }
 }

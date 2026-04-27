@@ -2,9 +2,34 @@
   "id": "dumbbell-leg-curl",
   "displayLabel": "Dumbbell Leg Curl",
   "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
-  "descriptionHtml": "<p>Knee-flexion isolation movement for the hamstrings.</p><p>Reference this movement in program files with the exercise id <code>dumbbell-leg-curl</code>.</p>",
+  "descriptionHtml": "<p>Knee-flexion isolation movement for the hamstrings.</p><ul><li><strong>Common substitutions:</strong> Leg Curl, Lying Leg Curl, Seated Leg Curl, and Single-Leg Leg Curl</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "leg-curl",
+    "lying-leg-curl",
+    "seated-leg-curl",
+    "single-leg-leg-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,25 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "semitendinosus",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "semimembranosus",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "gastrocnemius",
-      "factor": 0.3
-    }
-  ]
+  }
 }

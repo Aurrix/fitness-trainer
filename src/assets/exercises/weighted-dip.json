@@ -2,9 +2,46 @@
   "id": "weighted-dip",
   "displayLabel": "Weighted Dip",
   "shortDescription": "Dip variation for chest and triceps with a strong stretch under load.",
-  "descriptionHtml": "<p>Dip variation for chest and triceps with a strong stretch under load.</p><p>Reference this movement in program files with the exercise id <code>weighted-dip</code>.</p>",
+  "descriptionHtml": "<p>Dip variation for chest and triceps with a strong stretch under load.</p><ul><li><strong>Common substitutions:</strong> Assisted Dip, Dip, Machine Dip, and Decline Bench Press</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "assisted-dip",
+    "dip",
+    "machine-dip",
+    "decline-bench-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Advanced",
   "strengthBenchmarks": {
     "kind": "externalLoadKg",
@@ -210,25 +247,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lower-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.8
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.4
-    }
-  ]
+  }
 }

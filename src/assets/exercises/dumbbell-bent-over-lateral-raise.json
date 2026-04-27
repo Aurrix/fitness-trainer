@@ -2,11 +2,36 @@
   "id": "dumbbell-bent-over-lateral-raise",
   "displayLabel": "Dumbbell Bent Over Lateral Raise",
   "shortDescription": "Shoulder isolation movement for the side or rear delts.",
-  "descriptionHtml": "<p>Shoulder isolation movement for the side or rear delts.</p><ul><li><strong>Also listed as:</strong> DUMBBELL BENT OVER LATERAL RAISE</li></ul>",
+  "descriptionHtml": "<p>Shoulder isolation movement for the side or rear delts.</p><ul><li><strong>Also listed as:</strong> DUMBBELL BENT OVER LATERAL RAISE</li><li><strong>Common substitutions:</strong> Dumbbell Lateral Raise, Lateral Raise (dumbbell), Cable Lateral Raise, and Egyptian Cable Raise</li></ul>",
   "aliases": [
     "DUMBBELL BENT OVER LATERAL RAISE"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "dumbbell-lateral-raise",
+    "lateral-raise-dumbbell",
+    "cable-lateral-raise",
+    "egyptian-cable-raise"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rear-delts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "infraspinatus",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,21 +237,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rear-delts",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rhomboids",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "mid-traps",
-      "factor": 0.5
-    }
-  ]
+  }
 }

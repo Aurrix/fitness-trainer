@@ -2,9 +2,30 @@
   "id": "tricep-extension-machine",
   "displayLabel": "Tricep Extension Machine",
   "shortDescription": "Triceps accessory movement for elbow extension volume.",
-  "descriptionHtml": "<p>Triceps accessory movement for elbow extension volume.</p><p>Reference this movement in program files with the exercise id <code>tricep-extension-machine</code>.</p>",
+  "descriptionHtml": "<p>Triceps accessory movement for elbow extension volume.</p><ul><li><strong>Common substitutions:</strong> Dumbbell Skull Crusher, Single-arm Rope Tricep Extension, EZ Bar Skull Crusher, and Dumbbell Overhead Triceps Extension</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "dumbbell-skull-crusher",
+    "single-arm-rope-tricep-extension",
+    "ez-bar-skull-crusher",
+    "dumbbell-overhead-triceps-extension"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.6
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,21 +231,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.9
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.6
-    }
-  ]
+  }
 }

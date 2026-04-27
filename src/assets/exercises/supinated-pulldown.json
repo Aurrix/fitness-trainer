@@ -2,9 +2,42 @@
   "id": "supinated-pulldown",
   "displayLabel": "Supinated Pulldown",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><p>Reference this movement in program files with the exercise id <code>supinated-pulldown</code>.</p>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Common substitutions:</strong> Chin-Up, Reverse Grip Assisted Pull-Up, Reverse Grip Lat Pulldown, and Pronated Pulldown</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "chin-up",
+    "reverse-grip-assisted-pull-up",
+    "reverse-grip-lat-pulldown",
+    "pronated-pulldown"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-long-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearm-flexors",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,29 +243,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lats",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "teres-major",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.8
-    },
-    {
-      "muscleGroup": "biceps-long-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.6
-    }
-  ]
+  }
 }

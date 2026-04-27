@@ -2,9 +2,30 @@
   "id": "upright-row-cable",
   "displayLabel": "Upright Row (cable)",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><p>Reference this movement in program files with the exercise id <code>upright-row-cable</code>.</p>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Common substitutions:</strong> Cable Rope Upright Row, Upright Row (ez Bar), Cable Seated Row, and Cable Single-arm Row</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "cable-rope-upright-row",
+    "upright-row-ez-bar",
+    "cable-seated-row",
+    "cable-single-arm-row"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "side-delts",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "upper-traps",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,21 +231,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "side-delts",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "upper-traps",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.4
-    }
-  ]
+  }
 }

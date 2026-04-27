@@ -9,7 +9,9 @@ type ProgramsPageProps = {
   customPrograms: AppProgram[]
   draft: ProgramDraft
   isBuilderOpen: boolean
-  mainProgram: AppProgram | null
+  isMainProgramEmpty: boolean
+  mainProgram: AppProgram
+  onChangeMainProgram: () => void
   onAddExerciseToSection: (sectionId: string) => void
   onAddSection: () => void
   onCloseBuilder: () => void
@@ -43,7 +45,9 @@ export default function ProgramsPage({
   customPrograms,
   draft,
   isBuilderOpen,
+  isMainProgramEmpty,
   mainProgram,
+  onChangeMainProgram,
   onAddExerciseToSection,
   onAddSection,
   onCloseBuilder,
@@ -72,32 +76,36 @@ export default function ProgramsPage({
           </div>
         </div>
 
-        {mainProgram ? (
-          <article className="program-card program-card--featured">
-            <div className="section-header">
-              <div>
-                <span className="pill">Main Program</span>
-                <h3>{mainProgram.name}</h3>
-                <p className="muted">
-                  {mainProgram.description ||
-                    `${countExercises(mainProgram)} exercises across ${mainProgram.sections.length} days.`}
-                </p>
-              </div>
+        <article className="program-card program-card--featured">
+          <div className="section-header">
+            <div>
+              <span className="pill">{isMainProgramEmpty ? 'Default Program' : 'Main Program'}</span>
+              <h3>{mainProgram.name}</h3>
+              <p className="muted">
+                {mainProgram.description ||
+                  `${countExercises(mainProgram)} exercises across ${mainProgram.sections.length} days.`}
+              </p>
+            </div>
+            {!isMainProgramEmpty ? (
               <button type="button" className="ghost-button" onClick={() => onOpenProgram(mainProgram)}>
                 Open
               </button>
-            </div>
-            <div className="tag-row">
-              <span className="pill pill--subtle">{mainProgram.programSource}</span>
-              <span className="pill pill--subtle">{mainProgram.sections.length} days</span>
-            </div>
-          </article>
-        ) : (
-          <div className="empty-state">
-            <h3>No main program yet</h3>
-            <p>Choose one from the library or build your own plan.</p>
+            ) : null}
           </div>
-        )}
+          <div className="tag-row">
+            {!isMainProgramEmpty ? (
+              <span className="pill pill--subtle">{mainProgram.programSource}</span>
+            ) : null}
+            <span className="pill pill--subtle">{mainProgram.sections.length} days</span>
+            <span className="pill pill--subtle">{countExercises(mainProgram)} exercises</span>
+          </div>
+          <div className="row-actions">
+            <button type="button" className="primary-button icon-button" onClick={onChangeMainProgram}>
+              <Target size={16} />
+              <span>{isMainProgramEmpty ? 'Choose Main Program' : 'Change Main Program'}</span>
+            </button>
+          </div>
+        </article>
       </section>
 
       <section className="section-card">

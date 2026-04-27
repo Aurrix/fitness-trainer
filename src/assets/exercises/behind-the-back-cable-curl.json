@@ -2,9 +2,34 @@
   "id": "behind-the-back-cable-curl",
   "displayLabel": "Behind-the-back Cable Curl",
   "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
-  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><p>Reference this movement in program files with the exercise id <code>behind-the-back-cable-curl</code>.</p>",
+  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Common substitutions:</strong> Cable Curl, Cable Curl 21s, Cable Single-Arm Curl, and Dumbbell Curl</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "cable-curl",
+    "cable-curl-21s",
+    "cable-single-arm-curl",
+    "dumbbell-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-long-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,25 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-long-head",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "brachioradialis",
-      "factor": 0.4
-    }
-  ]
+  }
 }

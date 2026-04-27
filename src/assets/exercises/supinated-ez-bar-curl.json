@@ -2,11 +2,33 @@
   "id": "supinated-ez-bar-curl",
   "displayLabel": "Supinated EZ Bar Curl",
   "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
-  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Common substitutions:</strong> Cable Curl and Dumbbell Curl</li></ul>",
+  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Common substitutions:</strong> Cable Curl, Dumbbell Curl, Cable Curl 21s, and Cable Single-Arm Curl</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
     "cable-curl",
-    "dumbbell-curl"
+    "dumbbell-curl",
+    "cable-curl-21s",
+    "cable-single-arm-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "biceps-long-head",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.5
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -213,25 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "biceps-long-head",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "brachioradialis",
-      "factor": 0.5
-    }
-  ]
+  }
 }

@@ -2,9 +2,34 @@
   "id": "side-plank",
   "displayLabel": "Side Plank",
   "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
-  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><p>Reference this movement in program files with the exercise id <code>side-plank</code>.</p>",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Common substitutions:</strong> Ab Wheel Rollout, Hollow Body Hold, Long-lever Plank, and Plank</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "ab-wheel-rollout",
+    "hollow-body-hold",
+    "long-lever-plank",
+    "plank"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "transverse-abdominis",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "holdSeconds",
@@ -138,21 +163,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "obliques",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "transverse-abdominis",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-med",
-      "factor": 0.3
-    }
-  ]
+  }
 }

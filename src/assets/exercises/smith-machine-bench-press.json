@@ -2,9 +2,46 @@
   "id": "smith-machine-bench-press",
   "displayLabel": "Smith Machine Bench Press",
   "shortDescription": "Pressing variation for chest, front delts, and triceps.",
-  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><p>Reference this movement in program files with the exercise id <code>smith-machine-bench-press</code>.</p>",
+  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Common substitutions:</strong> Hammer Strength Machine Press, Machine Chest Press, Barbell Bench Press, and Deficit Push-up</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "hammer-strength-machine-press",
+    "machine-chest-press",
+    "barbell-bench-press",
+    "deficit-push-up"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,25 +247,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "middle-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.5
-    }
-  ]
+  }
 }

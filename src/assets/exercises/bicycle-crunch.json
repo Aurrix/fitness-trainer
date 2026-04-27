@@ -2,14 +2,35 @@
   "id": "bicycle-crunch",
   "displayLabel": "Bicycle Crunch",
   "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
-  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Also listed as:</strong> BICYCLE CRUNCH</li><li><strong>Common substitutions:</strong> Bodyweight Crunch, Cable Crunch, and V Sit-up</li></ul>",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Also listed as:</strong> BICYCLE CRUNCH</li><li><strong>Common substitutions:</strong> Bodyweight Crunch, Cable Crunch, V Sit-up, and Standing Oblique Crunch</li></ul>",
   "aliases": [
     "BICYCLE CRUNCH"
   ],
   "substitutionExerciseIds": [
     "bodyweight-crunch",
     "cable-crunch",
-    "v-sit-up"
+    "v-sit-up",
+    "standing-oblique-crunch"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hip-flexors",
+      "factor": 0.4
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -144,25 +165,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "obliques",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lower-abs",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "hip-flexors",
-      "factor": 0.4
-    }
-  ]
+  }
 }

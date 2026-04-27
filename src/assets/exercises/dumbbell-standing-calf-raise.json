@@ -2,9 +2,26 @@
   "id": "dumbbell-standing-calf-raise",
   "displayLabel": "Dumbbell Standing Calf Raise",
   "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
-  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><p>Reference this movement in program files with the exercise id <code>dumbbell-standing-calf-raise</code>.</p>",
+  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><ul><li><strong>Common substitutions:</strong> Calf Raise Machine, Calf Raise On Leg Press Machine, Eccentric-Accentuated Standing Calf Raise, and Leg Press Calf Press</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "calf-raise-machine",
+    "calf-raise-on-leg-press-machine",
+    "eccentric-accentuated-standing-calf-raise",
+    "leg-press-calf-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "soleus",
+      "factor": 0.7
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,17 +227,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "gastrocnemius",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "soleus",
-      "factor": 0.7
-    }
-  ]
+  }
 }

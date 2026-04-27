@@ -1,14 +1,53 @@
 {
   "id": "rowing-ergometer",
   "displayLabel": "Rowing Ergometer",
-  "category": "Cardio",
-  "type": "continues",
   "shortDescription": "Continuous rowing machine effort tracked primarily by duration and effort.",
-  "descriptionHtml": "<p>Continuous rowing machine effort tracked primarily by duration and effort.</p><ul><li><strong>Track:</strong> duration, pace, and perceived effort.</li><li><strong>Typical uses:</strong> warm-ups, interval conditioning, and low-impact endurance work.</li></ul>",
+  "descriptionHtml": "<p>Continuous rowing machine effort tracked primarily by duration and effort.</p><ul><li><strong>Also listed as:</strong> Rowing Machine and Erg Row</li><li><strong>Common substitutions:</strong> Elliptical Trainer, Running, Stationary Bike, and Barbell Bent Over Row</li></ul>",
   "aliases": [
     "Rowing Machine",
     "Erg Row"
   ],
+  "substitutionExerciseIds": [
+    "elliptical-trainer",
+    "running",
+    "stationary-bike",
+    "barbell-bent-over-row"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearm-flexors",
+      "factor": 0.5
+    }
+  ],
+  "difficulty": "Beginner",
+  "category": "Cardio",
+  "type": "continues",
   "equipment": [
     "Rowing Ergometer"
   ],
@@ -17,7 +56,6 @@
     "Maintain consistent stroke rhythm for the target duration.",
     "Log the duration and effort once the piece is complete."
   ],
-  "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "durationMinutes",
     "measurement": {
@@ -155,33 +193,5 @@
     "cardio",
     "conditioning",
     "machine"
-  ],
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lats",
-      "factor": 0.8
-    },
-    {
-      "muscleGroup": "rhomboids",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "forearm-flexors",
-      "factor": 0.5
-    }
   ]
 }

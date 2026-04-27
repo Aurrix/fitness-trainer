@@ -2,11 +2,40 @@
   "id": "v-sit-up",
   "displayLabel": "V Sit-up",
   "shortDescription": "Resistance training exercise used across the imported workout books.",
-  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Also listed as:</strong> V Sit-Up</li></ul>",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Also listed as:</strong> V Sit-Up</li><li><strong>Common substitutions:</strong> Reverse Crunch, Bicycle Crunch, Cable Crunch, and Kneeling Cable Crunch</li></ul>",
   "aliases": [
     "V Sit-Up"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "reverse-crunch",
+    "bicycle-crunch",
+    "cable-crunch",
+    "kneeling-cable-crunch"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "hip-flexors",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "transverse-abdominis",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -140,25 +169,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lower-abs",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "hip-flexors",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "obliques",
-      "factor": 0.3
-    }
-  ]
+  }
 }

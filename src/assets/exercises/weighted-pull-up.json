@@ -2,13 +2,43 @@
   "id": "weighted-pull-up",
   "displayLabel": "Weighted Pull-Up",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> Weighted Pullup</li><li><strong>Common substitutions:</strong> Lat Pulldown and Neutral-grip Pull-up</li></ul>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> Weighted Pullup</li><li><strong>Common substitutions:</strong> Lat Pulldown, Neutral-grip Pull-up, Assisted Pull-Up, and Neutral-grip Pulldown</li></ul>",
   "aliases": [
     "Weighted Pullup"
   ],
   "substitutionExerciseIds": [
     "lat-pulldown",
-    "neutral-grip-pull-up"
+    "neutral-grip-pull-up",
+    "assisted-pull-up",
+    "neutral-grip-pulldown"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearm-flexors",
+      "factor": 0.4
+    }
   ],
   "difficulty": "Advanced",
   "strengthBenchmarks": {
@@ -215,29 +245,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lats",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "teres-major",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "brachioradialis",
-      "factor": 0.4
-    }
-  ]
+  }
 }

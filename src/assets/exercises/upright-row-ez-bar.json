@@ -2,11 +2,32 @@
   "id": "upright-row-ez-bar",
   "displayLabel": "Upright Row (ez Bar)",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> Upright Row (EZ Bar)</li></ul>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> Upright Row (EZ Bar)</li><li><strong>Common substitutions:</strong> Cable Rope Upright Row, Upright Row (cable), Barbell Bent Over Row, and Bent Over Smith Row</li></ul>",
   "aliases": [
     "Upright Row (EZ Bar)"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "cable-rope-upright-row",
+    "upright-row-cable",
+    "barbell-bent-over-row",
+    "bent-over-smith-row"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "side-delts",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "upper-traps",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,21 +233,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "side-delts",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "upper-traps",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.4
-    }
-  ]
+  }
 }

@@ -59,42 +59,120 @@ function formatVolumeValue(value: number | null) {
   return value !== null ? `${Math.round(value)} kg` : 'N/A'
 }
 
+function formatMetricValue(value: number | null, unit: string, digits = 0) {
+  if (value === null) {
+    return 'N/A'
+  }
+
+  const normalizedUnit = unit === 'min' ? 'min' : unit
+  const roundedValue = digits > 0 ? value.toFixed(digits) : Math.round(value).toString()
+  return normalizedUnit ? `${roundedValue} ${normalizedUnit}` : roundedValue
+}
+
+function formatSignedMetricValue(value: number | null, unit: string, digits = 0) {
+  if (value === null) {
+    return 'N/A'
+  }
+
+  const normalizedUnit = unit === 'min' ? 'min' : unit
+  const magnitude = digits > 0 ? Math.abs(value).toFixed(digits) : Math.round(Math.abs(value)).toString()
+  return `${value > 0 ? '+' : value < 0 ? '-' : ''}${magnitude}${normalizedUnit ? ` ${normalizedUnit}` : ''}`
+}
+
+function formatRangeValue([min, max]: [number, number], unit: string) {
+  const normalizedUnit = unit === 'minutes' ? 'min' : unit
+  return `${Math.round(min)}-${Math.round(max)} ${normalizedUnit}`
+}
+
+type BreakdownRow = {
+  id: string
+  label: string
+  metaLines: string[]
+  tone: 'negative' | 'neutral' | 'positive'
+  value: string
+  valueMeta: string | null
+}
+
 function buildBreakdownRows(
   breakdownView: StatsPreferences['muscleProgressView'],
   exercises: ExerciseProgressEntry[],
   muscles: MuscleProgressEntry[],
-) {
+): BreakdownRow[] {
   if (breakdownView === 'exercises') {
-    return exercises.slice(0, 8).map((exercise) => ({
+    return exercises.slice(0, 8).map((exercise) => {
+      const deltaLabel =
+        exercise.previousScore !== null && exercise.latestScore !== null
+          ? `${exercise.scoreLabel} ${formatSignedMetricValue(
+              exercise.latestScore - exercise.previousScore,
+              exercise.scoreUnit,
+            )}`
+          : null
+
+      return {
       id: exercise.exerciseKey,
       label: exercise.exerciseName,
-      meta:
+      metaLines: [
         exercise.latestScore !== null
-          ? `${exercise.scoreLabel} ${Math.round(exercise.latestScore)} / ${exercise.sampleCount} logs`
+          ? `${exercise.scoreLabel} ${formatMetricValue(exercise.latestScore, exercise.scoreUnit)} · ${exercise.sampleCount} logs`
           : `${exercise.sampleCount} logs`,
+        exercise.benchmarkComparison
+          ? `Avg ${formatRangeValue(
+              exercise.benchmarkComparison.benchmarkRange,
+              exercise.benchmarkComparison.measurementUnit,
+            )} · ${formatSignedNumber(
+              exercise.benchmarkComparison.comparisonPercent,
+              0,
+            )}% vs avg`
+          : 'No peer benchmark for this exercise yet',
+        exercise.latestVolumeKg !== null || exercise.previousVolumeKg !== null
+          ? `Volume ${formatSignedMetricValue(
+              (exercise.latestVolumeKg ?? 0) - (exercise.previousVolumeKg ?? 0),
+              'kg',
+            )}`
+          : null,
+      ].filter(Boolean) as string[],
       tone:
         exercise.coefficient > 0.03
           ? ('positive' as const)
           : exercise.coefficient < -0.03
             ? ('negative' as const)
             : ('neutral' as const),
+      valueMeta:
+        deltaLabel && exercise.benchmarkComparison
+          ? `${deltaLabel} · ${formatSignedMetricValue(
+              exercise.benchmarkComparison.comparisonDelta,
+              exercise.benchmarkComparison.measurementUnit === 'minutes'
+                ? 'min'
+                : exercise.benchmarkComparison.measurementUnit,
+            )}`
+          : deltaLabel ??
+            (exercise.benchmarkComparison
+              ? formatSignedMetricValue(
+                  exercise.benchmarkComparison.comparisonDelta,
+                  exercise.benchmarkComparison.measurementUnit === 'minutes'
+                    ? 'min'
+                    : exercise.benchmarkComparison.measurementUnit,
+                )
+              : null),
       value: formatCoefficient(exercise.coefficient),
-    }))
+    }})
   }
 
   return muscles.slice(0, 8).map((muscle) => ({
     id: muscle.slug,
     label: muscle.label,
-    meta:
+    metaLines: [
       muscle.exerciseNames.length > 0
         ? muscle.exerciseNames.slice(0, 2).join(', ')
         : `${muscle.sampleCount} logs`,
+    ],
     tone:
       muscle.coefficient > 0.03
         ? ('positive' as const)
         : muscle.coefficient < -0.03
           ? ('negative' as const)
           : ('neutral' as const),
+    valueMeta: null,
     value: formatCoefficient(muscle.coefficient),
   }))
 }
@@ -153,6 +231,7 @@ export default function ProgramProgressionPanel({
     mainProgram.id,
     exerciseStatsStore,
     strengthRange,
+    fitnessProfile,
   )
   const muscleBreakdown = buildMuscleProgressionBreakdown(exerciseBreakdown)
   const progressProfile = buildMuscleProgressProfile(muscleBreakdown)
@@ -416,9 +495,16 @@ export default function ProgramProgressionPanel({
                   <div key={row.id} className={`stats-mini-table__row is-${row.tone}`}>
                     <div className="stats-mini-table__copy">
                       <strong>{row.label}</strong>
-                      <span>{row.meta}</span>
+                      {row.metaLines.map((line) => (
+                        <span key={line}>{line}</span>
+                      ))}
                     </div>
-                    <span className="stats-mini-table__value">{row.value}</span>
+                    <div className="stats-mini-table__value-stack">
+                      <span className="stats-mini-table__value">{row.value}</span>
+                      {row.valueMeta ? (
+                        <span className="stats-mini-table__value-meta">{row.valueMeta}</span>
+                      ) : null}
+                    </div>
                   </div>
                 ))
               ) : (

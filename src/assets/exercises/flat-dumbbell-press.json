@@ -2,9 +2,46 @@
   "id": "flat-dumbbell-press",
   "displayLabel": "Flat Dumbbell Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><p>Reference this movement in program files with the exercise id <code>flat-dumbbell-press</code>.</p>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Common substitutions:</strong> Dumbbell Bench Press, Dumbbell Floor Press, Deficit Push-up, and Barbell Bench Press</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "dumbbell-bench-press",
+    "dumbbell-floor-press",
+    "deficit-push-up",
+    "barbell-bench-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,29 +247,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "side-delts",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 0.3
-    }
-  ]
+  }
 }

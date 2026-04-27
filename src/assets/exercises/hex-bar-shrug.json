@@ -2,11 +2,32 @@
   "id": "hex-bar-shrug",
   "displayLabel": "Hex Bar Shrug",
   "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
-  "descriptionHtml": "<p>Upper-back and shoulder accessory movement for traps and rear delts.</p><ul><li><strong>Also listed as:</strong> Hex Frame Shrug</li></ul>",
+  "descriptionHtml": "<p>Upper-back and shoulder accessory movement for traps and rear delts.</p><ul><li><strong>Also listed as:</strong> Hex Frame Shrug</li><li><strong>Common substitutions:</strong> Barbell Shrug, Dumbbell Monkey Shrug, Dumbbell Shrug, and Hex Bar Or Smith Machine Shrug</li></ul>",
   "aliases": [
     "Hex Frame Shrug"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "barbell-shrug",
+    "dumbbell-monkey-shrug",
+    "dumbbell-shrug",
+    "hex-bar-or-smith-machine-shrug"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-traps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearm-flexors",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,21 +233,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-traps",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "mid-traps",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "forearm-flexors",
-      "factor": 0.3
-    }
-  ]
+  }
 }

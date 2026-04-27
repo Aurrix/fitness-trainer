@@ -2,11 +2,28 @@
   "id": "cable-lateral-raise",
   "displayLabel": "Cable Lateral Raise",
   "shortDescription": "Shoulder isolation movement for the side or rear delts.",
-  "descriptionHtml": "<p>Shoulder isolation movement for the side or rear delts.</p><ul><li><strong>Also listed as:</strong> CABLE LATERAL RAISE</li></ul>",
+  "descriptionHtml": "<p>Shoulder isolation movement for the side or rear delts.</p><ul><li><strong>Also listed as:</strong> CABLE LATERAL RAISE</li><li><strong>Common substitutions:</strong> Egyptian Cable Raise, Dumbbell Lateral Raise, Egyptian Lateral Raise, and Lateral Raise (dumbbell)</li></ul>",
   "aliases": [
     "CABLE LATERAL RAISE"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "egyptian-cable-raise",
+    "dumbbell-lateral-raise",
+    "egyptian-lateral-raise",
+    "lateral-raise-dumbbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "side-delts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-traps",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,17 +229,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "side-delts",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-traps",
-      "factor": 0.3
-    }
-  ]
+  }
 }

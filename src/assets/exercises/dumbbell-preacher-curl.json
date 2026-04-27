@@ -2,9 +2,30 @@
   "id": "dumbbell-preacher-curl",
   "displayLabel": "Dumbbell Preacher Curl",
   "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
-  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><p>Reference this movement in program files with the exercise id <code>dumbbell-preacher-curl</code>.</p>",
+  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Common substitutions:</strong> EZ Preacher Curl, Dumbbell Curl, Dumbbell Curl 21s, and Dumbbell Supinated Curl</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "ez-preacher-curl",
+    "dumbbell-curl",
+    "dumbbell-curl-21s",
+    "dumbbell-supinated-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,21 +231,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "brachioradialis",
-      "factor": 0.4
-    }
-  ]
+  }
 }

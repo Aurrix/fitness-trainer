@@ -2,12 +2,37 @@
   "id": "dumbbell-skull-crusher",
   "displayLabel": "Dumbbell Skull Crusher",
   "shortDescription": "Triceps accessory movement for elbow extension volume.",
-  "descriptionHtml": "<p>Triceps accessory movement for elbow extension volume.</p><ul><li><strong>Also listed as:</strong> DUMBBELL SKULL CRUSHER and Dumbbell Skullcrusher</li></ul>",
+  "descriptionHtml": "<p>Triceps accessory movement for elbow extension volume.</p><ul><li><strong>Also listed as:</strong> DUMBBELL SKULL CRUSHER and Dumbbell Skullcrusher</li><li><strong>Common substitutions:</strong> EZ Bar Skull Crusher, Single-arm Rope Tricep Extension, Tricep Extension Machine, and Dumbbell Overhead Triceps Extension</li></ul>",
   "aliases": [
     "DUMBBELL SKULL CRUSHER",
     "Dumbbell Skullcrusher"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "ez-bar-skull-crusher",
+    "single-arm-rope-tricep-extension",
+    "tricep-extension-machine",
+    "dumbbell-overhead-triceps-extension"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.2
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -213,25 +238,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.2
-    }
-  ]
+  }
 }

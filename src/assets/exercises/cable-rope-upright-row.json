@@ -2,11 +2,29 @@
   "id": "cable-rope-upright-row",
   "displayLabel": "Cable Rope Upright Row",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Common substitutions:</strong> Face Pull and Machine Lateral Raise</li></ul>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Common substitutions:</strong> Face Pull, Machine Lateral Raise, Upright Row (cable), and Upright Row (ez Bar)</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
     "face-pull",
-    "machine-lateral-raise"
+    "machine-lateral-raise",
+    "upright-row-cable",
+    "upright-row-ez-bar"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "side-delts",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "upper-traps",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.4
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -213,21 +231,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "side-delts",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "upper-traps",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.4
-    }
-  ]
+  }
 }

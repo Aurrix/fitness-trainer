@@ -2,11 +2,41 @@
   "id": "single-leg-leg-press",
   "displayLabel": "Single-Leg Leg Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Common substitutions:</strong> Assisted Pistol Squat and Dumbbell Step-up</li></ul>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Common substitutions:</strong> Assisted Pistol Squat, Dumbbell Step-up, Leg Press, and Single Leg Press</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
     "assisted-pistol-squat",
-    "dumbbell-step-up"
+    "dumbbell-step-up",
+    "leg-press",
+    "single-leg-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-intermedius",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.4
+    }
   ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
@@ -213,29 +243,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "vastus-medialis",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "adductor-magnus",
-      "factor": 0.4
-    }
-  ]
+  }
 }

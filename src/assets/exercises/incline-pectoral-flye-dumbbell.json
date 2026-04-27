@@ -2,9 +2,34 @@
   "id": "incline-pectoral-flye-dumbbell",
   "displayLabel": "Incline Pectoral Flye (dumbbell)",
   "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
-  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><p>Reference this movement in program files with the exercise id <code>incline-pectoral-flye-dumbbell</code>.</p>",
+  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><ul><li><strong>Common substitutions:</strong> Incline Pectoral Flye (cable), Low To High Cable Flye, Dumbbell Fly, and Dumbbell Flye</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "incline-pectoral-flye-cable",
+    "low-to-high-cable-flye",
+    "dumbbell-fly",
+    "dumbbell-flye"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.2
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,17 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.3
-    }
-  ]
+  }
 }

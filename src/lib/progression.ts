@@ -15,6 +15,12 @@ import type {
 import type { ProgramDayLog } from '../entities/program-day-stats'
 import type { WorkoutLog } from '../entities/workout'
 import {
+  getContentLibrary,
+  type Exercise,
+  type StrengthBenchmarkKind,
+  type StrengthBenchmarks,
+} from './content'
+import {
   calculateBodyMassIndex,
   type FitnessExperienceLevel,
   type FitnessGoal,
@@ -100,14 +106,19 @@ export type ProgramSessionPoint = {
 }
 
 export type ExerciseProgressEntry = {
+  benchmarkComparison: ExerciseStrengthBenchmarkComparison | null
   coefficient: number
   exerciseKey: string
   exerciseName: string
   lastRecordedAt: string | null
+  latestVolumeKg: number | null
   latestScore: number | null
   muscleGroups: string[]
+  previousScore: number | null
+  previousVolumeKg: number | null
   sampleCount: number
   scoreLabel: string
+  scoreUnit: string
   targetCoefficients: Array<{ coefficient: number; muscleGroup: string }>
 }
 
@@ -117,6 +128,17 @@ export type MuscleProgressEntry = {
   label: string
   sampleCount: number
   slug: Slug
+}
+
+export type ExerciseStrengthBenchmarkComparison = {
+  benchmarkRange: [number, number]
+  comparisonDelta: number
+  comparisonPercent: number
+  comparisonTone: 'negative' | 'neutral' | 'positive'
+  direction: 'higher-is-better' | 'lower-is-better'
+  latestValue: number
+  measurementLabel: string
+  measurementUnit: 'kg' | 'minutes' | 'reps' | 'seconds'
 }
 
 const parsedBenchmarks = JSON.parse(benchmarkSource) as BodyGrowthBenchmarks
@@ -842,6 +864,175 @@ function formatWeekLabel(date: Date) {
   })
 }
 
+function getStrengthBenchmarkAgeGroup(age: number | null) {
+  return getAgeGroup(age)
+}
+
+function normalizeLookupLabel(value: string) {
+  return value.trim().toLowerCase()
+}
+
+function buildExerciseLookup() {
+  const library = getContentLibrary()
+  const byId = new Map<string, Exercise>()
+  const byName = new Map<string, Exercise>()
+
+  for (const exercise of library.exercises) {
+    byId.set(exercise.id, exercise)
+    byName.set(normalizeLookupLabel(exercise.name), exercise)
+
+    for (const alias of exercise.aliases) {
+      byName.set(normalizeLookupLabel(alias), exercise)
+    }
+  }
+
+  return { byId, byName }
+}
+
+const exerciseLookup = buildExerciseLookup()
+
+function resolveExerciseByHistorySample(sample: ExercisePerformanceSample | null) {
+  if (!sample) {
+    return null
+  }
+
+  if (sample.exerciseId?.trim()) {
+    const byId = exerciseLookup.byId.get(sample.exerciseId.trim())
+
+    if (byId) {
+      return byId
+    }
+  }
+
+  return exerciseLookup.byName.get(normalizeLookupLabel(sample.exerciseName)) ?? null
+}
+
+function getScoreUnit(scoreLabel: string) {
+  switch (scoreLabel) {
+    case 'e1RM':
+    case 'Volume':
+      return 'kg'
+    case 'Duration':
+      return 'min'
+    case 'Reps':
+      return 'reps'
+    default:
+      return ''
+  }
+}
+
+function getMaxSetReps(sample: ExercisePerformanceSample) {
+  return sample.sets.reduce<number | null>((currentMax, set) => {
+    if (set.reps === null) {
+      return currentMax
+    }
+
+    return currentMax === null ? set.reps : Math.max(currentMax, set.reps)
+  }, null)
+}
+
+function getMaxSetDurationSeconds(sample: ExercisePerformanceSample) {
+  return sample.sets.reduce<number | null>((currentMax, set) => {
+    if (set.durationMinutes === null) {
+      return currentMax
+    }
+
+    const durationSeconds = set.durationMinutes * 60
+    return currentMax === null ? durationSeconds : Math.max(currentMax, durationSeconds)
+  }, null)
+}
+
+function getBenchmarkRange(profile: StrengthBenchmarks['profiles'][FitnessProfileGender][BenchmarkAgeGroup][FitnessExperienceLevel], kind: StrengthBenchmarkKind) {
+  switch (kind) {
+    case 'assistanceKg':
+      return profile.assistanceRangeKg ?? null
+    case 'bodyweightReps':
+      return profile.repRange ?? null
+    case 'durationMinutes':
+      return profile.durationMinutesRange ?? null
+    case 'externalLoadKg':
+      return profile.externalLoadRangeKg ?? null
+    case 'holdSeconds':
+      return profile.holdSecondsRange ?? null
+    case 'loadKg':
+      return profile.loadRangeKg ?? null
+    default:
+      return null
+  }
+}
+
+function getBenchmarkSampleValue(sample: ExercisePerformanceSample, kind: StrengthBenchmarkKind) {
+  switch (kind) {
+    case 'assistanceKg':
+      return sample.maxWeightKg
+    case 'bodyweightReps':
+      return getMaxSetReps(sample)
+    case 'durationMinutes':
+      return sample.totalDurationMinutes
+    case 'externalLoadKg':
+    case 'loadKg':
+      return sample.maxWeightKg
+    case 'holdSeconds':
+      return getMaxSetDurationSeconds(sample)
+    default:
+      return null
+  }
+}
+
+function buildExerciseStrengthBenchmarkComparison(
+  profile: FitnessProfile,
+  exercise: Exercise | null,
+  sample: ExercisePerformanceSample | null,
+) {
+  if (!exercise?.strengthBenchmarks || !sample) {
+    return null
+  }
+
+  const benchmarkProfile =
+    exercise.strengthBenchmarks.profiles[profile.gender]?.[
+      getStrengthBenchmarkAgeGroup(profile.age)
+    ]?.[profile.experienceLevel] ?? null
+
+  if (!benchmarkProfile) {
+    return null
+  }
+
+  const benchmarkRange = getBenchmarkRange(benchmarkProfile, exercise.strengthBenchmarks.kind)
+  const latestValue = getBenchmarkSampleValue(sample, exercise.strengthBenchmarks.kind)
+
+  if (!benchmarkRange || latestValue === null) {
+    return null
+  }
+
+  const benchmarkMidpoint = (benchmarkRange[0] + benchmarkRange[1]) / 2
+  const direction =
+    exercise.strengthBenchmarks.kind === 'assistanceKg'
+      ? ('lower-is-better' as const)
+      : ('higher-is-better' as const)
+  const rawDelta = latestValue - benchmarkMidpoint
+  const comparisonDelta = direction === 'lower-is-better' ? -rawDelta : rawDelta
+  const comparisonPercent = benchmarkMidpoint
+    ? (comparisonDelta / benchmarkMidpoint) * 100
+    : 0
+  const comparisonTone =
+    Math.abs(comparisonPercent) < 4
+      ? ('neutral' as const)
+      : comparisonPercent > 0
+        ? ('positive' as const)
+        : ('negative' as const)
+
+  return {
+    benchmarkRange,
+    comparisonDelta,
+    comparisonPercent,
+    comparisonTone,
+    direction,
+    latestValue,
+    measurementLabel: exercise.strengthBenchmarks.measurement.basis,
+    measurementUnit: exercise.strengthBenchmarks.measurement.unit,
+  } satisfies ExerciseStrengthBenchmarkComparison
+}
+
 export function buildWeeklyFrequency(points: ProgramSessionPoint[]) {
   if (!points.length) {
     return [] as Array<{ label: string; sessions: number; weekStart: string }>
@@ -989,6 +1180,7 @@ export function buildExerciseProgressionBreakdown(
   programId: string | null,
   statsStore: ExerciseStatsStore,
   range: '30d' | '90d' | '180d' | '365d' | 'all',
+  profile?: FitnessProfile | null,
 ) {
   if (!programId) {
     return [] as ExerciseProgressEntry[]
@@ -1016,21 +1208,38 @@ export function buildExerciseProgressionBreakdown(
         return []
       }
 
-      const latestSample = [...filteredHistory].sort((left, right) =>
-        right.recordedAt.localeCompare(left.recordedAt),
-      )[0]
+      const sortedHistory = [...filteredHistory].sort((left, right) =>
+        left.recordedAt.localeCompare(right.recordedAt),
+      )
+      const latestSample = sortedHistory.at(-1) ?? null
+      const previousSample = sortedHistory.length > 1 ? sortedHistory.at(-2) ?? null : null
+      const latestScore = getPerformanceScore(latestSample ?? filteredHistory[0]!)?.score ?? null
+      const previousScore = previousSample ? getPerformanceScore(previousSample)?.score ?? null : null
+      const benchmarkComparison =
+        profile && latestSample
+          ? buildExerciseStrengthBenchmarkComparison(
+              profile,
+              resolveExerciseByHistorySample(latestSample),
+              latestSample,
+            )
+          : null
 
       return [
         {
+          benchmarkComparison,
           coefficient: progression.coefficient,
           exerciseKey,
           exerciseName: record.exerciseName,
           lastRecordedAt: progression.lastRecordedAt,
-          latestScore: progression.latestScore,
+          latestScore,
+          latestVolumeKg: latestSample?.totalVolumeKg ?? null,
           muscleGroups:
             latestSample?.muscleGroups.length ? latestSample.muscleGroups : record.muscleGroups,
+          previousScore,
+          previousVolumeKg: previousSample?.totalVolumeKg ?? null,
           sampleCount: progression.sampleCount,
           scoreLabel: progression.scoreLabel,
+          scoreUnit: getScoreUnit(progression.scoreLabel),
           targetCoefficients: progression.targetCoefficients,
         },
       ]

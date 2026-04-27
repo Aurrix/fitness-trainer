@@ -2,11 +2,40 @@
   "id": "cable-flye",
   "displayLabel": "Cable Flye",
   "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
-  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><ul><li><strong>Also listed as:</strong> CABLE FLYE</li></ul>",
+  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><ul><li><strong>Also listed as:</strong> CABLE FLYE</li><li><strong>Common substitutions:</strong> Pectoral Flye (cable), Standing Cable Flye, Dumbbell Fly, and Dumbbell Flye</li></ul>",
   "aliases": [
     "CABLE FLYE"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "pectoral-flye-cable",
+    "standing-cable-flye",
+    "dumbbell-fly",
+    "dumbbell-flye"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.3
+    },
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 0.3
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.2
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,17 +241,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "middle-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.3
-    }
-  ]
+  }
 }

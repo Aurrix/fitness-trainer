@@ -2,9 +2,34 @@
   "id": "dumbbell-overhead-triceps-extension",
   "displayLabel": "Dumbbell Overhead Triceps Extension",
   "shortDescription": "Triceps accessory movement for elbow extension volume.",
-  "descriptionHtml": "<p>Triceps accessory movement for elbow extension volume.</p><p>Reference this movement in program files with the exercise id <code>dumbbell-overhead-triceps-extension</code>.</p>",
+  "descriptionHtml": "<p>Triceps accessory movement for elbow extension volume.</p><ul><li><strong>Common substitutions:</strong> Overhead Tricep Extension, Rope Overhead Triceps Extension, Dumbbell Skull Crusher, and Dumbbell Kickback</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "overhead-tricep-extension",
+    "rope-overhead-triceps-extension",
+    "dumbbell-skull-crusher",
+    "dumbbell-kickback"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.2
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,25 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.8
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.2
-    }
-  ]
+  }
 }

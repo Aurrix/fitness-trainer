@@ -2,7 +2,7 @@
   "id": "ez-bar-skull-crusher",
   "displayLabel": "EZ Bar Skull Crusher",
   "shortDescription": "Triceps accessory movement for elbow extension volume.",
-  "descriptionHtml": "<p>Triceps accessory movement for elbow extension volume.</p><ul><li><strong>Also listed as:</strong> EZ Bar Skullcrusher and EZ Skullcrusher</li><li><strong>Common substitutions:</strong> Floor Press, Jm Press, and Pin Press</li></ul>",
+  "descriptionHtml": "<p>Triceps accessory movement for elbow extension volume.</p><ul><li><strong>Also listed as:</strong> EZ Bar Skullcrusher and EZ Skullcrusher</li><li><strong>Common substitutions:</strong> Floor Press, Jm Press, Pin Press, and Dumbbell Skull Crusher</li></ul>",
   "aliases": [
     "EZ Bar Skullcrusher",
     "EZ Skullcrusher"
@@ -10,7 +10,28 @@
   "substitutionExerciseIds": [
     "floor-press",
     "jm-press",
-    "pin-press"
+    "pin-press",
+    "dumbbell-skull-crusher"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.2
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -217,25 +238,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.2
-    }
-  ]
+  }
 }

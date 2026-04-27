@@ -2,11 +2,41 @@
   "id": "arnold-press",
   "displayLabel": "Arnold Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Common substitutions:</strong> Dumbbell Seated Shoulder Press and Machine Shoulder Press</li></ul>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Common substitutions:</strong> Dumbbell Seated Shoulder Press, Machine Shoulder Press, Laterally Dumbbell Seated Shoulder Press, and Overhead Press</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
     "dumbbell-seated-shoulder-press",
-    "machine-shoulder-press"
+    "machine-shoulder-press",
+    "laterally-dumbbell-seated-shoulder-press",
+    "overhead-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "side-delts",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.3
+    }
   ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
@@ -213,25 +243,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "side-delts",
-      "factor": 0.9
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 0.3
-    }
-  ]
+  }
 }

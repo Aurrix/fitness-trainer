@@ -163,6 +163,12 @@
       "file": "cable-flye.json"
     },
     {
+      "id": "cable-glute-kickback",
+      "displayLabel": "Cable Glute Kickback",
+      "shortDescription": "Hip accessory movement for focused glute extension.",
+      "file": "cable-glute-kickback.json"
+    },
+    {
       "id": "cable-lateral-raise",
       "displayLabel": "Cable Lateral Raise",
       "shortDescription": "Shoulder isolation movement for the side or rear delts.",
@@ -511,6 +517,12 @@
       "file": "egyptian-lateral-raise.json"
     },
     {
+      "id": "elliptical-trainer",
+      "displayLabel": "Elliptical Trainer",
+      "shortDescription": "Low-impact cardio effort on an elliptical tracked by duration and perceived effort.",
+      "file": "elliptical-trainer.json"
+    },
+    {
       "id": "ez-bar-curl-21s",
       "displayLabel": "EZ Bar Curl 21s",
       "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
@@ -823,6 +835,12 @@
       "file": "machine-dip.json"
     },
     {
+      "id": "machine-glute-kickback",
+      "displayLabel": "Machine Glute Kickback",
+      "shortDescription": "Hip accessory movement for focused glute extension under machine resistance.",
+      "file": "machine-glute-kickback.json"
+    },
+    {
       "id": "machine-incline-chest-press",
       "displayLabel": "Machine Incline Chest Press",
       "shortDescription": "Pressing variation for chest, front delts, and triceps.",
@@ -845,6 +863,24 @@
       "displayLabel": "Machine Shoulder Press",
       "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
       "file": "machine-shoulder-press.json"
+    },
+    {
+      "id": "neck-extension",
+      "displayLabel": "Neck Extension",
+      "shortDescription": "Neck accessory movement for cervical extension strength and resilience.",
+      "file": "neck-extension.json"
+    },
+    {
+      "id": "neck-flexion",
+      "displayLabel": "Neck Flexion",
+      "shortDescription": "Neck accessory movement for cervical flexion strength and control.",
+      "file": "neck-flexion.json"
+    },
+    {
+      "id": "neck-lateral-flexion",
+      "displayLabel": "Neck Lateral Flexion",
+      "shortDescription": "Neck accessory movement for side-to-side cervical strength and stability.",
+      "file": "neck-lateral-flexion.json"
     },
     {
       "id": "neutral-grip-pull-up",
@@ -1009,6 +1045,12 @@
       "file": "reverse-pec-deck.json"
     },
     {
+      "id": "reverse-wrist-curl",
+      "displayLabel": "Reverse Wrist Curl",
+      "shortDescription": "Wrist-extension accessory movement for forearm extensor strength and endurance.",
+      "file": "reverse-wrist-curl.json"
+    },
+    {
       "id": "roman-chair-leg-raise",
       "displayLabel": "Roman Chair Leg Raise",
       "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
@@ -1037,6 +1079,18 @@
       "displayLabel": "Rope Overhead Triceps Extension",
       "shortDescription": "Triceps accessory movement for elbow extension volume.",
       "file": "rope-overhead-triceps-extension.json"
+    },
+    {
+      "id": "rowing-ergometer",
+      "displayLabel": "Rowing Ergometer",
+      "shortDescription": "Continuous rowing machine effort tracked primarily by duration and effort.",
+      "file": "rowing-ergometer.json"
+    },
+    {
+      "id": "running",
+      "displayLabel": "Running",
+      "shortDescription": "Continuous outdoor or treadmill running session tracked by duration and perceived effort.",
+      "file": "running.json"
     },
     {
       "id": "seal-row",
@@ -1249,6 +1303,12 @@
       "file": "static-lunge.json"
     },
     {
+      "id": "stationary-bike",
+      "displayLabel": "Stationary Bike",
+      "shortDescription": "Continuous bike session recorded by duration and effort instead of set-based targets.",
+      "file": "stationary-bike.json"
+    },
+    {
       "id": "sumo-deadlift",
       "displayLabel": "Sumo Deadlift",
       "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
@@ -1331,6 +1391,18 @@
       "displayLabel": "Wide Grip Lat Pulldown",
       "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
       "file": "wide-grip-lat-pulldown.json"
+    },
+    {
+      "id": "wrist-curl",
+      "displayLabel": "Wrist Curl",
+      "shortDescription": "Wrist-flexion accessory movement for forearm flexor strength and grip support.",
+      "file": "wrist-curl.json"
+    },
+    {
+      "id": "wrist-roller",
+      "displayLabel": "Wrist Roller",
+      "shortDescription": "Forearm accessory movement for wrist flexor and extensor endurance using a rolling handle.",
+      "file": "wrist-roller.json"
     }
   ]
 }

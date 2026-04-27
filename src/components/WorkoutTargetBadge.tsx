@@ -6,6 +6,7 @@ type WorkoutTargetBadgeProps = {
   effort: string
   mode: 'horizontal' | 'vertical'
   reps?: string
+  rest?: string
   sets?: number
   title: string
   type?: string | null
@@ -22,6 +23,7 @@ function buildTokens({
   duration,
   effort,
   reps,
+  rest,
   sets,
   type,
 }: Omit<WorkoutTargetBadgeProps, 'mode' | 'title'>) {
@@ -29,6 +31,7 @@ function buildTokens({
   const normalizedEffort = effort.trim()
   const normalizedDuration = duration?.trim() ?? ''
   const normalizedReps = reps?.trim() ?? ''
+  const normalizedRest = rest?.trim() ?? ''
   const tokens: TargetToken[] = []
 
   if (normalizedType === 'continues') {
@@ -47,6 +50,15 @@ function buildTokens({
         detailValue: normalizedEffort,
         key: 'effort',
         shortLabel: 'E',
+      })
+    }
+
+    if (normalizedRest) {
+      tokens.push({
+        detailLabel: 'Target rest',
+        detailValue: normalizedRest,
+        key: 'rest',
+        shortLabel: 'Rest',
       })
     }
 
@@ -80,6 +92,15 @@ function buildTokens({
     })
   }
 
+  if (normalizedRest) {
+    tokens.push({
+      detailLabel: 'Target rest',
+      detailValue: normalizedRest,
+      key: 'rest',
+      shortLabel: 'Rest',
+    })
+  }
+
   return tokens
 }
 
@@ -88,6 +109,7 @@ export default function WorkoutTargetBadge({
   effort,
   mode,
   reps,
+  rest,
   sets,
   title,
   type,
@@ -97,6 +119,7 @@ export default function WorkoutTargetBadge({
     duration,
     effort,
     reps,
+    rest,
     sets,
     type,
   })

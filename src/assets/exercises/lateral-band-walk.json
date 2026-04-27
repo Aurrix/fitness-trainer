@@ -2,9 +2,34 @@
   "id": "lateral-band-walk",
   "displayLabel": "Lateral Band Walk",
   "shortDescription": "Resistance training exercise used across the imported workout books.",
-  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><p>Reference this movement in program files with the exercise id <code>lateral-band-walk</code>.</p>",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Common substitutions:</strong> Seated Hip Abduction, Plate-loaded Hip Abduction, Standing Cable Hip Abduction, and Machine Glute Kickback</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "seated-hip-abduction",
+    "plate-loaded-hip-abduction",
+    "standing-cable-hip-abduction",
+    "machine-glute-kickback"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-med",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-min",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "tensor-fasciae-latae",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -138,21 +163,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-med",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "glute-min",
-      "factor": 0.9
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.5
-    }
-  ]
+  }
 }

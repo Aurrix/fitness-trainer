@@ -2,11 +2,40 @@
   "id": "plank",
   "displayLabel": "Plank",
   "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
-  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Also listed as:</strong> PLANK</li></ul>",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Also listed as:</strong> PLANK</li><li><strong>Common substitutions:</strong> Ab Wheel Rollout, Hollow Body Hold, Long-lever Plank, and Side Plank</li></ul>",
   "aliases": [
     "PLANK"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "ab-wheel-rollout",
+    "hollow-body-hold",
+    "long-lever-plank",
+    "side-plank"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "transverse-abdominis",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "serratus-anterior",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "holdSeconds",
@@ -140,25 +169,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "transverse-abdominis",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "obliques",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "lower-abs",
-      "factor": 0.5
-    }
-  ]
+  }
 }

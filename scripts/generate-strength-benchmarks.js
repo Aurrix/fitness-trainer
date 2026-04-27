@@ -430,7 +430,18 @@ const HIP_CABLE_ACCESSORY_IDS = new Set([
   'standing-cable-hip-abduction',
 ])
 
+const GLUTE_KICKBACK_CABLE_IDS = new Set(['cable-glute-kickback'])
+const GLUTE_KICKBACK_MACHINE_IDS = new Set(['machine-glute-kickback'])
+
 const LATERAL_BAND_WALK_IDS = new Set(['lateral-band-walk'])
+
+const WRIST_CURL_IDS = new Set(['wrist-curl'])
+const REVERSE_WRIST_CURL_IDS = new Set(['reverse-wrist-curl'])
+const WRIST_ROLLER_IDS = new Set(['wrist-roller'])
+
+const NECK_FLEXION_IDS = new Set(['neck-flexion'])
+const NECK_EXTENSION_IDS = new Set(['neck-extension'])
+const NECK_LATERAL_IDS = new Set(['neck-lateral-flexion'])
 
 const CALF_BODYWEIGHT_IDS = new Set([
   'any-bent-leg-calf-raise',
@@ -1824,6 +1835,22 @@ function createBenchmark(record) {
     })
   }
 
+  if (isOneOf(id, GLUTE_KICKBACK_CABLE_IDS)) {
+    return buildLoadBenchmark({
+      basis: 'selected cable stack weight for the working side',
+      anchors: scaleAnchors(ANCHORS.hipThrust, 0.28),
+      scheme: SCHEMES.highRepIsolation,
+    })
+  }
+
+  if (isOneOf(id, GLUTE_KICKBACK_MACHINE_IDS)) {
+    return buildLoadBenchmark({
+      basis: 'selected machine stack or plate-loaded resistance for the working side',
+      anchors: scaleAnchors(ANCHORS.hipThrust, 0.42),
+      scheme: SCHEMES.isolation,
+    })
+  }
+
   if (isOneOf(id, LATERAL_BAND_WALK_IDS)) {
     return buildBodyweightRepBenchmark({
       basis: 'steps per side with a light-to-moderate loop band',
@@ -1839,6 +1866,54 @@ function createBenchmark(record) {
           advanced: [24, 36],
         },
       },
+    })
+  }
+
+  if (isOneOf(id, WRIST_CURL_IDS)) {
+    return buildLoadBenchmark({
+      basis: 'barbell, EZ bar, or dumbbell total load held in the hands',
+      anchors: scaleAnchors(ANCHORS.barbellCurl, 0.35),
+      scheme: SCHEMES.highRepIsolation,
+    })
+  }
+
+  if (isOneOf(id, REVERSE_WRIST_CURL_IDS)) {
+    return buildLoadBenchmark({
+      basis: 'barbell, EZ bar, or dumbbell total load held in the hands',
+      anchors: scaleAnchors(ANCHORS.barbellCurl, 0.28),
+      scheme: SCHEMES.highRepIsolation,
+    })
+  }
+
+  if (isOneOf(id, WRIST_ROLLER_IDS)) {
+    return buildLoadBenchmark({
+      basis: 'hanging load attached to the wrist roller handle',
+      anchors: scaleAnchors(ANCHORS.barbellCurl, 0.22),
+      scheme: SCHEMES.highRepIsolation,
+    })
+  }
+
+  if (isOneOf(id, NECK_FLEXION_IDS)) {
+    return buildLoadBenchmark({
+      basis: 'selected neck machine or head-harness load',
+      anchors: scaleAnchors(ANCHORS.barbellCurl, 0.28),
+      scheme: SCHEMES.highRepIsolation,
+    })
+  }
+
+  if (isOneOf(id, NECK_EXTENSION_IDS)) {
+    return buildLoadBenchmark({
+      basis: 'selected neck machine or head-harness load',
+      anchors: scaleAnchors(ANCHORS.barbellCurl, 0.32),
+      scheme: SCHEMES.highRepIsolation,
+    })
+  }
+
+  if (isOneOf(id, NECK_LATERAL_IDS)) {
+    return buildLoadBenchmark({
+      basis: 'selected neck machine, cable, or plate load for one side',
+      anchors: scaleAnchors(ANCHORS.barbellCurl, 0.22),
+      scheme: SCHEMES.highRepIsolation,
     })
   }
 

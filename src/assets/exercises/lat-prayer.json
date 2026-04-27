@@ -2,9 +2,34 @@
   "id": "lat-prayer",
   "displayLabel": "Lat Prayer",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><p>Reference this movement in program files with the exercise id <code>lat-prayer</code>.</p>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Common substitutions:</strong> Cable Pull-Over, Lying Dumbbell Pullover, Assisted Pull-Up, and Chin-Up</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "cable-pull-over",
+    "lying-dumbbell-pullover",
+    "assisted-pull-up",
+    "chin-up"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "serratus-anterior",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,25 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lats",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "teres-major",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.3
-    },
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 0.2
-    }
-  ]
+  }
 }

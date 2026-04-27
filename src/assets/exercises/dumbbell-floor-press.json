@@ -2,11 +2,48 @@
   "id": "dumbbell-floor-press",
   "displayLabel": "Dumbbell Floor Press",
   "shortDescription": "Pressing variation for chest, front delts, and triceps.",
-  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Also listed as:</strong> DUMBBELL FLOOR PRESS</li></ul>",
+  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Also listed as:</strong> DUMBBELL FLOOR PRESS</li><li><strong>Common substitutions:</strong> Dumbbell Bench Press, Deficit Push-up, Push-Up, and Flat Dumbbell Press</li></ul>",
   "aliases": [
     "DUMBBELL FLOOR PRESS"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "dumbbell-bench-press",
+    "deficit-push-up",
+    "push-up",
+    "flat-dumbbell-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,21 +249,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "middle-chest",
-      "factor": 0.9
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.4
-    }
-  ]
+  }
 }

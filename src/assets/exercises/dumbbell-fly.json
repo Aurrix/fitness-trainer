@@ -2,9 +2,38 @@
   "id": "dumbbell-fly",
   "displayLabel": "Dumbbell Fly",
   "shortDescription": "Resistance training exercise used across the imported workout books.",
-  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><p>Reference this movement in program files with the exercise id <code>dumbbell-fly</code>.</p>",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Common substitutions:</strong> Cable Flye, Dumbbell Flye, Pec Deck, and Pectoral Flye (cable)</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "cable-flye",
+    "dumbbell-flye",
+    "pec-deck",
+    "pectoral-flye-cable"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.3
+    },
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 0.3
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.2
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,17 +239,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "middle-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.3
-    }
-  ]
+  }
 }

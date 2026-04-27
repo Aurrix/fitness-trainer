@@ -2,9 +2,34 @@
   "id": "reverse-crunch",
   "displayLabel": "Reverse Crunch",
   "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
-  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><p>Reference this movement in program files with the exercise id <code>reverse-crunch</code>.</p>",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Common substitutions:</strong> V Sit-up, Kneeling Cable Crunch, Bodyweight Crunch, and Cable Crunch</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "v-sit-up",
+    "kneeling-cable-crunch",
+    "bodyweight-crunch",
+    "cable-crunch"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "transverse-abdominis",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -138,21 +163,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "lower-abs",
-      "factor": 0.6
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "obliques",
-      "factor": 0.4
-    }
-  ]
+  }
 }

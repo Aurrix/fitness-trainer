@@ -2,12 +2,35 @@
   "id": "reverse-pec-deck",
   "displayLabel": "Reverse Pec Deck",
   "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
-  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><ul><li><strong>Also listed as:</strong> REVERSE PEC DECK</li><li><strong>Common substitutions:</strong> Reverse Cable Flye</li></ul>",
+  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><ul><li><strong>Also listed as:</strong> REVERSE PEC DECK</li><li><strong>Common substitutions:</strong> Reverse Cable Flye, Cable Reverse Flye, Rear Delt Flye (cable), and Rear Delt Flye (dumbbell)</li></ul>",
   "aliases": [
     "REVERSE PEC DECK"
   ],
   "substitutionExerciseIds": [
-    "reverse-cable-flye"
+    "reverse-cable-flye",
+    "cable-reverse-flye",
+    "rear-delt-flye-cable",
+    "rear-delt-flye-dumbbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rear-delts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "infraspinatus",
+      "factor": 0.5
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -214,21 +237,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rear-delts",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rhomboids",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "mid-traps",
-      "factor": 0.5
-    }
-  ]
+  }
 }

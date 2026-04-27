@@ -2,11 +2,44 @@
   "id": "laterally-dumbbell-seated-shoulder-press",
   "displayLabel": "Laterally Dumbbell Seated Shoulder Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Also listed as:</strong> LATERALLY DUMBBELL SEATED SHOULDER PRESS</li></ul>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Also listed as:</strong> LATERALLY DUMBBELL SEATED SHOULDER PRESS</li><li><strong>Common substitutions:</strong> Dumbbell Seated Shoulder Press, Arnold Press, Standing Dumbbell Shoulder Press, and Machine Shoulder Press</li></ul>",
   "aliases": [
     "LATERALLY DUMBBELL SEATED SHOULDER PRESS"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "dumbbell-seated-shoulder-press",
+    "arnold-press",
+    "standing-dumbbell-shoulder-press",
+    "machine-shoulder-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "side-delts",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,29 +245,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "side-delts",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 0.3
-    }
-  ]
+  }
 }

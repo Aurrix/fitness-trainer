@@ -2,9 +2,26 @@
   "id": "any-bent-leg-calf-raise",
   "displayLabel": "Any Bent Leg Calf Raise",
   "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
-  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><p>Reference this movement in program files with the exercise id <code>any-bent-leg-calf-raise</code>.</p>",
+  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><ul><li><strong>Common substitutions:</strong> Calf Raise Machine, Calf Raise On Leg Press Machine, Dumbbell Standing Calf Raise, and Eccentric-Accentuated Standing Calf Raise</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "calf-raise-machine",
+    "calf-raise-on-leg-press-machine",
+    "dumbbell-standing-calf-raise",
+    "eccentric-accentuated-standing-calf-raise"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "soleus",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.6
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -138,17 +155,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "soleus",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "gastrocnemius",
-      "factor": 0.6
-    }
-  ]
+  }
 }

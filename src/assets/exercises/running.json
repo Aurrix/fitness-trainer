@@ -1,14 +1,53 @@
 {
   "id": "running",
   "displayLabel": "Running",
-  "category": "Cardio",
-  "type": "continues",
   "shortDescription": "Continuous outdoor or treadmill running session tracked by duration and perceived effort.",
-  "descriptionHtml": "<p>Continuous outdoor or treadmill running session tracked by duration and perceived effort.</p><ul><li><strong>Track:</strong> duration, distance, and perceived effort.</li><li><strong>Typical uses:</strong> easy aerobic work, tempo intervals, and conditioning finishers.</li></ul>",
+  "descriptionHtml": "<p>Continuous outdoor or treadmill running session tracked by duration and perceived effort.</p><ul><li><strong>Also listed as:</strong> Jogging and Treadmill Run</li><li><strong>Common substitutions:</strong> Elliptical Trainer, Stationary Bike, Rowing Ergometer, and Assisted Pistol Squat</li></ul>",
   "aliases": [
     "Jogging",
     "Treadmill Run"
   ],
+  "substitutionExerciseIds": [
+    "elliptical-trainer",
+    "stationary-bike",
+    "rowing-ergometer",
+    "assisted-pistol-squat"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "soleus",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.5
+    }
+  ],
+  "difficulty": "Beginner",
+  "category": "Cardio",
+  "type": "continues",
   "equipment": [
     "Treadmill"
   ],
@@ -17,7 +56,6 @@
     "Keep pace aligned with the planned effort target.",
     "Log the session duration and perceived effort after finishing."
   ],
-  "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "durationMinutes",
     "measurement": {
@@ -155,33 +193,5 @@
     "cardio",
     "endurance",
     "conditioning"
-  ],
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 0.8
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.8
-    },
-    {
-      "muscleGroup": "gastrocnemius",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "soleus",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "glute-med",
-      "factor": 0.5
-    }
   ]
 }

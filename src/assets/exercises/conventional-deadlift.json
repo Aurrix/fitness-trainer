@@ -2,9 +2,54 @@
   "id": "conventional-deadlift",
   "displayLabel": "Conventional Deadlift",
   "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
-  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><p>Reference this movement in program files with the exercise id <code>conventional-deadlift</code>.</p>",
+  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><ul><li><strong>Common substitutions:</strong> Deadlift, Sumo Deadlift, Romanian Deadlift, and Back Extension</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "deadlift",
+    "sumo-deadlift",
+    "romanian-deadlift",
+    "back-extension"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upper-traps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearm-flexors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,33 +255,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "spinal-erectors",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-traps",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "forearm-flexors",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 0.4
-    }
-  ]
+  }
 }

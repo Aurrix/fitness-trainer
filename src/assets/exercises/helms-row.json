@@ -2,9 +2,46 @@
   "id": "helms-row",
   "displayLabel": "Helms Row",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><p>Reference this movement in program files with the exercise id <code>helms-row</code>.</p>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Common substitutions:</strong> Humble Row, Barbell Bent Over Row, Bent Over Smith Row, and Cable Seated Row</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "humble-row",
+    "barbell-bent-over-row",
+    "bent-over-smith-row",
+    "cable-seated-row"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rear-delts",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,33 +247,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lats",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "rhomboids",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "mid-traps",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rear-delts",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.4
-    }
-  ]
+  }
 }

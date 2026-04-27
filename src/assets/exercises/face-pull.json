@@ -2,9 +2,38 @@
   "id": "face-pull",
   "displayLabel": "Face Pull",
   "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
-  "descriptionHtml": "<p>Upper-back and shoulder accessory movement for traps and rear delts.</p><p>Reference this movement in program files with the exercise id <code>face-pull</code>.</p>",
+  "descriptionHtml": "<p>Upper-back and shoulder accessory movement for traps and rear delts.</p><ul><li><strong>Common substitutions:</strong> Rope Face Pull, Seated Face Pull, Cable Reverse Flye, and Dumbbell Bent Over Lateral Raise</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "rope-face-pull",
+    "seated-face-pull",
+    "cable-reverse-flye",
+    "dumbbell-bent-over-lateral-raise"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rear-delts",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "lower-traps",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "infraspinatus",
+      "factor": 0.7
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,25 +239,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rear-delts",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "lower-traps",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "mid-traps",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "rhomboids",
-      "factor": 0.6
-    }
-  ]
+  }
 }

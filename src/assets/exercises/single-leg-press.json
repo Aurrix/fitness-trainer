@@ -2,9 +2,42 @@
   "id": "single-leg-press",
   "displayLabel": "Single Leg Press",
   "shortDescription": "Single-leg lower-body movement for quad, glute, and stability work.",
-  "descriptionHtml": "<p>Single-leg lower-body movement for quad, glute, and stability work.</p><p>Reference this movement in program files with the exercise id <code>single-leg-press</code>.</p>",
+  "descriptionHtml": "<p>Single-leg lower-body movement for quad, glute, and stability work.</p><ul><li><strong>Common substitutions:</strong> Single-Leg Leg Press, Leg Press, Hack Squat, and Front Squat</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "single-leg-leg-press",
+    "leg-press",
+    "hack-squat",
+    "front-squat"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-intermedius",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,29 +243,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "vastus-medialis",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "adductor-magnus",
-      "factor": 0.4
-    }
-  ]
+  }
 }

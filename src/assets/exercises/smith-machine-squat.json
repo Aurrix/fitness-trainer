@@ -2,9 +2,50 @@
   "id": "smith-machine-squat",
   "displayLabel": "Smith Machine Squat",
   "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
-  "descriptionHtml": "<p>Squat variation for lower-body strength and quad and glute development.</p><p>Reference this movement in program files with the exercise id <code>smith-machine-squat</code>.</p>",
+  "descriptionHtml": "<p>Squat variation for lower-body strength and quad and glute development.</p><ul><li><strong>Common substitutions:</strong> Back Squat, Goblet Squat, Front Squat, and Sissy Squat</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "back-squat",
+    "goblet-squat",
+    "front-squat",
+    "sissy-squat"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "vastus-intermedius",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,33 +251,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "vastus-medialis",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "glute-med",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "spinal-erectors",
-      "factor": 0.5
-    }
-  ]
+  }
 }

@@ -2,11 +2,28 @@
   "id": "smith-machine-calf-raise",
   "displayLabel": "Smith Machine Calf Raise",
   "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
-  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><ul><li><strong>Also listed as:</strong> Standing Calf Raise (Smith)</li></ul>",
+  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><ul><li><strong>Also listed as:</strong> Standing Calf Raise (Smith)</li><li><strong>Common substitutions:</strong> Calf Raise Machine, Calf Raise On Leg Press Machine, Dumbbell Standing Calf Raise, and Eccentric-Accentuated Standing Calf Raise</li></ul>",
   "aliases": [
     "Standing Calf Raise (Smith)"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "calf-raise-machine",
+    "calf-raise-on-leg-press-machine",
+    "dumbbell-standing-calf-raise",
+    "eccentric-accentuated-standing-calf-raise"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "soleus",
+      "factor": 0.8
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,17 +229,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "gastrocnemius",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "soleus",
-      "factor": 0.7
-    }
-  ]
+  }
 }

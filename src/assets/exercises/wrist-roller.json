@@ -1,0 +1,238 @@
+{
+  "id": "wrist-roller",
+  "displayLabel": "Wrist Roller",
+  "shortDescription": "Forearm accessory movement for wrist flexor and extensor endurance using a rolling handle.",
+  "descriptionHtml": "<p>Forearm accessory movement for wrist flexor and extensor endurance using a rolling handle.</p><ul><li><strong>Also listed as:</strong> Forearm Roller and Wrist Roll</li><li><strong>Common substitutions:</strong> Wrist Curl, Reverse Wrist Curl, Rope Hammer Curl, and Seated Hammer Curl</li></ul>",
+  "aliases": [
+    "Forearm Roller",
+    "Wrist Roll"
+  ],
+  "substitutionExerciseIds": [
+    "wrist-curl",
+    "reverse-wrist-curl",
+    "rope-hammer-curl",
+    "seated-hammer-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "forearm-flexors",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "forearm-extensors",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.5
+    }
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "hanging load attached to the wrist roller handle",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              2
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              8,
+              10
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              2
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              8,
+              10
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              2
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              4,
+              6
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              7,
+              9
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              1
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              1
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              1,
+              1
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              4,
+              5
+            ]
+          }
+        }
+      }
+    }
+  }
+}

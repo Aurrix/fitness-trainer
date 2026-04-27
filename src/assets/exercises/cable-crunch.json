@@ -2,12 +2,29 @@
   "id": "cable-crunch",
   "displayLabel": "Cable Crunch",
   "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
-  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Common substitutions:</strong> Bicycle Crunch, Bodyweight Crunch, and V Sit-up</li></ul>",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Common substitutions:</strong> Bicycle Crunch, Bodyweight Crunch, V Sit-up, and Kneeling Cable Crunch</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
     "bicycle-crunch",
     "bodyweight-crunch",
-    "v-sit-up"
+    "v-sit-up",
+    "kneeling-cable-crunch"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 0.6
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.4
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -214,21 +231,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "lower-abs",
-      "factor": 0.6
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "obliques",
-      "factor": 0.4
-    }
-  ]
+  }
 }

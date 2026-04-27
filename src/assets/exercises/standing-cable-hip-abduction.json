@@ -2,9 +2,34 @@
   "id": "standing-cable-hip-abduction",
   "displayLabel": "Standing Cable Hip Abduction",
   "shortDescription": "Hip accessory movement for the glutes or inner thigh.",
-  "descriptionHtml": "<p>Hip accessory movement for the glutes or inner thigh.</p><p>Reference this movement in program files with the exercise id <code>standing-cable-hip-abduction</code>.</p>",
+  "descriptionHtml": "<p>Hip accessory movement for the glutes or inner thigh.</p><ul><li><strong>Common substitutions:</strong> Lateral Band Walk, Plate-loaded Hip Abduction, Seated Hip Abduction, and Cable Glute Kickback</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "lateral-band-walk",
+    "plate-loaded-hip-abduction",
+    "seated-hip-abduction",
+    "cable-glute-kickback"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-med",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-min",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "tensor-fasciae-latae",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,21 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-med",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "glute-min",
-      "factor": 0.9
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.5
-    }
-  ]
+  }
 }

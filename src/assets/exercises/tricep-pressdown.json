@@ -2,14 +2,32 @@
   "id": "tricep-pressdown",
   "displayLabel": "Tricep Pressdown",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Also listed as:</strong> Cable Push-down and Cable Push-Down</li><li><strong>Common substitutions:</strong> Dumbbell Kickback and Rope Overhead Triceps Extension</li></ul>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Also listed as:</strong> Cable Push-down and Cable Push-Down</li><li><strong>Common substitutions:</strong> Dumbbell Kickback, Rope Overhead Triceps Extension, French Press, and Dumbbell Press</li></ul>",
   "aliases": [
     "Cable Push-down",
     "Cable Push-Down"
   ],
   "substitutionExerciseIds": [
     "dumbbell-kickback",
-    "rope-overhead-triceps-extension"
+    "rope-overhead-triceps-extension",
+    "french-press",
+    "dumbbell-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.6
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -216,21 +234,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.9
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.6
-    }
-  ]
+  }
 }

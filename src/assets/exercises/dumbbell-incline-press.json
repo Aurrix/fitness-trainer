@@ -2,13 +2,43 @@
   "id": "dumbbell-incline-press",
   "displayLabel": "Dumbbell Incline Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Also listed as:</strong> DUMBBELL INCLINE PRESS</li><li><strong>Common substitutions:</strong> Barbell Incline Press and Deficit Push-up</li></ul>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Also listed as:</strong> DUMBBELL INCLINE PRESS</li><li><strong>Common substitutions:</strong> Barbell Incline Press, Deficit Push-up, Incline Dumbbell Press, and Low Incline Dumbbell Press</li></ul>",
   "aliases": [
     "DUMBBELL INCLINE PRESS"
   ],
   "substitutionExerciseIds": [
     "barbell-incline-press",
-    "deficit-push-up"
+    "deficit-push-up",
+    "incline-dumbbell-press",
+    "low-incline-dumbbell-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.5
+    }
   ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
@@ -215,25 +245,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.5
-    }
-  ]
+  }
 }

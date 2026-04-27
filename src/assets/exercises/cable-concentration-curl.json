@@ -2,9 +2,34 @@
   "id": "cable-concentration-curl",
   "displayLabel": "Cable Concentration Curl",
   "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
-  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><p>Reference this movement in program files with the exercise id <code>cable-concentration-curl</code>.</p>",
+  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Common substitutions:</strong> Barbell Concentration Curl, Dumbbell Concentration Curl, EZ Concentration Curl, and Cable Curl</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "barbell-concentration-curl",
+    "dumbbell-concentration-curl",
+    "ez-concentration-curl",
+    "cable-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-long-head",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,21 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "brachioradialis",
-      "factor": 0.4
-    }
-  ]
+  }
 }

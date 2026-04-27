@@ -2,11 +2,32 @@
   "id": "crunch",
   "displayLabel": "Crunch",
   "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
-  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Also listed as:</strong> CRUNCH</li></ul>",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Also listed as:</strong> CRUNCH</li><li><strong>Common substitutions:</strong> Bodyweight Crunch, Captain&#39;s Chair Crunch, Cable Crunch, and Decline Crunch</li></ul>",
   "aliases": [
     "CRUNCH"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "bodyweight-crunch",
+    "captain-s-chair-crunch",
+    "cable-crunch",
+    "decline-crunch"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 0.6
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -140,21 +161,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "lower-abs",
-      "factor": 0.6
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "obliques",
-      "factor": 0.4
-    }
-  ]
+  }
 }

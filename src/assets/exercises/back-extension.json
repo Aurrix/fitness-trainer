@@ -2,12 +2,41 @@
   "id": "back-extension",
   "displayLabel": "Back Extension",
   "shortDescription": "Resistance training exercise used across the imported workout books.",
-  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Also listed as:</strong> Back Extensions and Lower Back Extensions</li></ul>",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Also listed as:</strong> Back Extensions and Lower Back Extensions</li><li><strong>Common substitutions:</strong> Conventional Deadlift, Hyperextension, Deadlift, and Reverse Hyper</li></ul>",
   "aliases": [
     "Back Extensions",
     "Lower Back Extensions"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "conventional-deadlift",
+    "hyperextension",
+    "deadlift",
+    "reverse-hyper"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -141,21 +170,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "spinal-erectors",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.6
-    }
-  ]
+  }
 }

@@ -2,11 +2,37 @@
   "id": "rope-face-pull",
   "displayLabel": "Rope Face Pull",
   "shortDescription": "Upper-back and shoulder accessory movement for traps and rear delts.",
-  "descriptionHtml": "<p>Upper-back and shoulder accessory movement for traps and rear delts.</p><ul><li><strong>Common substitutions:</strong> Reverse Cable Crossover and Reverse Dumbbell Flye</li></ul>",
+  "descriptionHtml": "<p>Upper-back and shoulder accessory movement for traps and rear delts.</p><ul><li><strong>Common substitutions:</strong> Reverse Cable Crossover, Reverse Dumbbell Flye, Face Pull, and Seated Face Pull</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
     "reverse-cable-crossover",
-    "reverse-dumbbell-flye"
+    "reverse-dumbbell-flye",
+    "face-pull",
+    "seated-face-pull"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rear-delts",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "lower-traps",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "infraspinatus",
+      "factor": 0.7
+    }
   ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
@@ -213,25 +239,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rear-delts",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "lower-traps",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "mid-traps",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "rhomboids",
-      "factor": 0.6
-    }
-  ]
+  }
 }

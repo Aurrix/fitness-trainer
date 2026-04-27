@@ -2,11 +2,40 @@
   "id": "dumbbell-single-leg-hip-thrust",
   "displayLabel": "Dumbbell Single-Leg Hip Thrust",
   "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
-  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><ul><li><strong>Also listed as:</strong> DUMBBELL SINGLE-LEG HIP THRUST</li></ul>",
+  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><ul><li><strong>Also listed as:</strong> DUMBBELL SINGLE-LEG HIP THRUST</li><li><strong>Common substitutions:</strong> Barbell Hip Thrust, Glute Bridge, Leg Extension Machine Hip Thrust, and Barbell Hip Thrust Or Romanian Deadlift</li></ul>",
   "aliases": [
     "DUMBBELL SINGLE-LEG HIP THRUST"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "barbell-hip-thrust",
+    "glute-bridge",
+    "leg-extension-machine-hip-thrust",
+    "barbell-hip-thrust-or-romanian-deadlift"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-min",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,25 +241,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "glute-med",
-      "factor": 0.6
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "spinal-erectors",
-      "factor": 0.4
-    }
-  ]
+  }
 }

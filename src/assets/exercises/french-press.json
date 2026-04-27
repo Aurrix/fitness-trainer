@@ -2,9 +2,34 @@
   "id": "french-press",
   "displayLabel": "French Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><p>Reference this movement in program files with the exercise id <code>french-press</code>.</p>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Common substitutions:</strong> Tricep Pressdown, Dumbbell Press, Seated Smith Press, and Barbell Bench Press</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "tricep-pressdown",
+    "dumbbell-press",
+    "seated-smith-press",
+    "barbell-bench-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.2
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,25 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.8
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.2
-    }
-  ]
+  }
 }

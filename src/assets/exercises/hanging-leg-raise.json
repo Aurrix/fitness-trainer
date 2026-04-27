@@ -2,13 +2,39 @@
   "id": "hanging-leg-raise",
   "displayLabel": "Hanging Leg Raise",
   "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
-  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Also listed as:</strong> HANGING LEG RAISE</li><li><strong>Common substitutions:</strong> Captain&#39;s Chair Crunch and Reverse Crunch</li></ul>",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Also listed as:</strong> HANGING LEG RAISE</li><li><strong>Common substitutions:</strong> Captain&#39;s Chair Crunch, Reverse Crunch, Decline Leg Raise, and Roman Chair Leg Raise</li></ul>",
   "aliases": [
     "HANGING LEG RAISE"
   ],
   "substitutionExerciseIds": [
     "captain-s-chair-crunch",
-    "reverse-crunch"
+    "reverse-crunch",
+    "decline-leg-raise",
+    "roman-chair-leg-raise"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "hip-flexors",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "transverse-abdominis",
+      "factor": 0.3
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -143,25 +169,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lower-abs",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "hip-flexors",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "obliques",
-      "factor": 0.3
-    }
-  ]
+  }
 }

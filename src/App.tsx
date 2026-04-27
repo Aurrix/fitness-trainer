@@ -37,6 +37,7 @@ import { getContentLibrary, type Exercise } from './lib/content'
 import type {
   AppProgram,
   BannerTone,
+  ExerciseFilter,
   LibraryView,
   ProgramFilter,
   WorkoutDayOption,
@@ -121,6 +122,31 @@ function createAppPrograms(customPrograms: CustomProgram[]) {
   }))
 
   return [...localPrograms, ...libraryPrograms]
+}
+
+function createDefaultMainProgram(): AppProgram {
+  return {
+    id: 'default-main-program',
+    name: 'No program selected',
+    description: 'Choose a main program to start planning workouts and track progression here.',
+    descriptionHtml: '',
+    goal: '',
+    level: '',
+    duration: '',
+    weekCount: 0,
+    phaseNames: [],
+    tags: [],
+    sections: [],
+    source: {
+      id: 'default-main-program',
+      label: 'Default Program',
+      group: 'local',
+      relativePath: 'default-main-program',
+      sourceFile: 'generated',
+    },
+    details: [],
+    programSource: 'custom',
+  }
 }
 
 function findProgramSection(programs: AppProgram[], activeWorkout: ActiveWorkout | null) {
@@ -257,6 +283,7 @@ function resolveExerciseStatsRecord(
 function App() {
   const { activeTab, navigate, route } = useAppRoute()
   const [programFilter, setProgramFilter] = useState<ProgramFilter>('all')
+  const [exerciseFilter, setExerciseFilter] = useState<ExerciseFilter>('all')
   const [programQuery, setProgramQuery] = useState('')
   const [exerciseQuery, setExerciseQuery] = useState('')
   const [selectedProgramId, setSelectedProgramId] = useState<string | null>(null)
@@ -288,6 +315,7 @@ function App() {
     programStatsStore,
     resetPersistedAppState,
     resetProgressionStateInStore,
+    savedExerciseIds,
     savedProgramIds,
     setActiveWorkout,
     setBodyCompositionEntries,
@@ -298,6 +326,7 @@ function App() {
     setProgramProgressStore,
     setProgramDayLogs,
     setProgramStatsStore,
+    setSavedExerciseIds,
     setSavedProgramIds,
     setStatsPreferences,
     setWorkoutLogs,
@@ -318,6 +347,7 @@ function App() {
       programStatsStore: state.programStatsStore,
       resetPersistedAppState: state.resetPersistedState,
       resetProgressionStateInStore: state.resetProgressionState,
+      savedExerciseIds: state.savedExerciseIds,
       savedProgramIds: state.savedProgramIds,
       setActiveWorkout: state.setActiveWorkout,
       setBodyCompositionEntries: state.setBodyCompositionEntries,
@@ -328,6 +358,7 @@ function App() {
       setProgramProgressStore: state.setProgramProgressStore,
       setProgramDayLogs: state.setProgramDayLogs,
       setProgramStatsStore: state.setProgramStatsStore,
+      setSavedExerciseIds: state.setSavedExerciseIds,
       setSavedProgramIds: state.setSavedProgramIds,
       setStatsPreferences: state.setStatsPreferences,
       setWorkoutLogs: state.setWorkoutLogs,
@@ -342,14 +373,17 @@ function App() {
   const deferredExerciseQuery = useDeferredValue(exerciseQuery.trim().toLowerCase())
 
   const programs = createAppPrograms(customPrograms)
+  const savedExerciseIdSet = new Set(savedExerciseIds)
   const savedProgramIdSet = new Set(savedProgramIds)
   const selectedProgram =
     programs.find((program) => program.id === selectedProgramId) ?? null
   const selectedExercise =
     contentLibrary.exercises.find((exercise) => exercise.id === selectedExerciseId) ?? null
   const activeProgramSession = findProgramSection(programs, activeWorkout)
-  const mainProgram =
-    programs.find((program) => program.id === mainProgramId) ?? programs[0] ?? null
+  const selectedMainProgram =
+    programs.find((program) => program.id === mainProgramId) ?? null
+  const isMainProgramEmpty = selectedMainProgram === null
+  const mainProgram = selectedMainProgram ?? createDefaultMainProgram()
   const launchProgram = activeProgramSession?.program ?? mainProgram
   const mainProgramStats = getProgramStatsRecord(programStatsStore, mainProgram?.id ?? null)
   const savedPrograms = programs.filter((program) => {
@@ -454,7 +488,15 @@ function App() {
   }, [])
 
   const filteredPrograms = programs.filter((program) => {
-    if (programFilter !== 'all' && program.programSource !== programFilter) {
+    if (programFilter === 'favorites' && !savedProgramIdSet.has(program.id)) {
+      return false
+    }
+
+    if (
+      programFilter !== 'all' &&
+      programFilter !== 'favorites' &&
+      program.programSource !== programFilter
+    ) {
       return false
     }
 
@@ -477,6 +519,10 @@ function App() {
   })
 
   const filteredExercises = contentLibrary.exercises.filter((exercise) => {
+    if (exerciseFilter === 'favorites' && !savedExerciseIdSet.has(exercise.id)) {
+      return false
+    }
+
     if (!deferredExerciseQuery) {
       return true
     }
@@ -672,6 +718,14 @@ function App() {
     })
   }
 
+  function toggleSavedExercise(exerciseId: string) {
+    setSavedExerciseIds((currentIds) => {
+      return currentIds.includes(exerciseId)
+        ? currentIds.filter((entry) => entry !== exerciseId)
+        : [exerciseId, ...currentIds]
+    })
+  }
+
   function selectProgramAsMain(program: AppProgram) {
     setMainProgramId(program.id)
     rememberProgram(program.id)
@@ -701,6 +755,12 @@ function App() {
   function openLibrary(view: LibraryView = 'home') {
     startTransition(() => {
       navigate(getLibraryPath(view))
+    })
+  }
+
+  function openMainProgramPicker() {
+    startTransition(() => {
+      navigate(getLibraryPath('programs'))
     })
   }
 
@@ -1874,7 +1934,11 @@ function App() {
           <LibraryPage
             contentExercises={contentLibrary.exercises}
             customProgramCount={customAppPrograms.length}
+            exerciseFilter={exerciseFilter}
             exerciseQuery={exerciseQuery}
+            favoriteExerciseCount={savedExerciseIds.length}
+            favoriteExerciseIdSet={savedExerciseIdSet}
+            favoriteProgramCount={savedProgramIds.length}
             filteredExercises={filteredExercises}
             filteredPrograms={filteredPrograms}
             fitnessGender={fitnessProfile.gender}
@@ -1885,11 +1949,13 @@ function App() {
             onOpenExerciseDetails={openExerciseDetails}
             onOpenManualBuilder={openManualBuilder}
             onOpenProgram={openProgram}
+            onSetExerciseFilter={setExerciseFilter}
             onSetExerciseQuery={setExerciseQuery}
             onSetLibraryView={(view) => navigate(getLibraryPath(view))}
             onSetProgramFilter={setProgramFilter}
             onSetProgramQuery={setProgramQuery}
             onStartWorkout={startWorkout}
+            onToggleSavedExercise={toggleSavedExercise}
             onToggleSavedProgram={toggleSavedProgram}
             programFilter={programFilter}
             programQuery={programQuery}
@@ -1927,6 +1993,7 @@ function App() {
             onUpdateWorkoutExerciseSetLog={updateWorkoutExerciseSetLog}
             onUpdateWorkoutExtraExerciseSetLog={updateWorkoutExtraExerciseSetLog}
             previewExerciseOrder={selectedWorkoutPreviewOrder}
+            programDayLogs={programDayLogs}
             resolveExerciseStatsRecord={(exerciseId, exerciseName) =>
               resolveExerciseStatsRecord(exerciseStatsStore, exerciseId, exerciseName)
             }
@@ -1935,6 +2002,7 @@ function App() {
             selectedWorkoutSection={selectedWorkoutSection}
             selectedWorkoutTargetProfile={selectedWorkoutTargetProfile}
             selectedWorkoutWeek={selectedWorkoutWeek}
+            workoutLogs={workoutLogs}
             workoutWeeks={workoutWeeks}
           />
         ) : null}
@@ -1945,7 +2013,9 @@ function App() {
             customPrograms={customAppPrograms}
             draft={draft}
             isBuilderOpen={isBuilderOpen}
+            isMainProgramEmpty={isMainProgramEmpty}
             mainProgram={mainProgram}
+            onChangeMainProgram={openMainProgramPicker}
             onAddExerciseToSection={addExerciseToSection}
             onAddSection={addSection}
             onCloseBuilder={() => setIsBuilderOpen(false)}
@@ -1977,6 +2047,10 @@ function App() {
             fitnessExperienceOptions={fitnessExperienceOptions}
             fitnessGoalOptions={fitnessGoalOptions}
             fitnessProfile={fitnessProfile}
+            isMainProgramEmpty={isMainProgramEmpty}
+            mainProgram={mainProgram}
+            onChangeMainProgram={openMainProgramPicker}
+            onOpenMainProgram={() => openProgram(mainProgram)}
             onResetProgressionData={() => {
               void resetProgressionData()
             }}
@@ -2012,8 +2086,10 @@ function App() {
           alternatives={selectedExerciseAlternatives}
           exercise={selectedExercise}
           gender={fitnessProfile.gender}
+          isSaved={savedExerciseIdSet.has(selectedExercise.id)}
           onClose={() => setSelectedExerciseId(null)}
           onSelectAlternative={setSelectedExerciseId}
+          onToggleSavedExercise={toggleSavedExercise}
           statsRecord={selectedExerciseStatsRecord}
         />
       ) : null}

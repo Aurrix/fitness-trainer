@@ -4,28 +4,34 @@ import exercisesLibraryImage from '../assets/images/exercises.png'
 import programsLibraryImage from '../assets/images/programms.png'
 import { formatExerciseMuscleGroup } from '../entities/exercise-muscles'
 import { countExercises } from '../lib/app-utils'
-import type { AppProgram, LibraryView, ProgramFilter } from '../lib/app-types'
+import type { AppProgram, ExerciseFilter, LibraryView, ProgramFilter } from '../lib/app-types'
 import type { Exercise } from '../lib/content'
 import { createMuscleProfile } from '../lib/muscles'
 
 type LibraryPageProps = {
   contentExercises: Exercise[]
   customProgramCount: number
+  exerciseFilter: ExerciseFilter
   filteredExercises: Exercise[]
   filteredPrograms: AppProgram[]
   fitnessGender: 'male' | 'female'
   exerciseQuery: string
+  favoriteExerciseCount: number
+  favoriteExerciseIdSet: Set<string>
+  favoriteProgramCount: number
   libraryView: LibraryView
   onCloneProgram: (program: AppProgram) => void
   onEditCustomProgram: (programId: string) => void
   onOpenExerciseDetails: (exercise: Exercise) => void
   onOpenManualBuilder: () => void
   onOpenProgram: (program: AppProgram) => void
+  onSetExerciseFilter: (filter: ExerciseFilter) => void
   onSetExerciseQuery: (value: string) => void
   onSetLibraryView: (view: LibraryView) => void
   onSetProgramFilter: (filter: ProgramFilter) => void
   onSetProgramQuery: (value: string) => void
   onStartWorkout: (program: AppProgram, sectionId: string) => void
+  onToggleSavedExercise: (exerciseId: string) => void
   onToggleSavedProgram: (programId: string) => void
   programFilter: ProgramFilter
   programQuery: string
@@ -36,7 +42,11 @@ type LibraryPageProps = {
 export default function LibraryPage({
   contentExercises,
   customProgramCount,
+  exerciseFilter,
   exerciseQuery,
+  favoriteExerciseCount,
+  favoriteExerciseIdSet,
+  favoriteProgramCount,
   filteredExercises,
   filteredPrograms,
   fitnessGender,
@@ -46,11 +56,13 @@ export default function LibraryPage({
   onOpenExerciseDetails,
   onOpenManualBuilder,
   onOpenProgram,
+  onSetExerciseFilter,
   onSetExerciseQuery,
   onSetLibraryView,
   onSetProgramFilter,
   onSetProgramQuery,
   onStartWorkout,
+  onToggleSavedExercise,
   onToggleSavedProgram,
   programFilter,
   programQuery,
@@ -85,6 +97,7 @@ export default function LibraryPage({
                 <div className="tag-row">
                   <span className="pill pill--subtle">{filteredPrograms.length} shown</span>
                   <span className="pill pill--subtle">{customProgramCount} custom</span>
+                  <span className="pill pill--subtle">{favoriteProgramCount} favorites</span>
                 </div>
               </div>
             </button>
@@ -105,6 +118,7 @@ export default function LibraryPage({
                 <div className="tag-row">
                   <span className="pill pill--subtle">{contentExercises.length} loaded</span>
                   <span className="pill pill--subtle">{filteredExercises.length} shown</span>
+                  <span className="pill pill--subtle">{favoriteExerciseCount} favorites</span>
                 </div>
               </div>
             </button>
@@ -148,14 +162,20 @@ export default function LibraryPage({
           </label>
 
           <div className="segmented-control library-programs__filters">
-            {(['all', 'library', 'custom'] as const).map((filter) => (
+            {(['all', 'library', 'custom', 'favorites'] as const).map((filter) => (
               <button
                 key={filter}
                 type="button"
                 className={programFilter === filter ? 'is-active' : ''}
                 onClick={() => onSetProgramFilter(filter)}
               >
-                {filter === 'all' ? 'All' : filter === 'library' ? 'Library' : 'Custom'}
+                {filter === 'all'
+                  ? 'All'
+                  : filter === 'library'
+                    ? 'Library'
+                    : filter === 'custom'
+                      ? 'Custom'
+                      : 'Favorites'}
               </button>
             ))}
           </div>
@@ -293,6 +313,19 @@ export default function LibraryPage({
             </div>
           </label>
 
+          <div className="segmented-control library-programs__filters">
+            {(['all', 'favorites'] as const).map((filter) => (
+              <button
+                key={filter}
+                type="button"
+                className={exerciseFilter === filter ? 'is-active' : ''}
+                onClick={() => onSetExerciseFilter(filter)}
+              >
+                {filter === 'all' ? 'All' : 'Favorites'}
+              </button>
+            ))}
+          </div>
+
           {filteredExercises.length ? (
             <div className="card-stack">
               {filteredExercises.map((exercise) => {
@@ -312,11 +345,31 @@ export default function LibraryPage({
                           {exercise.source.label} / {exercise.source.group}
                         </p>
                       </div>
-                      {exerciseIsCustom ? (
-                        <span className="pill">Custom</span>
-                      ) : exercise.category ? (
-                        <span className="pill">{exercise.category}</span>
-                      ) : null}
+                      <div className="row-actions">
+                        <button
+                          type="button"
+                          className={`program-card__star-button ${
+                            favoriteExerciseIdSet.has(exercise.id) ? 'is-active' : ''
+                          }`}
+                          onClick={() => onToggleSavedExercise(exercise.id)}
+                          aria-label={
+                            favoriteExerciseIdSet.has(exercise.id)
+                              ? `Remove ${exercise.name} from favorite exercises`
+                              : `Save ${exercise.name} as favorite exercise`
+                          }
+                          title={favoriteExerciseIdSet.has(exercise.id) ? 'Favorite' : 'Add favorite'}
+                        >
+                          <Star
+                            size={17}
+                            fill={favoriteExerciseIdSet.has(exercise.id) ? 'currentColor' : 'none'}
+                          />
+                        </button>
+                        {exerciseIsCustom ? (
+                          <span className="pill">Custom</span>
+                        ) : exercise.category ? (
+                          <span className="pill">{exercise.category}</span>
+                        ) : null}
+                      </div>
                     </div>
                     <p className="muted">
                       {exercise.description ||
@@ -370,12 +423,8 @@ export default function LibraryPage({
             </div>
           ) : (
             <div className="empty-state">
-              <h3>No exercises loaded</h3>
-              <p>
-                Add exercise JSON files under
-                <code> src/assets/exercises</code>
-                to populate the library.
-              </p>
+              <h3>No matching exercises</h3>
+              <p>Try a broader search or switch back to all exercises.</p>
             </div>
           )}
         </section>

@@ -1,14 +1,49 @@
 {
   "id": "elliptical-trainer",
   "displayLabel": "Elliptical Trainer",
-  "category": "Cardio",
-  "type": "continues",
   "shortDescription": "Low-impact cardio effort on an elliptical tracked by duration and perceived effort.",
-  "descriptionHtml": "<p>Low-impact cardio effort on an elliptical tracked by duration and perceived effort.</p><ul><li><strong>Track:</strong> duration, pace, and perceived effort.</li><li><strong>Typical uses:</strong> low-impact conditioning, warm-ups, and recovery sessions.</li></ul>",
+  "descriptionHtml": "<p>Low-impact cardio effort on an elliptical tracked by duration and perceived effort.</p><ul><li><strong>Also listed as:</strong> Elliptical and Cross Trainer</li><li><strong>Common substitutions:</strong> Running, Stationary Bike, Rowing Ergometer, and Assisted Pistol Squat</li></ul>",
   "aliases": [
     "Elliptical",
     "Cross Trainer"
   ],
+  "substitutionExerciseIds": [
+    "running",
+    "stationary-bike",
+    "rowing-ergometer",
+    "assisted-pistol-squat"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.6
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "soleus",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.4
+    }
+  ],
+  "difficulty": "Beginner",
+  "category": "Cardio",
+  "type": "continues",
   "equipment": [
     "Elliptical Trainer"
   ],
@@ -17,7 +52,6 @@
     "Maintain smooth continuous movement for the full duration.",
     "Log the session duration and effort after finishing."
   ],
-  "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "durationMinutes",
     "measurement": {
@@ -155,33 +189,5 @@
     "cardio",
     "conditioning",
     "low-impact"
-  ],
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 0.8
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "gastrocnemius",
-      "factor": 0.6
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "soleus",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "glute-med",
-      "factor": 0.4
-    }
   ]
 }

@@ -2,9 +2,42 @@
   "id": "dumbbell-press",
   "displayLabel": "Dumbbell Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><p>Reference this movement in program files with the exercise id <code>dumbbell-press</code>.</p>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Common substitutions:</strong> Seated Smith Press, Barbell Bench Press, Dumbbell Bench Press, and Dumbbell Floor Press</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "seated-smith-press",
+    "barbell-bench-press",
+    "dumbbell-bench-press",
+    "dumbbell-floor-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "side-delts",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,29 +243,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "side-delts",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "upper-chest",
-      "factor": 0.3
-    }
-  ]
+  }
 }

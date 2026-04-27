@@ -2,13 +2,43 @@
   "id": "leg-press",
   "displayLabel": "Leg Press",
   "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
-  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Also listed as:</strong> LEG PRESS</li><li><strong>Common substitutions:</strong> Goblet Squat and Walking Lunge</li></ul>",
+  "descriptionHtml": "<p>Pressing variation targeting the shoulders and supporting triceps.</p><ul><li><strong>Also listed as:</strong> LEG PRESS</li><li><strong>Common substitutions:</strong> Goblet Squat, Walking Lunge, Single-Leg Leg Press, and Single Leg Press</li></ul>",
   "aliases": [
     "LEG PRESS"
   ],
   "substitutionExerciseIds": [
     "goblet-squat",
-    "walking-lunge"
+    "walking-lunge",
+    "single-leg-leg-press",
+    "single-leg-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-intermedius",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.4
+    }
   ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
@@ -215,29 +245,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "vastus-medialis",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "adductor-magnus",
-      "factor": 0.4
-    }
-  ]
+  }
 }

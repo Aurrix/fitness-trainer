@@ -2,14 +2,48 @@
   "id": "dumbbell-row",
   "displayLabel": "Dumbbell Row",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> DUMBBELL ROW and Single Arm Dumbbell Row</li><li><strong>Common substitutions:</strong> Cable Single-arm Row and Dumbbell Chest-supported Row</li></ul>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> DUMBBELL ROW and Single Arm Dumbbell Row</li><li><strong>Common substitutions:</strong> Cable Single-arm Row, Dumbbell Chest-supported Row, Chest-supported Dumbbell Row, and Cable Seated Row</li></ul>",
   "aliases": [
     "DUMBBELL ROW",
     "Single Arm Dumbbell Row"
   ],
   "substitutionExerciseIds": [
     "cable-single-arm-row",
-    "dumbbell-chest-supported-row"
+    "dumbbell-chest-supported-row",
+    "chest-supported-dumbbell-row",
+    "cable-seated-row"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rear-delts",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.5
+    }
   ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
@@ -216,33 +250,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lats",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "rhomboids",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "mid-traps",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rear-delts",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.4
-    }
-  ]
+  }
 }

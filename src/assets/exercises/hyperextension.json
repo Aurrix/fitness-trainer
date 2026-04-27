@@ -2,9 +2,38 @@
   "id": "hyperextension",
   "displayLabel": "Hyperextension",
   "shortDescription": "Resistance training exercise used across the imported workout books.",
-  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><p>Reference this movement in program files with the exercise id <code>hyperextension</code>.</p>",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Common substitutions:</strong> Back Extension, Conventional Deadlift, Deadlift, and Reverse Hyper</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "back-extension",
+    "conventional-deadlift",
+    "deadlift",
+    "reverse-hyper"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -138,21 +167,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "spinal-erectors",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.6
-    }
-  ]
+  }
 }

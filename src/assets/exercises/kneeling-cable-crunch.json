@@ -2,9 +2,34 @@
   "id": "kneeling-cable-crunch",
   "displayLabel": "Kneeling Cable Crunch",
   "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
-  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><p>Reference this movement in program files with the exercise id <code>kneeling-cable-crunch</code>.</p>",
+  "descriptionHtml": "<p>Core movement for trunk flexion, anti-extension, or rotational control.</p><ul><li><strong>Common substitutions:</strong> Cable Crunch, Bodyweight Crunch, Captain&#39;s Chair Crunch, and Crunch</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "cable-crunch",
+    "bodyweight-crunch",
+    "captain-s-chair-crunch",
+    "crunch"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "transverse-abdominis",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,21 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-abs",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "lower-abs",
-      "factor": 0.6
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "obliques",
-      "factor": 0.4
-    }
-  ]
+  }
 }

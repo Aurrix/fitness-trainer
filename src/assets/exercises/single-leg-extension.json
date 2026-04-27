@@ -2,9 +2,33 @@
   "id": "single-leg-extension",
   "displayLabel": "Single Leg Extension",
   "shortDescription": "Knee-extension isolation movement for focused quad work.",
-  "descriptionHtml": "<p>Knee-extension isolation movement for focused quad work.</p><p>Reference this movement in program files with the exercise id <code>single-leg-extension</code>.</p>",
+  "descriptionHtml": "<p>Knee-extension isolation movement for focused quad work.</p><ul><li><strong>Common substitutions:</strong> Leg Extension, Single-Leg Leg Extension, Front Squat, and Sissy Squat</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "leg-extension",
+    "single-leg-leg-extension",
+    "front-squat",
+    "sissy-squat"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-intermedius",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,24 +234,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "vastus-medialis",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "vastus-intermedius",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": []
+  }
 }

@@ -2,11 +2,48 @@
   "id": "barbell-bent-over-row",
   "displayLabel": "Barbell Bent Over Row",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> BARBELL BENT OVER ROW</li></ul>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> BARBELL BENT OVER ROW</li><li><strong>Common substitutions:</strong> Bent Over Smith Row, Cable Seated Row, Cable Single-arm Row, and Chest-supported Dumbbell Row</li></ul>",
   "aliases": [
     "BARBELL BENT OVER ROW"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "bent-over-smith-row",
+    "cable-seated-row",
+    "cable-single-arm-row",
+    "chest-supported-dumbbell-row"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rear-delts",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,33 +249,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lats",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "rhomboids",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "mid-traps",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rear-delts",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.4
-    }
-  ]
+  }
 }

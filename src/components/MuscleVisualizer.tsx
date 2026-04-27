@@ -76,6 +76,7 @@ function MuscleVisualizer({
   const visibleMuscles = showAllMuscles ? profile.muscles : profile.topMuscles
   const detailMuscles = profile.muscles
   const selectableSlugs = new Set(profile.muscles.map((muscle) => muscle.slug))
+  const knownSlugs = new Set(Object.keys(muscleLabels) as Slug[])
   const shouldShowSheetPreview = detailsMode === 'sheet' && showSheetPreview
   const hasInlineContent =
     Boolean(description) ||
@@ -101,6 +102,15 @@ function MuscleVisualizer({
 
   function clearHold() {
     if (holdTimeoutRef.current !== null) {
+      console.debug('[MuscleVisualizer] clearing hold timeout', {
+        hasSelectionHandler: Boolean(onSelectMuscle),
+        isHolding,
+        title,
+        viewSide,
+      })
+    }
+
+    if (holdTimeoutRef.current !== null) {
       window.clearTimeout(holdTimeoutRef.current)
       holdTimeoutRef.current = null
     }
@@ -109,25 +119,59 @@ function MuscleVisualizer({
   }
 
   function handleVisualizerPointerDown(event: ReactPointerEvent<HTMLDivElement>) {
+    console.debug('[MuscleVisualizer] pointer down', {
+      button: event.button,
+      detailsMode,
+      hasDetailMuscles: detailMuscles.length > 0,
+      hasSelectionHandler: Boolean(onSelectMuscle),
+      pointerType: event.pointerType,
+      targetTag: event.target instanceof HTMLElement ? event.target.tagName : 'unknown',
+      title,
+      viewSide,
+    })
+
     if (detailsMode !== 'sheet' || !detailMuscles.length) {
+      console.debug('[MuscleVisualizer] pointer down ignored: sheet details unavailable', {
+        detailsMode,
+        detailMuscles: detailMuscles.length,
+      })
       return
     }
 
     if (event.pointerType === 'mouse' && event.button !== 0) {
+      console.debug('[MuscleVisualizer] pointer down ignored: non-primary mouse button', {
+        button: event.button,
+      })
+      return
+    }
+
+    // Preserve normal desktop clicks for selectable muscle actions.
+    if (event.pointerType === 'mouse' && onSelectMuscle) {
+      console.debug('[MuscleVisualizer] pointer down ignored: preserving desktop click selection')
       return
     }
 
     if ((event.target as HTMLElement).closest('button')) {
+      console.debug('[MuscleVisualizer] pointer down ignored: nested button target')
       return
     }
 
     clearHold()
     shouldIgnoreBodyPartClickRef.current = false
     setIsHolding(true)
+    console.debug('[MuscleVisualizer] starting hold timer', {
+      longPressMs: LONG_PRESS_MS,
+      title,
+      viewSide,
+    })
     holdTimeoutRef.current = window.setTimeout(() => {
       holdTimeoutRef.current = null
       setIsHolding(false)
       shouldIgnoreBodyPartClickRef.current = true
+      console.debug('[MuscleVisualizer] hold timer completed, opening detail sheet', {
+        title,
+        viewSide,
+      })
       setIsDetailSheetOpen(true)
     }, LONG_PRESS_MS)
   }
@@ -233,14 +277,42 @@ function MuscleVisualizer({
                 data={profile.data}
                 gender={gender}
                 onBodyPartClick={(bodyPart) => {
+                  const isKnownSlug = bodyPart.slug ? knownSlugs.has(bodyPart.slug) : false
+                  const isSelectableSlug = bodyPart.slug
+                    ? selectableSlugs.has(bodyPart.slug) ||
+                      (Boolean(onSelectMuscle) && isKnownSlug)
+                    : false
+
+                  console.debug('[MuscleVisualizer] body part click', {
+                    slug: bodyPart.slug ?? null,
+                    isKnownSlug,
+                    selectable: isSelectableSlug,
+                    shouldIgnoreClick: shouldIgnoreBodyPartClickRef.current,
+                    title,
+                    viewSide,
+                  })
+
                   if (shouldIgnoreBodyPartClickRef.current) {
                     shouldIgnoreBodyPartClickRef.current = false
+                    console.debug('[MuscleVisualizer] body part click ignored after long press')
                     return
                   }
 
-                  if (bodyPart.slug && selectableSlugs.has(bodyPart.slug)) {
+                  if (bodyPart.slug && isSelectableSlug) {
+                    console.debug('[MuscleVisualizer] forwarding selected muscle', {
+                      slug: bodyPart.slug,
+                      title,
+                    })
                     onSelectMuscle?.(bodyPart.slug)
+                    return
                   }
+
+                  console.debug('[MuscleVisualizer] body part click not forwarded', {
+                    reason: bodyPart.slug ? 'slug-not-selectable' : 'missing-slug',
+                    isKnownSlug,
+                    slug: bodyPart.slug ?? null,
+                    selectableSlugs: [...selectableSlugs],
+                  })
                 }}
                 scale={compact ? 0.94 : 1.28}
                 side={viewSide}

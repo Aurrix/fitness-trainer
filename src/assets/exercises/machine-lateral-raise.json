@@ -2,9 +2,26 @@
   "id": "machine-lateral-raise",
   "displayLabel": "Machine Lateral Raise",
   "shortDescription": "Shoulder isolation movement for the side or rear delts.",
-  "descriptionHtml": "<p>Shoulder isolation movement for the side or rear delts.</p><p>Reference this movement in program files with the exercise id <code>machine-lateral-raise</code>.</p>",
+  "descriptionHtml": "<p>Shoulder isolation movement for the side or rear delts.</p><ul><li><strong>Common substitutions:</strong> Lateral Raise (machine), Dumbbell Lateral Raise, Egyptian Lateral Raise, and Cable Lateral Raise</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "lateral-raise-machine",
+    "dumbbell-lateral-raise",
+    "egyptian-lateral-raise",
+    "cable-lateral-raise"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "side-delts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-traps",
+      "factor": 0.3
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,17 +227,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "side-delts",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "upper-traps",
-      "factor": 0.3
-    }
-  ]
+  }
 }

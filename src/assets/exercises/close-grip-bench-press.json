@@ -2,11 +2,44 @@
   "id": "close-grip-bench-press",
   "displayLabel": "Close-grip Bench Press",
   "shortDescription": "Pressing variation for chest, front delts, and triceps.",
-  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Also listed as:</strong> CLOSE-GRIP BENCH PRESS</li></ul>",
+  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Also listed as:</strong> CLOSE-GRIP BENCH PRESS</li><li><strong>Common substitutions:</strong> Jm Press, Pin Press, French Press, and Dip</li></ul>",
   "aliases": [
     "CLOSE-GRIP BENCH PRESS"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "jm-press",
+    "pin-press",
+    "french-press",
+    "dip"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,29 +245,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-long-head",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "middle-chest",
-      "factor": 0.4
-    },
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.4
-    }
-  ]
+  }
 }

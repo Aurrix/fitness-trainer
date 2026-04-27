@@ -2,11 +2,48 @@
   "id": "cable-single-arm-row",
   "displayLabel": "Cable Single-arm Row",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> Cable Single-Arm Row</li></ul>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> Cable Single-Arm Row</li><li><strong>Common substitutions:</strong> Cable Seated Row, Barbell Bent Over Row, Bent Over Smith Row, and Chest-Supported T-Bar Row</li></ul>",
   "aliases": [
     "Cable Single-Arm Row"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "cable-seated-row",
+    "barbell-bent-over-row",
+    "bent-over-smith-row",
+    "chest-supported-t-bar-row"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rear-delts",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,33 +249,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lats",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "rhomboids",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "mid-traps",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rear-delts",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.5
-    },
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.4
-    }
-  ]
+  }
 }

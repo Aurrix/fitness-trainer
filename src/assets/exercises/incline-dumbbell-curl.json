@@ -2,10 +2,33 @@
   "id": "incline-dumbbell-curl",
   "displayLabel": "Incline Dumbbell Curl",
   "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
-  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Common substitutions:</strong> Behind-the-back Cable Curl</li></ul>",
+  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Common substitutions:</strong> Behind-the-back Cable Curl, Dumbbell Concentration Curl, Dumbbell Curl, and Dumbbell Curl 21s</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
-    "behind-the-back-cable-curl"
+    "behind-the-back-cable-curl",
+    "dumbbell-concentration-curl",
+    "dumbbell-curl",
+    "dumbbell-curl-21s"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-long-head",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.4
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -212,21 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-long-head",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.7
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "brachioradialis",
-      "factor": 0.5
-    }
-  ]
+  }
 }

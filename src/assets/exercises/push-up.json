@@ -2,11 +2,49 @@
   "id": "push-up",
   "displayLabel": "Push-Up",
   "shortDescription": "Pressing variation for chest, front delts, and triceps.",
-  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Common substitutions:</strong> Dumbbell Floor Press and Machine Chest Press</li></ul>",
+  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Common substitutions:</strong> Dumbbell Floor Press, Machine Chest Press, Barbell Bench Press, and Deficit Push-up</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
     "dumbbell-floor-press",
-    "machine-chest-press"
+    "machine-chest-press",
+    "barbell-bench-press",
+    "deficit-push-up"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "serratus-anterior",
+      "factor": 0.4
+    }
   ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
@@ -141,25 +179,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "middle-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.5
-    }
-  ]
+  }
 }

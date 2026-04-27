@@ -2,9 +2,26 @@
   "id": "slow-eccentric-leg-press-toe-press",
   "displayLabel": "Slow-eccentric Leg Press Toe Press",
   "shortDescription": "Calf-focused movement for ankle plantarflexion strength and size.",
-  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><p>Reference this movement in program files with the exercise id <code>slow-eccentric-leg-press-toe-press</code>.</p>",
+  "descriptionHtml": "<p>Calf-focused movement for ankle plantarflexion strength and size.</p><ul><li><strong>Common substitutions:</strong> Eccentric-Accentuated Standing Calf Raise, Calf Raise Machine, Calf Raise On Leg Press Machine, and Dumbbell Standing Calf Raise</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "eccentric-accentuated-standing-calf-raise",
+    "calf-raise-machine",
+    "calf-raise-on-leg-press-machine",
+    "dumbbell-standing-calf-raise"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "soleus",
+      "factor": 0.8
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,17 +227,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "gastrocnemius",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "soleus",
-      "factor": 0.7
-    }
-  ]
+  }
 }

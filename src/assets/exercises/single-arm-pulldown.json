@@ -2,11 +2,44 @@
   "id": "single-arm-pulldown",
   "displayLabel": "Single-Arm Pulldown",
   "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
-  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> SINGLE-ARM PULLDOWN</li></ul>",
+  "descriptionHtml": "<p>Upper-back and lat pulling movement for width or thickness.</p><ul><li><strong>Also listed as:</strong> SINGLE-ARM PULLDOWN</li><li><strong>Common substitutions:</strong> Assisted Pull-Up, Lat Pulldown, Neutral-grip Pull-up, and Neutral-grip Pulldown</li></ul>",
   "aliases": [
     "SINGLE-ARM PULLDOWN"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "assisted-pull-up",
+    "lat-pulldown",
+    "neutral-grip-pull-up",
+    "neutral-grip-pulldown"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearm-flexors",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,29 +245,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lats",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "teres-major",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "brachioradialis",
-      "factor": 0.4
-    }
-  ]
+  }
 }

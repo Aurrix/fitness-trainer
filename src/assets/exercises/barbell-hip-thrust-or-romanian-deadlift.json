@@ -2,9 +2,42 @@
   "id": "barbell-hip-thrust-or-romanian-deadlift",
   "displayLabel": "Barbell Hip Thrust Or Romanian Deadlift",
   "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
-  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><p>Reference this movement in program files with the exercise id <code>barbell-hip-thrust-or-romanian-deadlift</code>.</p>",
+  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><ul><li><strong>Common substitutions:</strong> Barbell Hip Thrust, Dumbbell Single-Leg Hip Thrust, Glute Bridge, and Leg Extension Machine Hip Thrust</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "barbell-hip-thrust",
+    "dumbbell-single-leg-hip-thrust",
+    "glute-bridge",
+    "leg-extension-machine-hip-thrust"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,25 +243,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-max",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "semitendinosus",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "spinal-erectors",
-      "factor": 0.6
-    }
-  ]
+  }
 }

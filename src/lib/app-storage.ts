@@ -7,6 +7,7 @@ export const LOCAL_STORAGE_KEYS = {
   mainProgramId: 'fitness-trainer.main-program-id',
   programProgress: 'fitness-trainer.program-progress',
   programDayLogs: 'fitness-trainer.program-day-logs',
+  savedExerciseIds: 'fitness-trainer.saved-exercise-ids',
   programStats: 'fitness-trainer.program-stats',
   savedProgramIds: 'fitness-trainer.saved-program-ids',
   statsPreferences: 'fitness-trainer.stats-preferences',

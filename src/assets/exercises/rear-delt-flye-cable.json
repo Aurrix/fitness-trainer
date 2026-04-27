@@ -2,9 +2,34 @@
   "id": "rear-delt-flye-cable",
   "displayLabel": "Rear Delt Flye (cable)",
   "shortDescription": "Isolation movement for chest or rear-delt adduction depending on setup.",
-  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><p>Reference this movement in program files with the exercise id <code>rear-delt-flye-cable</code>.</p>",
+  "descriptionHtml": "<p>Isolation movement for chest or rear-delt adduction depending on setup.</p><ul><li><strong>Common substitutions:</strong> Cable Reverse Flye, Reverse Cable Crossover, Reverse Cable Flye, and Rear Delt Flye (dumbbell)</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "cable-reverse-flye",
+    "reverse-cable-crossover",
+    "reverse-cable-flye",
+    "rear-delt-flye-dumbbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rear-delts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rhomboids",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "mid-traps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "infraspinatus",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,21 +235,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rear-delts",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rhomboids",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "mid-traps",
-      "factor": 0.5
-    }
-  ]
+  }
 }

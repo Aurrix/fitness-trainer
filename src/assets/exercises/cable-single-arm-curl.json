@@ -2,13 +2,36 @@
   "id": "cable-single-arm-curl",
   "displayLabel": "Cable Single-Arm Curl",
   "shortDescription": "Elbow-flexion accessory for the biceps and forearms.",
-  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Also listed as:</strong> Single Arm Cable Curl and SINGLE-ARM CABLE CURL</li><li><strong>Common substitutions:</strong> Single-arm Dumbbell Curl</li></ul>",
+  "descriptionHtml": "<p>Elbow-flexion accessory for the biceps and forearms.</p><ul><li><strong>Also listed as:</strong> Single Arm Cable Curl and SINGLE-ARM CABLE CURL</li><li><strong>Common substitutions:</strong> Single-arm Dumbbell Curl, Cable Curl, Cable Curl 21s, and Dumbbell Curl</li></ul>",
   "aliases": [
     "Single Arm Cable Curl",
     "SINGLE-ARM CABLE CURL"
   ],
   "substitutionExerciseIds": [
-    "single-arm-dumbbell-curl"
+    "single-arm-dumbbell-curl",
+    "cable-curl",
+    "cable-curl-21s",
+    "dumbbell-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "biceps-long-head",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.5
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -215,25 +238,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-short-head",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "biceps-long-head",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "brachialis",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "brachioradialis",
-      "factor": 0.5
-    }
-  ]
+  }
 }

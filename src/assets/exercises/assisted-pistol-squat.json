@@ -2,9 +2,46 @@
   "id": "assisted-pistol-squat",
   "displayLabel": "Assisted Pistol Squat",
   "shortDescription": "Squat variation for lower-body strength and quad and glute development.",
-  "descriptionHtml": "<p>Squat variation for lower-body strength and quad and glute development.</p><p>Reference this movement in program files with the exercise id <code>assisted-pistol-squat</code>.</p>",
+  "descriptionHtml": "<p>Squat variation for lower-body strength and quad and glute development.</p><ul><li><strong>Common substitutions:</strong> Bulgarian Split Squat, Dumbbell Step-up, Dumbbell Walking Lunge, and Reverse Lunge</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "bulgarian-split-squat",
+    "dumbbell-step-up",
+    "dumbbell-walking-lunge",
+    "reverse-lunge"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "vastus-intermedius",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -138,33 +175,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "vastus-medialis",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "glute-med",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "spinal-erectors",
-      "factor": 0.5
-    }
-  ]
+  }
 }

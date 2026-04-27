@@ -1,3 +1,5 @@
+import type { AppProgram } from '../lib/app-types'
+import { countExercises } from '../lib/app-utils'
 import type { FitnessProfile } from '../lib/fitness-profile'
 
 type ProfilePageProps = {
@@ -10,6 +12,10 @@ type ProfilePageProps = {
   }>
   fitnessGoalOptions: Array<{ label: string; value: FitnessProfile['primaryGoal'] }>
   fitnessProfile: FitnessProfile
+  isMainProgramEmpty: boolean
+  mainProgram: AppProgram
+  onChangeMainProgram: () => void
+  onOpenMainProgram: () => void
   onResetProgressionData: () => void
   onResetStoredData: () => void
   onUpdateFitnessProfile: <K extends keyof FitnessProfile>(
@@ -34,6 +40,10 @@ export default function ProfilePage({
   fitnessExperienceOptions,
   fitnessGoalOptions,
   fitnessProfile,
+  isMainProgramEmpty,
+  mainProgram,
+  onChangeMainProgram,
+  onOpenMainProgram,
   onResetProgressionData,
   onResetStoredData,
   onUpdateFitnessProfile,
@@ -41,6 +51,47 @@ export default function ProfilePage({
 }: ProfilePageProps) {
   return (
     <>
+      <section className="section-card">
+        <div className="section-header">
+          <div>
+            <p className="kicker">Main Program</p>
+            <h2>Selected plan</h2>
+          </div>
+        </div>
+
+        <article className="program-card program-card--featured">
+          <div className="section-header">
+            <div>
+              <span className="pill">{isMainProgramEmpty ? 'Default' : 'Selected'}</span>
+              <h3>{mainProgram.name}</h3>
+              <p className="muted">
+                {mainProgram.description ||
+                  `${countExercises(mainProgram)} exercises across ${mainProgram.sections.length} days.`}
+              </p>
+            </div>
+          </div>
+
+          <div className="tag-row">
+            <span className="pill pill--subtle">{mainProgram.sections.length} days</span>
+            <span className="pill pill--subtle">{countExercises(mainProgram)} exercises</span>
+            {!isMainProgramEmpty ? (
+              <span className="pill pill--subtle">{mainProgram.programSource}</span>
+            ) : null}
+          </div>
+
+          <div className="row-actions">
+            {!isMainProgramEmpty ? (
+              <button type="button" className="secondary-button" onClick={onOpenMainProgram}>
+                View Program
+              </button>
+            ) : null}
+            <button type="button" className="primary-button" onClick={onChangeMainProgram}>
+              Change Program
+            </button>
+          </div>
+        </article>
+      </section>
+
       <section className="section-card">
         <div className="section-header">
           <div>

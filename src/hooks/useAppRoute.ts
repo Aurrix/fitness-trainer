@@ -11,34 +11,96 @@ type NavigateOptions = {
   replace?: boolean
 }
 
+const navigationEventName = 'app-route-change'
+
+function normalizeBasePath(value: string) {
+  if (!value || value === '/') {
+    return '/'
+  }
+
+  let normalized = value
+
+  if (!normalized.startsWith('/')) {
+    normalized = `/${normalized}`
+  }
+
+  normalized = normalized.replace(/\/{2,}/g, '/')
+
+  if (normalized.length > 1) {
+    normalized = normalized.replace(/\/+$/g, '')
+  }
+
+  return normalized || '/'
+}
+
+function getBasePath() {
+  return normalizeBasePath(import.meta.env.BASE_URL || '/')
+}
+
+function stripBasePath(pathname: string) {
+  const basePath = getBasePath()
+
+  if (basePath === '/') {
+    return pathname || '/'
+  }
+
+  if (pathname === basePath) {
+    return '/'
+  }
+
+  if (pathname.startsWith(`${basePath}/`)) {
+    return pathname.slice(basePath.length) || '/'
+  }
+
+  return pathname || '/'
+}
+
+function buildUrlForRoute(path: string) {
+  const normalizedPath = normalizeRoutePath(path)
+  const basePath = getBasePath()
+  const pathname =
+    basePath === '/'
+      ? normalizedPath
+      : normalizedPath === '/'
+        ? basePath
+        : `${basePath}${normalizedPath}`
+
+  return `${pathname}${window.location.search}`
+}
+
 function getCurrentRoutePath() {
   if (typeof window === 'undefined') {
     return DEFAULT_ROUTE.path
   }
 
-  return normalizeRoutePath(window.location.hash.slice(1) || window.location.pathname)
+  if (window.location.hash) {
+    return normalizeRoutePath(window.location.hash.slice(1))
+  }
+
+  return normalizeRoutePath(stripBasePath(window.location.pathname))
 }
 
-function updateHashPath(path: string, replace = false) {
+function updatePath(path: string, replace = false) {
   if (typeof window === 'undefined') {
     return
   }
 
-  const normalizedPath = normalizeRoutePath(path)
-  const nextHash = `#${normalizedPath}`
+  const nextPath = normalizeRoutePath(path)
+  const currentPath = getCurrentRoutePath()
 
-  if (window.location.hash === nextHash) {
+  if (!window.location.hash && currentPath === nextPath) {
     return
   }
+
+  const nextUrl = buildUrlForRoute(nextPath)
 
   if (replace) {
-    const nextUrl = `${window.location.pathname}${window.location.search}${nextHash}`
     window.history.replaceState(null, '', nextUrl)
-    window.dispatchEvent(new Event('hashchange'))
-    return
+  } else {
+    window.history.pushState(null, '', nextUrl)
   }
 
-  window.location.hash = normalizedPath
+  window.dispatchEvent(new Event(navigationEventName))
 }
 
 function subscribeToRouteChanges(onStoreChange: () => void) {
@@ -48,12 +110,12 @@ function subscribeToRouteChanges(onStoreChange: () => void) {
 
   const handleChange = () => onStoreChange()
 
-  window.addEventListener('hashchange', handleChange)
   window.addEventListener('popstate', handleChange)
+  window.addEventListener(navigationEventName, handleChange)
 
   return () => {
-    window.removeEventListener('hashchange', handleChange)
     window.removeEventListener('popstate', handleChange)
+    window.removeEventListener(navigationEventName, handleChange)
   }
 }
 
@@ -70,14 +132,14 @@ export function useAppRoute() {
       return
     }
 
-    if (window.location.hash !== `#${route.path}`) {
-      updateHashPath(route.path, true)
+    if (window.location.hash || getCurrentRoutePath() !== route.path) {
+      updatePath(route.path, true)
     }
   }, [route.path])
 
   const navigate = useCallback(
     (routeIdOrPath: AppRouteId | string, options?: NavigateOptions) => {
-      updateHashPath(getRoutePath(routeIdOrPath), options?.replace ?? false)
+      updatePath(getRoutePath(routeIdOrPath), options?.replace ?? false)
     },
     [],
   )

@@ -2,9 +2,46 @@
   "id": "dumbbell-step-up",
   "displayLabel": "Dumbbell Step-up",
   "shortDescription": "Resistance training exercise used across the imported workout books.",
-  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><p>Reference this movement in program files with the exercise id <code>dumbbell-step-up</code>.</p>",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Common substitutions:</strong> Assisted Pistol Squat, Bulgarian Split Squat, Dumbbell Walking Lunge, and Reverse Lunge</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "assisted-pistol-squat",
+    "bulgarian-split-squat",
+    "dumbbell-walking-lunge",
+    "reverse-lunge"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "vastus-intermedius",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -210,33 +247,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "rectus-femoris",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "vastus-lateralis",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "glute-med",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "vastus-medialis",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "adductor-magnus",
-      "factor": 0.5
-    }
-  ]
+  }
 }

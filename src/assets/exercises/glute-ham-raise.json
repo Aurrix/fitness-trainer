@@ -2,12 +2,33 @@
   "id": "glute-ham-raise",
   "displayLabel": "Glute Ham Raise",
   "shortDescription": "Resistance training exercise used across the imported workout books.",
-  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Common substitutions:</strong> Cable Pull-through, Glute Bridge, and Reverse Hyper</li></ul>",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Common substitutions:</strong> Cable Pull-through, Glute Bridge, Reverse Hyper, and Dumbbell Leg Curl</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
     "cable-pull-through",
     "glute-bridge",
-    "reverse-hyper"
+    "reverse-hyper",
+    "dumbbell-leg-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gastrocnemius",
+      "factor": 0.3
+    }
   ],
   "difficulty": "Beginner",
   "strengthBenchmarks": {
@@ -142,25 +163,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "semitendinosus",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "semimembranosus",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "gastrocnemius",
-      "factor": 0.3
-    }
-  ]
+  }
 }

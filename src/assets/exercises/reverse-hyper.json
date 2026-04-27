@@ -2,9 +2,38 @@
   "id": "reverse-hyper",
   "displayLabel": "Reverse Hyper",
   "shortDescription": "Resistance training exercise used across the imported workout books.",
-  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><p>Reference this movement in program files with the exercise id <code>reverse-hyper</code>.</p>",
+  "descriptionHtml": "<p>Resistance training exercise used across the imported workout books.</p><ul><li><strong>Common substitutions:</strong> Cable Pull-through, Sumo Deadlift, Back Extension, and Hyperextension</li></ul>",
   "aliases": [],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "cable-pull-through",
+    "sumo-deadlift",
+    "back-extension",
+    "hyperextension"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.5
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "bodyweightReps",
@@ -138,21 +167,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "spinal-erectors",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 0.6
-    }
-  ]
+  }
 }

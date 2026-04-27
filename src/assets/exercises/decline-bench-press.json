@@ -2,10 +2,41 @@
   "id": "decline-bench-press",
   "displayLabel": "Decline Bench Press",
   "shortDescription": "Pressing variation for chest, front delts, and triceps.",
-  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Common substitutions:</strong> Weighted Dip</li></ul>",
+  "descriptionHtml": "<p>Pressing variation for chest, front delts, and triceps.</p><ul><li><strong>Common substitutions:</strong> Weighted Dip, Decline Barbell Press, Decline Dumbbell Press, and Hammer Strength Decline Press</li></ul>",
   "aliases": [],
   "substitutionExerciseIds": [
-    "weighted-dip"
+    "weighted-dip",
+    "decline-barbell-press",
+    "decline-dumbbell-press",
+    "hammer-strength-decline-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "middle-chest",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "inner-chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "front-delts",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.5
+    }
   ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
@@ -212,25 +243,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "lower-chest",
-      "factor": 1
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "triceps-lateral-head",
-      "factor": 0.7
-    },
-    {
-      "muscleGroup": "triceps-medial-head",
-      "factor": 0.6
-    },
-    {
-      "muscleGroup": "front-delts",
-      "factor": 0.4
-    }
-  ]
+  }
 }

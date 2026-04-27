@@ -2,11 +2,44 @@
   "id": "romanian-deadlift",
   "displayLabel": "Romanian Deadlift",
   "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
-  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><ul><li><strong>Also listed as:</strong> ROMANIAN DEADLIFT</li></ul>",
+  "descriptionHtml": "<p>Hip hinge variation for posterior-chain strength and muscle.</p><ul><li><strong>Also listed as:</strong> ROMANIAN DEADLIFT</li><li><strong>Common substitutions:</strong> Deadlift, Sumo Deadlift, Conventional Deadlift, and Barbell Hip Thrust</li></ul>",
   "aliases": [
     "ROMANIAN DEADLIFT"
   ],
-  "substitutionExerciseIds": [],
+  "substitutionExerciseIds": [
+    "deadlift",
+    "sumo-deadlift",
+    "conventional-deadlift",
+    "barbell-hip-thrust"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.4
+    }
+  ],
   "difficulty": "Intermediate",
   "strengthBenchmarks": {
     "kind": "loadKg",
@@ -212,25 +245,5 @@
         }
       }
     }
-  },
-  "primaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "biceps-femoris",
-      "factor": 1
-    },
-    {
-      "muscleGroup": "semitendinosus",
-      "factor": 0.9
-    },
-    {
-      "muscleGroup": "glute-max",
-      "factor": 0.8
-    }
-  ],
-  "secondaryTargetMuscleGroups": [
-    {
-      "muscleGroup": "spinal-erectors",
-      "factor": 0.7
-    }
-  ]
+  }
 }

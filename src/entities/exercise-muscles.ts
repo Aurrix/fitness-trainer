@@ -10,6 +10,7 @@ export enum ExerciseMuscleGroup {
   Adductors = 'adductors',
   AdductorLongus = 'adductor-longus',
   AdductorMagnus = 'adductor-magnus',
+  Pectineus = 'pectineus',
   Biceps = 'biceps',
   BicepsLongHead = 'biceps-long-head',
   BicepsShortHead = 'biceps-short-head',
@@ -22,6 +23,7 @@ export enum ExerciseMuscleGroup {
   UpperChest = 'upper-chest',
   MiddleChest = 'middle-chest',
   LowerChest = 'lower-chest',
+  InnerChest = 'inner-chest',
   Deltoids = 'deltoids',
   FrontDelts = 'front-delts',
   SideDelts = 'side-delts',
@@ -33,17 +35,24 @@ export enum ExerciseMuscleGroup {
   GluteMax = 'glute-max',
   GluteMed = 'glute-med',
   GluteMin = 'glute-min',
+  TensorFasciaeLatae = 'tensor-fasciae-latae',
   Hamstring = 'hamstring',
   BicepsFemoris = 'biceps-femoris',
   Semitendinosus = 'semitendinosus',
   Semimembranosus = 'semimembranosus',
   LowerBack = 'lower-back',
+  Infraspinatus = 'infraspinatus',
   SpinalErectors = 'spinal-erectors',
+  Neck = 'neck',
+  Omohyoid = 'omohyoid',
   Quadriceps = 'quadriceps',
   RectusFemoris = 'rectus-femoris',
+  Sartorius = 'sartorius',
   VastusLateralis = 'vastus-lateralis',
   VastusMedialis = 'vastus-medialis',
   VastusIntermedius = 'vastus-intermedius',
+  SerratusAnterior = 'serratus-anterior',
+  Sternocleidomastoid = 'sternocleidomastoid',
   Trapezius = 'trapezius',
   UpperTraps = 'upper-traps',
   MidTraps = 'mid-traps',
@@ -75,6 +84,7 @@ export const exerciseMuscleGroupLabels: Record<ExerciseMuscleGroup, string> = {
   [ExerciseMuscleGroup.Adductors]: 'Adductors',
   [ExerciseMuscleGroup.AdductorLongus]: 'Adductor Longus',
   [ExerciseMuscleGroup.AdductorMagnus]: 'Adductor Magnus',
+  [ExerciseMuscleGroup.Pectineus]: 'Pectineus',
   [ExerciseMuscleGroup.Biceps]: 'Biceps',
   [ExerciseMuscleGroup.BicepsLongHead]: 'Biceps Long Head',
   [ExerciseMuscleGroup.BicepsShortHead]: 'Biceps Short Head',
@@ -87,6 +97,7 @@ export const exerciseMuscleGroupLabels: Record<ExerciseMuscleGroup, string> = {
   [ExerciseMuscleGroup.UpperChest]: 'Upper Chest',
   [ExerciseMuscleGroup.MiddleChest]: 'Middle Chest',
   [ExerciseMuscleGroup.LowerChest]: 'Lower Chest',
+  [ExerciseMuscleGroup.InnerChest]: 'Inner Chest',
   [ExerciseMuscleGroup.Deltoids]: 'Deltoids',
   [ExerciseMuscleGroup.FrontDelts]: 'Front Delts',
   [ExerciseMuscleGroup.SideDelts]: 'Side Delts',
@@ -98,17 +109,24 @@ export const exerciseMuscleGroupLabels: Record<ExerciseMuscleGroup, string> = {
   [ExerciseMuscleGroup.GluteMax]: 'Glute Max',
   [ExerciseMuscleGroup.GluteMed]: 'Glute Med',
   [ExerciseMuscleGroup.GluteMin]: 'Glute Min',
+  [ExerciseMuscleGroup.TensorFasciaeLatae]: 'Tensor Fasciae Latae',
   [ExerciseMuscleGroup.Hamstring]: 'Hamstrings',
   [ExerciseMuscleGroup.BicepsFemoris]: 'Biceps Femoris',
   [ExerciseMuscleGroup.Semitendinosus]: 'Semitendinosus',
   [ExerciseMuscleGroup.Semimembranosus]: 'Semimembranosus',
   [ExerciseMuscleGroup.LowerBack]: 'Lower Back',
+  [ExerciseMuscleGroup.Infraspinatus]: 'Infraspinatus',
   [ExerciseMuscleGroup.SpinalErectors]: 'Spinal Erectors',
+  [ExerciseMuscleGroup.Neck]: 'Neck',
+  [ExerciseMuscleGroup.Omohyoid]: 'Omohyoid',
   [ExerciseMuscleGroup.Quadriceps]: 'Quadriceps',
   [ExerciseMuscleGroup.RectusFemoris]: 'Rectus Femoris',
+  [ExerciseMuscleGroup.Sartorius]: 'Sartorius',
   [ExerciseMuscleGroup.VastusLateralis]: 'Vastus Lateralis',
   [ExerciseMuscleGroup.VastusMedialis]: 'Vastus Medialis',
   [ExerciseMuscleGroup.VastusIntermedius]: 'Vastus Intermedius',
+  [ExerciseMuscleGroup.SerratusAnterior]: 'Serratus Anterior',
+  [ExerciseMuscleGroup.Sternocleidomastoid]: 'Sternocleidomastoid',
   [ExerciseMuscleGroup.Trapezius]: 'Trapezius',
   [ExerciseMuscleGroup.UpperTraps]: 'Upper Traps',
   [ExerciseMuscleGroup.MidTraps]: 'Mid Traps',
@@ -133,6 +151,7 @@ const exerciseMuscleGroupAliases: Record<string, ExerciseMuscleGroup> = {
   'front-delts': ExerciseMuscleGroup.FrontDelts,
   glutes: ExerciseMuscleGroup.Gluteal,
   hamstrings: ExerciseMuscleGroup.Hamstring,
+  'inner-pecs': ExerciseMuscleGroup.InnerChest,
   lat: ExerciseMuscleGroup.Lats,
   'lateral-deltoid': ExerciseMuscleGroup.SideDelts,
   'lateral-delts': ExerciseMuscleGroup.SideDelts,
@@ -143,6 +162,9 @@ const exerciseMuscleGroupAliases: Record<string, ExerciseMuscleGroup> = {
   quads: ExerciseMuscleGroup.Quadriceps,
   'rear-delt': ExerciseMuscleGroup.RearDelts,
   'rear-deltoid': ExerciseMuscleGroup.RearDelts,
+  scm: ExerciseMuscleGroup.Sternocleidomastoid,
+  serratus: ExerciseMuscleGroup.SerratusAnterior,
+  tfl: ExerciseMuscleGroup.TensorFasciaeLatae,
   traps: ExerciseMuscleGroup.Trapezius,
 }
 
@@ -161,6 +183,7 @@ const bodySlugByExerciseMuscleGroup: Partial<
   [ExerciseMuscleGroup.Adductors]: 'adductors',
   [ExerciseMuscleGroup.AdductorLongus]: 'adductors',
   [ExerciseMuscleGroup.AdductorMagnus]: 'adductors',
+  [ExerciseMuscleGroup.Pectineus]: 'adductors',
   [ExerciseMuscleGroup.Biceps]: 'biceps',
   [ExerciseMuscleGroup.BicepsLongHead]: 'biceps',
   [ExerciseMuscleGroup.BicepsShortHead]: 'biceps',
@@ -173,6 +196,7 @@ const bodySlugByExerciseMuscleGroup: Partial<
   [ExerciseMuscleGroup.UpperChest]: 'chest',
   [ExerciseMuscleGroup.MiddleChest]: 'chest',
   [ExerciseMuscleGroup.LowerChest]: 'chest',
+  [ExerciseMuscleGroup.InnerChest]: 'chest',
   [ExerciseMuscleGroup.Deltoids]: 'deltoids',
   [ExerciseMuscleGroup.FrontDelts]: 'deltoids',
   [ExerciseMuscleGroup.SideDelts]: 'deltoids',
@@ -184,17 +208,24 @@ const bodySlugByExerciseMuscleGroup: Partial<
   [ExerciseMuscleGroup.GluteMax]: 'gluteal',
   [ExerciseMuscleGroup.GluteMed]: 'gluteal',
   [ExerciseMuscleGroup.GluteMin]: 'gluteal',
+  [ExerciseMuscleGroup.TensorFasciaeLatae]: 'gluteal',
   [ExerciseMuscleGroup.Hamstring]: 'hamstring',
   [ExerciseMuscleGroup.BicepsFemoris]: 'hamstring',
   [ExerciseMuscleGroup.Semitendinosus]: 'hamstring',
   [ExerciseMuscleGroup.Semimembranosus]: 'hamstring',
   [ExerciseMuscleGroup.LowerBack]: 'lower-back',
+  [ExerciseMuscleGroup.Infraspinatus]: 'upper-back',
   [ExerciseMuscleGroup.SpinalErectors]: 'lower-back',
+  [ExerciseMuscleGroup.Neck]: 'neck',
+  [ExerciseMuscleGroup.Omohyoid]: 'neck',
   [ExerciseMuscleGroup.Quadriceps]: 'quadriceps',
   [ExerciseMuscleGroup.RectusFemoris]: 'quadriceps',
+  [ExerciseMuscleGroup.Sartorius]: 'quadriceps',
   [ExerciseMuscleGroup.VastusLateralis]: 'quadriceps',
   [ExerciseMuscleGroup.VastusMedialis]: 'quadriceps',
   [ExerciseMuscleGroup.VastusIntermedius]: 'quadriceps',
+  [ExerciseMuscleGroup.SerratusAnterior]: 'obliques',
+  [ExerciseMuscleGroup.Sternocleidomastoid]: 'neck',
   [ExerciseMuscleGroup.Trapezius]: 'trapezius',
   [ExerciseMuscleGroup.UpperTraps]: 'trapezius',
   [ExerciseMuscleGroup.MidTraps]: 'trapezius',
@@ -210,6 +241,24 @@ const bodySlugByExerciseMuscleGroup: Partial<
   [ExerciseMuscleGroup.Tibialis]: 'tibialis',
   [ExerciseMuscleGroup.TibialisAnterior]: 'tibialis',
 }
+
+const exerciseMuscleGroupsByBodySlug = Object.values(ExerciseMuscleGroup).reduce<
+  Partial<Record<Slug, ExerciseMuscleGroup[]>>
+>((accumulator, muscleGroup) => {
+  const slug = bodySlugByExerciseMuscleGroup[muscleGroup]
+
+  if (!slug) {
+    return accumulator
+  }
+
+  const currentGroups = accumulator[slug] ?? []
+
+  if (!currentGroups.includes(muscleGroup)) {
+    accumulator[slug] = [...currentGroups, muscleGroup]
+  }
+
+  return accumulator
+}, {})
 
 function slugifyMuscleGroup(value: string) {
   return value
@@ -290,4 +339,8 @@ export function mapExerciseMuscleGroupsToBodySlugs(
   }
 
   return slugs
+}
+
+export function mapBodySlugToExerciseMuscleGroups(slug: Slug) {
+  return exerciseMuscleGroupsByBodySlug[slug] ?? []
 }

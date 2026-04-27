@@ -1,4 +1,4 @@
-import { ArrowRight, Gauge, Layers3, Target } from 'lucide-react'
+import { ArrowRight, Gauge, Layers3, Star, StarOff, Target } from 'lucide-react'
 import type { ExerciseStatsRecord } from '../entities/exercise-stats'
 import {
   formatExerciseMuscleGroup,
@@ -23,8 +23,10 @@ type ExerciseDetailSheetProps = {
   alternatives: ExerciseAlternative[]
   exercise: Exercise
   gender: FitnessProfileGender
+  isSaved: boolean
   onClose: () => void
   onSelectAlternative: (exerciseId: string) => void
+  onToggleSavedExercise: (exerciseId: string) => void
   statsRecord: ExerciseStatsRecord | null
 }
 
@@ -32,8 +34,10 @@ export default function ExerciseDetailSheet({
   alternatives,
   exercise,
   gender,
+  isSaved,
   onClose,
   onSelectAlternative,
+  onToggleSavedExercise,
   statsRecord,
 }: ExerciseDetailSheetProps) {
   return (
@@ -59,6 +63,17 @@ export default function ExerciseDetailSheet({
         </div>
 
         <div className="sheet-content">
+          <div className="row-actions">
+            <button
+              type="button"
+              className="secondary-button icon-button"
+              onClick={() => onToggleSavedExercise(exercise.id)}
+            >
+              {isSaved ? <StarOff size={16} /> : <Star size={16} />}
+              <span>{isSaved ? 'Remove Favorite' : 'Save Favorite'}</span>
+            </button>
+          </div>
+
           <section className="section-card exercise-detail-section">
             <div className="exercise-detail-meta">
               {exercise.difficulty ? (

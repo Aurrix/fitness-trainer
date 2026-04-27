@@ -9,6 +9,7 @@ import {
   GripVertical,
   Info,
   Minus,
+  Play,
   RefreshCcw,
   Plus,
   SkipForward,
@@ -44,6 +45,12 @@ type WorkoutExerciseTableProps = {
   onAddWorkoutExercise: (exercise: Exercise) => void
   onAddWorkoutExerciseSet: (exerciseId: string) => void
   onAddWorkoutExtraExerciseSet: (logId: string) => void
+  onCommitWorkoutSet: (setDetails: {
+    exerciseName: string
+    rest: string
+    setIndex: number
+    setLog: WorkoutSetLogEntry
+  }) => void
   onOpenExerciseDetails: (exercise: Exercise) => void
   onReorderWorkoutExercise: (
     draggedLogId: string,
@@ -90,6 +97,7 @@ type WorkoutTableRow = {
   targetDuration: string
   targetEffort: string
   targetReps: string
+  targetRest: string
   targetSetCount: number
   title: string
   visibleSetCount: number
@@ -112,6 +120,12 @@ type SortableWorkoutRowProps = {
   maxTargetSetCount: number
   onAddWorkoutExerciseSet: (exerciseId: string) => void
   onAddWorkoutExtraExerciseSet: (logId: string) => void
+  onCommitWorkoutSet: (setDetails: {
+    exerciseName: string
+    rest: string
+    setIndex: number
+    setLog: WorkoutSetLogEntry
+  }) => void
   onDragEnd: (draggedKey: string) => void
   onDragStart: (draggedKey: string) => void
   onOpenExerciseDetails: (exercise: Exercise) => void
@@ -387,6 +401,7 @@ function SortableWorkoutRow({
   maxTargetSetCount,
   onAddWorkoutExerciseSet,
   onAddWorkoutExtraExerciseSet,
+  onCommitWorkoutSet,
   onDragEnd,
   onDragStart,
   onOpenExerciseDetails,
@@ -702,6 +717,7 @@ function SortableWorkoutRow({
           effort={row.targetEffort}
           mode={isCompactResolvedRow ? 'horizontal' : 'vertical'}
           reps={row.targetReps}
+          rest={row.targetRest}
           sets={row.isContinuous ? undefined : row.targetSetCount}
           title={row.title}
           type={row.isContinuous ? 'continues' : row.resolvedExercise?.type}
@@ -855,6 +871,27 @@ function SortableWorkoutRow({
                     </option>
                   ))}
                 </select>
+                <button
+                  type="button"
+                  className="chip-button workout-table__set-commit-button"
+                  onClick={() =>
+                    onCommitWorkoutSet({
+                      exerciseName: row.title,
+                      rest: row.targetRest,
+                      setIndex,
+                      setLog,
+                    })
+                  }
+                  disabled={isInputDisabled || !setSummary}
+                  title={
+                    row.targetRest
+                      ? `Log set and start ${row.targetRest} rest`
+                      : 'Log set'
+                  }
+                >
+                  <Play size={12} />
+                  <span>{row.targetRest ? 'Log + Rest' : 'Log set'}</span>
+                </button>
               </div>
             )}
           </td>
@@ -896,6 +933,7 @@ export default function WorkoutExerciseTable({
   onAddWorkoutExercise,
   onAddWorkoutExerciseSet,
   onAddWorkoutExtraExerciseSet,
+  onCommitWorkoutSet,
   onOpenExerciseDetails,
   onReorderWorkoutExercise,
   onRemoveWorkoutExtraExercise,
@@ -967,6 +1005,7 @@ export default function WorkoutExerciseTable({
           effortScale,
         ),
         targetReps: exercise.reps || exercise.duration || 'Open',
+        targetRest: exercise.rest || '',
         targetSetCount,
         title: workoutLog.exerciseName || exercise.exerciseName,
         visibleSetCount: Math.max(targetSetCount, workoutLog.setLogs.length),
@@ -1002,6 +1041,7 @@ export default function WorkoutExerciseTable({
             effortScale,
           ),
           targetReps: 'Open',
+          targetRest: '',
           targetSetCount: 1,
           title: entry.exerciseName,
           visibleSetCount: Math.max(1, entry.setLogs.length || 1),
@@ -1144,6 +1184,7 @@ export default function WorkoutExerciseTable({
                   maxTargetSetCount={maxTargetSetCount}
                   onAddWorkoutExerciseSet={onAddWorkoutExerciseSet}
                   onAddWorkoutExtraExerciseSet={onAddWorkoutExtraExerciseSet}
+                  onCommitWorkoutSet={onCommitWorkoutSet}
                   onDragEnd={endDrag}
                   onDragStart={startDrag}
                   onOpenExerciseDetails={onOpenExerciseDetails}
