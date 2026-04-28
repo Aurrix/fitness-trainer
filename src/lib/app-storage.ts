@@ -8,6 +8,7 @@ export const LOCAL_STORAGE_KEYS = {
   reminderEnabled: 'fitness-trainer.reminder-enabled',
   reminderLastSentAt: 'fitness-trainer.reminder-last-sent-at',
   programProgress: 'fitness-trainer.program-progress',
+  programCompletionLogs: 'fitness-trainer.program-completion-logs',
   programDayLogs: 'fitness-trainer.program-day-logs',
   savedExerciseIds: 'fitness-trainer.saved-exercise-ids',
   programStats: 'fitness-trainer.program-stats',

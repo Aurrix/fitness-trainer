@@ -14,6 +14,10 @@ import {
   type ProgramProgressStore,
 } from '../entities/program-progression'
 import {
+  normalizeProgramCompletionLogs,
+  type ProgramCompletionLog,
+} from '../entities/program-completion'
+import {
   normalizeProgramDayLogs,
   type ProgramDayLog,
 } from '../entities/program-day-stats'
@@ -56,6 +60,7 @@ type AppStoreState = {
   mainProgramId: string | null
   reminderEnabled: boolean
   reminderLastSentAt: string | null
+  programCompletionLogs: ProgramCompletionLog[]
   programProgressStore: ProgramProgressStore
   programDayLogs: ProgramDayLog[]
   programStatsStore: ProgramStatsStore
@@ -72,6 +77,7 @@ type AppStoreState = {
   setMainProgramId: (value: string | null) => void
   setReminderEnabled: (value: boolean) => void
   setReminderLastSentAt: (value: string | null) => void
+  setProgramCompletionLogs: (updater: StateUpdater<ProgramCompletionLog[]>) => void
   setProgramProgressStore: (updater: StateUpdater<ProgramProgressStore>) => void
   setProgramDayLogs: (updater: StateUpdater<ProgramDayLog[]>) => void
   setProgramStatsStore: (updater: StateUpdater<ProgramStatsStore>) => void
@@ -162,6 +168,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       storedReminderEnabled,
       storedReminderLastSentAt,
       storedProgramProgress,
+      storedProgramCompletionLogs,
       storedProgramDayLogs,
       storedSavedExerciseIds,
       storedSavedProgramIds,
@@ -178,6 +185,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       safeRead(LOCAL_STORAGE_KEYS.reminderEnabled),
       safeRead(LOCAL_STORAGE_KEYS.reminderLastSentAt),
       safeRead(LOCAL_STORAGE_KEYS.programProgress),
+      safeRead(LOCAL_STORAGE_KEYS.programCompletionLogs),
       safeRead(LOCAL_STORAGE_KEYS.programDayLogs),
       safeRead(LOCAL_STORAGE_KEYS.savedExerciseIds),
       safeRead(LOCAL_STORAGE_KEYS.savedProgramIds),
@@ -196,6 +204,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       mainProgramId: normalizeMainProgramId(storedMainProgramId),
       reminderEnabled: storedReminderEnabled === true,
       reminderLastSentAt: normalizeNullableTimestamp(storedReminderLastSentAt),
+      programCompletionLogs: normalizeProgramCompletionLogs(storedProgramCompletionLogs),
       programProgressStore: normalizeProgramProgressStore(storedProgramProgress),
       programDayLogs: normalizeProgramDayLogs(storedProgramDayLogs),
       programStatsStore: normalizeProgramStatsStore(storedProgramStats),
@@ -210,6 +219,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
   mainProgramId: null,
   reminderEnabled: false,
   reminderLastSentAt: null,
+  programCompletionLogs: [],
   programProgressStore: defaultProgramProgressStore,
   programDayLogs: [],
   programStatsStore: defaultProgramStatsStore,
@@ -231,6 +241,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       mainProgramId: null,
       reminderEnabled: false,
       reminderLastSentAt: null,
+      programCompletionLogs: [],
       programProgressStore: nextProgramProgressStore,
       programDayLogs: [],
       programStatsStore: nextProgramStatsStore,
@@ -249,6 +260,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       [LOCAL_STORAGE_KEYS.mainProgramId, null],
       [LOCAL_STORAGE_KEYS.reminderEnabled, false],
       [LOCAL_STORAGE_KEYS.reminderLastSentAt, null],
+      [LOCAL_STORAGE_KEYS.programCompletionLogs, []],
       [LOCAL_STORAGE_KEYS.programProgress, nextProgramProgressStore],
       [LOCAL_STORAGE_KEYS.programDayLogs, []],
       [LOCAL_STORAGE_KEYS.programStats, nextProgramStatsStore],
@@ -267,6 +279,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       activeWorkout: null,
       bodyCompositionEntries: [],
       exerciseStatsStore: nextExerciseStatsStore,
+      programCompletionLogs: [],
       programProgressStore: nextProgramProgressStore,
       programDayLogs: [],
       programStatsStore: nextProgramStatsStore,
@@ -277,6 +290,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       [LOCAL_STORAGE_KEYS.activeWorkout, null],
       [LOCAL_STORAGE_KEYS.bodyCompositionEntries, []],
       [LOCAL_STORAGE_KEYS.exerciseStats, nextExerciseStatsStore],
+      [LOCAL_STORAGE_KEYS.programCompletionLogs, []],
       [LOCAL_STORAGE_KEYS.programProgress, nextProgramProgressStore],
       [LOCAL_STORAGE_KEYS.programDayLogs, []],
       [LOCAL_STORAGE_KEYS.programStats, nextProgramStatsStore],
@@ -355,6 +369,17 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       reminderLastSentAt: value,
     })
     void persistState(LOCAL_STORAGE_KEYS.reminderLastSentAt, value)
+  },
+  setProgramCompletionLogs(updater) {
+    set((state) => {
+      const nextValue = normalizeProgramCompletionLogs(
+        resolveUpdater(state.programCompletionLogs, updater),
+      )
+      void persistState(LOCAL_STORAGE_KEYS.programCompletionLogs, nextValue)
+      return {
+        programCompletionLogs: nextValue,
+      }
+    })
   },
   setProgramProgressStore(updater) {
     set((state) => {

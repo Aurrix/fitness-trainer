@@ -1,9 +1,12 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import {
   Activity,
   ArrowLeft,
   BellRing,
+  CalendarCheck,
   ChevronRight,
+  ClipboardList,
+  Clock3,
   Dumbbell,
   Plus,
   Sparkles,
@@ -14,6 +17,7 @@ import {
 } from 'lucide-react'
 import type { BodyStatEntry } from '../entities/body-stats'
 import type { ExerciseStatsStore } from '../entities/exercise-stats'
+import type { ProgramCompletionLog } from '../entities/program-completion'
 import type { ProgramDayLog } from '../entities/program-day-stats'
 import type { WorkoutLog } from '../entities/workout'
 import type { AppProgram, InsightsView } from '../lib/app-types'
@@ -51,11 +55,13 @@ type InsightsPageProps = {
     field: 'name' | 'notes',
     value: string,
   ) => void
+  programCompletionLogs: ProgramCompletionLog[]
   programDayLogs: ProgramDayLog[]
+  programs: AppProgram[]
   workoutLogs: WorkoutLog[]
 }
 
-type InsightsSection = Exclude<InsightsView, 'home'>
+type InsightsSection = Exclude<InsightsView, 'home' | 'programs'>
 
 const insightSectionOrder: InsightsSection[] = ['notifications', 'advice', 'analysis']
 
@@ -158,6 +164,158 @@ function buildAnalysisCategorySummary(findings: SuggestionFinding[]) {
     }))
 }
 
+function formatHistoryDate(value: string) {
+  const parsedDate = new Date(value)
+
+  if (Number.isNaN(parsedDate.getTime())) {
+    return value.slice(0, 10)
+  }
+
+  return parsedDate.toLocaleDateString(undefined, {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
+}
+
+function formatDurationMinutes(minutes: number) {
+  if (minutes < 60) {
+    return `${minutes} min`
+  }
+
+  const hours = Math.floor(minutes / 60)
+  const remainingMinutes = minutes % 60
+  return remainingMinutes ? `${hours}h ${remainingMinutes}m` : `${hours}h`
+}
+
+function formatHistoryNumber(value: number | null, suffix = '') {
+  if (value === null) {
+    return null
+  }
+
+  const formattedValue = Number.isInteger(value) ? String(value) : value.toFixed(1)
+  return suffix ? `${formattedValue} ${suffix}` : formattedValue
+}
+
+function formatProgramSet(
+  set: ProgramCompletionLog['dayLogs'][number]['exerciseEntries'][number]['sets'][number],
+) {
+  const parts = [
+    formatHistoryNumber(set.durationMinutes, 'min'),
+    formatHistoryNumber(set.weightKg, 'kg'),
+    formatHistoryNumber(set.reps, 'reps'),
+    set.difficulty || null,
+  ].filter(Boolean)
+
+  return parts.length ? parts.join(' / ') : '-'
+}
+
+function describeProgramExerciseState(
+  exercise: ProgramCompletionLog['dayLogs'][number]['exerciseEntries'][number],
+) {
+  if (exercise.skipped) {
+    return 'Skipped'
+  }
+
+  if (exercise.performedSetCount > 0) {
+    return `${exercise.performedSetCount} set${exercise.performedSetCount === 1 ? '' : 's'}`
+  }
+
+  if (exercise.completed) {
+    return 'Done'
+  }
+
+  return 'No sets'
+}
+
+function createProgramCompletionFromDayLogs(
+  program: AppProgram,
+  dayLogs: ProgramDayLog[],
+  completedAt: string,
+): ProgramCompletionLog {
+  const startedAt = dayLogs.reduce((earliestStartedAt, dayLog) => {
+    return dayLog.startedAt.localeCompare(earliestStartedAt) < 0
+      ? dayLog.startedAt
+      : earliestStartedAt
+  }, dayLogs[0]?.startedAt ?? completedAt)
+
+  return {
+    completedAt,
+    completedDayCount: dayLogs.length,
+    completedExerciseCount: dayLogs.reduce(
+      (total, dayLog) => total + dayLog.completedExerciseCount,
+      0,
+    ),
+    dayLogs,
+    durationMinutes: dayLogs.reduce((total, dayLog) => total + dayLog.durationMinutes, 0),
+    exerciseEntryCount: dayLogs.reduce(
+      (total, dayLog) => total + dayLog.exerciseEntries.length,
+      0,
+    ),
+    id: `derived-program-completion-${program.id}-${completedAt}`,
+    programId: program.id,
+    programName: program.name,
+    programSource: program.programSource,
+    sessionDate: completedAt.slice(0, 10),
+    startedAt,
+    totalDayCount: program.sections.length,
+    totalExerciseCount: dayLogs.reduce((total, dayLog) => total + dayLog.totalExerciseCount, 0),
+  }
+}
+
+function deriveProgramCompletionsFromDayLogs(
+  programs: AppProgram[],
+  programDayLogs: ProgramDayLog[],
+) {
+  return programs.flatMap((program) => {
+    const sectionIds = program.sections.map((section) => section.id)
+    const sectionIdSet = new Set(sectionIds)
+
+    if (!sectionIds.length) {
+      return []
+    }
+
+    const completions: ProgramCompletionLog[] = []
+    const currentRunBySectionId: Record<string, ProgramDayLog> = {}
+    const sortedDayLogs = programDayLogs
+      .filter((dayLog) => dayLog.programId === program.id && sectionIdSet.has(dayLog.sectionId))
+      .sort((left, right) => left.completedAt.localeCompare(right.completedAt))
+
+    for (const dayLog of sortedDayLogs) {
+      currentRunBySectionId[dayLog.sectionId] = dayLog
+
+      if (sectionIds.some((sectionId) => !currentRunBySectionId[sectionId])) {
+        continue
+      }
+
+      const dayLogs = sectionIds.map((sectionId) => currentRunBySectionId[sectionId])
+      completions.push(createProgramCompletionFromDayLogs(program, dayLogs, dayLog.completedAt))
+
+      for (const sectionId of sectionIds) {
+        delete currentRunBySectionId[sectionId]
+      }
+    }
+
+    return completions
+  })
+}
+
+function buildProgramHistoryRuns(
+  programs: AppProgram[],
+  programDayLogs: ProgramDayLog[],
+  programCompletionLogs: ProgramCompletionLog[],
+) {
+  const completionKeys = new Set(
+    programCompletionLogs.map((entry) => `${entry.programId}:${entry.completedAt}`),
+  )
+  const derivedCompletions = deriveProgramCompletionsFromDayLogs(programs, programDayLogs)
+    .filter((entry) => !completionKeys.has(`${entry.programId}:${entry.completedAt}`))
+
+  return [...programCompletionLogs, ...derivedCompletions].sort((left, right) =>
+    right.completedAt.localeCompare(left.completedAt),
+  )
+}
+
 export default function InsightsPage({
   bodyStatsEntries,
   contentExercises,
@@ -178,7 +336,9 @@ export default function InsightsPage({
   onUpdateDraftExercise,
   onUpdateDraftField,
   onUpdateSectionField,
+  programCompletionLogs,
   programDayLogs,
+  programs,
   workoutLogs,
 }: InsightsPageProps) {
   const suggestions = useMemo(() => {
@@ -213,9 +373,17 @@ export default function InsightsPage({
   }, [suggestions])
   const defaultInsightsTab = getDefaultInsightsTab(suggestionsByTab)
   const activeInsightsTab =
-    insightsView === 'home' ? defaultInsightsTab : insightsView
+    insightsView === 'home' || insightsView === 'programs' ? defaultInsightsTab : insightsView
   const [expandedSuggestionId, setExpandedSuggestionId] = useState<string | null>(null)
+  const programHistoryRuns = useMemo(() => {
+    return buildProgramHistoryRuns(programs, programDayLogs, programCompletionLogs)
+  }, [programCompletionLogs, programDayLogs, programs])
   const activeSuggestions = suggestionsByTab[activeInsightsTab]
+  const visibleExpandedSuggestionId =
+    expandedSuggestionId &&
+    activeSuggestions.some((suggestion) => suggestion.id === expandedSuggestionId)
+      ? expandedSuggestionId
+      : null
   const activeTabCopy = insightTabCopy[activeInsightsTab]
   const attentionCount = suggestions.filter((entry) => entry.tone === 'attention').length
   const positiveCount = suggestions.filter((entry) => entry.tone === 'positive').length
@@ -263,16 +431,6 @@ export default function InsightsPage({
     ]
   }, [activeInsightsTab, analysisCategorySummary, attentionCount, neutralCount, positiveCount, suggestions.length])
 
-  useEffect(() => {
-    if (!expandedSuggestionId) {
-      return
-    }
-
-    if (!activeSuggestions.some((suggestion) => suggestion.id === expandedSuggestionId)) {
-      setExpandedSuggestionId(null)
-    }
-  }, [activeSuggestions, expandedSuggestionId])
-
   const insightRows = insightSectionOrder.map((section) => {
     const sectionSuggestions = suggestionsByTab[section]
     const topSuggestion = sectionSuggestions[0] ?? null
@@ -287,6 +445,7 @@ export default function InsightsPage({
       ...insightTabCopy[section],
     }
   })
+  const latestProgramHistoryRun = programHistoryRuns[0] ?? null
 
   if (isBuilderOpen) {
     return (
@@ -580,6 +739,28 @@ export default function InsightsPage({
           ) : null}
 
           <div className="insights-entry-list" aria-label="Insight sections">
+            <button
+              type="button"
+              className="insights-entry-row insights-entry-row--programs"
+              onClick={() => onSetInsightsView('programs')}
+            >
+              <span className="insights-entry-row__icon">
+                <ClipboardList size={20} />
+              </span>
+              <span className="insights-entry-row__content">
+                <span className="insights-entry-row__eyebrow">Programs</span>
+                <strong>Completed programs</strong>
+                <span>
+                  {latestProgramHistoryRun
+                    ? `${latestProgramHistoryRun.programName} finished ${formatHistoryDate(
+                        latestProgramHistoryRun.completedAt,
+                      )}`
+                    : 'Finished full programs will appear here with their day and set logs.'}
+                </span>
+              </span>
+              <span className="insights-entry-row__count">{programHistoryRuns.length}</span>
+              <ChevronRight size={18} className="insights-entry-row__chevron" />
+            </button>
             {insightRows.map(({ Icon, count, emptyDescription, kicker, section, title, topSuggestion }) => (
               <button
                 key={section}
@@ -601,6 +782,142 @@ export default function InsightsPage({
             ))}
           </div>
         </>
+      ) : insightsView === 'programs' ? (
+        <>
+          <div className="insights-subpage-nav">
+            <button
+              type="button"
+              className="ghost-button icon-button"
+              onClick={() => onSetInsightsView('home')}
+            >
+              <ArrowLeft size={16} />
+              <span>Overview</span>
+            </button>
+            <div className="insights-jump-row" aria-label="Switch insight section">
+              <button
+                type="button"
+                className="is-active"
+                onClick={() => onSetInsightsView('programs')}
+              >
+                Programs
+              </button>
+              {insightSectionOrder.map((section) => (
+                <button
+                  key={section}
+                  type="button"
+                  onClick={() => onSetInsightsView(section)}
+                >
+                  {insightTabCopy[section].kicker}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="insights-panel-header">
+            <div>
+              <p className="kicker">Programs</p>
+              <h3>Completed programs</h3>
+              <p className="muted insights-panel-header__summary">
+                Full program runs with the completed days, exercises, weights, reps, and effort.
+              </p>
+            </div>
+            <div className="insights-highlight-row">
+              <span className="pill pill--subtle">{programHistoryRuns.length} runs</span>
+              {latestProgramHistoryRun ? (
+                <>
+                  <div className="insights-highlight-pill">
+                    <span>Latest</span>
+                    <strong>{latestProgramHistoryRun.programName}</strong>
+                  </div>
+                  <div className="insights-highlight-pill">
+                    <span>Finished</span>
+                    <strong>{formatHistoryDate(latestProgramHistoryRun.completedAt)}</strong>
+                  </div>
+                </>
+              ) : null}
+            </div>
+          </div>
+
+          {programHistoryRuns.length ? (
+            <div className="program-history-board">
+              {programHistoryRuns.map((programRun) => (
+                <article key={programRun.id} className="insight-card program-history-card">
+                  <div className="program-history-card__header">
+                    <div>
+                      <p className="kicker">{programRun.programSource}</p>
+                      <h4>{programRun.programName}</h4>
+                      <span>
+                        {programRun.completedDayCount}/{programRun.totalDayCount} days /{' '}
+                        {formatDurationMinutes(programRun.durationMinutes)}
+                      </span>
+                    </div>
+                    <div className="program-history-card__meta">
+                      <CalendarCheck size={16} />
+                      <span>{formatHistoryDate(programRun.completedAt)}</span>
+                    </div>
+                  </div>
+
+                  <div className="program-history-days">
+                    {programRun.dayLogs.map((dayLog, dayIndex) => (
+                      <details
+                        key={dayLog.id}
+                        className="program-history-day"
+                        open={dayIndex === 0}
+                      >
+                        <summary>
+                          <span>
+                            <strong>{dayLog.sectionName}</strong>
+                            <span>
+                              {dayLog.completedExerciseCount}/{dayLog.totalExerciseCount}{' '}
+                              exercises
+                            </span>
+                          </span>
+                          <span className="program-history-day__meta">
+                            <Clock3 size={14} />
+                            {formatDurationMinutes(dayLog.durationMinutes)}
+                          </span>
+                        </summary>
+
+                        <div className="program-history-exercise-list">
+                          {dayLog.exerciseEntries.map((exercise) => (
+                            <div
+                              key={`${dayLog.id}-${exercise.logId}`}
+                              className="program-history-exercise-row"
+                            >
+                              <div className="program-history-exercise-row__header">
+                                <strong>{exercise.exerciseName}</strong>
+                                <span>{describeProgramExerciseState(exercise)}</span>
+                              </div>
+                              <div className="program-history-exercise-row__sets">
+                                {exercise.sets.length ? (
+                                  exercise.sets.map((set) => (
+                                    <span
+                                      key={`${exercise.logId}-${set.setIndex}`}
+                                      className="program-history-set-chip"
+                                    >
+                                      Set {set.setIndex}: {formatProgramSet(set)}
+                                    </span>
+                                  ))
+                                ) : (
+                                  <span className="program-history-set-chip">No set details</span>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state compact-empty-state">
+              <h3>No completed programs yet</h3>
+              <p>Complete every programmed day in a plan to save a full-program history entry.</p>
+            </div>
+          )}
+        </>
       ) : (
         <>
           <div className="insights-subpage-nav">
@@ -613,6 +930,12 @@ export default function InsightsPage({
               <span>Overview</span>
             </button>
             <div className="insights-jump-row" aria-label="Switch insight section">
+              <button
+                type="button"
+                onClick={() => onSetInsightsView('programs')}
+              >
+                Programs
+              </button>
               {insightSectionOrder.map((section) => (
                 <button
                   key={section}
@@ -683,7 +1006,7 @@ export default function InsightsPage({
               {compactSuggestions.length ? (
                 <div className="insight-list suggestions-board suggestions-board--compact">
                   {compactSuggestions.map((suggestion) => {
-                    const isExpanded = expandedSuggestionId === suggestion.id
+                    const isExpanded = visibleExpandedSuggestionId === suggestion.id
 
                     return (
                       <button

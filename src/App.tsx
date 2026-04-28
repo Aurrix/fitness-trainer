@@ -13,6 +13,8 @@ import './App.css'
 import type {
   BodyStatEntryInput,
 } from './entities/body-stats'
+import type { ProgramCompletionLog } from './entities/program-completion'
+import type { ProgramDayLog } from './entities/program-day-stats'
 import {
   createExerciseStatsStoreKey,
   type ExerciseStatsRecord,
@@ -265,6 +267,72 @@ function resolvePersistedWorkoutSectionId(
   return nextWorkoutDay?.section.id ?? lastCompletedSectionId
 }
 
+function buildProgramCompletionLog(
+  program: AppProgram,
+  programDayLogs: ProgramDayLog[],
+  completedAt: string,
+  previousCompletionAt: string | null,
+): ProgramCompletionLog | null {
+  const sectionIds = program.sections.map((section) => section.id)
+  const sectionIdSet = new Set(sectionIds)
+
+  if (!sectionIds.length) {
+    return null
+  }
+
+  const latestLogBySectionId = programDayLogs
+    .filter((dayLog) => {
+      return (
+        dayLog.programId === program.id &&
+        sectionIdSet.has(dayLog.sectionId) &&
+        dayLog.completedAt.localeCompare(completedAt) <= 0 &&
+        (!previousCompletionAt || dayLog.completedAt.localeCompare(previousCompletionAt) > 0)
+      )
+    })
+    .sort((left, right) => right.completedAt.localeCompare(left.completedAt))
+    .reduce<Record<string, ProgramDayLog>>((logs, dayLog) => {
+      if (!logs[dayLog.sectionId]) {
+        logs[dayLog.sectionId] = dayLog
+      }
+
+      return logs
+    }, {})
+
+  if (sectionIds.some((sectionId) => !latestLogBySectionId[sectionId])) {
+    return null
+  }
+
+  const dayLogs = sectionIds.map((sectionId) => latestLogBySectionId[sectionId])
+  const startedAt = dayLogs.reduce((earliestStartedAt, dayLog) => {
+    return dayLog.startedAt.localeCompare(earliestStartedAt) < 0
+      ? dayLog.startedAt
+      : earliestStartedAt
+  }, dayLogs[0]?.startedAt ?? completedAt)
+
+  return {
+    completedAt,
+    completedDayCount: dayLogs.length,
+    completedExerciseCount: dayLogs.reduce(
+      (total, dayLog) => total + dayLog.completedExerciseCount,
+      0,
+    ),
+    dayLogs,
+    durationMinutes: dayLogs.reduce((total, dayLog) => total + dayLog.durationMinutes, 0),
+    exerciseEntryCount: dayLogs.reduce(
+      (total, dayLog) => total + dayLog.exerciseEntries.length,
+      0,
+    ),
+    id: createId('program-completion'),
+    programId: program.id,
+    programName: program.name,
+    programSource: program.programSource,
+    sessionDate: getSessionDateKey(completedAt),
+    startedAt,
+    totalDayCount: sectionIds.length,
+    totalExerciseCount: dayLogs.reduce((total, dayLog) => total + dayLog.totalExerciseCount, 0),
+  }
+}
+
 function resolveExerciseStatsRecord(
   store: ExerciseStatsStore,
   exerciseId: string | null,
@@ -312,6 +380,7 @@ function App() {
     hydrateAppStore,
     isAppReady,
     mainProgramId,
+    programCompletionLogs,
     programProgressStore,
     programDayLogs,
     programStatsStore,
@@ -325,6 +394,7 @@ function App() {
     setExerciseStatsStore,
     setFitnessProfile,
     setMainProgramId,
+    setProgramCompletionLogs,
     setProgramProgressStore,
     setProgramDayLogs,
     setProgramStatsStore,
@@ -344,6 +414,7 @@ function App() {
       hydrateAppStore: state.hydrate,
       isAppReady: state.isHydrated,
       mainProgramId: state.mainProgramId,
+      programCompletionLogs: state.programCompletionLogs,
       programProgressStore: state.programProgressStore,
       programDayLogs: state.programDayLogs,
       programStatsStore: state.programStatsStore,
@@ -357,6 +428,7 @@ function App() {
       setExerciseStatsStore: state.setExerciseStatsStore,
       setFitnessProfile: state.setFitnessProfile,
       setMainProgramId: state.setMainProgramId,
+      setProgramCompletionLogs: state.setProgramCompletionLogs,
       setProgramProgressStore: state.setProgramProgressStore,
       setProgramDayLogs: state.setProgramDayLogs,
       setProgramStatsStore: state.setProgramStatsStore,
@@ -1740,12 +1812,32 @@ function App() {
       completedPlannedExerciseCount,
       activeProgramSession.section.exercises.length,
     )
+    const nextWorkoutDay = getNextWorkoutDayOption(
+      activeProgramSession.program,
+      activeWorkout.sectionId,
+    )
+    const latestProgramCompletionAt =
+      programCompletionLogs
+        .filter((entry) => entry.programId === activeWorkout.programId)
+        .sort((left, right) => right.completedAt.localeCompare(left.completedAt))[0]
+        ?.completedAt ?? null
+    const programCompletionLog = !nextWorkoutDay
+      ? buildProgramCompletionLog(
+          activeProgramSession.program,
+          [programDayLog, ...programDayLogs],
+          finishedAt,
+          latestProgramCompletionAt,
+        )
+      : null
 
     setWorkoutLogs((currentWorkoutLogs) => [workoutLog, ...currentWorkoutLogs])
     setExerciseStatsStore((currentStore) =>
       appendWorkoutStatistics(currentStore, activeWorkout, orderedWorkoutEntries, finishedAt),
     )
     setProgramDayLogs((currentLogs) => [programDayLog, ...currentLogs])
+    if (programCompletionLog) {
+      setProgramCompletionLogs((currentLogs) => [programCompletionLog, ...currentLogs])
+    }
     setProgramStatsStore((currentStore) =>
       markProgramCompleted(currentStore, {
         programId: activeWorkout.programId,
@@ -1759,10 +1851,6 @@ function App() {
           sectionName: activeWorkout.sectionName,
         },
       }),
-    )
-    const nextWorkoutDay = getNextWorkoutDayOption(
-      activeProgramSession.program,
-      activeWorkout.sectionId,
     )
     setActiveWorkout(null)
     setIsFinishWorkoutDialogOpen(false)
@@ -2028,7 +2116,9 @@ function App() {
             onUpdateDraftExercise={updateDraftExercise}
             onUpdateDraftField={updateDraftField}
             onUpdateSectionField={updateSectionField}
+            programCompletionLogs={programCompletionLogs}
             programDayLogs={programDayLogs}
+            programs={programs}
             workoutLogs={workoutLogs}
           />
         ) : null}

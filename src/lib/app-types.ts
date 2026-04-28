@@ -12,7 +12,7 @@ export type ProgramFilter = 'all' | 'library' | 'custom' | 'favorites'
 export type ExerciseFilter = 'all' | 'favorites'
 export type BannerTone = 'error' | 'success'
 export type LibraryView = 'home' | 'programs' | 'exercises'
-export type InsightsView = 'home' | 'notifications' | 'advice' | 'analysis'
+export type InsightsView = 'home' | 'notifications' | 'advice' | 'analysis' | 'programs'
 
 export type AppProgram = Program & {
   programSource: ProgramSource

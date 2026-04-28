@@ -2768,6 +2768,11 @@
     background: rgba(239, 246, 255, 0.96);
 }
 
+.insights-entry-row--programs .insights-entry-row__icon {
+    color: #7c2d12;
+    background: rgba(255, 247, 237, 0.96);
+}
+
 .insights-subpage-nav {
     display: flex;
     align-items: center;
@@ -2839,6 +2844,145 @@
 .insights-highlight-pill strong {
     font-size: 13px;
     color: var(--ink);
+}
+
+.program-history-board {
+    display: grid;
+    gap: 14px;
+}
+
+.program-history-card {
+    display: grid;
+    gap: 14px;
+}
+
+.program-history-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.program-history-card__header > div:first-child {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+}
+
+.program-history-card__header h4 {
+    overflow-wrap: anywhere;
+}
+
+.program-history-card__header span {
+    color: var(--ink-soft);
+    font-size: 13px;
+}
+
+.program-history-card__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ink-soft);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.program-history-days {
+    display: grid;
+    gap: 10px;
+}
+
+.program-history-day {
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.program-history-day > summary {
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.program-history-day > summary::-webkit-details-marker {
+    display: none;
+}
+
+.program-history-day > summary > span:first-child {
+    display: grid;
+    gap: 3px;
+    min-width: 0;
+}
+
+.program-history-day > summary strong {
+    color: var(--ink);
+    font-size: 14px;
+}
+
+.program-history-day > summary span span,
+.program-history-day__meta {
+    color: var(--ink-soft);
+    font-size: 12px;
+}
+
+.program-history-day__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.program-history-exercise-list {
+    display: grid;
+    gap: 8px;
+    padding-bottom: 10px;
+}
+
+.program-history-exercise-row {
+    display: grid;
+    gap: 8px;
+    padding: 10px 0;
+    border-top: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.program-history-exercise-row__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.program-history-exercise-row__header strong {
+    color: var(--ink);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.program-history-exercise-row__header span {
+    color: var(--ink-soft);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.program-history-exercise-row__sets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.program-history-set-chip {
+    min-height: 28px;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 999px;
+    color: var(--ink);
+    background: rgba(248, 250, 252, 0.92);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    font-size: 12px;
+    line-height: 1.2;
 }
 
 .suggestion-card {

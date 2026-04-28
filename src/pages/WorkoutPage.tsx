@@ -100,6 +100,47 @@ function countPerformedSetLogs(setLogs: WorkoutSetLogEntry[]) {
   }, 0)
 }
 
+function createReadOnlyWorkoutFromLog(workoutLog: WorkoutLog): ActiveWorkout {
+  const exerciseLogs = workoutLog.exerciseLogs.reduce<
+    Record<string, WorkoutExerciseLogEntry>
+  >((logs, entry) => {
+    if (entry.type !== 'planned') {
+      return logs
+    }
+
+    const exerciseId = entry.plannedExerciseId ?? entry.logId
+
+    if (exerciseId) {
+      logs[exerciseId] = entry
+    }
+
+    return logs
+  }, {})
+  const extraEntries = workoutLog.exerciseLogs.filter((entry) => entry.type !== 'planned')
+  const exerciseOrder = workoutLog.exerciseLogs
+    .map((entry) => (entry.type === 'planned' ? entry.plannedExerciseId ?? entry.logId : entry.logId))
+    .filter(Boolean)
+
+  return {
+    completedExerciseIds: Object.entries(exerciseLogs)
+      .filter(([, entry]) => entry.completed)
+      .map(([exerciseId]) => exerciseId),
+    exerciseLogs,
+    exerciseOrder,
+    exertionScale: workoutLog.exertionScale,
+    extraEntries,
+    notes: workoutLog.notes,
+    programId: workoutLog.programId,
+    programName: workoutLog.programName,
+    programSource: workoutLog.programSource,
+    sectionId: workoutLog.sectionId,
+    sectionName: workoutLog.sectionName,
+    sessionId: workoutLog.id,
+    startedAt: workoutLog.startedAt,
+    updatedAt: workoutLog.completedAt,
+  }
+}
+
 type RestTimerSession = {
   endsAt: number
   exerciseName: string
@@ -532,6 +573,30 @@ export default function WorkoutPage({
     workoutLogs,
     workoutWeeks,
   ])
+  const latestSelectedWorkoutLog = useMemo(() => {
+    if (!launchProgram || !selectedWorkoutSection || isSelectedWorkoutActive) {
+      return null
+    }
+
+    return (
+      workoutLogs
+        .filter((entry) => {
+          return (
+            entry.programId === launchProgram.id &&
+            entry.sectionId === selectedWorkoutSection.id
+          )
+        })
+        .sort((left, right) => right.completedAt.localeCompare(left.completedAt))[0] ?? null
+    )
+  }, [isSelectedWorkoutActive, launchProgram, selectedWorkoutSection, workoutLogs])
+  const readOnlySelectedWorkout = useMemo(() => {
+    return latestSelectedWorkoutLog
+      ? createReadOnlyWorkoutFromLog(latestSelectedWorkoutLog)
+      : null
+  }, [latestSelectedWorkoutLog])
+  const displayWorkout = isSelectedWorkoutActive ? activeWorkout : readOnlySelectedWorkout
+  const displayWorkoutExerciseLogs = displayWorkout?.exerciseLogs ?? {}
+  const displayWorkoutExtraEntries = displayWorkout?.extraEntries ?? []
 
   function dismissRestTimer() {
     setRestTimerSession(null)
@@ -725,10 +790,13 @@ export default function WorkoutPage({
       />
 
       <WorkoutExerciseTable
-        activeWorkout={activeWorkout}
-        activeWorkoutExerciseLogs={activeWorkoutExerciseLogs}
-        activeWorkoutExtraEntries={activeWorkoutExtraEntries}
+        activeWorkout={isSelectedWorkoutActive ? activeWorkout : null}
+        activeWorkoutExerciseLogs={isSelectedWorkoutActive ? activeWorkoutExerciseLogs : {}}
+        activeWorkoutExtraEntries={isSelectedWorkoutActive ? activeWorkoutExtraEntries : []}
         contentExercises={contentExercises}
+        displayWorkoutExerciseLogs={displayWorkoutExerciseLogs}
+        displayWorkoutExerciseOrder={displayWorkout?.exerciseOrder}
+        displayWorkoutExtraEntries={displayWorkoutExtraEntries}
         effortScale={fitnessProfile.effortScale}
         exertionOptions={exertionOptions}
         isSelectedWorkoutActive={isSelectedWorkoutActive}

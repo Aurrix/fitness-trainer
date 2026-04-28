@@ -75,6 +75,9 @@ type WorkoutExerciseTableProps = {
     field: keyof WorkoutSetLogEntry,
     value: string,
   ) => void
+  displayWorkoutExerciseLogs?: Record<string, WorkoutExerciseLogEntry>
+  displayWorkoutExerciseOrder?: string[]
+  displayWorkoutExtraEntries?: WorkoutExerciseLogEntry[]
   previewExerciseOrder: string[]
   resolveExerciseStatsRecord: (
     exerciseId: string | null,
@@ -944,6 +947,9 @@ export default function WorkoutExerciseTable({
   onToggleWorkoutExtraExercise,
   onUpdateWorkoutExerciseSetLog,
   onUpdateWorkoutExtraExerciseSetLog,
+  displayWorkoutExerciseLogs,
+  displayWorkoutExerciseOrder,
+  displayWorkoutExtraEntries,
   previewExerciseOrder,
   resolveExerciseStatsRecord,
   resolveExerciseForDisplay,
@@ -965,11 +971,13 @@ export default function WorkoutExerciseTable({
   const [orderedKeysBaseSignature, setOrderedKeysBaseSignature] = useState('')
   const orderedKeysRef = useRef<string[]>([])
   const dragBaseOrderRef = useRef<string[]>([])
+  const workoutExerciseLogs = displayWorkoutExerciseLogs ?? activeWorkoutExerciseLogs
+  const workoutExtraEntries = displayWorkoutExtraEntries ?? activeWorkoutExtraEntries
 
   const rows = useMemo<WorkoutTableRow[]>(() => {
     const plannedRows = section.exercises.map<WorkoutTableRow>((exercise) => {
       const workoutLog =
-        activeWorkoutExerciseLogs[exercise.id] ??
+        workoutExerciseLogs[exercise.id] ??
         createWorkoutExerciseLogEntry(exercise.exerciseName, {
           completed: activeWorkout?.completedExerciseIds.includes(exercise.id) ?? false,
           exerciseId: exercise.resolvedExerciseId,
@@ -1012,7 +1020,7 @@ export default function WorkoutExerciseTable({
       }
     })
 
-    const extraRows = activeWorkoutExtraEntries
+    const extraRows = workoutExtraEntries
       .filter((entry) => entry.type !== 'cardio')
       .map<WorkoutTableRow>((entry) => {
         const resolvedExercise = resolveExerciseForDisplay({
@@ -1051,7 +1059,9 @@ export default function WorkoutExerciseTable({
     const rowMap = new Map(
       [...plannedRows, ...extraRows].map((row) => [row.key, row] as const),
     )
-    const persistedOrder = activeWorkout
+    const persistedOrder = displayWorkoutExerciseOrder?.length
+      ? displayWorkoutExerciseOrder
+      : activeWorkout
       ? buildWorkoutExerciseOrder(
           activeWorkout.exerciseOrder,
           activeWorkout.exerciseLogs ?? {},
@@ -1070,13 +1080,14 @@ export default function WorkoutExerciseTable({
     ]
   }, [
     activeWorkout,
-    activeWorkoutExerciseLogs,
-    activeWorkoutExtraEntries,
+    displayWorkoutExerciseOrder,
     effortScale,
     previewExerciseOrder,
     resolveExerciseStatsRecord,
     resolveExerciseForDisplay,
     section.exercises,
+    workoutExerciseLogs,
+    workoutExtraEntries,
   ])
 
   const baseOrder = useMemo(() => rows.map((row) => row.key), [rows])

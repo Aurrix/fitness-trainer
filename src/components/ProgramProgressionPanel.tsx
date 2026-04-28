@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Activity, BarChart3 } from 'lucide-react'
+import type { Slug } from '@mjcdev/react-body-highlighter'
 import { LineChart } from '@mui/x-charts/LineChart'
 import {
   BarPlot,
@@ -413,7 +414,7 @@ export default function ProgramProgressionPanel({
     sparkline:
       statsPreferences.muscleProgressView === 'exercises'
         ? (exerciseTimelineLookup.get(row.id) ?? null)
-        : (muscleTimelineLookup.get(row.id as any) ?? null),
+        : (muscleTimelineLookup.get(row.id as Slug) ?? null),
   }))
   const showVolumeTrendChart = strengthPoints.length > 10
   const showExecutionTrendChart = strengthPoints.length > 10

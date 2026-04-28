@@ -10,6 +10,7 @@ export type AppRouteId =
   | 'insights-notifications'
   | 'insights-advice'
   | 'insights-analysis'
+  | 'insights-programs'
   | 'profile'
 
 export type AppRoute = {
@@ -82,6 +83,13 @@ export const APP_ROUTES: AppRoute[] = [
     primaryTab: 'insights',
     title: 'Analysis',
     insightsView: 'analysis',
+  },
+  {
+    id: 'insights-programs',
+    path: '/insights/programs',
+    primaryTab: 'insights',
+    title: 'Programs',
+    insightsView: 'programs',
   },
   {
     id: 'profile',
@@ -174,6 +182,8 @@ export function getInsightsPath(view: InsightsView = 'home') {
       return '/insights/advice'
     case 'analysis':
       return '/insights/analysis'
+    case 'programs':
+      return '/insights/programs'
     default:
       return '/insights'
   }
