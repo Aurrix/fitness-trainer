@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Slug } from '@mjcdev/react-body-highlighter'
-import { CalendarDays, CalendarRange, LibraryBig } from 'lucide-react'
+import {
+  CalendarDays,
+  CalendarRange,
+  ChevronLeft,
+  ChevronRight,
+  LibraryBig,
+} from 'lucide-react'
 import FloatingSessionBar from '../components/FloatingSessionBar'
 import MuscleVisualizer from '../components/MuscleVisualizer'
 import WorkoutDayPickerSheet from '../components/WorkoutDayPickerSheet'
@@ -277,6 +283,20 @@ export default function WorkoutPage({
 
     return `${selectedWorkoutDay.weekLabel} / ${selectedWorkoutDay.dayLabel}`
   }, [selectedWorkoutDay])
+  const orderedWorkoutDays = useMemo(() => {
+    return workoutWeeks.flatMap((week) => week.dayOptions)
+  }, [workoutWeeks])
+  const selectedWorkoutDayIndex = selectedWorkoutDay
+    ? orderedWorkoutDays.findIndex(
+        (day) => day.section.id === selectedWorkoutDay.section.id,
+      )
+    : -1
+  const previousWorkoutDay =
+    selectedWorkoutDayIndex > 0 ? orderedWorkoutDays[selectedWorkoutDayIndex - 1] : null
+  const nextWorkoutDay =
+    selectedWorkoutDayIndex >= 0 && selectedWorkoutDayIndex < orderedWorkoutDays.length - 1
+      ? orderedWorkoutDays[selectedWorkoutDayIndex + 1]
+      : null
   const startThisDayAction =
     launchProgram && selectedWorkoutSection && !isSelectedWorkoutActive
       ? () => onStartWorkout(launchProgram, selectedWorkoutSection.id)
@@ -641,6 +661,14 @@ export default function WorkoutPage({
     })
   }
 
+  function selectAdjacentWorkoutDay(day: WorkoutDayOption | null) {
+    if (!day) {
+      return
+    }
+
+    onSetSelectedWorkoutSectionId(day.section.id)
+  }
+
   if (!launchProgram || !selectedWorkoutSection || !selectedWorkoutWeek) {
     return (
       <section className="launchpad-card workout-empty-card">
@@ -703,29 +731,69 @@ export default function WorkoutPage({
         detailsMode="sheet"
         gender={fitnessProfile.gender}
         headerLeading={
-          <button
-            type="button"
-            className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
-            onClick={() => setPickerMode('weeks')}
-            aria-label="Choose week"
-            title="Choose week"
-          >
-            <CalendarRange size={15} />
-          </button>
+          <div className="workout-day-nav-group">
+            <button
+              type="button"
+              className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
+              onClick={() => selectAdjacentWorkoutDay(previousWorkoutDay)}
+              disabled={!previousWorkoutDay}
+              aria-label={
+                previousWorkoutDay
+                  ? `Go to previous day: ${previousWorkoutDay.weekLabel} / ${previousWorkoutDay.dayLabel}`
+                  : 'No previous workout day'
+              }
+              title={
+                previousWorkoutDay
+                  ? `Previous: ${previousWorkoutDay.weekLabel} / ${previousWorkoutDay.dayLabel}`
+                  : 'No previous day'
+              }
+            >
+              <ChevronLeft size={15} />
+            </button>
+            <button
+              type="button"
+              className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
+              onClick={() => setPickerMode('weeks')}
+              aria-label="Choose week"
+              title="Choose week"
+            >
+              <CalendarRange size={15} />
+            </button>
+          </div>
         }
         headerTrailing={
-          <button
-            type="button"
-            className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
-            onClick={() => setPickerMode('days')}
-            aria-label="Choose day"
-            title="Choose day"
-          >
-            <CalendarDays size={15} />
-          </button>
+          <div className="workout-day-nav-group">
+            <button
+              type="button"
+              className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
+              onClick={() => setPickerMode('days')}
+              aria-label="Choose day"
+              title="Choose day"
+            >
+              <CalendarDays size={15} />
+            </button>
+            <button
+              type="button"
+              className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
+              onClick={() => selectAdjacentWorkoutDay(nextWorkoutDay)}
+              disabled={!nextWorkoutDay}
+              aria-label={
+                nextWorkoutDay
+                  ? `Go to next day: ${nextWorkoutDay.weekLabel} / ${nextWorkoutDay.dayLabel}`
+                  : 'No next workout day'
+              }
+              title={
+                nextWorkoutDay
+                  ? `Next: ${nextWorkoutDay.weekLabel} / ${nextWorkoutDay.dayLabel}`
+                  : 'No next day'
+              }
+            >
+              <ChevronRight size={15} />
+            </button>
+          </div>
         }
         kicker={workoutDayLabel ?? 'Workout muscles'}
-        intensityLegendLabel="Blue means lighter relative activation in this day view, while warm orange and gold highlight the most-hit muscle groups."
+        intensityLegendLabel="Very light blue means lighter relative activation in this day view, while darker blue through dark orange highlights higher weighted work."
         onSelectMuscle={(slug) => {
           console.debug('[WorkoutPage] onSelectMuscle received', {
             isSelectedWorkoutActive,

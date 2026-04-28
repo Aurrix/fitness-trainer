@@ -6,7 +6,7 @@ import {
 } from '../entities/exercise-muscles'
 import type { Exercise } from '../lib/content'
 import type { FitnessProfileGender } from '../lib/fitness-profile'
-import { createMuscleProfile } from '../lib/muscles'
+import { buildExerciseMuscleProfile } from '../lib/muscles'
 import ExerciseStatsPanel from './ExerciseStatsPanel'
 import MuscleVisualizer from './MuscleVisualizer'
 
@@ -95,7 +95,7 @@ export default function ExerciseDetailSheet({
             <MuscleVisualizer
               description="Primary coverage for this exercise."
               gender={gender}
-              profile={createMuscleProfile(exercise.muscleGroups)}
+              profile={buildExerciseMuscleProfile(exercise)}
               title={exercise.name}
             />
           </section>

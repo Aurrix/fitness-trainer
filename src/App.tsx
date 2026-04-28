@@ -56,7 +56,7 @@ import {
 } from './lib/fitness-profile'
 import {
   buildSectionMuscleProfile,
-  createMuscleProfile,
+  buildWorkoutMuscleProfile,
   slugify,
 } from './lib/muscles'
 import {
@@ -651,19 +651,49 @@ function App() {
     selectedWorkoutSection,
     contentLibrary.exercises,
   )
-  const completedWorkoutMuscles = createMuscleProfile([
-    ...(activeProgramSession && isSelectedWorkoutActive
-      ? activeProgramSession.section.exercises.flatMap((exercise) => {
-          return activeWorkoutExerciseLogs[exercise.id]?.completed ||
-            activeWorkout?.completedExerciseIds.includes(exercise.id)
-            ? (resolveExerciseForDisplay(exercise)?.muscleGroups ?? [])
-            : []
-        })
-      : []),
-    ...activeWorkoutExtraEntries.flatMap((entry) => {
-      return entry.completed && entry.type !== 'cardio' ? entry.muscleGroups : []
-    }),
-  ])
+  const completedWorkoutMuscles = buildWorkoutMuscleProfile(
+    [
+      ...(activeProgramSession && isSelectedWorkoutActive
+        ? activeProgramSession.section.exercises.flatMap((exercise) => {
+            const workoutLog = activeWorkoutExerciseLogs[exercise.id]
+            const isCompleted =
+              workoutLog?.completed ||
+              activeWorkout?.completedExerciseIds.includes(exercise.id)
+
+            if (!isCompleted) {
+              return []
+            }
+
+            const resolvedExercise = resolveExerciseForDisplay(exercise)
+
+            return [
+              {
+                ...(workoutLog ?? {}),
+                completed: true,
+                exerciseId:
+                  workoutLog?.exerciseId ??
+                  resolvedExercise?.id ??
+                  exercise.resolvedExerciseId ??
+                  exercise.exerciseId,
+                exerciseName: workoutLog?.exerciseName ?? exercise.exerciseName,
+                muscleGroups: workoutLog?.muscleGroups.length
+                  ? workoutLog.muscleGroups
+                  : (resolvedExercise?.muscleGroups ?? []),
+                setLogs: workoutLog?.setLogs ?? [],
+                targetDuration: exercise.duration,
+                targetReps: exercise.reps,
+                targetSets: exercise.sets,
+                type: 'planned',
+              },
+            ]
+          })
+        : []),
+      ...activeWorkoutExtraEntries.filter((entry) => {
+        return entry.completed && entry.type !== 'cardio'
+      }),
+    ],
+    contentLibrary.exercises,
+  )
   const exertionOptions = getEffortOptions(fitnessProfile)
   const workoutNavStyle = {
     '--workout-progress': `${completionRatio}%`,
@@ -2143,6 +2173,9 @@ function App() {
             }}
             onUpdateFitnessProfile={updateFitnessProfile}
             onUpdateNumericFitnessProfileField={updateNumericFitnessProfileField}
+            programCompletionLogs={programCompletionLogs}
+            programDayLogs={programDayLogs}
+            programs={programs}
           />
         ) : null}
       </main>

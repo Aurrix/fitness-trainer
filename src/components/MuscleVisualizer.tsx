@@ -40,6 +40,29 @@ type MuscleVisualizerProps = {
 }
 
 const LONG_PRESS_MS = 480
+const muscleIntensityColors = [
+  '#f8fbff',
+  '#e8f4ff',
+  '#cfeaff',
+  '#9fd3ff',
+  '#63b6ff',
+  '#2f8cff',
+  '#f7b267',
+  '#f97341',
+  '#9a3412',
+]
+
+function formatMuscleScore(value: number) {
+  if (Number.isInteger(value)) {
+    return String(value)
+  }
+
+  if (value >= 10) {
+    return value.toFixed(1)
+  }
+
+  return value.toFixed(2).replace(/0+$/, '').replace(/\.$/, '')
+}
 
 function MuscleVisualizer({
   className,
@@ -57,7 +80,7 @@ function MuscleVisualizer({
   headerTrailing,
   hideHeader = false,
   holdDetailLabel = 'Hold body view to inspect muscle hits.',
-  intensityLegendLabel = 'Blue shows lighter relative activation, while warm orange and gold mark the highest-hit muscles in this view.',
+  intensityLegendLabel = 'Very light blue shows lighter relative activation, while darker blue through dark orange marks higher weighted work in this view.',
   kicker = 'Muscle Visualizer',
   onSelectMuscle,
   profile,
@@ -199,12 +222,12 @@ function MuscleVisualizer({
           }}
         >
           <span>{muscleLabels[slug]}</span>
-          <strong>{count}</strong>
+          <strong>{formatMuscleScore(count)}</strong>
         </button>
       ) : (
         <div key={slug} className="muscle-row">
           <span>{muscleLabels[slug]}</span>
-          <strong>{count}</strong>
+          <strong>{formatMuscleScore(count)}</strong>
         </div>
       ),
     )
@@ -273,7 +296,7 @@ function MuscleVisualizer({
 
               <Body
                 border="none"
-                colors={['#6bb8ff', '#3f8efc', '#f98a4b', '#ffb84d']}
+                colors={muscleIntensityColors}
                 data={profile.data}
                 gender={gender}
                 onBodyPartClick={(bodyPart) => {
@@ -347,7 +370,7 @@ function MuscleVisualizer({
                       <div className="visualizer-summary-pills">
                         {visibleMuscles.slice(0, 4).map(({ slug, count }) => (
                           <span key={slug} className="pill pill--subtle">
-                            {muscleLabels[slug]} {count}
+                            {muscleLabels[slug]} {formatMuscleScore(count)}
                           </span>
                         ))}
                       </div>

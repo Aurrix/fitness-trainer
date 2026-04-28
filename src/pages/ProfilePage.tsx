@@ -1,6 +1,17 @@
+import { useMemo } from 'react'
+import { CalendarCheck, Clock3 } from 'lucide-react'
+import type { ProgramCompletionLog } from '../entities/program-completion'
+import type { ProgramDayLog } from '../entities/program-day-stats'
 import type { AppProgram } from '../lib/app-types'
 import { countExercises } from '../lib/app-utils'
 import type { FitnessProfile } from '../lib/fitness-profile'
+import {
+  buildProgramHistoryRuns,
+  describeProgramExerciseState,
+  formatDurationMinutes,
+  formatHistoryDate,
+  formatProgramSet,
+} from '../lib/program-history'
 
 type ProfilePageProps = {
   activityLevelLabel: string
@@ -31,6 +42,9 @@ type ProfilePageProps = {
       | 'weeklyWorkoutTarget',
     rawValue: string,
   ) => void
+  programCompletionLogs: ProgramCompletionLog[]
+  programDayLogs: ProgramDayLog[]
+  programs: AppProgram[]
 }
 
 export default function ProfilePage({
@@ -48,7 +62,15 @@ export default function ProfilePage({
   onResetStoredData,
   onUpdateFitnessProfile,
   onUpdateNumericFitnessProfileField,
+  programCompletionLogs,
+  programDayLogs,
+  programs,
 }: ProfilePageProps) {
+  const programHistoryRuns = useMemo(() => {
+    return buildProgramHistoryRuns(programs, programDayLogs, programCompletionLogs)
+  }, [programCompletionLogs, programDayLogs, programs])
+  const latestProgramHistoryRun = programHistoryRuns[0] ?? null
+
   return (
     <>
       <section className="section-card">
@@ -98,6 +120,111 @@ export default function ProfilePage({
             </button>
           </div>
         </article>
+      </section>
+
+      <section className="section-card profile-program-history-section">
+        <div className="section-header">
+          <div>
+            <p className="kicker">Completed Programs</p>
+            <h2>Program history</h2>
+            <p className="muted profile-program-history-section__summary">
+              Full runs with completed days, exercises, weights, reps, and effort.
+            </p>
+          </div>
+          <span className="pill pill--subtle">{programHistoryRuns.length} runs</span>
+        </div>
+
+        {latestProgramHistoryRun ? (
+          <div className="profile-program-history-overview">
+            <div>
+              <span>Latest</span>
+              <strong>{latestProgramHistoryRun.programName}</strong>
+            </div>
+            <div>
+              <span>Finished</span>
+              <strong>{formatHistoryDate(latestProgramHistoryRun.completedAt)}</strong>
+            </div>
+            <div>
+              <span>Duration</span>
+              <strong>{formatDurationMinutes(latestProgramHistoryRun.durationMinutes)}</strong>
+            </div>
+          </div>
+        ) : null}
+
+        {programHistoryRuns.length ? (
+          <div className="program-history-board program-history-board--profile">
+            {programHistoryRuns.map((programRun) => (
+              <article key={programRun.id} className="insight-card program-history-card">
+                <div className="program-history-card__header">
+                  <div>
+                    <p className="kicker">{programRun.programSource}</p>
+                    <h4>{programRun.programName}</h4>
+                    <span>
+                      {programRun.completedDayCount}/{programRun.totalDayCount} days /{' '}
+                      {formatDurationMinutes(programRun.durationMinutes)}
+                    </span>
+                  </div>
+                  <div className="program-history-card__meta">
+                    <CalendarCheck size={16} />
+                    <span>{formatHistoryDate(programRun.completedAt)}</span>
+                  </div>
+                </div>
+
+                <div className="program-history-days">
+                  {programRun.dayLogs.map((dayLog, dayIndex) => (
+                    <details key={dayLog.id} className="program-history-day" open={dayIndex === 0}>
+                      <summary>
+                        <span>
+                          <strong>{dayLog.sectionName}</strong>
+                          <span>
+                            {dayLog.completedExerciseCount}/{dayLog.totalExerciseCount} exercises
+                          </span>
+                        </span>
+                        <span className="program-history-day__meta">
+                          <Clock3 size={14} />
+                          {formatDurationMinutes(dayLog.durationMinutes)}
+                        </span>
+                      </summary>
+
+                      <div className="program-history-exercise-list">
+                        {dayLog.exerciseEntries.map((exercise) => (
+                          <div
+                            key={`${dayLog.id}-${exercise.logId}`}
+                            className="program-history-exercise-row"
+                          >
+                            <div className="program-history-exercise-row__header">
+                              <strong>{exercise.exerciseName}</strong>
+                              <span>{describeProgramExerciseState(exercise)}</span>
+                            </div>
+                            <div className="program-history-exercise-row__sets">
+                              {exercise.sets.length ? (
+                                exercise.sets.map((set) => (
+                                  <span
+                                    key={`${exercise.logId}-${set.setIndex}`}
+                                    className="program-history-set-chip"
+                                  >
+                                    Set {set.setIndex}: {formatProgramSet(set)}
+                                  </span>
+                                ))
+                              ) : (
+                                <span className="program-history-set-chip">No set details</span>
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="empty-state compact-empty-state">
+            <h3>No completed programs yet</h3>
+            <p>Complete every programmed day in a plan to save a full-program history entry.</p>
+          </div>
+        )}
       </section>
 
       <section className="section-card">

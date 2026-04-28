@@ -27,7 +27,7 @@ function ProgramMuscleVisualizer({
 
   return (
     <MuscleVisualizer
-      description="Highlight intensity is inferred from the exercises in the selected program."
+      description="Highlight intensity is weighted by planned work and exercise target factors."
       emptyDescription="Add explicit muscle fields to exercise JSON for more accurate highlighting."
       gender={gender}
       profile={profile}
