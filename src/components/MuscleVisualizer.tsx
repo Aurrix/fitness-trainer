@@ -52,6 +52,48 @@ const muscleIntensityColors = [
   '#9a3412',
 ]
 
+const frontVisibleMuscleSlugs = new Set<Slug>([
+  'abs',
+  'adductors',
+  'ankles',
+  'biceps',
+  'calves',
+  'chest',
+  'deltoids',
+  'feet',
+  'forearm',
+  'hands',
+  'hair',
+  'head',
+  'knees',
+  'neck',
+  'obliques',
+  'quadriceps',
+  'tibialis',
+  'trapezius',
+  'triceps',
+])
+
+const backVisibleMuscleSlugs = new Set<Slug>([
+  'adductors',
+  'ankles',
+  'calves',
+  'deltoids',
+  'feet',
+  'forearm',
+  'gluteal',
+  'hamstring',
+  'hands',
+  'hair',
+  'head',
+  'knees',
+  'lower-back',
+  'neck',
+  'trapezius',
+  'triceps',
+  'upper-back',
+])
+
 function formatMuscleScore(value: number) {
   if (Number.isInteger(value)) {
     return String(value)
@@ -62,6 +104,17 @@ function formatMuscleScore(value: number) {
   }
 
   return value.toFixed(2).replace(/0+$/, '').replace(/\.$/, '')
+}
+
+function getDefaultViewSide(profile: MuscleProfile) {
+  const hasFrontVisibleMuscle = profile.data.some(
+    (muscle) => muscle.slug && frontVisibleMuscleSlugs.has(muscle.slug),
+  )
+  const hasBackVisibleMuscle = profile.data.some(
+    (muscle) => muscle.slug && backVisibleMuscleSlugs.has(muscle.slug),
+  )
+
+  return !hasFrontVisibleMuscle && hasBackVisibleMuscle ? 'back' : 'front'
 }
 
 function MuscleVisualizer({
@@ -91,11 +144,24 @@ function MuscleVisualizer({
   title,
   toolbar,
 }: MuscleVisualizerProps) {
+  const defaultViewSide = getDefaultViewSide(profile)
+  const profileSideSignature = profile.data
+    .map((muscle) => muscle.slug ?? '')
+    .sort()
+    .join('|')
   const [isDetailSheetOpen, setIsDetailSheetOpen] = useState(false)
   const [isHolding, setIsHolding] = useState(false)
-  const [viewSide, setViewSide] = useState<'front' | 'back'>('front')
+  const [viewSideState, setViewSideState] = useState<{
+    signature: string
+    value: 'front' | 'back'
+  }>(() => ({
+    signature: profileSideSignature,
+    value: defaultViewSide,
+  }))
   const holdTimeoutRef = useRef<number | null>(null)
   const shouldIgnoreBodyPartClickRef = useRef(false)
+  const viewSide =
+    viewSideState.signature === profileSideSignature ? viewSideState.value : defaultViewSide
   const visibleMuscles = showAllMuscles ? profile.muscles : profile.topMuscles
   const detailMuscles = profile.muscles
   const selectableSlugs = new Set(profile.muscles.map((muscle) => muscle.slug))
@@ -286,9 +352,19 @@ function MuscleVisualizer({
               <button
                 type="button"
                 className="visualizer-flip-button"
-                onClick={() =>
-                  setViewSide((currentSide) => (currentSide === 'front' ? 'back' : 'front'))
-                }
+                onClick={() => {
+                  setViewSideState((currentState) => {
+                    const currentSide =
+                      currentState.signature === profileSideSignature
+                        ? currentState.value
+                        : defaultViewSide
+
+                    return {
+                      signature: profileSideSignature,
+                      value: currentSide === 'front' ? 'back' : 'front',
+                    }
+                  })
+                }}
                 aria-label={`Show ${viewSide === 'front' ? 'back' : 'front'} muscles`}
               >
                 <RefreshCw size={15} />

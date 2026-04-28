@@ -933,6 +933,72 @@ function resolveExerciseByHistorySample(sample: ExercisePerformanceSample | null
   return exerciseLookup.byName.get(normalizeLookupLabel(sample.exerciseName)) ?? null
 }
 
+function buildExerciseTargetCoefficients(exercise: Exercise | null) {
+  const targets = [
+    ...(exercise?.primaryTargetMuscleGroups ?? []),
+    ...(exercise?.secondaryTargetMuscleGroups ?? []),
+  ]
+
+  if (!targets.length) {
+    return []
+  }
+
+  const targetMap = new Map<string, number>()
+
+  for (const target of targets) {
+    targetMap.set(
+      target.muscleGroup,
+      Math.max(targetMap.get(target.muscleGroup) ?? 0, target.factor),
+    )
+  }
+
+  const totalFactor = [...targetMap.values()].reduce((total, factor) => total + factor, 0)
+
+  if (!totalFactor) {
+    return []
+  }
+
+  return [...targetMap.entries()].map(([muscleGroup, factor]) => ({
+    coefficient: factor / totalFactor,
+    muscleGroup,
+  }))
+}
+
+function buildFallbackTargetCoefficients(
+  muscleGroups: string[],
+): Array<{ coefficient: number; muscleGroup: string }> {
+  if (!muscleGroups.length) {
+    return []
+  }
+
+  const coefficient = 1 / muscleGroups.length
+  return muscleGroups.map((muscleGroup) => ({
+    coefficient,
+    muscleGroup,
+  }))
+}
+
+function resolveHistoryTargetCoefficients(
+  sample: ExercisePerformanceSample | null,
+  fallbackMuscleGroups: string[] = [],
+) {
+  const explicitCoefficients = buildExerciseTargetCoefficients(
+    resolveExerciseByHistorySample(sample),
+  )
+
+  if (explicitCoefficients.length) {
+    return explicitCoefficients
+  }
+
+  if (sample?.targetCoefficients.length) {
+    return sample.targetCoefficients
+  }
+
+  return buildFallbackTargetCoefficients(
+    sample?.muscleGroups.length ? sample.muscleGroups : fallbackMuscleGroups,
+  )
+}
+
 function getScoreUnit(scoreLabel: string) {
   switch (scoreLabel) {
     case 'e1RM':
@@ -1244,6 +1310,10 @@ export function buildExerciseProgressionBreakdown(
       const previousSample = sortedHistory.length > 1 ? sortedHistory.at(-2) ?? null : null
       const latestScore = getPerformanceScore(latestSample ?? filteredHistory[0]!)?.score ?? null
       const previousScore = previousSample ? getPerformanceScore(previousSample)?.score ?? null : null
+      const targetCoefficients = resolveHistoryTargetCoefficients(
+        latestSample,
+        record.muscleGroups,
+      )
       const benchmarkComparison =
         profile && latestSample
           ? buildExerciseStrengthBenchmarkComparison(
@@ -1265,14 +1335,17 @@ export function buildExerciseProgressionBreakdown(
           laterAverageScore: progression.laterAverageScore,
           latestScore,
           latestVolumeKg: latestSample?.totalVolumeKg ?? null,
-          muscleGroups:
-            latestSample?.muscleGroups.length ? latestSample.muscleGroups : record.muscleGroups,
+          muscleGroups: targetCoefficients.length
+            ? targetCoefficients.map((target) => target.muscleGroup)
+            : latestSample?.muscleGroups.length
+              ? latestSample.muscleGroups
+              : record.muscleGroups,
           previousScore,
           previousVolumeKg: previousSample?.totalVolumeKg ?? null,
           sampleCount: progression.sampleCount,
           scoreLabel: progression.scoreLabel,
           scoreUnit: getScoreUnit(progression.scoreLabel),
-          targetCoefficients: progression.targetCoefficients,
+          targetCoefficients,
         },
       ]
     })
@@ -1396,15 +1469,7 @@ export function buildMuscleProgressTimeline(
 
       const sample = scoredHistory[index]!
       const dateKey = sample.recordedAt.slice(0, 10)
-      const coefficients =
-        progression.targetCoefficients.length > 0
-          ? progression.targetCoefficients
-          : sample.muscleGroups.length
-            ? sample.muscleGroups.map((muscleGroup) => ({
-                coefficient: 1 / sample.muscleGroups.length,
-                muscleGroup,
-              }))
-            : []
+      const coefficients = resolveHistoryTargetCoefficients(sample)
 
       for (const target of coefficients) {
         const slug = mapExerciseMuscleGroupToBodySlug(target.muscleGroup)

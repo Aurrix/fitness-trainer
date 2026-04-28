@@ -759,13 +759,17 @@ function normalizeExercise(
     secondaryTargetMuscleGroups = []
   }
 
-  const muscleGroups = uniqueStrings([
+  const explicitMuscleGroups = uniqueStrings([
     ...primaryTargetMuscleGroups.map((target) => target.muscleGroup),
     ...secondaryTargetMuscleGroups.map((target) => target.muscleGroup),
-    ...legacyMuscleGroups
-      .map((entry) => normalizeExerciseMuscleGroup(entry) ?? entry)
-      .filter(Boolean),
   ])
+  const muscleGroups = explicitMuscleGroups.length
+    ? explicitMuscleGroups
+    : uniqueStrings(
+        legacyMuscleGroups
+          .map((entry) => normalizeExerciseMuscleGroup(entry) ?? entry)
+          .filter(Boolean),
+      )
   const descriptionHtml = normalizeDescriptionHtml(
     record.descriptionHtml,
     record.description,

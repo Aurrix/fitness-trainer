@@ -6,7 +6,7 @@ import { formatExerciseMuscleGroup } from '../entities/exercise-muscles'
 import { countExercises } from '../lib/app-utils'
 import type { AppProgram, ExerciseFilter, LibraryView, ProgramFilter } from '../lib/app-types'
 import type { Exercise } from '../lib/content'
-import { createMuscleProfile } from '../lib/muscles'
+import { buildExerciseMuscleProfile } from '../lib/muscles'
 
 type LibraryPageProps = {
   contentExercises: Exercise[]
@@ -403,7 +403,7 @@ export default function LibraryPage({
                       detailsMode="sheet"
                       gender={fitnessGender}
                       hideHeader
-                      profile={createMuscleProfile(exercise.muscleGroups)}
+                      profile={buildExerciseMuscleProfile(exercise)}
                       showSheetPreview={false}
                       title={exercise.name}
                     />
