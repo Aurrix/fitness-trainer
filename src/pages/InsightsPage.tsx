@@ -469,6 +469,7 @@ export default function InsightsPage({
             }`}
             role="tab"
             aria-selected={activePanel === section}
+            aria-label={`${kicker}: ${count}`}
             onClick={() => onSetInsightsView(section)}
           >
             <span className="insights-tab-card__icon">
@@ -488,6 +489,7 @@ export default function InsightsPage({
           }`}
           role="tab"
           aria-selected={activePanel === 'programs'}
+          aria-label={`Programs: ${programHistoryRuns.length}`}
           onClick={() => onSetInsightsView('programs')}
         >
           <span className="insights-tab-card__icon">
@@ -500,87 +502,89 @@ export default function InsightsPage({
         </button>
       </div>
 
-      {activePanel === 'programs' ? (
-        visibleProgramRuns.length ? (
-          <div className="insights-compact-list program-history-compact-list">
-            {visibleProgramRuns.map((programRun) => (
-              <article key={programRun.id} className="insights-compact-row">
-                <span className="insights-compact-row__icon insights-compact-row__icon--programs">
-                  <ClipboardList size={17} />
-                </span>
-                <span className="insights-compact-row__copy">
-                  <strong>{programRun.programName}</strong>
-                  <span>
-                    {formatHistoryDate(programRun.completedAt)} / {programRun.completedDayCount}/
-                    {programRun.totalDayCount} days
+      <div className="insights-list-card">
+        {activePanel === 'programs' ? (
+          visibleProgramRuns.length ? (
+            <div className="insights-compact-list program-history-compact-list">
+              {visibleProgramRuns.map((programRun) => (
+                <article key={programRun.id} className="insights-compact-row">
+                  <span className="insights-compact-row__icon insights-compact-row__icon--programs">
+                    <ClipboardList size={17} />
                   </span>
-                </span>
-                <span className="insights-compact-row__meta">{programRun.programSource}</span>
-              </article>
-            ))}
+                  <span className="insights-compact-row__copy">
+                    <strong>{programRun.programName}</strong>
+                    <span>
+                      {formatHistoryDate(programRun.completedAt)} / {programRun.completedDayCount}/
+                      {programRun.totalDayCount} days
+                    </span>
+                  </span>
+                  <span className="insights-compact-row__meta">{programRun.programSource}</span>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="empty-state compact-empty-state insights-empty-card">
+              <h3>No completed programs yet</h3>
+              <p>Full completed-program runs will appear after you finish every day in a plan.</p>
+            </div>
+          )
+        ) : activeSuggestions.length ? (
+          <div className="insight-list suggestions-board suggestions-board--compact">
+            {activeSuggestions.map((suggestion) => {
+              const isExpanded = visibleExpandedSuggestionId === suggestion.id
+
+              return (
+                <button
+                  key={suggestion.id}
+                  type="button"
+                  className={`insight-card suggestion-card suggestion-card--compact suggestion-card--${suggestion.tone} ${
+                    isExpanded ? 'is-expanded' : ''
+                  }`}
+                  onClick={() =>
+                    setExpandedSuggestionId((current) =>
+                      current === suggestion.id ? null : suggestion.id,
+                    )
+                  }
+                >
+                  <div className="suggestion-card__compact-head">
+                    <div>
+                      <p className="kicker">{formatSuggestionCategory(suggestion.category)}</p>
+                      <h4>{suggestion.title}</h4>
+                    </div>
+                    <ChevronRight
+                      size={18}
+                      className={`suggestion-card__chevron ${isExpanded ? 'is-expanded' : ''}`}
+                    />
+                  </div>
+
+                  <p className="suggestion-card__summary">{suggestion.summary}</p>
+
+                  {isExpanded ? (
+                    <div className="suggestion-card__expanded">
+                      {suggestion.details.length ? (
+                        <ul className="suggestion-card__details">
+                          {suggestion.details.map((detail) => (
+                            <li key={detail}>{detail}</li>
+                          ))}
+                        </ul>
+                      ) : null}
+                      <div className="suggestion-card__next-step suggestion-card__next-step--compact">
+                        <span>Next step</span>
+                        <strong>{suggestion.action}</strong>
+                      </div>
+                    </div>
+                  ) : null}
+                </button>
+              )
+            })}
           </div>
         ) : (
           <div className="empty-state compact-empty-state insights-empty-card">
-            <h3>No completed programs yet</h3>
-            <p>Full completed-program runs will appear after you finish every day in a plan.</p>
+            <h3>No {activeInsightsTab} right now</h3>
+            <p>{insightTabCopy[activeInsightsTab].emptyDescription}</p>
           </div>
-        )
-      ) : activeSuggestions.length ? (
-        <div className="insight-list suggestions-board suggestions-board--compact">
-          {activeSuggestions.map((suggestion) => {
-            const isExpanded = visibleExpandedSuggestionId === suggestion.id
-
-            return (
-              <button
-                key={suggestion.id}
-                type="button"
-                className={`insight-card suggestion-card suggestion-card--compact suggestion-card--${suggestion.tone} ${
-                  isExpanded ? 'is-expanded' : ''
-                }`}
-                onClick={() =>
-                  setExpandedSuggestionId((current) =>
-                    current === suggestion.id ? null : suggestion.id,
-                  )
-                }
-              >
-                <div className="suggestion-card__compact-head">
-                  <div>
-                    <p className="kicker">{formatSuggestionCategory(suggestion.category)}</p>
-                    <h4>{suggestion.title}</h4>
-                  </div>
-                  <ChevronRight
-                    size={18}
-                    className={`suggestion-card__chevron ${isExpanded ? 'is-expanded' : ''}`}
-                  />
-                </div>
-
-                <p className="suggestion-card__summary">{suggestion.summary}</p>
-
-                {isExpanded ? (
-                  <div className="suggestion-card__expanded">
-                    {suggestion.details.length ? (
-                      <ul className="suggestion-card__details">
-                        {suggestion.details.map((detail) => (
-                          <li key={detail}>{detail}</li>
-                        ))}
-                      </ul>
-                    ) : null}
-                    <div className="suggestion-card__next-step suggestion-card__next-step--compact">
-                      <span>Next step</span>
-                      <strong>{suggestion.action}</strong>
-                    </div>
-                  </div>
-                ) : null}
-              </button>
-            )
-          })}
-        </div>
-      ) : (
-        <div className="empty-state compact-empty-state insights-empty-card">
-          <h3>No {activeInsightsTab} right now</h3>
-          <p>{insightTabCopy[activeInsightsTab].emptyDescription}</p>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   )
 }
