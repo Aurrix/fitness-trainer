@@ -1,0 +1,246 @@
+{
+  "id": "machine-hammer-curl",
+  "displayLabel": "Machine Hammer Curl",
+  "shortDescription": "Neutral-grip machine curl variation emphasizing the brachialis and brachioradialis.",
+  "descriptionHtml": "<p>Neutral-grip machine curl variation emphasizing the brachialis and brachioradialis.</p><ul><li><strong>Also listed as:</strong> Hammer Curl Machine and Machine Neutral-Grip Curl</li><li><strong>Common substitutions:</strong> Rope Hammer Curl, Seated Hammer Curl, Hammer Curl, and Machine Biceps Curl</li></ul>",
+  "aliases": [
+    "Hammer Curl Machine",
+    "Machine Neutral-Grip Curl"
+  ],
+  "substitutionExerciseIds": [
+    "rope-hammer-curl",
+    "seated-hammer-curl",
+    "hammer-curl",
+    "machine-biceps-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "brachialis",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.9
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-long-head",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "forearm-flexors",
+      "factor": 0.4
+    }
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "selected machine stack or plate-loaded resistance",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              7,
+              9
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              22,
+              28
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              36,
+              45
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              7,
+              9
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              22,
+              28
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              36,
+              45
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              6,
+              8
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              20,
+              25
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              32,
+              41
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              12,
+              15
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              21,
+              26
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              12,
+              15
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              21,
+              26
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              11,
+              13
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              18,
+              23
+            ]
+          }
+        }
+      }
+    }
+  }
+}

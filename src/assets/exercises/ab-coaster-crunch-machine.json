@@ -1,0 +1,242 @@
+{
+  "id": "ab-coaster-crunch-machine",
+  "displayLabel": "Ab Coaster Crunch Machine",
+  "shortDescription": "Machine core movement that draws the knees upward through a guided crunch path.",
+  "descriptionHtml": "<p>Machine core movement that draws the knees upward through a guided crunch path.</p><ul><li><strong>Also listed as:</strong> Ab Coaster Machine and Ab Coaster</li><li><strong>Common substitutions:</strong> Captain&#39;s Chair Crunch, Reverse Crunch, Hanging Leg Raise, and Abdominal Crunch Machine</li></ul>",
+  "aliases": [
+    "Ab Coaster Machine",
+    "Ab Coaster"
+  ],
+  "substitutionExerciseIds": [
+    "captain-s-chair-crunch",
+    "reverse-crunch",
+    "hanging-leg-raise",
+    "abdominal-crunch-machine"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "hip-flexors",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.3
+    }
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "selected machine stack or plate-loaded resistance",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              4,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              17,
+              23
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              31,
+              39
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              4,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              17,
+              23
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              31,
+              39
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              4,
+              5
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              15,
+              21
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              28,
+              35
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              9,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              18,
+              22
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              9,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              18,
+              22
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              8,
+              11
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              16,
+              20
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,6 +12,7 @@ export type ExerciseSetPerformanceSample = {
   recordedAt: string | null
   reps: number | null
   setIndex: number
+  suboptimal: boolean
   weightKg: number | null
 }
 
@@ -144,6 +145,7 @@ function normalizeSetPerformanceSample(value: unknown): ExerciseSetPerformanceSa
     recordedAt: toNullableStringValue(value.recordedAt),
     reps: toNullableNumber(value.reps),
     setIndex: setIndex ?? 1,
+    suboptimal: value.suboptimal === true,
     weightKg: toNullableNumber(value.weightKg),
   }
 }

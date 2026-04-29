@@ -26,7 +26,10 @@ import type {
 } from '../lib/app-types'
 import type { Exercise } from '../lib/content'
 import type { FitnessProfile } from '../lib/fitness-profile'
-import type { MuscleProfile } from '../lib/muscles'
+import {
+  buildSectionMuscleProfile,
+  buildWorkoutMuscleProfile,
+} from '../lib/muscles'
 import type {
   ActiveWorkout,
   WorkoutExerciseLogEntry,
@@ -40,15 +43,24 @@ type WorkoutPageProps = {
   activeWorkoutExtraEntries: WorkoutExerciseLogEntry[]
   completionRatio: number
   contentExercises: Exercise[]
-  completedWorkoutMuscles: MuscleProfile
   exertionOptions: string[]
   fitnessProfile: FitnessProfile
   handledPlannedExerciseCount: number
   isSelectedWorkoutActive: boolean
   launchProgram: AppProgram | null
   onAddWorkoutExercise: (exercise: Exercise) => void
-  onAddWorkoutExerciseSet: (exerciseId: string) => void
-  onAddWorkoutExtraExerciseSet: (logId: string) => void
+  onAddWorkoutExerciseSet: (exerciseId: string, visibleSetCount?: number) => void
+  onAddWorkoutExtraExerciseSet: (logId: string, visibleSetCount?: number) => void
+  onCommitWorkoutExerciseSet: (
+    exerciseId: string,
+    setIndex: number,
+    options?: { prefillNext?: boolean },
+  ) => void
+  onCommitWorkoutExtraExerciseSet: (
+    logId: string,
+    setIndex: number,
+    options?: { prefillNext?: boolean },
+  ) => void
   onOpenExerciseDetails: (exercise: Exercise) => void
   onOpenLibrary: (view: 'home' | 'programs' | 'exercises') => void
   onReorderWorkoutExercise: (
@@ -56,7 +68,18 @@ type WorkoutPageProps = {
     targetLogId: string,
     position: 'before' | 'after',
   ) => void
+  onRemoveWorkoutExercise: (exerciseId: string) => void
   onRemoveWorkoutExtraExercise: (logId: string) => void
+  onRemoveWorkoutExerciseSetLog: (
+    exerciseId: string,
+    setIndex: number,
+    nextVisibleSetCount?: number,
+  ) => void
+  onRemoveWorkoutExtraExerciseSetLog: (
+    logId: string,
+    setIndex: number,
+    nextVisibleSetCount?: number,
+  ) => void
   onSetSelectedWorkoutSectionId: (sectionId: string | null) => void
   onStartWorkout: (program: AppProgram, sectionId: string) => void
   onSubstituteWorkoutExercise: (exerciseId: string, exercise: Exercise) => void
@@ -64,6 +87,8 @@ type WorkoutPageProps = {
   onToggleWorkoutExercise: (exerciseId: string) => void
   onToggleWorkoutExerciseSkipped: (exerciseId: string) => void
   onToggleWorkoutExtraExercise: (logId: string) => void
+  onToggleWorkoutExerciseSetSuboptimal: (exerciseId: string, setIndex: number) => void
+  onToggleWorkoutExtraExerciseSetSuboptimal: (logId: string, setIndex: number) => void
   onUpdateWorkoutExerciseSetLog: (
     exerciseId: string,
     setIndex: number,
@@ -89,7 +114,6 @@ type WorkoutPageProps = {
   }) => Exercise | null
   selectedWorkoutDay: WorkoutDayOption | null
   selectedWorkoutSection: AppProgram['sections'][number] | null
-  selectedWorkoutTargetProfile: MuscleProfile
   selectedWorkoutWeek: WorkoutWeekGroup | null
   workoutLogs: WorkoutLog[]
   workoutWeeks: WorkoutWeekGroup[]
@@ -104,6 +128,20 @@ function countPerformedSetLogs(setLogs: WorkoutSetLogEntry[]) {
       ? count + 1
       : count
   }, 0)
+}
+
+function hasCommittedSetLog(
+  setLog: WorkoutSetLogEntry,
+  includeLoggedContent = false,
+) {
+  return Boolean(
+    setLog.completedAt ||
+      (includeLoggedContent &&
+        (setLog.duration.trim() ||
+          setLog.weightKg.trim() ||
+          setLog.reps.trim() ||
+          setLog.effort.trim())),
+  )
 }
 
 function createReadOnlyWorkoutFromLog(workoutLog: WorkoutLog): ActiveWorkout {
@@ -216,7 +254,6 @@ export default function WorkoutPage({
   activeWorkoutExtraEntries,
   completionRatio,
   contentExercises,
-  completedWorkoutMuscles,
   exertionOptions,
   fitnessProfile,
   handledPlannedExerciseCount,
@@ -225,10 +262,15 @@ export default function WorkoutPage({
   onAddWorkoutExercise,
   onAddWorkoutExerciseSet,
   onAddWorkoutExtraExerciseSet,
+  onCommitWorkoutExerciseSet,
+  onCommitWorkoutExtraExerciseSet,
   onOpenExerciseDetails,
   onOpenLibrary,
   onReorderWorkoutExercise,
+  onRemoveWorkoutExercise,
   onRemoveWorkoutExtraExercise,
+  onRemoveWorkoutExerciseSetLog,
+  onRemoveWorkoutExtraExerciseSetLog,
   onSetSelectedWorkoutSectionId,
   onStartWorkout,
   onSubstituteWorkoutExercise,
@@ -236,6 +278,8 @@ export default function WorkoutPage({
   onToggleWorkoutExercise,
   onToggleWorkoutExerciseSkipped,
   onToggleWorkoutExtraExercise,
+  onToggleWorkoutExerciseSetSuboptimal,
+  onToggleWorkoutExtraExerciseSetSuboptimal,
   onUpdateWorkoutExerciseSetLog,
   onUpdateWorkoutExtraExerciseSetLog,
   previewExerciseOrder,
@@ -244,7 +288,6 @@ export default function WorkoutPage({
   resolveExerciseForDisplay,
   selectedWorkoutDay,
   selectedWorkoutSection,
-  selectedWorkoutTargetProfile,
   selectedWorkoutWeek,
   workoutLogs,
   workoutWeeks,
@@ -274,8 +317,7 @@ export default function WorkoutPage({
   })
   const muscleView =
     muscleViewState.key === muscleViewKey ? muscleViewState.value : defaultMuscleView
-  const visibleMuscleView =
-    isSelectedWorkoutActive && muscleView === 'completed' ? 'completed' : 'planned'
+  const visibleMuscleView = muscleView === 'completed' ? 'completed' : 'planned'
   const workoutDayLabel = useMemo(() => {
     if (!selectedWorkoutDay) {
       return null
@@ -529,8 +571,27 @@ export default function WorkoutPage({
               {},
             )
           : {}
+        const currentExerciseOrder =
+          isActive && currentActiveWorkout
+            ? currentActiveWorkout.exerciseOrder
+            : latestWorkoutLog
+              ? latestWorkoutLog.exerciseLogs
+                  .map((entry) =>
+                    entry.type === 'planned'
+                      ? entry.plannedExerciseId ?? entry.logId
+                      : entry.logId,
+                  )
+                  .filter(Boolean)
+              : null
+        const plannedExercisesForPreview = section.exercises.filter((exercise) => {
+          return (
+            currentExerciseOrder === null ||
+            currentExerciseOrder.includes(exercise.id) ||
+            Boolean(latestPlannedLogByExerciseId[exercise.id])
+          )
+        })
 
-        const plannedExercisePreviews = section.exercises.map((exercise) => {
+        const plannedExercisePreviews = plannedExercisesForPreview.map((exercise) => {
           const log = isActive
             ? activeWorkoutExerciseLogs[exercise.id] ?? null
             : latestPlannedLogByExerciseId[exercise.id] ?? null
@@ -575,10 +636,11 @@ export default function WorkoutPage({
           extraEntryCount: extraExercisePreviews.length,
           isActive,
           isComplete: isActive
-            ? completedExerciseCount >= section.exercises.length && section.exercises.length > 0
+            ? completedExerciseCount >= plannedExercisePreviews.length &&
+              plannedExercisePreviews.length > 0
             : Boolean(latestCompletedAt),
           performedExerciseCount,
-          plannedExerciseCount: section.exercises.length,
+          plannedExerciseCount: plannedExercisePreviews.length,
           skippedExerciseCount,
         }
 
@@ -617,6 +679,145 @@ export default function WorkoutPage({
   const displayWorkout = isSelectedWorkoutActive ? activeWorkout : readOnlySelectedWorkout
   const displayWorkoutExerciseLogs = displayWorkout?.exerciseLogs ?? {}
   const displayWorkoutExtraEntries = displayWorkout?.extraEntries ?? []
+  const displayedWorkoutPlannedExercises = useMemo(() => {
+    const currentExerciseOrder = displayWorkout?.exerciseOrder ?? null
+
+    return (
+      selectedWorkoutSection?.exercises.filter((exercise) => {
+        return (
+          currentExerciseOrder === null ||
+          currentExerciseOrder.includes(exercise.id) ||
+          Boolean(displayWorkoutExerciseLogs[exercise.id])
+        )
+      }) ?? []
+    )
+  }, [displayWorkout?.exerciseOrder, displayWorkoutExerciseLogs, selectedWorkoutSection])
+  const displayedWorkoutTargetProfile = useMemo(() => {
+    const plannedExercises =
+      displayedWorkoutPlannedExercises.map((exercise) => {
+        const workoutLog = displayWorkoutExerciseLogs[exercise.id] ?? null
+        const resolvedExercise = workoutLog
+          ? resolveExerciseForDisplay({
+              exerciseId: workoutLog.exerciseId,
+              exerciseName: workoutLog.exerciseName,
+              resolvedExerciseId: workoutLog.exerciseId ?? exercise.resolvedExerciseId,
+            })
+          : resolveExerciseForDisplay(exercise)
+
+        return {
+          ...exercise,
+          exerciseId:
+            workoutLog?.exerciseId ??
+            resolvedExercise?.id ??
+            exercise.resolvedExerciseId ??
+            exercise.exerciseId,
+          exerciseName: workoutLog?.exerciseName ?? exercise.exerciseName,
+          muscleGroups: workoutLog?.muscleGroups.length
+            ? workoutLog.muscleGroups
+            : (resolvedExercise?.muscleGroups ?? []),
+          resolvedExerciseId:
+            workoutLog?.exerciseId ??
+            resolvedExercise?.id ??
+            exercise.resolvedExerciseId,
+        }
+      }) ?? []
+    const extraExercises = displayWorkoutExtraEntries
+      .filter((entry) => entry.type !== 'cardio')
+      .map((entry) => ({
+        duration: entry.duration,
+        exerciseId: entry.exerciseId,
+        exerciseName: entry.exerciseName,
+        id: entry.logId,
+        muscleGroups: entry.muscleGroups,
+        notes: entry.notes,
+        reps: '',
+        resolvedExerciseId: entry.exerciseId,
+        rest: '',
+        sets: String(Math.max(1, entry.setLogs.length || 1)),
+      }))
+
+    return buildSectionMuscleProfile(
+      {
+        exercises: [...plannedExercises, ...extraExercises],
+        id: selectedWorkoutSection?.id ?? 'workout-day',
+        name: selectedWorkoutSection?.name ?? 'Workout day',
+      },
+      contentExercises,
+    )
+  }, [
+    contentExercises,
+    displayWorkoutExerciseLogs,
+    displayWorkoutExtraEntries,
+    displayedWorkoutPlannedExercises,
+    resolveExerciseForDisplay,
+    selectedWorkoutSection,
+  ])
+  const displayedWorkoutCoveredProfile = useMemo(() => {
+    const includeLoggedContent = !isSelectedWorkoutActive
+    const plannedEntries =
+      displayedWorkoutPlannedExercises.flatMap((exercise) => {
+        const workoutLog = displayWorkoutExerciseLogs[exercise.id] ?? null
+
+        if (!workoutLog) {
+          return []
+        }
+
+        const isCovered =
+          workoutLog.completed ||
+          workoutLog.setLogs.some((setLog) =>
+            hasCommittedSetLog(setLog, includeLoggedContent),
+          )
+
+        if (!isCovered) {
+          return []
+        }
+
+        const resolvedExercise = resolveExerciseForDisplay({
+          exerciseId: workoutLog.exerciseId,
+          exerciseName: workoutLog.exerciseName,
+          resolvedExerciseId: workoutLog.exerciseId ?? exercise.resolvedExerciseId,
+        })
+
+        return [
+          {
+            ...workoutLog,
+            exerciseId:
+              workoutLog.exerciseId ??
+              resolvedExercise?.id ??
+              exercise.resolvedExerciseId ??
+              exercise.exerciseId,
+            muscleGroups: workoutLog.muscleGroups.length
+              ? workoutLog.muscleGroups
+              : (resolvedExercise?.muscleGroups ?? []),
+            targetDuration: exercise.duration,
+            targetReps: exercise.reps,
+            targetSets: exercise.sets,
+          },
+        ]
+      }) ?? []
+    const extraEntries = displayWorkoutExtraEntries.filter((entry) => {
+      return (
+        entry.type !== 'cardio' &&
+        (entry.completed ||
+          entry.setLogs.some((setLog) =>
+            hasCommittedSetLog(setLog, includeLoggedContent),
+          ))
+      )
+    })
+
+    return buildWorkoutMuscleProfile(
+      [...plannedEntries, ...extraEntries],
+      contentExercises,
+    )
+  }, [
+    contentExercises,
+    displayWorkoutExerciseLogs,
+    displayWorkoutExtraEntries,
+    displayedWorkoutPlannedExercises,
+    isSelectedWorkoutActive,
+    resolveExerciseForDisplay,
+  ])
+  const canShowCoveredMuscles = Boolean(displayWorkout)
 
   function dismissRestTimer() {
     setRestTimerSession(null)
@@ -624,7 +825,10 @@ export default function WorkoutPage({
   }
 
   function handleCommitWorkoutSet(setDetails: {
+    actionKind: 'planned' | 'extra'
     exerciseName: string
+    logId: string
+    prefillNext?: boolean
     rest: string
     setIndex: number
     setLog: WorkoutSetLogEntry
@@ -637,6 +841,16 @@ export default function WorkoutPage({
 
     if (!hasSetContent) {
       return
+    }
+
+    if (setDetails.actionKind === 'planned') {
+      onCommitWorkoutExerciseSet(setDetails.logId, setDetails.setIndex, {
+        prefillNext: setDetails.prefillNext,
+      })
+    } else {
+      onCommitWorkoutExtraExerciseSet(setDetails.logId, setDetails.setIndex, {
+        prefillNext: setDetails.prefillNext,
+      })
     }
 
     const restSeconds = parseRestLabelToSeconds(setDetails.rest)
@@ -706,7 +920,7 @@ export default function WorkoutPage({
         onDismissRestTimer={dismissRestTimer}
         restTimer={restTimerView}
         selectedWorkoutSectionName={selectedWorkoutSection.shortName || selectedWorkoutSection.name}
-        totalExerciseCount={selectedWorkoutSection.exercises.length}
+        totalExerciseCount={displayedWorkoutPlannedExercises.length}
       />
 
       {startThisDayAction ? (
@@ -725,8 +939,8 @@ export default function WorkoutPage({
         className="workout-day-visualizer workout-day-visualizer--focused"
         detailSheetDescription={
           visibleMuscleView === 'completed'
-            ? 'All muscle groups hit by exercises already completed during this day.'
-            : 'All muscle groups this day is designed to target.'
+            ? 'All muscle groups hit by exercises already logged or completed during this day.'
+            : 'All muscle groups targeted by the current exercise list for this day.'
         }
         detailsMode="sheet"
         gender={fitnessProfile.gender}
@@ -842,7 +1056,7 @@ export default function WorkoutPage({
                     value: 'completed',
                   })
                 }
-                disabled={!isSelectedWorkoutActive}
+                disabled={!canShowCoveredMuscles}
               >
                 Covered so far
               </button>
@@ -851,8 +1065,8 @@ export default function WorkoutPage({
         }
         profile={
           visibleMuscleView === 'completed'
-            ? completedWorkoutMuscles
-            : selectedWorkoutTargetProfile
+            ? displayedWorkoutCoveredProfile
+            : displayedWorkoutTargetProfile
         }
         title={visibleMuscleView === 'completed' ? 'Covered muscles' : 'Target muscles'}
       />
@@ -867,6 +1081,7 @@ export default function WorkoutPage({
         displayWorkoutExtraEntries={displayWorkoutExtraEntries}
         effortScale={fitnessProfile.effortScale}
         exertionOptions={exertionOptions}
+        fitnessProfile={fitnessProfile}
         isSelectedWorkoutActive={isSelectedWorkoutActive}
         onAddWorkoutExercise={onAddWorkoutExercise}
         onAddWorkoutExerciseSet={onAddWorkoutExerciseSet}
@@ -874,12 +1089,17 @@ export default function WorkoutPage({
         onCommitWorkoutSet={handleCommitWorkoutSet}
         onOpenExerciseDetails={onOpenExerciseDetails}
         onReorderWorkoutExercise={onReorderWorkoutExercise}
+        onRemoveWorkoutExercise={onRemoveWorkoutExercise}
         onRemoveWorkoutExtraExercise={onRemoveWorkoutExtraExercise}
+        onRemoveWorkoutExerciseSetLog={onRemoveWorkoutExerciseSetLog}
+        onRemoveWorkoutExtraExerciseSetLog={onRemoveWorkoutExtraExerciseSetLog}
         onSubstituteWorkoutExercise={onSubstituteWorkoutExercise}
         onSubstituteWorkoutExtraExercise={onSubstituteWorkoutExtraExercise}
         onToggleWorkoutExercise={onToggleWorkoutExercise}
         onToggleWorkoutExerciseSkipped={onToggleWorkoutExerciseSkipped}
         onToggleWorkoutExtraExercise={onToggleWorkoutExtraExercise}
+        onToggleWorkoutExerciseSetSuboptimal={onToggleWorkoutExerciseSetSuboptimal}
+        onToggleWorkoutExtraExerciseSetSuboptimal={onToggleWorkoutExtraExerciseSetSuboptimal}
         onUpdateWorkoutExerciseSetLog={onUpdateWorkoutExerciseSetLog}
         onUpdateWorkoutExtraExerciseSetLog={onUpdateWorkoutExtraExerciseSetLog}
         previewExerciseOrder={previewExerciseOrder}

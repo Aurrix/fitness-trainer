@@ -208,6 +208,14 @@ const CURL_INCLINE_SECONDARY = [
   ['biceps-short-head', 0.4],
   ['brachioradialis', 0.4],
 ]
+const CURL_STANDARD_PRIMARY = [
+  ['biceps-short-head', 0.9],
+  ['biceps-long-head', 0.8],
+]
+const CURL_STANDARD_SECONDARY = [
+  ['brachialis', 0.6],
+  ['brachioradialis', 0.4],
+]
 const KICKBACK_PRIMARY = [
   ['triceps-long-head', 0.9],
   ['triceps-lateral-head', 0.8],
@@ -355,6 +363,14 @@ const REVERSE_CRUNCH_PRIMARY = [
 ]
 const REVERSE_CRUNCH_SECONDARY = [
   ['obliques', 0.4],
+  ['transverse-abdominis', 0.3],
+]
+const OBLIQUE_CRUNCH_PRIMARY = [
+  ['obliques', 1],
+  ['upper-abs', 0.6],
+]
+const OBLIQUE_CRUNCH_SECONDARY = [
+  ['lower-abs', 0.4],
   ['transverse-abdominis', 0.3],
 ]
 const ROMANIAN_DEADLIFT_PRIMARY = [
@@ -610,7 +626,18 @@ const EXACT_TARGETS = new Map([
   ],
 ])
 
-assignTargets(['kneeling-cable-crunch'], CABLE_CRUNCH_PRIMARY, CABLE_CRUNCH_SECONDARY)
+assignTargets(
+  [
+    'abdominal-crunch-machine',
+    'kneeling-cable-crunch',
+    'plate-loaded-ab-crunch-machine',
+    'seated-abdominal-crunch-machine',
+  ],
+  CABLE_CRUNCH_PRIMARY,
+  CABLE_CRUNCH_SECONDARY,
+)
+assignTargets(['ab-coaster-crunch-machine'], LEG_RAISE_PRIMARY, LEG_RAISE_SECONDARY)
+assignTargets(['machine-oblique-crunch'], OBLIQUE_CRUNCH_PRIMARY, OBLIQUE_CRUNCH_SECONDARY)
 assignTargets(
   [
     'lateral-band-walk',
@@ -670,7 +697,11 @@ assignTargets(
   [],
 )
 assignTargets(['leg-extension-machine-hip-thrust'], HIP_THRUST_PRIMARY, HIP_THRUST_SECONDARY)
-assignTargets(['leg-press', 'single-leg-leg-press', 'single-leg-press'], LEG_PRESS_PRIMARY, LEG_PRESS_SECONDARY)
+assignTargets(
+  ['horizontal-leg-press', 'leg-press', 'single-leg-leg-press', 'single-leg-press', 'vertical-leg-press'],
+  LEG_PRESS_PRIMARY,
+  LEG_PRESS_SECONDARY,
+)
 assignTargets(
   ['leg-press-calf-press', 'slow-eccentric-leg-press-toe-press', 'smith-machine-calf-raise', 'standing-calf-raise'],
   CALF_PRESS_PRIMARY,
@@ -689,8 +720,15 @@ assignTargets(
 )
 assignTargets(['low-to-high-cable-flye'], INCLINE_FLY_PRIMARY, INCLINE_FLY_SECONDARY)
 assignTargets(['lat-prayer', 'lying-dumbbell-pullover'], PULLOVER_PRIMARY, PULLOVER_SECONDARY)
+assignTargets(['lower-back-machine'], HINGE_BACK_EXTENSION_PRIMARY, HINGE_BACK_EXTENSION_SECONDARY)
+assignTargets(
+  ['machine-biceps-curl', 'single-arm-machine-biceps-curl'],
+  CURL_STANDARD_PRIMARY,
+  CURL_STANDARD_SECONDARY,
+)
 assignTargets(['machine-chest-press', 'smith-machine-bench-press'], FLAT_PRESS_PRIMARY, FLAT_PRESS_SECONDARY)
 assignTargets(['machine-dip'], DIP_PRESS_PRIMARY, DIP_PRESS_SECONDARY)
+assignTargets(['machine-seated-preacher-curl'], CURL_CONCENTRATION_PRIMARY, CURL_CONCENTRATION_SECONDARY)
 assignTargets(
   ['pec-deck', 'pectoral-flye-cable', 'pectoral-flye-machine', 'standing-cable-flye'],
   FLAT_FLY_PRIMARY,
@@ -730,9 +768,14 @@ assignTargets(['reverse-lunge', 'smith-machine-split-squat', 'static-lunge'], SP
 assignTargets(['roman-chair-leg-raise'], LEG_RAISE_PRIMARY, LEG_RAISE_SECONDARY)
 assignTargets(['romanian-deadlift'], ROMANIAN_DEADLIFT_PRIMARY, ROMANIAN_DEADLIFT_SECONDARY)
 assignTargets(['rope-face-pull', 'seated-face-pull'], FACE_PULL_PRIMARY, FACE_PULL_SECONDARY)
-assignTargets(['rope-hammer-curl', 'seated-hammer-curl'], HAMMER_CURL_PRIMARY, HAMMER_CURL_SECONDARY)
+assignTargets(
+  ['machine-hammer-curl', 'rope-hammer-curl', 'seated-hammer-curl'],
+  HAMMER_CURL_PRIMARY,
+  HAMMER_CURL_SECONDARY,
+)
 assignTargets(
   [
+    'machine-overhead-triceps-extension',
     'overhead-cable-extension',
     'overhead-tricep-extension',
     'rope-overhead-triceps-extension',
@@ -748,7 +791,16 @@ assignTargets(['side-plank'], SIDE_PLANK_PRIMARY, SIDE_PLANK_SECONDARY)
 assignTargets(['sissy-squat'], SISSY_SQUAT_PRIMARY, SISSY_SQUAT_SECONDARY)
 assignTargets(['stationary-bike'], STATIONARY_BIKE_PRIMARY, STATIONARY_BIKE_SECONDARY)
 assignTargets(['sumo-deadlift'], SUMO_DEADLIFT_PRIMARY, SUMO_DEADLIFT_SECONDARY)
-assignTargets(['tricep-extension-machine', 'tricep-pressdown'], TRICEPS_PRESSDOWN_PRIMARY, TRICEPS_PRESSDOWN_SECONDARY)
+assignTargets(
+  [
+    'machine-triceps-press',
+    'single-arm-triceps-extension-machine',
+    'tricep-extension-machine',
+    'tricep-pressdown',
+  ],
+  TRICEPS_PRESSDOWN_PRIMARY,
+  TRICEPS_PRESSDOWN_SECONDARY,
+)
 assignTargets(['upright-row-cable', 'upright-row-ez-bar'], UPRIGHT_ROW_PRIMARY, UPRIGHT_ROW_SECONDARY)
 assignTargets(['v-sit-up'], LEG_RAISE_PRIMARY, LEG_RAISE_SECONDARY)
 assignTargets(['walking-lunge'], SPLIT_SQUAT_PRIMARY, SPLIT_SQUAT_SECONDARY)

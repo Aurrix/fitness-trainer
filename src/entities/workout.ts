@@ -1,8 +1,10 @@
 export type WorkoutSetLogEntry = {
+  completedAt: string | null
   duration: string
   effort: string
   loggedAt: string | null
   reps: string
+  suboptimal: boolean
   weightKg: string
 }
 
@@ -27,6 +29,7 @@ export type WorkoutExerciseLogEntry = {
   setLogs: WorkoutSetLogEntry[]
   skippedAt: string | null
   skipped: boolean
+  targetSetCountOverride: number | null
   type: WorkoutExerciseLogType
 }
 

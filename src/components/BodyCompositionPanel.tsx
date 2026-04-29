@@ -21,14 +21,11 @@ import thighsImage from '../assets/images/bodyparts/thighs.png'
 import waistImage from '../assets/images/bodyparts/waist.png'
 import type {
   BodyMeasurementKey,
-  BodyMeasurements,
   BodyStatEntry,
   BodyStatEntryInput,
 } from '../entities/body-stats'
 import {
   bodyMeasurementLabels,
-  bodyMeasurementKeys,
-  countRecordedMeasurements,
   createEmptyBodyMeasurements,
 } from '../entities/body-stats'
 import type {
@@ -77,6 +74,10 @@ type DrilldownState =
     }
   | null
 
+type LoggableBodyMetricKey = Extract<BodyMetricKey, 'bodyFatPercentage' | 'weightKg'>
+
+type MeasurementDraft = Partial<Record<BodyMeasurementKey, string>>
+
 const bodyMetricTileKeys: BodyMetricKey[] = [
   'weightKg',
   'bodyFatPercentage',
@@ -113,6 +114,14 @@ const bodyMetricChartColors: Record<BodyMetricKey, string> = {
   bodyFatPercentage: '#dc2626',
   leanMassKg: '#16a34a',
   bmi: '#2563eb',
+}
+
+const loggableBodyMetricKeys = new Set<BodyMetricKey>(['bodyFatPercentage', 'weightKg'])
+
+function getTodayDateInputValue() {
+  const now = new Date()
+  const timezoneOffsetMs = now.getTimezoneOffset() * 60_000
+  return new Date(now.getTime() - timezoneOffsetMs).toISOString().slice(0, 10)
 }
 
 function parseNullableNumber(value: string) {
@@ -156,6 +165,53 @@ function formatMonthlyRate(value: number | null) {
   return `${formatSignedNumber(value, 2)} cm/mo`
 }
 
+function isLoggableBodyMetricKey(key: BodyMetricKey): key is LoggableBodyMetricKey {
+  return loggableBodyMetricKeys.has(key)
+}
+
+function getBodyPartMeasurementKeys(key: BodyPartProgressKey): BodyMeasurementKey[] {
+  switch (key) {
+    case 'armsCm':
+      return ['leftArmCm', 'rightArmCm']
+    case 'calvesCm':
+      return ['leftCalfCm', 'rightCalfCm']
+    case 'forearmsCm':
+      return ['leftForearmCm', 'rightForearmCm']
+    case 'thighsCm':
+      return ['leftThighCm', 'rightThighCm']
+    case 'chestCm':
+      return ['chestCm']
+    case 'hipsCm':
+      return ['hipsCm']
+    case 'shouldersCm':
+      return ['shouldersCm']
+    case 'waistCm':
+    default:
+      return ['waistCm']
+  }
+}
+
+function getMetricEntryValue(entry: BodyStatEntry, key: LoggableBodyMetricKey) {
+  return key === 'weightKg' ? entry.weightKg : entry.bodyFatPercentage
+}
+
+function hasBodyPartEntry(entry: BodyStatEntry, measurementKeys: BodyMeasurementKey[]) {
+  return measurementKeys.some((measurementKey) => entry.measurements[measurementKey] !== null)
+}
+
+function formatBodyPartEntryValue(entry: BodyStatEntry, measurementKeys: BodyMeasurementKey[]) {
+  const measurementValues = measurementKeys
+    .map((measurementKey) => {
+      const value = entry.measurements[measurementKey]
+      return value !== null
+        ? `${bodyMeasurementLabels[measurementKey]} ${value.toFixed(1)} cm`
+        : null
+    })
+    .filter(Boolean)
+
+  return measurementValues.join(' / ') || 'No recorded value'
+}
+
 function TrendGlyph({
   direction,
 }: {
@@ -195,21 +251,15 @@ export default function BodyCompositionPanel({
   statsPreferences,
 }: BodyCompositionPanelProps) {
   const [activeDrilldown, setActiveDrilldown] = useState<DrilldownState>(null)
-  const [isEntrySheetOpen, setIsEntrySheetOpen] = useState(false)
-  const [bodyStatsDate, setBodyStatsDate] = useState(new Date().toISOString().slice(0, 10))
-  const [bodyStatsWeight, setBodyStatsWeight] = useState('')
-  const [bodyStatsBodyFat, setBodyStatsBodyFat] = useState('')
-  const [bodyStatsMeasurements, setBodyStatsMeasurements] = useState<BodyMeasurements>(() =>
-    createEmptyBodyMeasurements(),
-  )
-  const [bodyStatsNotes, setBodyStatsNotes] = useState('')
-  const measurementFields = useMemo(() => bodyMeasurementKeys, [])
+  const [metricEntryDate, setMetricEntryDate] = useState(getTodayDateInputValue)
+  const [metricEntryValue, setMetricEntryValue] = useState('')
+  const [bodyPartEntryDate, setBodyPartEntryDate] = useState(getTodayDateInputValue)
+  const [bodyPartEntryValues, setBodyPartEntryValues] = useState<MeasurementDraft>({})
   const sortedEntries = useMemo(() => {
     return [...bodyStatsEntries].sort((left, right) => right.recordedAt.localeCompare(left.recordedAt))
   }, [bodyStatsEntries])
   const latestEntry = sortedEntries[0] ?? null
   const latestRecordedAt = latestEntry?.recordedAt ?? null
-  const entryCoverage = latestEntry ? countRecordedMeasurements(latestEntry) : 0
 
   function updateBodyMetricRange(key: BodyMetricKey, range: StatsRangePreset) {
     onUpdateStatsPreferences((currentPreferences) => ({
@@ -231,48 +281,81 @@ export default function BodyCompositionPanel({
     }))
   }
 
-  function handleBodyStatsMeasurementChange(
-    key: BodyMeasurementKey,
-    rawValue: string,
-  ) {
-    setBodyStatsMeasurements((currentMeasurements) => ({
-      ...currentMeasurements,
-      [key]: parseNullableNumber(rawValue),
-    }))
-  }
-
-  function resetEntryForm() {
-    setBodyStatsBodyFat('')
-    setBodyStatsDate(new Date().toISOString().slice(0, 10))
-    setBodyStatsMeasurements(createEmptyBodyMeasurements())
-    setBodyStatsNotes('')
-    setBodyStatsWeight('')
-  }
-
-  function handleBodyStatsSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-
-    const nextEntry: BodyStatEntryInput = {
-      bodyFatPercentage: parseNullableNumber(bodyStatsBodyFat),
-      measurements: bodyStatsMeasurements,
-      notes: bodyStatsNotes.trim(),
-      recordedAt: bodyStatsDate,
-      weightKg: parseNullableNumber(bodyStatsWeight),
+  function openMetricDrilldown(key: BodyMetricKey) {
+    if (isLoggableBodyMetricKey(key)) {
+      setMetricEntryDate(getTodayDateInputValue())
+      setMetricEntryValue('')
     }
 
-    const hasMeasurement = Object.values(nextEntry.measurements).some((value) => value !== null)
+    setActiveDrilldown({ key, kind: 'metric' })
+  }
 
-    if (
-      nextEntry.weightKg === null &&
-      nextEntry.bodyFatPercentage === null &&
-      !hasMeasurement
-    ) {
+  function openBodyPartDrilldown(key: BodyPartProgressKey) {
+    setBodyPartEntryDate(getTodayDateInputValue())
+    setBodyPartEntryValues({})
+    setActiveDrilldown({ key, kind: 'part' })
+  }
+
+  function handleMetricEntrySubmit(
+    event: FormEvent<HTMLFormElement>,
+    key: LoggableBodyMetricKey,
+  ) {
+    event.preventDefault()
+
+    const parsedValue = parseNullableNumber(metricEntryValue)
+
+    if (parsedValue === null) {
       return
     }
 
-    onAddBodyStatsEntry(nextEntry)
-    resetEntryForm()
-    setIsEntrySheetOpen(false)
+    onAddBodyStatsEntry({
+      bodyFatPercentage: key === 'bodyFatPercentage' ? parsedValue : null,
+      measurements: createEmptyBodyMeasurements(),
+      notes: '',
+      recordedAt: metricEntryDate || getTodayDateInputValue(),
+      weightKg: key === 'weightKg' ? parsedValue : null,
+    })
+    setMetricEntryValue('')
+  }
+
+  function updateBodyPartEntryValue(key: BodyMeasurementKey, rawValue: string) {
+    setBodyPartEntryValues((currentValues) => ({
+      ...currentValues,
+      [key]: rawValue,
+    }))
+  }
+
+  function handleBodyPartEntrySubmit(
+    event: FormEvent<HTMLFormElement>,
+    key: BodyPartProgressKey,
+  ) {
+    event.preventDefault()
+
+    const measurements = createEmptyBodyMeasurements()
+    const measurementKeys = getBodyPartMeasurementKeys(key)
+    let hasMeasurement = false
+
+    measurementKeys.forEach((measurementKey) => {
+      const parsedValue = parseNullableNumber(bodyPartEntryValues[measurementKey] ?? '')
+
+      if (parsedValue !== null) {
+        measurements[measurementKey] = parsedValue
+        hasMeasurement = true
+      }
+    })
+
+    if (!hasMeasurement) {
+      return
+    }
+
+    onAddBodyStatsEntry({
+      bodyFatPercentage: null,
+      measurements,
+      notes: '',
+      recordedAt: bodyPartEntryDate || getTodayDateInputValue(),
+      weightKg: null,
+    })
+    setBodyPartEntryValues({})
   }
 
   const metricTiles = bodyMetricTileKeys.map((metricKey) => {
@@ -313,6 +396,24 @@ export default function BodyCompositionPanel({
     activeDrilldown?.kind === 'part'
       ? bodyPartTiles.find((tile) => tile.bodyPartKey === activeDrilldown.key) ?? null
       : null
+  const activeMetricInputKey =
+    activeMetricTile && isLoggableBodyMetricKey(activeMetricTile.metricKey)
+      ? activeMetricTile.metricKey
+      : null
+  const activeMetricHistory = activeMetricInputKey
+    ? sortedEntries
+        .filter((entry) => getMetricEntryValue(entry, activeMetricInputKey) !== null)
+        .slice(0, 6)
+    : []
+  const activeBodyPartMeasurementKeys = activeBodyPartTile
+    ? getBodyPartMeasurementKeys(activeBodyPartTile.bodyPartKey)
+    : []
+  const activeBodyPartHistory = activeBodyPartTile
+    ? sortedEntries
+        .filter((entry) => hasBodyPartEntry(entry, activeBodyPartMeasurementKeys))
+        .slice(0, 6)
+    : []
+  const trackedBodyPartCount = bodyPartTiles.filter((tile) => tile.summary.current !== null).length
 
   return (
     <>
@@ -323,18 +424,10 @@ export default function BodyCompositionPanel({
             <h3>Body composition</h3>
             <p className="muted">
               {latestRecordedAt
-                ? `Last snapshot ${latestRecordedAt} / ${sortedEntries.length} entries`
-                : 'Log snapshots to track weight, body fat, and body-part changes over time.'}
+                ? `Last entry ${latestRecordedAt} / ${sortedEntries.length} entries`
+                : 'Tap a metric or body-part card to save a single entry.'}
             </p>
           </div>
-          <button
-            type="button"
-            className="primary-button icon-button stats-panel__action"
-            onClick={() => setIsEntrySheetOpen(true)}
-          >
-            <Plus size={16} />
-            <span>Log</span>
-          </button>
         </div>
 
         <div className="trend-tile-grid">
@@ -344,7 +437,7 @@ export default function BodyCompositionPanel({
                 key={metricKey}
                 type="button"
                 className={`trend-tile trend-tile--${summary.tone}`}
-                onClick={() => setActiveDrilldown({ key: metricKey, kind: 'metric' })}
+                onClick={() => openMetricDrilldown(metricKey)}
               >
                 <span className="trend-tile__icon" aria-hidden="true">
                   {getMetricIcon(metricKey)}
@@ -384,20 +477,76 @@ export default function BodyCompositionPanel({
       <GrowthMapCard
         bodyPartImages={bodyPartImages}
         bodyPartTiles={bodyPartTiles}
-        entryCoverage={entryCoverage}
+        entryCoverage={trackedBodyPartCount}
         formatBodyPartValue={formatBodyPartValue}
         formatMonthlyRate={formatMonthlyRate}
-        onOpenBodyPart={(key) => setActiveDrilldown({ key, kind: 'part' })}
+        onOpenBodyPart={openBodyPartDrilldown}
         renderTrendGlyph={(direction) => <TrendGlyph direction={direction} />}
       />
 
       {activeMetricTile ? (
         <BottomSheet
-          description="Pick a time window to inspect the metric trend on this device."
+          description="Save a single entry or inspect this metric trend on this device."
           kicker="Body Trend"
           onClose={() => setActiveDrilldown(null)}
           title={bodyMetricLabels[activeMetricTile.metricKey]}
         >
+          {activeMetricInputKey ? (
+            <form
+              className="body-stats-entry-form body-stats-entry-form--compact"
+              onSubmit={(event) => handleMetricEntrySubmit(event, activeMetricInputKey)}
+            >
+              <div className="body-stats-entry-form__section-header">
+                <div>
+                  <h4>Add {bodyMetricLabels[activeMetricInputKey]}</h4>
+                  <p className="muted">
+                    Save only this value. Other body stats can be added from their own cards.
+                  </p>
+                </div>
+              </div>
+              <div className="body-stats-entry-form__value-grid">
+                <label className="field">
+                  <span className="field-label">Date</span>
+                  <input
+                    type="date"
+                    required
+                    value={metricEntryDate}
+                    onChange={(event) => setMetricEntryDate(event.target.value)}
+                  />
+                </label>
+                <label className="field">
+                  <span className="field-label">
+                    {bodyMetricLabels[activeMetricInputKey]} ({bodyMetricUnits[activeMetricInputKey]})
+                  </span>
+                  <input
+                    type="number"
+                    inputMode="decimal"
+                    required
+                    step="0.1"
+                    value={metricEntryValue}
+                    onChange={(event) => setMetricEntryValue(event.target.value)}
+                    placeholder={activeMetricInputKey === 'weightKg' ? '82.5' : '16.2'}
+                  />
+                </label>
+              </div>
+              <div className="row-actions body-stats-entry-form__actions">
+                <button type="submit" className="primary-button icon-button">
+                  {getMetricIcon(activeMetricInputKey)}
+                  <span>Save entry</span>
+                </button>
+              </div>
+            </form>
+          ) : (
+            <div className="insight-card">
+              <h4>Calculated metric</h4>
+              <p>
+                {activeMetricTile.metricKey === 'bmi'
+                  ? 'BMI updates from weight entries when your profile has a saved height.'
+                  : 'Lean mass updates from saved weight and body-fat entries.'}
+              </p>
+            </div>
+          )}
+
           <div className="sheet-segmented-control">
             {statsRangePresetOptions.map((option) => (
               <button
@@ -459,19 +608,94 @@ export default function BodyCompositionPanel({
           ) : (
             <div className="empty-state compact-empty-state">
               <h3>No trend data yet</h3>
-              <p>Save at least one body snapshot to start charting this metric.</p>
+              <p>Save at least one entry to start charting this metric.</p>
             </div>
           )}
+
+          {activeMetricInputKey && activeMetricHistory.length ? (
+            <div className="body-stats-history">
+              <div className="body-stats-entry-form__section-header">
+                <h4>Recent entries</h4>
+              </div>
+              {activeMetricHistory.map((entry) => (
+                <article key={entry.id} className="body-stats-history__row">
+                  <div>
+                    <h4>{formatShortDate(entry.recordedAt)}</h4>
+                    <p className="muted">
+                      {formatMetricValue(
+                        activeMetricInputKey,
+                        getMetricEntryValue(entry, activeMetricInputKey),
+                      )}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    className="chip-button workout-table__icon-button workout-table__remove-button body-stats-history__delete"
+                    onClick={() => onRemoveBodyStatsEntry(entry.id)}
+                    aria-label={`Delete ${bodyMetricLabels[activeMetricInputKey]} entry from ${entry.recordedAt}`}
+                  >
+                    <Trash2 size={14} />
+                  </button>
+                </article>
+              ))}
+            </div>
+          ) : null}
         </BottomSheet>
       ) : null}
 
       {activeBodyPartTile ? (
         <BottomSheet
-          description="Use the saved profile to compare body-part changes against expected monthly benchmarks."
+          description="Save a body-part measurement and compare changes against expected monthly benchmarks."
           kicker="Body-Part Trend"
           onClose={() => setActiveDrilldown(null)}
           title={bodyPartProgressLabels[activeBodyPartTile.bodyPartKey]}
         >
+          <form
+            className="body-stats-entry-form body-stats-entry-form--compact"
+            onSubmit={(event) =>
+              handleBodyPartEntrySubmit(event, activeBodyPartTile.bodyPartKey)
+            }
+          >
+            <div className="body-stats-entry-form__section-header">
+              <div>
+                <h4>Add {bodyPartProgressLabels[activeBodyPartTile.bodyPartKey]}</h4>
+                <p className="muted">Save the available circumference values for this body part.</p>
+              </div>
+            </div>
+            <div className="body-stats-entry-form__value-grid">
+              <label className="field">
+                <span className="field-label">Date</span>
+                <input
+                  type="date"
+                  required
+                  value={bodyPartEntryDate}
+                  onChange={(event) => setBodyPartEntryDate(event.target.value)}
+                />
+              </label>
+              {activeBodyPartMeasurementKeys.map((measurementKey) => (
+                <label key={measurementKey} className="field">
+                  <span className="field-label">{bodyMeasurementLabels[measurementKey]} (cm)</span>
+                  <input
+                    type="number"
+                    inputMode="decimal"
+                    step="0.1"
+                    value={bodyPartEntryValues[measurementKey] ?? ''}
+                    onChange={(event) =>
+                      updateBodyPartEntryValue(measurementKey, event.target.value)
+                    }
+                    placeholder="0.0"
+                  />
+                </label>
+              ))}
+            </div>
+            <div className="row-actions body-stats-entry-form__actions">
+              <button type="submit" className="primary-button icon-button">
+                <Ruler size={16} />
+                <span>Save entry</span>
+              </button>
+            </div>
+          </form>
+
           <div className="sheet-segmented-control">
             {statsRangePresetOptions.map((option) => (
               <button
@@ -545,121 +769,25 @@ export default function BodyCompositionPanel({
               <p>Save measurements for this area to inspect its trend and benchmark fit.</p>
             </div>
           )}
-        </BottomSheet>
-      ) : null}
 
-      {isEntrySheetOpen ? (
-        <BottomSheet
-          description="Save weight, body fat, and optional measurements for future progression and projection."
-          kicker="Entry"
-          onClose={() => setIsEntrySheetOpen(false)}
-          title="Save body snapshot"
-        >
-          <form className="body-stats-entry-form" onSubmit={handleBodyStatsSubmit}>
-            <div className="form-grid body-stats-entry-form__summary-grid">
-              <label className="field">
-                <span className="field-label">Date</span>
-                <input
-                  type="date"
-                  value={bodyStatsDate}
-                  onChange={(event) => setBodyStatsDate(event.target.value)}
-                />
-              </label>
-              <label className="field">
-                <span className="field-label">Weight (kg)</span>
-                <input
-                  type="number"
-                  inputMode="decimal"
-                  step="0.1"
-                  value={bodyStatsWeight}
-                  onChange={(event) => setBodyStatsWeight(event.target.value)}
-                  placeholder="82.5"
-                />
-              </label>
-              <label className="field">
-                <span className="field-label">Body Fat (%)</span>
-                <input
-                  type="number"
-                  inputMode="decimal"
-                  step="0.1"
-                  value={bodyStatsBodyFat}
-                  onChange={(event) => setBodyStatsBodyFat(event.target.value)}
-                  placeholder="16.2"
-                />
-              </label>
-            </div>
-
-            <section className="body-stats-entry-form__section">
+          {activeBodyPartHistory.length ? (
+            <div className="body-stats-history">
               <div className="body-stats-entry-form__section-header">
-                <div>
-                  <h4>Measurements</h4>
-                  <p className="muted">Optional circumference values in centimeters.</p>
-                </div>
+                <h4>Recent entries</h4>
               </div>
-
-              <div className="form-grid body-stats-entry-form__measurement-grid">
-                {measurementFields.map((measurementKey) => (
-                  <label key={measurementKey} className="field">
-                    <span className="field-label">{bodyMeasurementLabels[measurementKey]} (cm)</span>
-                    <input
-                      type="number"
-                      inputMode="decimal"
-                      step="0.1"
-                      value={bodyStatsMeasurements[measurementKey] ?? ''}
-                      onChange={(event) =>
-                        handleBodyStatsMeasurementChange(measurementKey, event.target.value)
-                      }
-                      placeholder="0.0"
-                    />
-                  </label>
-                ))}
-              </div>
-            </section>
-
-            <label className="field field--full">
-              <span className="field-label">Notes</span>
-              <textarea
-                rows={3}
-                value={bodyStatsNotes}
-                onChange={(event) => setBodyStatsNotes(event.target.value)}
-                placeholder="Morning weigh-in, cut checkpoint, peak week, travel rebound..."
-              />
-            </label>
-
-            <div className="row-actions body-stats-entry-form__actions">
-              <button type="submit" className="primary-button icon-button">
-                <Scale size={16} />
-                <span>Save snapshot</span>
-              </button>
-            </div>
-          </form>
-
-          {sortedEntries.length ? (
-            <div className="card-stack">
-              {sortedEntries.slice(0, 6).map((entry) => (
-                <article key={entry.id} className="log-card">
+              {activeBodyPartHistory.map((entry) => (
+                <article key={entry.id} className="body-stats-history__row">
                   <div>
                     <h4>{formatShortDate(entry.recordedAt)}</h4>
                     <p className="muted">
-                      {[
-                        entry.weightKg !== null ? `${entry.weightKg} kg` : null,
-                        entry.bodyFatPercentage !== null
-                          ? `${entry.bodyFatPercentage}% fat`
-                          : null,
-                        countRecordedMeasurements(entry)
-                          ? `${countRecordedMeasurements(entry)} measurements`
-                          : null,
-                      ]
-                        .filter(Boolean)
-                        .join(' / ') || 'No recorded values'}
+                      {formatBodyPartEntryValue(entry, activeBodyPartMeasurementKeys)}
                     </p>
-                    {entry.notes ? <p className="muted">{entry.notes}</p> : null}
                   </div>
                   <button
                     type="button"
-                    className="chip-button workout-table__icon-button workout-table__remove-button"
+                    className="chip-button workout-table__icon-button workout-table__remove-button body-stats-history__delete"
                     onClick={() => onRemoveBodyStatsEntry(entry.id)}
-                    aria-label={`Delete body stats entry from ${entry.recordedAt}`}
+                    aria-label={`Delete ${bodyPartProgressLabels[activeBodyPartTile.bodyPartKey]} entry from ${entry.recordedAt}`}
                   >
                     <Trash2 size={14} />
                   </button>

@@ -1,10 +1,22 @@
 {
   "manifests": [
     {
+      "id": "ab-coaster-crunch-machine",
+      "displayLabel": "Ab Coaster Crunch Machine",
+      "shortDescription": "Machine core movement that draws the knees upward through a guided crunch path.",
+      "file": "ab-coaster-crunch-machine.json"
+    },
+    {
       "id": "ab-wheel-rollout",
       "displayLabel": "Ab Wheel Rollout",
       "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
       "file": "ab-wheel-rollout.json"
+    },
+    {
+      "id": "abdominal-crunch-machine",
+      "displayLabel": "Abdominal Crunch Machine",
+      "shortDescription": "Machine trunk-flexion movement for loaded abdominal crunches.",
+      "file": "abdominal-crunch-machine.json"
     },
     {
       "id": "adductor-machine",
@@ -667,6 +679,12 @@
       "file": "hollow-body-hold.json"
     },
     {
+      "id": "horizontal-leg-press",
+      "displayLabel": "Horizontal Leg Press",
+      "shortDescription": "Seated machine leg press where the feet push the platform forward on a horizontal path.",
+      "file": "horizontal-leg-press.json"
+    },
+    {
       "id": "humble-row",
       "displayLabel": "Humble Row",
       "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
@@ -811,6 +829,12 @@
       "file": "low-to-high-cable-flye.json"
     },
     {
+      "id": "lower-back-machine",
+      "displayLabel": "Lower Back Machine",
+      "shortDescription": "Machine back-extension movement for spinal erector and posterior-chain strength.",
+      "file": "lower-back-machine.json"
+    },
+    {
       "id": "lying-dumbbell-pullover",
       "displayLabel": "Lying Dumbbell Pullover",
       "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
@@ -821,6 +845,12 @@
       "displayLabel": "Lying Leg Curl",
       "shortDescription": "Knee-flexion isolation movement for the hamstrings.",
       "file": "lying-leg-curl.json"
+    },
+    {
+      "id": "machine-biceps-curl",
+      "displayLabel": "Machine Biceps Curl",
+      "shortDescription": "Machine elbow-flexion movement for the biceps with fixed-path resistance.",
+      "file": "machine-biceps-curl.json"
     },
     {
       "id": "machine-chest-press",
@@ -841,6 +871,12 @@
       "file": "machine-glute-kickback.json"
     },
     {
+      "id": "machine-hammer-curl",
+      "displayLabel": "Machine Hammer Curl",
+      "shortDescription": "Neutral-grip machine curl variation emphasizing the brachialis and brachioradialis.",
+      "file": "machine-hammer-curl.json"
+    },
+    {
       "id": "machine-incline-chest-press",
       "displayLabel": "Machine Incline Chest Press",
       "shortDescription": "Pressing variation for chest, front delts, and triceps.",
@@ -853,16 +889,40 @@
       "file": "machine-lateral-raise.json"
     },
     {
+      "id": "machine-oblique-crunch",
+      "displayLabel": "Machine Oblique Crunch",
+      "shortDescription": "Machine crunch variation targeting side trunk flexion and the obliques.",
+      "file": "machine-oblique-crunch.json"
+    },
+    {
+      "id": "machine-overhead-triceps-extension",
+      "displayLabel": "Machine Overhead Triceps Extension",
+      "shortDescription": "Overhead machine triceps extension emphasizing the long head through elbow extension.",
+      "file": "machine-overhead-triceps-extension.json"
+    },
+    {
       "id": "machine-row-both-with-chest-support",
       "displayLabel": "Machine Row (both With Chest Support)",
       "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
       "file": "machine-row-both-with-chest-support.json"
     },
     {
+      "id": "machine-seated-preacher-curl",
+      "displayLabel": "Machine Seated Preacher Curl",
+      "shortDescription": "Machine biceps curl variation using a preacher pad to keep the upper arms supported.",
+      "file": "machine-seated-preacher-curl.json"
+    },
+    {
       "id": "machine-shoulder-press",
       "displayLabel": "Machine Shoulder Press",
       "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
       "file": "machine-shoulder-press.json"
+    },
+    {
+      "id": "machine-triceps-press",
+      "displayLabel": "Machine Triceps Press",
+      "shortDescription": "Seated machine triceps press focused on elbow extension with supported arms.",
+      "file": "machine-triceps-press.json"
     },
     {
       "id": "neck-extension",
@@ -947,6 +1007,12 @@
       "displayLabel": "Plank",
       "shortDescription": "Core movement for trunk flexion, anti-extension, or rotational control.",
       "file": "plank.json"
+    },
+    {
+      "id": "plate-loaded-ab-crunch-machine",
+      "displayLabel": "Plate-Loaded Ab Crunch Machine",
+      "shortDescription": "Plate-loaded machine crunch variation for progressive abdominal flexion work.",
+      "file": "plate-loaded-ab-crunch-machine.json"
     },
     {
       "id": "plate-loaded-hip-abduction",
@@ -1099,6 +1165,12 @@
       "file": "seal-row.json"
     },
     {
+      "id": "seated-abdominal-crunch-machine",
+      "displayLabel": "Seated Abdominal Crunch Machine",
+      "shortDescription": "Seated machine crunch variation using a fixed pad or handles to load trunk flexion.",
+      "file": "seated-abdominal-crunch-machine.json"
+    },
+    {
       "id": "seated-barbell-overhead-press",
       "displayLabel": "Seated Barbell Overhead Press",
       "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
@@ -1159,6 +1231,12 @@
       "file": "single-arm-dumbbell-curl.json"
     },
     {
+      "id": "single-arm-machine-biceps-curl",
+      "displayLabel": "Single-Arm Machine Biceps Curl",
+      "shortDescription": "Unilateral machine curl variation for training each biceps side independently.",
+      "file": "single-arm-machine-biceps-curl.json"
+    },
+    {
       "id": "single-arm-machine-row",
       "displayLabel": "Single Arm Machine Row",
       "shortDescription": "Upper-back and lat pulling movement for width or thickness.",
@@ -1175,6 +1253,12 @@
       "displayLabel": "Single-arm Rope Tricep Extension",
       "shortDescription": "Triceps accessory movement for elbow extension volume.",
       "file": "single-arm-rope-tricep-extension.json"
+    },
+    {
+      "id": "single-arm-triceps-extension-machine",
+      "displayLabel": "Single-Arm Triceps Extension Machine",
+      "shortDescription": "Unilateral machine triceps extension for isolating elbow extension one arm at a time.",
+      "file": "single-arm-triceps-extension-machine.json"
     },
     {
       "id": "single-leg-extension",
@@ -1367,6 +1451,12 @@
       "displayLabel": "V Sit-up",
       "shortDescription": "Resistance training exercise used across the imported workout books.",
       "file": "v-sit-up.json"
+    },
+    {
+      "id": "vertical-leg-press",
+      "displayLabel": "Vertical Leg Press",
+      "shortDescription": "Supine leg press variation where the feet drive the sled upward while lying on the back.",
+      "file": "vertical-leg-press.json"
     },
     {
       "id": "walking-lunge",

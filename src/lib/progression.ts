@@ -433,6 +433,50 @@ export function buildBodyMetricSeries(
   profile: FitnessProfile,
   key: BodyMetricKey,
 ) {
+  if (key === 'leanMassKg') {
+    const sortedEntries = [...entries].sort((left, right) =>
+      left.recordedAt.localeCompare(right.recordedAt),
+    )
+    const points: MetricPoint[] = []
+    let activeDate: string | null = null
+    let hasBodyCompositionUpdateForDate = false
+    let latestBodyFatPercentage = profile.bodyFatPercentage
+    let latestWeightKg = profile.weightKg
+
+    function pushLeanMassPoint() {
+      if (!activeDate || !hasBodyCompositionUpdateForDate) {
+        return
+      }
+
+      const leanMass = buildLeanMass(latestWeightKg, latestBodyFatPercentage)
+
+      if (leanMass !== null) {
+        points.push(buildMetricPoint(activeDate, leanMass))
+      }
+    }
+
+    sortedEntries.forEach((entry) => {
+      if (activeDate !== entry.recordedAt) {
+        pushLeanMassPoint()
+        activeDate = entry.recordedAt
+        hasBodyCompositionUpdateForDate = false
+      }
+
+      if (entry.weightKg !== null) {
+        latestWeightKg = entry.weightKg
+        hasBodyCompositionUpdateForDate = true
+      }
+
+      if (entry.bodyFatPercentage !== null) {
+        latestBodyFatPercentage = entry.bodyFatPercentage
+        hasBodyCompositionUpdateForDate = true
+      }
+    })
+    pushLeanMassPoint()
+
+    return points
+  }
+
   return [...entries]
     .sort((left, right) => left.recordedAt.localeCompare(right.recordedAt))
     .flatMap((entry) => {
@@ -454,10 +498,6 @@ export function buildBodyMetricSeries(
           return entry.bodyFatPercentage !== null
             ? [buildMetricPoint(entry.recordedAt, entry.bodyFatPercentage)]
             : []
-        case 'leanMassKg': {
-          const leanMass = buildLeanMass(entry.weightKg, entry.bodyFatPercentage)
-          return leanMass !== null ? [buildMetricPoint(entry.recordedAt, leanMass)] : []
-        }
         case 'weightKg':
           return entry.weightKg !== null ? [buildMetricPoint(entry.recordedAt, entry.weightKg)] : []
         default:

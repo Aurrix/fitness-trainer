@@ -5,8 +5,9 @@ import {
   formatExerciseMuscleTargetFactor,
 } from '../entities/exercise-muscles'
 import type { Exercise } from '../lib/content'
-import type { FitnessProfileGender } from '../lib/fitness-profile'
+import type { FitnessProfile } from '../lib/fitness-profile'
 import { buildExerciseMuscleProfile } from '../lib/muscles'
+import ExerciseBenchmarkPanel from './ExerciseBenchmarkPanel'
 import ExerciseStatsPanel from './ExerciseStatsPanel'
 import MuscleVisualizer from './MuscleVisualizer'
 
@@ -22,7 +23,7 @@ type ExerciseAlternative = {
 type ExerciseDetailSheetProps = {
   alternatives: ExerciseAlternative[]
   exercise: Exercise
-  gender: FitnessProfileGender
+  fitnessProfile: FitnessProfile
   isSaved: boolean
   onClose: () => void
   onSelectAlternative: (exerciseId: string) => void
@@ -33,7 +34,7 @@ type ExerciseDetailSheetProps = {
 export default function ExerciseDetailSheet({
   alternatives,
   exercise,
-  gender,
+  fitnessProfile,
   isSaved,
   onClose,
   onSelectAlternative,
@@ -94,11 +95,13 @@ export default function ExerciseDetailSheet({
 
             <MuscleVisualizer
               description="Primary coverage for this exercise."
-              gender={gender}
+              gender={fitnessProfile.gender}
               profile={buildExerciseMuscleProfile(exercise)}
               title={exercise.name}
             />
           </section>
+
+          <ExerciseBenchmarkPanel exercise={exercise} fitnessProfile={fitnessProfile} />
 
           <ExerciseStatsPanel exercise={exercise} statsRecord={statsRecord} />
 

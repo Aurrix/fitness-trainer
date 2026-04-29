@@ -1,0 +1,250 @@
+{
+  "id": "vertical-leg-press",
+  "displayLabel": "Vertical Leg Press",
+  "shortDescription": "Supine leg press variation where the feet drive the sled upward while lying on the back.",
+  "descriptionHtml": "<p>Supine leg press variation where the feet drive the sled upward while lying on the back.</p><ul><li><strong>Also listed as:</strong> Lying Vertical Leg Press and Vertical Leg Press Machine</li><li><strong>Common substitutions:</strong> Leg Press, Horizontal Leg Press, Hack Squat, and Single-Leg Leg Press</li></ul>",
+  "aliases": [
+    "Lying Vertical Leg Press",
+    "Vertical Leg Press Machine"
+  ],
+  "substitutionExerciseIds": [
+    "leg-press",
+    "horizontal-leg-press",
+    "hack-squat",
+    "single-leg-leg-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-lateralis",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "rectus-femoris",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "vastus-medialis",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "vastus-intermedius",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "adductor-magnus",
+      "factor": 0.4
+    }
+  ],
+  "difficulty": "Intermediate",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "loaded sled weight on the vertical leg press, excluding the sled carriage",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              46,
+              56
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              136,
+              159
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              210,
+              245
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              46,
+              56
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              136,
+              159
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              210,
+              245
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              42,
+              50
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              123,
+              143
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              189,
+              220
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              22,
+              27
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              85,
+              99
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              139,
+              162
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              22,
+              27
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              85,
+              99
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              139,
+              162
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              20,
+              24
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              77,
+              89
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              5,
+              8
+            ],
+            "loadRangeKg": [
+              125,
+              146
+            ]
+          }
+        }
+      }
+    }
+  }
+}

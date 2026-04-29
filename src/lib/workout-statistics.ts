@@ -109,6 +109,7 @@ function summarizeSetLogs(setLogs: WorkoutSetLogEntry[]) {
       recordedAt: setLog.loggedAt,
       reps,
       setIndex: index + 1,
+      suboptimal: setLog.suboptimal,
       weightKg,
     })
   })

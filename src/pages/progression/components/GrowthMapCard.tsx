@@ -39,7 +39,7 @@ export default function GrowthMapCard({
           <p className="kicker">Body Parts</p>
           <h3>Growth map</h3>
           <p className="muted">
-            Compare circumference trends against the saved age, gender, and experience profile.
+            Tap a body-part card to add a measurement or inspect its trend.
           </p>
         </div>
         <div className="progression-growth-map__header-actions">

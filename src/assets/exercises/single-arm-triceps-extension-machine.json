@@ -1,0 +1,237 @@
+{
+  "id": "single-arm-triceps-extension-machine",
+  "displayLabel": "Single-Arm Triceps Extension Machine",
+  "shortDescription": "Unilateral machine triceps extension for isolating elbow extension one arm at a time.",
+  "descriptionHtml": "<p>Unilateral machine triceps extension for isolating elbow extension one arm at a time.</p><ul><li><strong>Also listed as:</strong> Single Arm Triceps Extension Machine and One-Arm Tricep Extension Machine</li><li><strong>Common substitutions:</strong> Tricep Extension Machine, Single-arm Rope Tricep Extension, Machine Triceps Press, and Cable Tricep Kickback</li></ul>",
+  "aliases": [
+    "Single Arm Triceps Extension Machine",
+    "One-Arm Tricep Extension Machine"
+  ],
+  "substitutionExerciseIds": [
+    "tricep-extension-machine",
+    "single-arm-rope-tricep-extension",
+    "machine-triceps-press",
+    "cable-tricep-kickback"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-lateral-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "triceps-medial-head",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "selected machine stack or plate-loaded resistance for the working arm",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              19,
+              24
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              32,
+              40
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              5,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              19,
+              24
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              32,
+              40
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              4,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              17,
+              22
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              29,
+              36
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              10,
+              13
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              18,
+              23
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              10,
+              13
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              18,
+              23
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              9,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              6,
+              10
+            ],
+            "loadRangeKg": [
+              16,
+              21
+            ]
+          }
+        }
+      }
+    }
+  }
+}

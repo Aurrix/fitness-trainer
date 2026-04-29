@@ -365,6 +365,13 @@ const BARBELL_CURL_IDS = new Set([
 
 const BARBELL_CURL_21_IDS = new Set(['ez-bar-curl-21s'])
 
+const MACHINE_CURL_IDS = new Set([
+  'machine-biceps-curl',
+  'machine-hammer-curl',
+  'machine-seated-preacher-curl',
+  'single-arm-machine-biceps-curl',
+])
+
 const TRICEP_CABLE_IDS = new Set([
   'cable-tricep-kickback',
   'overhead-cable-extension',
@@ -374,7 +381,12 @@ const TRICEP_CABLE_IDS = new Set([
   'tricep-pressdown',
 ])
 
-const TRICEP_MACHINE_IDS = new Set(['tricep-extension-machine'])
+const TRICEP_MACHINE_IDS = new Set([
+  'machine-overhead-triceps-extension',
+  'machine-triceps-press',
+  'single-arm-triceps-extension-machine',
+  'tricep-extension-machine',
+])
 
 const TRICEP_DUMBBELL_IDS = new Set([
   'dumbbell-kickback',
@@ -471,6 +483,14 @@ const BODYWEIGHT_CRUNCH_IDS = new Set([
   'standing-oblique-crunch',
 ])
 
+const AB_MACHINE_CRUNCH_IDS = new Set([
+  'ab-coaster-crunch-machine',
+  'abdominal-crunch-machine',
+  'machine-oblique-crunch',
+  'plate-loaded-ab-crunch-machine',
+  'seated-abdominal-crunch-machine',
+])
+
 const BODYWEIGHT_LEG_RAISE_IDS = new Set([
   'captain-s-chair-crunch',
   'decline-leg-raise',
@@ -502,7 +522,7 @@ const HACK_SQUAT_IDS = new Set(['hack-squat'])
 const GOBLET_SQUAT_IDS = new Set(['goblet-squat'])
 const SISSY_SQUAT_IDS = new Set(['sissy-squat'])
 const ASSISTED_PISTOL_IDS = new Set(['assisted-pistol-squat'])
-const LEG_PRESS_IDS = new Set(['leg-press'])
+const LEG_PRESS_IDS = new Set(['horizontal-leg-press', 'leg-press', 'vertical-leg-press'])
 const SINGLE_LEG_PRESS_IDS = new Set(['single-leg-leg-press', 'single-leg-press'])
 
 const BODYWEIGHT_SINGLE_LEG_IDS = new Set([
@@ -533,6 +553,7 @@ const RDL_IDS = new Set([
 const BARBELL_HIP_THRUST_IDS = new Set(['barbell-hip-thrust'])
 const MACHINE_HIP_THRUST_IDS = new Set(['leg-extension-machine-hip-thrust'])
 const DUMBBELL_HIP_THRUST_IDS = new Set(['dumbbell-single-leg-hip-thrust'])
+const LOWER_BACK_MACHINE_IDS = new Set(['lower-back-machine'])
 
 const BODYWEIGHT_HIP_HINGE_IDS = new Set([
   'back-extension',
@@ -1045,6 +1066,20 @@ function createBenchmark(record) {
     })
   }
 
+  if (isOneOf(id, AB_MACHINE_CRUNCH_IDS)) {
+    return buildLoadBenchmark({
+      basis:
+        id === 'plate-loaded-ab-crunch-machine'
+          ? 'loaded plates on the crunch machine lever'
+          : 'selected machine stack or plate-loaded resistance',
+      anchors: scaleAnchors(
+        ANCHORS.tricepPushdown,
+        id === 'ab-coaster-crunch-machine' || id === 'machine-oblique-crunch' ? 0.65 : 0.85,
+      ),
+      scheme: SCHEMES.highRepIsolation,
+    })
+  }
+
   if (isOneOf(id, BODYWEIGHT_LEG_RAISE_IDS)) {
     return buildBodyweightRepBenchmark({
       basis: 'strict bodyweight reps',
@@ -1219,8 +1254,18 @@ function createBenchmark(record) {
 
   if (isOneOf(id, LEG_PRESS_IDS)) {
     return buildLoadBenchmark({
-      basis: 'loaded sled weight on the leg press, excluding the sled carriage',
-      anchors: ANCHORS.legPress,
+      basis:
+        id === 'horizontal-leg-press'
+          ? 'selected machine stack or horizontal sled resistance'
+          : id === 'vertical-leg-press'
+            ? 'loaded sled weight on the vertical leg press, excluding the sled carriage'
+            : 'loaded sled weight on the leg press, excluding the sled carriage',
+      anchors:
+        id === 'horizontal-leg-press'
+          ? scaleAnchors(ANCHORS.legPress, 0.8)
+          : id === 'vertical-leg-press'
+            ? scaleAnchors(ANCHORS.legPress, 0.9)
+            : ANCHORS.legPress,
       scheme: SCHEMES.machineCompound,
     })
   }
@@ -1307,6 +1352,14 @@ function createBenchmark(record) {
       basis: 'single dumbbell total load placed across the hips',
       anchors: scaleAnchors(ANCHORS.hipThrust, 0.22),
       scheme: SCHEMES.moderateCompound,
+    })
+  }
+
+  if (isOneOf(id, LOWER_BACK_MACHINE_IDS)) {
+    return buildLoadBenchmark({
+      basis: 'selected machine stack or plate-loaded lower-back extension resistance',
+      anchors: scaleAnchors(ANCHORS.deadlift, 0.45),
+      scheme: SCHEMES.highRepIsolation,
     })
   }
 
@@ -1621,6 +1674,22 @@ function createBenchmark(record) {
     })
   }
 
+  if (isOneOf(id, MACHINE_CURL_IDS)) {
+    return buildLoadBenchmark({
+      basis:
+        id === 'single-arm-machine-biceps-curl'
+          ? 'selected machine stack or plate-loaded resistance for the working arm'
+          : 'selected machine stack or plate-loaded resistance',
+      anchors:
+        id === 'single-arm-machine-biceps-curl'
+          ? scaleAnchors(ANCHORS.barbellCurl, 0.45)
+          : id === 'machine-hammer-curl'
+            ? scaleAnchors(ANCHORS.barbellCurl, 0.85)
+            : scaleAnchors(ANCHORS.barbellCurl, 0.75),
+      scheme: SCHEMES.isolation,
+    })
+  }
+
   if (isOneOf(id, CABLE_CURL_IDS)) {
     return buildLoadBenchmark({
       basis:
@@ -1710,8 +1779,16 @@ function createBenchmark(record) {
 
   if (isOneOf(id, TRICEP_MACHINE_IDS)) {
     return buildLoadBenchmark({
-      basis: 'selected machine stack weight',
-      anchors: scaleAnchors(ANCHORS.tricepPushdown, 1.1),
+      basis:
+        id === 'single-arm-triceps-extension-machine'
+          ? 'selected machine stack or plate-loaded resistance for the working arm'
+          : 'selected machine stack or plate-loaded resistance',
+      anchors:
+        id === 'single-arm-triceps-extension-machine'
+          ? scaleAnchors(ANCHORS.tricepPushdown, 0.6)
+          : id === 'machine-overhead-triceps-extension'
+            ? scaleAnchors(ANCHORS.ropePushdown, 0.95)
+            : scaleAnchors(ANCHORS.tricepPushdown, 1.1),
       scheme: SCHEMES.isolation,
     })
   }

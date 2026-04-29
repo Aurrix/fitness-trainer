@@ -55,8 +55,6 @@ import {
   type FitnessProfile,
 } from './lib/fitness-profile'
 import {
-  buildSectionMuscleProfile,
-  buildWorkoutMuscleProfile,
   slugify,
 } from './lib/muscles'
 import {
@@ -76,6 +74,7 @@ import {
   customProgramToDraft,
   customProgramToProgram,
   createWorkoutExerciseLogEntry,
+  createWorkoutSetLogEntry,
   draftToCustomProgram,
   programToDraft,
   type ActiveWorkout,
@@ -618,8 +617,22 @@ function App() {
       )
     : null
 
+  const activeWorkoutPlannedExerciseIds =
+    activeProgramSession && activeWorkout
+      ? buildWorkoutExerciseOrder(
+          activeWorkout.exerciseOrder,
+          activeWorkout.exerciseLogs ?? {},
+          activeWorkout.extraEntries ?? [],
+        ).filter((entryId) => activeWorkout.exerciseLogs[entryId]?.type === 'planned')
+      : (activeProgramSession?.section.exercises.map((exercise) => exercise.id) ?? [])
+  const activeWorkoutPlannedExerciseCount = activeWorkoutPlannedExerciseIds.length
+  const activeWorkoutPlannedExerciseIdSet = new Set(activeWorkoutPlannedExerciseIds)
   const completedPlannedExerciseCount = activeProgramSession
     ? activeProgramSession.section.exercises.filter((exercise) => {
+        if (!activeWorkoutPlannedExerciseIdSet.has(exercise.id)) {
+          return false
+        }
+
         return (
           activeWorkoutExerciseLogs[exercise.id]?.completed ||
           activeWorkout?.completedExerciseIds.includes(exercise.id)
@@ -628,6 +641,10 @@ function App() {
     : 0
   const handledPlannedExerciseCount = activeProgramSession
     ? activeProgramSession.section.exercises.filter((exercise) => {
+        if (!activeWorkoutPlannedExerciseIdSet.has(exercise.id)) {
+          return false
+        }
+
         const workoutLog = activeWorkoutExerciseLogs[exercise.id]
         return (
           workoutLog?.completed ||
@@ -639,60 +656,13 @@ function App() {
   const completionRatio = activeProgramSession
     ? Math.round(
         (handledPlannedExerciseCount /
-          Math.max(activeProgramSession.section.exercises.length, 1)) *
+          Math.max(activeWorkoutPlannedExerciseCount, 1)) *
           100,
       )
     : 0
   const activityLevelLabel = findOptionLabel(
     fitnessActivityLevelOptions,
     fitnessProfile.activityLevel,
-  )
-  const selectedWorkoutTargetProfile = buildSectionMuscleProfile(
-    selectedWorkoutSection,
-    contentLibrary.exercises,
-  )
-  const completedWorkoutMuscles = buildWorkoutMuscleProfile(
-    [
-      ...(activeProgramSession && isSelectedWorkoutActive
-        ? activeProgramSession.section.exercises.flatMap((exercise) => {
-            const workoutLog = activeWorkoutExerciseLogs[exercise.id]
-            const isCompleted =
-              workoutLog?.completed ||
-              activeWorkout?.completedExerciseIds.includes(exercise.id)
-
-            if (!isCompleted) {
-              return []
-            }
-
-            const resolvedExercise = resolveExerciseForDisplay(exercise)
-
-            return [
-              {
-                ...(workoutLog ?? {}),
-                completed: true,
-                exerciseId:
-                  workoutLog?.exerciseId ??
-                  resolvedExercise?.id ??
-                  exercise.resolvedExerciseId ??
-                  exercise.exerciseId,
-                exerciseName: workoutLog?.exerciseName ?? exercise.exerciseName,
-                muscleGroups: workoutLog?.muscleGroups.length
-                  ? workoutLog.muscleGroups
-                  : (resolvedExercise?.muscleGroups ?? []),
-                setLogs: workoutLog?.setLogs ?? [],
-                targetDuration: exercise.duration,
-                targetReps: exercise.reps,
-                targetSets: exercise.sets,
-                type: 'planned',
-              },
-            ]
-          })
-        : []),
-      ...activeWorkoutExtraEntries.filter((entry) => {
-        return entry.completed && entry.type !== 'cardio'
-      }),
-    ],
-    contentLibrary.exercises,
   )
   const exertionOptions = getEffortOptions(fitnessProfile)
   const workoutNavStyle = {
@@ -745,6 +715,21 @@ function App() {
 
   function countLoggedSetResponses(setLogs: WorkoutSetLogEntry[]) {
     return setLogs.filter((setLog) => hasLoggedSetResponse(setLog)).length
+  }
+
+  function shouldKeepExistingSetLog(setLog: WorkoutSetLogEntry) {
+    return Boolean(
+      hasLoggedSetResponse(setLog) || setLog.completedAt || setLog.suboptimal,
+    )
+  }
+
+  function createNextSetLogFrom(setLog: WorkoutSetLogEntry) {
+    return createWorkoutSetLogEntry({
+      duration: setLog.duration,
+      effort: setLog.effort,
+      reps: setLog.reps,
+      weightKg: setLog.weightKg,
+    })
   }
 
   function updateFitnessProfile<K extends keyof FitnessProfile>(
@@ -1342,7 +1327,165 @@ function App() {
     })
   }
 
-  function addWorkoutExerciseSet(exerciseId: string) {
+  function commitWorkoutExerciseSet(
+    exerciseId: string,
+    setIndex: number,
+    options?: { prefillNext?: boolean },
+  ) {
+    setActiveWorkout((currentWorkout) => {
+      if (!currentWorkout) {
+        return currentWorkout
+      }
+
+      const loggedAt = new Date().toISOString()
+      const currentLog =
+        currentWorkout.exerciseLogs?.[exerciseId] ??
+        createWorkoutExerciseLogEntry('Exercise', {
+          logId: exerciseId,
+          plannedExerciseId: exerciseId,
+          type: 'planned',
+        })
+      const requiredSetCount = setIndex + 1 + (options?.prefillNext ? 1 : 0)
+      const sourceSetLogs = ensureWorkoutSetLogs(currentLog.setLogs, requiredSetCount)
+      const sourceSetLog = sourceSetLogs[setIndex] ?? createWorkoutSetLogEntry()
+      const nextSetLogs = sourceSetLogs.map((setLog, index) => {
+        if (index === setIndex) {
+          return {
+            ...setLog,
+            completedAt: loggedAt,
+            loggedAt,
+          }
+        }
+
+        if (
+          options?.prefillNext &&
+          index === setIndex + 1 &&
+          !shouldKeepExistingSetLog(setLog)
+        ) {
+          return createNextSetLogFrom(sourceSetLog)
+        }
+
+        return setLog
+      })
+      const completedSets = countLoggedSetResponses(nextSetLogs)
+
+      return {
+        ...currentWorkout,
+        updatedAt: loggedAt,
+        exerciseLogs: {
+          ...(currentWorkout.exerciseLogs ?? {}),
+          [exerciseId]: {
+            ...currentLog,
+            completedSets: completedSets ? String(completedSets) : '',
+            firstLoggedAt: currentLog.firstLoggedAt ?? loggedAt,
+            lastLoggedAt: loggedAt,
+            setLogs: nextSetLogs,
+            skipped: false,
+            skippedAt: null,
+          },
+        },
+      }
+    })
+  }
+
+  function removeWorkoutExerciseSetLog(
+    exerciseId: string,
+    setIndex: number,
+    nextVisibleSetCount?: number,
+  ) {
+    setActiveWorkout((currentWorkout) => {
+      if (!currentWorkout) {
+        return currentWorkout
+      }
+
+      if (setIndex < 0) {
+        return currentWorkout
+      }
+
+      const loggedAt = new Date().toISOString()
+      const currentLog =
+        currentWorkout.exerciseLogs?.[exerciseId] ??
+        createWorkoutExerciseLogEntry('Exercise', {
+          logId: exerciseId,
+          plannedExerciseId: exerciseId,
+          type: 'planned',
+        })
+      const nextSetLogs =
+        setIndex < currentLog.setLogs.length
+          ? currentLog.setLogs.filter((_, index) => index !== setIndex)
+          : currentLog.setLogs
+      const completedSets = countLoggedSetResponses(nextSetLogs)
+      const targetSetCountOverride =
+        typeof nextVisibleSetCount === 'number'
+          ? Math.max(1, nextVisibleSetCount)
+          : Math.max(
+              1,
+              Math.max(
+                currentLog.targetSetCountOverride ?? 1,
+                currentLog.setLogs.length,
+              ) - 1,
+            )
+
+      return {
+        ...currentWorkout,
+        updatedAt: loggedAt,
+        exerciseLogs: {
+          ...(currentWorkout.exerciseLogs ?? {}),
+          [exerciseId]: {
+            ...currentLog,
+            completedSets: completedSets ? String(completedSets) : '',
+            firstLoggedAt: currentLog.firstLoggedAt ?? loggedAt,
+            lastLoggedAt: loggedAt,
+            setLogs: nextSetLogs,
+            targetSetCountOverride,
+          },
+        },
+      }
+    })
+  }
+
+  function toggleWorkoutExerciseSetSuboptimal(exerciseId: string, setIndex: number) {
+    setActiveWorkout((currentWorkout) => {
+      if (!currentWorkout) {
+        return currentWorkout
+      }
+
+      const loggedAt = new Date().toISOString()
+      const currentLog = currentWorkout.exerciseLogs?.[exerciseId]
+      const currentSetLog = currentLog?.setLogs[setIndex]
+
+      if (!currentLog || !currentSetLog?.completedAt) {
+        return currentWorkout
+      }
+
+      const nextSetLogs = currentLog.setLogs.map((setLog, index) => {
+        if (index !== setIndex) {
+          return setLog
+        }
+
+        return {
+          ...setLog,
+          loggedAt,
+          suboptimal: !setLog.suboptimal,
+        }
+      })
+
+      return {
+        ...currentWorkout,
+        updatedAt: loggedAt,
+        exerciseLogs: {
+          ...(currentWorkout.exerciseLogs ?? {}),
+          [exerciseId]: {
+            ...currentLog,
+            lastLoggedAt: loggedAt,
+            setLogs: nextSetLogs,
+          },
+        },
+      }
+    })
+  }
+
+  function addWorkoutExerciseSet(exerciseId: string, visibleSetCount?: number) {
     if (!activeWorkout) {
       return
     }
@@ -1360,6 +1503,12 @@ function App() {
           plannedExerciseId: exerciseId,
           type: 'planned',
         })
+      const nextVisibleSetCount = Math.max(
+        1,
+        (visibleSetCount ??
+          currentLog.targetSetCountOverride ??
+          Math.max(1, currentLog.setLogs.length)) + 1,
+      )
 
       return {
         ...currentWorkout,
@@ -1372,10 +1521,11 @@ function App() {
             lastLoggedAt: loggedAt,
             setLogs: ensureWorkoutSetLogs(
               currentLog.setLogs,
-              Math.max(1, currentLog.setLogs.length) + 1,
+              nextVisibleSetCount,
             ),
             skipped: false,
             skippedAt: null,
+            targetSetCountOverride: nextVisibleSetCount,
           },
         },
       }
@@ -1409,6 +1559,55 @@ function App() {
         extraEntries: [...(currentWorkout.extraEntries ?? []), nextEntry],
       }
     })
+  }
+
+  function removeWorkoutExercise(exerciseId: string) {
+    if (!activeWorkout) {
+      return
+    }
+
+    const currentLog = activeWorkout.exerciseLogs?.[exerciseId]
+    const hasExistingResponses = Boolean(
+      currentLog?.completed ||
+        currentLog?.skipped ||
+        currentLog?.setLogs.some((setLog) => hasLoggedSetResponse(setLog)),
+    )
+
+    if (
+      hasExistingResponses &&
+      !window.confirm(
+        `Remove "${currentLog?.exerciseName ?? 'this exercise'}" from this workout and clear its logged responses?`,
+      )
+    ) {
+      return
+    }
+
+    const removedExerciseName = currentLog?.exerciseName ?? 'Exercise'
+
+    setActiveWorkout((currentWorkout) => {
+      if (!currentWorkout) {
+        return currentWorkout
+      }
+
+      const loggedAt = new Date().toISOString()
+      const nextExerciseLogs = { ...(currentWorkout.exerciseLogs ?? {}) }
+      delete nextExerciseLogs[exerciseId]
+
+      return {
+        ...currentWorkout,
+        updatedAt: loggedAt,
+        completedExerciseIds: currentWorkout.completedExerciseIds.filter(
+          (id) => id !== exerciseId,
+        ),
+        exerciseLogs: nextExerciseLogs,
+        exerciseOrder: buildWorkoutExerciseOrder(
+          currentWorkout.exerciseOrder,
+          nextExerciseLogs,
+          currentWorkout.extraEntries ?? [],
+        ).filter((entryId) => entryId !== exerciseId),
+      }
+    })
+    showBanner('success', `Removed ${removedExerciseName} from this workout.`)
   }
 
   function substituteWorkoutExercise(exerciseId: string, exercise: Exercise) {
@@ -1458,6 +1657,7 @@ function App() {
               muscleGroups: exercise.muscleGroups,
               plannedExerciseId: exerciseId,
               setLogs: ensureWorkoutSetLogs([], entry.setLogs.length),
+              targetSetCountOverride: entry.targetSetCountOverride,
               type: 'planned',
             }),
           },
@@ -1519,6 +1719,150 @@ function App() {
     })
   }
 
+  function commitWorkoutExtraExerciseSet(
+    logId: string,
+    setIndex: number,
+    options?: { prefillNext?: boolean },
+  ) {
+    setActiveWorkout((currentWorkout) => {
+      if (!currentWorkout) {
+        return currentWorkout
+      }
+
+      const loggedAt = new Date().toISOString()
+      return {
+        ...currentWorkout,
+        updatedAt: loggedAt,
+        extraEntries: (currentWorkout.extraEntries ?? []).map((entry) => {
+          if (entry.logId !== logId) {
+            return entry
+          }
+
+          const requiredSetCount = setIndex + 1 + (options?.prefillNext ? 1 : 0)
+          const sourceSetLogs = ensureWorkoutSetLogs(entry.setLogs, requiredSetCount)
+          const sourceSetLog = sourceSetLogs[setIndex] ?? createWorkoutSetLogEntry()
+          const nextSetLogs = sourceSetLogs.map((setLog, index) => {
+            if (index === setIndex) {
+              return {
+                ...setLog,
+                completedAt: loggedAt,
+                loggedAt,
+              }
+            }
+
+            if (
+              options?.prefillNext &&
+              index === setIndex + 1 &&
+              !shouldKeepExistingSetLog(setLog)
+            ) {
+              return createNextSetLogFrom(sourceSetLog)
+            }
+
+            return setLog
+          })
+          const completedSets = countLoggedSetResponses(nextSetLogs)
+
+          return {
+            ...entry,
+            completedSets: completedSets ? String(completedSets) : '',
+            firstLoggedAt: entry.firstLoggedAt ?? loggedAt,
+            lastLoggedAt: loggedAt,
+            setLogs: nextSetLogs,
+            skipped: false,
+            skippedAt: null,
+          }
+        }),
+      }
+    })
+  }
+
+  function removeWorkoutExtraExerciseSetLog(
+    logId: string,
+    setIndex: number,
+    nextVisibleSetCount?: number,
+  ) {
+    setActiveWorkout((currentWorkout) => {
+      if (!currentWorkout) {
+        return currentWorkout
+      }
+
+      const loggedAt = new Date().toISOString()
+      return {
+        ...currentWorkout,
+        updatedAt: loggedAt,
+        extraEntries: (currentWorkout.extraEntries ?? []).map((entry) => {
+          if (entry.logId !== logId || setIndex < 0) {
+            return entry
+          }
+
+          const nextSetLogs =
+            setIndex < entry.setLogs.length
+              ? entry.setLogs.filter((_, index) => index !== setIndex)
+              : entry.setLogs
+          const completedSets = countLoggedSetResponses(nextSetLogs)
+          const targetSetCountOverride =
+            typeof nextVisibleSetCount === 'number'
+              ? Math.max(1, nextVisibleSetCount)
+              : Math.max(
+                  1,
+                  Math.max(entry.targetSetCountOverride ?? 1, entry.setLogs.length) - 1,
+                )
+
+          return {
+            ...entry,
+            completedSets: completedSets ? String(completedSets) : '',
+            lastLoggedAt: loggedAt,
+            setLogs: nextSetLogs,
+            targetSetCountOverride,
+          }
+        }),
+      }
+    })
+  }
+
+  function toggleWorkoutExtraExerciseSetSuboptimal(logId: string, setIndex: number) {
+    setActiveWorkout((currentWorkout) => {
+      if (!currentWorkout) {
+        return currentWorkout
+      }
+
+      const loggedAt = new Date().toISOString()
+      return {
+        ...currentWorkout,
+        updatedAt: loggedAt,
+        extraEntries: (currentWorkout.extraEntries ?? []).map((entry) => {
+          if (entry.logId !== logId) {
+            return entry
+          }
+
+          const currentSetLog = entry.setLogs[setIndex]
+
+          if (!currentSetLog?.completedAt) {
+            return entry
+          }
+
+          const nextSetLogs = entry.setLogs.map((setLog, index) => {
+            if (index !== setIndex) {
+              return setLog
+            }
+
+            return {
+              ...setLog,
+              loggedAt,
+              suboptimal: !setLog.suboptimal,
+            }
+          })
+
+          return {
+            ...entry,
+            lastLoggedAt: loggedAt,
+            setLogs: nextSetLogs,
+          }
+        }),
+      }
+    })
+  }
+
   function substituteWorkoutExtraExercise(logId: string, exercise: Exercise) {
     if (!activeWorkout) {
       return
@@ -1561,6 +1905,7 @@ function App() {
               muscleGroups: exercise.muscleGroups,
               plannedExerciseId: null,
               setLogs: ensureWorkoutSetLogs([], entry.setLogs.length),
+              targetSetCountOverride: entry.targetSetCountOverride,
               type: 'extra-exercise',
             }),
           }
@@ -1570,7 +1915,7 @@ function App() {
     showBanner('success', `Substituted with ${exercise.name}.`)
   }
 
-  function addWorkoutExtraExerciseSet(logId: string) {
+  function addWorkoutExtraExerciseSet(logId: string, visibleSetCount?: number) {
     if (!activeWorkout) {
       return
     }
@@ -1589,14 +1934,19 @@ function App() {
             return entry
           }
 
+          const nextVisibleSetCount = Math.max(
+            1,
+            (visibleSetCount ??
+              entry.targetSetCountOverride ??
+              Math.max(1, entry.setLogs.length)) + 1,
+          )
+
           return {
             ...entry,
             firstLoggedAt: entry.firstLoggedAt ?? loggedAt,
             lastLoggedAt: loggedAt,
-            setLogs: ensureWorkoutSetLogs(
-              entry.setLogs,
-              Math.max(1, entry.setLogs.length) + 1,
-            ),
+            setLogs: ensureWorkoutSetLogs(entry.setLogs, nextVisibleSetCount),
+            targetSetCountOverride: nextVisibleSetCount,
           }
         }),
       }
@@ -1831,7 +2181,7 @@ function App() {
       completedAt: finishedAt,
       durationMinutes,
       completedExerciseCount: completedPlannedExerciseCount,
-      totalExerciseCount: activeProgramSession.section.exercises.length,
+      totalExerciseCount: activeWorkoutPlannedExerciseCount,
       notes: activeWorkout.notes.trim(),
     }
     const programDayLog = buildProgramDayLog(
@@ -1840,7 +2190,7 @@ function App() {
       finishedAt,
       durationMinutes,
       completedPlannedExerciseCount,
-      activeProgramSession.section.exercises.length,
+      activeWorkoutPlannedExerciseCount,
     )
     const nextWorkoutDay = getNextWorkoutDayOption(
       activeProgramSession.program,
@@ -2085,7 +2435,6 @@ function App() {
             activeWorkoutExtraEntries={activeWorkoutExtraEntries}
             completionRatio={completionRatio}
             contentExercises={contentLibrary.exercises}
-            completedWorkoutMuscles={completedWorkoutMuscles}
             exertionOptions={exertionOptions}
             fitnessProfile={fitnessProfile}
             handledPlannedExerciseCount={handledPlannedExerciseCount}
@@ -2093,11 +2442,16 @@ function App() {
             onAddWorkoutExercise={addWorkoutExtraExercise}
             onAddWorkoutExerciseSet={addWorkoutExerciseSet}
             onAddWorkoutExtraExerciseSet={addWorkoutExtraExerciseSet}
+            onCommitWorkoutExerciseSet={commitWorkoutExerciseSet}
+            onCommitWorkoutExtraExerciseSet={commitWorkoutExtraExerciseSet}
             launchProgram={launchProgram}
             onOpenExerciseDetails={openExerciseDetails}
             onOpenLibrary={openLibrary}
             onReorderWorkoutExercise={reorderWorkoutExercise}
+            onRemoveWorkoutExercise={removeWorkoutExercise}
             onRemoveWorkoutExtraExercise={removeWorkoutExtraExercise}
+            onRemoveWorkoutExerciseSetLog={removeWorkoutExerciseSetLog}
+            onRemoveWorkoutExtraExerciseSetLog={removeWorkoutExtraExerciseSetLog}
             onSetSelectedWorkoutSectionId={selectWorkoutSection}
             onStartWorkout={startWorkout}
             onSubstituteWorkoutExercise={substituteWorkoutExercise}
@@ -2105,6 +2459,8 @@ function App() {
             onToggleWorkoutExercise={toggleWorkoutExercise}
             onToggleWorkoutExerciseSkipped={toggleWorkoutExerciseSkipped}
             onToggleWorkoutExtraExercise={toggleWorkoutExtraExercise}
+            onToggleWorkoutExerciseSetSuboptimal={toggleWorkoutExerciseSetSuboptimal}
+            onToggleWorkoutExtraExerciseSetSuboptimal={toggleWorkoutExtraExerciseSetSuboptimal}
             onUpdateWorkoutExerciseSetLog={updateWorkoutExerciseSetLog}
             onUpdateWorkoutExtraExerciseSetLog={updateWorkoutExtraExerciseSetLog}
             previewExerciseOrder={selectedWorkoutPreviewOrder}
@@ -2115,7 +2471,6 @@ function App() {
             resolveExerciseForDisplay={resolveExerciseForDisplay}
             selectedWorkoutDay={selectedWorkoutDay}
             selectedWorkoutSection={selectedWorkoutSection}
-            selectedWorkoutTargetProfile={selectedWorkoutTargetProfile}
             selectedWorkoutWeek={selectedWorkoutWeek}
             workoutLogs={workoutLogs}
             workoutWeeks={workoutWeeks}
@@ -2202,7 +2557,7 @@ function App() {
         <ExerciseDetailSheet
           alternatives={selectedExerciseAlternatives}
           exercise={selectedExercise}
-          gender={fitnessProfile.gender}
+          fitnessProfile={fitnessProfile}
           isSaved={savedExerciseIdSet.has(selectedExercise.id)}
           onClose={() => setSelectedExerciseId(null)}
           onSelectAlternative={setSelectedExerciseId}

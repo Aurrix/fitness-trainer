@@ -265,7 +265,7 @@ function inferMovementTags(record) {
     }
   }
 
-  if (/(deadlift|hip-thrust|glute-bridge|hyper|back-extension|pull-through)/.test(id)) {
+  if (/(deadlift|hip-thrust|glute-bridge|hyper|back-extension|lower-back-machine|pull-through)/.test(id)) {
     return {
       family: 'hinge',
       subtype:
@@ -326,7 +326,10 @@ function inferMovementTags(record) {
     return { family: 'chest', subtype: 'dip', emphasis: primaryMuscles[0] ?? null }
   }
 
-  if (/(bench|press|push-up|pushup)/.test(id) && !/(leg-press|shoulder-press|overhead-press)/.test(id)) {
+  if (
+    /(bench|press|push-up|pushup)/.test(id) &&
+    !/(leg-press|shoulder-press|overhead-press|tricep|triceps)/.test(id)
+  ) {
     return {
       family: 'chest',
       subtype: /incline/.test(id)
@@ -359,7 +362,7 @@ function inferMovementTags(record) {
   if (/(tricep|triceps|skull|french-press|jm-press|kickback)/.test(id)) {
     return {
       family: 'triceps',
-      subtype: /pressdown/.test(id)
+      subtype: /(pressdown|press)/.test(id)
         ? 'pressdown'
         : /overhead/.test(id)
           ? 'overhead-extension'

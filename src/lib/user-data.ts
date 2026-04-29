@@ -92,6 +92,13 @@ function toNumberValue(value: unknown, fallback = 0) {
   return Number.isFinite(parsedValue) ? parsedValue : fallback
 }
 
+function toNullableNumberValue(value: unknown) {
+  const parsedValue =
+    typeof value === 'number' ? value : typeof value === 'string' ? Number(value) : NaN
+
+  return Number.isFinite(parsedValue) ? parsedValue : null
+}
+
 function toEffortScale(value: unknown): WorkoutLog['exertionScale'] {
   return value === 'rir' || value === 'effort' ? value : 'rpe'
 }
@@ -104,10 +111,12 @@ export function createWorkoutSetLogEntry(
   options?: Partial<WorkoutSetLogEntry>,
 ): WorkoutSetLogEntry {
   return {
+    completedAt: null,
     duration: '',
     effort: '',
     loggedAt: null,
     reps: '',
+    suboptimal: false,
     weightKg: '',
     ...options,
   }
@@ -147,6 +156,7 @@ export function createWorkoutExerciseLogEntry(
     setLogs: [],
     skippedAt: null,
     skipped: false,
+    targetSetCountOverride: null,
     type: 'planned',
     ...options,
   }
@@ -256,10 +266,12 @@ export function normalizeWorkoutExerciseLogEntry(
             }
 
             return createWorkoutSetLogEntry({
+              completedAt: toNullableStringValue(entry.completedAt),
               duration: toStringValue(entry.duration),
               effort: toStringValue(entry.effort),
               loggedAt: toNullableStringValue(entry.loggedAt),
               reps: toStringValue(entry.reps),
+              suboptimal: entry.suboptimal === true,
               weightKg: toStringValue(entry.weightKg),
             })
           })
@@ -269,6 +281,7 @@ export function normalizeWorkoutExerciseLogEntry(
       lastLoggedAt: toNullableStringValue(value.lastLoggedAt),
       skipped: value.skipped === true,
       skippedAt: toNullableStringValue(value.skippedAt),
+      targetSetCountOverride: toNullableNumberValue(value.targetSetCountOverride),
       type:
         value.type === 'extra-exercise' || value.type === 'cardio'
           ? value.type

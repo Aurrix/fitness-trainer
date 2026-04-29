@@ -132,6 +132,7 @@ function normalizeSetPerformanceSample(value: unknown): ExerciseSetPerformanceSa
     recordedAt: toNullableStringValue(value.recordedAt),
     reps: toNullableNumber(value.reps),
     setIndex: setIndex ?? 1,
+    suboptimal: value.suboptimal === true,
     weightKg: toNullableNumber(value.weightKg),
   }
 }

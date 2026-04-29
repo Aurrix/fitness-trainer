@@ -346,7 +346,7 @@ function deriveMuscleTargets(record) {
     )
   }
 
-  if (has('reverse hyper', 'hyperextension', 'back extension')) {
+  if (has('reverse hyper', 'hyperextension', 'back extension', 'lower back machine')) {
     return withTargets(
       [target(MG.spinalErectors, 1), target(MG.gluteMax, 0.8)],
       [target(MG.bicepsFemoris, 0.6)],
@@ -496,7 +496,7 @@ function deriveMuscleTargets(record) {
     )
   }
 
-  if (has('leg raise', 'v sit')) {
+  if (has('ab coaster', 'leg raise', 'v sit')) {
     return withTargets(
       [target(MG.lowerAbs, 1), target(MG.hipFlexors, 0.8)],
       [target(MG.upperAbs, 0.5), target(MG.obliques, 0.3)],
@@ -536,7 +536,16 @@ function deriveMuscleTargets(record) {
     )
   }
 
-  if (has('pressdown', 'kickback', 'tricep extension machine', 'triceps extension machine')) {
+  if (
+    has(
+      'pressdown',
+      'kickback',
+      'tricep extension machine',
+      'tricep press',
+      'triceps extension machine',
+      'triceps press',
+    )
+  ) {
     return withTargets(
       [
         target(MG.tricepsLateralHead, 1),
