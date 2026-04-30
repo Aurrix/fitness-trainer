@@ -1,12 +1,18 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type PointerEvent as ReactPointerEvent,
+} from 'react'
 import { useDrag, useDrop } from 'react-dnd'
 import {
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
   CheckCircle2,
-  Circle,
-  Clock3,
   Flag,
   GripVertical,
   Info,
@@ -449,6 +455,28 @@ function hasSetLogContent(setLog: WorkoutSetLogEntry) {
   )
 }
 
+function shouldIgnoreRowSwipeTarget(target: EventTarget | null) {
+  if (!(target instanceof Element)) {
+    return true
+  }
+
+  return Boolean(
+    target.closest(
+      [
+        'input',
+        'select',
+        'textarea',
+        '.workout-table__drag-handle',
+        '.workout-table__set-icon-action',
+        '.workout-table__set-primary-rail-button',
+        '.workout-table__append-button',
+        '.workout-table__append-remove-button',
+        '.workout-table__resolved-status',
+      ].join(', '),
+    ),
+  )
+}
+
 function getRecentPerformanceSamples(statsRecord: ExerciseStatsRecord | null) {
   return (
     statsRecord?.progressionHistory
@@ -562,13 +590,22 @@ function SortableWorkoutRow({
   const rowRef = useRef<HTMLTableRowElement | null>(null)
   const resolveHoldTimeoutRef = useRef<number | null>(null)
   const shouldIgnoreResolveClickRef = useRef(false)
+  const swipeStateRef = useRef<{
+    pointerId: number
+    startX: number
+    startY: number
+  } | null>(null)
   const setLogs = ensureWorkoutSetLogs(row.log.setLogs, row.visibleSetCount)
   const isInputDisabled = !isSelectedWorkoutActive || row.log.skipped
   const isCompactResolvedRow = row.log.completed || row.log.skipped
   const [isResolveHolding, setIsResolveHolding] = useState(false)
   const [expandedSetIndexes, setExpandedSetIndexes] = useState<number[]>([])
+  const [rowSwipeOffset, setRowSwipeOffset] = useState(0)
   const performanceIndicator = getPerformanceIndicator(row.log, row.previousPerformance)
   const PerformanceIndicatorIcon = performanceIndicator.Icon
+  const isExerciseEmpty = !setLogs.some((setLog) => {
+    return hasSetLogContent(setLog) || setLog.completedAt || setLog.suboptimal
+  })
 
   useEffect(() => {
     return () => {
@@ -708,19 +745,123 @@ function SortableWorkoutRow({
   }, [])
 
   const commitSet = useCallback(
-    (setIndex: number, setLog: WorkoutSetLogEntry, prefillNext = false) => {
+    (
+      setIndex: number,
+      setLog: WorkoutSetLogEntry,
+      options?: { prefillNext?: boolean; startRest?: boolean },
+    ) => {
       onCommitWorkoutSet({
         actionKind: row.actionKind,
         exerciseName: row.title,
         logId: row.key,
-        prefillNext,
-        rest: row.targetRest,
+        prefillNext: options?.prefillNext,
+        rest: options?.startRest === false ? '' : row.targetRest,
         setIndex,
         setLog,
       })
       closeSetEditor(setIndex)
     },
     [closeSetEditor, onCommitWorkoutSet, row.actionKind, row.key, row.targetRest, row.title],
+  )
+
+  const finishExercise = useCallback(() => {
+    if (row.actionKind === 'planned') {
+      onToggleWorkoutExercise(row.key)
+      return
+    }
+
+    onToggleWorkoutExtraExercise(row.key)
+  }, [onToggleWorkoutExercise, onToggleWorkoutExtraExercise, row.actionKind, row.key])
+
+  const requestSubstitution = useCallback(() => {
+    if (!isSelectedWorkoutActive || isCompactResolvedRow) {
+      return
+    }
+
+    onRequestSubstitute({
+      actionKind: row.actionKind,
+      key: row.key,
+      resolvedExercise: row.resolvedExercise,
+      title: row.title,
+    })
+  }, [
+    isCompactResolvedRow,
+    isSelectedWorkoutActive,
+    onRequestSubstitute,
+    row.actionKind,
+    row.key,
+    row.resolvedExercise,
+    row.title,
+  ])
+
+  const resetRowSwipe = useCallback(() => {
+    swipeStateRef.current = null
+    setRowSwipeOffset(0)
+  }, [])
+
+  const handleRowPointerDown = useCallback(
+    (event: ReactPointerEvent<HTMLTableRowElement>) => {
+      if (
+        !isSelectedWorkoutActive ||
+        isCompactResolvedRow ||
+        (event.pointerType === 'mouse' && event.button !== 0) ||
+        shouldIgnoreRowSwipeTarget(event.target)
+      ) {
+        return
+      }
+
+      swipeStateRef.current = {
+        pointerId: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+      }
+      event.currentTarget.setPointerCapture?.(event.pointerId)
+    },
+    [isCompactResolvedRow, isSelectedWorkoutActive],
+  )
+
+  const handleRowPointerMove = useCallback((event: ReactPointerEvent<HTMLTableRowElement>) => {
+    const swipeState = swipeStateRef.current
+
+    if (!swipeState || swipeState.pointerId !== event.pointerId) {
+      return
+    }
+
+    const deltaX = event.clientX - swipeState.startX
+    const deltaY = Math.abs(event.clientY - swipeState.startY)
+
+    if (deltaX <= 0 || deltaY > 28) {
+      setRowSwipeOffset(0)
+      return
+    }
+
+    setRowSwipeOffset(Math.min(90, deltaX))
+  }, [])
+
+  const handleRowPointerEnd = useCallback(
+    (event: ReactPointerEvent<HTMLTableRowElement>) => {
+      const swipeState = swipeStateRef.current
+
+      if (!swipeState || swipeState.pointerId !== event.pointerId) {
+        resetRowSwipe()
+        return
+      }
+
+      const deltaX = event.clientX - swipeState.startX
+      const deltaY = Math.abs(event.clientY - swipeState.startY)
+      const shouldSubstitute = deltaX >= 64 && deltaY <= 34
+
+      if (deltaX > 8) {
+        shouldIgnoreResolveClickRef.current = true
+      }
+
+      if (shouldSubstitute) {
+        requestSubstitution()
+      }
+
+      resetRowSwipe()
+    },
+    [requestSubstitution, resetRowSwipe],
   )
 
   const removeSetLog = useCallback(
@@ -769,9 +910,25 @@ function SortableWorkoutRow({
         row.log.skipped ? 'is-skipped' : '',
         row.actionKind === 'extra' ? 'is-custom' : '',
         isDragging ? 'is-drag-source' : '',
+        rowSwipeOffset ? 'is-row-swiping' : '',
       ]
         .filter(Boolean)
         .join(' ')}
+      style={
+        {
+          '--workout-row-swipe': `${rowSwipeOffset}px`,
+        } as CSSProperties
+      }
+      onPointerCancel={() => {
+        clearResolveHold()
+        resetRowSwipe()
+      }}
+      onPointerDown={handleRowPointerDown}
+      onPointerMove={handleRowPointerMove}
+      onPointerUp={(event) => {
+        clearResolveHold()
+        handleRowPointerEnd(event)
+      }}
     >
       <td className="workout-table__exercise-cell">
         <div className="workout-table__exercise-header">
@@ -803,14 +960,11 @@ function SortableWorkoutRow({
                 }
               }}
               onContextMenu={(event) => event.preventDefault()}
-              onPointerCancel={clearResolveHold}
               onPointerDown={(event) => {
-                if (!isCompactResolvedRow || !isSelectedWorkoutActive) {
-                  return
+                if (isCompactResolvedRow && isSelectedWorkoutActive) {
+                  event.preventDefault()
+                  startResolveHold()
                 }
-
-                event.preventDefault()
-                startResolveHold()
               }}
               onPointerLeave={clearResolveHold}
               onPointerUp={clearResolveHold}
@@ -829,7 +983,12 @@ function SortableWorkoutRow({
                     : row.title
               }
             >
-              <span>{row.title}</span>
+              {isSelectedWorkoutActive && !isCompactResolvedRow ? (
+                <span className="workout-table__title-swipe-action" aria-hidden="true">
+                  <RefreshCcw size={12} />
+                </span>
+              ) : null}
+              <span className="workout-table__title-label">{row.title}</span>
               {row.resolvedExercise ? <Info size={12} aria-hidden="true" /> : null}
             </button>
 
@@ -844,101 +1003,6 @@ function SortableWorkoutRow({
             ) : null}
           </div>
 
-          <div className="workout-table__action-row">
-            {isSelectedWorkoutActive && !isCompactResolvedRow ? (
-              <>
-                <button
-                  type="button"
-                  className="chip-button workout-table__action-button workout-table__substitute-button"
-                  onClick={() =>
-                    onRequestSubstitute({
-                      actionKind: row.actionKind,
-                      key: row.key,
-                      resolvedExercise: row.resolvedExercise,
-                      title: row.title,
-                    })
-                  }
-                  aria-label={`Substitute ${row.title}`}
-                  title="Substitute"
-                >
-                  <RefreshCcw size={13} />
-                  <span>Substitute</span>
-                </button>
-
-                {row.actionKind === 'planned' ? (
-                  <>
-                    <button
-                      type="button"
-                      className={`chip-button workout-table__action-button workout-table__done-button ${
-                        row.log.completed ? 'is-complete' : ''
-                      }`}
-                      onClick={() => onToggleWorkoutExercise(row.key)}
-                      aria-label={
-                        row.log.completed
-                          ? `Mark ${row.title} not done`
-                          : `Mark ${row.title} done`
-                      }
-                      title={row.log.completed ? 'Marked done' : 'Mark done'}
-                    >
-                      {row.log.completed ? <CheckCircle2 size={14} /> : <Circle size={14} />}
-                      <span>Done</span>
-                    </button>
-                    <button
-                      type="button"
-                      className={`chip-button workout-table__action-button workout-table__skip-button ${
-                        row.log.skipped ? 'is-active' : ''
-                      }`}
-                      onClick={() => onToggleWorkoutExerciseSkipped(row.key)}
-                      aria-label={row.log.skipped ? `Unskip ${row.title}` : `Skip ${row.title}`}
-                      title={row.log.skipped ? 'Skipped' : 'Skip'}
-                    >
-                      <SkipForward size={13} />
-                      <span>Skip</span>
-                    </button>
-                    <button
-                      type="button"
-                      className="chip-button workout-table__action-button workout-table__remove-button"
-                      onClick={() => onRemoveWorkoutExercise(row.key)}
-                      aria-label={`Remove ${row.title}`}
-                      title="Remove from this workout"
-                    >
-                      <Trash2 size={13} />
-                      <span>Remove</span>
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <button
-                      type="button"
-                      className={`chip-button workout-table__action-button workout-table__done-button ${
-                        row.log.completed ? 'is-complete' : ''
-                      }`}
-                      onClick={() => onToggleWorkoutExtraExercise(row.key)}
-                      aria-label={
-                        row.log.completed
-                          ? `Mark ${row.title} not done`
-                          : `Mark ${row.title} done`
-                      }
-                      title={row.log.completed ? 'Marked done' : 'Mark done'}
-                    >
-                      {row.log.completed ? <CheckCircle2 size={15} /> : <Circle size={15} />}
-                      <span>Done</span>
-                    </button>
-                    <button
-                      type="button"
-                      className="chip-button workout-table__action-button workout-table__remove-button"
-                      onClick={() => onRemoveWorkoutExtraExercise(row.key)}
-                      aria-label={`Remove ${row.title}`}
-                      title="Remove"
-                    >
-                      <Trash2 size={13} />
-                      <span>Remove</span>
-                    </button>
-                  </>
-                )}
-              </>
-            ) : null}
-          </div>
         </div>
       </td>
 
@@ -1019,6 +1083,25 @@ function SortableWorkoutRow({
             ]
               .filter(Boolean)
               .join(' / ')
+        const isLastVisibleSet = setIndex === row.visibleSetCount - 1
+        const primarySetActionLabel = isLastVisibleSet ? 'Finish' : 'Next'
+        const PrimarySetActionIcon = isLastVisibleSet ? CheckCircle2 : Plus
+        const canUsePrimarySetAction =
+          !isInputDisabled && (isLastVisibleSet || Boolean(setSummary))
+        const handlePrimarySetAction = () => {
+          if (isLastVisibleSet) {
+            if (setSummary) {
+              commitSet(setIndex, setLog, { startRest: false })
+            } else {
+              closeSetEditor(setIndex)
+            }
+
+            finishExercise()
+            return
+          }
+
+          commitSet(setIndex, setLog, { prefillNext: true })
+        }
         const benchmarkTitle = belowAverageComparisons
           .map(
             (comparison) =>
@@ -1162,26 +1245,26 @@ function SortableWorkoutRow({
                       />
                     </div>
                   )}
-                  <select
-                    value={setLog.effort}
-                    onChange={(event) => updateSetLog(setIndex, 'effort', event.target.value)}
-                    disabled={isInputDisabled}
-                  >
-                    <option value="">
-                      {previousSetSample?.difficulty
-                        ? `Last ${previousSetSample.difficulty}`
-                        : row.targetEffort
-                          ? `Target ${row.targetEffort}`
-                          : 'Effort'}
-                    </option>
-                    {exertionOptions.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
 
                   <div className="workout-table__set-control-row">
+                    <select
+                      value={setLog.effort}
+                      onChange={(event) => updateSetLog(setIndex, 'effort', event.target.value)}
+                      disabled={isInputDisabled}
+                    >
+                      <option value="">
+                        {previousSetSample?.difficulty
+                          ? `Last ${previousSetSample.difficulty}`
+                          : row.targetEffort
+                            ? `Target ${row.targetEffort}`
+                            : 'Effort'}
+                      </option>
+                      {exertionOptions.map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
                     <button
                       type="button"
                       className="chip-button workout-table__set-icon-action workout-table__set-remove-button"
@@ -1191,24 +1274,6 @@ function SortableWorkoutRow({
                       title="Remove set"
                     >
                       <Trash2 size={12} />
-                    </button>
-                    <button
-                      type="button"
-                      className="chip-button workout-table__set-timer-button"
-                      onClick={() => commitSet(setIndex, setLog)}
-                      disabled={isInputDisabled || !setSummary}
-                      title={
-                        row.targetRest
-                          ? `Finish set and start ${row.targetRest} timer`
-                          : 'Finish set'
-                      }
-                      aria-label={
-                        row.targetRest
-                          ? `Finish set ${setIndex + 1} and start timer`
-                          : `Finish set ${setIndex + 1}`
-                      }
-                    >
-                      <Clock3 size={12} />
                     </button>
                   </div>
 
@@ -1236,25 +1301,24 @@ function SortableWorkoutRow({
                     </div>
                   ) : null}
                 </div>
-
                 <button
                   type="button"
-                  className="chip-button workout-table__set-next-button"
-                  onClick={() => commitSet(setIndex, setLog, true)}
-                  disabled={isInputDisabled || !setSummary}
+                  className={`chip-button workout-table__set-primary-rail-button ${
+                    isLastVisibleSet ? 'is-finish' : 'is-next'
+                  }`}
+                  onClick={handlePrimarySetAction}
+                  disabled={!canUsePrimarySetAction}
                   title={
-                    row.targetRest
-                      ? `Finish set, copy values to the next set, and start ${row.targetRest} timer`
-                      : 'Finish set and copy values to the next set'
+                    isLastVisibleSet
+                      ? 'Finish exercise'
+                      : row.targetRest
+                        ? `Finish set, copy values to the next set, and start ${row.targetRest} timer`
+                        : 'Finish set and copy values to the next set'
                   }
-                  aria-label={
-                    row.targetRest
-                      ? `Finish set ${setIndex + 1}, copy values to next set, and start timer`
-                      : `Finish set ${setIndex + 1} and copy values to next set`
-                  }
+                  aria-label={`${primarySetActionLabel} ${row.title}`}
                 >
-                  <Plus size={12} />
-                  <span>Next</span>
+                  <PrimarySetActionIcon size={12} />
+                  <span>{primarySetActionLabel}</span>
                 </button>
               </div>
             )}
@@ -1264,20 +1328,48 @@ function SortableWorkoutRow({
 
       <td className="workout-table__append-cell">
         {isSelectedWorkoutActive && !isCompactResolvedRow ? (
-          <button
-            type="button"
-            className="chip-button workout-table__append-button"
-            onClick={() =>
-              row.actionKind === 'planned'
-                ? onAddWorkoutExerciseSet(row.key, row.visibleSetCount)
-                : onAddWorkoutExtraExerciseSet(row.key, row.visibleSetCount)
-            }
-            aria-label={`Add set for ${row.title}`}
-            title="Add set"
-          >
-            <Plus size={12} />
-            <span>Add set</span>
-          </button>
+          <div className="workout-table__append-actions">
+            <button
+              type="button"
+              className="chip-button workout-table__append-remove-button"
+              onClick={() =>
+                row.actionKind === 'planned'
+                  ? onRemoveWorkoutExercise(row.key)
+                  : onRemoveWorkoutExtraExercise(row.key)
+              }
+              aria-label={`Remove ${row.title}`}
+              title="Remove from this workout"
+            >
+              <Trash2 size={12} />
+            </button>
+            {row.actionKind === 'planned' && isExerciseEmpty ? (
+              <button
+                type="button"
+                className="chip-button workout-table__append-button workout-table__append-button--skip"
+                onClick={() => onToggleWorkoutExerciseSkipped(row.key)}
+                aria-label={`Skip ${row.title}`}
+                title="Skip exercise"
+              >
+                <SkipForward size={12} />
+                <span>Skip</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="chip-button workout-table__append-button"
+                onClick={() =>
+                  row.actionKind === 'planned'
+                    ? onAddWorkoutExerciseSet(row.key, row.visibleSetCount)
+                    : onAddWorkoutExtraExerciseSet(row.key, row.visibleSetCount)
+                }
+                aria-label={`Add set for ${row.title}`}
+                title="Add set"
+              >
+                <Plus size={12} />
+                <span>Add set</span>
+              </button>
+            )}
+          </div>
         ) : (
           <span className="workout-table__append-placeholder" aria-hidden="true" />
         )}
