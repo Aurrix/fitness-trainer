@@ -18,7 +18,6 @@ import {
   Info,
   Minus,
   Pencil,
-  RefreshCcw,
   Plus,
   SkipForward,
   Trash2,
@@ -44,6 +43,7 @@ import {
   type WorkoutExerciseLogEntry,
   type WorkoutSetLogEntry,
 } from '../lib/user-data'
+import BottomSheet from './BottomSheet'
 import WorkoutExercisePickerSheet from './WorkoutExercisePickerSheet'
 import WorkoutTargetBadge from './WorkoutTargetBadge'
 
@@ -74,7 +74,10 @@ type WorkoutExerciseTableProps = {
     targetLogId: string,
     position: 'before' | 'after',
   ) => void
-  onRemoveWorkoutExercise: (exerciseId: string) => void
+  onRemoveWorkoutExercise: (
+    exerciseId: string,
+    options?: { skipConfirm?: boolean },
+  ) => void
   onRemoveWorkoutExtraExercise: (logId: string) => void
   onRemoveWorkoutExerciseSetLog: (
     exerciseId: string,
@@ -138,6 +141,10 @@ type WorkoutTableRow = {
   previousPerformance: ExercisePerformanceSample | null
 }
 
+type WorkoutRemoveRequest = Pick<WorkoutTableRow, 'actionKind' | 'key' | 'title'> & {
+  hasExistingResponses: boolean
+}
+
 type WorkoutRowDragItem = {
   key: string
 }
@@ -172,8 +179,6 @@ type SortableWorkoutRowProps = {
     targetLogId: string,
     position: 'before' | 'after',
   ) => void
-  onRemoveWorkoutExercise: (exerciseId: string) => void
-  onRemoveWorkoutExtraExercise: (logId: string) => void
   onRemoveWorkoutExerciseSetLog: (
     exerciseId: string,
     setIndex: number,
@@ -187,6 +192,7 @@ type SortableWorkoutRowProps = {
   onRequestSubstitute: (
     row: Pick<WorkoutTableRow, 'actionKind' | 'key' | 'resolvedExercise' | 'title'>,
   ) => void
+  onRequestRemove: (row: WorkoutRemoveRequest) => void
   onToggleWorkoutExercise: (exerciseId: string) => void
   onToggleWorkoutExerciseSkipped: (exerciseId: string) => void
   onToggleWorkoutExtraExercise: (logId: string) => void
@@ -455,25 +461,13 @@ function hasSetLogContent(setLog: WorkoutSetLogEntry) {
   )
 }
 
-function shouldIgnoreRowSwipeTarget(target: EventTarget | null) {
-  if (!(target instanceof Element)) {
-    return true
-  }
-
+function hasWorkoutLogResponses(log: WorkoutExerciseLogEntry) {
   return Boolean(
-    target.closest(
-      [
-        'input',
-        'select',
-        'textarea',
-        '.workout-table__drag-handle',
-        '.workout-table__set-icon-action',
-        '.workout-table__set-primary-rail-button',
-        '.workout-table__append-button',
-        '.workout-table__append-remove-button',
-        '.workout-table__resolved-status',
-      ].join(', '),
-    ),
+    log.completed ||
+      log.skipped ||
+      log.setLogs.some(
+        (setLog) => hasSetLogContent(setLog) || setLog.completedAt || setLog.suboptimal,
+      ),
   )
 }
 
@@ -573,10 +567,9 @@ function SortableWorkoutRow({
   onDragStart,
   onOpenExerciseDetails,
   onPreviewReorder,
-  onRemoveWorkoutExercise,
-  onRemoveWorkoutExtraExercise,
   onRemoveWorkoutExerciseSetLog,
   onRemoveWorkoutExtraExerciseSetLog,
+  onRequestRemove,
   onRequestSubstitute,
   onToggleWorkoutExercise,
   onToggleWorkoutExerciseSkipped,
@@ -589,8 +582,14 @@ function SortableWorkoutRow({
 }: SortableWorkoutRowProps) {
   const rowRef = useRef<HTMLTableRowElement | null>(null)
   const resolveHoldTimeoutRef = useRef<number | null>(null)
-  const shouldIgnoreResolveClickRef = useRef(false)
-  const swipeStateRef = useRef<{
+  const titleHoldTimeoutRef = useRef<number | null>(null)
+  const shouldIgnoreTitleClickRef = useRef(false)
+  const titleHoldStartRef = useRef<{
+    pointerId: number
+    startX: number
+    startY: number
+  } | null>(null)
+  const handleSwipeStateRef = useRef<{
     pointerId: number
     startX: number
     startY: number
@@ -599,8 +598,9 @@ function SortableWorkoutRow({
   const isInputDisabled = !isSelectedWorkoutActive || row.log.skipped
   const isCompactResolvedRow = row.log.completed || row.log.skipped
   const [isResolveHolding, setIsResolveHolding] = useState(false)
+  const [isTitleHolding, setIsTitleHolding] = useState(false)
   const [expandedSetIndexes, setExpandedSetIndexes] = useState<number[]>([])
-  const [rowSwipeOffset, setRowSwipeOffset] = useState(0)
+  const [handleSwipeOffset, setHandleSwipeOffset] = useState(0)
   const performanceIndicator = getPerformanceIndicator(row.log, row.previousPerformance)
   const PerformanceIndicatorIcon = performanceIndicator.Icon
   const isExerciseEmpty = !setLogs.some((setLog) => {
@@ -612,6 +612,9 @@ function SortableWorkoutRow({
       if (resolveHoldTimeoutRef.current !== null) {
         window.clearTimeout(resolveHoldTimeoutRef.current)
       }
+      if (titleHoldTimeoutRef.current !== null) {
+        window.clearTimeout(titleHoldTimeoutRef.current)
+      }
     }
   }, [])
 
@@ -621,6 +624,15 @@ function SortableWorkoutRow({
       resolveHoldTimeoutRef.current = null
     }
     setIsResolveHolding(false)
+  }, [])
+
+  const clearTitleHold = useCallback(() => {
+    if (titleHoldTimeoutRef.current !== null) {
+      window.clearTimeout(titleHoldTimeoutRef.current)
+      titleHoldTimeoutRef.current = null
+    }
+    titleHoldStartRef.current = null
+    setIsTitleHolding(false)
   }, [])
 
   const unlockResolvedRow = useCallback(() => {
@@ -660,7 +672,7 @@ function SortableWorkoutRow({
     resolveHoldTimeoutRef.current = window.setTimeout(() => {
       resolveHoldTimeoutRef.current = null
       setIsResolveHolding(false)
-      shouldIgnoreResolveClickRef.current = true
+      shouldIgnoreTitleClickRef.current = true
       unlockResolvedRow()
     }, 520)
   }, [clearResolveHold, isCompactResolvedRow, isSelectedWorkoutActive, unlockResolvedRow])
@@ -794,23 +806,90 @@ function SortableWorkoutRow({
     row.title,
   ])
 
-  const resetRowSwipe = useCallback(() => {
-    swipeStateRef.current = null
-    setRowSwipeOffset(0)
-  }, [])
-
-  const handleRowPointerDown = useCallback(
-    (event: ReactPointerEvent<HTMLTableRowElement>) => {
+  const startTitleHold = useCallback(
+    (event: ReactPointerEvent<HTMLButtonElement>) => {
       if (
         !isSelectedWorkoutActive ||
         isCompactResolvedRow ||
-        (event.pointerType === 'mouse' && event.button !== 0) ||
-        shouldIgnoreRowSwipeTarget(event.target)
+        (event.pointerType === 'mouse' && event.button !== 0)
       ) {
         return
       }
 
-      swipeStateRef.current = {
+      clearTitleHold()
+      titleHoldStartRef.current = {
+        pointerId: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+      }
+      setIsTitleHolding(true)
+      titleHoldTimeoutRef.current = window.setTimeout(() => {
+        titleHoldTimeoutRef.current = null
+        titleHoldStartRef.current = null
+        setIsTitleHolding(false)
+        shouldIgnoreTitleClickRef.current = true
+        requestSubstitution()
+      }, 560)
+    },
+    [clearTitleHold, isCompactResolvedRow, isSelectedWorkoutActive, requestSubstitution],
+  )
+
+  const handleTitlePointerMove = useCallback(
+    (event: ReactPointerEvent<HTMLButtonElement>) => {
+      const holdStart = titleHoldStartRef.current
+
+      if (!holdStart || holdStart.pointerId !== event.pointerId) {
+        return
+      }
+
+      const deltaX = Math.abs(event.clientX - holdStart.startX)
+      const deltaY = Math.abs(event.clientY - holdStart.startY)
+
+      if (deltaX > 8 || deltaY > 8) {
+        clearTitleHold()
+        clearResolveHold()
+      }
+    },
+    [clearResolveHold, clearTitleHold],
+  )
+
+  const requestRemove = useCallback(() => {
+    if (!isSelectedWorkoutActive || isCompactResolvedRow) {
+      return
+    }
+
+    onRequestRemove({
+      actionKind: row.actionKind,
+      hasExistingResponses: hasWorkoutLogResponses(row.log),
+      key: row.key,
+      title: row.title,
+    })
+  }, [
+    isCompactResolvedRow,
+    isSelectedWorkoutActive,
+    onRequestRemove,
+    row.actionKind,
+    row.key,
+    row.log,
+    row.title,
+  ])
+
+  const resetHandleSwipe = useCallback(() => {
+    handleSwipeStateRef.current = null
+    setHandleSwipeOffset(0)
+  }, [])
+
+  const handleHandlePointerDown = useCallback(
+    (event: ReactPointerEvent<HTMLButtonElement>) => {
+      if (
+        !isSelectedWorkoutActive ||
+        isCompactResolvedRow ||
+        (event.pointerType === 'mouse' && event.button !== 0)
+      ) {
+        return
+      }
+
+      handleSwipeStateRef.current = {
         pointerId: event.pointerId,
         startX: event.clientX,
         startY: event.clientY,
@@ -820,8 +899,8 @@ function SortableWorkoutRow({
     [isCompactResolvedRow, isSelectedWorkoutActive],
   )
 
-  const handleRowPointerMove = useCallback((event: ReactPointerEvent<HTMLTableRowElement>) => {
-    const swipeState = swipeStateRef.current
+  const handleHandlePointerMove = useCallback((event: ReactPointerEvent<HTMLButtonElement>) => {
+    const swipeState = handleSwipeStateRef.current
 
     if (!swipeState || swipeState.pointerId !== event.pointerId) {
       return
@@ -830,38 +909,36 @@ function SortableWorkoutRow({
     const deltaX = event.clientX - swipeState.startX
     const deltaY = Math.abs(event.clientY - swipeState.startY)
 
-    if (deltaX <= 0 || deltaY > 28) {
-      setRowSwipeOffset(0)
+    if (deltaX <= 0 || deltaY > 34 || deltaY > Math.abs(deltaX)) {
+      setHandleSwipeOffset(0)
       return
     }
 
-    setRowSwipeOffset(Math.min(90, deltaX))
+    setHandleSwipeOffset(Math.min(72, deltaX))
   }, [])
 
-  const handleRowPointerEnd = useCallback(
-    (event: ReactPointerEvent<HTMLTableRowElement>) => {
-      const swipeState = swipeStateRef.current
+  const handleHandlePointerEnd = useCallback(
+    (event: ReactPointerEvent<HTMLButtonElement>) => {
+      const swipeState = handleSwipeStateRef.current
 
       if (!swipeState || swipeState.pointerId !== event.pointerId) {
-        resetRowSwipe()
+        resetHandleSwipe()
         return
       }
 
       const deltaX = event.clientX - swipeState.startX
       const deltaY = Math.abs(event.clientY - swipeState.startY)
-      const shouldSubstitute = deltaX >= 64 && deltaY <= 34
+      const shouldRemove = deltaX >= 64 && deltaY <= 34
 
-      if (deltaX > 8) {
-        shouldIgnoreResolveClickRef.current = true
+      if (shouldRemove) {
+        event.preventDefault()
+        event.stopPropagation()
+        requestRemove()
       }
 
-      if (shouldSubstitute) {
-        requestSubstitution()
-      }
-
-      resetRowSwipe()
+      resetHandleSwipe()
     },
-    [requestSubstitution, resetRowSwipe],
+    [requestRemove, resetHandleSwipe],
   )
 
   const removeSetLog = useCallback(
@@ -910,24 +987,16 @@ function SortableWorkoutRow({
         row.log.skipped ? 'is-skipped' : '',
         row.actionKind === 'extra' ? 'is-custom' : '',
         isDragging ? 'is-drag-source' : '',
-        rowSwipeOffset ? 'is-row-swiping' : '',
       ]
         .filter(Boolean)
         .join(' ')}
-      style={
-        {
-          '--workout-row-swipe': `${rowSwipeOffset}px`,
-        } as CSSProperties
-      }
       onPointerCancel={() => {
         clearResolveHold()
-        resetRowSwipe()
+        clearTitleHold()
       }}
-      onPointerDown={handleRowPointerDown}
-      onPointerMove={handleRowPointerMove}
-      onPointerUp={(event) => {
+      onPointerUp={() => {
         clearResolveHold()
-        handleRowPointerEnd(event)
+        clearTitleHold()
       }}
     >
       <td className="workout-table__exercise-cell">
@@ -938,19 +1007,38 @@ function SortableWorkoutRow({
               type="button"
               className={`chip-button workout-table__icon-button workout-table__drag-handle ${
                 isDragging ? 'is-active' : ''
-              }`}
-              aria-label={`Drag to reorder ${row.title}`}
-              title="Drag to reorder"
+              } ${handleSwipeOffset ? 'is-remove-swiping' : ''}`}
+              style={
+                {
+                  '--workout-handle-swipe': `${handleSwipeOffset}px`,
+                } as CSSProperties
+              }
+              onPointerCancel={resetHandleSwipe}
+              onPointerDown={handleHandlePointerDown}
+              onPointerMove={handleHandlePointerMove}
+              onPointerUp={handleHandlePointerEnd}
+              aria-label={
+                isSelectedWorkoutActive && !isCompactResolvedRow
+                  ? `Drag to reorder ${row.title}. Swipe right to remove.`
+                  : `Drag to reorder ${row.title}`
+              }
+              title={
+                isSelectedWorkoutActive && !isCompactResolvedRow
+                  ? 'Drag to reorder; swipe right to remove'
+                  : 'Drag to reorder'
+              }
             >
-              <GripVertical size={14} />
+              {handleSwipeOffset ? <Trash2 size={14} /> : <GripVertical size={14} />}
             </button>
 
             <button
               type="button"
-              className={`workout-table__title-button ${isResolveHolding ? 'is-holding' : ''}`}
+              className={`workout-table__title-button ${
+                isResolveHolding || isTitleHolding ? 'is-holding' : ''
+              }`}
               onClick={(event) => {
-                if (shouldIgnoreResolveClickRef.current) {
-                  shouldIgnoreResolveClickRef.current = false
+                if (shouldIgnoreTitleClickRef.current) {
+                  shouldIgnoreTitleClickRef.current = false
                   event.preventDefault()
                   return
                 }
@@ -962,35 +1050,63 @@ function SortableWorkoutRow({
               onContextMenu={(event) => event.preventDefault()}
               onPointerDown={(event) => {
                 if (isCompactResolvedRow && isSelectedWorkoutActive) {
-                  event.preventDefault()
+                  titleHoldStartRef.current = {
+                    pointerId: event.pointerId,
+                    startX: event.clientX,
+                    startY: event.clientY,
+                  }
                   startResolveHold()
+                  return
                 }
+
+                startTitleHold(event)
               }}
-              onPointerLeave={clearResolveHold}
-              onPointerUp={clearResolveHold}
+              onPointerMove={handleTitlePointerMove}
+              onPointerLeave={() => {
+                clearResolveHold()
+                clearTitleHold()
+              }}
+              onPointerCancel={() => {
+                clearResolveHold()
+                clearTitleHold()
+              }}
+              onPointerUp={() => {
+                clearResolveHold()
+                clearTitleHold()
+              }}
               aria-label={
                 isCompactResolvedRow && isSelectedWorkoutActive
                   ? `${row.title}. ${performanceIndicator.description}`
                   : row.resolvedExercise
-                    ? `Open details for ${row.title}`
+                    ? `${row.title}. Open details, or hold to substitute.`
                     : row.title
               }
               title={
                 isCompactResolvedRow && isSelectedWorkoutActive
                   ? performanceIndicator.description
                   : row.resolvedExercise
-                    ? `Open details for ${row.title}`
+                    ? `Open details for ${row.title}. Hold to substitute.`
                     : row.title
               }
             >
-              {isSelectedWorkoutActive && !isCompactResolvedRow ? (
-                <span className="workout-table__title-swipe-action" aria-hidden="true">
-                  <RefreshCcw size={12} />
-                </span>
-              ) : null}
               <span className="workout-table__title-label">{row.title}</span>
-              {row.resolvedExercise ? <Info size={12} aria-hidden="true" /> : null}
             </button>
+
+            {row.resolvedExercise ? (
+              <button
+                type="button"
+                className="chip-button workout-table__icon-button workout-table__info-button"
+                onClick={() => {
+                  if (row.resolvedExercise) {
+                    onOpenExerciseDetails(row.resolvedExercise)
+                  }
+                }}
+                aria-label={`Open details for ${row.title}`}
+                title={`Open details for ${row.title}`}
+              >
+                <Info size={12} />
+              </button>
+            ) : null}
 
             {isSelectedWorkoutActive && isCompactResolvedRow ? (
               <span
@@ -1332,11 +1448,7 @@ function SortableWorkoutRow({
             <button
               type="button"
               className="chip-button workout-table__append-remove-button"
-              onClick={() =>
-                row.actionKind === 'planned'
-                  ? onRemoveWorkoutExercise(row.key)
-                  : onRemoveWorkoutExtraExercise(row.key)
-              }
+              onClick={requestRemove}
               aria-label={`Remove ${row.title}`}
               title="Remove from this workout"
             >
@@ -1425,6 +1537,7 @@ export default function WorkoutExerciseTable({
         rowTitle: string
       }
   >(null)
+  const [removeState, setRemoveState] = useState<WorkoutRemoveRequest | null>(null)
   const [draggedKey, setDraggedKey] = useState<string | null>(null)
   const [orderedKeys, setOrderedKeys] = useState<string[]>([])
   const [orderedKeysBaseSignature, setOrderedKeysBaseSignature] = useState('')
@@ -1646,6 +1759,20 @@ export default function WorkoutExerciseTable({
     [baseOrder, onReorderWorkoutExercise],
   )
 
+  const confirmRemoveExercise = useCallback(() => {
+    if (!removeState) {
+      return
+    }
+
+    if (removeState.actionKind === 'planned') {
+      onRemoveWorkoutExercise(removeState.key, { skipConfirm: true })
+    } else {
+      onRemoveWorkoutExtraExercise(removeState.key)
+    }
+
+    setRemoveState(null)
+  }, [onRemoveWorkoutExercise, onRemoveWorkoutExtraExercise, removeState])
+
   return (
     <>
       <section className="section-card workout-table-card">
@@ -1681,10 +1808,9 @@ export default function WorkoutExerciseTable({
                   onDragStart={startDrag}
                   onOpenExerciseDetails={onOpenExerciseDetails}
                   onPreviewReorder={previewReorder}
-                  onRemoveWorkoutExercise={onRemoveWorkoutExercise}
-                  onRemoveWorkoutExtraExercise={onRemoveWorkoutExtraExercise}
                   onRemoveWorkoutExerciseSetLog={onRemoveWorkoutExerciseSetLog}
                   onRemoveWorkoutExtraExerciseSetLog={onRemoveWorkoutExtraExerciseSetLog}
+                  onRequestRemove={(selectedRow) => setRemoveState(selectedRow)}
                   onRequestSubstitute={(selectedRow) =>
                     setPickerState({
                       excludedExerciseIds: selectedRow.resolvedExercise?.id
@@ -1735,6 +1861,37 @@ export default function WorkoutExerciseTable({
           </div>
         ) : null}
       </section>
+
+      {removeState ? (
+        <BottomSheet
+          className="finish-workout-dialog workout-remove-dialog"
+          description={
+            removeState.hasExistingResponses
+              ? 'This will remove the exercise from this workout and clear its logged responses.'
+              : 'This will remove the exercise from this workout.'
+          }
+          kicker="Remove Exercise"
+          onClose={() => setRemoveState(null)}
+          title={`Remove ${removeState.title}?`}
+        >
+          <div className="row-actions finish-workout-dialog__actions">
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={() => setRemoveState(null)}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="primary-button workout-table__remove-confirm-button"
+              onClick={confirmRemoveExercise}
+            >
+              Remove
+            </button>
+          </div>
+        </BottomSheet>
+      ) : null}
 
       {pickerState ? (
         <WorkoutExercisePickerSheet

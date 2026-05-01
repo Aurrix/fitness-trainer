@@ -1822,6 +1822,7 @@
 .workout-table-scroll {
     overflow-x: auto;
     padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .workout-table {
@@ -1849,12 +1850,7 @@
     border-bottom: 1px solid rgba(15, 43, 72, 0.08);
     border-right: 1px solid rgba(15, 43, 72, 0.08);
     transition: transform 160ms ease;
-    touch-action: pan-y;
-}
-
-.workout-table tbody tr.is-row-swiping td {
-    transform: translateX(var(--workout-row-swipe, 0));
-    transition: none;
+    touch-action: pan-x pan-y;
 }
 
 .workout-table tbody td:first-child {
@@ -1926,27 +1922,7 @@
     text-align: left;
     user-select: none;
     -webkit-touch-callout: none;
-    touch-action: pan-y;
-}
-
-.workout-table__title-swipe-action {
-    position: absolute;
-    left: 0;
-    width: 24px;
-    min-width: 24px;
-    height: 24px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background: rgba(36, 156, 255, 0.1);
-    color: var(--accent-strong);
-    opacity: 0;
-    pointer-events: none;
-}
-
-.workout-table tbody tr.is-row-swiping .workout-table__title-swipe-action {
-    opacity: 1;
+    touch-action: pan-x pan-y;
 }
 
 .workout-table__title-label,
@@ -1960,10 +1936,6 @@
 .workout-table__title-button svg {
     flex: 0 0 auto;
     color: var(--muted-strong);
-}
-
-.workout-table__title-swipe-action svg {
-    color: currentColor;
 }
 
 .workout-table__title-button.is-holding {
@@ -2047,6 +2019,11 @@
     touch-action: none;
     flex: 0 0 auto;
     -webkit-touch-callout: none;
+    transform: translateX(var(--workout-handle-swipe, 0));
+    transition: transform 120ms ease,
+    background 120ms ease,
+    color 120ms ease,
+    border-color 120ms ease;
 }
 
 .workout-table__drag-handle.is-active {
@@ -2054,6 +2031,24 @@
     border-color: rgba(36, 156, 255, 0.24);
     background: rgba(36, 156, 255, 0.08);
     color: var(--accent-strong);
+}
+
+.workout-table__drag-handle.is-remove-swiping {
+    cursor: grabbing;
+    border-color: rgba(141, 61, 37, 0.24);
+    background: rgba(255, 235, 225, 0.96);
+    color: #8d3d25;
+    transition: none;
+}
+
+.workout-table__info-button {
+    flex: 0 0 auto;
+}
+
+.workout-table__remove-confirm-button {
+    background: linear-gradient(135deg, #a9472c, #e66f42);
+    color: #fffaf5;
+    box-shadow: 0 14px 30px rgba(169, 71, 44, 0.22);
 }
 
 .workout-table__substitute-button {
@@ -4160,6 +4155,10 @@ button.trend-tile:hover,
     gap: 10px;
 }
 
+.body-stats-entry-form__value-grid .field {
+    min-width: 0;
+}
+
 .body-stats-entry-form__section {
     padding: 16px;
     border-radius: 22px;
@@ -4677,6 +4676,7 @@ button.trend-tile:hover,
 
 @media (max-width: 520px) {
     .form-grid,
+    .body-stats-entry-form__value-grid,
     .stats-grid,
     .summary-grid {
         grid-template-columns: minmax(0, 1fr);

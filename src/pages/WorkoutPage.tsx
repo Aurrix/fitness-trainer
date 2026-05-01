@@ -68,7 +68,10 @@ type WorkoutPageProps = {
     targetLogId: string,
     position: 'before' | 'after',
   ) => void
-  onRemoveWorkoutExercise: (exerciseId: string) => void
+  onRemoveWorkoutExercise: (
+    exerciseId: string,
+    options?: { skipConfirm?: boolean },
+  ) => void
   onRemoveWorkoutExtraExercise: (logId: string) => void
   onRemoveWorkoutExerciseSetLog: (
     exerciseId: string,

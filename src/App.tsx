@@ -1561,7 +1561,10 @@ function App() {
     })
   }
 
-  function removeWorkoutExercise(exerciseId: string) {
+  function removeWorkoutExercise(
+    exerciseId: string,
+    options?: { skipConfirm?: boolean },
+  ) {
     if (!activeWorkout) {
       return
     }
@@ -1575,6 +1578,7 @@ function App() {
 
     if (
       hasExistingResponses &&
+      !options?.skipConfirm &&
       !window.confirm(
         `Remove "${currentLog?.exerciseName ?? 'this exercise'}" from this workout and clear its logged responses?`,
       )

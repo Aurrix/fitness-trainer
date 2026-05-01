@@ -116,6 +116,8 @@ const bodyMetricChartColors: Record<BodyMetricKey, string> = {
   bmi: '#2563eb',
 }
 
+const decimalInputPattern = '[0-9]+([.,][0-9]*)?|[.,][0-9]+'
+
 const loggableBodyMetricKeys = new Set<BodyMetricKey>(['bodyFatPercentage', 'weightKg'])
 
 function getTodayDateInputValue() {
@@ -131,7 +133,7 @@ function parseNullableNumber(value: string) {
     return null
   }
 
-  const parsedValue = Number(trimmedValue)
+  const parsedValue = Number(trimmedValue.replace(',', '.'))
   return Number.isFinite(parsedValue) ? parsedValue : null
 }
 
@@ -519,10 +521,10 @@ export default function BodyCompositionPanel({
                     {bodyMetricLabels[activeMetricInputKey]} ({bodyMetricUnits[activeMetricInputKey]})
                   </span>
                   <input
-                    type="number"
+                    type="text"
                     inputMode="decimal"
+                    pattern={decimalInputPattern}
                     required
-                    step="0.1"
                     value={metricEntryValue}
                     onChange={(event) => setMetricEntryValue(event.target.value)}
                     placeholder={activeMetricInputKey === 'weightKg' ? '82.5' : '16.2'}
@@ -676,9 +678,9 @@ export default function BodyCompositionPanel({
                 <label key={measurementKey} className="field">
                   <span className="field-label">{bodyMeasurementLabels[measurementKey]} (cm)</span>
                   <input
-                    type="number"
+                    type="text"
                     inputMode="decimal"
-                    step="0.1"
+                    pattern={decimalInputPattern}
                     value={bodyPartEntryValues[measurementKey] ?? ''}
                     onChange={(event) =>
                       updateBodyPartEntryValue(measurementKey, event.target.value)
