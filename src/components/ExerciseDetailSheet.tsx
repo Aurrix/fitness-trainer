@@ -1,4 +1,4 @@
-import { ArrowRight, Gauge, Layers3, Star, StarOff, Target } from 'lucide-react'
+import { ArrowRight, Gauge, Layers3, RefreshCcw, Star, StarOff, Target } from 'lucide-react'
 import type { ExerciseStatsRecord } from '../entities/exercise-stats'
 import {
   formatExerciseMuscleGroup,
@@ -27,8 +27,13 @@ type ExerciseDetailSheetProps = {
   isSaved: boolean
   onClose: () => void
   onSelectAlternative: (exerciseId: string) => void
+  onSubstituteExercise?: (exerciseId: string) => void
   onToggleSavedExercise: (exerciseId: string) => void
   statsRecord: ExerciseStatsRecord | null
+  substitutionContext?: {
+    currentExerciseId: string | null
+    targetLabel: string
+  }
 }
 
 export default function ExerciseDetailSheet({
@@ -38,9 +43,19 @@ export default function ExerciseDetailSheet({
   isSaved,
   onClose,
   onSelectAlternative,
+  onSubstituteExercise,
   onToggleSavedExercise,
   statsRecord,
+  substitutionContext,
 }: ExerciseDetailSheetProps) {
+  const canSubstituteExercise = (exerciseId: string) => {
+    return Boolean(
+      onSubstituteExercise &&
+        (!substitutionContext?.currentExerciseId ||
+          substitutionContext.currentExerciseId !== exerciseId),
+    )
+  }
+
   return (
     <div className="overlay" role="presentation" onClick={onClose}>
       <aside
@@ -73,6 +88,21 @@ export default function ExerciseDetailSheet({
               {isSaved ? <StarOff size={16} /> : <Star size={16} />}
               <span>{isSaved ? 'Remove Favorite' : 'Save Favorite'}</span>
             </button>
+            {canSubstituteExercise(exercise.id) ? (
+              <button
+                type="button"
+                className="primary-button icon-button"
+                onClick={() => onSubstituteExercise?.(exercise.id)}
+                title={
+                  substitutionContext
+                    ? `Substitute ${substitutionContext.targetLabel} with ${exercise.name}`
+                    : `Substitute with ${exercise.name}`
+                }
+              >
+                <RefreshCcw size={16} />
+                <span>Substitute</span>
+              </button>
+            ) : null}
           </div>
 
           <section className="section-card exercise-detail-section">
@@ -214,18 +244,35 @@ export default function ExerciseDetailSheet({
                         ))}
                       </div>
                     </div>
-                    {alternative.canOpen ? (
-                      <button
-                        type="button"
-                        className="chip-button icon-button"
-                        onClick={() => onSelectAlternative(alternative.id)}
-                      >
-                        <span>View</span>
-                        <ArrowRight size={14} />
-                      </button>
-                    ) : (
-                      <span className="pill pill--subtle">Reference only</span>
-                    )}
+                    <div className="exercise-alt-card__actions">
+                      {alternative.canOpen ? (
+                        <button
+                          type="button"
+                          className="chip-button icon-button"
+                          onClick={() => onSelectAlternative(alternative.id)}
+                        >
+                          <span>View</span>
+                          <ArrowRight size={14} />
+                        </button>
+                      ) : (
+                        <span className="pill pill--subtle">Reference only</span>
+                      )}
+                      {alternative.canOpen && canSubstituteExercise(alternative.id) ? (
+                        <button
+                          type="button"
+                          className="secondary-button icon-button exercise-alt-card__substitute"
+                          onClick={() => onSubstituteExercise?.(alternative.id)}
+                          title={
+                            substitutionContext
+                              ? `Substitute ${substitutionContext.targetLabel} with ${alternative.name}`
+                              : `Substitute with ${alternative.name}`
+                          }
+                        >
+                          <RefreshCcw size={14} />
+                          <span>Substitute</span>
+                        </button>
+                      ) : null}
+                    </div>
                   </article>
                 ))}
               </div>

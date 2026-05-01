@@ -34,6 +34,10 @@ import ProgramDetailSheet from './components/ProgramDetailSheet'
 import StartWorkoutDialog from './components/StartWorkoutDialog'
 import BodyCompositionPanel from './components/BodyCompositionPanel'
 import ProgramProgressionPanel from './components/ProgramProgressionPanel'
+import type {
+  WorkoutExerciseDetailsOptions,
+  WorkoutExerciseDetailSubstitutionTarget,
+} from './components/WorkoutExerciseTable'
 import { useAppRoute } from './hooks/useAppRoute'
 import { getContentLibrary, type Exercise } from './lib/content'
 import type {
@@ -357,6 +361,8 @@ function App() {
   const [exerciseQuery, setExerciseQuery] = useState('')
   const [selectedProgramId, setSelectedProgramId] = useState<string | null>(null)
   const [selectedExerciseId, setSelectedExerciseId] = useState<string | null>(null)
+  const [selectedExerciseSubstitutionTarget, setSelectedExerciseSubstitutionTarget] =
+    useState<WorkoutExerciseDetailSubstitutionTarget | null>(null)
   const [selectedWorkoutSectionId, setSelectedWorkoutSectionId] = useState<string | null>(null)
   const [workoutDayExerciseOrders, setWorkoutDayExerciseOrders] = useState<
     Record<string, string[]>
@@ -832,6 +838,7 @@ function App() {
     startTransition(() => {
       setSelectedProgramId(null)
       setSelectedExerciseId(null)
+      setSelectedExerciseSubstitutionTarget(null)
       navigate(getPrimaryRoutePath('insights'))
     })
   }
@@ -1616,7 +1623,7 @@ function App() {
 
   function substituteWorkoutExercise(exerciseId: string, exercise: Exercise) {
     if (!activeWorkout) {
-      return
+      return false
     }
 
     const currentLog = activeWorkout.exerciseLogs?.[exerciseId]
@@ -1632,7 +1639,7 @@ function App() {
         `Replace "${currentLog?.exerciseName ?? 'this exercise'}" with "${exercise.name}" and clear the logged responses for this row?`,
       )
     ) {
-      return
+      return false
     }
 
     const loggedAt = new Date().toISOString()
@@ -1670,6 +1677,7 @@ function App() {
       }
     })
     showBanner('success', `Substituted with ${exercise.name}.`)
+    return true
   }
 
   function updateWorkoutExtraExerciseSetLog(
@@ -1869,7 +1877,7 @@ function App() {
 
   function substituteWorkoutExtraExercise(logId: string, exercise: Exercise) {
     if (!activeWorkout) {
-      return
+      return false
     }
 
     const currentEntry = activeWorkout.extraEntries.find((entry) => entry.logId === logId) ?? null
@@ -1885,7 +1893,7 @@ function App() {
         `Replace "${currentEntry?.exerciseName ?? 'this exercise'}" with "${exercise.name}" and clear the logged responses for this row?`,
       )
     ) {
-      return
+      return false
     }
 
     const loggedAt = new Date().toISOString()
@@ -1917,6 +1925,7 @@ function App() {
       }
     })
     showBanner('success', `Substituted with ${exercise.name}.`)
+    return true
   }
 
   function addWorkoutExtraExerciseSet(logId: string, visibleSetCount?: number) {
@@ -2268,6 +2277,7 @@ function App() {
     setIsFinishWorkoutDialogOpen(false)
     setIsStartWorkoutDialogOpen(false)
     setSelectedExerciseId(null)
+    setSelectedExerciseSubstitutionTarget(null)
     setSelectedProgramId(null)
     setSelectedWorkoutSectionId(null)
     clearWorkoutButtonHold()
@@ -2307,7 +2317,15 @@ function App() {
     )
   }
 
-  function openExerciseDetails(exercise: Exercise | string) {
+  function closeExerciseDetails() {
+    setSelectedExerciseId(null)
+    setSelectedExerciseSubstitutionTarget(null)
+  }
+
+  function openExerciseDetails(
+    exercise: Exercise | string,
+    options?: WorkoutExerciseDetailsOptions,
+  ) {
     const resolvedExercise =
       typeof exercise === 'string' ? findExerciseByReference(exercise) : exercise
 
@@ -2317,6 +2335,31 @@ function App() {
 
     setSelectedProgramId(null)
     setSelectedExerciseId(resolvedExercise.id)
+    setSelectedExerciseSubstitutionTarget(options?.substitutionTarget ?? null)
+  }
+
+  function substituteExerciseFromDetails(exerciseId: string) {
+    if (!selectedExerciseSubstitutionTarget) {
+      return
+    }
+
+    const replacementExercise = findExerciseByReference(exerciseId)
+
+    if (!replacementExercise) {
+      return
+    }
+
+    const didSubstitute =
+      selectedExerciseSubstitutionTarget.actionKind === 'planned'
+        ? substituteWorkoutExercise(selectedExerciseSubstitutionTarget.key, replacementExercise)
+        : substituteWorkoutExtraExercise(
+            selectedExerciseSubstitutionTarget.key,
+            replacementExercise,
+          )
+
+    if (didSubstitute) {
+      closeExerciseDetails()
+    }
   }
 
   function isCustomExercise(exercise: Exercise) {
@@ -2563,10 +2606,21 @@ function App() {
           exercise={selectedExercise}
           fitnessProfile={fitnessProfile}
           isSaved={savedExerciseIdSet.has(selectedExercise.id)}
-          onClose={() => setSelectedExerciseId(null)}
+          onClose={closeExerciseDetails}
           onSelectAlternative={setSelectedExerciseId}
+          onSubstituteExercise={
+            selectedExerciseSubstitutionTarget ? substituteExerciseFromDetails : undefined
+          }
           onToggleSavedExercise={toggleSavedExercise}
           statsRecord={selectedExerciseStatsRecord}
+          substitutionContext={
+            selectedExerciseSubstitutionTarget
+              ? {
+                  currentExerciseId: selectedExerciseSubstitutionTarget.currentExerciseId,
+                  targetLabel: selectedExerciseSubstitutionTarget.title,
+                }
+              : undefined
+          }
         />
       ) : null}
 

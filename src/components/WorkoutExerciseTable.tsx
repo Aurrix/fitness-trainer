@@ -32,6 +32,7 @@ import type { Exercise } from '../lib/content'
 import {
   compareSetToExerciseBenchmark,
   formatBenchmarkValue,
+  getExerciseBenchmarkSummary,
   getSetBenchmarkInputStatus,
 } from '../lib/exercise-benchmarks'
 import type { FitnessEffortScale, FitnessProfile } from '../lib/fitness-profile'
@@ -45,7 +46,20 @@ import {
 } from '../lib/user-data'
 import BottomSheet from './BottomSheet'
 import WorkoutExercisePickerSheet from './WorkoutExercisePickerSheet'
-import WorkoutTargetBadge from './WorkoutTargetBadge'
+import WorkoutTargetBadge, {
+  type WorkoutTargetBadgeInsight,
+} from './WorkoutTargetBadge'
+
+export type WorkoutExerciseDetailSubstitutionTarget = {
+  actionKind: 'planned' | 'extra'
+  currentExerciseId: string | null
+  key: string
+  title: string
+}
+
+export type WorkoutExerciseDetailsOptions = {
+  substitutionTarget?: WorkoutExerciseDetailSubstitutionTarget | null
+}
 
 type WorkoutExerciseTableProps = {
   activeWorkout: ActiveWorkout | null
@@ -68,7 +82,7 @@ type WorkoutExerciseTableProps = {
     setIndex: number
     setLog: WorkoutSetLogEntry
   }) => void
-  onOpenExerciseDetails: (exercise: Exercise) => void
+  onOpenExerciseDetails: (exercise: Exercise, options?: WorkoutExerciseDetailsOptions) => void
   onReorderWorkoutExercise: (
     draggedLogId: string,
     targetLogId: string,
@@ -173,7 +187,7 @@ type SortableWorkoutRowProps = {
   }) => void
   onDragEnd: (draggedKey: string) => void
   onDragStart: (draggedKey: string) => void
-  onOpenExerciseDetails: (exercise: Exercise) => void
+  onOpenExerciseDetails: (exercise: Exercise, options?: WorkoutExerciseDetailsOptions) => void
   onPreviewReorder: (
     draggedLogId: string,
     targetLogId: string,
@@ -241,7 +255,7 @@ function moveWorkoutRowKey(
 }
 
 function parseNullableNumber(value: string) {
-  const trimmedValue = value.trim()
+  const trimmedValue = value.trim().replace(',', '.')
 
   if (!trimmedValue) {
     return null
@@ -489,6 +503,87 @@ function averageNullableNumbers(values: Array<number | null>) {
   return parsedValues.reduce((total, value) => total + value, 0) / parsedValues.length
 }
 
+function buildPersonalAverageTokens(
+  statsRecord: ExerciseStatsRecord | null,
+  isContinuous: boolean,
+) {
+  const recentSamples = getRecentPerformanceSamples(statsRecord)
+
+  if (!recentSamples.length) {
+    return [] as WorkoutTargetBadgeInsight[]
+  }
+
+  const averageDuration = averageNullableNumbers(
+    recentSamples.map((sample) => sample.totalDurationMinutes),
+  )
+  const averageReps = averageNullableNumbers(recentSamples.map((sample) => sample.totalReps))
+  const averageWeightKg = averageNullableNumbers(
+    recentSamples.map((sample) => sample.maxWeightKg),
+  )
+  const tokens: WorkoutTargetBadgeInsight[] = []
+
+  if (isContinuous && averageDuration !== null) {
+    tokens.push({
+      detailLabel: 'Your recent average duration',
+      detailValue: formatNullableNumber(averageDuration, 'min'),
+      key: 'duration',
+      shortLabel: 'You time',
+    })
+  }
+
+  if (!isContinuous && averageWeightKg !== null) {
+    tokens.push({
+      detailLabel: 'Your recent average top weight',
+      detailValue: formatNullableNumber(averageWeightKg, 'kg'),
+      key: 'weight',
+      shortLabel: 'You kg',
+    })
+  }
+
+  if (!isContinuous && averageReps !== null) {
+    tokens.push({
+      detailLabel: 'Your recent average total reps',
+      detailValue: formatNullableNumber(averageReps, 'reps'),
+      key: 'reps',
+      shortLabel: 'You reps',
+    })
+  }
+
+  return tokens
+}
+
+function buildBenchmarkAverageTokens(
+  exercise: Exercise | null,
+  fitnessProfile: FitnessProfile,
+  isContinuous: boolean,
+) {
+  const benchmarkSummary = getExerciseBenchmarkSummary(exercise, fitnessProfile)
+
+  if (!benchmarkSummary) {
+    return [] as WorkoutTargetBadgeInsight[]
+  }
+
+  const relevantMetrics = benchmarkSummary.metrics.filter((metric) =>
+    isContinuous ? metric.inputKind === 'duration' : metric.inputKind !== 'duration',
+  )
+  const visibleMetrics = (relevantMetrics.length ? relevantMetrics : benchmarkSummary.metrics).slice(
+    0,
+    2,
+  )
+
+  return visibleMetrics.map<WorkoutTargetBadgeInsight>((metric) => ({
+    detailLabel: `Profile average ${metric.label.toLowerCase()}`,
+    detailValue: formatBenchmarkValue(metric.average, metric.unit),
+    key: metric.key,
+    shortLabel:
+      metric.inputKind === 'weightKg'
+        ? 'Meta kg'
+        : metric.inputKind === 'duration'
+          ? 'Meta time'
+          : 'Meta reps',
+  }))
+}
+
 function getRecentSetAverageComparisons({
   isContinuous,
   lowerWeightIsBetter,
@@ -603,6 +698,12 @@ function SortableWorkoutRow({
   const [handleSwipeOffset, setHandleSwipeOffset] = useState(0)
   const performanceIndicator = getPerformanceIndicator(row.log, row.previousPerformance)
   const PerformanceIndicatorIcon = performanceIndicator.Icon
+  const personalAverageTokens = buildPersonalAverageTokens(row.statsRecord, row.isContinuous)
+  const benchmarkAverageTokens = buildBenchmarkAverageTokens(
+    row.resolvedExercise,
+    fitnessProfile,
+    row.isContinuous,
+  )
   const isExerciseEmpty = !setLogs.some((setLog) => {
     return hasSetLogContent(setLog) || setLog.completedAt || setLog.suboptimal
   })
@@ -784,6 +885,32 @@ function SortableWorkoutRow({
 
     onToggleWorkoutExtraExercise(row.key)
   }, [onToggleWorkoutExercise, onToggleWorkoutExtraExercise, row.actionKind, row.key])
+
+  const openRowExerciseDetails = useCallback(
+    (exercise: Exercise) => {
+      onOpenExerciseDetails(
+        exercise,
+        isSelectedWorkoutActive
+          ? {
+              substitutionTarget: {
+                actionKind: row.actionKind,
+                currentExerciseId: row.resolvedExercise?.id ?? null,
+                key: row.key,
+                title: row.title,
+              },
+            }
+          : undefined,
+      )
+    },
+    [
+      isSelectedWorkoutActive,
+      onOpenExerciseDetails,
+      row.actionKind,
+      row.key,
+      row.resolvedExercise?.id,
+      row.title,
+    ],
+  )
 
   const requestSubstitution = useCallback(() => {
     if (!isSelectedWorkoutActive || isCompactResolvedRow) {
@@ -1044,7 +1171,7 @@ function SortableWorkoutRow({
                 }
 
                 if (row.resolvedExercise) {
-                  onOpenExerciseDetails(row.resolvedExercise)
+                  openRowExerciseDetails(row.resolvedExercise)
                 }
               }}
               onContextMenu={(event) => event.preventDefault()}
@@ -1098,7 +1225,7 @@ function SortableWorkoutRow({
                 className="chip-button workout-table__icon-button workout-table__info-button"
                 onClick={() => {
                   if (row.resolvedExercise) {
-                    onOpenExerciseDetails(row.resolvedExercise)
+                    openRowExerciseDetails(row.resolvedExercise)
                   }
                 }}
                 aria-label={`Open details for ${row.title}`}
@@ -1124,9 +1251,11 @@ function SortableWorkoutRow({
 
       <td className="workout-table__target-cell">
         <WorkoutTargetBadge
+          benchmarkAverages={benchmarkAverageTokens}
           duration={row.targetDuration}
           effort={row.targetEffort}
           mode={isCompactResolvedRow ? 'horizontal' : 'vertical'}
+          personalAverages={personalAverageTokens}
           reps={row.targetReps}
           rest={row.targetRest}
           sets={row.isContinuous ? undefined : row.visibleSetCount}
@@ -1477,7 +1606,6 @@ function SortableWorkoutRow({
                 aria-label={`Add set for ${row.title}`}
                 title="Add set"
               >
-                <Plus size={12} />
                 <span>Add set</span>
               </button>
             )}

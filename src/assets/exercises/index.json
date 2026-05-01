@@ -925,6 +925,12 @@
       "file": "machine-triceps-press.json"
     },
     {
+      "id": "military-press",
+      "displayLabel": "Military Press",
+      "shortDescription": "Standing barbell overhead press variation targeting the shoulders and supporting triceps.",
+      "file": "military-press.json"
+    },
+    {
       "id": "neck-extension",
       "displayLabel": "Neck Extension",
       "shortDescription": "Neck accessory movement for cervical extension strength and resilience.",
@@ -1433,6 +1439,12 @@
       "displayLabel": "Tricep Pressdown",
       "shortDescription": "Pressing variation targeting the shoulders and supporting triceps.",
       "file": "tricep-pressdown.json"
+    },
+    {
+      "id": "triceps-pushdown",
+      "displayLabel": "Triceps Pushdown",
+      "shortDescription": "Cable triceps isolation movement for elbow extension volume.",
+      "file": "triceps-pushdown.json"
     },
     {
       "id": "upright-row-cable",

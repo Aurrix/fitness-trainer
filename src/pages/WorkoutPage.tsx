@@ -11,7 +11,9 @@ import FloatingSessionBar from '../components/FloatingSessionBar'
 import MuscleVisualizer from '../components/MuscleVisualizer'
 import WorkoutDayPickerSheet from '../components/WorkoutDayPickerSheet'
 import WorkoutExercisePickerSheet from '../components/WorkoutExercisePickerSheet'
-import WorkoutExerciseTable from '../components/WorkoutExerciseTable'
+import WorkoutExerciseTable, {
+  type WorkoutExerciseDetailsOptions,
+} from '../components/WorkoutExerciseTable'
 import { muscleLabels } from '../lib/muscles'
 import type { ExerciseStatsRecord } from '../entities/exercise-stats'
 import {
@@ -61,7 +63,7 @@ type WorkoutPageProps = {
     setIndex: number,
     options?: { prefillNext?: boolean },
   ) => void
-  onOpenExerciseDetails: (exercise: Exercise) => void
+  onOpenExerciseDetails: (exercise: Exercise, options?: WorkoutExerciseDetailsOptions) => void
   onOpenLibrary: (view: 'home' | 'programs' | 'exercises') => void
   onReorderWorkoutExercise: (
     draggedLogId: string,

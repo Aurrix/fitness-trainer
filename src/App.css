@@ -1410,6 +1410,20 @@
     margin: 0 0 6px;
 }
 
+.exercise-alt-card__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex: 0 0 auto;
+}
+
+.exercise-alt-card__actions .chip-button,
+.exercise-alt-card__substitute {
+    min-height: 34px;
+    padding-inline: 12px;
+}
+
 .sticky-actions {
     position: sticky;
     bottom: 118px;
@@ -1701,6 +1715,14 @@
     gap: 8px;
 }
 
+.workout-picker__scope-toggle {
+    margin: 12px 0;
+}
+
+.workout-picker__empty {
+    padding: 14px;
+}
+
 .input-like {
     display: flex;
     align-items: center;
@@ -1850,7 +1872,7 @@
     border-bottom: 1px solid rgba(15, 43, 72, 0.08);
     border-right: 1px solid rgba(15, 43, 72, 0.08);
     transition: transform 160ms ease;
-    touch-action: pan-x pan-y;
+    touch-action: pan-x pan-y pinch-zoom;
 }
 
 .workout-table tbody td:first-child {
@@ -1922,7 +1944,7 @@
     text-align: left;
     user-select: none;
     -webkit-touch-callout: none;
-    touch-action: pan-x pan-y;
+    touch-action: pan-x pan-y pinch-zoom;
 }
 
 .workout-table__title-label,
@@ -1958,31 +1980,23 @@
 .workout-table__resolved-status {
     display: inline-flex;
     align-items: center;
-    min-width: 34px;
-    min-height: 34px;
+    min-width: 16px;
+    min-height: 16px;
     padding: 0;
     justify-content: center;
     -webkit-touch-callout: none;
     user-select: none;
-    border-radius: 999px;
-    border: 1px solid transparent;
 }
 
 .workout-table__resolved-status--positive {
-    border-color: rgba(40, 120, 78, 0.26);
-    background: rgba(40, 120, 78, 0.14);
     color: #1d6b45;
 }
 
 .workout-table__resolved-status--negative {
-    border-color: rgba(190, 54, 46, 0.24);
-    background: rgba(190, 54, 46, 0.12);
     color: #b02f2a;
 }
 
 .workout-table__resolved-status--neutral {
-    border-color: rgba(15, 43, 72, 0.16);
-    background: rgba(15, 43, 72, 0.08);
     color: var(--ink-strong);
 }
 
@@ -2191,7 +2205,8 @@
     color: var(--ink-strong);
     padding: 6px 8px;
     font: inherit;
-    font-size: 12px;
+    font-size: 16px;
+    line-height: 1.1;
 }
 
 .workout-table__set-inputs input.is-below-average {
@@ -2417,9 +2432,10 @@
 }
 
 .workout-target-badge--vertical {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
-    gap: 1px;
+    gap: 6px;
 }
 
 .workout-target-badge--horizontal {
@@ -2435,8 +2451,16 @@
     min-height: 16px;
 }
 
+.workout-target-badge__column {
+    min-width: 0;
+    display: grid;
+    align-content: start;
+    gap: 2px;
+}
+
 .workout-target-badge--vertical .workout-target-badge__token {
     justify-content: space-between;
+    gap: 5px;
 }
 
 .workout-target-badge__label {
@@ -2444,11 +2468,14 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--muted-strong);
+    overflow-wrap: anywhere;
 }
 
 .workout-target-badge__token strong {
     font-size: 11px;
     line-height: 1.05;
+    text-align: right;
+    overflow-wrap: anywhere;
 }
 
 .program-card__title-stack {
@@ -4142,6 +4169,7 @@ button.trend-tile:hover,
 }
 
 .body-stats-entry-form--compact {
+    min-width: 0;
     padding: 16px;
     border-radius: 22px;
     border: 1px solid rgba(15, 43, 72, 0.08);
@@ -4151,12 +4179,21 @@ button.trend-tile:hover,
 
 .body-stats-entry-form__value-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
     gap: 10px;
+    min-width: 0;
 }
 
 .body-stats-entry-form__value-grid .field {
     min-width: 0;
+}
+
+.body-stats-entry-form__value-grid input,
+.body-stats-entry-form__value-grid select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-inline-size: 0;
 }
 
 .body-stats-entry-form__section {
@@ -4768,6 +4805,13 @@ button.trend-tile:hover,
     .exercise-row__header,
     .exercise-alt-card {
         flex-direction: column;
+    }
+
+    .exercise-alt-card__actions {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .visualizer-header--balanced {

@@ -46,12 +46,19 @@ export default function WorkoutExercisePickerSheet({
   title = 'Add exercise',
 }: WorkoutExercisePickerSheetProps) {
   const [query, setQuery] = useState('')
+  const [activeSubstituteGroup, setActiveSubstituteGroup] = useState<'primary' | 'secondary'>(
+    'primary',
+  )
   const deferredQuery = useDeferredValue(query.trim().toLowerCase())
   const excludedExerciseIdSet = useMemo(() => new Set(excludeExerciseIds), [excludeExerciseIds])
-  const preferredReferenceSet = useMemo(
-    () => new Set(preferredReferences.map((entry) => normalizeExerciseReference(entry))),
+  const preferredReferenceKeys = useMemo(
+    () => preferredReferences.map((entry) => normalizeExerciseReference(entry)),
     [preferredReferences],
   )
+  const isSubstitutePicker = actionLabel.toLowerCase() === 'substitute'
+  const shouldSplitSubstituteGroups = isSubstitutePicker && preferredReferenceKeys.length > 0
+  const isPreferredExercise = (exercise: Exercise) =>
+    preferredReferenceKeys.some((reference) => matchesExerciseReference(exercise, reference))
   const filteredExercises = exercises
     .filter((exercise) => {
       if (excludedExerciseIdSet.has(exercise.id)) {
@@ -76,12 +83,8 @@ export default function WorkoutExercisePickerSheet({
       return searchableText.includes(deferredQuery)
     })
     .sort((left, right) => {
-      const leftIsPreferred =
-        preferredReferenceSet.size > 0 &&
-        [...preferredReferenceSet].some((reference) => matchesExerciseReference(left, reference))
-      const rightIsPreferred =
-        preferredReferenceSet.size > 0 &&
-        [...preferredReferenceSet].some((reference) => matchesExerciseReference(right, reference))
+      const leftIsPreferred = isPreferredExercise(left)
+      const rightIsPreferred = isPreferredExercise(right)
 
       if (leftIsPreferred !== rightIsPreferred) {
         return leftIsPreferred ? -1 : 1
@@ -89,6 +92,17 @@ export default function WorkoutExercisePickerSheet({
 
       return left.name.localeCompare(right.name)
     })
+  const primaryExercises = shouldSplitSubstituteGroups
+    ? filteredExercises.filter((exercise) => isPreferredExercise(exercise))
+    : []
+  const secondaryExercises = shouldSplitSubstituteGroups
+    ? filteredExercises.filter((exercise) => !isPreferredExercise(exercise))
+    : filteredExercises
+  const visibleExercises = shouldSplitSubstituteGroups
+    ? activeSubstituteGroup === 'primary'
+      ? primaryExercises
+      : secondaryExercises
+    : filteredExercises
 
   return (
     <BottomSheet
@@ -110,8 +124,27 @@ export default function WorkoutExercisePickerSheet({
         </div>
       </label>
 
+      {shouldSplitSubstituteGroups ? (
+        <div className="segmented-control segmented-control--two workout-picker__scope-toggle">
+          <button
+            type="button"
+            className={activeSubstituteGroup === 'primary' ? 'is-active' : ''}
+            onClick={() => setActiveSubstituteGroup('primary')}
+          >
+            Primary
+          </button>
+          <button
+            type="button"
+            className={activeSubstituteGroup === 'secondary' ? 'is-active' : ''}
+            onClick={() => setActiveSubstituteGroup('secondary')}
+          >
+            Secondary
+          </button>
+        </div>
+      ) : null}
+
       <div className="card-stack">
-        {filteredExercises.map((exercise) => {
+        {visibleExercises.map((exercise) => {
             const summaryParts = [
               exercise.category,
               exercise.difficulty || null,
@@ -142,6 +175,15 @@ export default function WorkoutExercisePickerSheet({
               </button>
             )
           })}
+        {!visibleExercises.length ? (
+          <div className="empty-state compact-empty-state workout-picker__empty">
+            <p>
+              {shouldSplitSubstituteGroups && activeSubstituteGroup === 'primary'
+                ? 'No primary alternatives match this search.'
+                : 'No exercises match this search.'}
+            </p>
+          </div>
+        ) : null}
       </div>
     </BottomSheet>
   )
