@@ -47,8 +47,7 @@ type GrowthLaggingMapCardProps = {
   profile: MuscleProfile
   selectedRange: StatsRangePreset
   showTrendPreview: boolean
-  topGainerLabel: string
-  topLaggerLabel: string
+  summaryItems: Array<{ label: string; value: string }>
   view: StatsPreferences['muscleProgressView']
 }
 
@@ -62,28 +61,38 @@ export default function GrowthLaggingMapCard({
   profile,
   selectedRange,
   showTrendPreview,
-  topGainerLabel,
-  topLaggerLabel,
+  summaryItems,
   view,
 }: GrowthLaggingMapCardProps) {
+  const isNeglectView = view === 'neglect'
+
   return (
     <MuscleVisualizer
       className="progression-muscle-card"
       compact
-      detailSheetDescription="Positive values mean the later block of logged performance is stronger than the earlier block; negative values highlight lagging areas."
+      detailSheetDescription={
+        isNeglectView
+          ? 'Lower values identify muscle groups with fewer planned primary sets in the current main program.'
+          : 'Positive values mean the later block of logged performance is stronger than the earlier block; negative values highlight lagging areas.'
+      }
       detailsMode="sheet"
-      emptyDescription="Complete more logged sessions to map growth vs lagging muscle groups."
+      emptyDescription={
+        isNeglectView
+          ? 'Add exercises with resolved primary muscle targets to inspect neglected areas.'
+          : 'Complete more logged sessions to map growth vs lagging muscle groups.'
+      }
       footer={
         <>
           <div className="progression-breakdown__header">
             <div>
               <strong>Breakdown</strong>
               <p className="muted">
-                Coefficient compares later average performance against the earlier average and
-                dampens noisy low-sample lifts.
+                {isNeglectView
+                  ? 'Primary set coverage counts planned sets where a muscle group is a main target.'
+                  : 'Coefficient compares later average performance against the earlier average and dampens noisy low-sample lifts.'}
               </p>
             </div>
-            <div className="segmented-control segmented-control--two progression-breakdown__toggle">
+            <div className="segmented-control progression-breakdown__toggle">
               <button
                 type="button"
                 className={view === 'muscles' ? 'is-active' : ''}
@@ -97,6 +106,13 @@ export default function GrowthLaggingMapCard({
                 onClick={() => onUpdateBreakdownView('exercises')}
               >
                 Exercises
+              </button>
+              <button
+                type="button"
+                className={view === 'neglect' ? 'is-active' : ''}
+                onClick={() => onUpdateBreakdownView('neglect')}
+              >
+                Neglect
               </button>
             </div>
           </div>
@@ -159,45 +175,54 @@ export default function GrowthLaggingMapCard({
               ))
             ) : (
               <div className="empty-state compact-empty-state">
-                <p>No strength samples yet for this range.</p>
+                <p>
+                  {isNeglectView
+                    ? 'No primary-set coverage found for this program.'
+                    : 'No strength samples yet for this range.'}
+                </p>
               </div>
             )}
           </div>
         </>
       }
       gender={gender}
-      kicker="Strength"
+      kicker={isNeglectView ? 'Coverage' : 'Strength'}
       profile={profile}
       showSheetPreview={false}
-      title="Growth vs lagging map"
+      title={isNeglectView ? 'Primary set coverage' : 'Growth vs lagging map'}
       toolbar={
         <>
-          <div className="mini-chip-row">
-            <button
-              type="button"
-              className={showTrendPreview ? 'chip-button' : 'chip-button is-active'}
-              onClick={onUseDefaultView}
-            >
-              D
-            </button>
-            {statsRangePresetOptions.map((option) => (
+          {!isNeglectView ? (
+            <div className="mini-chip-row">
               <button
-                key={option.value}
                 type="button"
-                className={
-                  showTrendPreview && option.value === selectedRange
-                    ? 'chip-button is-active'
-                    : 'chip-button'
-                }
-                onClick={() => onUpdateRange(option.value)}
+                className={showTrendPreview ? 'chip-button' : 'chip-button is-active'}
+                onClick={onUseDefaultView}
               >
-                {option.label}
+                D
               </button>
-            ))}
-          </div>
+              {statsRangePresetOptions.map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  className={
+                    showTrendPreview && option.value === selectedRange
+                      ? 'chip-button is-active'
+                      : 'chip-button'
+                  }
+                  onClick={() => onUpdateRange(option.value)}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          ) : null}
           <div className="progression-muscle-summary">
-            <span className="pill pill--subtle">Top gainer: {topGainerLabel}</span>
-            <span className="pill pill--subtle">Lagging: {topLaggerLabel}</span>
+            {summaryItems.map((item) => (
+              <span key={item.label} className="pill pill--subtle">
+                {item.label}: {item.value}
+              </span>
+            ))}
           </div>
         </>
       }

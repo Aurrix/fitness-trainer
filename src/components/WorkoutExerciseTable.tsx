@@ -61,6 +61,28 @@ export type WorkoutExerciseDetailsOptions = {
   substitutionTarget?: WorkoutExerciseDetailSubstitutionTarget | null
 }
 
+type WorkoutSetLogPrefill = Pick<
+  WorkoutSetLogEntry,
+  'duration' | 'effort' | 'reps' | 'weightKg'
+>
+
+type WorkoutSetHistorySample = {
+  dateLabel: string
+  detailLines: string[]
+  id: string
+  summary: string
+  values: Partial<WorkoutSetLogPrefill>
+}
+
+type WorkoutSetHistoryRequest = {
+  actionKind: WorkoutTableRow['actionKind']
+  isContinuous: boolean
+  key: string
+  samples: WorkoutSetHistorySample[]
+  setIndex: number
+  title: string
+}
+
 type WorkoutExerciseTableProps = {
   activeWorkout: ActiveWorkout | null
   activeWorkoutExerciseLogs: Record<string, WorkoutExerciseLogEntry>
@@ -78,6 +100,7 @@ type WorkoutExerciseTableProps = {
     exerciseName: string
     logId: string
     prefillNext?: boolean
+    prefillNextSetLog?: WorkoutSetLogPrefill
     rest: string
     setIndex: number
     setLog: WorkoutSetLogEntry
@@ -181,6 +204,7 @@ type SortableWorkoutRowProps = {
     exerciseName: string
     logId: string
     prefillNext?: boolean
+    prefillNextSetLog?: WorkoutSetLogPrefill
     rest: string
     setIndex: number
     setLog: WorkoutSetLogEntry
@@ -207,6 +231,7 @@ type SortableWorkoutRowProps = {
     row: Pick<WorkoutTableRow, 'actionKind' | 'key' | 'resolvedExercise' | 'title'>,
   ) => void
   onRequestRemove: (row: WorkoutRemoveRequest) => void
+  onOpenSetHistoryPicker: (request: WorkoutSetHistoryRequest) => void
   onToggleWorkoutExercise: (exerciseId: string) => void
   onToggleWorkoutExerciseSkipped: (exerciseId: string) => void
   onToggleWorkoutExtraExercise: (logId: string) => void
@@ -466,6 +491,110 @@ function getPreviousSetSample(
   return previousPerformance?.sets.find((entry) => entry.setIndex === setIndex + 1) ?? null
 }
 
+function formatSetPrefillNumber(value: number | null) {
+  if (value === null) {
+    return ''
+  }
+
+  return Number.isInteger(value) ? String(value) : value.toFixed(1).replace(/\.0$/, '')
+}
+
+function getSetSamplePrefill(
+  setSample: ExercisePerformanceSample['sets'][number] | null,
+) {
+  if (!setSample) {
+    return null
+  }
+
+  const prefill: WorkoutSetLogPrefill = {
+    duration: formatSetPrefillNumber(setSample.durationMinutes),
+    effort: setSample.difficulty.trim(),
+    reps: formatSetPrefillNumber(setSample.reps),
+    weightKg: formatSetPrefillNumber(setSample.weightKg),
+  }
+  const hasPrefillValue = Object.values(prefill).some((value) => value?.trim())
+
+  return hasPrefillValue ? prefill : null
+}
+
+function formatSetHistoryDate(dateValue: string) {
+  return new Date(dateValue).toLocaleDateString(undefined, {
+    day: 'numeric',
+    month: 'short',
+  })
+}
+
+function buildSetHistorySummary(
+  values: Partial<WorkoutSetLogPrefill>,
+  isContinuous: boolean,
+) {
+  const summaryParts = isContinuous
+    ? [
+        values.duration?.trim() ? `${values.duration} min` : null,
+        values.effort?.trim() ? values.effort : null,
+      ]
+    : [
+        values.weightKg?.trim() ? `${values.weightKg} kg` : null,
+        values.reps?.trim() ? `${values.reps} reps` : null,
+        values.effort?.trim() ? values.effort : null,
+      ]
+
+  return summaryParts.filter(Boolean).join(' / ') || 'Logged set'
+}
+
+function buildSetHistoryDetailLines(
+  values: Partial<WorkoutSetLogPrefill>,
+  isContinuous: boolean,
+) {
+  return isContinuous
+    ? [
+        values.duration?.trim() ? `Duration ${values.duration} min` : null,
+        values.effort?.trim() ? `Effort ${values.effort}` : null,
+      ].filter((line): line is string => line !== null)
+    : [
+        values.weightKg?.trim() ? `Weight ${values.weightKg} kg` : null,
+        values.reps?.trim() ? `Reps ${values.reps}` : null,
+        values.effort?.trim() ? `Effort ${values.effort}` : null,
+      ].filter((line): line is string => line !== null)
+}
+
+function buildSetHistorySamples({
+  isContinuous,
+  setIndex,
+  statsRecord,
+}: {
+  isContinuous: boolean
+  setIndex: number
+  statsRecord: ExerciseStatsRecord | null
+}) {
+  return (
+    statsRecord?.progressionHistory
+      .filter((sample) => !sample.skipped && (sample.completed || sample.performedSetCount > 0))
+      .flatMap<WorkoutSetHistorySample>((sample) => {
+        const setSample =
+          sample.sets.find((entry) => entry.setIndex === setIndex + 1) ??
+          sample.sets[setIndex] ??
+          null
+        const values = getSetSamplePrefill(setSample)
+
+        if (!values) {
+          return []
+        }
+
+        return [
+          {
+            dateLabel: formatSetHistoryDate(sample.recordedAt),
+            detailLines: buildSetHistoryDetailLines(values, isContinuous),
+            id: `${sample.id}:${setSample?.setIndex ?? setIndex + 1}`,
+            summary: buildSetHistorySummary(values, isContinuous),
+            values,
+          },
+        ]
+      })
+      .slice(0, 8) ?? []
+  )
+}
+
 function hasSetLogContent(setLog: WorkoutSetLogEntry) {
   return Boolean(
     setLog.duration.trim() ||
@@ -516,6 +645,9 @@ function buildPersonalAverageTokens(
   const averageDuration = averageNullableNumbers(
     recentSamples.map((sample) => sample.totalDurationMinutes),
   )
+  const averageSetCount = averageNullableNumbers(
+    recentSamples.map((sample) => sample.performedSetCount),
+  )
   const averageReps = averageNullableNumbers(recentSamples.map((sample) => sample.totalReps))
   const averageWeightKg = averageNullableNumbers(
     recentSamples.map((sample) => sample.maxWeightKg),
@@ -528,6 +660,15 @@ function buildPersonalAverageTokens(
       detailValue: formatNullableNumber(averageDuration, 'min'),
       key: 'duration',
       shortLabel: 'You time',
+    })
+  }
+
+  if (!isContinuous && averageSetCount !== null) {
+    tokens.push({
+      detailLabel: 'Your recent average logged sets',
+      detailValue: formatNullableNumber(averageSetCount, 'sets'),
+      key: 'sets',
+      shortLabel: 'You sets',
     })
   }
 
@@ -664,6 +805,7 @@ function SortableWorkoutRow({
   onPreviewReorder,
   onRemoveWorkoutExerciseSetLog,
   onRemoveWorkoutExtraExerciseSetLog,
+  onOpenSetHistoryPicker,
   onRequestRemove,
   onRequestSubstitute,
   onToggleWorkoutExercise,
@@ -678,9 +820,17 @@ function SortableWorkoutRow({
   const rowRef = useRef<HTMLTableRowElement | null>(null)
   const resolveHoldTimeoutRef = useRef<number | null>(null)
   const titleHoldTimeoutRef = useRef<number | null>(null)
+  const setHoldTimeoutRef = useRef<number | null>(null)
   const shouldIgnoreTitleClickRef = useRef(false)
   const titleHoldStartRef = useRef<{
     pointerId: number
+    startX: number
+    startY: number
+  } | null>(null)
+  const setHoldStartRef = useRef<{
+    pointerId: number
+    samples: WorkoutSetHistorySample[]
+    setIndex: number
     startX: number
     startY: number
   } | null>(null)
@@ -694,6 +844,7 @@ function SortableWorkoutRow({
   const isCompactResolvedRow = row.log.completed || row.log.skipped
   const [isResolveHolding, setIsResolveHolding] = useState(false)
   const [isTitleHolding, setIsTitleHolding] = useState(false)
+  const [holdingSetIndex, setHoldingSetIndex] = useState<number | null>(null)
   const [expandedSetIndexes, setExpandedSetIndexes] = useState<number[]>([])
   const [handleSwipeOffset, setHandleSwipeOffset] = useState(0)
   const performanceIndicator = getPerformanceIndicator(row.log, row.previousPerformance)
@@ -716,6 +867,9 @@ function SortableWorkoutRow({
       if (titleHoldTimeoutRef.current !== null) {
         window.clearTimeout(titleHoldTimeoutRef.current)
       }
+      if (setHoldTimeoutRef.current !== null) {
+        window.clearTimeout(setHoldTimeoutRef.current)
+      }
     }
   }, [])
 
@@ -734,6 +888,15 @@ function SortableWorkoutRow({
     }
     titleHoldStartRef.current = null
     setIsTitleHolding(false)
+  }, [])
+
+  const clearSetHold = useCallback(() => {
+    if (setHoldTimeoutRef.current !== null) {
+      window.clearTimeout(setHoldTimeoutRef.current)
+      setHoldTimeoutRef.current = null
+    }
+    setHoldStartRef.current = null
+    setHoldingSetIndex(null)
   }, [])
 
   const unlockResolvedRow = useCallback(() => {
@@ -861,13 +1024,18 @@ function SortableWorkoutRow({
     (
       setIndex: number,
       setLog: WorkoutSetLogEntry,
-      options?: { prefillNext?: boolean; startRest?: boolean },
+      options?: {
+        prefillNext?: boolean
+        prefillNextSetLog?: WorkoutSetLogPrefill | null
+        startRest?: boolean
+      },
     ) => {
       onCommitWorkoutSet({
         actionKind: row.actionKind,
         exerciseName: row.title,
         logId: row.key,
         prefillNext: options?.prefillNext,
+        prefillNextSetLog: options?.prefillNextSetLog ?? undefined,
         rest: options?.startRest === false ? '' : row.targetRest,
         setIndex,
         setLog,
@@ -978,6 +1146,89 @@ function SortableWorkoutRow({
       }
     },
     [clearResolveHold, clearTitleHold],
+  )
+
+  const startSetHistoryHold = useCallback(
+    (
+      event: ReactPointerEvent<HTMLTableCellElement>,
+      setIndex: number,
+      samples: WorkoutSetHistorySample[],
+    ) => {
+      if (
+        !isSelectedWorkoutActive ||
+        isCompactResolvedRow ||
+        isInputDisabled ||
+        !samples.length ||
+        (event.pointerType === 'mouse' && event.button !== 0)
+      ) {
+        return
+      }
+
+      const targetElement = event.target instanceof Element ? event.target : null
+
+      if (targetElement?.closest('input, select, button, textarea, a')) {
+        return
+      }
+
+      clearSetHold()
+      setHoldStartRef.current = {
+        pointerId: event.pointerId,
+        samples,
+        setIndex,
+        startX: event.clientX,
+        startY: event.clientY,
+      }
+      setHoldingSetIndex(setIndex)
+      setHoldTimeoutRef.current = window.setTimeout(() => {
+        const holdStart = setHoldStartRef.current
+
+        setHoldTimeoutRef.current = null
+        setHoldStartRef.current = null
+        setHoldingSetIndex(null)
+
+        if (!holdStart) {
+          return
+        }
+
+        onOpenSetHistoryPicker({
+          actionKind: row.actionKind,
+          isContinuous: row.isContinuous,
+          key: row.key,
+          samples: holdStart.samples,
+          setIndex: holdStart.setIndex,
+          title: row.title,
+        })
+      }, 560)
+    },
+    [
+      clearSetHold,
+      isCompactResolvedRow,
+      isInputDisabled,
+      isSelectedWorkoutActive,
+      onOpenSetHistoryPicker,
+      row.actionKind,
+      row.isContinuous,
+      row.key,
+      row.title,
+    ],
+  )
+
+  const handleSetHistoryPointerMove = useCallback(
+    (event: ReactPointerEvent<HTMLTableCellElement>) => {
+      const holdStart = setHoldStartRef.current
+
+      if (!holdStart || holdStart.pointerId !== event.pointerId) {
+        return
+      }
+
+      const deltaX = Math.abs(event.clientX - holdStart.startX)
+      const deltaY = Math.abs(event.clientY - holdStart.startY)
+
+      if (deltaX > 8 || deltaY > 8) {
+        clearSetHold()
+      }
+    },
+    [clearSetHold],
   )
 
   const requestRemove = useCallback(() => {
@@ -1120,10 +1371,12 @@ function SortableWorkoutRow({
       onPointerCancel={() => {
         clearResolveHold()
         clearTitleHold()
+        clearSetHold()
       }}
       onPointerUp={() => {
         clearResolveHold()
         clearTitleHold()
+        clearSetHold()
       }}
     >
       <td className="workout-table__exercise-cell">
@@ -1278,6 +1531,11 @@ function SortableWorkoutRow({
 
         const setLog = setLogs[setIndex]
         const previousSetSample = getPreviousSetSample(row.previousPerformance, setIndex)
+        const setHistorySamples = buildSetHistorySamples({
+          isContinuous: row.isContinuous,
+          setIndex,
+          statsRecord: row.statsRecord,
+        })
         const benchmarkComparisons = compareSetToExerciseBenchmark(
           row.resolvedExercise,
           fitnessProfile,
@@ -1345,7 +1603,12 @@ function SortableWorkoutRow({
             return
           }
 
-          commitSet(setIndex, setLog, { prefillNext: true })
+          commitSet(setIndex, setLog, {
+            prefillNext: true,
+            prefillNextSetLog: getSetSamplePrefill(
+              getPreviousSetSample(row.previousPerformance, setIndex + 1),
+            ),
+          })
         }
         const benchmarkTitle = belowAverageComparisons
           .map(
@@ -1369,9 +1632,22 @@ function SortableWorkoutRow({
               previousSetWasSuboptimal ? 'is-previous-suboptimal' : '',
               belowAverageComparisons.length ? 'is-below-average' : '',
               recentAverageComparisons.length ? 'is-below-recent-average' : '',
+              holdingSetIndex === setIndex ? 'is-history-holding' : '',
             ]
               .filter(Boolean)
               .join(' ')}
+            onContextMenu={(event) => {
+              if (setHistorySamples.length && isSelectedWorkoutActive && !isCompactResolvedRow) {
+                event.preventDefault()
+              }
+            }}
+            onPointerCancel={clearSetHold}
+            onPointerDown={(event) =>
+              startSetHistoryHold(event, setIndex, setHistorySamples)
+            }
+            onPointerLeave={clearSetHold}
+            onPointerMove={handleSetHistoryPointerMove}
+            onPointerUp={clearSetHold}
             title={benchmarkTitle || undefined}
           >
             {shouldShowSetSummary ? (
@@ -1666,6 +1942,8 @@ export default function WorkoutExerciseTable({
       }
   >(null)
   const [removeState, setRemoveState] = useState<WorkoutRemoveRequest | null>(null)
+  const [setHistoryState, setSetHistoryState] =
+    useState<WorkoutSetHistoryRequest | null>(null)
   const [draggedKey, setDraggedKey] = useState<string | null>(null)
   const [orderedKeys, setOrderedKeys] = useState<string[]>([])
   const [orderedKeysBaseSignature, setOrderedKeysBaseSignature] = useState('')
@@ -1901,6 +2179,37 @@ export default function WorkoutExerciseTable({
     setRemoveState(null)
   }, [onRemoveWorkoutExercise, onRemoveWorkoutExtraExercise, removeState])
 
+  const applySetHistorySample = useCallback(
+    (sample: WorkoutSetHistorySample) => {
+      if (!setHistoryState) {
+        return
+      }
+
+      const updateSetLog =
+        setHistoryState.actionKind === 'planned'
+          ? onUpdateWorkoutExerciseSetLog
+          : onUpdateWorkoutExtraExerciseSetLog
+      const fields: Array<keyof WorkoutSetLogPrefill> = setHistoryState.isContinuous
+        ? ['duration', 'effort']
+        : ['weightKg', 'reps', 'effort']
+
+      fields.forEach((field) => {
+        const value = sample.values[field]
+
+        if (value !== undefined) {
+          updateSetLog(setHistoryState.key, setHistoryState.setIndex, field, value)
+        }
+      })
+
+      setSetHistoryState(null)
+    },
+    [
+      onUpdateWorkoutExerciseSetLog,
+      onUpdateWorkoutExtraExerciseSetLog,
+      setHistoryState,
+    ],
+  )
+
   return (
     <>
       <section className="section-card workout-table-card">
@@ -1938,6 +2247,7 @@ export default function WorkoutExerciseTable({
                   onPreviewReorder={previewReorder}
                   onRemoveWorkoutExerciseSetLog={onRemoveWorkoutExerciseSetLog}
                   onRemoveWorkoutExtraExerciseSetLog={onRemoveWorkoutExtraExerciseSetLog}
+                  onOpenSetHistoryPicker={setSetHistoryState}
                   onRequestRemove={(selectedRow) => setRemoveState(selectedRow)}
                   onRequestSubstitute={(selectedRow) =>
                     setPickerState({
@@ -2017,6 +2327,35 @@ export default function WorkoutExerciseTable({
             >
               Remove
             </button>
+          </div>
+        </BottomSheet>
+      ) : null}
+
+      {setHistoryState ? (
+        <BottomSheet
+          className="workout-set-history-sheet"
+          description="Pick a previous logged value to fill this set. Existing values in matching fields will be replaced."
+          kicker="Set History"
+          onClose={() => setSetHistoryState(null)}
+          title={`${setHistoryState.title} / Set ${setHistoryState.setIndex + 1}`}
+        >
+          <div className="workout-set-history-list">
+            {setHistoryState.samples.map((sample) => (
+              <button
+                key={sample.id}
+                type="button"
+                className="workout-set-history-option"
+                onClick={() => applySetHistorySample(sample)}
+              >
+                <span>
+                  <strong>{sample.summary}</strong>
+                  <span>{sample.dateLabel}</span>
+                </span>
+                <span className="workout-set-history-option__details">
+                  {sample.detailLines.join(' / ')}
+                </span>
+              </button>
+            ))}
           </div>
         </BottomSheet>
       ) : null}

@@ -738,6 +738,19 @@ function App() {
     })
   }
 
+  function createNextSetLogFromPrefill(
+    prefill: Partial<
+      Pick<WorkoutSetLogEntry, 'duration' | 'effort' | 'reps' | 'weightKg'>
+    >,
+  ) {
+    return createWorkoutSetLogEntry({
+      duration: prefill.duration ?? '',
+      effort: prefill.effort ?? '',
+      reps: prefill.reps ?? '',
+      weightKg: prefill.weightKg ?? '',
+    })
+  }
+
   function updateFitnessProfile<K extends keyof FitnessProfile>(
     field: K,
     value: FitnessProfile[K],
@@ -1337,7 +1350,13 @@ function App() {
   function commitWorkoutExerciseSet(
     exerciseId: string,
     setIndex: number,
-    options?: { prefillNext?: boolean },
+    options?: {
+      prefillNext?: boolean
+      prefillNextSetLog?: Pick<
+        WorkoutSetLogEntry,
+        'duration' | 'effort' | 'reps' | 'weightKg'
+      >
+    },
   ) {
     setActiveWorkout((currentWorkout) => {
       if (!currentWorkout) {
@@ -1366,11 +1385,13 @@ function App() {
 
         if (
           options?.prefillNext &&
-          index === setIndex + 1 &&
-          !shouldKeepExistingSetLog(setLog)
-        ) {
-          return createNextSetLogFrom(sourceSetLog)
-        }
+            index === setIndex + 1 &&
+            !shouldKeepExistingSetLog(setLog)
+          ) {
+            return options.prefillNextSetLog
+              ? createNextSetLogFromPrefill(options.prefillNextSetLog)
+              : createNextSetLogFrom(sourceSetLog)
+          }
 
         return setLog
       })
@@ -1734,7 +1755,13 @@ function App() {
   function commitWorkoutExtraExerciseSet(
     logId: string,
     setIndex: number,
-    options?: { prefillNext?: boolean },
+    options?: {
+      prefillNext?: boolean
+      prefillNextSetLog?: Pick<
+        WorkoutSetLogEntry,
+        'duration' | 'effort' | 'reps' | 'weightKg'
+      >
+    },
   ) {
     setActiveWorkout((currentWorkout) => {
       if (!currentWorkout) {
@@ -1767,7 +1794,9 @@ function App() {
               index === setIndex + 1 &&
               !shouldKeepExistingSetLog(setLog)
             ) {
-              return createNextSetLogFrom(sourceSetLog)
+              return options.prefillNextSetLog
+                ? createNextSetLogFromPrefill(options.prefillNextSetLog)
+                : createNextSetLogFrom(sourceSetLog)
             }
 
             return setLog

@@ -19,8 +19,15 @@ import type {
 } from '../entities/stats-preferences'
 import { statsRangePresetOptions } from '../entities/stats-preferences'
 import type { WorkoutLog } from '../entities/workout'
+import {
+  formatExerciseMuscleGroup,
+  mapExerciseMuscleGroupToBodySlug,
+} from '../entities/exercise-muscles'
 import type { AppProgram } from '../lib/app-types'
+import { getTargetSetCount } from '../lib/app-utils'
+import { getContentLibrary, type Exercise } from '../lib/content'
 import type { FitnessProfile } from '../lib/fitness-profile'
+import { muscleLabels, type MuscleProfile } from '../lib/muscles'
 import {
   buildExerciseProgressionBreakdown,
   buildExerciseProgressTimeline,
@@ -121,6 +128,205 @@ type BreakdownInfo = Pick<BreakdownRow, 'description' | 'details' | 'kicker' | '
   'description' | 'details' | 'kicker' | 'title'
 >
 
+type MuscleNeglectEntry = {
+  exerciseCount: number
+  exerciseNames: string[]
+  label: string
+  medianSetCount: number
+  sectionNames: string[]
+  setCount: number
+  slug: Slug
+  tone: 'negative' | 'neutral' | 'positive'
+}
+
+const trainableMuscleSlugs: Slug[] = [
+  'chest',
+  'upper-back',
+  'lower-back',
+  'trapezius',
+  'deltoids',
+  'biceps',
+  'triceps',
+  'forearm',
+  'abs',
+  'obliques',
+  'gluteal',
+  'quadriceps',
+  'hamstring',
+  'adductors',
+  'calves',
+  'tibialis',
+]
+
+const contentExerciseLookup = (() => {
+  const exercises = getContentLibrary().exercises
+  const byId = new Map<string, Exercise>()
+  const byName = new Map<string, Exercise>()
+
+  exercises.forEach((exercise) => {
+    byId.set(exercise.id, exercise)
+    byName.set(exercise.name.trim().toLowerCase(), exercise)
+    exercise.aliases.forEach((alias) => {
+      byName.set(alias.trim().toLowerCase(), exercise)
+    })
+  })
+
+  return { byId, byName }
+})()
+
+function resolveProgramExercise(exercise: AppProgram['sections'][number]['exercises'][number]) {
+  const idReference = exercise.resolvedExerciseId || exercise.exerciseId
+
+  if (idReference) {
+    const byId = contentExerciseLookup.byId.get(idReference)
+
+    if (byId) {
+      return byId
+    }
+  }
+
+  return contentExerciseLookup.byName.get(exercise.exerciseName.trim().toLowerCase()) ?? null
+}
+
+function getNeglectTone(setCount: number, medianSetCount: number) {
+  if (setCount === 0 || setCount < Math.max(2, medianSetCount * 0.5)) {
+    return 'negative' as const
+  }
+
+  if (setCount < medianSetCount) {
+    return 'neutral' as const
+  }
+
+  return 'positive' as const
+}
+
+function getMedian(values: number[]) {
+  if (!values.length) {
+    return 0
+  }
+
+  const sortedValues = [...values].sort((left, right) => left - right)
+  const middleIndex = Math.floor(sortedValues.length / 2)
+
+  if (sortedValues.length % 2 === 1) {
+    return sortedValues[middleIndex]!
+  }
+
+  return (sortedValues[middleIndex - 1]! + sortedValues[middleIndex]!) / 2
+}
+
+function buildPrimaryMuscleSetCoverage(program: AppProgram | null) {
+  const buckets = new Map<
+    Slug,
+    {
+      exerciseNames: Set<string>
+      sectionNames: Set<string>
+      setCount: number
+    }
+  >()
+
+  trainableMuscleSlugs.forEach((slug) => {
+    buckets.set(slug, {
+      exerciseNames: new Set(),
+      sectionNames: new Set(),
+      setCount: 0,
+    })
+  })
+
+  program?.sections.forEach((section) => {
+    section.exercises.forEach((programExercise) => {
+      const resolvedExercise = resolveProgramExercise(programExercise)
+      const primaryTargets = resolvedExercise?.primaryTargetMuscleGroups ?? []
+      const primarySlugs = new Set<Slug>()
+
+      primaryTargets.forEach((target) => {
+        const slug = mapExerciseMuscleGroupToBodySlug(target.muscleGroup)
+
+        if (slug && trainableMuscleSlugs.includes(slug)) {
+          primarySlugs.add(slug)
+        }
+      })
+
+      if (!primarySlugs.size && resolvedExercise?.muscleGroups.length) {
+        resolvedExercise.muscleGroups.forEach((muscleGroup) => {
+          const slug = mapExerciseMuscleGroupToBodySlug(muscleGroup)
+
+          if (slug && trainableMuscleSlugs.includes(slug)) {
+            primarySlugs.add(slug)
+          }
+        })
+      }
+
+      if (!primarySlugs.size) {
+        return
+      }
+
+      const setCount = getTargetSetCount(programExercise.sets)
+      const exerciseName = resolvedExercise?.name ?? programExercise.exerciseName
+
+      primarySlugs.forEach((slug) => {
+        const bucket = buckets.get(slug)
+
+        if (!bucket) {
+          return
+        }
+
+        bucket.setCount += setCount
+        bucket.exerciseNames.add(exerciseName)
+        bucket.sectionNames.add(section.shortName || section.name)
+      })
+    })
+  })
+
+  const medianSetCount = getMedian([...buckets.values()].map((bucket) => bucket.setCount))
+
+  return [...buckets.entries()]
+    .map<MuscleNeglectEntry>(([slug, bucket]) => ({
+      exerciseCount: bucket.exerciseNames.size,
+      exerciseNames: [...bucket.exerciseNames].sort(),
+      label: muscleLabels[slug] ?? formatExerciseMuscleGroup(slug),
+      medianSetCount,
+      sectionNames: [...bucket.sectionNames].sort(),
+      setCount: bucket.setCount,
+      slug,
+      tone: getNeglectTone(bucket.setCount, medianSetCount),
+    }))
+    .sort((left, right) =>
+      left.setCount === right.setCount
+        ? left.label.localeCompare(right.label)
+        : left.setCount - right.setCount,
+    )
+}
+
+function getNeglectColor(entry: MuscleNeglectEntry) {
+  if (entry.tone === 'negative') {
+    return '#dc2626'
+  }
+
+  if (entry.tone === 'neutral') {
+    return '#f97316'
+  }
+
+  return '#16a34a'
+}
+
+function buildMuscleNeglectProfile(entries: MuscleNeglectEntry[]): MuscleProfile {
+  return {
+    data: entries.map((entry) => ({
+      color: getNeglectColor(entry),
+      slug: entry.slug,
+    })),
+    muscles: entries.map((entry) => ({
+      count: entry.setCount,
+      slug: entry.slug,
+    })),
+    topMuscles: entries.slice(0, 6).map((entry) => ({
+      count: entry.setCount,
+      slug: entry.slug,
+    })),
+  }
+}
+
 function formatPercentValue(value: number) {
   return `${formatSignedNumber(value * 100, 0)}%`
 }
@@ -133,7 +339,48 @@ function buildBreakdownRows(
   breakdownView: StatsPreferences['muscleProgressView'],
   exercises: ExerciseProgressEntry[],
   muscles: MuscleProgressEntry[],
+  neglectEntries: MuscleNeglectEntry[],
 ): BreakdownRow[] {
+  if (breakdownView === 'neglect') {
+    return neglectEntries.slice(0, 8).map((entry) => ({
+      badges: [],
+      description:
+        'Counts planned sets where this body area is a primary target in the current main program.',
+      details: [
+        `Primary set count: ${entry.setCount}`,
+        `Exercise count: ${entry.exerciseCount}`,
+        `Program median across tracked muscle groups: ${Math.round(
+          entry.medianSetCount,
+        )} sets`,
+        entry.exerciseNames.length
+          ? `Primary exercises: ${entry.exerciseNames.join(', ')}`
+          : 'No primary exercises in this program',
+        entry.sectionNames.length
+          ? `Appears in: ${entry.sectionNames.join(', ')}`
+          : 'No planned section coverage',
+      ],
+      id: entry.slug,
+      kicker: 'Primary Set Coverage',
+      label: entry.label,
+      metaLines: [
+        entry.exerciseNames.length
+          ? entry.exerciseNames.slice(0, 2).join(', ')
+          : 'No primary work',
+        entry.sectionNames.length
+          ? entry.sectionNames.slice(0, 2).join(', ')
+          : 'No covered days',
+      ],
+      sparkline: null,
+      title: `${entry.label} primary set coverage`,
+      tone: entry.tone,
+      value: `${entry.setCount} sets`,
+      valueMeta:
+        entry.exerciseCount > 0
+          ? `${entry.exerciseCount} exercise${entry.exerciseCount === 1 ? '' : 's'}`
+          : 'Neglected',
+    }))
+  }
+
   if (breakdownView === 'exercises') {
     return exercises.slice(0, 8).map((exercise) => {
       const deltaLabel =
@@ -367,6 +614,8 @@ export default function ProgramProgressionPanel({
   )
   const muscleBreakdown = buildMuscleProgressionBreakdown(exerciseBreakdown)
   const progressProfile = buildMuscleProgressProfile(muscleBreakdown)
+  const muscleNeglectBreakdown = buildPrimaryMuscleSetCoverage(mainProgram)
+  const neglectProfile = buildMuscleNeglectProfile(muscleNeglectBreakdown)
   const topGainer =
     [...muscleBreakdown]
       .filter((entry) => entry.coefficient > 0.01)
@@ -375,6 +624,10 @@ export default function ProgramProgressionPanel({
     [...muscleBreakdown]
       .filter((entry) => entry.coefficient < -0.01)
       .sort((left, right) => left.coefficient - right.coefficient)[0] ?? null
+  const leastCoveredMuscle = muscleNeglectBreakdown[0] ?? null
+  const mostCoveredMuscle =
+    [...muscleNeglectBreakdown].sort((left, right) => right.setCount - left.setCount)[0] ??
+    null
   const muscleTimeline = buildMuscleProgressTimeline(
     mainProgram.id,
     exerciseStatsStore,
@@ -409,13 +662,48 @@ export default function ProgramProgressionPanel({
     statsPreferences.muscleProgressView,
     exerciseBreakdown,
     muscleBreakdown,
+    muscleNeglectBreakdown,
   ).map((row) => ({
     ...row,
     sparkline:
-      statsPreferences.muscleProgressView === 'exercises'
+      statsPreferences.muscleProgressView === 'neglect'
+        ? null
+        : statsPreferences.muscleProgressView === 'exercises'
         ? (exerciseTimelineLookup.get(row.id) ?? null)
         : (muscleTimelineLookup.get(row.id as Slug) ?? null),
   }))
+  const activeMuscleProfile =
+    statsPreferences.muscleProgressView === 'neglect' ? neglectProfile : progressProfile
+  const muscleSummaryItems =
+    statsPreferences.muscleProgressView === 'neglect'
+      ? [
+          {
+            label: 'Least targeted',
+            value: leastCoveredMuscle
+              ? `${leastCoveredMuscle.label} ${leastCoveredMuscle.setCount} sets`
+              : 'N/A',
+          },
+          {
+            label: 'Most targeted',
+            value: mostCoveredMuscle
+              ? `${mostCoveredMuscle.label} ${mostCoveredMuscle.setCount} sets`
+              : 'N/A',
+          },
+        ]
+      : [
+          {
+            label: 'Top gainer',
+            value: topGainer
+              ? `${topGainer.label} ${formatCoefficient(topGainer.coefficient)}`
+              : 'N/A',
+          },
+          {
+            label: 'Lagging',
+            value: topLagger
+              ? `${topLagger.label} ${formatCoefficient(topLagger.coefficient)}`
+              : 'N/A',
+          },
+        ]
   const showVolumeTrendChart = strengthPoints.length > 10
   const showExecutionTrendChart = strengthPoints.length > 10
 
@@ -445,6 +733,10 @@ export default function ProgramProgressionPanel({
   }
 
   function updateBreakdownView(view: StatsPreferences['muscleProgressView']) {
+    if (view === 'neglect') {
+      setShowStrengthTrendPreview(false)
+    }
+
     onUpdateStatsPreferences((currentPreferences) => ({
       ...currentPreferences,
       muscleProgressView: view,
@@ -683,15 +975,12 @@ export default function ProgramProgressionPanel({
         onUpdateBreakdownView={updateBreakdownView}
         onUpdateRange={updateStrengthRange}
         onUseDefaultView={showDefaultStrengthView}
-        profile={progressProfile}
+        profile={activeMuscleProfile}
         selectedRange={strengthRange}
-        showTrendPreview={showStrengthTrendPreview}
-        topGainerLabel={
-          topGainer ? `${topGainer.label} ${formatCoefficient(topGainer.coefficient)}` : 'N/A'
+        showTrendPreview={
+          statsPreferences.muscleProgressView !== 'neglect' && showStrengthTrendPreview
         }
-        topLaggerLabel={
-          topLagger ? `${topLagger.label} ${formatCoefficient(topLagger.coefficient)}` : 'N/A'
-        }
+        summaryItems={muscleSummaryItems}
         view={statsPreferences.muscleProgressView}
       />
 

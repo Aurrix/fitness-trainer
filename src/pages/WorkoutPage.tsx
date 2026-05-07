@@ -56,12 +56,24 @@ type WorkoutPageProps = {
   onCommitWorkoutExerciseSet: (
     exerciseId: string,
     setIndex: number,
-    options?: { prefillNext?: boolean },
+    options?: {
+      prefillNext?: boolean
+      prefillNextSetLog?: Pick<
+        WorkoutSetLogEntry,
+        'duration' | 'effort' | 'reps' | 'weightKg'
+      >
+    },
   ) => void
   onCommitWorkoutExtraExerciseSet: (
     logId: string,
     setIndex: number,
-    options?: { prefillNext?: boolean },
+    options?: {
+      prefillNext?: boolean
+      prefillNextSetLog?: Pick<
+        WorkoutSetLogEntry,
+        'duration' | 'effort' | 'reps' | 'weightKg'
+      >
+    },
   ) => void
   onOpenExerciseDetails: (exercise: Exercise, options?: WorkoutExerciseDetailsOptions) => void
   onOpenLibrary: (view: 'home' | 'programs' | 'exercises') => void
@@ -834,6 +846,10 @@ export default function WorkoutPage({
     exerciseName: string
     logId: string
     prefillNext?: boolean
+    prefillNextSetLog?: Pick<
+      WorkoutSetLogEntry,
+      'duration' | 'effort' | 'reps' | 'weightKg'
+    >
     rest: string
     setIndex: number
     setLog: WorkoutSetLogEntry
@@ -851,10 +867,12 @@ export default function WorkoutPage({
     if (setDetails.actionKind === 'planned') {
       onCommitWorkoutExerciseSet(setDetails.logId, setDetails.setIndex, {
         prefillNext: setDetails.prefillNext,
+        prefillNextSetLog: setDetails.prefillNextSetLog,
       })
     } else {
       onCommitWorkoutExtraExerciseSet(setDetails.logId, setDetails.setIndex, {
         prefillNext: setDetails.prefillNext,
+        prefillNextSetLog: setDetails.prefillNextSetLog,
       })
     }
 

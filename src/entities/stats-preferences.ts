@@ -1,6 +1,6 @@
 export type StatsRangePreset = '30d' | '90d' | '180d' | '365d' | 'all'
 
-export type MuscleProgressBreakdownView = 'muscles' | 'exercises'
+export type MuscleProgressBreakdownView = 'muscles' | 'exercises' | 'neglect'
 export type ProgramPrimaryChartView = 'frequency' | 'sets'
 
 export type StatsPreferences = {
@@ -78,6 +78,8 @@ export function normalizeStatsPreferences(value: unknown): StatsPreferences {
     programMetricRanges: normalizeRangeMap(value.programMetricRanges),
     muscleProgressRange: normalizeRangePreset(value.muscleProgressRange),
     muscleProgressView:
-      value.muscleProgressView === 'exercises' ? 'exercises' : defaults.muscleProgressView,
+      value.muscleProgressView === 'exercises' || value.muscleProgressView === 'neglect'
+        ? value.muscleProgressView
+        : defaults.muscleProgressView,
   }
 }

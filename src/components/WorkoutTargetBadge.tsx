@@ -28,6 +28,71 @@ type TargetToken = {
   shortLabel: string
 }
 
+type TargetMetricKey = 'duration' | 'effort' | 'reps' | 'rest' | 'sets' | 'weight'
+
+type TargetMetricRow = {
+  benchmark: TargetToken | null
+  key: TargetMetricKey
+  label: string
+  personal: TargetToken | null
+  target: TargetToken | null
+}
+
+const targetMetricOrder: TargetMetricKey[] = [
+  'sets',
+  'reps',
+  'weight',
+  'duration',
+  'effort',
+  'rest',
+]
+
+const targetMetricLabels: Record<TargetMetricKey, string> = {
+  duration: 'Time',
+  effort: 'Effort',
+  reps: 'Reps',
+  rest: 'Rest',
+  sets: 'Sets',
+  weight: 'Weight',
+}
+
+function getTokenMetricKey(token: TargetToken): TargetMetricKey {
+  const normalizedKey = token.key.toLowerCase()
+  const normalizedLabel = `${token.shortLabel} ${token.detailLabel}`.toLowerCase()
+  const searchableValue = `${normalizedKey} ${normalizedLabel}`
+
+  if (
+    searchableValue.includes('duration') ||
+    searchableValue.includes('hold') ||
+    searchableValue.includes('time')
+  ) {
+    return 'duration'
+  }
+
+  if (
+    searchableValue.includes('assistance') ||
+    searchableValue.includes('load') ||
+    searchableValue.includes('weight') ||
+    searchableValue.includes('kg')
+  ) {
+    return 'weight'
+  }
+
+  if (searchableValue.includes('reps')) {
+    return 'reps'
+  }
+
+  if (searchableValue.includes('sets')) {
+    return 'sets'
+  }
+
+  if (searchableValue.includes('rest')) {
+    return 'rest'
+  }
+
+  return 'effort'
+}
+
 function getTokenColumn(token: TargetToken) {
   const normalizedKey = token.key.toLowerCase()
 
@@ -126,6 +191,34 @@ function buildTokens({
   return tokens
 }
 
+function findTokenByMetric(tokens: TargetToken[], metricKey: TargetMetricKey) {
+  return tokens.find((token) => getTokenMetricKey(token) === metricKey) ?? null
+}
+
+function buildTargetMetricRows({
+  benchmarkAverages,
+  personalAverages,
+  targets,
+}: {
+  benchmarkAverages: TargetToken[]
+  personalAverages: TargetToken[]
+  targets: TargetToken[]
+}) {
+  return targetMetricOrder
+    .map<TargetMetricRow>((metricKey) => ({
+      benchmark: findTokenByMetric(benchmarkAverages, metricKey),
+      key: metricKey,
+      label: targetMetricLabels[metricKey],
+      personal: findTokenByMetric(personalAverages, metricKey),
+      target: findTokenByMetric(targets, metricKey),
+    }))
+    .filter((row) => row.benchmark || row.personal || row.target)
+}
+
+function renderMetricColumnValue(token: TargetToken | null) {
+  return token ? <strong>{token.detailValue}</strong> : <span>-</span>
+}
+
 export default function WorkoutTargetBadge({
   benchmarkAverages = [],
   duration,
@@ -147,8 +240,21 @@ export default function WorkoutTargetBadge({
     sets,
     type,
   })
+  const shouldUseAverageColumns =
+    mode === 'vertical' && (benchmarkAverages.length > 0 || personalAverages.length > 0)
+  const metricRows = shouldUseAverageColumns
+    ? buildTargetMetricRows({
+        benchmarkAverages,
+        personalAverages,
+        targets: tokens,
+      })
+    : []
+  const averageColumnCount =
+    1 +
+    (benchmarkAverages.length > 0 ? 1 : 0) +
+    (personalAverages.length > 0 ? 1 : 0)
   const expandedTokens =
-    mode === 'vertical'
+    mode === 'vertical' && !shouldUseAverageColumns
       ? [
           ...tokens,
           ...personalAverages.map((token) => ({
@@ -161,12 +267,46 @@ export default function WorkoutTargetBadge({
           })),
         ]
       : tokens
+  const detailTokens = shouldUseAverageColumns
+    ? metricRows.flatMap((row) => [
+        ...(row.benchmark
+          ? [
+              {
+                ...row.benchmark,
+                detailLabel: `Average ${row.label.toLowerCase()}`,
+                key: `detail-average-${row.key}`,
+              },
+            ]
+          : []),
+        ...(row.personal
+          ? [
+              {
+                ...row.personal,
+                detailLabel: `Your ${row.label.toLowerCase()}`,
+                key: `detail-personal-${row.key}`,
+              },
+            ]
+          : []),
+        ...(row.target
+          ? [
+              {
+                ...row.target,
+                detailLabel: `Program ${row.label.toLowerCase()}`,
+                key: `detail-target-${row.key}`,
+              },
+            ]
+          : []),
+      ])
+    : expandedTokens
   const performanceTokens = expandedTokens.filter(
     (token) => getTokenColumn(token) === 'performance',
   )
   const setupTokens = expandedTokens.filter((token) => getTokenColumn(token) === 'setup')
   const shouldUseVerticalColumns =
-    mode === 'vertical' && performanceTokens.length > 0 && setupTokens.length > 0
+    !shouldUseAverageColumns &&
+    mode === 'vertical' &&
+    performanceTokens.length > 0 &&
+    setupTokens.length > 0
 
   if (!tokens.length) {
     return <span className="pill pill--subtle">Open target</span>
@@ -176,10 +316,53 @@ export default function WorkoutTargetBadge({
     <>
       <button
         type="button"
-        className={`workout-target-badge workout-target-badge--${mode}`}
+        className={[
+          'workout-target-badge',
+          `workout-target-badge--${mode}`,
+          shouldUseAverageColumns ? 'workout-target-badge--matrix' : '',
+          shouldUseAverageColumns
+            ? `workout-target-badge--columns-${averageColumnCount}`
+            : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
         onClick={() => setIsOpen(true)}
       >
-        {shouldUseVerticalColumns ? (
+        {shouldUseAverageColumns ? (
+          <>
+            {benchmarkAverages.length ? (
+              <span className="workout-target-badge__column">
+                <span className="workout-target-badge__column-heading">Avg</span>
+                {metricRows.map((row) => (
+                  <span key={`benchmark-${row.key}`} className="workout-target-badge__token">
+                    <span className="workout-target-badge__label">{row.label}</span>
+                    {renderMetricColumnValue(row.benchmark)}
+                  </span>
+                ))}
+              </span>
+            ) : null}
+            {personalAverages.length ? (
+              <span className="workout-target-badge__column">
+                <span className="workout-target-badge__column-heading">You</span>
+                {metricRows.map((row) => (
+                  <span key={`personal-${row.key}`} className="workout-target-badge__token">
+                    <span className="workout-target-badge__label">{row.label}</span>
+                    {renderMetricColumnValue(row.personal)}
+                  </span>
+                ))}
+              </span>
+            ) : null}
+            <span className="workout-target-badge__column">
+              <span className="workout-target-badge__column-heading">Program</span>
+              {metricRows.map((row) => (
+                <span key={`target-${row.key}`} className="workout-target-badge__token">
+                  <span className="workout-target-badge__label">{row.label}</span>
+                  {renderMetricColumnValue(row.target)}
+                </span>
+              ))}
+            </span>
+          </>
+        ) : shouldUseVerticalColumns ? (
           <>
             <span className="workout-target-badge__column">
               {performanceTokens.map((token) => (
@@ -216,7 +399,7 @@ export default function WorkoutTargetBadge({
           title={title}
         >
           <div className="muscle-list">
-            {expandedTokens.map((token) => (
+            {detailTokens.map((token) => (
               <div key={token.key} className="muscle-row">
                 <span>{token.detailLabel}</span>
                 <strong>{token.detailValue}</strong>
