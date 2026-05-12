@@ -91,6 +91,7 @@ type WorkoutExerciseTableProps = {
   effortScale: FitnessEffortScale
   exertionOptions: string[]
   fitnessProfile: FitnessProfile
+  isEditingCompletedWorkout: boolean
   isSelectedWorkoutActive: boolean
   onAddWorkoutExercise: (exercise: Exercise) => void
   onAddWorkoutExerciseSet: (exerciseId: string, visibleSetCount?: number) => void
@@ -195,6 +196,7 @@ type WorkoutPerformanceIndicator = {
 type SortableWorkoutRowProps = {
   exertionOptions: string[]
   fitnessProfile: FitnessProfile
+  isEditingCompletedWorkout: boolean
   isSelectedWorkoutActive: boolean
   maxTargetSetCount: number
   onAddWorkoutExerciseSet: (exerciseId: string, visibleSetCount?: number) => void
@@ -297,6 +299,14 @@ function formatNullableNumber(value: number | null, suffix = '') {
 
   const formattedValue = Number.isInteger(value) ? String(value) : value.toFixed(1)
   return suffix ? `${formattedValue} ${suffix}` : formattedValue
+}
+
+function formatRoundedUpAverage(value: number | null, suffix = '') {
+  if (value === null) {
+    return ''
+  }
+
+  return formatNullableNumber(Math.ceil(value), suffix)
 }
 
 function calculateSetStrengthScore(
@@ -632,6 +642,13 @@ function averageNullableNumbers(values: Array<number | null>) {
   return parsedValues.reduce((total, value) => total + value, 0) / parsedValues.length
 }
 
+function averageRecentSetNumbers(
+  samples: ExercisePerformanceSample[],
+  selector: (setSample: ExercisePerformanceSample['sets'][number]) => number | null,
+) {
+  return averageNullableNumbers(samples.flatMap((sample) => sample.sets.map(selector)))
+}
+
 function buildPersonalAverageTokens(
   statsRecord: ExerciseStatsRecord | null,
   isContinuous: boolean,
@@ -648,7 +665,7 @@ function buildPersonalAverageTokens(
   const averageSetCount = averageNullableNumbers(
     recentSamples.map((sample) => sample.performedSetCount),
   )
-  const averageReps = averageNullableNumbers(recentSamples.map((sample) => sample.totalReps))
+  const averageReps = averageRecentSetNumbers(recentSamples, (setSample) => setSample.reps)
   const averageWeightKg = averageNullableNumbers(
     recentSamples.map((sample) => sample.maxWeightKg),
   )
@@ -657,7 +674,7 @@ function buildPersonalAverageTokens(
   if (isContinuous && averageDuration !== null) {
     tokens.push({
       detailLabel: 'Your recent average duration',
-      detailValue: formatNullableNumber(averageDuration, 'min'),
+      detailValue: formatRoundedUpAverage(averageDuration, 'min'),
       key: 'duration',
       shortLabel: 'You time',
     })
@@ -666,7 +683,7 @@ function buildPersonalAverageTokens(
   if (!isContinuous && averageSetCount !== null) {
     tokens.push({
       detailLabel: 'Your recent average logged sets',
-      detailValue: formatNullableNumber(averageSetCount, 'sets'),
+      detailValue: formatRoundedUpAverage(averageSetCount, 'sets'),
       key: 'sets',
       shortLabel: 'You sets',
     })
@@ -675,7 +692,7 @@ function buildPersonalAverageTokens(
   if (!isContinuous && averageWeightKg !== null) {
     tokens.push({
       detailLabel: 'Your recent average top weight',
-      detailValue: formatNullableNumber(averageWeightKg, 'kg'),
+      detailValue: formatRoundedUpAverage(averageWeightKg, 'kg'),
       key: 'weight',
       shortLabel: 'You kg',
     })
@@ -683,8 +700,8 @@ function buildPersonalAverageTokens(
 
   if (!isContinuous && averageReps !== null) {
     tokens.push({
-      detailLabel: 'Your recent average total reps',
-      detailValue: formatNullableNumber(averageReps, 'reps'),
+      detailLabel: 'Your recent average reps per set',
+      detailValue: formatRoundedUpAverage(averageReps, 'reps'),
       key: 'reps',
       shortLabel: 'You reps',
     })
@@ -714,7 +731,7 @@ function buildBenchmarkAverageTokens(
 
   return visibleMetrics.map<WorkoutTargetBadgeInsight>((metric) => ({
     detailLabel: `Profile average ${metric.label.toLowerCase()}`,
-    detailValue: formatBenchmarkValue(metric.average, metric.unit),
+    detailValue: formatBenchmarkValue(Math.ceil(metric.average), metric.unit),
     key: metric.key,
     shortLabel:
       metric.inputKind === 'weightKg'
@@ -794,6 +811,7 @@ function getRecentSetAverageComparisons({
 function SortableWorkoutRow({
   exertionOptions,
   fitnessProfile,
+  isEditingCompletedWorkout,
   isSelectedWorkoutActive,
   maxTargetSetCount,
   onAddWorkoutExerciseSet,
@@ -841,7 +859,8 @@ function SortableWorkoutRow({
   } | null>(null)
   const setLogs = ensureWorkoutSetLogs(row.log.setLogs, row.visibleSetCount)
   const isInputDisabled = !isSelectedWorkoutActive || row.log.skipped
-  const isCompactResolvedRow = row.log.completed || row.log.skipped
+  const isCompactResolvedRow =
+    !isEditingCompletedWorkout && (row.log.completed || row.log.skipped)
   const [isResolveHolding, setIsResolveHolding] = useState(false)
   const [isTitleHolding, setIsTitleHolding] = useState(false)
   const [holdingSetIndex, setHoldingSetIndex] = useState<number | null>(null)
@@ -1046,13 +1065,24 @@ function SortableWorkoutRow({
   )
 
   const finishExercise = useCallback(() => {
+    if (isEditingCompletedWorkout && row.log.completed) {
+      return
+    }
+
     if (row.actionKind === 'planned') {
       onToggleWorkoutExercise(row.key)
       return
     }
 
     onToggleWorkoutExtraExercise(row.key)
-  }, [onToggleWorkoutExercise, onToggleWorkoutExtraExercise, row.actionKind, row.key])
+  }, [
+    isEditingCompletedWorkout,
+    onToggleWorkoutExercise,
+    onToggleWorkoutExtraExercise,
+    row.actionKind,
+    row.key,
+    row.log.completed,
+  ])
 
   const openRowExerciseDetails = useCallback(
     (exercise: Exercise) => {
@@ -1902,6 +1932,7 @@ export default function WorkoutExerciseTable({
   effortScale,
   exertionOptions,
   fitnessProfile,
+  isEditingCompletedWorkout,
   isSelectedWorkoutActive,
   onAddWorkoutExercise,
   onAddWorkoutExerciseSet,
@@ -1987,7 +2018,16 @@ export default function WorkoutExerciseTable({
           resolvedExerciseId: workoutLog.exerciseId ?? exercise.resolvedExerciseId,
         })
         const isContinuous = resolvedExercise?.type === 'continues'
-        const targetSetCount = isContinuous ? 1 : getTargetSetCount(exercise.sets)
+        const targetSets = exercise.sets || resolvedExercise?.defaultTargets.sets || ''
+        const targetDuration =
+          exercise.duration || resolvedExercise?.defaultTargets.duration || ''
+        const targetReps =
+          exercise.reps ||
+          targetDuration ||
+          resolvedExercise?.defaultTargets.reps ||
+          'Open'
+        const targetRest = exercise.rest || resolvedExercise?.defaultTargets.rest || ''
+        const targetSetCount = isContinuous ? 1 : getTargetSetCount(targetSets)
         const statsRecord = resolveExerciseStatsRecord(
           resolvedExercise?.id ?? workoutLog.exerciseId ?? exercise.resolvedExerciseId ?? null,
           exercise.exerciseName,
@@ -2007,13 +2047,13 @@ export default function WorkoutExerciseTable({
           previousPerformance,
           resolvedExercise,
           statsRecord,
-          targetDuration: exercise.duration || '',
+          targetDuration,
           targetEffort: formatExerciseDifficultyTarget(
             resolvedExercise?.difficulty ?? '',
             effortScale,
           ),
-          targetReps: exercise.reps || exercise.duration || 'Open',
-          targetRest: exercise.rest || '',
+          targetReps,
+          targetRest,
           targetSetCount,
           title: workoutLog.exerciseName || exercise.exerciseName,
           visibleSetCount,
@@ -2034,6 +2074,11 @@ export default function WorkoutExerciseTable({
           entry.exerciseName,
         )
         const previousPerformance = getPreviousPerformanceSample(statsRecord)
+        const targetDuration = entry.duration || resolvedExercise?.defaultTargets.duration || ''
+        const targetSetCount =
+          isContinuous || !resolvedExercise
+            ? 1
+            : getTargetSetCount(resolvedExercise.defaultTargets.sets)
 
         return {
           actionKind: 'extra',
@@ -2043,18 +2088,19 @@ export default function WorkoutExerciseTable({
           previousPerformance,
           resolvedExercise,
           statsRecord,
-          targetDuration: entry.duration || '',
+          targetDuration,
           targetEffort: formatExerciseDifficultyTarget(
             resolvedExercise?.difficulty ?? '',
             effortScale,
           ),
-          targetReps: 'Open',
-          targetRest: '',
-          targetSetCount: 1,
+          targetReps:
+            resolvedExercise?.defaultTargets.reps || targetDuration || 'Open',
+          targetRest: resolvedExercise?.defaultTargets.rest || '',
+          targetSetCount,
           title: entry.exerciseName,
           visibleSetCount: Math.max(
             1,
-            entry.targetSetCountOverride ?? 1,
+            entry.targetSetCountOverride ?? targetSetCount,
             entry.setLogs.length,
           ),
         }
@@ -2236,6 +2282,7 @@ export default function WorkoutExerciseTable({
                   key={`${row.actionKind}-${row.key}`}
                   exertionOptions={exertionOptions}
                   fitnessProfile={fitnessProfile}
+                  isEditingCompletedWorkout={isEditingCompletedWorkout}
                   isSelectedWorkoutActive={isSelectedWorkoutActive}
                   maxTargetSetCount={maxTargetSetCount}
                   onAddWorkoutExerciseSet={onAddWorkoutExerciseSet}

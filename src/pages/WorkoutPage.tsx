@@ -14,6 +14,7 @@ import WorkoutExercisePickerSheet from '../components/WorkoutExercisePickerSheet
 import WorkoutExerciseTable, {
   type WorkoutExerciseDetailsOptions,
 } from '../components/WorkoutExerciseTable'
+import { getTargetSetCount } from '../lib/app-utils'
 import { muscleLabels } from '../lib/muscles'
 import type { ExerciseStatsRecord } from '../entities/exercise-stats'
 import {
@@ -38,6 +39,7 @@ import type {
   WorkoutLog,
   WorkoutSetLogEntry,
 } from '../lib/user-data'
+import { createActiveWorkoutFromLog } from '../lib/user-data'
 
 type WorkoutPageProps = {
   activeWorkout: ActiveWorkout | null
@@ -48,6 +50,7 @@ type WorkoutPageProps = {
   exertionOptions: string[]
   fitnessProfile: FitnessProfile
   handledPlannedExerciseCount: number
+  isEditingCompletedWorkout: boolean
   isSelectedWorkoutActive: boolean
   launchProgram: AppProgram | null
   onAddWorkoutExercise: (exercise: Exercise) => void
@@ -161,47 +164,6 @@ function hasCommittedSetLog(
   )
 }
 
-function createReadOnlyWorkoutFromLog(workoutLog: WorkoutLog): ActiveWorkout {
-  const exerciseLogs = workoutLog.exerciseLogs.reduce<
-    Record<string, WorkoutExerciseLogEntry>
-  >((logs, entry) => {
-    if (entry.type !== 'planned') {
-      return logs
-    }
-
-    const exerciseId = entry.plannedExerciseId ?? entry.logId
-
-    if (exerciseId) {
-      logs[exerciseId] = entry
-    }
-
-    return logs
-  }, {})
-  const extraEntries = workoutLog.exerciseLogs.filter((entry) => entry.type !== 'planned')
-  const exerciseOrder = workoutLog.exerciseLogs
-    .map((entry) => (entry.type === 'planned' ? entry.plannedExerciseId ?? entry.logId : entry.logId))
-    .filter(Boolean)
-
-  return {
-    completedExerciseIds: Object.entries(exerciseLogs)
-      .filter(([, entry]) => entry.completed)
-      .map(([exerciseId]) => exerciseId),
-    exerciseLogs,
-    exerciseOrder,
-    exertionScale: workoutLog.exertionScale,
-    extraEntries,
-    notes: workoutLog.notes,
-    programId: workoutLog.programId,
-    programName: workoutLog.programName,
-    programSource: workoutLog.programSource,
-    sectionId: workoutLog.sectionId,
-    sectionName: workoutLog.sectionName,
-    sessionId: workoutLog.id,
-    startedAt: workoutLog.startedAt,
-    updatedAt: workoutLog.completedAt,
-  }
-}
-
 type RestTimerSession = {
   endsAt: number
   exerciseName: string
@@ -274,6 +236,7 @@ export default function WorkoutPage({
   exertionOptions,
   fitnessProfile,
   handledPlannedExerciseCount,
+  isEditingCompletedWorkout,
   isSelectedWorkoutActive,
   launchProgram,
   onAddWorkoutExercise,
@@ -356,6 +319,14 @@ export default function WorkoutPage({
     selectedWorkoutDayIndex >= 0 && selectedWorkoutDayIndex < orderedWorkoutDays.length - 1
       ? orderedWorkoutDays[selectedWorkoutDayIndex + 1]
       : null
+  const hasSelectedWorkoutLog = Boolean(
+    launchProgram &&
+      selectedWorkoutSection &&
+      workoutLogs.some(
+        (entry) =>
+          entry.programId === launchProgram.id && entry.sectionId === selectedWorkoutSection.id,
+      ),
+  )
   const startThisDayAction =
     launchProgram && selectedWorkoutSection && !isSelectedWorkoutActive
       ? () => onStartWorkout(launchProgram, selectedWorkoutSection.id)
@@ -690,7 +661,7 @@ export default function WorkoutPage({
   }, [isSelectedWorkoutActive, launchProgram, selectedWorkoutSection, workoutLogs])
   const readOnlySelectedWorkout = useMemo(() => {
     return latestSelectedWorkoutLog
-      ? createReadOnlyWorkoutFromLog(latestSelectedWorkoutLog)
+      ? createActiveWorkoutFromLog(latestSelectedWorkoutLog)
       : null
   }, [latestSelectedWorkoutLog])
   const displayWorkout = isSelectedWorkoutActive ? activeWorkout : readOnlySelectedWorkout
@@ -740,18 +711,34 @@ export default function WorkoutPage({
       }) ?? []
     const extraExercises = displayWorkoutExtraEntries
       .filter((entry) => entry.type !== 'cardio')
-      .map((entry) => ({
-        duration: entry.duration,
-        exerciseId: entry.exerciseId,
-        exerciseName: entry.exerciseName,
-        id: entry.logId,
-        muscleGroups: entry.muscleGroups,
-        notes: entry.notes,
-        reps: '',
-        resolvedExerciseId: entry.exerciseId,
-        rest: '',
-        sets: String(Math.max(1, entry.setLogs.length || 1)),
-      }))
+      .map((entry) => {
+        const resolvedExercise = resolveExerciseForDisplay({
+          exerciseId: entry.exerciseId,
+          exerciseName: entry.exerciseName,
+          resolvedExerciseId: entry.exerciseId,
+        })
+        const targetSetCount =
+          resolvedExercise?.type === 'continues'
+            ? 1
+            : resolvedExercise
+              ? getTargetSetCount(resolvedExercise.defaultTargets.sets)
+              : 1
+
+        return {
+          duration: entry.duration || resolvedExercise?.defaultTargets.duration || '',
+          exerciseId: entry.exerciseId,
+          exerciseName: entry.exerciseName,
+          id: entry.logId,
+          muscleGroups: entry.muscleGroups,
+          notes: entry.notes,
+          reps: resolvedExercise?.defaultTargets.reps || '',
+          resolvedExerciseId: entry.exerciseId,
+          rest: resolvedExercise?.defaultTargets.rest || '',
+          sets: String(
+            Math.max(1, entry.targetSetCountOverride ?? targetSetCount, entry.setLogs.length),
+          ),
+        }
+      })
 
     return buildSectionMuscleProfile(
       {
@@ -952,7 +939,7 @@ export default function WorkoutPage({
           className="primary-button workout-start-day-button"
           onClick={startThisDayAction}
         >
-          Start this day
+          {hasSelectedWorkoutLog ? 'Edit this day' : 'Start this day'}
         </button>
       ) : null}
 
@@ -1105,6 +1092,7 @@ export default function WorkoutPage({
         effortScale={fitnessProfile.effortScale}
         exertionOptions={exertionOptions}
         fitnessProfile={fitnessProfile}
+        isEditingCompletedWorkout={isEditingCompletedWorkout}
         isSelectedWorkoutActive={isSelectedWorkoutActive}
         onAddWorkoutExercise={onAddWorkoutExercise}
         onAddWorkoutExerciseSet={onAddWorkoutExerciseSet}

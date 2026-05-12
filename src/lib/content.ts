@@ -106,6 +106,13 @@ export type StrengthBenchmarks = {
   >
 }
 
+export type ExerciseDefaultTargets = {
+  duration: string
+  reps: string
+  rest: string
+  sets: string
+}
+
 export type Exercise = {
   id: string
   exerciseKey: string
@@ -122,6 +129,7 @@ export type Exercise = {
   primaryTargetMuscleGroups: ExerciseMuscleTarget[]
   secondaryTargetMuscleGroups: ExerciseMuscleTarget[]
   strengthBenchmarks: StrengthBenchmarks | null
+  defaultTargets: ExerciseDefaultTargets
   instructions: string[]
   tags: string[]
   notes: string
@@ -654,6 +662,87 @@ function normalizeStrengthBenchmarks(value: unknown): StrengthBenchmarks | null 
   }
 }
 
+function formatDefaultTargetNumber(value: number) {
+  return Number.isInteger(value) ? String(value) : value.toFixed(1).replace(/\.0$/, '')
+}
+
+function formatDefaultTargetRange(range: [number, number], suffix = '') {
+  const formattedRange =
+    range[0] === range[1]
+      ? formatDefaultTargetNumber(range[0])
+      : `${formatDefaultTargetNumber(range[0])}-${formatDefaultTargetNumber(range[1])}`
+
+  return suffix ? `${formattedRange} ${suffix}` : formattedRange
+}
+
+function hasBenchmarkProfileTargets(profile: StrengthBenchmarkProfile | null | undefined) {
+  return Boolean(profile && Object.keys(profile).length > 0)
+}
+
+function getDefaultBenchmarkProfile(
+  strengthBenchmarks: StrengthBenchmarks | null,
+): StrengthBenchmarkProfile | null {
+  if (!strengthBenchmarks) {
+    return null
+  }
+
+  const preferredProfile = strengthBenchmarks.profiles.male['30-44'].beginner
+
+  if (hasBenchmarkProfileTargets(preferredProfile)) {
+    return preferredProfile
+  }
+
+  const genders = ['male', 'female'] as const
+  const ageGroups = ['18-29', '30-44', '45+'] as const
+  const experienceLevels = ['beginner', 'intermediate', 'advanced'] as const
+
+  for (const gender of genders) {
+    for (const ageGroup of ageGroups) {
+      for (const experienceLevel of experienceLevels) {
+        const profile = strengthBenchmarks.profiles[gender][ageGroup][experienceLevel]
+
+        if (hasBenchmarkProfileTargets(profile)) {
+          return profile
+        }
+      }
+    }
+  }
+
+  return null
+}
+
+function buildExerciseDefaultTargets(
+  record: JsonRecord,
+  strengthBenchmarks: StrengthBenchmarks | null,
+  exerciseType: string | null,
+): ExerciseDefaultTargets {
+  const benchmarkProfile = getDefaultBenchmarkProfile(strengthBenchmarks)
+  const isContinuous = exerciseType?.trim().toLowerCase() === 'continues'
+  const benchmarkDuration =
+    benchmarkProfile?.durationMinutesRange
+      ? formatDefaultTargetRange(benchmarkProfile.durationMinutesRange, 'min')
+      : benchmarkProfile?.holdSecondsRange
+        ? formatDefaultTargetRange(benchmarkProfile.holdSecondsRange, 'sec')
+        : ''
+
+  return {
+    duration:
+      pickFirstText(record.defaultDuration, record.duration, record.time) ??
+      (isContinuous ? benchmarkDuration : ''),
+    reps:
+      pickFirstText(record.defaultReps, record.reps, record.target, record.targets, record.range) ??
+      (!isContinuous && benchmarkProfile?.repRange
+        ? formatDefaultTargetRange(benchmarkProfile.repRange)
+        : isContinuous
+          ? ''
+          : '8-12'),
+    rest: pickFirstText(record.defaultRest, record.rest, record.recovery) ?? '',
+    sets:
+      pickFirstText(record.defaultSets, record.sets, record.workingSets, record.rounds) ??
+      (isContinuous ? '1' : '3'),
+  }
+}
+
 function normalizeDetailFields(record: JsonRecord, ignoredKeys: string[]) {
   const ignoredSet = new Set(ignoredKeys)
 
@@ -792,6 +881,7 @@ function normalizeExercise(
       ? 'continues'
       : null)
   const strengthBenchmarks = normalizeStrengthBenchmarks(record.strengthBenchmarks)
+  const defaultTargets = buildExerciseDefaultTargets(record, strengthBenchmarks, exerciseType)
 
   return {
     id: slugify(exerciseKey),
@@ -813,6 +903,7 @@ function normalizeExercise(
     primaryTargetMuscleGroups,
     secondaryTargetMuscleGroups,
     strengthBenchmarks,
+    defaultTargets,
     instructions: toStringArray(
       record.instructions ?? record.steps ?? record.howTo ?? record.execution,
     ),
@@ -835,6 +926,11 @@ function normalizeExercise(
       'descriptionHtml',
       'difficulty',
       'displayLabel',
+      'duration',
+      'defaultDuration',
+      'defaultReps',
+      'defaultRest',
+      'defaultSets',
       'equipment',
       'execution',
       'exerciseKey',
@@ -853,6 +949,11 @@ function normalizeExercise(
       'overview',
       'primaryTargetMuscleGroups',
       'primaryMuscles',
+      'range',
+      'recovery',
+      'reps',
+      'rest',
+      'rounds',
       'secondaryMuscles',
       'secondaryTargetMuscleGroups',
       'shortDescription',
@@ -861,7 +962,10 @@ function normalizeExercise(
       'substitutionExerciseIds',
       'substitutions',
       'summary',
+      'sets',
+      'target',
       'tags',
+      'targets',
       'targetMuscleGroup',
       'targetMuscleGroups',
       'targetMuscles',
@@ -869,6 +973,8 @@ function normalizeExercise(
       'title',
       'tools',
       'type',
+      'time',
+      'workingSets',
     ]),
   }
 }

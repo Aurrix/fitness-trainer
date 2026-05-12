@@ -299,3 +299,31 @@ export function appendExercisePerformanceSamples(
 
   return nextStore
 }
+
+export function replaceExercisePerformanceSamplesForWorkout(
+  store: ExerciseStatsStore,
+  workoutLogId: string,
+  entries: ExercisePerformanceSample[],
+) {
+  const nextStore: ExerciseStatsStore = {
+    byExerciseKey: Object.fromEntries(
+      Object.entries(store.byExerciseKey).map(([exerciseKey, record]) => {
+        const progressionHistory = record.progressionHistory.filter(
+          (sample) => sample.workoutLogId !== workoutLogId,
+        )
+
+        return [
+          exerciseKey,
+          {
+            ...record,
+            lastRecordedAt: progressionHistory[0]?.recordedAt ?? null,
+            progressionHistory,
+            totalLoggedSessions: progressionHistory.length,
+          },
+        ]
+      }),
+    ),
+  }
+
+  return appendExercisePerformanceSamples(nextStore, entries)
+}

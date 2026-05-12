@@ -1,5 +1,6 @@
 import {
   appendExercisePerformanceSamples,
+  replaceExercisePerformanceSamplesForWorkout,
   type ExercisePerformanceSample,
   type ExerciseSetPerformanceSample,
   type ExerciseStatsStore,
@@ -307,6 +308,19 @@ export function appendWorkoutStatistics(
 ) {
   return appendExercisePerformanceSamples(
     store,
+    buildExercisePerformanceSamples(workout, orderedEntries, completedAt),
+  )
+}
+
+export function replaceWorkoutStatistics(
+  store: ExerciseStatsStore,
+  workout: ActiveWorkout,
+  orderedEntries: WorkoutExerciseLogEntry[],
+  completedAt: string,
+) {
+  return replaceExercisePerformanceSamplesForWorkout(
+    store,
+    workout.sessionId,
     buildExercisePerformanceSamples(workout, orderedEntries, completedAt),
   )
 }

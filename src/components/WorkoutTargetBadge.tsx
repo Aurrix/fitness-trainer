@@ -241,7 +241,7 @@ export default function WorkoutTargetBadge({
     type,
   })
   const shouldUseAverageColumns =
-    mode === 'vertical' && (benchmarkAverages.length > 0 || personalAverages.length > 0)
+    benchmarkAverages.length > 0 || personalAverages.length > 0
   const metricRows = shouldUseAverageColumns
     ? buildTargetMetricRows({
         benchmarkAverages,
@@ -249,10 +249,7 @@ export default function WorkoutTargetBadge({
         targets: tokens,
       })
     : []
-  const averageColumnCount =
-    1 +
-    (benchmarkAverages.length > 0 ? 1 : 0) +
-    (personalAverages.length > 0 ? 1 : 0)
+  const averageColumnCount = 3
   const expandedTokens =
     mode === 'vertical' && !shouldUseAverageColumns
       ? [
@@ -308,7 +305,7 @@ export default function WorkoutTargetBadge({
     performanceTokens.length > 0 &&
     setupTokens.length > 0
 
-  if (!tokens.length) {
+  if (!tokens.length && !metricRows.length) {
     return <span className="pill pill--subtle">Open target</span>
   }
 
@@ -330,28 +327,24 @@ export default function WorkoutTargetBadge({
       >
         {shouldUseAverageColumns ? (
           <>
-            {benchmarkAverages.length ? (
-              <span className="workout-target-badge__column">
-                <span className="workout-target-badge__column-heading">Avg</span>
-                {metricRows.map((row) => (
-                  <span key={`benchmark-${row.key}`} className="workout-target-badge__token">
-                    <span className="workout-target-badge__label">{row.label}</span>
-                    {renderMetricColumnValue(row.benchmark)}
-                  </span>
-                ))}
-              </span>
-            ) : null}
-            {personalAverages.length ? (
-              <span className="workout-target-badge__column">
-                <span className="workout-target-badge__column-heading">You</span>
-                {metricRows.map((row) => (
-                  <span key={`personal-${row.key}`} className="workout-target-badge__token">
-                    <span className="workout-target-badge__label">{row.label}</span>
-                    {renderMetricColumnValue(row.personal)}
-                  </span>
-                ))}
-              </span>
-            ) : null}
+            <span className="workout-target-badge__column">
+              <span className="workout-target-badge__column-heading">Avg</span>
+              {metricRows.map((row) => (
+                <span key={`benchmark-${row.key}`} className="workout-target-badge__token">
+                  <span className="workout-target-badge__label">{row.label}</span>
+                  {renderMetricColumnValue(row.benchmark)}
+                </span>
+              ))}
+            </span>
+            <span className="workout-target-badge__column">
+              <span className="workout-target-badge__column-heading">You</span>
+              {metricRows.map((row) => (
+                <span key={`personal-${row.key}`} className="workout-target-badge__token">
+                  <span className="workout-target-badge__label">{row.label}</span>
+                  {renderMetricColumnValue(row.personal)}
+                </span>
+              ))}
+            </span>
             <span className="workout-target-badge__column">
               <span className="workout-target-badge__column-heading">Program</span>
               {metricRows.map((row) => (

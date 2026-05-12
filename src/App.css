@@ -2483,6 +2483,12 @@
     gap: 6px;
 }
 
+.workout-target-badge--matrix {
+    display: grid;
+    align-items: stretch;
+    gap: 6px;
+}
+
 .workout-target-badge--matrix.workout-target-badge--columns-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     min-width: 172px;

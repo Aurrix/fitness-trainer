@@ -62,12 +62,13 @@ import {
   slugify,
 } from './lib/muscles'
 import {
-  appendWorkoutStatistics,
   buildProgramDayLog,
   getSessionDateKey,
+  replaceWorkoutStatistics,
 } from './lib/workout-statistics'
 import {
   buildWorkoutExerciseOrder,
+  createActiveWorkoutFromLog,
   createId,
   createExtraExerciseWorkoutLog,
   createEmptyDraft,
@@ -336,6 +337,78 @@ function buildProgramCompletionLog(
   }
 }
 
+function findLatestWorkoutLogForSection(
+  workoutLogs: WorkoutLog[],
+  programId: string,
+  sectionId: string,
+) {
+  return (
+    workoutLogs
+      .filter((entry) => entry.programId === programId && entry.sectionId === sectionId)
+      .sort((left, right) => right.completedAt.localeCompare(left.completedAt))[0] ?? null
+  )
+}
+
+function upsertWorkoutLogById(workoutLogs: WorkoutLog[], workoutLog: WorkoutLog) {
+  return [workoutLog, ...workoutLogs.filter((entry) => entry.id !== workoutLog.id)].sort(
+    (left, right) => right.completedAt.localeCompare(left.completedAt),
+  )
+}
+
+function upsertProgramDayLog(programDayLogs: ProgramDayLog[], programDayLog: ProgramDayLog) {
+  return [
+    programDayLog,
+    ...programDayLogs.filter(
+      (entry) => entry.sessionId !== programDayLog.sessionId && entry.id !== programDayLog.id,
+    ),
+  ].sort((left, right) => right.completedAt.localeCompare(left.completedAt))
+}
+
+function updateCompletionLogWithDayLog(
+  completionLog: ProgramCompletionLog,
+  programDayLog: ProgramDayLog,
+): ProgramCompletionLog {
+  if (!completionLog.dayLogs.some((dayLog) => dayLog.sessionId === programDayLog.sessionId)) {
+    return completionLog
+  }
+
+  const dayLogs = completionLog.dayLogs.map((dayLog) =>
+    dayLog.sessionId === programDayLog.sessionId ? programDayLog : dayLog,
+  )
+  const startedAt = dayLogs.reduce((earliestStartedAt, dayLog) => {
+    return dayLog.startedAt.localeCompare(earliestStartedAt) < 0
+      ? dayLog.startedAt
+      : earliestStartedAt
+  }, dayLogs[0]?.startedAt ?? completionLog.startedAt)
+
+  return {
+    ...completionLog,
+    completedDayCount: dayLogs.length,
+    completedExerciseCount: dayLogs.reduce(
+      (total, dayLog) => total + dayLog.completedExerciseCount,
+      0,
+    ),
+    dayLogs,
+    durationMinutes: dayLogs.reduce((total, dayLog) => total + dayLog.durationMinutes, 0),
+    exerciseEntryCount: dayLogs.reduce(
+      (total, dayLog) => total + dayLog.exerciseEntries.length,
+      0,
+    ),
+    startedAt,
+    totalExerciseCount: dayLogs.reduce((total, dayLog) => total + dayLog.totalExerciseCount, 0),
+  }
+}
+
+function upsertProgramCompletionLog(
+  completionLogs: ProgramCompletionLog[],
+  completionLog: ProgramCompletionLog,
+) {
+  return [
+    completionLog,
+    ...completionLogs.filter((entry) => entry.id !== completionLog.id),
+  ].sort((left, right) => right.completedAt.localeCompare(left.completedAt))
+}
+
 function resolveExerciseStatsRecord(
   store: ExerciseStatsStore,
   exerciseId: string | null,
@@ -488,9 +561,9 @@ function App() {
       null
     : null
   const selectedWorkoutDay =
-    selectedWorkoutDayFromState ??
-    activeWorkoutDay ??
-    fallbackWorkoutDay
+    activeWorkout && activeWorkoutDay
+      ? activeWorkoutDay
+      : selectedWorkoutDayFromState ?? activeWorkoutDay ?? fallbackWorkoutDay
   const selectedWorkoutSection = selectedWorkoutDay?.section ?? null
   const selectedWorkoutPreviewOrder = selectedWorkoutSection
     ? buildWorkoutExerciseOrder(
@@ -519,6 +592,9 @@ function App() {
     Boolean(activeWorkout) &&
     activeWorkout?.programId === launchProgram?.id &&
     activeWorkout.sectionId === selectedWorkoutSection?.id
+  const isEditingCompletedWorkout = Boolean(
+    activeWorkout && workoutLogs.some((entry) => entry.id === activeWorkout.sessionId),
+  )
   const activeWorkoutExerciseLogs = activeWorkout?.exerciseLogs ?? {}
   const activeWorkoutExtraEntries = activeWorkout?.extraEntries ?? []
   const customAppPrograms = programs.filter((program) => program.programSource === 'custom')
@@ -1046,9 +1122,23 @@ function App() {
               return exercise
             }
 
+            const selectedExercise =
+              field === 'exerciseName' ? findExerciseByReference(value) : null
+            const defaultTargets = selectedExercise?.defaultTargets
+
             return {
               ...exercise,
               [field]: value,
+              ...(defaultTargets
+                ? {
+                    duration: exercise.duration.trim()
+                      ? exercise.duration
+                      : defaultTargets.duration,
+                    reps: exercise.reps.trim() ? exercise.reps : defaultTargets.reps,
+                    rest: exercise.rest.trim() ? exercise.rest : defaultTargets.rest,
+                    sets: exercise.sets.trim() ? exercise.sets : defaultTargets.sets,
+                  }
+                : {}),
             }
           }),
         }
@@ -1104,10 +1194,15 @@ function App() {
     setSelectedProgramId(program.id)
   }
 
-  function openWorkoutScreen() {
+  function openWorkoutScreen(options?: { program?: AppProgram; sectionId?: string }) {
     startTransition(() => {
-      if (activeWorkout?.sectionId) {
-        selectWorkoutSection(activeWorkout.sectionId, activeProgramSession?.program ?? launchProgram)
+      const sectionId = options?.sectionId ?? activeWorkout?.sectionId
+
+      if (sectionId) {
+        selectWorkoutSection(
+          sectionId,
+          options?.program ?? activeProgramSession?.program ?? launchProgram,
+        )
       }
       setSelectedProgramId(null)
       navigate(getPrimaryRoutePath('workout'))
@@ -1127,7 +1222,7 @@ function App() {
 
       if (isSameWorkout) {
         selectWorkoutSection(section.id, program)
-        openWorkoutScreen()
+        openWorkoutScreen({ program, sectionId: section.id })
         return
       }
 
@@ -1150,6 +1245,21 @@ function App() {
           },
         }),
       )
+    }
+
+    const latestWorkoutLog = findLatestWorkoutLogForSection(workoutLogs, program.id, section.id)
+
+    if (latestWorkoutLog) {
+      const editingAt = new Date().toISOString()
+
+      selectProgramAsMain(program)
+      setIsStartWorkoutDialogOpen(false)
+      setIsFinishWorkoutDialogOpen(false)
+      setSelectedWorkoutSectionId(section.id)
+      setActiveWorkout(createActiveWorkoutFromLog(latestWorkoutLog, { updatedAt: editingAt }))
+      showBanner('success', `Editing ${program.name} / ${section.name}.`)
+      openWorkoutScreen({ program, sectionId: section.id })
+      return
     }
 
     const sessionId = createId('session')
@@ -1205,7 +1315,7 @@ function App() {
       }),
     )
     showBanner('success', `Started ${program.name} / ${section.name}.`)
-    openWorkoutScreen()
+    openWorkoutScreen({ program, sectionId: section.id })
   }
 
   function toggleWorkoutExercise(exerciseId: string) {
@@ -2234,10 +2344,16 @@ function App() {
       completedPlannedExerciseCount,
       activeWorkoutPlannedExerciseCount,
     )
+    const isEditingExistingWorkoutLog = workoutLogs.some(
+      (entry) => entry.id === activeWorkout.sessionId,
+    )
     const nextWorkoutDay = getNextWorkoutDayOption(
       activeProgramSession.program,
       activeWorkout.sectionId,
     )
+    const selectedSectionIdAfterFinish = isEditingExistingWorkoutLog
+      ? activeWorkout.sectionId
+      : nextWorkoutDay?.section.id ?? activeWorkout.sectionId
     const latestProgramCompletionAt =
       programCompletionLogs
         .filter((entry) => entry.programId === activeWorkout.programId)
@@ -2251,47 +2367,60 @@ function App() {
           latestProgramCompletionAt,
         )
       : null
+    const finishMessage = isEditingExistingWorkoutLog
+      ? `Saved edits to ${activeWorkout.programName} / ${activeWorkout.sectionName}.`
+      : nextWorkoutDay
+        ? `Workout complete: ${activeWorkout.programName}. Next selected: ${nextWorkoutDay.section.shortName || nextWorkoutDay.section.name}.`
+        : `Workout complete: ${activeWorkout.programName}.`
 
-    setWorkoutLogs((currentWorkoutLogs) => [workoutLog, ...currentWorkoutLogs])
+    setWorkoutLogs((currentWorkoutLogs) => upsertWorkoutLogById(currentWorkoutLogs, workoutLog))
     setExerciseStatsStore((currentStore) =>
-      appendWorkoutStatistics(currentStore, activeWorkout, orderedWorkoutEntries, finishedAt),
+      replaceWorkoutStatistics(currentStore, activeWorkout, orderedWorkoutEntries, finishedAt),
     )
-    setProgramDayLogs((currentLogs) => [programDayLog, ...currentLogs])
-    if (programCompletionLog) {
-      setProgramCompletionLogs((currentLogs) => [programCompletionLog, ...currentLogs])
+    setProgramDayLogs((currentLogs) => upsertProgramDayLog(currentLogs, programDayLog))
+    if (programCompletionLog || isEditingExistingWorkoutLog) {
+      setProgramCompletionLogs((currentLogs) => {
+        const refreshedLogs = currentLogs.map((completionLog) =>
+          updateCompletionLogWithDayLog(completionLog, programDayLog),
+        )
+        const hasExistingCompletionForSession = refreshedLogs.some((completionLog) =>
+          completionLog.dayLogs.some((dayLog) => dayLog.sessionId === programDayLog.sessionId),
+        )
+
+        return programCompletionLog && !hasExistingCompletionForSession
+          ? upsertProgramCompletionLog(refreshedLogs, programCompletionLog)
+          : refreshedLogs
+      })
     }
-    setProgramStatsStore((currentStore) =>
-      markProgramCompleted(currentStore, {
-        programId: activeWorkout.programId,
-        programSource: activeWorkout.programSource,
-        at: finishedAt,
-        sessionId: activeWorkout.sessionId,
-        sectionId: activeWorkout.sectionId,
-        durationMinutes,
-        completedExercises: activeWorkout.completedExerciseIds.length,
-        meta: {
-          sectionName: activeWorkout.sectionName,
-        },
-      }),
-    )
+    if (!isEditingExistingWorkoutLog) {
+      setProgramStatsStore((currentStore) =>
+        markProgramCompleted(currentStore, {
+          programId: activeWorkout.programId,
+          programSource: activeWorkout.programSource,
+          at: finishedAt,
+          sessionId: activeWorkout.sessionId,
+          sectionId: activeWorkout.sectionId,
+          durationMinutes,
+          completedExercises: activeWorkout.completedExerciseIds.length,
+          meta: {
+            sectionName: activeWorkout.sectionName,
+          },
+        }),
+      )
+    }
     setActiveWorkout(null)
     setIsFinishWorkoutDialogOpen(false)
     setProgramProgressStore((currentStore) =>
       markProgramSectionCompleted(currentStore, {
         at: finishedAt,
         completedSectionId: activeWorkout.sectionId,
-        nextSectionId: nextWorkoutDay?.section.id ?? null,
+        nextSectionId: selectedSectionIdAfterFinish,
         programId: activeWorkout.programId,
       }),
     )
-    setSelectedWorkoutSectionId(nextWorkoutDay?.section.id ?? activeWorkout.sectionId)
+    setSelectedWorkoutSectionId(selectedSectionIdAfterFinish)
     clearWorkoutButtonHold()
-    showBanner(
-      'success',
-      nextWorkoutDay
-        ? `Workout complete: ${activeWorkout.programName}. Next selected: ${nextWorkoutDay.section.shortName || nextWorkoutDay.section.name}.`
-        : `Workout complete: ${activeWorkout.programName}.`,
-    )
+    showBanner('success', finishMessage)
     startTransition(() => navigate(getPrimaryRoutePath('workout')))
   }
 
@@ -2515,6 +2644,7 @@ function App() {
             fitnessProfile={fitnessProfile}
             handledPlannedExerciseCount={handledPlannedExerciseCount}
             isSelectedWorkoutActive={isSelectedWorkoutActive}
+            isEditingCompletedWorkout={isEditingCompletedWorkout}
             onAddWorkoutExercise={addWorkoutExtraExercise}
             onAddWorkoutExerciseSet={addWorkoutExerciseSet}
             onAddWorkoutExtraExerciseSet={addWorkoutExtraExerciseSet}
