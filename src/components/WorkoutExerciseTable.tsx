@@ -432,7 +432,7 @@ function getPerformanceIndicator(
   if (log.skipped) {
     return {
       Icon: SkipForward,
-      description: 'Skipped. Hold to unlock editing.',
+      description: 'Skipped.',
       tone: 'neutral',
     }
   }
@@ -463,7 +463,7 @@ function getPerformanceIndicator(
   if (!currentScore || !previousScore || currentScore.label !== previousScore.label) {
     return {
       Icon: Minus,
-      description: 'No comparable previous performance yet. Hold to unlock editing.',
+      description: 'No comparable previous performance yet.',
       tone: 'neutral',
     }
   }
@@ -474,7 +474,7 @@ function getPerformanceIndicator(
   if (relativeChange >= 0.03) {
     return {
       Icon: ArrowUpRight,
-      description: `Ahead of the previous ${currentScore.label} result. Hold to unlock editing.`,
+      description: `Ahead of the previous ${currentScore.label} result.`,
       tone: 'positive',
     }
   }
@@ -482,14 +482,14 @@ function getPerformanceIndicator(
   if (relativeChange <= -0.03) {
     return {
       Icon: ArrowDownRight,
-      description: `Behind the previous ${currentScore.label} result. Hold to unlock editing.`,
+      description: `Behind the previous ${currentScore.label} result.`,
       tone: 'negative',
     }
   }
 
   return {
     Icon: ArrowRight,
-    description: `Holding near the previous ${currentScore.label} result. Hold to unlock editing.`,
+    description: `Holding near the previous ${currentScore.label} result.`,
     tone: 'neutral',
   }
 }
@@ -859,8 +859,7 @@ function SortableWorkoutRow({
   } | null>(null)
   const setLogs = ensureWorkoutSetLogs(row.log.setLogs, row.visibleSetCount)
   const isInputDisabled = !isSelectedWorkoutActive || row.log.skipped
-  const isCompactResolvedRow =
-    !isEditingCompletedWorkout && (row.log.completed || row.log.skipped)
+  const isCompactResolvedRow = row.log.completed || row.log.skipped
   const [isResolveHolding, setIsResolveHolding] = useState(false)
   const [isTitleHolding, setIsTitleHolding] = useState(false)
   const [holdingSetIndex, setHoldingSetIndex] = useState<number | null>(null)
@@ -1262,7 +1261,7 @@ function SortableWorkoutRow({
   )
 
   const requestRemove = useCallback(() => {
-    if (!isSelectedWorkoutActive || isCompactResolvedRow) {
+    if (!isSelectedWorkoutActive) {
       return
     }
 
@@ -1273,7 +1272,6 @@ function SortableWorkoutRow({
       title: row.title,
     })
   }, [
-    isCompactResolvedRow,
     isSelectedWorkoutActive,
     onRequestRemove,
     row.actionKind,
@@ -1394,6 +1392,7 @@ function SortableWorkoutRow({
         row.log.completed ? 'is-complete' : '',
         row.log.skipped ? 'is-skipped' : '',
         row.actionKind === 'extra' ? 'is-custom' : '',
+        isCompactResolvedRow ? 'is-compact-resolved' : '',
         isDragging ? 'is-drag-source' : '',
       ]
         .filter(Boolean)
@@ -1878,8 +1877,12 @@ function SortableWorkoutRow({
       })}
 
       <td className="workout-table__append-cell">
-        {isSelectedWorkoutActive && !isCompactResolvedRow ? (
-          <div className="workout-table__append-actions">
+        {isSelectedWorkoutActive ? (
+          <div
+            className={`workout-table__append-actions ${
+              isCompactResolvedRow ? 'workout-table__append-actions--compact' : ''
+            }`}
+          >
             <button
               type="button"
               className="chip-button workout-table__append-remove-button"
@@ -1889,7 +1892,18 @@ function SortableWorkoutRow({
             >
               <Trash2 size={12} />
             </button>
-            {row.actionKind === 'planned' && isExerciseEmpty ? (
+            {isCompactResolvedRow ? (
+              <button
+                type="button"
+                className="chip-button workout-table__append-button workout-table__append-button--edit"
+                onClick={unlockResolvedRow}
+                aria-label={`Edit ${row.title}`}
+                title="Edit exercise"
+              >
+                <Pencil size={12} />
+                <span>Edit</span>
+              </button>
+            ) : row.actionKind === 'planned' && isExerciseEmpty ? (
               <button
                 type="button"
                 className="chip-button workout-table__append-button workout-table__append-button--skip"

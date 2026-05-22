@@ -241,7 +241,7 @@ export default function WorkoutTargetBadge({
     type,
   })
   const shouldUseAverageColumns =
-    benchmarkAverages.length > 0 || personalAverages.length > 0
+    mode === 'vertical' && (benchmarkAverages.length > 0 || personalAverages.length > 0)
   const metricRows = shouldUseAverageColumns
     ? buildTargetMetricRows({
         benchmarkAverages,

@@ -16,6 +16,7 @@ type ExerciseAlternative = {
   description: string
   difficulty: string
   id: string
+  matchKind: 'primary' | 'secondary'
   muscleGroups: string[]
   name: string
 }
@@ -55,6 +56,61 @@ export default function ExerciseDetailSheet({
           substitutionContext.currentExerciseId !== exerciseId),
     )
   }
+  const primaryAlternatives = alternatives.filter(
+    (alternative) => alternative.matchKind === 'primary',
+  )
+  const secondaryAlternatives = alternatives.filter(
+    (alternative) => alternative.matchKind === 'secondary',
+  )
+  const renderAlternativeRows = (rows: ExerciseAlternative[]) =>
+    rows.map((alternative) => (
+      <div key={alternative.id} className="exercise-alt-row">
+        <div className="exercise-alt-row__copy">
+          <strong>{alternative.name}</strong>
+          <span>
+            {[
+              alternative.difficulty,
+              alternative.muscleGroups
+                .slice(0, 2)
+                .map((muscleGroup) => formatExerciseMuscleGroup(muscleGroup))
+                .join(' / '),
+            ]
+              .filter(Boolean)
+              .join(' / ') || alternative.description}
+          </span>
+        </div>
+        <div className="exercise-alt-row__actions">
+          {alternative.canOpen ? (
+            <button
+              type="button"
+              className="chip-button icon-button"
+              onClick={() => onSelectAlternative(alternative.id)}
+              title={`View ${alternative.name}`}
+              aria-label={`View ${alternative.name}`}
+            >
+              <ArrowRight size={14} />
+            </button>
+          ) : (
+            <span className="pill pill--subtle">Reference</span>
+          )}
+          {alternative.canOpen && canSubstituteExercise(alternative.id) ? (
+            <button
+              type="button"
+              className="secondary-button icon-button exercise-alt-row__substitute"
+              onClick={() => onSubstituteExercise?.(alternative.id)}
+              title={
+                substitutionContext
+                  ? `Substitute ${substitutionContext.targetLabel} with ${alternative.name}`
+                  : `Substitute with ${alternative.name}`
+              }
+              aria-label={`Substitute with ${alternative.name}`}
+            >
+              <RefreshCcw size={14} />
+            </button>
+          ) : null}
+        </div>
+      </div>
+    ))
 
   return (
     <div className="overlay" role="presentation" onClick={onClose}>
@@ -69,9 +125,27 @@ export default function ExerciseDetailSheet({
           <div>
             <span className="pill">Exercise</span>
             <h2 id="exercise-detail-title">{exercise.name}</h2>
-            <p className="muted">
-              {exercise.source.label} / {exercise.source.group}
-            </p>
+            <div className="exercise-detail-subtitle">
+              <p className="muted">
+                {exercise.source.label} / {exercise.source.group}
+              </p>
+              <div className="exercise-detail-meta exercise-detail-meta--header">
+                {exercise.difficulty ? (
+                  <span className="pill">
+                    <Gauge size={14} />
+                    <span>{exercise.difficulty}</span>
+                  </span>
+                ) : null}
+                {exercise.category ? (
+                  <span className="pill pill--subtle">{exercise.category}</span>
+                ) : null}
+                {exercise.equipment.slice(0, 3).map((equipment) => (
+                  <span key={equipment} className="pill pill--subtle">
+                    {equipment}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
           <button type="button" className="ghost-button" onClick={onClose}>
             Close
@@ -105,31 +179,13 @@ export default function ExerciseDetailSheet({
             ) : null}
           </div>
 
-          <section className="section-card exercise-detail-section">
-            <div className="exercise-detail-meta">
-              {exercise.difficulty ? (
-                <span className="pill">
-                  <Gauge size={14} />
-                  <span>{exercise.difficulty}</span>
-                </span>
-              ) : null}
-              {exercise.category ? (
-                <span className="pill pill--subtle">{exercise.category}</span>
-              ) : null}
-              {exercise.equipment.map((equipment) => (
-                <span key={equipment} className="pill pill--subtle">
-                  {equipment}
-                </span>
-              ))}
-            </div>
-
-            <MuscleVisualizer
-              description="Primary coverage for this exercise."
-              gender={fitnessProfile.gender}
-              profile={buildExerciseMuscleProfile(exercise)}
-              title={exercise.name}
-            />
-          </section>
+          <MuscleVisualizer
+            className="exercise-detail-visualizer"
+            description="Primary coverage for this exercise."
+            gender={fitnessProfile.gender}
+            profile={buildExerciseMuscleProfile(exercise)}
+            title={exercise.name}
+          />
 
           <ExerciseBenchmarkPanel exercise={exercise} fitnessProfile={fitnessProfile} />
 
@@ -212,11 +268,11 @@ export default function ExerciseDetailSheet({
             {exercise.notes ? <p className="muted">{exercise.notes}</p> : null}
           </section>
 
-          <section className="section-card exercise-detail-section">
+          <section className="section-card exercise-detail-section exercise-detail-section--alternatives">
             <div className="section-header">
               <div>
-                <p className="kicker">Substitutions</p>
-                <h3>Alternatives</h3>
+                <p className="kicker">Same Targets</p>
+                <h3>Exercise options</h3>
               </div>
               <span className="pill pill--subtle">
                 <Layers3 size={14} />
@@ -225,61 +281,24 @@ export default function ExerciseDetailSheet({
             </div>
 
             {alternatives.length ? (
-              <div className="card-stack">
-                {alternatives.map((alternative) => (
-                  <article key={alternative.id} className="exercise-alt-card">
-                    <div>
-                      <h4>{alternative.name}</h4>
-                      <p className="muted">
-                        {alternative.description || 'Alternative reference imported from the exercise data.'}
-                      </p>
-                      <div className="tag-row">
-                        {alternative.difficulty ? (
-                          <span className="pill pill--subtle">{alternative.difficulty}</span>
-                        ) : null}
-                        {alternative.muscleGroups.map((muscleGroup) => (
-                          <span key={muscleGroup} className="pill pill--subtle">
-                            {formatExerciseMuscleGroup(muscleGroup)}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="exercise-alt-card__actions">
-                      {alternative.canOpen ? (
-                        <button
-                          type="button"
-                          className="chip-button icon-button"
-                          onClick={() => onSelectAlternative(alternative.id)}
-                        >
-                          <span>View</span>
-                          <ArrowRight size={14} />
-                        </button>
-                      ) : (
-                        <span className="pill pill--subtle">Reference only</span>
-                      )}
-                      {alternative.canOpen && canSubstituteExercise(alternative.id) ? (
-                        <button
-                          type="button"
-                          className="secondary-button icon-button exercise-alt-card__substitute"
-                          onClick={() => onSubstituteExercise?.(alternative.id)}
-                          title={
-                            substitutionContext
-                              ? `Substitute ${substitutionContext.targetLabel} with ${alternative.name}`
-                              : `Substitute with ${alternative.name}`
-                          }
-                        >
-                          <RefreshCcw size={14} />
-                          <span>Substitute</span>
-                        </button>
-                      ) : null}
-                    </div>
-                  </article>
-                ))}
+              <div className="exercise-alt-table">
+                {primaryAlternatives.length ? (
+                  <div className="exercise-alt-group">
+                    <p className="kicker">Primary target</p>
+                    {renderAlternativeRows(primaryAlternatives)}
+                  </div>
+                ) : null}
+                {secondaryAlternatives.length ? (
+                  <div className="exercise-alt-group">
+                    <p className="kicker">Secondary target</p>
+                    {renderAlternativeRows(secondaryAlternatives)}
+                  </div>
+                ) : null}
               </div>
             ) : (
               <div className="empty-state">
-                <h3>No alternatives listed</h3>
-                <p>This exercise does not include substitution references yet.</p>
+                <h3>No same-target options</h3>
+                <p>No other exercise currently maps to the same primary target group.</p>
               </div>
             )}
           </section>

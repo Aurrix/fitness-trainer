@@ -5,8 +5,10 @@ import {
   CalendarRange,
   ChevronLeft,
   ChevronRight,
+  Cog,
   LibraryBig,
 } from 'lucide-react'
+import BottomSheet from '../components/BottomSheet'
 import FloatingSessionBar from '../components/FloatingSessionBar'
 import MuscleVisualizer from '../components/MuscleVisualizer'
 import WorkoutDayPickerSheet from '../components/WorkoutDayPickerSheet'
@@ -78,6 +80,7 @@ type WorkoutPageProps = {
       >
     },
   ) => void
+  onCreateCustomWorkoutDay: () => void
   onOpenExerciseDetails: (exercise: Exercise, options?: WorkoutExerciseDetailsOptions) => void
   onOpenLibrary: (view: 'home' | 'programs' | 'exercises') => void
   onReorderWorkoutExercise: (
@@ -244,6 +247,7 @@ export default function WorkoutPage({
   onAddWorkoutExtraExerciseSet,
   onCommitWorkoutExerciseSet,
   onCommitWorkoutExtraExerciseSet,
+  onCreateCustomWorkoutDay,
   onOpenExerciseDetails,
   onOpenLibrary,
   onReorderWorkoutExercise,
@@ -274,6 +278,7 @@ export default function WorkoutPage({
 }: WorkoutPageProps) {
   const [pickerMode, setPickerMode] = useState<'days' | 'weeks' | null>(null)
   const [selectedQuickAddMuscle, setSelectedQuickAddMuscle] = useState<Slug | null>(null)
+  const [isCustomDayDialogOpen, setIsCustomDayDialogOpen] = useState(false)
   const [restTimerSession, setRestTimerSession] = useState<RestTimerSession | null>(null)
   const [restTimerNow, setRestTimerNow] = useState(() => Date.now())
   const wakeLockRef = useRef<{ release: () => Promise<void> } | null>(null)
@@ -933,14 +938,31 @@ export default function WorkoutPage({
         totalExerciseCount={displayedWorkoutPlannedExercises.length}
       />
 
-      {startThisDayAction ? (
-        <button
-          type="button"
-          className="primary-button workout-start-day-button"
-          onClick={startThisDayAction}
-        >
-          {hasSelectedWorkoutLog ? 'Edit this day' : 'Start this day'}
-        </button>
+      {startThisDayAction || !activeWorkout ? (
+        <div className="workout-day-action-row">
+          {startThisDayAction ? (
+            <button
+              type="button"
+              className="primary-button workout-start-day-button"
+              onClick={startThisDayAction}
+            >
+              {hasSelectedWorkoutLog ? 'Edit this day' : 'Start this day'}
+            </button>
+          ) : null}
+          {!activeWorkout ? (
+            <button
+              type="button"
+              className="chip-button icon-button workout-custom-day-button"
+              onClick={() => setIsCustomDayDialogOpen(true)}
+              aria-label="Create custom day"
+              title="Create custom day"
+            >
+              <span className="workout-custom-day-button__icon" aria-hidden="true">
+                <Cog size={24} strokeWidth={2.4} />
+              </span>
+            </button>
+          ) : null}
+        </div>
       ) : null}
 
       <MuscleVisualizer
@@ -1155,6 +1177,36 @@ export default function WorkoutPage({
           }}
           title={`Add ${muscleLabels[selectedQuickAddMuscle]}`}
         />
+      ) : null}
+
+      {isCustomDayDialogOpen ? (
+        <BottomSheet
+          className="finish-workout-dialog"
+          description="This creates a blank custom day for the current program. You will need to add exercises and enter the workout details manually."
+          kicker="Custom Day"
+          onClose={() => setIsCustomDayDialogOpen(false)}
+          title="Create custom day?"
+        >
+          <div className="row-actions finish-workout-dialog__actions">
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={() => setIsCustomDayDialogOpen(false)}
+            >
+              Not now
+            </button>
+            <button
+              type="button"
+              className="primary-button"
+              onClick={() => {
+                setIsCustomDayDialogOpen(false)
+                onCreateCustomWorkoutDay()
+              }}
+            >
+              Create day
+            </button>
+          </div>
+        </BottomSheet>
       ) : null}
     </>
   )

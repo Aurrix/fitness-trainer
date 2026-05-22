@@ -20,6 +20,7 @@ import {
   type ExerciseStatsRecord,
   type ExerciseStatsStore,
 } from './entities/exercise-stats'
+import { normalizeExerciseMuscleGroup } from './entities/exercise-muscles'
 import {
   markProgramSectionCompleted,
   markProgramSectionStarted,
@@ -31,6 +32,7 @@ import BottomNav from './components/BottomNav'
 import ExerciseDetailSheet from './components/ExerciseDetailSheet'
 import FinishWorkoutDialog from './components/FinishWorkoutDialog'
 import ProgramDetailSheet from './components/ProgramDetailSheet'
+import ReleaseNotesDialog from './components/ReleaseNotesDialog'
 import StartWorkoutDialog from './components/StartWorkoutDialog'
 import BodyCompositionPanel from './components/BodyCompositionPanel'
 import ProgramProgressionPanel from './components/ProgramProgressionPanel'
@@ -58,6 +60,11 @@ import {
   fitnessGoalOptions,
   type FitnessProfile,
 } from './lib/fitness-profile'
+import {
+  loadUnseenReleaseNotes,
+  markReleaseNotesShown,
+  type ReleaseNoteBundle,
+} from './lib/release-notes'
 import {
   slugify,
 } from './lib/muscles'
@@ -112,6 +119,7 @@ type ExerciseAlternativePreview = {
   description: string
   difficulty: string
   id: string
+  matchKind: 'primary' | 'secondary'
   muscleGroups: string[]
   name: string
 }
@@ -154,6 +162,149 @@ function createDefaultMainProgram(): AppProgram {
     },
     details: [],
     programSource: 'custom',
+  }
+}
+
+function getExercisePrimaryTargetGroups(exercise: Exercise) {
+  const primaryGroups = exercise.primaryTargetMuscleGroups.flatMap((target) => {
+    const muscleGroup = normalizeExerciseMuscleGroup(target.muscleGroup)
+    return muscleGroup ? [muscleGroup] : []
+  })
+
+  if (primaryGroups.length) {
+    return primaryGroups
+  }
+
+  return exercise.muscleGroups.flatMap((muscleGroup) => {
+    const normalizedMuscleGroup = normalizeExerciseMuscleGroup(muscleGroup)
+    return normalizedMuscleGroup ? [normalizedMuscleGroup] : []
+  })
+}
+
+function getExerciseSecondaryTargetGroups(exercise: Exercise) {
+  return exercise.secondaryTargetMuscleGroups.flatMap((target) => {
+    const muscleGroup = normalizeExerciseMuscleGroup(target.muscleGroup)
+    return muscleGroup ? [muscleGroup] : []
+  })
+}
+
+function countTargetOverlap(targetGroups: string[], selectedTargetGroups: Set<string>) {
+  return targetGroups.reduce((count, muscleGroup) => {
+    return selectedTargetGroups.has(muscleGroup) ? count + 1 : count
+  }, 0)
+}
+
+function buildExerciseTargetAlternatives(
+  selectedExercise: Exercise | null,
+  exercises: Exercise[],
+) {
+  if (!selectedExercise) {
+    return [] as ExerciseAlternativePreview[]
+  }
+
+  const selectedTargetGroups = new Set(getExercisePrimaryTargetGroups(selectedExercise))
+
+  if (!selectedTargetGroups.size) {
+    return []
+  }
+
+  return exercises
+    .flatMap<ExerciseAlternativePreview & { matchScore: number }>((exercise) => {
+      if (exercise.id === selectedExercise.id) {
+        return []
+      }
+
+      const primaryGroups = getExercisePrimaryTargetGroups(exercise)
+      const secondaryGroups = getExerciseSecondaryTargetGroups(exercise)
+      const primaryMatchScore = countTargetOverlap(primaryGroups, selectedTargetGroups)
+      const secondaryMatchScore = countTargetOverlap(secondaryGroups, selectedTargetGroups)
+      const matchKind =
+        primaryMatchScore > 0 ? 'primary' : secondaryMatchScore > 0 ? 'secondary' : null
+
+      if (!matchKind) {
+        return []
+      }
+
+      return [
+        {
+          canOpen: true,
+          description:
+            exercise.description ||
+            [exercise.category, exercise.equipment.slice(0, 2).join(', ')]
+              .filter(Boolean)
+              .join(' / '),
+          difficulty: exercise.difficulty,
+          id: exercise.id,
+          matchKind,
+          matchScore: matchKind === 'primary' ? primaryMatchScore : secondaryMatchScore,
+          muscleGroups: matchKind === 'primary' ? primaryGroups : secondaryGroups,
+          name: exercise.name,
+        },
+      ]
+    })
+    .sort((left, right) => {
+      if (left.matchKind !== right.matchKind) {
+        return left.matchKind === 'primary' ? -1 : 1
+      }
+
+      if (left.matchScore !== right.matchScore) {
+        return right.matchScore - left.matchScore
+      }
+
+      return left.name.localeCompare(right.name)
+    })
+}
+
+function sortDraftSections(sections: ProgramDraft['sections']) {
+  return [...sections].sort((left, right) => {
+    if (left.weekIndex !== right.weekIndex) {
+      return left.weekIndex - right.weekIndex
+    }
+
+    if (left.dayIndex !== right.dayIndex) {
+      return left.dayIndex - right.dayIndex
+    }
+
+    return left.name.localeCompare(right.name)
+  })
+}
+
+function autoLabelDraftSections(sections: ProgramDraft['sections']) {
+  const sortedSections = sortDraftSections(sections)
+  const weekIndexes = [
+    ...new Set(sortedSections.map((section) => section.weekIndex || 1)),
+  ].sort((left, right) => left - right)
+
+  return weekIndexes.flatMap((weekIndex, weekPosition) => {
+    const nextWeekIndex = weekPosition + 1
+    const weekSections = sortedSections.filter(
+      (section) => (section.weekIndex || 1) === weekIndex,
+    )
+
+    return weekSections.map((section, dayPosition) => {
+      const nextDayIndex = dayPosition + 1
+      const nextDayLabel = `Day ${nextDayIndex}`
+
+      return {
+        ...section,
+        dayIndex: nextDayIndex,
+        dayLabel: nextDayLabel,
+        name: nextDayLabel,
+        weekIndex: nextWeekIndex,
+        weekLabel: `Week ${nextWeekIndex}`,
+      }
+    })
+  })
+}
+
+function createDraftExerciseFromLibraryExercise(exercise: Exercise) {
+  return {
+    ...createEmptyExercise(),
+    duration: exercise.defaultTargets.duration,
+    exerciseName: exercise.name,
+    reps: exercise.defaultTargets.reps,
+    rest: exercise.defaultTargets.rest,
+    sets: exercise.defaultTargets.sets,
   }
 }
 
@@ -444,6 +595,7 @@ function App() {
   const [isFinishWorkoutDialogOpen, setIsFinishWorkoutDialogOpen] = useState(false)
   const [isStartWorkoutDialogOpen, setIsStartWorkoutDialogOpen] = useState(false)
   const [isWorkoutButtonHolding, setIsWorkoutButtonHolding] = useState(false)
+  const [releaseNoteBundle, setReleaseNoteBundle] = useState<ReleaseNoteBundle | null>(null)
   const [banner, setBanner] = useState<{ id: string; tone: BannerTone; text: string } | null>(
     null,
   )
@@ -598,36 +750,34 @@ function App() {
   const activeWorkoutExerciseLogs = activeWorkout?.exerciseLogs ?? {}
   const activeWorkoutExtraEntries = activeWorkout?.extraEntries ?? []
   const customAppPrograms = programs.filter((program) => program.programSource === 'custom')
-  const selectedExerciseAlternatives =
-    selectedExercise?.substitutions.reduce<ExerciseAlternativePreview[]>(
-      (alternatives, reference) => {
-        const resolvedExercise = findExerciseByReference(reference)
-        const nextId = resolvedExercise?.id ?? slugify(reference)
-
-        if (!nextId || alternatives.some((alternative) => alternative.id === nextId)) {
-          return alternatives
-        }
-
-        return [
-          ...alternatives,
-          {
-            canOpen: Boolean(resolvedExercise),
-            description:
-              resolvedExercise?.description ??
-              'Alternative reference imported from the exercise data.',
-            difficulty: resolvedExercise?.difficulty ?? '',
-            id: nextId,
-            muscleGroups: resolvedExercise?.muscleGroups ?? [],
-            name: resolvedExercise?.name ?? reference,
-          },
-        ]
-      },
-      [],
-    ) ?? []
+  const selectedExerciseAlternatives = buildExerciseTargetAlternatives(
+    selectedExercise,
+    contentLibrary.exercises,
+  )
 
   useEffect(() => {
     void hydrateAppStore()
   }, [hydrateAppStore])
+
+  useEffect(() => {
+    if (!isAppReady) {
+      return
+    }
+
+    let isCancelled = false
+
+    void loadUnseenReleaseNotes()
+      .then((bundle) => {
+        if (!isCancelled && bundle) {
+          setReleaseNoteBundle(bundle)
+        }
+      })
+      .catch(() => undefined)
+
+    return () => {
+      isCancelled = true
+    }
+  }, [isAppReady])
 
   useEffect(() => {
     return () => {
@@ -769,6 +919,16 @@ function App() {
       text,
       tone,
     })
+  }
+
+  function closeReleaseNotes() {
+    const bundle = releaseNoteBundle
+
+    setReleaseNoteBundle(null)
+
+    if (bundle) {
+      void markReleaseNotesShown(bundle.latestReleaseId)
+    }
   }
 
   function selectWorkoutSection(sectionId: string | null, program = launchProgram) {
@@ -1044,30 +1204,183 @@ function App() {
     }))
   }
 
-  function addSection() {
-    setDraft((currentDraft) => ({
-      ...currentDraft,
-      sections: [
-        ...currentDraft.sections,
-        {
-          ...createEmptySection(),
-          name: `Session ${currentDraft.sections.length + 1}`,
-        },
-      ],
-    }))
+  function addWeek() {
+    setDraft((currentDraft) => {
+      const nextWeekIndex =
+        Math.max(0, ...currentDraft.sections.map((section) => section.weekIndex || 0)) + 1
+
+      return {
+        ...currentDraft,
+        sections: autoLabelDraftSections([
+          ...currentDraft.sections,
+          createEmptySection({
+            dayIndex: 1,
+            dayLabel: 'Day 1',
+            name: 'Day 1',
+            weekIndex: nextWeekIndex,
+            weekLabel: `Week ${nextWeekIndex}`,
+          }),
+        ]),
+      }
+    })
+  }
+
+  function addSectionToWeek(weekIndex: number) {
+    setDraft((currentDraft) => {
+      const weekSections = currentDraft.sections.filter(
+        (section) => section.weekIndex === weekIndex,
+      )
+      const nextDayIndex =
+        Math.max(0, ...weekSections.map((section) => section.dayIndex || 0)) + 1
+
+      return {
+        ...currentDraft,
+        sections: autoLabelDraftSections([
+          ...currentDraft.sections,
+          createEmptySection({
+            dayIndex: nextDayIndex,
+            dayLabel: `Day ${nextDayIndex}`,
+            name: `Day ${nextDayIndex}`,
+            weekIndex,
+            weekLabel: weekSections[0]?.weekLabel ?? `Week ${weekIndex}`,
+          }),
+        ]),
+      }
+    })
   }
 
   function removeSection(sectionId: string) {
-    setDraft((currentDraft) => ({
-      ...currentDraft,
-      sections:
-        currentDraft.sections.length > 1
-          ? currentDraft.sections.filter((section) => section.id !== sectionId)
-          : currentDraft.sections,
-    }))
+    setDraft((currentDraft) => {
+      if (currentDraft.sections.length <= 1) {
+        return currentDraft
+      }
+
+      return {
+        ...currentDraft,
+        sections: autoLabelDraftSections(
+          currentDraft.sections.filter((section) => section.id !== sectionId),
+        ),
+      }
+    })
   }
 
-  function addExerciseToSection(sectionId: string) {
+  function removeWeek(weekIndex: number) {
+    setDraft((currentDraft) => {
+      const weekIndexes = new Set(
+        currentDraft.sections.map((section) => section.weekIndex || 1),
+      )
+
+      if (weekIndexes.size <= 1) {
+        return currentDraft
+      }
+
+      const nextSections = currentDraft.sections.filter(
+        (section) => (section.weekIndex || 1) !== weekIndex,
+      )
+
+      if (!nextSections.length) {
+        return currentDraft
+      }
+
+      return {
+        ...currentDraft,
+        sections: autoLabelDraftSections(nextSections),
+      }
+    })
+  }
+
+  function reorderWeek(draggedWeekIndex: number, targetWeekIndex: number) {
+    setDraft((currentDraft) => {
+      if (draggedWeekIndex === targetWeekIndex) {
+        return currentDraft
+      }
+
+      const weekIndexes = [
+        ...new Set(currentDraft.sections.map((section) => section.weekIndex || 1)),
+      ].sort((left, right) => left - right)
+      const draggedIndex = weekIndexes.indexOf(draggedWeekIndex)
+      const targetIndex = weekIndexes.indexOf(targetWeekIndex)
+
+      if (draggedIndex === -1 || targetIndex === -1) {
+        return currentDraft
+      }
+
+      const nextWeekIndexes = [...weekIndexes]
+      const [movedWeekIndex] = nextWeekIndexes.splice(draggedIndex, 1)
+      nextWeekIndexes.splice(targetIndex, 0, movedWeekIndex)
+      const nextWeekIndexByCurrentIndex = new Map(
+        nextWeekIndexes.map((currentWeekIndex, index) => [currentWeekIndex, index + 1]),
+      )
+
+      return {
+        ...currentDraft,
+        sections: autoLabelDraftSections(currentDraft.sections.map((section) => {
+          const nextWeekIndex = nextWeekIndexByCurrentIndex.get(section.weekIndex || 1)
+
+          if (!nextWeekIndex) {
+            return section
+          }
+
+          return {
+            ...section,
+            weekIndex: nextWeekIndex,
+            weekLabel: `Week ${nextWeekIndex}`,
+          }
+        })),
+      }
+    })
+  }
+
+  function reorderSection(draggedSectionId: string, targetSectionId: string) {
+    setDraft((currentDraft) => {
+      if (draggedSectionId === targetSectionId) {
+        return currentDraft
+      }
+
+      const draggedSection = currentDraft.sections.find((entry) => entry.id === draggedSectionId)
+      const targetSection = currentDraft.sections.find((entry) => entry.id === targetSectionId)
+
+      if (
+        !draggedSection ||
+        !targetSection ||
+        draggedSection.weekIndex !== targetSection.weekIndex
+      ) {
+        return currentDraft
+      }
+
+      const weekSections = sortDraftSections(
+        currentDraft.sections.filter((entry) => entry.weekIndex === targetSection.weekIndex),
+      )
+      const draggedIndex = weekSections.findIndex((entry) => entry.id === draggedSectionId)
+      const targetIndex = weekSections.findIndex((entry) => entry.id === targetSectionId)
+
+      if (draggedIndex === -1 || targetIndex === -1) {
+        return currentDraft
+      }
+
+      const reorderedWeekSections = [...weekSections]
+      const [movedSection] = reorderedWeekSections.splice(draggedIndex, 1)
+      reorderedWeekSections.splice(targetIndex, 0, movedSection)
+      const renumberedWeekSections = reorderedWeekSections.map((entry, index) => ({
+        ...entry,
+        dayIndex: index + 1,
+        dayLabel: `Day ${index + 1}`,
+        name: `Day ${index + 1}`,
+      }))
+      const renumberedSectionById = new Map(
+        renumberedWeekSections.map((entry) => [entry.id, entry] as const),
+      )
+
+      return {
+        ...currentDraft,
+        sections: autoLabelDraftSections(
+          currentDraft.sections.map((entry) => renumberedSectionById.get(entry.id) ?? entry),
+        ),
+      }
+    })
+  }
+
+  function addExerciseToSection(sectionId: string, exercise?: Exercise) {
     setDraft((currentDraft) => ({
       ...currentDraft,
       sections: currentDraft.sections.map((section) => {
@@ -1077,7 +1390,17 @@ function App() {
 
         return {
           ...section,
-          exercises: [...section.exercises, createEmptyExercise()],
+          exercises:
+            exercise &&
+            section.exercises.length === 1 &&
+            !section.exercises[0].exerciseName.trim()
+              ? [createDraftExerciseFromLibraryExercise(exercise)]
+              : [
+                  ...section.exercises,
+                  exercise
+                    ? createDraftExerciseFromLibraryExercise(exercise)
+                    : createEmptyExercise(),
+                ],
         }
       }),
     }))
@@ -1097,6 +1420,37 @@ function App() {
             section.exercises.length > 1
               ? section.exercises.filter((exercise) => exercise.id !== exerciseId)
               : section.exercises,
+        }
+      }),
+    }))
+  }
+
+  function moveDraftExercise(
+    sectionId: string,
+    exerciseId: string,
+    direction: 'down' | 'up',
+  ) {
+    setDraft((currentDraft) => ({
+      ...currentDraft,
+      sections: currentDraft.sections.map((section) => {
+        if (section.id !== sectionId) {
+          return section
+        }
+
+        const currentIndex = section.exercises.findIndex((exercise) => exercise.id === exerciseId)
+        const targetIndex = direction === 'up' ? currentIndex - 1 : currentIndex + 1
+
+        if (currentIndex === -1 || targetIndex < 0 || targetIndex >= section.exercises.length) {
+          return section
+        }
+
+        const nextExercises = [...section.exercises]
+        const [movedExercise] = nextExercises.splice(currentIndex, 1)
+        nextExercises.splice(targetIndex, 0, movedExercise)
+
+        return {
+          ...section,
+          exercises: nextExercises,
         }
       }),
     }))
@@ -1162,7 +1516,13 @@ function App() {
       return
     }
 
-    const savedProgram = draftToCustomProgram(draft, customPrograms)
+    const savedProgram = draftToCustomProgram(
+      {
+        ...draft,
+        sections: autoLabelDraftSections(draft.sections),
+      },
+      customPrograms,
+    )
 
     setCustomPrograms((currentPrograms) => {
       const existingIndex = currentPrograms.findIndex((program) => {
@@ -1207,6 +1567,92 @@ function App() {
       setSelectedProgramId(null)
       navigate(getPrimaryRoutePath('workout'))
     })
+  }
+
+  function createCustomWorkoutDay() {
+    if (!launchProgram || !selectedWorkoutDay) {
+      return
+    }
+
+    const now = new Date().toISOString()
+    const targetWeekIndex = selectedWorkoutDay.weekIndex || 1
+    const targetWeekLabel = selectedWorkoutDay.weekLabel || `Week ${targetWeekIndex}`
+    const existingCustomProgram =
+      launchProgram.programSource === 'custom'
+        ? customPrograms.find((program) => program.id === launchProgram.id) ?? null
+        : null
+
+    if (existingCustomProgram) {
+      const weekSections = existingCustomProgram.sections.filter(
+        (section) => (section.weekIndex || 1) === targetWeekIndex,
+      )
+      const nextDayIndex =
+        Math.max(0, ...weekSections.map((section) => section.dayIndex || 0)) + 1
+      const customDaySection = {
+        ...createEmptySection({
+          dayIndex: nextDayIndex,
+          dayLabel: `Day ${nextDayIndex}`,
+          name: `Custom Day ${nextDayIndex}`,
+          weekIndex: targetWeekIndex,
+          weekLabel: targetWeekLabel,
+        }),
+        exercises: [],
+      }
+      const savedProgram: CustomProgram = {
+        ...existingCustomProgram,
+        sections: [...existingCustomProgram.sections, customDaySection],
+        updatedAt: now,
+      }
+      const appProgram: AppProgram = {
+        ...customProgramToProgram(savedProgram),
+        programSource: 'custom',
+      }
+
+      setCustomPrograms((currentPrograms) =>
+        currentPrograms.map((program) =>
+          program.id === savedProgram.id ? savedProgram : program,
+        ),
+      )
+      selectProgramAsMain(appProgram)
+      selectWorkoutSection(customDaySection.id, appProgram)
+      showBanner('success', `${customDaySection.name} added to ${savedProgram.name}.`)
+      return
+    }
+
+    const baseDraft = programToDraft(launchProgram)
+    const weekSections = baseDraft.sections.filter(
+      (section) => (section.weekIndex || 1) === targetWeekIndex,
+    )
+    const nextDayIndex =
+      Math.max(0, ...weekSections.map((section) => section.dayIndex || 0)) + 1
+    const customDaySection = {
+      ...createEmptySection({
+        dayIndex: nextDayIndex,
+        dayLabel: `Day ${nextDayIndex}`,
+        name: `Custom Day ${nextDayIndex}`,
+        weekIndex: targetWeekIndex,
+        weekLabel: targetWeekLabel,
+      }),
+      exercises: [],
+    }
+    const savedProgram = draftToCustomProgram(
+      {
+        ...baseDraft,
+        editingId: null,
+        name: `${launchProgram.name} Custom`,
+        sections: sortDraftSections([...baseDraft.sections, customDaySection]),
+      },
+      customPrograms,
+    )
+    const appProgram: AppProgram = {
+      ...customProgramToProgram(savedProgram),
+      programSource: 'custom',
+    }
+
+    setCustomPrograms((currentPrograms) => [savedProgram, ...currentPrograms])
+    selectProgramAsMain(appProgram)
+    selectWorkoutSection(customDaySection.id, appProgram)
+    showBanner('success', `${customDaySection.name} added to ${savedProgram.name}.`)
   }
 
   function startWorkout(program: AppProgram, sectionId: string) {
@@ -2651,6 +3097,7 @@ function App() {
             onCommitWorkoutExerciseSet={commitWorkoutExerciseSet}
             onCommitWorkoutExtraExerciseSet={commitWorkoutExtraExerciseSet}
             launchProgram={launchProgram}
+            onCreateCustomWorkoutDay={createCustomWorkoutDay}
             onOpenExerciseDetails={openExerciseDetails}
             onOpenLibrary={openLibrary}
             onReorderWorkoutExercise={reorderWorkoutExercise}
@@ -2694,8 +3141,13 @@ function App() {
             isBuilderOpen={isBuilderOpen}
             mainProgram={mainProgram}
             onAddExerciseToSection={addExerciseToSection}
-            onAddSection={addSection}
+            onAddSectionToWeek={addSectionToWeek}
+            onAddWeek={addWeek}
             onCloseBuilder={() => setIsBuilderOpen(false)}
+            onMoveDraftExercise={moveDraftExercise}
+            onReorderSection={reorderSection}
+            onReorderWeek={reorderWeek}
+            onRemoveWeek={removeWeek}
             onRemoveExerciseFromSection={removeExerciseFromSection}
             onRemoveSection={removeSection}
             onResetBuilder={() => {
@@ -2799,6 +3251,10 @@ function App() {
           onConfirm={() => startWorkout(launchProgram, selectedWorkoutSection.id)}
           programName={launchProgram.name}
         />
+      ) : null}
+
+      {releaseNoteBundle ? (
+        <ReleaseNotesDialog bundle={releaseNoteBundle} onClose={closeReleaseNotes} />
       ) : null}
 
       <BottomNav

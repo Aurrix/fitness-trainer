@@ -1,0 +1,16 @@
+{
+  "releases": [
+    {
+      "id": "2026-05-22-workout-builder",
+      "date": "2026-05-22",
+      "title": "Workout and Program Builder Updates",
+      "file": "2026-05-22-workout-builder.md"
+    },
+    {
+      "id": "2026-05-22-release-notes",
+      "date": "2026-05-22",
+      "title": "Release Notes Popup",
+      "file": "2026-05-22-release-notes.md"
+    }
+  ]
+}

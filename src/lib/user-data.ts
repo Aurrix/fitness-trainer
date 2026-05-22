@@ -24,10 +24,14 @@ export type EditableExercise = {
 }
 
 export type EditableSection = {
+  dayIndex: number
+  dayLabel: string
   id: string
   name: string
   notes: string
   exercises: EditableExercise[]
+  weekIndex: number
+  weekLabel: string
 }
 
 export type ProgramDraft = {
@@ -351,7 +355,7 @@ function normalizeEditableExercise(value: unknown): EditableExercise | null {
   }
 }
 
-function normalizeEditableSection(value: unknown): EditableSection | null {
+function normalizeEditableSection(value: unknown, fallbackIndex = 0): EditableSection | null {
   if (!isRecord(value)) {
     return null
   }
@@ -363,10 +367,14 @@ function normalizeEditableSection(value: unknown): EditableSection | null {
     : []
 
   return {
+    dayIndex: Math.max(1, toNumberValue(value.dayIndex, fallbackIndex + 1)),
+    dayLabel: toStringValue(value.dayLabel) || `Day ${fallbackIndex + 1}`,
     id: toStringValue(value.id) || createId('section'),
     name: toStringValue(value.name, 'Session'),
     notes: toStringValue(value.notes),
     exercises,
+    weekIndex: Math.max(1, toNumberValue(value.weekIndex, 1)),
+    weekLabel: toStringValue(value.weekLabel) || 'Week 1',
   }
 }
 
@@ -383,7 +391,7 @@ export function normalizeCustomPrograms(value: unknown): CustomProgram[] {
 
       const sections = Array.isArray(entry.sections)
         ? entry.sections
-            .map((section) => normalizeEditableSection(section))
+            .map((section, sectionIndex) => normalizeEditableSection(section, sectionIndex))
             .filter((section): section is EditableSection => section !== null)
         : []
       const createdAt = toStringValue(entry.createdAt) || new Date().toISOString()
@@ -535,12 +543,21 @@ export function createEmptyExercise(): EditableExercise {
   }
 }
 
-export function createEmptySection(): EditableSection {
+export function createEmptySection(
+  options: Partial<Pick<EditableSection, 'dayIndex' | 'dayLabel' | 'name' | 'weekIndex' | 'weekLabel'>> = {},
+): EditableSection {
+  const weekIndex = Math.max(1, options.weekIndex ?? 1)
+  const dayIndex = Math.max(1, options.dayIndex ?? 1)
+
   return {
+    dayIndex,
+    dayLabel: options.dayLabel ?? `Day ${dayIndex}`,
     id: createId('section'),
-    name: 'Session 1',
+    name: options.name ?? `Day ${dayIndex}`,
     notes: '',
     exercises: [createEmptyExercise()],
+    weekIndex,
+    weekLabel: options.weekLabel ?? `Week ${weekIndex}`,
   }
 }
 
@@ -567,6 +584,8 @@ export function programToDraft(program: Program): ProgramDraft {
     level: program.level,
     tags: program.tags.join(', '),
     sections: program.sections.map((section) => ({
+      dayIndex: section.dayIndex,
+      dayLabel: section.dayLabel,
       id: createId('section'),
       name: section.name,
       notes: section.notes,
@@ -577,8 +596,10 @@ export function programToDraft(program: Program): ProgramDraft {
         reps: exercise.reps,
         duration: exercise.duration,
         rest: exercise.rest,
-        notes: exercise.notes,
-      })),
+          notes: exercise.notes,
+        })),
+      weekIndex: section.weekIndex,
+      weekLabel: section.weekLabel,
     })),
   }
 }
@@ -593,6 +614,8 @@ export function customProgramToDraft(program: CustomProgram): ProgramDraft {
     level: program.level,
     tags: program.tags.join(', '),
     sections: program.sections.map((section) => ({
+      dayIndex: section.dayIndex,
+      dayLabel: section.dayLabel,
       id: createId('section'),
       name: section.name,
       notes: section.notes,
@@ -600,6 +623,8 @@ export function customProgramToDraft(program: CustomProgram): ProgramDraft {
         ...exercise,
         id: createId('exercise'),
       })),
+      weekIndex: section.weekIndex,
+      weekLabel: section.weekLabel,
     })),
   }
 }
@@ -625,6 +650,8 @@ export function draftToCustomProgram(
       .map((tag) => tag.trim())
       .filter(Boolean),
     sections: draft.sections.map((section) => ({
+      dayIndex: section.dayIndex,
+      dayLabel: section.dayLabel.trim() || `Day ${section.dayIndex || 1}`,
       id: section.id,
       name: section.name.trim() || 'Session',
       notes: section.notes.trim(),
@@ -639,6 +666,8 @@ export function draftToCustomProgram(
           rest: exercise.rest.trim(),
           notes: exercise.notes.trim(),
         })),
+      weekIndex: section.weekIndex,
+      weekLabel: section.weekLabel.trim() || `Week ${section.weekIndex || 1}`,
     })),
     createdAt: existingProgram?.createdAt ?? now,
     updatedAt: now,
@@ -676,8 +705,8 @@ export function customProgramToProgram(program: CustomProgram): Program {
     ],
     sections: program.sections.map((section, index) => ({
       id: section.id,
-      dayIndex: index + 1,
-      dayLabel: `Day ${index + 1}`,
+      dayIndex: section.dayIndex || index + 1,
+      dayLabel: section.dayLabel || `Day ${section.dayIndex || index + 1}`,
       name: section.name,
       notes: section.notes,
       shortName: section.name,
@@ -692,8 +721,8 @@ export function customProgramToProgram(program: CustomProgram): Program {
         notes: exercise.notes,
         resolvedExerciseId: null,
       })),
-      weekIndex: 1,
-      weekLabel: 'Week 1',
+      weekIndex: section.weekIndex || 1,
+      weekLabel: section.weekLabel || `Week ${section.weekIndex || 1}`,
     })),
   }
 }
