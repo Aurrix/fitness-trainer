@@ -52,6 +52,7 @@ type WorkoutPageProps = {
   exertionOptions: string[]
   fitnessProfile: FitnessProfile
   handledPlannedExerciseCount: number
+  isLaunchProgramComplete: boolean
   isEditingCompletedWorkout: boolean
   isSelectedWorkoutActive: boolean
   launchProgram: AppProgram | null
@@ -239,6 +240,7 @@ export default function WorkoutPage({
   exertionOptions,
   fitnessProfile,
   handledPlannedExerciseCount,
+  isLaunchProgramComplete,
   isEditingCompletedWorkout,
   isSelectedWorkoutActive,
   launchProgram,
@@ -919,6 +921,34 @@ export default function WorkoutPage({
           >
             <LibraryBig size={16} />
             <span>Choose program</span>
+          </button>
+        </div>
+      </section>
+    )
+  }
+
+  if (isLaunchProgramComplete) {
+    return (
+      <section className="launchpad-card workout-empty-card">
+        <div className="section-header launchpad-header">
+          <div>
+            <p className="kicker">Workout</p>
+            <h2>Program complete</h2>
+            <p className="muted">
+              Your completed program has been saved for analysis. Choose another program to
+              start fresh.
+            </p>
+          </div>
+        </div>
+
+        <div className="row-actions">
+          <button
+            type="button"
+            className="primary-button icon-button"
+            onClick={() => onOpenLibrary('programs')}
+          >
+            <LibraryBig size={16} />
+            <span>Choose another program</span>
           </button>
         </div>
       </section>

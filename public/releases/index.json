@@ -1,6 +1,12 @@
 {
   "releases": [
     {
+      "id": "2026-06-24-program-complete-workout",
+      "date": "2026-06-24",
+      "title": "Completed Program Workout State",
+      "file": "2026-06-24-program-complete-workout.md"
+    },
+    {
       "id": "2026-05-22-workout-builder",
       "date": "2026-05-22",
       "title": "Workout and Program Builder Updates",

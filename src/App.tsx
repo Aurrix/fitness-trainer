@@ -389,6 +389,24 @@ function getNextWorkoutDayOption(
   return orderedDays[currentIndex + 1] ?? null
 }
 
+function isProgramProgressComplete(
+  program: AppProgram | null,
+  progressRecord: ProgramProgressRecord | null,
+  programCompletionLogs: ProgramCompletionLog[],
+) {
+  if (!program || !progressRecord?.lastCompletedSectionId) {
+    return false
+  }
+
+  const orderedDays = buildWorkoutWeeks(program).flatMap((week) => week.dayOptions)
+  const lastWorkoutDay = orderedDays[orderedDays.length - 1] ?? null
+
+  return (
+    lastWorkoutDay?.section.id === progressRecord.lastCompletedSectionId &&
+    programCompletionLogs.some((entry) => entry.programId === program.id)
+  )
+}
+
 function resolvePersistedWorkoutSectionId(
   program: AppProgram | null,
   progressRecord: ProgramProgressRecord | null,
@@ -693,9 +711,12 @@ function App() {
   const mainProgramStats = getProgramStatsRecord(programStatsStore, mainProgram?.id ?? null)
   const workoutWeeks = buildWorkoutWeeks(launchProgram)
   const fallbackWorkoutDay = workoutWeeks[0]?.dayOptions[0] ?? null
+  const launchProgramProgressRecord = launchProgram
+    ? (programProgressStore.byProgramId[launchProgram.id] ?? null)
+    : null
   const persistedWorkoutSectionId = resolvePersistedWorkoutSectionId(
     launchProgram,
-    launchProgram ? (programProgressStore.byProgramId[launchProgram.id] ?? null) : null,
+    launchProgramProgressRecord,
     programDayLogs,
   )
   const selectedWorkoutDayFromState =
@@ -746,6 +767,14 @@ function App() {
     activeWorkout.sectionId === selectedWorkoutSection?.id
   const isEditingCompletedWorkout = Boolean(
     activeWorkout && workoutLogs.some((entry) => entry.id === activeWorkout.sessionId),
+  )
+  const isLaunchProgramComplete = Boolean(
+    !activeWorkout &&
+      isProgramProgressComplete(
+        launchProgram,
+        launchProgramProgressRecord,
+        programCompletionLogs,
+      ),
   )
   const activeWorkoutExerciseLogs = activeWorkout?.exerciseLogs ?? {}
   const activeWorkoutExtraEntries = activeWorkout?.extraEntries ?? []
@@ -3089,6 +3118,7 @@ function App() {
             exertionOptions={exertionOptions}
             fitnessProfile={fitnessProfile}
             handledPlannedExerciseCount={handledPlannedExerciseCount}
+            isLaunchProgramComplete={isLaunchProgramComplete}
             isSelectedWorkoutActive={isSelectedWorkoutActive}
             isEditingCompletedWorkout={isEditingCompletedWorkout}
             onAddWorkoutExercise={addWorkoutExtraExercise}
