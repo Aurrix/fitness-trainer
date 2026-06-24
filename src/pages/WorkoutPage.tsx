@@ -49,6 +49,7 @@ type WorkoutPageProps = {
   activeWorkoutExtraEntries: WorkoutExerciseLogEntry[]
   completionRatio: number
   contentExercises: Exercise[]
+  currentProgramRunStartedAt: string | null
   exertionOptions: string[]
   fitnessProfile: FitnessProfile
   handledPlannedExerciseCount: number
@@ -237,6 +238,7 @@ export default function WorkoutPage({
   activeWorkoutExtraEntries,
   completionRatio,
   contentExercises,
+  currentProgramRunStartedAt,
   exertionOptions,
   fitnessProfile,
   handledPlannedExerciseCount,
@@ -326,10 +328,24 @@ export default function WorkoutPage({
     selectedWorkoutDayIndex >= 0 && selectedWorkoutDayIndex < orderedWorkoutDays.length - 1
       ? orderedWorkoutDays[selectedWorkoutDayIndex + 1]
       : null
+  const currentRunWorkoutLogs = useMemo(
+    () =>
+      currentProgramRunStartedAt
+        ? workoutLogs.filter((entry) => entry.completedAt.localeCompare(currentProgramRunStartedAt) >= 0)
+        : workoutLogs,
+    [currentProgramRunStartedAt, workoutLogs],
+  )
+  const currentRunProgramDayLogs = useMemo(
+    () =>
+      currentProgramRunStartedAt
+        ? programDayLogs.filter((entry) => entry.completedAt.localeCompare(currentProgramRunStartedAt) >= 0)
+        : programDayLogs,
+    [currentProgramRunStartedAt, programDayLogs],
+  )
   const hasSelectedWorkoutLog = Boolean(
     launchProgram &&
       selectedWorkoutSection &&
-      workoutLogs.some(
+      currentRunWorkoutLogs.some(
         (entry) =>
           entry.programId === launchProgram.id && entry.sectionId === selectedWorkoutSection.id,
       ),
@@ -513,7 +529,7 @@ export default function WorkoutPage({
       return {}
     }
 
-    const latestCompletionBySectionId = programDayLogs
+    const latestCompletionBySectionId = currentRunProgramDayLogs
       .filter((entry) => entry.programId === launchProgram.id)
       .reduce<Record<string, string>>((entries, entry) => {
         const currentCompletedAt = entries[entry.sectionId]
@@ -525,7 +541,7 @@ export default function WorkoutPage({
         return entries
       }, {})
 
-    const latestWorkoutLogBySectionId = workoutLogs
+    const latestWorkoutLogBySectionId = currentRunWorkoutLogs
       .filter((entry) => entry.programId === launchProgram.id)
       .reduce<Record<string, WorkoutLog>>((entries, entry) => {
         const currentEntry = entries[entry.sectionId]
@@ -646,8 +662,8 @@ export default function WorkoutPage({
     activeWorkoutExerciseLogs,
     activeWorkoutExtraEntries,
     launchProgram,
-    programDayLogs,
-    workoutLogs,
+    currentRunProgramDayLogs,
+    currentRunWorkoutLogs,
     workoutWeeks,
   ])
   const latestSelectedWorkoutLog = useMemo(() => {
@@ -656,7 +672,7 @@ export default function WorkoutPage({
     }
 
     return (
-      workoutLogs
+      currentRunWorkoutLogs
         .filter((entry) => {
           return (
             entry.programId === launchProgram.id &&
@@ -665,7 +681,7 @@ export default function WorkoutPage({
         })
         .sort((left, right) => right.completedAt.localeCompare(left.completedAt))[0] ?? null
     )
-  }, [isSelectedWorkoutActive, launchProgram, selectedWorkoutSection, workoutLogs])
+  }, [currentRunWorkoutLogs, isSelectedWorkoutActive, launchProgram, selectedWorkoutSection])
   const readOnlySelectedWorkout = useMemo(() => {
     return latestSelectedWorkoutLog
       ? createActiveWorkoutFromLog(latestSelectedWorkoutLog)

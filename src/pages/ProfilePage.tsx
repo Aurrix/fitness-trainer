@@ -101,6 +101,11 @@ export default function ProfilePage({
             ) : null}
           </div>
 
+          <p className="muted">
+            Changing programs archives this run for your statistics. Selecting this program again
+            starts a new run and resets its finished days.
+          </p>
+
           <div className="row-actions profile-main-program-card__actions">
             {!isMainProgramEmpty ? (
               <button

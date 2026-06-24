@@ -1,4 +1,5 @@
 export type ProgramProgressRecord = {
+  currentRunStartedAt: string | null
   lastCompletedSectionId: string | null
   lastStartedSectionId: string | null
   programId: string
@@ -42,6 +43,7 @@ function toNullableString(value: unknown) {
 
 function createEmptyProgramProgressRecord(programId: string): ProgramProgressRecord {
   return {
+    currentRunStartedAt: null,
     lastCompletedSectionId: null,
     lastStartedSectionId: null,
     programId,
@@ -71,6 +73,7 @@ export function normalizeProgramProgressStore(value: unknown): ProgramProgressSt
       }
 
       records[programId] = {
+        currentRunStartedAt: toNullableString(rawRecord.currentRunStartedAt),
         lastCompletedSectionId: toNullableString(rawRecord.lastCompletedSectionId),
         lastStartedSectionId: toNullableString(rawRecord.lastStartedSectionId),
         programId,
@@ -81,6 +84,22 @@ export function normalizeProgramProgressStore(value: unknown): ProgramProgressSt
       return records
     }, {}),
   }
+}
+
+export function resetProgramRun(
+  store: ProgramProgressStore,
+  payload: { at?: string; programId: string },
+) {
+  const updatedAt = payload.at ?? new Date().toISOString()
+
+  return updateProgramProgressRecord(store, payload.programId, () => ({
+    currentRunStartedAt: updatedAt,
+    lastCompletedSectionId: null,
+    lastStartedSectionId: null,
+    programId: payload.programId,
+    selectedSectionId: null,
+    updatedAt,
+  }))
 }
 
 function updateProgramProgressRecord(

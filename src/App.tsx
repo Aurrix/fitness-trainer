@@ -24,6 +24,7 @@ import { normalizeExerciseMuscleGroup } from './entities/exercise-muscles'
 import {
   markProgramSectionCompleted,
   markProgramSectionStarted,
+  resetProgramRun,
   selectProgramSection,
   type ProgramProgressRecord,
 } from './entities/program-progression'
@@ -75,7 +76,6 @@ import {
 } from './lib/workout-statistics'
 import {
   buildWorkoutExerciseOrder,
-  createActiveWorkoutFromLog,
   createId,
   createExtraExerciseWorkoutLog,
   createEmptyDraft,
@@ -506,16 +506,70 @@ function buildProgramCompletionLog(
   }
 }
 
-function findLatestWorkoutLogForSection(
-  workoutLogs: WorkoutLog[],
-  programId: string,
-  sectionId: string,
-) {
-  return (
-    workoutLogs
-      .filter((entry) => entry.programId === programId && entry.sectionId === sectionId)
-      .sort((left, right) => right.completedAt.localeCompare(left.completedAt))[0] ?? null
+function buildProgramArchiveLog(
+  program: AppProgram,
+  programDayLogs: ProgramDayLog[],
+  archivedAt: string,
+  currentRunStartedAt: string | null,
+): ProgramCompletionLog | null {
+  const sectionIdSet = new Set(program.sections.map((section) => section.id))
+  const latestLogBySectionId = programDayLogs
+    .filter((dayLog) => {
+      return (
+        dayLog.programId === program.id &&
+        sectionIdSet.has(dayLog.sectionId) &&
+        (!currentRunStartedAt || dayLog.completedAt.localeCompare(currentRunStartedAt) >= 0)
+      )
+    })
+    .sort((left, right) => right.completedAt.localeCompare(left.completedAt))
+    .reduce<Record<string, ProgramDayLog>>((logs, dayLog) => {
+      if (!logs[dayLog.sectionId]) {
+        logs[dayLog.sectionId] = dayLog
+      }
+
+      return logs
+    }, {})
+  const dayLogs = program.sections
+    .map((section) => latestLogBySectionId[section.id])
+    .filter((dayLog): dayLog is ProgramDayLog => Boolean(dayLog))
+
+  if (!dayLogs.length) {
+    return null
+  }
+
+  const startedAt = dayLogs.reduce(
+    (earliestStartedAt, dayLog) =>
+      dayLog.startedAt.localeCompare(earliestStartedAt) < 0
+        ? dayLog.startedAt
+        : earliestStartedAt,
+    dayLogs[0].startedAt,
   )
+
+  return {
+    completedAt: archivedAt,
+    completedDayCount: dayLogs.length,
+    completedExerciseCount: dayLogs.reduce(
+      (total, dayLog) => total + dayLog.completedExerciseCount,
+      0,
+    ),
+    dayLogs,
+    durationMinutes: dayLogs.reduce((total, dayLog) => total + dayLog.durationMinutes, 0),
+    exerciseEntryCount: dayLogs.reduce(
+      (total, dayLog) => total + dayLog.exerciseEntries.length,
+      0,
+    ),
+    id: createId('program-archive'),
+    programId: program.id,
+    programName: program.name,
+    programSource: program.programSource,
+    sessionDate: getSessionDateKey(archivedAt),
+    startedAt,
+    totalDayCount: program.sections.length,
+    totalExerciseCount: program.sections.reduce(
+      (total, section) => total + section.exercises.length,
+      0,
+    ),
+  }
 }
 
 function upsertWorkoutLogById(workoutLogs: WorkoutLog[], workoutLog: WorkoutLog) {
@@ -714,6 +768,7 @@ function App() {
   const launchProgramProgressRecord = launchProgram
     ? (programProgressStore.byProgramId[launchProgram.id] ?? null)
     : null
+  const currentProgramRunStartedAt = launchProgramProgressRecord?.currentRunStartedAt ?? null
   const persistedWorkoutSectionId = resolvePersistedWorkoutSectionId(
     launchProgram,
     launchProgramProgressRecord,
@@ -1094,9 +1149,45 @@ function App() {
     })
   }
 
-  function selectProgramAsMain(program: AppProgram) {
+  function selectProgramAsMain(
+    program: AppProgram,
+    options: { resetRun?: boolean } = {},
+  ) {
+    const shouldResetRun = options.resetRun ?? true
+    const selectedAt = new Date().toISOString()
+    const previousProgram = programs.find((entry) => entry.id === mainProgramId) ?? null
+
+    if (shouldResetRun && previousProgram && previousProgram.id !== program.id) {
+      const archive = buildProgramArchiveLog(
+        previousProgram,
+        programDayLogs,
+        selectedAt,
+        programProgressStore.byProgramId[previousProgram.id]?.currentRunStartedAt ?? null,
+      )
+
+      const archiveAlreadySaved = archive
+        ? programCompletionLogs.some((entry) => {
+            if (entry.programId !== archive.programId) {
+              return false
+            }
+
+            const archivedSessionIds = new Set(archive.dayLogs.map((dayLog) => dayLog.sessionId))
+            return entry.dayLogs.every((dayLog) => archivedSessionIds.has(dayLog.sessionId))
+          })
+        : false
+
+      if (archive && !archiveAlreadySaved) {
+        setProgramCompletionLogs((currentLogs) => [archive, ...currentLogs])
+      }
+    }
+
     setMainProgramId(program.id)
     rememberProgram(program.id)
+    if (shouldResetRun) {
+      setProgramProgressStore((currentStore) =>
+        resetProgramRun(currentStore, { at: selectedAt, programId: program.id }),
+      )
+    }
     setProgramStatsStore((currentStore) => {
       return markProgramSelected(currentStore, {
         programId: program.id,
@@ -1579,7 +1670,9 @@ function App() {
   }
 
   function openProgram(program: AppProgram) {
-    selectProgramAsMain(program)
+    if (program.id !== mainProgramId) {
+      selectProgramAsMain(program)
+    }
     setSelectedProgramId(program.id)
   }
 
@@ -1722,21 +1815,6 @@ function App() {
       )
     }
 
-    const latestWorkoutLog = findLatestWorkoutLogForSection(workoutLogs, program.id, section.id)
-
-    if (latestWorkoutLog) {
-      const editingAt = new Date().toISOString()
-
-      selectProgramAsMain(program)
-      setIsStartWorkoutDialogOpen(false)
-      setIsFinishWorkoutDialogOpen(false)
-      setSelectedWorkoutSectionId(section.id)
-      setActiveWorkout(createActiveWorkoutFromLog(latestWorkoutLog, { updatedAt: editingAt }))
-      showBanner('success', `Editing ${program.name} / ${section.name}.`)
-      openWorkoutScreen({ program, sectionId: section.id })
-      return
-    }
-
     const sessionId = createId('session')
     const startedAt = new Date().toISOString()
     const plannedWorkoutLogs = createPlannedWorkoutLogs(
@@ -1750,7 +1828,7 @@ function App() {
       [],
     )
 
-    selectProgramAsMain(program)
+    selectProgramAsMain(program, { resetRun: mainProgramId !== program.id })
     setIsStartWorkoutDialogOpen(false)
     setIsFinishWorkoutDialogOpen(false)
     setSelectedWorkoutSectionId(section.id)
@@ -3122,6 +3200,7 @@ function App() {
             isSelectedWorkoutActive={isSelectedWorkoutActive}
             isEditingCompletedWorkout={isEditingCompletedWorkout}
             onAddWorkoutExercise={addWorkoutExtraExercise}
+            currentProgramRunStartedAt={currentProgramRunStartedAt}
             onAddWorkoutExerciseSet={addWorkoutExerciseSet}
             onAddWorkoutExtraExerciseSet={addWorkoutExtraExerciseSet}
             onCommitWorkoutExerciseSet={commitWorkoutExerciseSet}
