@@ -1,5 +1,6 @@
 import {
   startTransition,
+  useCallback,
   useDeferredValue,
   useEffect,
   useRef,
@@ -112,6 +113,7 @@ import {
   getLibraryPath,
   getPrimaryRoutePath,
 } from './routes'
+import { pwaUpdateReadyEventName } from './pwa'
 import { useAppStore } from './stores/useAppStore'
 
 type ExerciseAlternativePreview = {
@@ -843,11 +845,7 @@ function App() {
     void hydrateAppStore()
   }, [hydrateAppStore])
 
-  useEffect(() => {
-    if (!isAppReady) {
-      return
-    }
-
+  const checkReleaseNotes = useCallback(() => {
     let isCancelled = false
 
     void loadUnseenReleaseNotes()
@@ -861,7 +859,27 @@ function App() {
     return () => {
       isCancelled = true
     }
-  }, [isAppReady])
+  }, [])
+
+  useEffect(() => {
+    if (!isAppReady) {
+      return
+    }
+
+    return checkReleaseNotes()
+  }, [checkReleaseNotes, isAppReady])
+
+  useEffect(() => {
+    if (!isAppReady) {
+      return
+    }
+
+    window.addEventListener(pwaUpdateReadyEventName, checkReleaseNotes)
+
+    return () => {
+      window.removeEventListener(pwaUpdateReadyEventName, checkReleaseNotes)
+    }
+  }, [checkReleaseNotes, isAppReady])
 
   useEffect(() => {
     return () => {
@@ -1828,7 +1846,15 @@ function App() {
       [],
     )
 
-    selectProgramAsMain(program, { resetRun: mainProgramId !== program.id })
+    const shouldResetProgramRun =
+      mainProgramId !== program.id ||
+      isProgramProgressComplete(
+        program,
+        programProgressStore.byProgramId[program.id] ?? null,
+        programCompletionLogs,
+      )
+
+    selectProgramAsMain(program, { resetRun: shouldResetProgramRun })
     setIsStartWorkoutDialogOpen(false)
     setIsFinishWorkoutDialogOpen(false)
     setSelectedWorkoutSectionId(section.id)

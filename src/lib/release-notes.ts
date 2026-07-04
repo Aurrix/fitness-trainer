@@ -93,7 +93,10 @@ export async function loadUnseenReleaseNotes(): Promise<ReleaseNoteBundle | null
   }
 
   const manifest = normalizeReleaseManifest(await manifestResponse.json())
-  const releases = manifest.releases
+  const releases = [...manifest.releases].sort((left, right) => {
+    const dateComparison = left.date.localeCompare(right.date)
+    return dateComparison !== 0 ? dateComparison : left.id.localeCompare(right.id)
+  })
 
   if (!releases.length) {
     return null

@@ -1,11 +1,16 @@
 const serviceWorkerUrl = `${import.meta.env.BASE_URL}sw.js`
 const serviceWorkerScope = import.meta.env.BASE_URL
 const updateCheckThrottleMs = 60_000
+export const pwaUpdateReadyEventName = 'fitness-trainer:pwa-update-ready'
 
 let registration: ServiceWorkerRegistration | undefined
 let lastUpdateCheck = 0
 let hadControllerOnLoad = false
 let isReloading = false
+
+function notifyPwaUpdateReady() {
+  window.dispatchEvent(new CustomEvent(pwaUpdateReadyEventName))
+}
 
 async function checkForUpdates(force = false) {
   if (!registration || registration.installing) {
@@ -50,6 +55,7 @@ export async function registerPWA() {
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (!hadControllerOnLoad || isReloading) {
       hadControllerOnLoad = true
+      notifyPwaUpdateReady()
       return
     }
 
@@ -60,6 +66,16 @@ export async function registerPWA() {
   try {
     registration = await navigator.serviceWorker.register(serviceWorkerUrl, {
       scope: serviceWorkerScope,
+    })
+
+    registration.addEventListener('updatefound', () => {
+      const installingWorker = registration?.installing
+
+      installingWorker?.addEventListener('statechange', () => {
+        if (installingWorker.state === 'activated') {
+          notifyPwaUpdateReady()
+        }
+      })
     })
 
     await checkForUpdates(true)
