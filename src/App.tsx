@@ -405,7 +405,12 @@ function isProgramProgressComplete(
 
   return (
     lastWorkoutDay?.section.id === progressRecord.lastCompletedSectionId &&
-    programCompletionLogs.some((entry) => entry.programId === program.id)
+    programCompletionLogs.some(
+      (entry) =>
+        entry.programId === program.id &&
+        (!progressRecord.currentRunStartedAt ||
+          entry.completedAt.localeCompare(progressRecord.currentRunStartedAt) >= 0),
+    )
   )
 }
 
@@ -425,9 +430,15 @@ function resolvePersistedWorkoutSectionId(
     return progressRecord.selectedSectionId
   }
 
+  const currentRunProgramDayLogs = programDayLogs.filter((entry) => {
+    return (
+      entry.programId === program.id &&
+      (!progressRecord?.currentRunStartedAt ||
+        entry.completedAt.localeCompare(progressRecord.currentRunStartedAt) >= 0)
+    )
+  })
   const latestLoggedSectionId =
-    [...programDayLogs]
-      .filter((entry) => entry.programId === program.id)
+    [...currentRunProgramDayLogs]
       .sort((left, right) => right.completedAt.localeCompare(left.completedAt))[0]?.sectionId ??
     null
 
@@ -632,6 +643,21 @@ function upsertProgramCompletionLog(
     completionLog,
     ...completionLogs.filter((entry) => entry.id !== completionLog.id),
   ].sort((left, right) => right.completedAt.localeCompare(left.completedAt))
+}
+
+function hasCompletionLogForSameSessions(
+  completionLogs: ProgramCompletionLog[],
+  completionLog: ProgramCompletionLog,
+) {
+  const sessionIds = new Set(completionLog.dayLogs.map((dayLog) => dayLog.sessionId))
+
+  return completionLogs.some((entry) => {
+    if (entry.programId !== completionLog.programId || entry.dayLogs.length !== sessionIds.size) {
+      return false
+    }
+
+    return entry.dayLogs.every((dayLog) => sessionIds.has(dayLog.sessionId))
+  })
 }
 
 function resolveExerciseStatsRecord(
@@ -1175,7 +1201,7 @@ function App() {
     const selectedAt = new Date().toISOString()
     const previousProgram = programs.find((entry) => entry.id === mainProgramId) ?? null
 
-    if (shouldResetRun && previousProgram && previousProgram.id !== program.id) {
+    if (shouldResetRun && previousProgram) {
       const archive = buildProgramArchiveLog(
         previousProgram,
         programDayLogs,
@@ -1183,25 +1209,15 @@ function App() {
         programProgressStore.byProgramId[previousProgram.id]?.currentRunStartedAt ?? null,
       )
 
-      const archiveAlreadySaved = archive
-        ? programCompletionLogs.some((entry) => {
-            if (entry.programId !== archive.programId) {
-              return false
-            }
-
-            const archivedSessionIds = new Set(archive.dayLogs.map((dayLog) => dayLog.sessionId))
-            return entry.dayLogs.every((dayLog) => archivedSessionIds.has(dayLog.sessionId))
-          })
-        : false
-
-      if (archive && !archiveAlreadySaved) {
-        setProgramCompletionLogs((currentLogs) => [archive, ...currentLogs])
+      if (archive && !hasCompletionLogForSameSessions(programCompletionLogs, archive)) {
+        setProgramCompletionLogs((currentLogs) => upsertProgramCompletionLog(currentLogs, archive))
       }
     }
 
     setMainProgramId(program.id)
     rememberProgram(program.id)
     if (shouldResetRun) {
+      setSelectedWorkoutSectionId(null)
       setProgramProgressStore((currentStore) =>
         resetProgramRun(currentStore, { at: selectedAt, programId: program.id }),
       )
@@ -1688,7 +1704,16 @@ function App() {
   }
 
   function openProgram(program: AppProgram) {
-    if (program.id !== mainProgramId) {
+    const shouldResetCompletedMainProgram =
+      program.id === mainProgramId &&
+      !activeWorkout &&
+      isProgramProgressComplete(
+        program,
+        programProgressStore.byProgramId[program.id] ?? null,
+        programCompletionLogs,
+      )
+
+    if (program.id !== mainProgramId || shouldResetCompletedMainProgram) {
       selectProgramAsMain(program)
     }
     setSelectedProgramId(program.id)
