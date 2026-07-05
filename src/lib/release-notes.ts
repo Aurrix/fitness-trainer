@@ -4,6 +4,8 @@ import {
   writePersistedState,
 } from '../services/app-db'
 
+const releaseBaseUrl = `${import.meta.env.BASE_URL}releases/`
+
 type JsonRecord = Record<string, unknown>
 
 type ReleaseManifestEntry = {
@@ -72,7 +74,7 @@ function normalizeLastShownReleaseId(value: unknown) {
 }
 
 async function fetchReleaseContent(file: string) {
-  const response = await fetch(`/releases/${file}`, {
+  const response = await fetch(new URL(file, window.location.origin + releaseBaseUrl), {
     cache: 'no-cache',
   })
 
@@ -84,7 +86,7 @@ async function fetchReleaseContent(file: string) {
 }
 
 export async function loadUnseenReleaseNotes(): Promise<ReleaseNoteBundle | null> {
-  const manifestResponse = await fetch('/releases/index.json', {
+  const manifestResponse = await fetch(new URL('index.json', window.location.origin + releaseBaseUrl), {
     cache: 'no-cache',
   })
 

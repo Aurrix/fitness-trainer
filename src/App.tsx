@@ -1253,6 +1253,18 @@ function App() {
   }
 
   function openMainProgramPicker() {
+    if (
+      !activeWorkout &&
+      !isMainProgramEmpty &&
+      isProgramProgressComplete(
+        mainProgram,
+        programProgressStore.byProgramId[mainProgram.id] ?? null,
+        programCompletionLogs,
+      )
+    ) {
+      selectProgramAsMain(mainProgram)
+    }
+
     startTransition(() => {
       navigate(getLibraryPath('programs'))
     })

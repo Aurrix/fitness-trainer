@@ -1,6 +1,12 @@
 {
   "releases": [
     {
+      "id": "2026-07-05-program-reset-and-release-popups",
+      "date": "2026-07-05",
+      "title": "Program Reset and Release Popups",
+      "file": "2026-07-05-program-reset-and-release-popups.md"
+    },
+    {
       "id": "2026-07-04-clear-new-program-run",
       "date": "2026-07-04",
       "title": "Clean Program Restart",
