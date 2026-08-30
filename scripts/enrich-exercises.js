@@ -475,6 +475,13 @@ function deriveMuscleTargets(record) {
     )
   }
 
+  if (has('rotary torso', 'torso rotation')) {
+    return withTargets(
+      [target(MG.obliques, 1), target(MG.transverseAbdominis, 0.7)],
+      [target(MG.upperAbs, 0.4), target(MG.lowerAbs, 0.3)],
+    )
+  }
+
   if (has('oblique')) {
     return withTargets(
       [target(MG.obliques, 1)],

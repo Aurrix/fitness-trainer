@@ -1,0 +1,75 @@
+{
+  "id": "push-pull-legs-upper-lower",
+  "displayLabel": "Push / Pull / Legs / Upper / Lower",
+  "shortDescription": "8-week five-day hypertrophy split combining push, pull, and legs sessions with upper and lower days.",
+  "descriptionHtml": "<p>8-week five-day hypertrophy split combining push, pull, and legs sessions with upper and lower days.</p><p><strong>Structure:</strong> 8 weeks, 5 scheduled sessions per week, 25 referenced exercise ids.</p><p><strong>Weekly split:</strong> Push, Pull, Legs, Upper, and Lower.</p><ul><li><strong>Goal:</strong> hypertrophy</li><li><strong>Level:</strong> intermediate</li><li><strong>Duration:</strong> 8 weeks</li><li><strong>Tags:</strong> push pull legs upper lower and 5 days per week</li></ul>",
+  "goal": "hypertrophy",
+  "level": "intermediate",
+  "duration": "8 weeks",
+  "tags": [
+    "push pull legs upper lower",
+    "5 days per week"
+  ],
+  "weeks": [
+    {
+      "week": "1-8",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Push",
+          "items": [
+            { "exerciseId": "barbell-bench-press", "sets": "3", "reps": "6-10", "rest": "2-3 min", "notes": "Barbell" },
+            { "exerciseId": "dumbbell-seated-shoulder-press", "sets": "3", "reps": "10-12", "rest": "2 min", "notes": "Dumbbells" },
+            { "exerciseId": "low-to-high-cable-flye", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Low cable crossover setup" },
+            { "exerciseId": "dumbbell-overhead-triceps-extension", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Dumbbell" },
+            { "exerciseId": "triceps-pushdown", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Use a rope attachment" }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Pull",
+          "items": [
+            { "exerciseId": "barbell-bent-over-row", "sets": "3", "reps": "6-10", "rest": "2-3 min", "notes": "Barbell" },
+            { "exerciseId": "lat-pulldown", "sets": "3", "reps": "8-12", "rest": "2 min", "notes": "Cable" },
+            { "exerciseId": "dumbbell-curl", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Dumbbells" },
+            { "exerciseId": "hammer-curl", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Dumbbells" },
+            { "exerciseId": "face-pull", "sets": "3", "reps": "15-25", "rest": "1-2 min", "notes": "Controlled reps" }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Legs",
+          "items": [
+            { "exerciseId": "back-squat", "sets": "3", "reps": "6-10", "rest": "2-3 min", "notes": "Barbell" },
+            { "exerciseId": "glute-ham-raise", "sets": "3", "reps": "8-12", "rest": "2 min", "notes": "Controlled range of motion" },
+            { "exerciseId": "dumbbell-walking-lunge", "sets": "3", "reps": "10-15 per side", "rest": "2 min", "notes": "Dumbbells; complete the target on each side" },
+            { "exerciseId": "lying-leg-curl", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Machine" },
+            { "exerciseId": "smith-machine-calf-raise", "sets": "3", "reps": "8-12", "rest": "1-2 min", "notes": "Standing Smith machine setup" }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Upper",
+          "items": [
+            { "exerciseId": "pull-up", "sets": "3", "reps": "5-10+", "rest": "2-3 min", "notes": "Do more than 10 reps if you can" },
+            { "exerciseId": "incline-dumbbell-press", "sets": "3", "reps": "8-10", "rest": "2-3 min", "notes": "Dumbbells" },
+            { "exerciseId": "cable-pull-over", "sets": "3", "reps": "10-15", "rest": "1-2 min", "notes": "Keep the arms straight throughout the cable pulldown" },
+            { "exerciseId": "machine-shoulder-press", "sets": "3", "reps": "10-12", "rest": "2 min", "notes": "Seated machine setup" },
+            { "exerciseId": "push-up", "sets": "2", "reps": "12-20+", "rest": "1-2 min", "notes": "Train close to failure; do more than 20 reps if you can" }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Lower",
+          "items": [
+            { "exerciseId": "leg-press", "sets": "3", "reps": "8-12", "rest": "2-3 min", "notes": "Machine" },
+            { "exerciseId": "romanian-deadlift", "sets": "3", "reps": "8-10", "rest": "2-3 min", "notes": "Barbell" },
+            { "exerciseId": "leg-extension", "sets": "3", "reps": "12-15", "rest": "1-2 min", "notes": "Machine" },
+            { "exerciseId": "seated-calf-raise", "sets": "4", "reps": "12-20", "rest": "1-2 min", "notes": "Full stretch and controlled reps" },
+            { "exerciseId": "cable-crunch", "sets": "4", "reps": "12-15", "rest": "1-2 min", "notes": "Controlled spinal flexion" }
+          ]
+        }
+      ]
+    }
+  ]
+}

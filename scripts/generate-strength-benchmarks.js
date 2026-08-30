@@ -486,8 +486,10 @@ const BODYWEIGHT_CRUNCH_IDS = new Set([
 const AB_MACHINE_CRUNCH_IDS = new Set([
   'ab-coaster-crunch-machine',
   'abdominal-crunch-machine',
+  'cybex-eagle-abdominal',
   'machine-oblique-crunch',
   'plate-loaded-ab-crunch-machine',
+  'rotary-torso-machine',
   'seated-abdominal-crunch-machine',
 ])
 
@@ -1074,7 +1076,11 @@ function createBenchmark(record) {
           : 'selected machine stack or plate-loaded resistance',
       anchors: scaleAnchors(
         ANCHORS.tricepPushdown,
-        id === 'ab-coaster-crunch-machine' || id === 'machine-oblique-crunch' ? 0.65 : 0.85,
+        id === 'ab-coaster-crunch-machine' ||
+          id === 'machine-oblique-crunch' ||
+          id === 'rotary-torso-machine'
+          ? 0.65
+          : 0.85,
       ),
       scheme: SCHEMES.highRepIsolation,
     })
@@ -1998,8 +2004,13 @@ function createBenchmark(record) {
 }
 
 async function main() {
+  const requestedIds = new Set(process.argv.slice(2))
   const fileNames = (await readdir(exercisesDirectory))
     .filter((fileName) => fileName.endsWith('.json') && fileName !== 'index.json')
+    .filter(
+      (fileName) =>
+        requestedIds.size === 0 || requestedIds.has(fileName.replace(/\.json$/, '')),
+    )
     .sort()
 
   for (const fileName of fileNames) {

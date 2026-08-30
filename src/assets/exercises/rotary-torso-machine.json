@@ -1,0 +1,243 @@
+{
+  "id": "rotary-torso-machine",
+  "displayLabel": "Rotary Torso Machine",
+  "shortDescription": "Seated machine rotation that trains the obliques through a controlled torso-twisting path.",
+  "descriptionHtml": "<p>Seated machine rotation that trains the obliques through a controlled torso-twisting path.</p><ul><li><strong>Also listed as:</strong> Rotary Torso, Torso Rotation Machine, and Seated Torso Rotation</li><li><strong>Common substitutions:</strong> Machine Oblique Crunch, Standing Oblique Crunch, Side Plank, and Cable Crunch</li></ul>",
+  "aliases": [
+    "Rotary Torso",
+    "Torso Rotation Machine",
+    "Seated Torso Rotation"
+  ],
+  "substitutionExerciseIds": [
+    "machine-oblique-crunch",
+    "standing-oblique-crunch",
+    "side-plank",
+    "cable-crunch"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "transverse-abdominis",
+      "factor": 0.7
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 0.3
+    }
+  ],
+  "difficulty": "Beginner",
+  "strengthBenchmarks": {
+    "kind": "loadKg",
+    "measurement": {
+      "basis": "selected machine stack or plate-loaded resistance",
+      "unit": "kg"
+    },
+    "profiles": {
+      "male": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              4,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              17,
+              23
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              31,
+              39
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              4,
+              6
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              17,
+              23
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              31,
+              39
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              4,
+              5
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              15,
+              21
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              28,
+              35
+            ]
+          }
+        }
+      },
+      "female": {
+        "18-29": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              9,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              18,
+              22
+            ]
+          }
+        },
+        "30-44": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              9,
+              12
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              18,
+              22
+            ]
+          }
+        },
+        "45+": {
+          "beginner": {
+            "repRange": [
+              12,
+              18
+            ],
+            "loadRangeKg": [
+              2,
+              3
+            ]
+          },
+          "intermediate": {
+            "repRange": [
+              10,
+              15
+            ],
+            "loadRangeKg": [
+              8,
+              11
+            ]
+          },
+          "advanced": {
+            "repRange": [
+              8,
+              12
+            ],
+            "loadRangeKg": [
+              16,
+              20
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -373,6 +373,14 @@ const OBLIQUE_CRUNCH_SECONDARY = [
   ['lower-abs', 0.4],
   ['transverse-abdominis', 0.3],
 ]
+const ROTARY_TORSO_PRIMARY = [
+  ['obliques', 1],
+  ['transverse-abdominis', 0.7],
+]
+const ROTARY_TORSO_SECONDARY = [
+  ['upper-abs', 0.4],
+  ['lower-abs', 0.3],
+]
 const ROMANIAN_DEADLIFT_PRIMARY = [
   ['biceps-femoris', 1],
   ['semitendinosus', 0.9],
@@ -629,6 +637,7 @@ const EXACT_TARGETS = new Map([
 assignTargets(
   [
     'abdominal-crunch-machine',
+    'cybex-eagle-abdominal',
     'kneeling-cable-crunch',
     'plate-loaded-ab-crunch-machine',
     'seated-abdominal-crunch-machine',
@@ -638,6 +647,7 @@ assignTargets(
 )
 assignTargets(['ab-coaster-crunch-machine'], LEG_RAISE_PRIMARY, LEG_RAISE_SECONDARY)
 assignTargets(['machine-oblique-crunch'], OBLIQUE_CRUNCH_PRIMARY, OBLIQUE_CRUNCH_SECONDARY)
+assignTargets(['rotary-torso-machine'], ROTARY_TORSO_PRIMARY, ROTARY_TORSO_SECONDARY)
 assignTargets(
   [
     'lateral-band-walk',

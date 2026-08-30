@@ -301,6 +301,12 @@
       "file": "crunch.json"
     },
     {
+      "id": "cybex-eagle-abdominal",
+      "displayLabel": "Cybex Eagle Abdominal",
+      "shortDescription": "Selectorized ab push machine that loads spinal flexion through a guided seated path.",
+      "file": "cybex-eagle-abdominal.json"
+    },
+    {
       "id": "deadlift",
       "displayLabel": "Deadlift",
       "shortDescription": "Hip hinge variation for posterior-chain strength and muscle.",
@@ -1157,6 +1163,12 @@
       "displayLabel": "Rowing Ergometer",
       "shortDescription": "Continuous rowing machine effort tracked primarily by duration and effort.",
       "file": "rowing-ergometer.json"
+    },
+    {
+      "id": "rotary-torso-machine",
+      "displayLabel": "Rotary Torso Machine",
+      "shortDescription": "Seated machine rotation that trains the obliques through a controlled torso-twisting path.",
+      "file": "rotary-torso-machine.json"
     },
     {
       "id": "running",
