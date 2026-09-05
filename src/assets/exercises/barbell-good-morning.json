@@ -1,0 +1,38 @@
+{
+  "id": "barbell-good-morning",
+  "displayLabel": "Barbell Good Morning",
+  "shortDescription": "Barbell hip hinge for the hamstrings, glutes, and spinal erectors.",
+  "descriptionHtml": "<p>Barbell hip hinge for the hamstrings, glutes, and spinal erectors.</p><ul><li><strong>Also listed as:</strong> Good Morning</li><li><strong>Common substitutions:</strong> Romanian Deadlift and Back Extension</li></ul>",
+  "aliases": [
+    "Good Morning"
+  ],
+  "substitutionExerciseIds": [
+    "romanian-deadlift",
+    "back-extension"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.8
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.7
+    }
+  ],
+  "difficulty": "Intermediate"
+}

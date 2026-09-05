@@ -1,0 +1,34 @@
+{
+  "id": "dumbbell-seated-biceps-curl",
+  "displayLabel": "Dumbbell Seated Biceps Curl",
+  "shortDescription": "Seated dumbbell curl for controlled biceps and forearm training.",
+  "descriptionHtml": "<p>Seated dumbbell curl for controlled biceps and forearm training.</p><ul><li><strong>Also listed as:</strong> Dumbbell Seated Bicep Curl</li><li><strong>Common substitutions:</strong> Dumbbell Curl and Single-arm Dumbbell Curl</li></ul>",
+  "aliases": [
+    "Dumbbell Seated Bicep Curl"
+  ],
+  "substitutionExerciseIds": [
+    "dumbbell-curl",
+    "single-arm-dumbbell-curl"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-short-head",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "biceps-long-head",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "brachialis",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "brachioradialis",
+      "factor": 0.5
+    }
+  ],
+  "difficulty": "Beginner"
+}

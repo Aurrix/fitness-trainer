@@ -1,0 +1,30 @@
+{
+  "id": "dumbbell-front-raise",
+  "displayLabel": "Dumbbell Front Raise",
+  "shortDescription": "Shoulder isolation movement emphasizing the front delts.",
+  "descriptionHtml": "<p>Shoulder isolation movement emphasizing the front delts.</p><ul><li><strong>Also listed as:</strong> Dumbbell One-Arm Front Raise</li><li><strong>Common substitutions:</strong> Arnold Press and Dumbbell Seated Shoulder Press</li></ul>",
+  "aliases": [
+    "Dumbbell One-Arm Front Raise"
+  ],
+  "substitutionExerciseIds": [
+    "arnold-press",
+    "dumbbell-seated-shoulder-press"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "front-delts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "side-delts",
+      "factor": 0.3
+    },
+    {
+      "muscleGroup": "upper-chest",
+      "factor": 0.2
+    }
+  ],
+  "difficulty": "Beginner"
+}

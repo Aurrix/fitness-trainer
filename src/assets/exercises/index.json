@@ -1517,6 +1517,42 @@
       "displayLabel": "Wrist Roller",
       "shortDescription": "Forearm accessory movement for wrist flexor and extensor endurance using a rolling handle.",
       "file": "wrist-roller.json"
+    },
+    {
+      "id": "barbell-good-morning",
+      "displayLabel": "Barbell Good Morning",
+      "shortDescription": "Barbell hip hinge for the hamstrings, glutes, and spinal erectors.",
+      "file": "barbell-good-morning.json"
+    },
+    {
+      "id": "barbell-single-leg-squat",
+      "displayLabel": "Barbell Single-Leg Squat",
+      "shortDescription": "Unilateral barbell squat for quadriceps, glutes, and balance.",
+      "file": "barbell-single-leg-squat.json"
+    },
+    {
+      "id": "barbell-stiff-leg-deadlift",
+      "displayLabel": "Barbell Stiff-Leg Deadlift",
+      "shortDescription": "Barbell hip hinge emphasizing the hamstrings and spinal erectors.",
+      "file": "barbell-stiff-leg-deadlift.json"
+    },
+    {
+      "id": "cable-shoulder-extension",
+      "displayLabel": "Cable Shoulder Extension",
+      "shortDescription": "Straight-arm cable pull emphasizing the lats and teres major.",
+      "file": "cable-shoulder-extension.json"
+    },
+    {
+      "id": "dumbbell-front-raise",
+      "displayLabel": "Dumbbell Front Raise",
+      "shortDescription": "Shoulder isolation movement emphasizing the front delts.",
+      "file": "dumbbell-front-raise.json"
+    },
+    {
+      "id": "dumbbell-seated-biceps-curl",
+      "displayLabel": "Dumbbell Seated Biceps Curl",
+      "shortDescription": "Seated dumbbell curl for controlled biceps and forearm training.",
+      "file": "dumbbell-seated-biceps-curl.json"
     }
   ]
 }

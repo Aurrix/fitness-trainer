@@ -1,0 +1,32 @@
+{
+  "id": "cable-shoulder-extension",
+  "displayLabel": "Cable Shoulder Extension",
+  "shortDescription": "Straight-arm cable pull emphasizing the lats and teres major.",
+  "descriptionHtml": "<p>Straight-arm cable pull emphasizing the lats and teres major.</p><ul><li><strong>Common substitutions:</strong> Lat Prayer and Cable Pull-Over</li></ul>",
+  "aliases": [],
+  "substitutionExerciseIds": [
+    "lat-prayer",
+    "cable-pull-over"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "teres-major",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps-long-head",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "rear-delts",
+      "factor": 0.3
+    }
+  ],
+  "difficulty": "Beginner"
+}

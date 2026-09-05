@@ -55,6 +55,15 @@
       "file": "full-body-5-day-muscle-focus.json"
     },
     {
+      "id": "jefit-5-day-upper-lower-push-pull-legs",
+      "displayLabel": "5 Day Upper / Lower / Push / Pull / Legs",
+      "shortDescription": "Five-day intermediate bulking routine by raffaeu, imported from JEFIT.",
+      "goal": "bulking and hypertrophy",
+      "level": "intermediate",
+      "duration": "Repeat weekly",
+      "file": "jefit-5-day-upper-lower-push-pull-legs.json"
+    },
+    {
       "id": "phat-5-day-power-hypertrophy",
       "displayLabel": "PHAT 5-Day Power Hypertrophy",
       "shortDescription": "8-week five-day power and hypertrophy split based around heavy upper/lower days and three volume days.",

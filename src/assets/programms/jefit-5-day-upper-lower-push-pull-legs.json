@@ -1,0 +1,285 @@
+{
+  "id": "jefit-5-day-upper-lower-push-pull-legs",
+  "displayLabel": "5 Day Upper / Lower / Push / Pull / Legs",
+  "shortDescription": "Five-day intermediate bulking routine by raffaeu, imported from JEFIT.",
+  "descriptionHtml": "<p>Five-day intermediate bulking routine by raffaeu, imported from JEFIT.</p><p><strong>Structure:</strong> Repeat weekly, 5 scheduled sessions per week, 32 referenced exercise ids.</p><p><strong>Weekly split:</strong> Upper Body, Lower Body, Push (Chest, Shoulders, Triceps), Pull (Back, Biceps), and Legs.</p><ul><li><strong>Goal:</strong> bulking and hypertrophy</li><li><strong>Level:</strong> intermediate</li><li><strong>Duration:</strong> Repeat weekly</li><li><strong>Tags:</strong> upper lower, push pull legs, 5 days per week, and JEFIT</li></ul>",
+  "goal": "bulking and hypertrophy",
+  "level": "intermediate",
+  "duration": "Repeat weekly",
+  "tags": [
+    "upper lower",
+    "push pull legs",
+    "5 days per week",
+    "JEFIT"
+  ],
+  "weeks": [
+    {
+      "week": "1+",
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Upper Body",
+          "items": [
+            {
+              "exerciseId": "barbell-bench-press",
+              "sets": "4",
+              "reps": "8",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "barbell-bent-over-row",
+              "sets": "4",
+              "reps": "8",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "dumbbell-seated-shoulder-press",
+              "sets": "4",
+              "reps": "10",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "pull-up",
+              "sets": "4",
+              "reps": "8",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "dumbbell-seated-biceps-curl",
+              "sets": "4",
+              "reps": "10",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "dip",
+              "sets": "4",
+              "reps": "10",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "hanging-leg-raise",
+              "sets": "4",
+              "reps": "10",
+              "rest": "",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Lower Body",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "4",
+              "reps": "8",
+              "rest": "",
+              "notes": "Barbell"
+            },
+            {
+              "exerciseId": "romanian-deadlift",
+              "sets": "4",
+              "reps": "8",
+              "rest": "",
+              "notes": "Barbell"
+            },
+            {
+              "exerciseId": "barbell-hip-thrust",
+              "sets": "4",
+              "reps": "10",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "barbell-single-leg-squat",
+              "sets": "4",
+              "reps": "10",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "standing-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "",
+              "notes": "Barbell"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Push (Chest, Shoulders, Triceps)",
+          "items": [
+            {
+              "exerciseId": "incline-dumbbell-press",
+              "sets": "4",
+              "reps": "12",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "incline-pectoral-flye-dumbbell",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "arnold-press",
+              "sets": "4",
+              "reps": "12",
+              "rest": "",
+              "notes": "Seated dumbbell variation"
+            },
+            {
+              "exerciseId": "dumbbell-lateral-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "dumbbell-front-raise",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": "Perform one arm at a time"
+            },
+            {
+              "exerciseId": "dumbbell-kickback",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": "Perform one arm at a time"
+            },
+            {
+              "exerciseId": "triceps-pushdown",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": "Use a rope attachment"
+            },
+            {
+              "exerciseId": "plank",
+              "sets": "4",
+              "reps": "",
+              "rest": "",
+              "notes": "No duration was specified in the source routine"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Pull (Back, Biceps)",
+          "items": [
+            {
+              "exerciseId": "wide-grip-lat-pulldown",
+              "sets": "4",
+              "reps": "12",
+              "rest": "",
+              "notes": "Cable"
+            },
+            {
+              "exerciseId": "cable-seated-row",
+              "sets": "4",
+              "reps": "12",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "cable-shoulder-extension",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "reverse-dumbbell-flye",
+              "sets": "4",
+              "reps": "12",
+              "rest": "",
+              "notes": "Bent-over variation"
+            },
+            {
+              "exerciseId": "dumbbell-concentration-curl",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "side-plank",
+              "sets": "3",
+              "reps": "8",
+              "rest": "",
+              "notes": ""
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "displayLabel": "Legs",
+          "items": [
+            {
+              "exerciseId": "back-squat",
+              "sets": "4",
+              "reps": "12",
+              "rest": "",
+              "notes": "Barbell"
+            },
+            {
+              "exerciseId": "bulgarian-split-squat",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": "Barbell"
+            },
+            {
+              "exerciseId": "barbell-stiff-leg-deadlift",
+              "sets": "4",
+              "reps": "12",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "barbell-good-morning",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": ""
+            },
+            {
+              "exerciseId": "seated-leg-curl",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": "Machine"
+            },
+            {
+              "exerciseId": "leg-extension",
+              "sets": "3",
+              "reps": "12",
+              "rest": "",
+              "notes": "Machine"
+            },
+            {
+              "exerciseId": "seated-calf-raise",
+              "sets": "4",
+              "reps": "12",
+              "rest": "",
+              "notes": "Machine"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "author": "raffaeu",
+  "sourceUrl": "https://www.jefit.com/routines/469371/5-day-upper-lower-push-pull-legs"
+}

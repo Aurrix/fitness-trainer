@@ -1,0 +1,38 @@
+{
+  "id": "barbell-stiff-leg-deadlift",
+  "displayLabel": "Barbell Stiff-Leg Deadlift",
+  "shortDescription": "Barbell hip hinge emphasizing the hamstrings and spinal erectors.",
+  "descriptionHtml": "<p>Barbell hip hinge emphasizing the hamstrings and spinal erectors.</p><ul><li><strong>Also listed as:</strong> Stiff-Leg Deadlift</li><li><strong>Common substitutions:</strong> Romanian Deadlift and Conventional Deadlift</li></ul>",
+  "aliases": [
+    "Stiff-Leg Deadlift"
+  ],
+  "substitutionExerciseIds": [
+    "romanian-deadlift",
+    "conventional-deadlift"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.9
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.7
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.7
+    }
+  ],
+  "difficulty": "Intermediate"
+}
