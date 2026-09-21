@@ -2223,6 +2223,8 @@ function App() {
       }
 
       const loggedAt = new Date().toISOString()
+      const progression: WorkoutSetLogEntry['progression'] =
+        value === 'hold' || value === 'increase' || value === 'decrease' ? value : null
       const currentLog = currentWorkout.exerciseLogs?.[exerciseId]
       const ensuredSetLogs = currentLog ? ensureWorkoutSetLogs(currentLog.setLogs, setIndex + 1) : []
       const currentSetLog = ensuredSetLogs[setIndex]
@@ -2239,7 +2241,7 @@ function App() {
         return {
           ...setLog,
           loggedAt,
-          progression: value === 'hold' || value === 'increase' || value === 'decrease' ? value : null,
+          progression,
         }
       })
 
@@ -2613,6 +2615,8 @@ function App() {
       }
 
       const loggedAt = new Date().toISOString()
+      const progression: WorkoutSetLogEntry['progression'] =
+        value === 'hold' || value === 'increase' || value === 'decrease' ? value : null
       return {
         ...currentWorkout,
         updatedAt: loggedAt,
@@ -2636,7 +2640,7 @@ function App() {
             return {
               ...setLog,
               loggedAt,
-              progression: value === 'hold' || value === 'increase' || value === 'decrease' ? value : null,
+              progression,
             }
           })
 

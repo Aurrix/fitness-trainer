@@ -240,7 +240,6 @@ export default function WorkoutPage({
   completionRatio,
   contentExercises,
   currentProgramRunStartedAt,
-  exertionOptions,
   fitnessProfile,
   handledPlannedExerciseCount,
   isLaunchProgramComplete,

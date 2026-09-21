@@ -66,7 +66,6 @@ type WorkoutSetLogPrefill = Pick<
   'duration' | 'effort' | 'reps' | 'weightKg'
 >
 type WorkoutSetLogField = keyof WorkoutSetLogEntry
-type WorkoutSetLogFieldValue<K extends WorkoutSetLogField> = WorkoutSetLogEntry[K] | string
 
 type WorkoutSetHistorySample = {
   dateLabel: string
@@ -837,7 +836,6 @@ function SortableWorkoutRow({
   onSetWorkoutExtraExerciseProgression,
   onUpdateWorkoutExerciseSetLog,
   onUpdateWorkoutExtraExerciseSetLog,
-  onUpdateWorkoutSetTags,
   row,
 }: SortableWorkoutRowProps) {
   const rowRef = useRef<HTMLTableRowElement | null>(null)

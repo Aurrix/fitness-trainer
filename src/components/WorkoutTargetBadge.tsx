@@ -242,10 +242,6 @@ function buildTargetMetricRows({
     .filter((row) => row.benchmark || row.personal || row.target)
 }
 
-function renderMetricColumnValue(token: TargetToken | null) {
-  return token ? <strong>{token.detailValue}</strong> : <span>-</span>
-}
-
 export default function WorkoutTargetBadge({
   benchmarkAverages = [],
   duration,
