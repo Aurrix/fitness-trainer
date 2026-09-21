@@ -52,6 +52,7 @@ import type { Exercise } from '../lib/content'
 
 type InsightsPageProps = {
   bodyStatsEntries: BodyStatEntry[]
+  bodyCompositionContent: ReactNode
   contentExercises: Exercise[]
   draft: ProgramDraft
   exerciseStatsStore: ExerciseStatsStore
@@ -620,6 +621,7 @@ function getDefaultInsightsTab(suggestionsByTab: Record<InsightsSection, Suggest
 
 export default function InsightsPage({
   bodyStatsEntries,
+  bodyCompositionContent,
   contentExercises,
   draft,
   exerciseStatsStore,
@@ -1324,6 +1326,7 @@ export default function InsightsPage({
 
   return (
     <section className="section-card insights-section-card">
+      {bodyCompositionContent}
       <div className="insights-tab-strip" role="tablist" aria-label="Insight categories">
         {insightTabs.map(({ Icon, count, kicker, section }) => (
           <button

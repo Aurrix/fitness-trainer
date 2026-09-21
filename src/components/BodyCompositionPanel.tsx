@@ -51,6 +51,7 @@ import {
 } from '../lib/progression'
 import BottomSheet from './BottomSheet'
 import GrowthMapCard from '../pages/progression/components/GrowthMapCard'
+import PhotoTimeline, { type ProgressPhoto } from './PhotoTimeline'
 
 type BodyCompositionPanelProps = {
   bodyStatsEntries: BodyStatEntry[]
@@ -61,6 +62,9 @@ type BodyCompositionPanelProps = {
     updater: StatsPreferences | ((current: StatsPreferences) => StatsPreferences),
   ) => void
   statsPreferences: StatsPreferences
+  progressPhotos: ProgressPhoto[]
+  onAddProgressPhoto: (photo: ProgressPhoto) => void
+  onRemoveProgressPhoto: (id: string) => void
 }
 
 type DrilldownState =
@@ -251,6 +255,9 @@ export default function BodyCompositionPanel({
   onRemoveBodyStatsEntry,
   onUpdateStatsPreferences,
   statsPreferences,
+  progressPhotos,
+  onAddProgressPhoto,
+  onRemoveProgressPhoto,
 }: BodyCompositionPanelProps) {
   const [activeDrilldown, setActiveDrilldown] = useState<DrilldownState>(null)
   const [metricEntryDate, setMetricEntryDate] = useState(getTodayDateInputValue)
@@ -476,6 +483,7 @@ export default function BodyCompositionPanel({
         </div>
       </section>
 
+      <PhotoTimeline photos={progressPhotos} onAdd={onAddProgressPhoto} onRemove={onRemoveProgressPhoto} />
       <GrowthMapCard
         bodyPartImages={bodyPartImages}
         bodyPartTiles={bodyPartTiles}

@@ -1,6 +1,12 @@
 {
   "releases": [
     {
+      "id": "2026-09-21-workout-and-progress-tracking",
+      "date": "2026-09-21",
+      "title": "Workout and Progress Tracking Updates",
+      "file": "2026-09-21-workout-and-progress-tracking.md"
+    },
+    {
       "id": "2026-07-05-program-reset-and-release-popups",
       "date": "2026-07-05",
       "title": "Program Reset and Release Popups",

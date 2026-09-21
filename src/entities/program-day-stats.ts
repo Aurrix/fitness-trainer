@@ -129,10 +129,10 @@ function normalizeSetPerformanceSample(value: unknown): ExerciseSetPerformanceSa
   return {
     durationMinutes: toNullableNumber(value.durationMinutes),
     difficulty: toStringValue(value.difficulty),
+    progression: value.progression === 'hold' || value.progression === 'increase' || value.progression === 'decrease' ? value.progression : null,
     recordedAt: toNullableStringValue(value.recordedAt),
     reps: toNullableNumber(value.reps),
     setIndex: setIndex ?? 1,
-    suboptimal: value.suboptimal === true,
     weightKg: toNullableNumber(value.weightKg),
   }
 }

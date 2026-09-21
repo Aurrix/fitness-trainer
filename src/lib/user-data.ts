@@ -118,9 +118,11 @@ export function createWorkoutSetLogEntry(
     completedAt: null,
     duration: '',
     effort: '',
+    note: '',
     loggedAt: null,
+    progression: null,
     reps: '',
-    suboptimal: false,
+    tags: [],
     weightKg: '',
     ...options,
   }
@@ -318,9 +320,11 @@ export function normalizeWorkoutExerciseLogEntry(
               completedAt: toNullableStringValue(entry.completedAt),
               duration: toStringValue(entry.duration),
               effort: toStringValue(entry.effort),
+              note: toStringValue(entry.note),
               loggedAt: toNullableStringValue(entry.loggedAt),
+              progression: entry.progression === 'increase' || entry.progression === 'decrease' || entry.progression === 'hold' ? entry.progression : null,
               reps: toStringValue(entry.reps),
-              suboptimal: entry.suboptimal === true,
+              tags: Array.isArray(entry.tags) ? toStringArray(entry.tags) : (() => { try { const parsed = JSON.parse(toStringValue(entry.tags)); return toStringArray(parsed) } catch { return [] } })(),
               weightKg: toStringValue(entry.weightKg),
             })
           })

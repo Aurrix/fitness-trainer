@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import BottomSheet from './BottomSheet'
 
 export type WorkoutTargetBadgeInsight = {
@@ -36,6 +36,9 @@ type TargetMetricRow = {
   label: string
   personal: TargetToken | null
   target: TargetToken | null
+  best: TargetToken | null
+  bestSource: 'You' | 'Avg' | 'Program' | null
+  bestValue: number | null
 }
 
 const targetMetricOrder: TargetMetricKey[] = [
@@ -205,13 +208,37 @@ function buildTargetMetricRows({
   targets: TargetToken[]
 }) {
   return targetMetricOrder
-    .map<TargetMetricRow>((metricKey) => ({
+    .map<TargetMetricRow>((metricKey) => {
+      const benchmark = findTokenByMetric(benchmarkAverages, metricKey)
+      const personal = findTokenByMetric(personalAverages, metricKey)
+      const target = findTokenByMetric(targets, metricKey)
+      const isLowerBetter = metricKey === 'rest' || metricKey === 'duration'
+      const candidates = [personal, benchmark, target].filter((token): token is TargetToken => token !== null)
+      const getValue = (token: TargetToken) => {
+        const normalized = token.detailValue.replace(',', '.')
+        if (/\d\s*[-–]\s*\d/.test(normalized)) return Number.NaN
+        return Number.parseFloat(normalized)
+      }
+      const bestCandidate = candidates.reduce<{ token: TargetToken; value: number; source: NonNullable<TargetMetricRow['bestSource']> } | null>((current, candidate) => {
+        const candidateValue = getValue(candidate)
+        if (!Number.isFinite(candidateValue)) return current
+        const source = candidate === personal ? 'You' : candidate === benchmark ? 'Avg' : 'Program'
+        if (!current) return { token: candidate, value: candidateValue, source }
+        return isLowerBetter
+          ? candidateValue < current.value ? { token: candidate, value: candidateValue, source } : current
+          : candidateValue > current.value ? { token: candidate, value: candidateValue, source } : current
+      }, null)
+      const best = bestCandidate?.token ?? null
+      return {
       benchmark: findTokenByMetric(benchmarkAverages, metricKey),
       key: metricKey,
-      label: targetMetricLabels[metricKey],
-      personal: findTokenByMetric(personalAverages, metricKey),
-      target: findTokenByMetric(targets, metricKey),
-    }))
+        label: targetMetricLabels[metricKey],
+        personal,
+        target,
+        best,
+        bestSource: bestCandidate?.source ?? null,
+        bestValue: bestCandidate?.value ?? null,
+    }})
     .filter((row) => row.benchmark || row.personal || row.target)
 }
 
@@ -232,6 +259,8 @@ export default function WorkoutTargetBadge({
   type,
 }: WorkoutTargetBadgeProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const holdTimer = useRef<number | null>(null)
+  const holdOrigin = useRef<{ x: number; y: number } | null>(null)
   const tokens = buildTokens({
     duration,
     effort,
@@ -249,7 +278,7 @@ export default function WorkoutTargetBadge({
         targets: tokens,
       })
     : []
-  const averageColumnCount = 3
+  const averageColumnCount = 1
   const expandedTokens =
     mode === 'vertical' && !shouldUseAverageColumns
       ? [
@@ -305,14 +334,34 @@ export default function WorkoutTargetBadge({
     performanceTokens.length > 0 &&
     setupTokens.length > 0
 
+  const beginHold = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return
+    holdOrigin.current = { x: event.clientX, y: event.clientY }
+    holdTimer.current = window.setTimeout(() => {
+      setIsOpen(true)
+      holdTimer.current = null
+      holdOrigin.current = null
+    }, 520)
+  }
+  const moveHold = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!holdOrigin.current) return
+    if (Math.abs(event.clientX - holdOrigin.current.x) > 12 || Math.abs(event.clientY - holdOrigin.current.y) > 12) cancelHold()
+  }
+  const cancelHold = () => {
+    if (holdTimer.current !== null) window.clearTimeout(holdTimer.current)
+    holdTimer.current = null
+    holdOrigin.current = null
+  }
+
   if (!tokens.length && !metricRows.length) {
     return <span className="pill pill--subtle">Open target</span>
   }
 
   return (
     <>
-      <button
-        type="button"
+      <div
+        role="button"
+        tabIndex={0}
         className={[
           'workout-target-badge',
           `workout-target-badge--${mode}`,
@@ -323,38 +372,24 @@ export default function WorkoutTargetBadge({
         ]
           .filter(Boolean)
           .join(' ')}
-        onClick={() => setIsOpen(true)}
+        onPointerDown={beginHold}
+        onPointerMove={moveHold}
+        onPointerUp={cancelHold}
+        onPointerLeave={cancelHold}
+        onPointerCancel={cancelHold}
+        onContextMenu={(event) => event.preventDefault()}
+        onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setIsOpen(true) } }}
       >
         {shouldUseAverageColumns ? (
-          <>
-            <span className="workout-target-badge__column">
-              <span className="workout-target-badge__column-heading">Avg</span>
-              {metricRows.map((row) => (
-                <span key={`benchmark-${row.key}`} className="workout-target-badge__token">
-                  <span className="workout-target-badge__label">{row.label}</span>
-                  {renderMetricColumnValue(row.benchmark)}
-                </span>
-              ))}
-            </span>
-            <span className="workout-target-badge__column">
-              <span className="workout-target-badge__column-heading">You</span>
-              {metricRows.map((row) => (
-                <span key={`personal-${row.key}`} className="workout-target-badge__token">
-                  <span className="workout-target-badge__label">{row.label}</span>
-                  {renderMetricColumnValue(row.personal)}
-                </span>
-              ))}
-            </span>
-            <span className="workout-target-badge__column">
-              <span className="workout-target-badge__column-heading">Program</span>
-              {metricRows.map((row) => (
-                <span key={`target-${row.key}`} className="workout-target-badge__token">
-                  <span className="workout-target-badge__label">{row.label}</span>
-                  {renderMetricColumnValue(row.target)}
-                </span>
-              ))}
-            </span>
-          </>
+          <span className="workout-target-badge__column">
+            <span className="workout-target-badge__column-heading">Best</span>
+            {metricRows.map((row) => (
+              <span key={`best-${row.key}`} className="workout-target-badge__token">
+                <span className="workout-target-badge__label">{row.label}</span>
+                {row.best ? <strong title={`${row.bestSource}: ${row.best.detailValue}`}>{row.best.detailValue}<small className="workout-target-badge__source">{row.bestSource}</small></strong> : <span>-</span>}
+              </span>
+            ))}
+          </span>
         ) : shouldUseVerticalColumns ? (
           <>
             <span className="workout-target-badge__column">
@@ -382,21 +417,25 @@ export default function WorkoutTargetBadge({
             </span>
           ))
         )}
-      </button>
+      </div>
 
       {isOpen ? (
         <BottomSheet
-          description="Compact target legend for this exercise row."
+          description="Full program, profile-average, and your recent values for this exercise."
           kicker="Workout Target"
           onClose={() => setIsOpen(false)}
           title={title}
         >
           <div className="muscle-list">
-            {detailTokens.map((token) => (
-              <div key={token.key} className="muscle-row">
-                <span>{token.detailLabel}</span>
-                <strong>{token.detailValue}</strong>
+            {shouldUseAverageColumns ? metricRows.map((row) => (
+              <div key={row.key} className="muscle-row workout-target-badge__detail-row">
+                <strong>{row.label}</strong>
+                <span>{row.benchmark ? `Avg ${row.benchmark.detailValue}` : 'Avg —'}</span>
+                <span>{row.personal ? `You ${row.personal.detailValue}` : 'You —'}</span>
+                <span>{row.target ? `Program ${row.target.detailValue}` : 'Program —'}</span>
               </div>
+            )) : detailTokens.map((token) => (
+              <div key={token.key} className="muscle-row"><span>{token.detailLabel}</span><strong>{token.detailValue}</strong></div>
             ))}
           </div>
         </BottomSheet>

@@ -23,6 +23,7 @@ import {
 } from '../entities/program-day-stats'
 import { createDefaultStatsPreferences, normalizeStatsPreferences, type StatsPreferences } from '../entities/stats-preferences'
 import { LOCAL_STORAGE_KEYS } from '../lib/app-storage'
+import type { ProgressPhoto } from '../components/PhotoTimeline'
 import {
   createDefaultFitnessProfile,
   normalizeFitnessProfile,
@@ -51,6 +52,7 @@ type StateUpdater<T> = T | ((current: T) => T)
 type AppStoreState = {
   activeWorkout: ActiveWorkout | null
   bodyCompositionEntries: BodyCompositionEntry[]
+  progressPhotos: ProgressPhoto[]
   customPrograms: CustomProgram[]
   exerciseStatsStore: ExerciseStatsStore
   fitnessProfile: FitnessProfile
@@ -71,6 +73,7 @@ type AppStoreState = {
   setStatsPreferences: (updater: StateUpdater<StatsPreferences>) => void
   setActiveWorkout: (updater: StateUpdater<ActiveWorkout | null>) => void
   setBodyCompositionEntries: (updater: StateUpdater<BodyCompositionEntry[]>) => void
+  setProgressPhotos: (updater: StateUpdater<ProgressPhoto[]>) => void
   setCustomPrograms: (updater: StateUpdater<CustomProgram[]>) => void
   setExerciseStatsStore: (updater: StateUpdater<ExerciseStatsStore>) => void
   setFitnessProfile: (updater: StateUpdater<FitnessProfile>) => void
@@ -160,6 +163,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
     const [
       storedCustomPrograms,
       storedBodyCompositionEntries,
+      storedProgressPhotos,
       storedFitnessProfile,
       storedWorkoutLogs,
       storedActiveWorkout,
@@ -177,6 +181,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
     ] = await Promise.all([
       safeRead(LOCAL_STORAGE_KEYS.customPrograms),
       safeRead(LOCAL_STORAGE_KEYS.bodyCompositionEntries),
+      safeRead(LOCAL_STORAGE_KEYS.progressPhotos),
       safeRead(LOCAL_STORAGE_KEYS.fitnessProfile),
       safeRead(LOCAL_STORAGE_KEYS.workoutLogs),
       safeRead(LOCAL_STORAGE_KEYS.activeWorkout),
@@ -196,6 +201,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
     set({
       activeWorkout: normalizeActiveWorkout(storedActiveWorkout),
       bodyCompositionEntries: normalizeBodyCompositionEntries(storedBodyCompositionEntries),
+      progressPhotos: Array.isArray(storedProgressPhotos) ? storedProgressPhotos : [],
       customPrograms: normalizeCustomPrograms(storedCustomPrograms),
       exerciseStatsStore: normalizeExerciseStatsStore(storedExerciseStats),
       fitnessProfile: normalizeFitnessProfile(storedFitnessProfile),
@@ -235,6 +241,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
     set({
       activeWorkout: null,
       bodyCompositionEntries: [],
+      progressPhotos: [],
       customPrograms: [],
       exerciseStatsStore: nextExerciseStatsStore,
       fitnessProfile: nextFitnessProfile,
@@ -254,6 +261,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
     await persistMany([
       [LOCAL_STORAGE_KEYS.activeWorkout, null],
       [LOCAL_STORAGE_KEYS.bodyCompositionEntries, []],
+      [LOCAL_STORAGE_KEYS.progressPhotos, []],
       [LOCAL_STORAGE_KEYS.customPrograms, []],
       [LOCAL_STORAGE_KEYS.exerciseStats, nextExerciseStatsStore],
       [LOCAL_STORAGE_KEYS.fitnessProfile, nextFitnessProfile],
@@ -278,6 +286,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
     set({
       activeWorkout: null,
       bodyCompositionEntries: [],
+      progressPhotos: [],
       exerciseStatsStore: nextExerciseStatsStore,
       programCompletionLogs: [],
       programProgressStore: nextProgramProgressStore,
@@ -289,6 +298,7 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
     await persistMany([
       [LOCAL_STORAGE_KEYS.activeWorkout, null],
       [LOCAL_STORAGE_KEYS.bodyCompositionEntries, []],
+      [LOCAL_STORAGE_KEYS.progressPhotos, []],
       [LOCAL_STORAGE_KEYS.exerciseStats, nextExerciseStatsStore],
       [LOCAL_STORAGE_KEYS.programCompletionLogs, []],
       [LOCAL_STORAGE_KEYS.programProgress, nextProgramProgressStore],
@@ -323,6 +333,13 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
       return {
         bodyCompositionEntries: nextValue,
       }
+    })
+  },
+  setProgressPhotos(updater) {
+    set((state) => {
+      const nextValue = resolveUpdater(state.progressPhotos, updater)
+      void persistState(LOCAL_STORAGE_KEYS.progressPhotos, nextValue)
+      return { progressPhotos: nextValue }
     })
   },
   setCustomPrograms(updater) {
@@ -438,4 +455,5 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
     })
   },
   workoutLogs: [],
+  progressPhotos: [],
 }))

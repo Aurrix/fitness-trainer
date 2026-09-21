@@ -107,10 +107,10 @@ function summarizeSetLogs(setLogs: WorkoutSetLogEntry[]) {
     sets.push({
       durationMinutes,
       difficulty,
+      progression: setLog.progression,
       recordedAt: setLog.loggedAt,
       reps,
       setIndex: index + 1,
-      suboptimal: setLog.suboptimal,
       weightKg,
     })
   })

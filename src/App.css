@@ -2600,7 +2600,9 @@
 }
 
 .workout-table__set-cell {
-    min-width: 174px;
+    width: 166px;
+    min-width: 166px;
+    max-width: 166px;
 }
 
 .workout-table__append-header {
@@ -2701,28 +2703,41 @@
 
 .workout-table__set-editor {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 34px;
-    gap: 6px;
-    align-items: stretch;
+    grid-template-columns: 24px minmax(88px, 1fr) 30px;
+    gap: 4px;
+    align-items: center;
+    min-width: 0;
+    width: 100%;
 }
+
+.workout-table__set-editor > .workout-set-progression { grid-column: 1; grid-row: 1; }
+.workout-table__set-editor > .workout-table__set-inputs { grid-column: 2; grid-row: 1; min-width: 0; }
+.workout-table__set-actions-rail { grid-column: 3; grid-row: 1; display: flex; flex-direction: column; align-items: stretch; gap: 4px; }
+.workout-table__set-editor > .workout-table__set-inputs .workout-table__set-note { font-size: 9px; }
 
 .workout-table__set-load-row {
     display: grid;
-    grid-template-columns: minmax(46px, 1fr) auto minmax(42px, 0.78fr);
-    align-items: center;
-    gap: 4px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    justify-items: stretch;
+    gap: 2px;
+    min-width: 0;
+    width: 100%;
 }
 
 .workout-table__set-load-row span {
-    color: var(--muted-strong);
-    font-size: 12px;
-    font-weight: 800;
-    line-height: 1;
+    justify-self: center;
+    width: 70%;
+    height: 1px;
+    font-size: 0;
+    background: rgba(15, 43, 72, 0.2);
 }
 
 .workout-table__set-inputs input,
 .workout-table__set-inputs select {
     width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     min-height: 30px;
     border: 1px solid rgba(15, 43, 72, 0.12);
     border-radius: 12px;
@@ -2823,15 +2838,12 @@
 }
 
 .workout-table__set-primary-rail-button {
-    width: 34px;
-    min-width: 34px;
-    min-height: 100%;
-    padding: 6px 0;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+    width: 28px;
+    min-width: 28px;
+    min-height: 28px;
+    padding: 0;
+    display: grid;
+    place-items: center;
     border-radius: 10px;
     border-color: rgba(249, 138, 75, 0.18);
     background: rgba(255, 244, 233, 0.92);
@@ -2841,15 +2853,13 @@
     line-height: 1;
     white-space: nowrap;
 }
+.workout-table__set-input-divider { justify-self: center; width: 70%; height: 1px; background: rgba(15,43,72,.2); }
 
 .workout-table__set-primary-rail-button span {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-size: 10px;
-    line-height: 1;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    display: none;
 }
+
+.workout-table__set-actions-rail .workout-table__set-icon-action { width: 28px; min-width: 28px; min-height: 28px; padding: 0; }
 
 .workout-table__set-primary-rail-button.is-finish {
     border-color: rgba(40, 120, 78, 0.2);
@@ -3013,6 +3023,30 @@
     align-items: stretch;
     gap: 6px;
 }
+
+.workout-table__set-summary-layout {
+    display: grid;
+    grid-template-columns: 24px minmax(88px, 1fr) 30px;
+    grid-template-rows: auto auto;
+    gap: 4px;
+    align-items: center;
+    min-width: 0;
+    width: 100%;
+}
+.workout-table__set-summary-layout > .workout-set-progression { grid-column: 1; grid-row: 1; }
+.workout-table__set-summary-values { grid-column: 2; grid-row: 1; display: flex; min-width: 0; flex-direction: column; align-items: stretch; gap: 2px; text-align: center; }
+.workout-table__set-summary-values strong { font-size: 11px; line-height: 1.1; white-space: nowrap; }
+.workout-table__set-summary-divider { display: block; width: 70%; height: 1px; align-self: center; background: rgba(15,43,72,.2); }
+.workout-table__set-summary-layout > .workout-table__set-summary-actions { grid-column: 3; grid-row: 1; display: flex; flex-direction: column; gap: 4px; }
+.workout-table__set-summary-badges { grid-column: 1 / -1; grid-row: 2; }
+.workout-table__set-summary-layout .workout-table__set-icon-action { width: 28px; min-width: 28px; min-height: 28px; padding: 0; }
+
+.workout-target-badge--matrix.workout-target-badge--columns-1 { grid-template-columns: minmax(0, 1fr); min-width: 0; }
+.workout-target-badge--matrix.workout-target-badge--columns-1 .workout-target-badge__column-heading { text-align: center; }
+.workout-target-badge--matrix.workout-target-badge--columns-1 .workout-target-badge__token { grid-template-columns: minmax(0, 1fr) auto; }
+.workout-target-badge__source { margin-left: 3px; color: var(--muted); font-size: 8px; font-weight: 500; }
+.workout-target-badge__detail-row { display: grid; grid-template-columns: minmax(48px, .7fr) repeat(3, minmax(0, 1fr)); gap: 8px; align-items: center; }
+.workout-target-badge__detail-row > span { font-size: 12px; }
 
 .workout-target-badge--matrix.workout-target-badge--columns-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4699,6 +4733,66 @@ button.trend-tile:hover,
 .body-part-tile:hover {
     transform: translateY(-1px);
 }
+
+.photo-timeline__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.photo-timeline > .photo-timeline__card { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; min-height: 118px; overflow: hidden; border: 1px solid rgba(255,255,255,.2); border-radius: 16px; color: #fff; background-color: #171717; background-position: center 32%; background-size: cover; }
+.photo-timeline__card-open { position: relative; z-index: 1; display: flex; min-width: 0; align-items: center; padding: 1rem 1.2rem; border: 0; color: inherit; text-align: left; background: transparent; cursor: pointer; }
+.photo-timeline__card-copy { display: grid; gap: .3rem; }
+.photo-timeline__card-copy strong { font-size: 1.05rem; }
+.photo-timeline__card-copy small { color: rgba(255,255,255,.82); }
+.photo-timeline__card-copy .kicker { color: rgba(255,255,255,.76); }
+.photo-timeline__card-actions { position: relative; z-index: 1; display: flex; align-items: center; gap: .45rem; padding: .75rem; }
+.photo-timeline__icon-action { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid rgba(255,255,255,.58); border-radius: 12px; color: #fff; background: rgba(0,0,0,.34); cursor: pointer; }
+.photo-timeline__icon-action:hover { background: rgba(0,0,0,.62); }
+.overlay:has(.photo-timeline__sheet--camera),
+.overlay:has(.photo-timeline__sheet--timeline) { align-items: stretch; padding: 0; background: #050505; backdrop-filter: none; }
+.overlay-sheet.photo-timeline__sheet { display: flex; width: 100%; max-width: none; height: 100%; max-height: none; flex-direction: column; overflow: hidden; padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom)); border: 0; border-radius: 0; color: #fff; background: #050505; box-shadow: none; }
+.photo-timeline__sheet .overlay-header { flex: 0 0 auto; align-items: center; margin-bottom: 12px; }
+.photo-timeline__sheet .overlay-header .kicker { color: rgba(255,255,255,.64); }
+.photo-timeline__sheet .overlay-header h2 { color: #fff; }
+.photo-timeline__sheet .overlay-header .muted { margin: 4px 0 0; color: rgba(255,255,255,.66); }
+.photo-timeline__close { display: grid; width: 42px; height: 42px; flex: 0 0 auto; place-items: center; padding: 0 0 4px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; color: #fff; background: rgba(255,255,255,.1); font-size: 30px; line-height: 1; cursor: pointer; }
+.photo-timeline__sheet-content { display: flex; min-height: 0; flex: 1 1 auto; flex-direction: column; gap: 0; overflow: hidden; padding: 0; }
+.photo-timeline__viewer { display: flex; min-height: 0; flex: 1 1 auto; flex-direction: column; }
+.photo-timeline__viewer-image { display: flex; min-height: 0; flex: 1 1 auto; align-items: center; justify-content: center; overflow: hidden; background: #050505; }
+.photo-timeline__viewer-image img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.photo-timeline__viewer-controls { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; color: #fff; }
+.photo-timeline__viewer-actions { display: flex; gap: 8px; }
+.photo-timeline__viewer-actions .ghost-button { border-color: rgba(255,255,255,.22); color: #fff; background: rgba(255,255,255,.1); }
+.photo-timeline__scrubber { display: grid; grid-template-columns: auto minmax(60px, 1fr) auto; align-items: center; gap: 12px; padding: 4px 0 max(10px, env(safe-area-inset-bottom)); color: rgba(255,255,255,.72); font-size: 11px; }
+.photo-timeline__scrubber input { width: 100%; margin: 0; accent-color: #fff; touch-action: pan-x; }
+.photo-timeline__viewer .photo-timeline__empty { margin: auto 0; border-color: rgba(255,255,255,.24); color: rgba(255,255,255,.76); }
+.photo-timeline__sheet--camera .overlay-header { margin-bottom: 8px; }
+.photo-timeline__sheet--camera .photo-timeline__sheet-content { justify-content: center; }
+.photo-timeline__camera { display: flex; width: 100%; min-height: 0; flex: 1 1 auto; align-items: center; justify-content: center; overflow: hidden; border-radius: 18px; background: #050505; }
+.photo-timeline__camera video { width: 100%; height: 100%; object-fit: contain; }
+.photo-timeline__captured-preview { display: block; width: 100%; height: 100%; object-fit: contain; }
+.photo-timeline__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.8rem; }
+.photo-timeline__card { overflow: hidden; border: 1px solid var(--border-color); border-radius: 14px; background: var(--surface-raised); }
+.photo-timeline__image-button { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.photo-timeline__image-button img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.photo-timeline__caption { display: flex; gap: 0.35rem; align-items: center; justify-content: space-between; padding: 0.45rem 0.55rem; font-size: 0.78rem; }
+.photo-timeline__empty { padding: 1.5rem; border: 1px dashed var(--border-color); border-radius: 12px; color: var(--text-muted); text-align: center; }
+.photo-timeline__camera { position: relative; }
+.photo-timeline__guide { position: absolute; inset: 8% 18%; display: flex; flex-direction: column; align-items: center; justify-content: space-around; pointer-events: none; }
+.photo-timeline__guide div { width: 100%; height: 1px; background: #fff; box-shadow: 0 0 2px #000; }
+.photo-timeline__camera-controls { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 2px max(10px, env(safe-area-inset-bottom)); }
+.photo-timeline__guide-control { display: grid; min-width: 90px; gap: 6px; color: rgba(255,255,255,.78); font-size: 12px; }
+.photo-timeline__guide-control input { width: 100%; accent-color: #fff; }
+.photo-timeline__capture { display: grid; width: 66px; height: 66px; flex: 0 0 auto; place-items: center; border: 4px solid #fff; border-radius: 50%; color: #111; background: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,.32); cursor: pointer; }
+.photo-timeline__review-actions { display: flex; align-items: center; gap: 20px; }
+.photo-timeline__retake { display: grid; width: 42px; height: 42px; place-items: center; padding: 0; border: 1px solid rgba(255,255,255,.44); border-radius: 50%; color: #fff; background: rgba(255,255,255,.12); cursor: pointer; }
+.photo-timeline__capture--save { width: 56px; height: 56px; border-width: 3px; color: #fff; background: #239b66; box-shadow: 0 0 0 3px rgba(35,155,102,.28); }
+.photo-timeline__camera-spacer { min-width: 90px; }
+.photo-timeline__preview img { display: block; max-width: 100%; max-height: 70vh; margin: 0 auto 1rem; object-fit: contain; border-radius: 12px; }
+.photo-timeline__tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.workout-set-progression { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; margin: 0.25rem auto; }
+.workout-set-progression__button { display: grid; width: 24px; height: 22px; place-items: center; padding: 0; border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-muted); background: var(--surface); cursor: pointer; }
+.workout-set-progression__button:hover, .workout-set-progression__button.is-active { color: var(--accent-strong); border-color: var(--accent-strong); background: var(--accent-soft); }
+.workout-set-progression__button.is-inherited { border-style: dashed; opacity: .76; }
+.workout-table__set-actions-rail .workout-table__set-icon-action { width: 30px; min-width: 30px; min-height: 28px; padding: 0; }
+
+@media (max-width: 480px) { .photo-timeline > .photo-timeline__card { min-height: 104px; grid-template-columns: minmax(0, 1fr) auto; } .photo-timeline__card-open { padding: .7rem; } .photo-timeline__card-actions { flex-direction: column; padding: .55rem; } .photo-timeline__icon-action { width: 36px; height: 36px; } .photo-timeline__camera-controls { gap: 10px; } .photo-timeline__guide-control, .photo-timeline__camera-spacer { min-width: 70px; } }
 
 .trend-tile--positive {
     border-color: rgba(34, 197, 94, 0.2);

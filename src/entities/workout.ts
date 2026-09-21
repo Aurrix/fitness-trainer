@@ -2,9 +2,11 @@ export type WorkoutSetLogEntry = {
   completedAt: string | null
   duration: string
   effort: string
+  note: string
   loggedAt: string | null
+  progression: 'hold' | 'increase' | 'decrease' | null
   reps: string
-  suboptimal: boolean
+  tags: string[]
   weightKg: string
 }
 

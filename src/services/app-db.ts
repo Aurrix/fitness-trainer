@@ -6,6 +6,7 @@ type AppStateRecord = {
   value: unknown
 }
 
+
 class FitnessTrainerDb extends Dexie {
   appState!: Table<AppStateRecord, string>
 
@@ -36,6 +37,7 @@ export async function writePersistedState<T>(key: string, value: T) {
 export async function deletePersistedState(key: string) {
   await appDb.appState.delete(key)
 }
+
 
 export async function readPersistedStateWithMigration<T>(key: string) {
   const persistedValue = await readPersistedState<T>(key)

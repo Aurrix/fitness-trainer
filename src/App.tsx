@@ -703,7 +703,8 @@ function App() {
   const shouldIgnoreWorkoutButtonClickRef = useRef(false)
   const {
     activeWorkout,
-    bodyCompositionEntries,
+      bodyCompositionEntries,
+      progressPhotos,
     customPrograms,
     exerciseStatsStore,
     fitnessProfile,
@@ -719,7 +720,8 @@ function App() {
     savedExerciseIds,
     savedProgramIds,
     setActiveWorkout,
-    setBodyCompositionEntries,
+      setBodyCompositionEntries,
+      setProgressPhotos,
     setCustomPrograms,
     setExerciseStatsStore,
     setFitnessProfile,
@@ -738,6 +740,7 @@ function App() {
     useShallow((state) => ({
       activeWorkout: state.activeWorkout,
       bodyCompositionEntries: state.bodyCompositionEntries,
+      progressPhotos: state.progressPhotos,
       customPrograms: state.customPrograms,
       exerciseStatsStore: state.exerciseStatsStore,
       fitnessProfile: state.fitnessProfile,
@@ -754,6 +757,7 @@ function App() {
       savedProgramIds: state.savedProgramIds,
       setActiveWorkout: state.setActiveWorkout,
       setBodyCompositionEntries: state.setBodyCompositionEntries,
+      setProgressPhotos: state.setProgressPhotos,
       setCustomPrograms: state.setCustomPrograms,
       setExerciseStatsStore: state.setExerciseStatsStore,
       setFitnessProfile: state.setFitnessProfile,
@@ -1089,7 +1093,7 @@ function App() {
 
   function shouldKeepExistingSetLog(setLog: WorkoutSetLogEntry) {
     return Boolean(
-      hasLoggedSetResponse(setLog) || setLog.completedAt || setLog.suboptimal,
+      hasLoggedSetResponse(setLog) || setLog.completedAt || setLog.note || setLog.tags.length > 0 || setLog.progression,
     )
   }
 
@@ -2073,6 +2077,20 @@ function App() {
     })
   }
 
+  function updateWorkoutSetTags(actionKind: 'planned' | 'extra', logId: string, setIndex: number, tags: string[]) {
+    setActiveWorkout((currentWorkout) => {
+      if (!currentWorkout) return currentWorkout
+      const loggedAt = new Date().toISOString()
+      if (actionKind === 'planned') {
+        const log = currentWorkout.exerciseLogs[logId]
+        if (!log) return currentWorkout
+        const setLogs = ensureWorkoutSetLogs(log.setLogs, setIndex + 1).map((setLog, index) => index === setIndex ? { ...setLog, tags, loggedAt } : setLog)
+        return { ...currentWorkout, updatedAt: loggedAt, exerciseLogs: { ...currentWorkout.exerciseLogs, [logId]: { ...log, setLogs, lastLoggedAt: loggedAt } } }
+      }
+      return { ...currentWorkout, updatedAt: loggedAt, extraEntries: currentWorkout.extraEntries.map((log) => log.logId === logId ? { ...log, lastLoggedAt: loggedAt, setLogs: ensureWorkoutSetLogs(log.setLogs, setIndex + 1).map((setLog, index) => index === setIndex ? { ...setLog, tags, loggedAt } : setLog) } : log) }
+    })
+  }
+
   function commitWorkoutExerciseSet(
     exerciseId: string,
     setIndex: number,
@@ -2198,7 +2216,7 @@ function App() {
     })
   }
 
-  function toggleWorkoutExerciseSetSuboptimal(exerciseId: string, setIndex: number) {
+  function setWorkoutExerciseProgression(exerciseId: string, setIndex: number, value: string) {
     setActiveWorkout((currentWorkout) => {
       if (!currentWorkout) {
         return currentWorkout
@@ -2206,13 +2224,14 @@ function App() {
 
       const loggedAt = new Date().toISOString()
       const currentLog = currentWorkout.exerciseLogs?.[exerciseId]
-      const currentSetLog = currentLog?.setLogs[setIndex]
+      const ensuredSetLogs = currentLog ? ensureWorkoutSetLogs(currentLog.setLogs, setIndex + 1) : []
+      const currentSetLog = ensuredSetLogs[setIndex]
 
-      if (!currentLog || !currentSetLog?.completedAt) {
+      if (!currentLog || !currentSetLog) {
         return currentWorkout
       }
 
-      const nextSetLogs = currentLog.setLogs.map((setLog, index) => {
+      const nextSetLogs = ensuredSetLogs.map((setLog, index) => {
         if (index !== setIndex) {
           return setLog
         }
@@ -2220,7 +2239,7 @@ function App() {
         return {
           ...setLog,
           loggedAt,
-          suboptimal: !setLog.suboptimal,
+          progression: value === 'hold' || value === 'increase' || value === 'decrease' ? value : null,
         }
       })
 
@@ -2587,7 +2606,7 @@ function App() {
     })
   }
 
-  function toggleWorkoutExtraExerciseSetSuboptimal(logId: string, setIndex: number) {
+  function setWorkoutExtraExerciseProgression(logId: string, setIndex: number, value: string) {
     setActiveWorkout((currentWorkout) => {
       if (!currentWorkout) {
         return currentWorkout
@@ -2602,13 +2621,14 @@ function App() {
             return entry
           }
 
-          const currentSetLog = entry.setLogs[setIndex]
+          const ensuredSetLogs = ensureWorkoutSetLogs(entry.setLogs, setIndex + 1)
+          const currentSetLog = ensuredSetLogs[setIndex]
 
-          if (!currentSetLog?.completedAt) {
+          if (!currentSetLog) {
             return entry
           }
 
-          const nextSetLogs = entry.setLogs.map((setLog, index) => {
+          const nextSetLogs = ensuredSetLogs.map((setLog, index) => {
             if (index !== setIndex) {
               return setLog
             }
@@ -2616,7 +2636,7 @@ function App() {
             return {
               ...setLog,
               loggedAt,
-              suboptimal: !setLog.suboptimal,
+              progression: value === 'hold' || value === 'increase' || value === 'decrease' ? value : null,
             }
           })
 
@@ -3206,6 +3226,9 @@ function App() {
             bodyCompositionContent={
               <BodyCompositionPanel
                 bodyStatsEntries={bodyCompositionEntries}
+                progressPhotos={progressPhotos}
+                onAddProgressPhoto={(photo) => setProgressPhotos((current) => [photo, ...current])}
+                onRemoveProgressPhoto={(id) => setProgressPhotos((current) => current.filter((photo) => photo.id !== id))}
                 fitnessProfile={fitnessProfile}
                 onAddBodyStatsEntry={addBodyCompositionEntry}
                 onRemoveBodyStatsEntry={removeBodyCompositionEntry}
@@ -3284,10 +3307,11 @@ function App() {
             onToggleWorkoutExercise={toggleWorkoutExercise}
             onToggleWorkoutExerciseSkipped={toggleWorkoutExerciseSkipped}
             onToggleWorkoutExtraExercise={toggleWorkoutExtraExercise}
-            onToggleWorkoutExerciseSetSuboptimal={toggleWorkoutExerciseSetSuboptimal}
-            onToggleWorkoutExtraExerciseSetSuboptimal={toggleWorkoutExtraExerciseSetSuboptimal}
+            onSetWorkoutExerciseProgression={setWorkoutExerciseProgression}
+            onSetWorkoutExtraExerciseProgression={setWorkoutExtraExerciseProgression}
             onUpdateWorkoutExerciseSetLog={updateWorkoutExerciseSetLog}
             onUpdateWorkoutExtraExerciseSetLog={updateWorkoutExtraExerciseSetLog}
+            onUpdateWorkoutSetTags={updateWorkoutSetTags}
             previewExerciseOrder={selectedWorkoutPreviewOrder}
             programDayLogs={programDayLogs}
             resolveExerciseStatsRecord={(exerciseId, exerciseName) =>
@@ -3305,6 +3329,7 @@ function App() {
         {isAppReady && activeTab === 'insights' ? (
           <InsightsPage
             bodyStatsEntries={bodyCompositionEntries}
+            bodyCompositionContent={null}
             contentExercises={contentLibrary.exercises}
             draft={draft}
             exerciseStatsStore={exerciseStatsStore}

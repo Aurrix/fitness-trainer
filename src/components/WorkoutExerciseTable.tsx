@@ -5,6 +5,7 @@ import {
   useRef,
   useState,
   type CSSProperties,
+  type MouseEvent as ReactMouseEvent,
   type PointerEvent as ReactPointerEvent,
 } from 'react'
 import { useDrag, useDrop } from 'react-dnd'
@@ -13,7 +14,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   CheckCircle2,
-  Flag,
   GripVertical,
   Info,
   Minus,
@@ -27,7 +27,7 @@ import type {
   ExerciseStatsRecord,
 } from '../entities/exercise-stats'
 import type { AppProgram } from '../lib/app-types'
-import { formatExerciseDifficultyTarget, getTargetSetCount } from '../lib/app-utils'
+import { getTargetSetCount } from '../lib/app-utils'
 import type { Exercise } from '../lib/content'
 import {
   compareSetToExerciseBenchmark,
@@ -35,7 +35,7 @@ import {
   getExerciseBenchmarkSummary,
   getSetBenchmarkInputStatus,
 } from '../lib/exercise-benchmarks'
-import type { FitnessEffortScale, FitnessProfile } from '../lib/fitness-profile'
+import type { FitnessProfile } from '../lib/fitness-profile'
 import {
   buildWorkoutExerciseOrder,
   createWorkoutExerciseLogEntry,
@@ -65,6 +65,8 @@ type WorkoutSetLogPrefill = Pick<
   WorkoutSetLogEntry,
   'duration' | 'effort' | 'reps' | 'weightKg'
 >
+type WorkoutSetLogField = keyof WorkoutSetLogEntry
+type WorkoutSetLogFieldValue<K extends WorkoutSetLogField> = WorkoutSetLogEntry[K] | string
 
 type WorkoutSetHistorySample = {
   dateLabel: string
@@ -83,13 +85,14 @@ type WorkoutSetHistoryRequest = {
   title: string
 }
 
+type WorkoutSetNoteRequest = { actionKind: 'planned' | 'extra'; isContinuous: boolean; key: string; samples: WorkoutSetHistorySample[]; setIndex: number; title: string }
+const setNoteTags = ['Drop set', 'To failure', 'Partial reps', 'Assisted reps', 'Paused reps']
+
 type WorkoutExerciseTableProps = {
   activeWorkout: ActiveWorkout | null
   activeWorkoutExerciseLogs: Record<string, WorkoutExerciseLogEntry>
   activeWorkoutExtraEntries: WorkoutExerciseLogEntry[]
   contentExercises: Exercise[]
-  effortScale: FitnessEffortScale
-  exertionOptions: string[]
   fitnessProfile: FitnessProfile
   isEditingCompletedWorkout: boolean
   isSelectedWorkoutActive: boolean
@@ -132,20 +135,21 @@ type WorkoutExerciseTableProps = {
   onToggleWorkoutExercise: (exerciseId: string) => void
   onToggleWorkoutExerciseSkipped: (exerciseId: string) => void
   onToggleWorkoutExtraExercise: (logId: string) => void
-  onToggleWorkoutExerciseSetSuboptimal: (exerciseId: string, setIndex: number) => void
-  onToggleWorkoutExtraExerciseSetSuboptimal: (logId: string, setIndex: number) => void
+  onSetWorkoutExerciseProgression: (exerciseId: string, setIndex: number, value: string) => void
+  onSetWorkoutExtraExerciseProgression: (logId: string, setIndex: number, value: string) => void
   onUpdateWorkoutExerciseSetLog: (
     exerciseId: string,
     setIndex: number,
-    field: keyof WorkoutSetLogEntry,
+    field: WorkoutSetLogField,
     value: string,
   ) => void
   onUpdateWorkoutExtraExerciseSetLog: (
     logId: string,
     setIndex: number,
-    field: keyof WorkoutSetLogEntry,
+    field: WorkoutSetLogField,
     value: string,
   ) => void
+  onUpdateWorkoutSetTags: (actionKind: 'planned' | 'extra', logId: string, setIndex: number, tags: string[]) => void
   displayWorkoutExerciseLogs?: Record<string, WorkoutExerciseLogEntry>
   displayWorkoutExerciseOrder?: string[]
   displayWorkoutExtraEntries?: WorkoutExerciseLogEntry[]
@@ -194,7 +198,6 @@ type WorkoutPerformanceIndicator = {
 }
 
 type SortableWorkoutRowProps = {
-  exertionOptions: string[]
   fitnessProfile: FitnessProfile
   isEditingCompletedWorkout: boolean
   isSelectedWorkoutActive: boolean
@@ -234,21 +237,22 @@ type SortableWorkoutRowProps = {
   ) => void
   onRequestRemove: (row: WorkoutRemoveRequest) => void
   onOpenSetHistoryPicker: (request: WorkoutSetHistoryRequest) => void
+  onOpenSetNoteEditor: (request: WorkoutSetNoteRequest) => void
   onToggleWorkoutExercise: (exerciseId: string) => void
   onToggleWorkoutExerciseSkipped: (exerciseId: string) => void
   onToggleWorkoutExtraExercise: (logId: string) => void
-  onToggleWorkoutExerciseSetSuboptimal: (exerciseId: string, setIndex: number) => void
-  onToggleWorkoutExtraExerciseSetSuboptimal: (logId: string, setIndex: number) => void
+  onSetWorkoutExerciseProgression: (exerciseId: string, setIndex: number, value: string) => void
+  onSetWorkoutExtraExerciseProgression: (logId: string, setIndex: number, value: string) => void
   onUpdateWorkoutExerciseSetLog: (
     exerciseId: string,
     setIndex: number,
-    field: keyof WorkoutSetLogEntry,
+    field: WorkoutSetLogField,
     value: string,
   ) => void
   onUpdateWorkoutExtraExerciseSetLog: (
     logId: string,
     setIndex: number,
-    field: keyof WorkoutSetLogEntry,
+    field: WorkoutSetLogField,
     value: string,
   ) => void
   row: WorkoutTableRow
@@ -619,7 +623,7 @@ function hasWorkoutLogResponses(log: WorkoutExerciseLogEntry) {
     log.completed ||
       log.skipped ||
       log.setLogs.some(
-        (setLog) => hasSetLogContent(setLog) || setLog.completedAt || setLog.suboptimal,
+        (setLog) => hasSetLogContent(setLog) || setLog.completedAt || setLog.note || setLog.tags.length > 0 || setLog.progression,
       ),
   )
 }
@@ -809,7 +813,6 @@ function getRecentSetAverageComparisons({
 }
 
 function SortableWorkoutRow({
-  exertionOptions,
   fitnessProfile,
   isEditingCompletedWorkout,
   isSelectedWorkoutActive,
@@ -824,15 +827,17 @@ function SortableWorkoutRow({
   onRemoveWorkoutExerciseSetLog,
   onRemoveWorkoutExtraExerciseSetLog,
   onOpenSetHistoryPicker,
+  onOpenSetNoteEditor,
   onRequestRemove,
   onRequestSubstitute,
   onToggleWorkoutExercise,
   onToggleWorkoutExerciseSkipped,
   onToggleWorkoutExtraExercise,
-  onToggleWorkoutExerciseSetSuboptimal,
-  onToggleWorkoutExtraExerciseSetSuboptimal,
+  onSetWorkoutExerciseProgression,
+  onSetWorkoutExtraExerciseProgression,
   onUpdateWorkoutExerciseSetLog,
   onUpdateWorkoutExtraExerciseSetLog,
+  onUpdateWorkoutSetTags,
   row,
 }: SortableWorkoutRowProps) {
   const rowRef = useRef<HTMLTableRowElement | null>(null)
@@ -852,6 +857,7 @@ function SortableWorkoutRow({
     startX: number
     startY: number
   } | null>(null)
+  const setInputTapRef = useRef<{ at: number; target: HTMLInputElement } | null>(null)
   const handleSwipeStateRef = useRef<{
     pointerId: number
     startX: number
@@ -874,7 +880,7 @@ function SortableWorkoutRow({
     row.isContinuous,
   )
   const isExerciseEmpty = !setLogs.some((setLog) => {
-    return hasSetLogContent(setLog) || setLog.completedAt || setLog.suboptimal
+    return hasSetLogContent(setLog) || setLog.completedAt || setLog.note || setLog.tags.length > 0 || setLog.progression
   })
 
   useEffect(() => {
@@ -1016,7 +1022,7 @@ function SortableWorkoutRow({
   )
 
   const updateSetLog = useCallback(
-    (setIndex: number, field: keyof WorkoutSetLogEntry, value: string) => {
+    (setIndex: number, field: WorkoutSetLogField, value: string) => {
       if (row.actionKind === 'planned') {
         onUpdateWorkoutExerciseSetLog(row.key, setIndex, field, value)
         return
@@ -1179,7 +1185,7 @@ function SortableWorkoutRow({
 
   const startSetHistoryHold = useCallback(
     (
-      event: ReactPointerEvent<HTMLTableCellElement>,
+      event: ReactPointerEvent<HTMLElement>,
       setIndex: number,
       samples: WorkoutSetHistorySample[],
     ) => {
@@ -1187,7 +1193,6 @@ function SortableWorkoutRow({
         !isSelectedWorkoutActive ||
         isCompactResolvedRow ||
         isInputDisabled ||
-        !samples.length ||
         (event.pointerType === 'mouse' && event.button !== 0)
       ) {
         return
@@ -1219,14 +1224,7 @@ function SortableWorkoutRow({
           return
         }
 
-        onOpenSetHistoryPicker({
-          actionKind: row.actionKind,
-          isContinuous: row.isContinuous,
-          key: row.key,
-          samples: holdStart.samples,
-          setIndex: holdStart.setIndex,
-          title: row.title,
-        })
+        onOpenSetNoteEditor({ actionKind: row.actionKind, isContinuous: row.isContinuous, key: row.key, samples: holdStart.samples, setIndex: holdStart.setIndex, title: row.title })
       }, 560)
     },
     [
@@ -1234,7 +1232,7 @@ function SortableWorkoutRow({
       isCompactResolvedRow,
       isInputDisabled,
       isSelectedWorkoutActive,
-      onOpenSetHistoryPicker,
+      onOpenSetNoteEditor,
       row.actionKind,
       row.isContinuous,
       row.key,
@@ -1259,6 +1257,29 @@ function SortableWorkoutRow({
     },
     [clearSetHold],
   )
+
+  const openSetHistoryFromInput = useCallback((
+    event: ReactMouseEvent<HTMLInputElement>,
+    setIndex: number,
+    samples: WorkoutSetHistorySample[],
+  ) => {
+    if (!isSelectedWorkoutActive || isCompactResolvedRow || isInputDisabled) return
+    const now = Date.now()
+    const previousTap = setInputTapRef.current
+    if (!previousTap || previousTap.target !== event.currentTarget || now - previousTap.at > 450) {
+      setInputTapRef.current = { at: now, target: event.currentTarget }
+      return
+    }
+    setInputTapRef.current = null
+    onOpenSetHistoryPicker({
+      actionKind: row.actionKind,
+      isContinuous: row.isContinuous,
+      key: row.key,
+      samples,
+      setIndex,
+      title: row.title,
+    })
+  }, [isCompactResolvedRow, isInputDisabled, isSelectedWorkoutActive, onOpenSetHistoryPicker, row.actionKind, row.isContinuous, row.key, row.title])
 
   const requestRemove = useCallback(() => {
     if (!isSelectedWorkoutActive) {
@@ -1364,23 +1385,6 @@ function SortableWorkoutRow({
       row.actionKind,
       row.key,
       row.visibleSetCount,
-    ],
-  )
-
-  const toggleSetSuboptimal = useCallback(
-    (setIndex: number) => {
-      if (row.actionKind === 'planned') {
-        onToggleWorkoutExerciseSetSuboptimal(row.key, setIndex)
-        return
-      }
-
-      onToggleWorkoutExtraExerciseSetSuboptimal(row.key, setIndex)
-    },
-    [
-      onToggleWorkoutExerciseSetSuboptimal,
-      onToggleWorkoutExtraExerciseSetSuboptimal,
-      row.actionKind,
-      row.key,
     ],
   )
 
@@ -1560,6 +1564,7 @@ function SortableWorkoutRow({
 
         const setLog = setLogs[setIndex]
         const previousSetSample = getPreviousSetSample(row.previousPerformance, setIndex)
+        const displayedProgression = setLog.progression ?? previousSetSample?.progression ?? null
         const setHistorySamples = buildSetHistorySamples({
           isContinuous: row.isContinuous,
           setIndex,
@@ -1592,7 +1597,6 @@ function SortableWorkoutRow({
           setLog,
           statsRecord: row.statsRecord,
         })
-        const previousSetWasSuboptimal = previousSetSample?.suboptimal ?? false
         const isSetCommitted = Boolean(setLog.completedAt)
         const isSetEditorOpen =
           !isSetCommitted || expandedSetIndexes.includes(setIndex)
@@ -1600,7 +1604,7 @@ function SortableWorkoutRow({
           row.visibleSetCount > 1 ||
           hasSetLogContent(setLog) ||
           isSetCommitted ||
-          setLog.suboptimal
+          setLog.note || setLog.tags.length > 0 || setLog.progression !== null
         const setSummary = row.isContinuous
           ? [
               setLog.duration.trim() ? setLog.duration : null,
@@ -1657,8 +1661,6 @@ function SortableWorkoutRow({
             className={[
               'workout-table__set-cell',
               isSetCommitted ? 'is-set-logged' : '',
-              setLog.suboptimal ? 'is-suboptimal' : '',
-              previousSetWasSuboptimal ? 'is-previous-suboptimal' : '',
               belowAverageComparisons.length ? 'is-below-average' : '',
               recentAverageComparisons.length ? 'is-below-recent-average' : '',
               holdingSetIndex === setIndex ? 'is-history-holding' : '',
@@ -1680,13 +1682,29 @@ function SortableWorkoutRow({
             title={benchmarkTitle || undefined}
           >
             {shouldShowSetSummary ? (
-              <div className="workout-table__set-summary">
-                <strong>{setSummary || '-'}</strong>
+              <div className="workout-table__set-summary-layout">
+                {isSelectedWorkoutActive && !isCompactResolvedRow ? <div className="workout-set-progression" role="group" aria-label={`Weight advice for ${row.title} set ${setIndex + 1}`}>
+                  {(['increase', 'hold', 'decrease'] as const).map((value) => {
+                    const Icon = value === 'hold' ? Minus : value === 'increase' ? ArrowUpRight : ArrowDownRight
+                    const label = value === 'hold' ? 'Keep weight' : value === 'increase' ? 'Increase weight' : 'Decrease weight'
+                    return <button type="button" key={value} className={`workout-set-progression__button ${displayedProgression === value ? 'is-active' : ''} ${!setLog.progression && previousSetSample?.progression === value ? 'is-inherited' : ''}`} aria-label={label} title={!setLog.progression && previousSetSample?.progression === value ? `Last workout: ${label}` : label} aria-pressed={displayedProgression === value} onClick={() => row.actionKind === 'planned' ? onSetWorkoutExerciseProgression(row.key, setIndex, setLog.progression === value ? '' : value) : onSetWorkoutExtraExerciseProgression(row.key, setIndex, setLog.progression === value ? '' : value)}><Icon size={15} aria-hidden="true" /></button>
+                  })}
+                </div> : null}
+                <div className="workout-table__set-summary-values">
+                  {row.isContinuous ? <strong>{setSummary || '-'}</strong> : <>
+                    <strong>{setLog.weightKg.trim() ? `${setLog.weightKg} kg` : '-'}</strong>
+                    <span className="workout-table__set-summary-divider" aria-hidden="true" />
+                    <strong>{setLog.reps.trim() ? `${setLog.reps} reps` : '-'}</strong>
+                  </>}
+                </div>
+                {!isCompactResolvedRow && isSelectedWorkoutActive ? <div className="workout-table__set-summary-actions">
+                  <button type="button" className="chip-button workout-table__set-icon-action" onClick={() => setExpandedSetIndexes((currentIndexes) => currentIndexes.includes(setIndex) ? currentIndexes : [...currentIndexes, setIndex])} aria-label={`Edit set ${setIndex + 1} for ${row.title}`} title="Edit set"><Pencil size={12} /></button>
+                  <button type="button" className="chip-button workout-table__set-icon-action workout-table__set-remove-button" onClick={() => removeSetLog(setIndex)} aria-label={`Remove set ${setIndex + 1} for ${row.title}`} title="Delete set" disabled={!canRemoveSet}><Trash2 size={12} /></button>
+                </div> : null}
                 {belowAverageComparisons.length ||
                 recentAverageComparisons.length ||
-                setLog.suboptimal ||
-                previousSetWasSuboptimal ? (
-                  <div className="workout-table__set-badges">
+                setLog.note || setLog.tags.length > 0 || displayedProgression ? (
+                  <div className="workout-table__set-badges workout-table__set-summary-badges">
                     {belowAverageComparisons.length ? (
                       <span className="workout-table__set-badge is-below-average">
                         Below avg
@@ -1697,61 +1715,21 @@ function SortableWorkoutRow({
                         Below your 3
                       </span>
                     ) : null}
-                    {setLog.suboptimal ? (
-                      <span className="workout-table__set-badge is-suboptimal">
-                        Suboptimal
-                      </span>
-                    ) : null}
-                    {previousSetWasSuboptimal ? (
-                      <span className="workout-table__set-badge is-warning">
-                        Last hard
-                      </span>
-                    ) : null}
-                  </div>
-                ) : null}
-                {!isCompactResolvedRow && isSelectedWorkoutActive ? (
-                  <div className="workout-table__set-summary-actions">
-                    <button
-                      type="button"
-                      className="chip-button workout-table__set-icon-action"
-                      onClick={() =>
-                        setExpandedSetIndexes((currentIndexes) =>
-                          currentIndexes.includes(setIndex)
-                            ? currentIndexes
-                            : [...currentIndexes, setIndex],
-                        )
-                      }
-                      aria-label={`Edit set ${setIndex + 1} for ${row.title}`}
-                      title="Edit set"
-                    >
-                      <Pencil size={12} />
-                    </button>
-                    <button
-                      type="button"
-                      className={`chip-button workout-table__set-icon-action ${
-                        setLog.suboptimal ? 'is-active' : ''
-                      }`}
-                      onClick={() => toggleSetSuboptimal(setIndex)}
-                      aria-label={`Mark set ${setIndex + 1} suboptimal for ${row.title}`}
-                      title="Mark suboptimal"
-                    >
-                      <Flag size={12} />
-                    </button>
-                    <button
-                      type="button"
-                      className="chip-button workout-table__set-icon-action workout-table__set-remove-button"
-                      onClick={() => removeSetLog(setIndex)}
-                      aria-label={`Remove set ${setIndex + 1} for ${row.title}`}
-                      title="Remove set"
-                      disabled={!canRemoveSet}
-                    >
-                      <Trash2 size={12} />
-                    </button>
+                {displayedProgression ? <span className="workout-table__set-badge">{!setLog.progression ? 'Last: ' : ''}{displayedProgression === 'hold' ? 'Keep weight' : `${displayedProgression === 'increase' ? 'Increase' : 'Decrease'} weight`}</span> : null}
+                    {setLog.tags.map((tag) => <span className="workout-table__set-badge" key={tag}>{tag}</span>)}
+                    {setLog.note ? <span className="workout-table__set-badge" title={setLog.note}>Note</span> : null}
                   </div>
                 ) : null}
               </div>
             ) : (
               <div className="workout-table__set-editor">
+                {!isCompactResolvedRow && isSelectedWorkoutActive ? <div className="workout-set-progression" role="group" aria-label={`Weight advice for ${row.title} set ${setIndex + 1}`}>
+                  {(['increase', 'hold', 'decrease'] as const).map((value) => {
+                    const Icon = value === 'hold' ? Minus : value === 'increase' ? ArrowUpRight : ArrowDownRight
+                    const label = value === 'hold' ? 'Keep weight' : value === 'increase' ? 'Increase weight' : 'Decrease weight'
+                    return <button type="button" key={value} className={`workout-set-progression__button ${displayedProgression === value ? 'is-active' : ''} ${!setLog.progression && previousSetSample?.progression === value ? 'is-inherited' : ''}`} aria-label={label} title={!setLog.progression && previousSetSample?.progression === value ? `Last workout: ${label}` : label} aria-pressed={displayedProgression === value} onClick={() => row.actionKind === 'planned' ? onSetWorkoutExerciseProgression(row.key, setIndex, setLog.progression === value ? '' : value) : onSetWorkoutExtraExerciseProgression(row.key, setIndex, setLog.progression === value ? '' : value)}><Icon size={15} aria-hidden="true" /></button>
+                  })}
+                </div> : null}
                 <div className="workout-table__set-inputs">
                   {row.isContinuous ? (
                     <input
@@ -1776,18 +1754,20 @@ function SortableWorkoutRow({
                         onChange={(event) =>
                           updateSetLog(setIndex, 'weightKg', event.target.value)
                         }
+                        onClick={(event) => openSetHistoryFromInput(event, setIndex, setHistorySamples)}
                         placeholder={
                           formatNullableNumber(previousSetSample?.weightKg ?? null, 'kg') || 'kg'
                         }
                         disabled={isInputDisabled}
                       />
-                      <span aria-hidden="true">x</span>
+                      <span className="workout-table__set-input-divider" aria-hidden="true" />
                       <input
                         type="text"
                         inputMode="numeric"
                         className={repsBenchmarkStatus === 'below' ? 'is-below-average' : ''}
                         value={setLog.reps}
                         onChange={(event) => updateSetLog(setIndex, 'reps', event.target.value)}
+                        onClick={(event) => openSetHistoryFromInput(event, setIndex, setHistorySamples)}
                         placeholder={
                           formatNullableNumber(previousSetSample?.reps ?? null, 'reps') || 'reps'
                         }
@@ -1796,40 +1776,9 @@ function SortableWorkoutRow({
                     </div>
                   )}
 
-                  <div className="workout-table__set-control-row">
-                    <select
-                      value={setLog.effort}
-                      onChange={(event) => updateSetLog(setIndex, 'effort', event.target.value)}
-                      disabled={isInputDisabled}
-                    >
-                      <option value="">
-                        {previousSetSample?.difficulty
-                          ? `Last ${previousSetSample.difficulty}`
-                          : row.targetEffort
-                            ? `Target ${row.targetEffort}`
-                            : 'Effort'}
-                      </option>
-                      {exertionOptions.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                    <button
-                      type="button"
-                      className="chip-button workout-table__set-icon-action workout-table__set-remove-button"
-                      onClick={() => removeSetLog(setIndex)}
-                      disabled={isInputDisabled || !canRemoveSet}
-                      aria-label={`Remove set ${setIndex + 1} for ${row.title}`}
-                      title="Remove set"
-                    >
-                      <Trash2 size={12} />
-                    </button>
-                  </div>
+                  {!setLog.progression && previousSetSample?.progression ? <span className="workout-table__set-note">Last time: {previousSetSample.progression === 'hold' ? 'keep weight' : `${previousSetSample.progression} weight`}</span> : null}
 
-                  {belowAverageComparisons.length ||
-                  recentAverageComparisons.length ||
-                  previousSetWasSuboptimal ? (
+                  {belowAverageComparisons.length || recentAverageComparisons.length ? (
                     <div className="workout-table__set-note">
                       {belowAverageComparisons.length ? (
                         <span>
@@ -1847,29 +1796,13 @@ function SortableWorkoutRow({
                             .join(', ')}
                         </span>
                       ) : null}
-                      {previousSetWasSuboptimal ? <span>Last time this set was hard.</span> : null}
                     </div>
                   ) : null}
                 </div>
-                <button
-                  type="button"
-                  className={`chip-button workout-table__set-primary-rail-button ${
-                    isLastVisibleSet ? 'is-finish' : 'is-next'
-                  }`}
-                  onClick={handlePrimarySetAction}
-                  disabled={!canUsePrimarySetAction}
-                  title={
-                    isLastVisibleSet
-                      ? 'Finish exercise'
-                      : row.targetRest
-                        ? `Finish set, copy values to the next set, and start ${row.targetRest} timer`
-                        : 'Finish set and copy values to the next set'
-                  }
-                  aria-label={`${primarySetActionLabel} ${row.title}`}
-                >
-                  <PrimarySetActionIcon size={12} />
-                  <span>{primarySetActionLabel}</span>
-                </button>
+                <div className="workout-table__set-actions-rail">
+                  <button type="button" className={`chip-button workout-table__set-primary-rail-button ${isLastVisibleSet ? 'is-finish' : 'is-next'}`} onClick={handlePrimarySetAction} disabled={!canUsePrimarySetAction} title={isLastVisibleSet ? 'Finish exercise' : row.targetRest ? `Finish set, copy values to the next set, and start ${row.targetRest} timer` : 'Finish set and copy values to the next set'} aria-label={`${primarySetActionLabel} ${row.title}`}><PrimarySetActionIcon size={15} /></button>
+                  <button type="button" className="chip-button workout-table__set-icon-action workout-table__set-remove-button" onClick={() => removeSetLog(setIndex)} disabled={isInputDisabled || !canRemoveSet} aria-label={`Remove set ${setIndex + 1} for ${row.title}`} title="Delete set"><Trash2 size={14} /></button>
+                </div>
               </div>
             )}
           </td>
@@ -1943,8 +1876,6 @@ export default function WorkoutExerciseTable({
   activeWorkoutExerciseLogs,
   activeWorkoutExtraEntries,
   contentExercises,
-  effortScale,
-  exertionOptions,
   fitnessProfile,
   isEditingCompletedWorkout,
   isSelectedWorkoutActive,
@@ -1963,10 +1894,11 @@ export default function WorkoutExerciseTable({
   onToggleWorkoutExercise,
   onToggleWorkoutExerciseSkipped,
   onToggleWorkoutExtraExercise,
-  onToggleWorkoutExerciseSetSuboptimal,
-  onToggleWorkoutExtraExerciseSetSuboptimal,
+  onSetWorkoutExerciseProgression,
+  onSetWorkoutExtraExerciseProgression,
   onUpdateWorkoutExerciseSetLog,
   onUpdateWorkoutExtraExerciseSetLog,
+  onUpdateWorkoutSetTags,
   displayWorkoutExerciseLogs,
   displayWorkoutExerciseOrder,
   displayWorkoutExtraEntries,
@@ -1989,6 +1921,7 @@ export default function WorkoutExerciseTable({
   const [removeState, setRemoveState] = useState<WorkoutRemoveRequest | null>(null)
   const [setHistoryState, setSetHistoryState] =
     useState<WorkoutSetHistoryRequest | null>(null)
+  const [setNoteState, setSetNoteState] = useState<WorkoutSetNoteRequest | null>(null)
   const [draggedKey, setDraggedKey] = useState<string | null>(null)
   const [orderedKeys, setOrderedKeys] = useState<string[]>([])
   const [orderedKeysBaseSignature, setOrderedKeysBaseSignature] = useState('')
@@ -2062,10 +1995,7 @@ export default function WorkoutExerciseTable({
           resolvedExercise,
           statsRecord,
           targetDuration,
-          targetEffort: formatExerciseDifficultyTarget(
-            resolvedExercise?.difficulty ?? '',
-            effortScale,
-          ),
+          targetEffort: '',
           targetReps,
           targetRest,
           targetSetCount,
@@ -2103,10 +2033,7 @@ export default function WorkoutExerciseTable({
           resolvedExercise,
           statsRecord,
           targetDuration,
-          targetEffort: formatExerciseDifficultyTarget(
-            resolvedExercise?.difficulty ?? '',
-            effortScale,
-          ),
+          targetEffort: '',
           targetReps:
             resolvedExercise?.defaultTargets.reps || targetDuration || 'Open',
           targetRest: resolvedExercise?.defaultTargets.rest || '',
@@ -2139,7 +2066,6 @@ export default function WorkoutExerciseTable({
   }, [
     activeWorkout,
     displayWorkoutExerciseOrder,
-    effortScale,
     explicitWorkoutOrder,
     previewExerciseOrder,
     resolveExerciseStatsRecord,
@@ -2270,6 +2196,15 @@ export default function WorkoutExerciseTable({
     ],
   )
 
+  const updateNoteField = (field: 'note' | 'tags', value: string | string[]) => {
+    if (!setNoteState) return
+    const updateSetLog = setNoteState.actionKind === 'planned' ? onUpdateWorkoutExerciseSetLog : onUpdateWorkoutExtraExerciseSetLog
+    if (field === 'note') updateSetLog(setNoteState.key, setNoteState.setIndex, 'note', String(value))
+    else onUpdateWorkoutSetTags(setNoteState.actionKind, setNoteState.key, setNoteState.setIndex, value as string[])
+  }
+
+  const currentNoteSet = setNoteState ? (setNoteState.actionKind === 'planned' ? activeWorkoutExerciseLogs[setNoteState.key] : activeWorkoutExtraEntries.find((entry) => entry.logId === setNoteState.key))?.setLogs[setNoteState.setIndex] : null
+
   return (
     <>
       <section className="section-card workout-table-card">
@@ -2294,7 +2229,6 @@ export default function WorkoutExerciseTable({
               {orderedRows.map((row) => (
                 <SortableWorkoutRow
                   key={`${row.actionKind}-${row.key}`}
-                  exertionOptions={exertionOptions}
                   fitnessProfile={fitnessProfile}
                   isEditingCompletedWorkout={isEditingCompletedWorkout}
                   isSelectedWorkoutActive={isSelectedWorkoutActive}
@@ -2309,6 +2243,7 @@ export default function WorkoutExerciseTable({
                   onRemoveWorkoutExerciseSetLog={onRemoveWorkoutExerciseSetLog}
                   onRemoveWorkoutExtraExerciseSetLog={onRemoveWorkoutExtraExerciseSetLog}
                   onOpenSetHistoryPicker={setSetHistoryState}
+                  onOpenSetNoteEditor={setSetNoteState}
                   onRequestRemove={(selectedRow) => setRemoveState(selectedRow)}
                   onRequestSubstitute={(selectedRow) =>
                     setPickerState({
@@ -2325,10 +2260,8 @@ export default function WorkoutExerciseTable({
                   onToggleWorkoutExercise={onToggleWorkoutExercise}
                   onToggleWorkoutExerciseSkipped={onToggleWorkoutExerciseSkipped}
                   onToggleWorkoutExtraExercise={onToggleWorkoutExtraExercise}
-                  onToggleWorkoutExerciseSetSuboptimal={onToggleWorkoutExerciseSetSuboptimal}
-                  onToggleWorkoutExtraExerciseSetSuboptimal={
-                    onToggleWorkoutExtraExerciseSetSuboptimal
-                  }
+                  onSetWorkoutExerciseProgression={onSetWorkoutExerciseProgression}
+                  onSetWorkoutExtraExerciseProgression={onSetWorkoutExtraExerciseProgression}
                   onUpdateWorkoutExerciseSetLog={onUpdateWorkoutExerciseSetLog}
                   onUpdateWorkoutExtraExerciseSetLog={onUpdateWorkoutExtraExerciseSetLog}
                   row={row}
@@ -2401,7 +2334,7 @@ export default function WorkoutExerciseTable({
           title={`${setHistoryState.title} / Set ${setHistoryState.setIndex + 1}`}
         >
           <div className="workout-set-history-list">
-            {setHistoryState.samples.map((sample) => (
+            {setHistoryState.samples.length ? setHistoryState.samples.map((sample) => (
               <button
                 key={sample.id}
                 type="button"
@@ -2416,8 +2349,17 @@ export default function WorkoutExerciseTable({
                   {sample.detailLines.join(' / ')}
                 </span>
               </button>
-            ))}
+            )) : <p className="muted">No saved history for this set yet.</p>}
           </div>
+        </BottomSheet>
+      ) : null}
+
+      {setNoteState ? (
+        <BottomSheet kicker="Set details" title={`${setNoteState.title} / Set ${setNoteState.setIndex + 1}`} description="Add a note or tags for this set." onClose={() => setSetNoteState(null)}>
+          <label className="field"><span>Note</span><textarea value={currentNoteSet?.note ?? ''} onChange={(event) => updateNoteField('note', event.target.value)} placeholder="What happened in this set?" /></label>
+          <div className="photo-timeline__tag-list">{setNoteTags.map((tag) => { const checked = currentNoteSet?.tags.includes(tag) ?? false; return <button type="button" key={tag} className={`chip-button ${checked ? 'is-active' : ''}`} onClick={() => updateNoteField('tags', checked ? (currentNoteSet?.tags ?? []).filter((entry) => entry !== tag) : [...(currentNoteSet?.tags ?? []), tag])}>{tag}</button> })}</div>
+          {setNoteState.samples.length ? <button type="button" className="ghost-button" onClick={() => { setSetHistoryState({ actionKind: setNoteState.actionKind, isContinuous: setNoteState.isContinuous, key: setNoteState.key, samples: setNoteState.samples, setIndex: setNoteState.setIndex, title: setNoteState.title }); setSetNoteState(null) }}>Use a previous set</button> : null}
+          <div className="row-actions finish-workout-dialog__actions"><button type="button" className="primary-button" onClick={() => setSetNoteState(null)}>Done</button></div>
         </BottomSheet>
       ) : null}
 

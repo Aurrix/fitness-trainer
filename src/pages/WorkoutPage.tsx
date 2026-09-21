@@ -112,8 +112,8 @@ type WorkoutPageProps = {
   onToggleWorkoutExercise: (exerciseId: string) => void
   onToggleWorkoutExerciseSkipped: (exerciseId: string) => void
   onToggleWorkoutExtraExercise: (logId: string) => void
-  onToggleWorkoutExerciseSetSuboptimal: (exerciseId: string, setIndex: number) => void
-  onToggleWorkoutExtraExerciseSetSuboptimal: (logId: string, setIndex: number) => void
+  onSetWorkoutExerciseProgression: (exerciseId: string, setIndex: number, value: string) => void
+  onSetWorkoutExtraExerciseProgression: (logId: string, setIndex: number, value: string) => void
   onUpdateWorkoutExerciseSetLog: (
     exerciseId: string,
     setIndex: number,
@@ -126,6 +126,7 @@ type WorkoutPageProps = {
     field: keyof WorkoutSetLogEntry,
     value: string,
   ) => void
+  onUpdateWorkoutSetTags: (actionKind: 'planned' | 'extra', logId: string, setIndex: number, tags: string[]) => void
   previewExerciseOrder: string[]
   programDayLogs: { completedAt: string; programId: string; sectionId: string }[]
   resolveExerciseStatsRecord: (
@@ -266,10 +267,11 @@ export default function WorkoutPage({
   onToggleWorkoutExercise,
   onToggleWorkoutExerciseSkipped,
   onToggleWorkoutExtraExercise,
-  onToggleWorkoutExerciseSetSuboptimal,
-  onToggleWorkoutExtraExerciseSetSuboptimal,
+  onSetWorkoutExerciseProgression,
+  onSetWorkoutExtraExerciseProgression,
   onUpdateWorkoutExerciseSetLog,
   onUpdateWorkoutExtraExerciseSetLog,
+  onUpdateWorkoutSetTags,
   previewExerciseOrder,
   programDayLogs,
   resolveExerciseStatsRecord,
@@ -1157,8 +1159,6 @@ export default function WorkoutPage({
         displayWorkoutExerciseLogs={displayWorkoutExerciseLogs}
         displayWorkoutExerciseOrder={displayWorkout?.exerciseOrder}
         displayWorkoutExtraEntries={displayWorkoutExtraEntries}
-        effortScale={fitnessProfile.effortScale}
-        exertionOptions={exertionOptions}
         fitnessProfile={fitnessProfile}
         isEditingCompletedWorkout={isEditingCompletedWorkout}
         isSelectedWorkoutActive={isSelectedWorkoutActive}
@@ -1177,10 +1177,11 @@ export default function WorkoutPage({
         onToggleWorkoutExercise={onToggleWorkoutExercise}
         onToggleWorkoutExerciseSkipped={onToggleWorkoutExerciseSkipped}
         onToggleWorkoutExtraExercise={onToggleWorkoutExtraExercise}
-        onToggleWorkoutExerciseSetSuboptimal={onToggleWorkoutExerciseSetSuboptimal}
-        onToggleWorkoutExtraExerciseSetSuboptimal={onToggleWorkoutExtraExerciseSetSuboptimal}
+        onSetWorkoutExerciseProgression={onSetWorkoutExerciseProgression}
+        onSetWorkoutExtraExerciseProgression={onSetWorkoutExtraExerciseProgression}
         onUpdateWorkoutExerciseSetLog={onUpdateWorkoutExerciseSetLog}
         onUpdateWorkoutExtraExerciseSetLog={onUpdateWorkoutExtraExerciseSetLog}
+        onUpdateWorkoutSetTags={onUpdateWorkoutSetTags}
         previewExerciseOrder={previewExerciseOrder}
         resolveExerciseStatsRecord={resolveExerciseStatsRecord}
         resolveExerciseForDisplay={resolveExerciseForDisplay}
