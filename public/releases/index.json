@@ -1,6 +1,12 @@
 {
   "releases": [
     {
+      "id": "2026-11-02-training-library-and-ui-refresh",
+      "date": "2026-11-02",
+      "title": "Training Library Expansion & UI Refresh",
+      "file": "2026-11-02-training-library-and-ui-refresh.md"
+    },
+    {
       "id": "2026-09-21-workout-and-progress-tracking",
       "date": "2026-09-21",
       "title": "Workout and Progress Tracking Updates",

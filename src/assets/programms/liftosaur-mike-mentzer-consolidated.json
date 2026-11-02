@@ -1,0 +1,525 @@
+{
+  "id": "liftosaur-mike-mentzer-consolidated",
+  "displayLabel": "Mike Mentzer's Consolidated Routine — Liftosaur",
+  "shortDescription": "Ultra-minimalist HIT program — just 2 exercises per workout, 1 set each to absolute failure, trained once per week.",
+  "descriptionHtml": "<p>Ultra-minimalist HIT program — just 2 exercises per workout, 1 set each to absolute failure, trained once per week.</p>",
+  "author": "Mike Mentzer",
+  "sourceUrl": "https://github.com/astashov/liftosaur/blob/421ca47fc13031c5c1df894055525cf96e45a18c/programs/builtin/mike-mentzer-consolidated.md",
+  "license": "AGPL-3.0",
+  "goal": "strength_and_hypertrophy",
+  "level": "more_than_year",
+  "duration": "Repeat cycle",
+  "tags": [
+    "Liftosaur",
+    "Automatic progression"
+  ],
+  "engine": {
+    "version": 2,
+    "revision": "native-v2:0482dc15325dc78f",
+    "sections": [
+      {
+        "id": "engine-day-1",
+        "dayIndex": 1,
+        "dayLabel": "Day 1",
+        "name": "Week 1 — Workout A (Quads & Back)",
+        "shortName": "Workout A (Quads & Back)",
+        "notes": "",
+        "weekIndex": 1,
+        "weekLabel": "Week 1",
+        "exercises": [
+          {
+            "id": "engine-1-0",
+            "exerciseId": "back-squat",
+            "resolvedExerciseId": "back-squat",
+            "exerciseName": "Squat",
+            "sets": "1",
+            "reps": "8",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 8,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "warmup",
+                "unilateral": false,
+                "workFraction": 0.8125
+              }
+            ],
+            "superset": null,
+            "progressionKey": "back-squat:rule-0",
+            "progression": {
+              "kind": "double",
+              "incrementKg": 4.5,
+              "minReps": 8,
+              "maxReps": 15
+            }
+          },
+          {
+            "id": "engine-1-1",
+            "exerciseId": "lat-pulldown",
+            "resolvedExerciseId": "lat-pulldown",
+            "exerciseName": "Lat Pulldown",
+            "sets": "1",
+            "reps": "6",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 6,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [],
+            "superset": null,
+            "progressionKey": "lat-pulldown:rule-1",
+            "progression": {
+              "kind": "double",
+              "incrementKg": 2.5,
+              "minReps": 6,
+              "maxReps": 10
+            }
+          }
+        ]
+      },
+      {
+        "id": "engine-day-2",
+        "dayIndex": 2,
+        "dayLabel": "Day 2",
+        "name": "Week 1 — Workout B (Posterior Chain & Chest/Triceps)",
+        "shortName": "Workout B (Posterior Chain & Chest/Triceps)",
+        "notes": "",
+        "weekIndex": 1,
+        "weekLabel": "Week 1",
+        "exercises": [
+          {
+            "id": "engine-2-0",
+            "exerciseId": "deadlift",
+            "resolvedExerciseId": "deadlift",
+            "exerciseName": "Deadlift",
+            "sets": "1",
+            "reps": "5",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [],
+            "superset": null,
+            "progressionKey": "deadlift:rule-2",
+            "progression": {
+              "kind": "double",
+              "incrementKg": 4.5,
+              "minReps": 5,
+              "maxReps": 8
+            }
+          },
+          {
+            "id": "engine-2-1",
+            "exerciseId": "liftosaur-tricepsdip-bodyweight",
+            "resolvedExerciseId": "liftosaur-tricepsdip-bodyweight",
+            "exerciseName": "Triceps Dip",
+            "sets": "1",
+            "reps": "6",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 6,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [],
+            "superset": null,
+            "progressionKey": "liftosaur-tricepsdip-bodyweight:rule-3",
+            "progression": {
+              "kind": "double",
+              "incrementKg": 2.5,
+              "minReps": 6,
+              "maxReps": 10
+            }
+          }
+        ]
+      }
+    ],
+    "loads": {
+      "back-squat": {
+        "name": "Squat",
+        "bodyweight": false,
+        "incrementKg": 2.5
+      },
+      "lat-pulldown": {
+        "name": "Lat Pulldown",
+        "bodyweight": false,
+        "incrementKg": 2.5
+      },
+      "deadlift": {
+        "name": "Deadlift",
+        "bodyweight": false,
+        "incrementKg": 2.5
+      },
+      "liftosaur-tricepsdip-bodyweight": {
+        "name": "Triceps Dip",
+        "bodyweight": true,
+        "incrementKg": 2.5
+      }
+    },
+    "frequency": 2,
+    "provenance": {
+      "author": "Mike Mentzer",
+      "license": "AGPL-3.0",
+      "sourceUrl": "https://github.com/astashov/liftosaur/blob/421ca47fc13031c5c1df894055525cf96e45a18c/programs/builtin/mike-mentzer-consolidated.md",
+      "commit": "421ca47fc13031c5c1df894055525cf96e45a18c"
+    },
+    "migration": {
+      "bindings": {
+        "squat_barbell": "back-squat",
+        "latPulldown_cable": "lat-pulldown",
+        "deadlift_barbell": "deadlift",
+        "tricepsDip_bodyweight": "liftosaur-tricepsdip-bodyweight"
+      },
+      "phases": {
+        "engine-day-1|engine-1-0": {
+          "name": "Squat",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 135,
+                    "unit": "lb"
+                  },
+                  "reps": 8,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {},
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-1|engine-1-1": {
+          "name": "Lat Pulldown",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 70,
+                    "unit": "lb"
+                  },
+                  "reps": 6,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {},
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-2|engine-2-0": {
+          "name": "Deadlift",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 185,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {},
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-2|engine-2-1": {
+          "name": "Triceps Dip",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 0,
+                    "unit": "lb"
+                  },
+                  "reps": 6,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {},
+            "stage": 1,
+            "exercise": 1
+          }
+        }
+      },
+      "sourceHash": "595c9831"
+    }
+  },
+  "weeks": [
+    {
+      "week": 1,
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Workout A (Quads & Back)",
+          "notes": "",
+          "items": [
+            {
+              "id": "engine-1-0",
+              "exerciseId": "back-squat",
+              "resolvedExerciseId": "back-squat",
+              "exerciseName": "Squat",
+              "sets": "1",
+              "reps": "8",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 8,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "warmup",
+                  "unilateral": false,
+                  "workFraction": 0.8125
+                }
+              ],
+              "superset": null,
+              "progressionKey": "back-squat:rule-0",
+              "progression": {
+                "kind": "double",
+                "incrementKg": 4.5,
+                "minReps": 8,
+                "maxReps": 15
+              }
+            },
+            {
+              "id": "engine-1-1",
+              "exerciseId": "lat-pulldown",
+              "resolvedExerciseId": "lat-pulldown",
+              "exerciseName": "Lat Pulldown",
+              "sets": "1",
+              "reps": "6",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 6,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [],
+              "superset": null,
+              "progressionKey": "lat-pulldown:rule-1",
+              "progression": {
+                "kind": "double",
+                "incrementKg": 2.5,
+                "minReps": 6,
+                "maxReps": 10
+              }
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Workout B (Posterior Chain & Chest/Triceps)",
+          "notes": "",
+          "items": [
+            {
+              "id": "engine-2-0",
+              "exerciseId": "deadlift",
+              "resolvedExerciseId": "deadlift",
+              "exerciseName": "Deadlift",
+              "sets": "1",
+              "reps": "5",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [],
+              "superset": null,
+              "progressionKey": "deadlift:rule-2",
+              "progression": {
+                "kind": "double",
+                "incrementKg": 4.5,
+                "minReps": 5,
+                "maxReps": 8
+              }
+            },
+            {
+              "id": "engine-2-1",
+              "exerciseId": "liftosaur-tricepsdip-bodyweight",
+              "resolvedExerciseId": "liftosaur-tricepsdip-bodyweight",
+              "exerciseName": "Triceps Dip",
+              "sets": "1",
+              "reps": "6",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 6,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [],
+              "superset": null,
+              "progressionKey": "liftosaur-tricepsdip-bodyweight:rule-3",
+              "progression": {
+                "kind": "double",
+                "incrementKg": 2.5,
+                "minReps": 6,
+                "maxReps": 10
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "standing-soleus-and-achilles-stretch",
+  "displayLabel": "Standing Soleus And Achilles Stretch",
+  "shortDescription": "stretching exercise targeting calves.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Stand with your feet hip-distance apart, one foot slightly in front of the other.",
+    "Bend both knees, keeping your back heel on the floor. Switch sides."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "tags": [
+    "static",
+    "isolation"
+  ],
+  "exerciseType": "continues"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "peroneals-stretch",
+  "displayLabel": "Peroneals Stretch",
+  "shortDescription": "stretching exercise targeting calves.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "In a seated position, loop a belt, rope, or band around one foot. This will be your starting position.",
+    "With the leg extended and the heel off of the ground, pull on the belt so that the foot is inverted, with the inside of the foot being pulled towards you. Hold for 10-20 seconds, and then switch sides."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "stretching",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "tags": [
+    "static"
+  ],
+  "exerciseType": "continues"
+}

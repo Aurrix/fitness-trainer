@@ -1,0 +1,52 @@
+{
+  "id": "forward-drag-with-press",
+  "displayLabel": "Forward Drag with Press",
+  "shortDescription": "strongman exercise targeting chest.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Attach a dual handled chain or rope attachment to the sled. You should be facing away from the sled, holding a handle in each hand.",
+    "Begin the movement by moving forward for one step. Leaning forward, extend through the legs and hips to move, pausing with each step to extend through the elbows, pressing your hands forward. Step forward until you return to the start position prepared to press."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "strongman",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "deltoids",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

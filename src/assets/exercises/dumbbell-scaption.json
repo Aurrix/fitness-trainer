@@ -1,0 +1,33 @@
+{
+  "id": "dumbbell-scaption",
+  "displayLabel": "Dumbbell Scaption",
+  "shortDescription": "strength exercise targeting shoulders.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "This corrective exercise strengthens the muscles that stabilize your shoulder blade. Hold a light weight in each hand, hanging at your sides. Your thumbs should pointing up.",
+    "Begin the movement raising your arms out in front of you, about 30 degrees off center. Your arms should be fully extended as you perform the movement.",
+    "Continue until your arms are parallel to the ground, and then return to the starting position."
+  ],
+  "equipment": [
+    "dumbbell"
+  ],
+  "category": "strength",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "deltoids",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "trapezius",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "isolation"
+  ]
+}

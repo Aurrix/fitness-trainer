@@ -1,0 +1,31 @@
+{
+  "id": "hug-knees-to-chest",
+  "displayLabel": "Hug Knees To Chest",
+  "shortDescription": "stretching exercise targeting lower back.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Lie down on your back and pull both knees up to your chest.",
+    "Hold your arms under the knees, not over (that would put to much pressure on your knee joints).",
+    "Slowly pull the knees toward your shoulders. This also stretches your buttocks muscles."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-back",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static"
+  ],
+  "exerciseType": "continues"
+}

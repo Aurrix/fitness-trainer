@@ -31,3 +31,11 @@ Copyright (c) 2026 [Your Name]
 
 7. **Limitation of Liability**
    In no event shall the author be liable for any damages arising from the use of this software.
+
+Third-party content exception: the Liftosaur source definitions in
+third-party/liftosaur and the program adaptations
+src/assets/programms/liftosaur-*.json, the imported exercise variants in
+src/assets/exercises/liftosaur-*.json, and the development-only reference fixtures in
+tests/reference are licensed separately under
+GNU AGPL-3.0, not the Limited Use License above. See
+public/engine/NOTICE.txt and public/engine/LICENSE.txt.

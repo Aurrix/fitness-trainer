@@ -1,0 +1,368 @@
+[
+  {
+    "id": "liftosaur-arnold-split",
+    "file": "arnold-split.md",
+    "days": 6,
+    "exercises": 21
+  },
+  {
+    "id": "liftosaur-arnoldgoldensix",
+    "file": "arnoldgoldensix.md",
+    "days": 3,
+    "exercises": 6
+  },
+  {
+    "id": "liftosaur-barbell-medicine-the-bridge",
+    "file": "barbell-medicine-the-bridge.md",
+    "days": 32,
+    "exercises": 9
+  },
+  {
+    "id": "liftosaur-basic-beginner",
+    "file": "basicBeginner.md",
+    "days": 6,
+    "exercises": 6
+  },
+  {
+    "id": "liftosaur-bro-split",
+    "file": "bro-split.md",
+    "days": 5,
+    "exercises": 27
+  },
+  {
+    "id": "liftosaur-bullmastiff",
+    "file": "bullmastiff.md",
+    "days": 72,
+    "exercises": 23
+  },
+  {
+    "id": "liftosaur-calgary-barbell-16-week",
+    "file": "calgary-barbell-16-week.md",
+    "days": 64,
+    "exercises": 18
+  },
+  {
+    "id": "liftosaur-coolcicada-ppl",
+    "file": "coolcicada-ppl.md",
+    "days": 6,
+    "exercises": 19
+  },
+  {
+    "id": "liftosaur-cube-method",
+    "file": "cube-method.md",
+    "days": 40,
+    "exercises": 16
+  },
+  {
+    "id": "liftosaur-dbppl",
+    "file": "dbPpl.md",
+    "days": 6,
+    "exercises": 14
+  },
+  {
+    "id": "liftosaur-deep-water",
+    "file": "deep-water.md",
+    "days": 24,
+    "exercises": 17
+  },
+  {
+    "id": "liftosaur-doggcrapp",
+    "file": "doggcrapp.md",
+    "days": 6,
+    "exercises": 30
+  },
+  {
+    "id": "liftosaur-doug-hepburn-method",
+    "file": "doug-hepburn-method.md",
+    "days": 4,
+    "exercises": 6
+  },
+  {
+    "id": "liftosaur-easy-strength",
+    "file": "easy-strength.md",
+    "days": 10,
+    "exercises": 5
+  },
+  {
+    "id": "liftosaur-fierce-5",
+    "file": "fierce-5.md",
+    "days": 6,
+    "exercises": 12
+  },
+  {
+    "id": "liftosaur-german-volume-training",
+    "file": "german-volume-training.md",
+    "days": 3,
+    "exercises": 12
+  },
+  {
+    "id": "liftosaur-gzcl-general-gainz-burrito-but-big",
+    "file": "gzcl-general-gainz-burrito-but-big.md",
+    "days": 48,
+    "exercises": 14
+  },
+  {
+    "id": "liftosaur-gzcl-general-gainz-riptide",
+    "file": "gzcl-general-gainz-riptide.md",
+    "days": 32,
+    "exercises": 18
+  },
+  {
+    "id": "liftosaur-gzcl-general-gainz",
+    "file": "gzcl-general-gainz.md",
+    "days": 4,
+    "exercises": 16
+  },
+  {
+    "id": "liftosaur-gzcl-ggbb",
+    "file": "gzcl-ggbb.md",
+    "days": 4,
+    "exercises": 32
+  },
+  {
+    "id": "liftosaur-gzcl-jacked-and-tan-2",
+    "file": "gzcl-jacked-and-tan-2.md",
+    "days": 48,
+    "exercises": 22
+  },
+  {
+    "id": "liftosaur-gzcl-the-rippler",
+    "file": "gzcl-the-rippler.md",
+    "days": 48,
+    "exercises": 15
+  },
+  {
+    "id": "liftosaur-gzcl-uhf-5-weeks",
+    "file": "gzcl-uhf-5-weeks.md",
+    "days": 25,
+    "exercises": 22
+  },
+  {
+    "id": "liftosaur-gzcl-uhf-9-weeks",
+    "file": "gzcl-uhf-9-weeks.md",
+    "days": 45,
+    "exercises": 23
+  },
+  {
+    "id": "liftosaur-gzcl-vdip",
+    "file": "gzcl-vdip.md",
+    "days": 5,
+    "exercises": 18
+  },
+  {
+    "id": "liftosaur-gzclp-blacknoir",
+    "file": "gzclp-blacknoir.md",
+    "days": 4,
+    "exercises": 6
+  },
+  {
+    "id": "liftosaur-gzclp",
+    "file": "gzclp.md",
+    "days": 4,
+    "exercises": 6
+  },
+  {
+    "id": "liftosaur-ice-cream-fitness-5x5",
+    "file": "ice-cream-fitness-5x5.md",
+    "days": 6,
+    "exercises": 11
+  },
+  {
+    "id": "liftosaur-ivysaur-4-4-8",
+    "file": "ivysaur-4-4-8.md",
+    "days": 6,
+    "exercises": 6
+  },
+  {
+    "id": "liftosaur-jay-cutler-split",
+    "file": "jay-cutler-split.md",
+    "days": 5,
+    "exercises": 39
+  },
+  {
+    "id": "liftosaur-juggernaut-method",
+    "file": "juggernaut-method.md",
+    "days": 64,
+    "exercises": 16
+  },
+  {
+    "id": "liftosaur-lylegenericbulking",
+    "file": "lylegenericbulking.md",
+    "days": 4,
+    "exercises": 12
+  },
+  {
+    "id": "liftosaur-madcow",
+    "file": "madcow.md",
+    "days": 3,
+    "exercises": 8
+  },
+  {
+    "id": "liftosaur-metallicadpappl",
+    "file": "metallicadpappl.md",
+    "days": 6,
+    "exercises": 18
+  },
+  {
+    "id": "liftosaur-mike-mentzer-consolidated",
+    "file": "mike-mentzer-consolidated.md",
+    "days": 2,
+    "exercises": 4
+  },
+  {
+    "id": "liftosaur-mike-mentzer-heavy-duty",
+    "file": "mike-mentzer-heavy-duty.md",
+    "days": 3,
+    "exercises": 17
+  },
+  {
+    "id": "liftosaur-monolith531",
+    "file": "monolith531.md",
+    "days": 18,
+    "exercises": 10
+  },
+  {
+    "id": "liftosaur-nsuns",
+    "file": "nsuns.md",
+    "days": 5,
+    "exercises": 18
+  },
+  {
+    "id": "liftosaur-phat",
+    "file": "phat.md",
+    "days": 5,
+    "exercises": 34
+  },
+  {
+    "id": "liftosaur-phrakgreyskull",
+    "file": "phrakgreyskull.md",
+    "days": 6,
+    "exercises": 6
+  },
+  {
+    "id": "liftosaur-phul",
+    "file": "phul.md",
+    "days": 4,
+    "exercises": 25
+  },
+  {
+    "id": "liftosaur-planet-fitness-hypertrophy",
+    "file": "planet-fitness-hypertrophy.md",
+    "days": 4,
+    "exercises": 24
+  },
+  {
+    "id": "liftosaur-pzerofullbody",
+    "file": "pzerofullbody.md",
+    "days": 4,
+    "exercises": 20
+  },
+  {
+    "id": "liftosaur-recommended-routine",
+    "file": "recommended-routine.md",
+    "days": 3,
+    "exercises": 32
+  },
+  {
+    "id": "liftosaur-sheiko-29-32",
+    "file": "sheiko-29-32.md",
+    "days": 47,
+    "exercises": 18
+  },
+  {
+    "id": "liftosaur-shortcut-to-size",
+    "file": "shortcut-to-size.md",
+    "days": 48,
+    "exercises": 47
+  },
+  {
+    "id": "liftosaur-smolov-jr",
+    "file": "smolov-jr.md",
+    "days": 13,
+    "exercises": 1
+  },
+  {
+    "id": "liftosaur-smolov-squat",
+    "file": "smolov-squat.md",
+    "days": 39,
+    "exercises": 1
+  },
+  {
+    "id": "liftosaur-ss1",
+    "file": "ss1.md",
+    "days": 6,
+    "exercises": 4
+  },
+  {
+    "id": "liftosaur-ss2",
+    "file": "ss2.md",
+    "days": 6,
+    "exercises": 5
+  },
+  {
+    "id": "liftosaur-ss3",
+    "file": "ss3.md",
+    "days": 4,
+    "exercises": 6
+  },
+  {
+    "id": "liftosaur-strongcurves",
+    "file": "strongcurves.md",
+    "days": 36,
+    "exercises": 47
+  },
+  {
+    "id": "liftosaur-super-squats",
+    "file": "super-squats.md",
+    "days": 3,
+    "exercises": 9
+  },
+  {
+    "id": "liftosaur-tactical-barbell-mass-protocol",
+    "file": "tactical-barbell-mass-protocol.md",
+    "days": 24,
+    "exercises": 4
+  },
+  {
+    "id": "liftosaur-tactical-barbell-operator",
+    "file": "tactical-barbell-operator.md",
+    "days": 18,
+    "exercises": 4
+  },
+  {
+    "id": "liftosaur-texasmethod",
+    "file": "texasmethod.md",
+    "days": 6,
+    "exercises": 8
+  },
+  {
+    "id": "liftosaur-the5314b",
+    "file": "the5314b.md",
+    "days": 9,
+    "exercises": 11
+  },
+  {
+    "id": "liftosaur-the531bbb",
+    "file": "the531bbb.md",
+    "days": 16,
+    "exercises": 12
+  },
+  {
+    "id": "liftosaur-tsa-9-week-intermediate",
+    "file": "tsa-9-week-intermediate.md",
+    "days": 36,
+    "exercises": 15
+  },
+  {
+    "id": "liftosaur-westside-conjugate-method",
+    "file": "westside-conjugate-method.md",
+    "days": 12,
+    "exercises": 22
+  },
+  {
+    "id": "liftosaur-westside-for-skinny-bastards",
+    "file": "westside-for-skinny-bastards.md",
+    "days": 24,
+    "exercises": 24
+  }
+]

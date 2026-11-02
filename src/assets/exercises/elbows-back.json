@@ -1,0 +1,32 @@
+{
+  "id": "elbows-back",
+  "displayLabel": "Elbows Back",
+  "shortDescription": "stretching exercise targeting chest.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Stand up straight.",
+    "Place both hands on your lower back, fingers pointing downward and elbows out.",
+    "Then gently pull your elbows back aiming to touch them together."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "deltoids",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static",
+    "isolation"
+  ],
+  "exerciseType": "continues"
+}

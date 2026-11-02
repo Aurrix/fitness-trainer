@@ -26,7 +26,10 @@ export async function readPersistedState<T>(key: string) {
   return record?.value as T | undefined
 }
 
+let bufferedWrites: Map<string, unknown> | null = null
+
 export async function writePersistedState<T>(key: string, value: T) {
+  if (bufferedWrites) { bufferedWrites.set(key, value); return }
   await appDb.appState.put({
     key,
     updatedAt: new Date().toISOString(),
@@ -63,4 +66,14 @@ export async function readPersistedStateWithMigration<T>(key: string) {
   } catch {
     return undefined
   }
+}
+
+export async function commitPersistedUpdates(update: () => void) {
+  if (bufferedWrites) throw new Error('Another training commit is already in progress')
+  const writes = new Map<string, unknown>()
+  bufferedWrites = writes
+  try { update() } finally { bufferedWrites = null }
+  await appDb.transaction('rw', appDb.appState, async () => {
+    for (const [key, value] of writes) await appDb.appState.put({key,value,updatedAt:new Date().toISOString()})
+  })
 }

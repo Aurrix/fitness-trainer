@@ -1,0 +1,16 @@
+{
+  "revision": "f00c92c7dcf1216a928a52c3706c7ce8e2f71ed5",
+  "sourceRecords": 876,
+  "added": 839,
+  "matchedExisting": 37,
+  "totalExercises": 1098,
+  "missingInstructions": [
+    "Iron_Cross",
+    "One-Arm_Kettlebell_Swings",
+    "Push_Press",
+    "Side_Bridge",
+    "Side_Jackknife"
+  ],
+  "ambiguousMatchingPolicy": "Preserve separate records unless an explicit mapping resolves the ambiguity.",
+  "photographsImported": false
+}

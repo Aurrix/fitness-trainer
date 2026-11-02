@@ -1,0 +1,38 @@
+{
+  "id": "parallel-bar-dip",
+  "displayLabel": "Parallel Bar Dip",
+  "shortDescription": "strength exercise targeting triceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Stand between a set of parallel bars. Place a hand on each bar, and then take a small jump to help you get into the starting position with your arms locked out.",
+    "Begin by flexing the elbow, lowering your body until your arms break 90 degrees. Avoid swinging, and maintain good posture throughout the descent.",
+    "Reverse the motion by extending the elbow, pushing yourself back up into the starting position.",
+    "Repeat for the desired number of repetitions."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "strength",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "deltoids",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

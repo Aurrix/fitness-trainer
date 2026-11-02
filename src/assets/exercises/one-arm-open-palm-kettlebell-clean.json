@@ -1,0 +1,50 @@
+{
+  "id": "one-arm-open-palm-kettlebell-clean",
+  "displayLabel": "One-Arm Open Palm Kettlebell Clean",
+  "shortDescription": "strength exercise targeting hamstrings.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Place one kettlebell between your feet.",
+    "Grab the handle with one hand and raise the kettlebell rapidly, let it flip so that the ball of the kettlebell lands in the palm of your hand.",
+    "Throw the kettlebell out in front of you and catch the handle with one hand.",
+    "Take the kettlebell to the floor and repeat. Make sure to work both arms."
+  ],
+  "equipment": [
+    "kettlebells"
+  ],
+  "category": "strength",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "forearm",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lower-back",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "deltoids",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "compound"
+  ]
+}

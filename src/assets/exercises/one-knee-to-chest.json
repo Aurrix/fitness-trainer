@@ -1,0 +1,37 @@
+{
+  "id": "one-knee-to-chest",
+  "displayLabel": "One Knee To Chest",
+  "shortDescription": "stretching exercise targeting glutes.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Start off by lying on the floor.",
+    "Extend one leg straight and pull the other knee to your chest. Hold under the knee joint to protect the kneecap.",
+    "Gently tug that knee toward your nose.",
+    "Switch sides. This stretches the buttocks and lower back of the bent leg and the hip flexor of the straight leg."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lower-back",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static",
+    "compound"
+  ],
+  "exerciseType": "continues"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "fast-skipping",
+  "displayLabel": "Fast Skipping",
+  "shortDescription": "plyometrics exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Start in a relaxed position with one leg slightly forward. This will be your starting position.",
+    "Skip by executing a step-hop pattern of right-right-step to left-left-step, and so on, alternating back and forth.",
+    "Perform fast skips by maintaining close contact with the ground and reduce air time, moving as quickly as possible."
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "category": "plyometrics",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "adductors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

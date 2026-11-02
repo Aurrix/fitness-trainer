@@ -1,0 +1,788 @@
+[
+  {
+    "id": "arnold-split-classic",
+    "execution": "native",
+    "features": [],
+    "sections": 48
+  },
+  {
+    "id": "full-body-5-day-muscle-focus",
+    "execution": "native",
+    "features": [],
+    "sections": 40
+  },
+  {
+    "id": "fundamentals-body-part-split",
+    "execution": "native",
+    "features": [],
+    "sections": 40
+  },
+  {
+    "id": "fundamentals-full-body",
+    "execution": "native",
+    "features": [],
+    "sections": 24
+  },
+  {
+    "id": "fundamentals-lower-upper",
+    "execution": "native",
+    "features": [],
+    "sections": 32
+  },
+  {
+    "id": "high-frequency-full-body",
+    "execution": "native",
+    "features": [],
+    "sections": 50
+  },
+  {
+    "id": "jefit-5-day-upper-lower-push-pull-legs",
+    "execution": "native",
+    "features": [],
+    "sections": 5
+  },
+  {
+    "id": "liftosaur-arnold-split",
+    "execution": "native",
+    "features": [],
+    "sections": 6
+  },
+  {
+    "id": "liftosaur-arnoldgoldensix",
+    "execution": "native",
+    "features": [],
+    "sections": 3,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-barbell-medicine-the-bridge",
+    "execution": "native",
+    "features": [],
+    "sections": 32,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-basic-beginner",
+    "execution": "native",
+    "features": [],
+    "sections": 6,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-bro-split",
+    "execution": "native",
+    "features": [],
+    "sections": 5
+  },
+  {
+    "id": "liftosaur-bullmastiff",
+    "execution": "native",
+    "features": [],
+    "sections": 72,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-calgary-barbell-16-week",
+    "execution": "native",
+    "features": [],
+    "sections": 64,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-coolcicada-ppl",
+    "execution": "native",
+    "features": [],
+    "sections": 6
+  },
+  {
+    "id": "liftosaur-cube-method",
+    "execution": "native",
+    "features": [],
+    "sections": 40
+  },
+  {
+    "id": "liftosaur-dbppl",
+    "execution": "native",
+    "features": [],
+    "sections": 6,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-deep-water",
+    "execution": "native",
+    "features": [],
+    "sections": 24
+  },
+  {
+    "id": "liftosaur-doggcrapp",
+    "execution": "native",
+    "features": [],
+    "sections": 6,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-doug-hepburn-method",
+    "execution": "native",
+    "features": [],
+    "sections": 4,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-easy-strength",
+    "execution": "native",
+    "features": [],
+    "sections": 10,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-fierce-5",
+    "execution": "native",
+    "features": [],
+    "sections": 6
+  },
+  {
+    "id": "liftosaur-german-volume-training",
+    "execution": "native",
+    "features": [],
+    "sections": 3,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzcl-general-gainz-burrito-but-big",
+    "execution": "native",
+    "features": [],
+    "sections": 48,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzcl-general-gainz-riptide",
+    "execution": "native",
+    "features": [],
+    "sections": 32,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzcl-general-gainz",
+    "execution": "native",
+    "features": [],
+    "sections": 4,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzcl-ggbb",
+    "execution": "native",
+    "features": [],
+    "sections": 4,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzcl-jacked-and-tan-2",
+    "execution": "native",
+    "features": [],
+    "sections": 48,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzcl-the-rippler",
+    "execution": "native",
+    "features": [],
+    "sections": 48,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzcl-uhf-5-weeks",
+    "execution": "native",
+    "features": [],
+    "sections": 25,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzcl-uhf-9-weeks",
+    "execution": "native",
+    "features": [],
+    "sections": 45,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzcl-vdip",
+    "execution": "native",
+    "features": [],
+    "sections": 5,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzclp-blacknoir",
+    "execution": "native",
+    "features": [],
+    "sections": 4,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-gzclp",
+    "execution": "native",
+    "features": [],
+    "sections": 4,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-ice-cream-fitness-5x5",
+    "execution": "native",
+    "features": [],
+    "sections": 6
+  },
+  {
+    "id": "liftosaur-ivysaur-4-4-8",
+    "execution": "native",
+    "features": [],
+    "sections": 6,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-jay-cutler-split",
+    "execution": "native",
+    "features": [],
+    "sections": 5,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-juggernaut-method",
+    "execution": "native",
+    "features": [],
+    "sections": 64,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-lylegenericbulking",
+    "execution": "native",
+    "features": [],
+    "sections": 4
+  },
+  {
+    "id": "liftosaur-madcow",
+    "execution": "native",
+    "features": [],
+    "sections": 3,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-metallicadpappl",
+    "execution": "native",
+    "features": [],
+    "sections": 6
+  },
+  {
+    "id": "liftosaur-mike-mentzer-consolidated",
+    "execution": "native",
+    "features": [],
+    "sections": 2
+  },
+  {
+    "id": "liftosaur-mike-mentzer-heavy-duty",
+    "execution": "native",
+    "features": [],
+    "sections": 3
+  },
+  {
+    "id": "liftosaur-monolith531",
+    "execution": "native",
+    "features": [],
+    "sections": 18,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-nsuns",
+    "execution": "native",
+    "features": [],
+    "sections": 5,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-phat",
+    "execution": "native",
+    "features": [],
+    "sections": 5,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-phrakgreyskull",
+    "execution": "native",
+    "features": [],
+    "sections": 6,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-phul",
+    "execution": "native",
+    "features": [],
+    "sections": 4
+  },
+  {
+    "id": "liftosaur-planet-fitness-hypertrophy",
+    "execution": "native",
+    "features": [],
+    "sections": 4
+  },
+  {
+    "id": "liftosaur-pzerofullbody",
+    "execution": "native",
+    "features": [],
+    "sections": 4,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-recommended-routine",
+    "execution": "native",
+    "features": [],
+    "sections": 3,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-sheiko-29-32",
+    "execution": "native",
+    "features": [],
+    "sections": 47
+  },
+  {
+    "id": "liftosaur-shortcut-to-size",
+    "execution": "native",
+    "features": [],
+    "sections": 48,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-smolov-jr",
+    "execution": "native",
+    "features": [],
+    "sections": 13,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-smolov-squat",
+    "execution": "native",
+    "features": [],
+    "sections": 39,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-ss1",
+    "execution": "native",
+    "features": [],
+    "sections": 6
+  },
+  {
+    "id": "liftosaur-ss2",
+    "execution": "native",
+    "features": [],
+    "sections": 6
+  },
+  {
+    "id": "liftosaur-ss3",
+    "execution": "native",
+    "features": [],
+    "sections": 4
+  },
+  {
+    "id": "liftosaur-strongcurves",
+    "execution": "native",
+    "features": [],
+    "sections": 36
+  },
+  {
+    "id": "liftosaur-super-squats",
+    "execution": "native",
+    "features": [],
+    "sections": 3
+  },
+  {
+    "id": "liftosaur-tactical-barbell-mass-protocol",
+    "execution": "native",
+    "features": [],
+    "sections": 24,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-tactical-barbell-operator",
+    "execution": "native",
+    "features": [],
+    "sections": 18,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-texasmethod",
+    "execution": "native",
+    "features": [],
+    "sections": 6,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-the5314b",
+    "execution": "native",
+    "features": [],
+    "sections": 9,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-the531bbb",
+    "execution": "native",
+    "features": [],
+    "sections": 16,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-tsa-9-week-intermediate",
+    "execution": "native",
+    "features": [],
+    "sections": 36,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-westside-conjugate-method",
+    "execution": "native",
+    "features": [],
+    "sections": 12,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "liftosaur-westside-for-skinny-bastards",
+    "execution": "native",
+    "features": [],
+    "sections": 24,
+    "nativeFeatures": [
+      "stateful rules",
+      "within-session rules",
+      "set variations",
+      "exercise variations",
+      "program inputs",
+      "effort-based loads"
+    ]
+  },
+  {
+    "id": "phat-5-day-power-hypertrophy",
+    "execution": "native",
+    "features": [],
+    "sections": 40
+  },
+  {
+    "id": "phul-power-hypertrophy",
+    "execution": "native",
+    "features": [],
+    "sections": 32
+  },
+  {
+    "id": "ppl-3-day-beginner",
+    "execution": "native",
+    "features": [],
+    "sections": 24
+  },
+  {
+    "id": "ppl-v2-intermediate",
+    "execution": "native",
+    "features": [],
+    "sections": 70
+  },
+  {
+    "id": "push-pull-legs-upper-lower",
+    "execution": "native",
+    "features": [],
+    "sections": 40
+  },
+  {
+    "id": "torso-limbs-hypertrophy",
+    "execution": "native",
+    "features": [],
+    "sections": 32
+  },
+  {
+    "id": "upper-lower-intermediate",
+    "execution": "native",
+    "features": [],
+    "sections": 32
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "id": "band-good-morning",
+  "displayLabel": "Band Good Morning",
+  "shortDescription": "powerlifting exercise targeting hamstrings.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Using a 41 inch band, stand on one end, spreading your feet a small amount. Bend at the hips to loop the end of the band behind your neck. This will be your starting position.",
+    "Keeping your legs straight, extend through the hips to come to a near vertical position.",
+    "Ensure that you do not round your back as you go down back to the starting position."
+  ],
+  "equipment": [
+    "bands"
+  ],
+  "category": "powerlifting",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lower-back",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "compound"
+  ]
+}

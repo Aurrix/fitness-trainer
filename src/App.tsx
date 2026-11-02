@@ -1,8 +1,13 @@
+import { trainingEngine } from './lib/training/client'
+import { useTrainingStore, TRAINING_STORAGE_KEY } from './lib/training/store'
+import type { EngineDefinition, EngineSession, EngineState, EngineFinish } from './lib/training/types'
+import { commitPersistedUpdates, writePersistedState } from './services/app-db'
 import {
   startTransition,
   useCallback,
   useDeferredValue,
   useEffect,
+  useMemo,
   useRef,
   useState,
   type CSSProperties,
@@ -44,6 +49,7 @@ import type {
 } from './components/WorkoutExerciseTable'
 import { useAppRoute } from './hooks/useAppRoute'
 import { getContentLibrary, type Exercise } from './lib/content'
+import { matchesExerciseSearch } from './lib/exercise-search'
 import type {
   AppProgram,
   BannerTone,
@@ -684,6 +690,7 @@ function App() {
   const [programQuery, setProgramQuery] = useState('')
   const [exerciseQuery, setExerciseQuery] = useState('')
   const [selectedProgramId, setSelectedProgramId] = useState<string | null>(null)
+  const [programDetailView, setProgramDetailView] = useState<'days' | 'muscles'>('days')
   const [selectedExerciseId, setSelectedExerciseId] = useState<string | null>(null)
   const [selectedExerciseSubstitutionTarget, setSelectedExerciseSubstitutionTarget] =
     useState<WorkoutExerciseDetailSubstitutionTarget | null>(null)
@@ -775,6 +782,23 @@ function App() {
     })),
   )
   const [draft, setDraft] = useState<ProgramDraft>(() => createEmptyDraft())
+  const trainingRuns = useTrainingStore(state => state.runs)
+  const [trainingBusy, setTrainingBusy] = useState(false)
+  const [trainingError, setTrainingError] = useState('')
+  const trainingFinishLock = useRef(false)
+  useEffect(() => { void useTrainingStore.getState().hydrate().catch(() => showBanner('error','Could not restore automatic program state.')) }, [])
+  useEffect(() => {
+    if (!activeWorkout?.engine) return
+    const id=activeWorkout.sessionId, revision=activeWorkout.updatedAt
+    let cancelled=false
+    void trainingEngine<EngineSession>('update',{session:activeWorkout.engine,logs:activeWorkout.exerciseLogs,effortScale:activeWorkout.exertionScale}).then(engine => {
+      if(!cancelled)setActiveWorkout(current => current?.sessionId===id && current.updatedAt===revision ? {...current,engine} : current)
+    }).catch(() => { /* Completion validation reports actionable errors when finishing. */ })
+    return () => {cancelled=true}
+  // Only actual log revisions trigger reevaluation, not the resulting target snapshot.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeWorkout?.sessionId, activeWorkout?.updatedAt])
+
   const libraryView = route.libraryView ?? 'home'
   const insightsView = route.insightsView ?? 'home'
 
@@ -782,13 +806,14 @@ function App() {
   const deferredExerciseQuery = useDeferredValue(exerciseQuery.trim().toLowerCase())
 
   const programs = createAppPrograms(customPrograms)
-  const savedExerciseIdSet = new Set(savedExerciseIds)
+  const savedExerciseIdSet = useMemo(() => new Set(savedExerciseIds), [savedExerciseIds])
   const savedProgramIdSet = new Set(savedProgramIds)
   const selectedProgram =
     programs.find((program) => program.id === selectedProgramId) ?? null
   const selectedExercise =
     contentLibrary.exercises.find((exercise) => exercise.id === selectedExerciseId) ?? null
-  const activeProgramSession = findProgramSection(programs, activeWorkout)
+  const baseActiveProgramSession = findProgramSection(programs, activeWorkout)
+  const activeProgramSession = baseActiveProgramSession && activeWorkout?.engine ? {...baseActiveProgramSession,section:activeWorkout.engine.section} : baseActiveProgramSession
   const selectedMainProgram =
     programs.find((program) => program.id === mainProgramId) ?? null
   const isMainProgramEmpty = selectedMainProgram === null
@@ -824,7 +849,7 @@ function App() {
     activeWorkout && activeWorkoutDay
       ? activeWorkoutDay
       : selectedWorkoutDayFromState ?? activeWorkoutDay ?? fallbackWorkoutDay
-  const selectedWorkoutSection = selectedWorkoutDay?.section ?? null
+  const selectedWorkoutSection = activeWorkout?.engine?.section ?? selectedWorkoutDay?.section ?? null
   const selectedWorkoutPreviewOrder = selectedWorkoutSection
     ? buildWorkoutExerciseOrder(
         workoutDayExerciseOrders[selectedWorkoutSection.id] ??
@@ -950,29 +975,12 @@ function App() {
     return searchableText.includes(deferredProgramQuery)
   })
 
-  const filteredExercises = contentLibrary.exercises.filter((exercise) => {
+  const filteredExercises = useMemo(() => contentLibrary.exercises.filter((exercise) => {
     if (exerciseFilter === 'favorites' && !savedExerciseIdSet.has(exercise.id)) {
       return false
     }
-
-    if (!deferredExerciseQuery) {
-      return true
-    }
-
-    const searchableText = [
-      exercise.name,
-      exercise.description,
-      exercise.category,
-      exercise.difficulty,
-      exercise.tags.join(' '),
-      exercise.muscleGroups.join(' '),
-      exercise.equipment.join(' '),
-    ]
-      .join(' ')
-      .toLowerCase()
-
-    return searchableText.includes(deferredExerciseQuery)
-  })
+    return matchesExerciseSearch(exercise, deferredExerciseQuery)
+  }), [exerciseFilter, savedExerciseIdSet, deferredExerciseQuery])
   const selectedExerciseStatsRecord = selectedExercise
     ? resolveExerciseStatsRecord(
         exerciseStatsStore,
@@ -1028,7 +1036,7 @@ function App() {
     fitnessActivityLevelOptions,
     fitnessProfile.activityLevel,
   )
-  const exertionOptions = getEffortOptions(fitnessProfile)
+  const exertionOptions = getEffortOptions(activeWorkout?.engine ? {...fitnessProfile,effortScale:activeWorkout.exertionScale} : fitnessProfile)
   const workoutNavStyle = {
     '--workout-progress': `${completionRatio}%`,
   } as CSSProperties
@@ -1670,7 +1678,9 @@ function App() {
     }))
   }
 
-  function saveDraft() {
+  async function saveDraft() {
+    let compiled=draft.engine
+    if(compiled){try{compiled=await trainingEngine<EngineDefinition>('compile',{definition:compiled,source:compiled.source,id:draft.editingId??'custom',name:draft.name,names:Object.fromEntries(contentLibrary.exercises.map(e=>[e.id,e.name]))})}catch(error){showBanner('error',error instanceof Error?error.message:String(error));return}}
     const hasName = draft.name.trim().length > 0
     const hasExercises = draft.sections.some((section) => {
       return section.exercises.some((exercise) => exercise.exerciseName.trim())
@@ -1689,27 +1699,30 @@ function App() {
     const savedProgram = draftToCustomProgram(
       {
         ...draft,
-        sections: autoLabelDraftSections(draft.sections),
+        engine: compiled,
+        sections: compiled ? compiled.sections.map(section=>({...section,exercises:section.exercises.map(ex=>({...ex,exerciseName:ex.exerciseName}))})) : autoLabelDraftSections(draft.sections),
       },
       customPrograms,
     )
 
-    setCustomPrograms((currentPrograms) => {
-      const existingIndex = currentPrograms.findIndex((program) => {
-        return program.id === savedProgram.id
+    await commitPersistedUpdates(() => {
+      setCustomPrograms((currentPrograms) => {
+        const existingIndex = currentPrograms.findIndex((program) => {
+          return program.id === savedProgram.id
+        })
+
+        if (existingIndex === -1) {
+          return [savedProgram, ...currentPrograms]
+        }
+
+        return currentPrograms.map((program) => {
+          return program.id === savedProgram.id ? savedProgram : program
+        })
       })
 
-      if (existingIndex === -1) {
-        return [savedProgram, ...currentPrograms]
-      }
-
-      return currentPrograms.map((program) => {
-        return program.id === savedProgram.id ? savedProgram : program
-      })
+      setMainProgramId(savedProgram.id)
+      rememberProgram(savedProgram.id)
     })
-
-    setMainProgramId(savedProgram.id)
-    rememberProgram(savedProgram.id)
     setIsBuilderOpen(false)
     showBanner('success', `${savedProgram.name} saved to your device.`)
     setDraft(createEmptyDraft())
@@ -1719,7 +1732,8 @@ function App() {
     })
   }
 
-  function openProgram(program: AppProgram) {
+  function openProgram(program: AppProgram, view: 'days' | 'muscles' = 'days') {
+    setProgramDetailView(view)
     const shouldResetCompletedMainProgram =
       program.id === mainProgramId &&
       !activeWorkout &&
@@ -1752,6 +1766,10 @@ function App() {
 
   function createCustomWorkoutDay() {
     if (!launchProgram || !selectedWorkoutDay) {
+      return
+    }
+    if (launchProgram.engine) {
+      showBanner('success', 'To add a day to an automatic program, clone it and edit its Liftoscript definition in the program builder.')
       return
     }
 
@@ -1836,8 +1854,37 @@ function App() {
     showBanner('success', `${customDaySection.name} added to ${savedProgram.name}.`)
   }
 
-  function startWorkout(program: AppProgram, sectionId: string) {
-    const section = program.sections.find((entry) => entry.id === sectionId)
+  async function startWorkout(program: AppProgram, sectionId: string) {
+    if (!program.engine || activeWorkout?.programId===program.id && activeWorkout.sectionId===sectionId) {
+      startWorkoutLegacy(program,sectionId)
+      return
+    }
+    if(trainingBusy)return
+    setIsStartWorkoutDialogOpen(false)
+    setTrainingBusy(true);setTrainingError('')
+    try {
+      await useTrainingStore.getState().hydrate()
+      const run=useTrainingStore.getState().runs[program.id]
+      if(run&&(run.state.version!==2||program.engine.version===1||program.engine.compatibility)){
+        const engine=await trainingEngine<EngineSession>('prepare',{definition:program.engine,state:run.state,sectionId})
+        useTrainingStore.getState().setRun(program.id,{state:engine.before,revision:engine.definition.revision,explanations:run.explanations})
+        if(program.programSource==='custom')setCustomPrograms(current=>current.map(p=>p.id===program.id?{...p,engine:engine.definition}:p))
+        startWorkoutLegacy(program,sectionId,engine)
+      }else if(!run || run.revision!==program.engine.revision){
+        const state=await trainingEngine<EngineState>('initialize',{definition:program.engine,id:program.id,name:program.name})
+        const engine=await trainingEngine<EngineSession>('prepare',{definition:program.engine,state,sectionId})
+        useTrainingStore.getState().setRun(program.id,{state,revision:engine.definition.revision,explanations:[]})
+        if(program.programSource==='custom'&&program.engine.version===1)setCustomPrograms(current=>current.map(p=>p.id===program.id?{...p,engine:engine.definition}:p))
+        startWorkoutLegacy(program,sectionId,engine)
+      }else{
+        const engine=await trainingEngine<EngineSession>('prepare',{definition:program.engine,state:run.state,sectionId})
+        startWorkoutLegacy(program,sectionId,engine)
+      }
+    }catch(error){showBanner('error',error instanceof Error?error.message:String(error))}finally{setTrainingBusy(false)}
+  }
+
+  function startWorkoutLegacy(program: AppProgram, sectionId: string, engine?:EngineSession) {
+    const section = engine?.section ?? program.sections.find((entry) => entry.id === sectionId)
 
     if (!section) {
       return
@@ -1877,10 +1924,11 @@ function App() {
     const sessionId = createId('session')
     const startedAt = new Date().toISOString()
     const plannedWorkoutLogs = createPlannedWorkoutLogs(
-      program,
+      engine ? {...program,sections:[section]} : program,
       section.id,
       findExerciseByReference,
     )
+    if(engine)for(const exercise of section.exercises)plannedWorkoutLogs[exercise.id].setLogs=(exercise.prescriptions??[]).map(()=>createWorkoutSetLogEntry())
     const initialExerciseOrder = buildWorkoutExerciseOrder(
       workoutDayExerciseOrders[section.id] ?? section.exercises.map((exercise) => exercise.id),
       plannedWorkoutLogs,
@@ -1907,9 +1955,10 @@ function App() {
       }),
     )
     setActiveWorkout({
+      engine,
       exerciseLogs: plannedWorkoutLogs,
       exerciseOrder: initialExerciseOrder,
-      exertionScale: fitnessProfile.effortScale,
+      exertionScale: engine && fitnessProfile.effortScale==='effort' ? 'rpe' : fitnessProfile.effortScale,
       extraEntries: [],
       sessionId,
       programId: program.id,
@@ -2128,7 +2177,7 @@ function App() {
         }
 
         if (
-          options?.prefillNext &&
+          !currentWorkout.engine && options?.prefillNext &&
             index === setIndex + 1 &&
             !shouldKeepExistingSetLog(setLog)
           ) {
@@ -2924,7 +2973,47 @@ function App() {
     openWorkoutScreen()
   }
 
-  function finishWorkout() {
+  async function finishWorkout() {
+    if(trainingFinishLock.current||!activeWorkout)return
+    trainingFinishLock.current=true
+    setTrainingBusy(true);setTrainingError('')
+    const snapshot=useAppStore.getState(),engineSnapshot=useTrainingStore.getState().runs
+    const editingInactiveRun=Boolean(activeWorkout.engine && workoutLogs.some(log=>log.id===activeWorkout.sessionId) && engineSnapshot[activeWorkout.programId]?.state.runId!==activeWorkout.engine.before.runId)
+    try{
+      let result:EngineFinish|undefined
+      let engine=activeWorkout.engine
+      if(engine){
+        result=await trainingEngine<EngineFinish>('finish',{session:engine,logs:activeWorkout.exerciseLogs,effortScale:activeWorkout.exertionScale})
+        engine={...engine,...(result.definition?{definition:result.definition,before:result.before??engine.before}:{}),baselines:result.baselines??engine.baselines,events:result.events,explanations:result.explanations}
+        const runId=engine.before.runId
+        const existing=workoutLogs.find(log=>log.id===activeWorkout.sessionId)
+        if(existing && runId){
+          const runLogs=workoutLogs.filter(log=>log.engine?.before.runId===runId).sort((a,b)=>a.completedAt.localeCompare(b.completedAt)||a.id.localeCompare(b.id))
+          let state=runLogs[0]?.engine?.before ?? engine.before
+          for(const log of runLogs){
+            const original=log.id===activeWorkout.sessionId?engine:log.engine!
+            const session=await trainingEngine<EngineSession>('prepare',{definition:original.definition,state,sectionId:original.section.id})
+            for(const ex of session.section.exercises){const recorded=(log.id===activeWorkout.sessionId?activeWorkout.exerciseLogs:Object.fromEntries(log.exerciseLogs.map(e=>[e.logId,e])))[ex.id];if(recorded&&recorded.exerciseId!==ex.exerciseId)throw new Error('A history edit changes an exercise variation. Keep the original result or reset program targets before replaying this run.')}
+            const replayed=await trainingEngine<EngineFinish>('finish',{session:{...session,answers:original.answers},logs:log.id===activeWorkout.sessionId?activeWorkout.exerciseLogs:Object.fromEntries(log.exerciseLogs.map(e=>[e.logId,e])),effortScale:log.exertionScale})
+            state=replayed.state
+            result={...replayed,state}
+          }
+        }
+      }
+      await commitPersistedUpdates(()=>{
+        if(result&&engine&&!editingInactiveRun)useTrainingStore.getState().setRun(activeWorkout.programId,{state:result.state,revision:engine.definition.revision,explanations:result.explanations})
+        finishWorkoutLegacy(engine)
+      })
+    }catch(error){
+      useAppStore.setState(snapshot)
+      useTrainingStore.setState({runs:engineSnapshot})
+      setIsFinishWorkoutDialogOpen(true)
+      setTrainingError(error instanceof Error?error.message:String(error))
+      showBanner('error',error instanceof Error?error.message:String(error))
+    }finally{trainingFinishLock.current=false;setTrainingBusy(false)}
+  }
+
+  function finishWorkoutLegacy(engine?:EngineSession) {
     if (!activeWorkout || !activeProgramSession) {
       return
     }
@@ -2958,6 +3047,7 @@ function App() {
     })
 
     const workoutLog: WorkoutLog = {
+      engine,
       id: activeWorkout.sessionId,
       cardioEntryCount: (activeWorkout.extraEntries ?? []).filter((entry) => entry.type === 'cardio')
         .length,
@@ -2987,7 +3077,11 @@ function App() {
     const isEditingExistingWorkoutLog = workoutLogs.some(
       (entry) => entry.id === activeWorkout.sessionId,
     )
-    const nextWorkoutDay = getNextWorkoutDayOption(
+    const requiredDays=activeProgramSession.program.sections.filter(section=>!section.optional)
+    const allSections=activeProgramSession.program.sections
+    const currentIndex=allSections.findIndex(section=>section.id===activeWorkout.sectionId)
+    const nextEngineSection=allSections.slice(currentIndex+1).find(section=>!section.optional)??requiredDays[0]
+    const nextWorkoutDay = engine && nextEngineSection ? {section:nextEngineSection} : getNextWorkoutDayOption(
       activeProgramSession.program,
       activeWorkout.sectionId,
     )
@@ -2999,9 +3093,10 @@ function App() {
         .filter((entry) => entry.programId === activeWorkout.programId)
         .sort((left, right) => right.completedAt.localeCompare(left.completedAt))[0]
         ?.completedAt ?? null
-    const programCompletionLog = !nextWorkoutDay
+    const isEngineCycleComplete = Boolean(engine && requiredDays.at(-1)?.id===activeWorkout.sectionId)
+    const programCompletionLog = !nextWorkoutDay || isEngineCycleComplete
       ? buildProgramCompletionLog(
-          activeProgramSession.program,
+          engine ? {...activeProgramSession.program,sections:requiredDays} : activeProgramSession.program,
           [programDayLog, ...programDayLogs],
           finishedAt,
           latestProgramCompletionAt,
@@ -3070,6 +3165,8 @@ function App() {
     }
 
     await resetPersistedAppState()
+    useTrainingStore.setState({runs:{},ready:true})
+    await writePersistedState(TRAINING_STORAGE_KEY,{})
     setDraft(createEmptyDraft())
     setIsBuilderOpen(false)
     setIsFinishWorkoutDialogOpen(false)
@@ -3092,6 +3189,8 @@ function App() {
     }
 
     await resetProgressionStateInStore()
+    useTrainingStore.setState({runs:{},ready:true})
+    await writePersistedState(TRAINING_STORAGE_KEY,{})
     setIsFinishWorkoutDialogOpen(false)
     setIsStartWorkoutDialogOpen(false)
     setSelectedWorkoutSectionId(null)
@@ -3104,6 +3203,8 @@ function App() {
       return null
     }
 
+    const exact=contentLibrary.exercises.find(exercise=>exercise.id===reference)
+    if(exact)return exact
     const normalizedReference = slugify(reference)
 
     return (
@@ -3212,6 +3313,11 @@ function App() {
 
         {isAppReady && activeTab === 'progression' ? (
           <ProgressionPage
+            programDayLogs={programDayLogs}
+            workoutLogs={workoutLogs}
+            onOpenExercise={openExerciseDetails}
+            canOpenExercise={(reference) => Boolean(findExerciseByReference(reference))}
+            onOpenWorkout={() => navigate(getPrimaryRoutePath('workout'))}
             bodyStatsEntries={bodyCompositionEntries}
             mainProgram={mainProgram}
             mainProgramStats={mainProgramStats}
@@ -3231,8 +3337,8 @@ function App() {
               <BodyCompositionPanel
                 bodyStatsEntries={bodyCompositionEntries}
                 progressPhotos={progressPhotos}
-                onAddProgressPhoto={(photo) => setProgressPhotos((current) => [photo, ...current])}
-                onRemoveProgressPhoto={(id) => setProgressPhotos((current) => current.filter((photo) => photo.id !== id))}
+                onAddProgressPhoto={(photos) => setProgressPhotos((current) => [...photos, ...current])}
+                onRemoveProgressPhoto={(id) => { void setProgressPhotos((current) => current.filter((photo) => photo.id !== id)).catch(() => showBanner("error", "Could not delete photo. Please try again.")) }}
                 fitnessProfile={fitnessProfile}
                 onAddBodyStatsEntry={addBodyCompositionEntry}
                 onRemoveBodyStatsEntry={removeBodyCompositionEntry}
@@ -3277,6 +3383,9 @@ function App() {
         ) : null}
 
         {isAppReady && activeTab === 'workout' ? (
+          <>
+          {trainingBusy ? <p role="status">Calculating automatic targets…</p> : null}
+          {launchProgram && trainingRuns[launchProgram.id]?.explanations.length ? <div className="training-progression"><strong>Next workout targets updated</strong>{trainingRuns[launchProgram.id].explanations.map((text,index)=><p key={index}>{text}</p>)}</div> : null}
           <WorkoutPage
             activeWorkout={activeWorkout}
             activeWorkoutExerciseLogs={activeWorkoutExerciseLogs}
@@ -3328,6 +3437,7 @@ function App() {
             workoutLogs={workoutLogs}
             workoutWeeks={workoutWeeks}
           />
+          </>
         ) : null}
 
         {isAppReady && activeTab === 'insights' ? (
@@ -3396,6 +3506,8 @@ function App() {
 
       {selectedProgram ? (
         <ProgramDetailSheet
+          key={`${selectedProgram.id}:${programDetailView}`}
+          initialView={programDetailView}
           exercises={contentLibrary.exercises}
           gender={fitnessProfile.gender}
           isSaved={savedProgramIdSet.has(selectedProgram.id)}
@@ -3403,7 +3515,7 @@ function App() {
           onClose={() => setSelectedProgramId(null)}
           onDeleteCustomProgram={deleteCustomProgram}
           onEditCustomProgram={editCustomProgram}
-          onOpenExerciseDetails={openExerciseDetails}
+          onOpenExerciseDetails={exercise => { setSelectedExerciseSubstitutionTarget(null); setSelectedExerciseId(exercise.id) }}
           onSelectProgramAsMain={selectProgramAsMain}
           onStartWorkout={startWorkout}
           onToggleSavedProgram={toggleSavedProgram}
@@ -3414,6 +3526,8 @@ function App() {
 
       {selectedExercise ? (
         <ExerciseDetailSheet
+          key={selectedExercise.id}
+          replacementExercises={contentLibrary.exercises}
           alternatives={selectedExerciseAlternatives}
           exercise={selectedExercise}
           fitnessProfile={fitnessProfile}
@@ -3442,7 +3556,11 @@ function App() {
           onClose={() => setIsFinishWorkoutDialogOpen(false)}
           onConfirm={finishWorkout}
           programName={activeWorkout.programName}
-        />
+          busy={trainingBusy}
+          error={trainingError}
+        >
+          {activeWorkout.engine?.prompts?.map(prompt=><label className="field" key={prompt.id}><span>{prompt.label}</span><input type="number" step="any" value={activeWorkout.engine?.answers?.[prompt.id]??''} onChange={event=>{const value=event.target.value;setActiveWorkout(current=>current?.engine?{...current,engine:{...current.engine,answers:{...current.engine.answers,[prompt.id]:value===''?NaN:Number(value)}}}:current)}}/></label>)}
+        </FinishWorkoutDialog>
       ) : null}
 
       {isStartWorkoutDialogOpen && !activeWorkout && launchProgram && selectedWorkoutSection ? (

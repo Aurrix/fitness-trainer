@@ -1,0 +1,2 @@
+import * as runtime from './runtime.mjs'
+self.onmessage=async event=>{const {id,operation,payload}=event.data;try{if(!['adapt','compile','inspect','initialize','prepare','update','finish'].includes(operation))throw new Error('Unknown engine operation');const result=await runtime[operation](payload);self.postMessage({id,result})}catch(error){self.postMessage({id,error:error?.message??String(error)})}}

@@ -1,0 +1,36 @@
+{
+  "id": "jerk-dip-squat",
+  "displayLabel": "Jerk Dip Squat",
+  "shortDescription": "olympic weightlifting exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "This movement strengthens the dip portion of the jerk. Begin with the bar racked in the jerk position, with the shoulders forward to create a shelf and the bar lightly contacting the throat. The feet should be directly under the hips, with the feet turned out as is comfortable.",
+    "Keeping the torso vertical, dip by flexing the knees, allowing them to travel forward and without moving the hips to the rear. The dip should not be excessive. Return the weight to the starting position by driving forcefully though the feet."
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "category": "olympic weightlifting",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

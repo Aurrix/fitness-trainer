@@ -5,7 +5,8 @@
   "descriptionHtml": "<p>Triceps accessory movement for elbow extension volume.</p><ul><li><strong>Also listed as:</strong> EZ Bar Skullcrusher and EZ Skullcrusher</li><li><strong>Common substitutions:</strong> Floor Press, Jm Press, Pin Press, and Dumbbell Skull Crusher</li></ul>",
   "aliases": [
     "EZ Bar Skullcrusher",
-    "EZ Skullcrusher"
+    "EZ Skullcrusher",
+    "EZ-Bar Skullcrusher"
   ],
   "substitutionExerciseIds": [
     "floor-press",
@@ -238,5 +239,19 @@
         }
       }
     }
-  }
+  },
+  "instructions": [
+    "Using a close grip, lift the EZ bar and hold it with your elbows in as you lie on the bench. Your arms should be perpendicular to the floor. This will be your starting position.",
+    "Keeping the upper arms stationary, lower the bar by allowing the elbows to flex. Inhale as you perform this portion of the movement. Pause once the bar is directly above the forehead.",
+    "Lift the bar back to the starting position by extending the elbow and exhaling.",
+    "Repeat."
+  ],
+  "equipment": [
+    "e-z curl bar"
+  ],
+  "category": "strength",
+  "tags": [
+    "push",
+    "isolation"
+  ]
 }

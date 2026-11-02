@@ -1,0 +1,35 @@
+{
+  "id": "liftosaur-inclinebenchpresswidegrip-barbell",
+  "displayLabel": "Incline Bench Press Wide Grip (barbell)",
+  "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
+  "equipment": [
+    "barbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "frontDelts",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "Liftosaur",
+    "AGPL-3.0"
+  ],
+  "sourceUrl": "https://github.com/astashov/liftosaur",
+  "license": "AGPL-3.0"
+}

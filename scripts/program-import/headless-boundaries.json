@@ -1,0 +1,10 @@
+[
+  "src/api/service",
+  "src/ducks/thunks",
+  "src/migrations/migrations",
+  "src/models/editProgram",
+  "src/models/state",
+  "src/utils/dialog",
+  "src/utils/exporter",
+  "src/utils/liveActivityManager"
+]

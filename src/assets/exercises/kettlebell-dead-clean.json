@@ -1,0 +1,49 @@
+{
+  "id": "kettlebell-dead-clean",
+  "displayLabel": "Kettlebell Dead Clean",
+  "shortDescription": "strength exercise targeting hamstrings.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Place kettlebell between your feet. To get in the starting position, push your butt back and look straight ahead.",
+    "Clean the kettlebell to your shoulder. Clean the kettlebell to your shoulders by extending through the legs and hips as you raise the kettlebell towards your shoulder. The wrist should rotate as you do so.",
+    "Lower the kettlebell, keeping the hamstrings loaded by keeping your back straight and your butt out."
+  ],
+  "equipment": [
+    "kettlebells"
+  ],
+  "category": "strength",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lower-back",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "trapezius",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "compound"
+  ]
+}

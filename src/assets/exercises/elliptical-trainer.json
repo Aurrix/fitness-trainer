@@ -189,5 +189,6 @@
     "cardio",
     "conditioning",
     "low-impact"
-  ]
+  ],
+  "exerciseType": "continues"
 }

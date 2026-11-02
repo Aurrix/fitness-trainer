@@ -1,0 +1,34 @@
+{
+  "id": "upper-back-leg-grab",
+  "displayLabel": "Upper Back-Leg Grab",
+  "shortDescription": "stretching exercise targeting hamstrings.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "While seated, bend forward to hug your thighs from underneath with both arms.",
+    "Keep your knees together and your legs extended out as you bring your chest down to your knees. You can also stretch your middle back by pulling your back away from your knees as your hugging them."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-back",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upper-back",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static"
+  ],
+  "exerciseType": "continues"
+}

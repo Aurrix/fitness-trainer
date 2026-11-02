@@ -1,0 +1,48 @@
+{
+  "id": "carioca-quick-step",
+  "displayLabel": "Carioca Quick Step",
+  "shortDescription": "plyometrics exercise targeting adductors.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Begin with your feet a few inches apart and your left arm up in a relaxed, athletic position.",
+    "With your right foot, quick step behind and pull the knee up.",
+    "Fire your arms back up when you pull the right knee, being sure that your knee goes straight up and down. Avoid turning your feet as you move and continue to look forward as you move to the side."
+  ],
+  "equipment": [],
+  "category": "plyometrics",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "adductors",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": []
+}

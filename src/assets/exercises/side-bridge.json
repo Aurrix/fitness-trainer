@@ -1,0 +1,29 @@
+{
+  "id": "side-bridge",
+  "displayLabel": "Side Bridge",
+  "shortDescription": "strength exercise targeting abdominals.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [],
+  "equipment": [
+    "bodyweight"
+  ],
+  "category": "strength",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "deltoids",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static"
+  ],
+  "exerciseType": "continues"
+}

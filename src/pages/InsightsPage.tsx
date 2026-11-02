@@ -1,3 +1,5 @@
+import { trainingEngine } from '../lib/training/client'
+import type { EngineDefinition } from '../lib/training/types'
 import {
   useCallback,
   useMemo,
@@ -832,7 +834,9 @@ export default function InsightsPage({
           </div>
         </section>
 
-        <div className="program-builder-week-stack">
+        {!draft.engine ? <button type="button" className="secondary-button" onClick={async()=>{try{const engine=await trainingEngine<EngineDefinition>('adapt',{program:draft,exercises:contentExercises});onUpdateDraftField('engine',engine)}catch(error){window.alert(error instanceof Error?error.message:String(error))}}}>Enable automatic progression</button> : null}
+        {draft.engine ? <section className="section-card"><h3>Automatic program definition</h3><p>Edit workout sections, set prescriptions, and progression rules as JSON. Saving validates the definition. New runs learn starting loads from your completed sets.</p><label className="field"><span>Program definition (JSON)</span><textarea aria-label="Program definition" rows={24} spellCheck={false} readOnly={draft.engine.version === 1 || Boolean(draft.engine.compatibility)} value={draft.engine.source ?? JSON.stringify({sections:draft.engine.sections,loads:draft.engine.loads,...(draft.engine.rulePrograms?{rulePrograms:draft.engine.rulePrograms}:{})},null,2)} onChange={event=>onUpdateDraftField('engine',{...draft.engine!,source:event.target.value})}/></label><p>{draft.engine.sections.length} workout templates</p></section> : null}
+        <div className="program-builder-week-stack" hidden={Boolean(draft.engine)}>
           {draftWeeks.map((week) => {
             const isWeekExpanded = week.weekIndex === visibleExpandedWeekIndex
             const expandedSectionId = expandedSectionIdByWeek[week.weekIndex]
@@ -1287,7 +1291,7 @@ export default function InsightsPage({
         </div>
 
         <section className="program-builder-end-actions">
-          <button type="button" className="secondary-button icon-button" onClick={handleAddWeek}>
+          <button type="button" hidden={Boolean(draft.engine)} className="secondary-button icon-button" onClick={handleAddWeek}>
             <CalendarRange size={16} />
             <span>Add week</span>
           </button>

@@ -1,0 +1,25 @@
+{
+  "id": "side-lying-floor-stretch",
+  "displayLabel": "Side-Lying Floor Stretch",
+  "shortDescription": "stretching exercise targeting lats.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "First lie on your left side, bending your left knee in front of you to stabilize your torso (use your abdominal muscles as well to hold you upright).",
+    "Straighten your right leg and rest the right foot on the floor behind your left. Straighten your right arm over your head and gently pull on your right wrist to stretch the entire right side of the body. Switch sides."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "tags": [
+    "static"
+  ],
+  "exerciseType": "continues"
+}

@@ -1,3 +1,4 @@
+import type { EngineSession } from '../lib/training/types'
 export type WorkoutSetLogEntry = {
   completedAt: string | null
   duration: string
@@ -36,6 +37,7 @@ export type WorkoutExerciseLogEntry = {
 }
 
 export type WorkoutLog = {
+  engine?: EngineSession
   cardioEntryCount: number
   completedAt: string
   completedExerciseCount: number
@@ -55,6 +57,7 @@ export type WorkoutLog = {
 }
 
 export type ActiveWorkout = {
+  engine?: EngineSession
   completedExerciseIds: string[]
   exerciseLogs: Record<string, WorkoutExerciseLogEntry>
   exerciseOrder: string[]

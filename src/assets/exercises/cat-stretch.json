@@ -1,0 +1,35 @@
+{
+  "id": "cat-stretch",
+  "displayLabel": "Cat Stretch",
+  "shortDescription": "stretching exercise targeting lower back.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Position yourself on the floor on your hands and knees.",
+    "Pull your belly in and round your spine, lower back, shoulders, and neck, letting your head drop.",
+    "Hold for 15 seconds."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-back",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-back",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "trapezius",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static"
+  ],
+  "exerciseType": "continues"
+}

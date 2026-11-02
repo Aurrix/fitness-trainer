@@ -1,0 +1,40 @@
+{
+  "id": "sled-drag-harness",
+  "displayLabel": "Sled Drag - Harness",
+  "shortDescription": "strongman exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "To begin, load the sled with the desired weight and attach the pulling strap. You can pull with handles, use a harness, or attach the pulling strap to a weight belt.",
+    "Whether pulling forwards or backwards, lean in the direction of travel and progress by extending through the hips and knees."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "strongman",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

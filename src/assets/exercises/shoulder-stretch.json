@@ -1,0 +1,24 @@
+{
+  "id": "shoulder-stretch",
+  "displayLabel": "Shoulder Stretch",
+  "shortDescription": "stretching exercise targeting shoulders.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Reach your left arm across your body and hold it straight."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "deltoids",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "tags": [
+    "pull"
+  ],
+  "exerciseType": "continues"
+}

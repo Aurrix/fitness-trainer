@@ -1,0 +1,22 @@
+{
+  "id": "pendulum-squat",
+  "displayLabel": "Pendulum Squat",
+  "shortDescription": "A supported machine squat that follows an arcing path, targeting the quadriceps with assistance from the glutes and adductors.",
+  "aliases": ["Machine Pendulum Squat", "Pendulum Squat Machine", "Pendulum Squats"],
+  "category": "strength",
+  "difficulty": "Intermediate",
+  "equipment": ["machine", "pendulum squat machine"],
+  "primaryTargetMuscleGroups": [{"muscleGroup": "quadriceps", "factor": 1}],
+  "secondaryTargetMuscleGroups": [{"muscleGroup": "gluteal", "factor": 0.5}, {"muscleGroup": "adductors", "factor": 0.5}],
+  "substitutionExerciseIds": ["hack-squat", "leg-press", "smith-machine-squat"],
+  "instructions": [
+    "Adjust the machine's starting position and safety stops, then position your back against the support and your shoulders beneath the pads.",
+    "Place both feet securely on the platform in a comfortable stance and hold the handles.",
+    "Extend your legs enough to release the safety catch, keeping your knees softly extended.",
+    "Bend your knees and hips to lower the machine under control. Keep your heels on the platform and your back against the support, using a comfortable range of motion.",
+    "Push through your feet to return to the starting position without bouncing or forcefully locking your knees.",
+    "After the final repetition, engage the safety catch before stepping out of the machine."
+  ],
+  "tags": ["push", "compound", "machine squat", "pendulum"],
+  "notes": "Follow the setup and safety instructions for your machine. Muscle factors are app defaults. Log added plate weight consistently; resistance varies between machine designs."
+}

@@ -1,0 +1,43 @@
+{
+  "id": "overhead-stretch",
+  "displayLabel": "Overhead Stretch",
+  "shortDescription": "stretching exercise targeting abdominals.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Standing straight up, lace your fingers together and open your palms to the ceiling. Keep your shoulders down as you extend your arms up.",
+    "To create a full torso stretch, pull your tailbone down and stabilize your torso as you do this. Stretch the muscles on both the front and the back of the torso."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearm",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lats",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static",
+    "compound"
+  ],
+  "exerciseType": "continues"
+}

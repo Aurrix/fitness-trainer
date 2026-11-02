@@ -1,0 +1,42 @@
+{
+  "id": "kneeling-jump-squat",
+  "displayLabel": "Kneeling Jump Squat",
+  "shortDescription": "olympic weightlifting exercise targeting glutes.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Begin kneeling on the floor with a barbell racked across the back of your shoulders, or you can use your body weight for this exercise. This can be done inside of a power rack to make unracking easier.",
+    "Sit back with your hips until your glutes touch your feet, keeping your head and chest up.",
+    "Explode up with your hips, generating enough power to land with your feet flat on the floor.",
+    "Continue with the squat by driving through your heels and extending the knees to come to a standing position."
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "category": "olympic weightlifting",
+  "difficulty": "Advanced",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

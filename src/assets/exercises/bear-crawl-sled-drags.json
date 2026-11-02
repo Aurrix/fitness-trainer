@@ -1,0 +1,40 @@
+{
+  "id": "bear-crawl-sled-drags",
+  "displayLabel": "Bear Crawl Sled Drags",
+  "shortDescription": "strongman exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Wearing either a harness or a loose weight belt, attach the chain to the back so that you will be facing away from the sled. Bend down so that your hands are on the ground. Your back should be flat and knees bent. This is your starting position.",
+    "Begin by driving with legs, alternating left and right. Use your hands to maintain balance and to help pull. Try to keep your back flat as you move over a given distance."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "strongman",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

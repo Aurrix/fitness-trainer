@@ -1,0 +1,44 @@
+{
+  "id": "freehand-jump-squat",
+  "displayLabel": "Freehand Jump Squat",
+  "shortDescription": "strength exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Cross your arms over your chest.",
+    "With your head up and your back straight, position your feet at shoulder width.",
+    "Keeping your back straight and chest up, squat down as you inhale until your upper thighs are parallel, or lower, to the floor.",
+    "Now pressing mainly with the ball of your feet, jump straight up in the air as high as possible, using the thighs like springs. Exhale during this portion of the movement.",
+    "When you touch the floor again, immediately squat down and jump again.",
+    "Repeat for the recommended amount of repetitions."
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "category": "strength",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

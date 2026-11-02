@@ -1,0 +1,41 @@
+{
+  "id": "one-arm-kettlebell-swings",
+  "displayLabel": "One-Arm Kettlebell Swings",
+  "shortDescription": "strength exercise targeting hamstrings.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [],
+  "equipment": [
+    "kettlebells"
+  ],
+  "category": "strength",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lower-back",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "deltoids",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "compound"
+  ]
+}

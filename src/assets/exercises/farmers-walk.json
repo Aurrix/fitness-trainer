@@ -1,0 +1,52 @@
+{
+  "id": "farmers-walk",
+  "displayLabel": "Farmer's Walk",
+  "shortDescription": "strongman exercise targeting forearms.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "There are various implements that can be used for the farmers walk. These can also be performed with heavy dumbbells or short bars if these implements aren't available. Begin by standing between the implements.",
+    "After gripping the handles, lift them up by driving through your heels, keeping your back straight and your head up.",
+    "Walk taking short, quick steps, and don't forget to breathe. Move for a given distance, typically 50-100 feet, as fast as possible."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "strongman",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "forearm",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lower-back",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "trapezius",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "compound"
+  ]
+}

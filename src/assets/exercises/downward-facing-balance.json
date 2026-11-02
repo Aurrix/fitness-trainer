@@ -1,0 +1,36 @@
+{
+  "id": "downward-facing-balance",
+  "displayLabel": "Downward Facing Balance",
+  "shortDescription": "strength exercise targeting glutes.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Lie facedown on top of an exercise ball.",
+    "While resting on your stomach on the ball, walk your hands forward along the floor and lift your legs, extending your elbows and knees."
+  ],
+  "equipment": [
+    "exercise ball"
+  ],
+  "category": "strength",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static",
+    "isolation"
+  ]
+}

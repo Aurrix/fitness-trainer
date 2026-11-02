@@ -1,0 +1,43 @@
+{
+  "id": "lunge-pass-through",
+  "displayLabel": "Lunge Pass Through",
+  "shortDescription": "strength exercise targeting hamstrings.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Stand with your torso upright holding a kettlebell in your right hand. This will be your starting position.",
+    "Step forward with your left foot and lower your upper body down by flexing the hip and the knee, keeping the torso upright. Lower your back knee until it nearly touches the ground.",
+    "As you lunge, pass the kettlebell under your front leg to your opposite hand.",
+    "Pressing through the heel of your foot, return to the starting position.",
+    "Repeat the movement for the recommended amount of repetitions, alternating legs."
+  ],
+  "equipment": [
+    "kettlebells"
+  ],
+  "category": "strength",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

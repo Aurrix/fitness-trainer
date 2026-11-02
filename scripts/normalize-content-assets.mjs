@@ -51,7 +51,7 @@ function sentenceList(values) {
 function buildExerciseDescriptionHtml(exercise, exerciseLabelById) {
   const shortDescription =
     exercise.shortDescription?.trim() ||
-    'Resistance training exercise used across the imported workout books.'
+    'Exercise in the local training library.'
   const aliases = uniqueStrings(exercise.aliases ?? []).slice(0, 5)
   const substitutions = uniqueStrings(
     (exercise.substitutionExerciseIds ?? []).map((exerciseId) => {
@@ -233,7 +233,7 @@ async function main() {
     const substitutionExerciseIds = uniqueStrings(entry.exercise.substitutionExerciseIds ?? [])
     const shortDescription =
       entry.exercise.shortDescription?.trim() ||
-      'Resistance training exercise used across the imported workout books.'
+      'Exercise in the local training library.'
 
     const normalizedExercise = sortObjectEntries(
       {
@@ -279,7 +279,7 @@ async function main() {
         displayLabel: exercise.displayLabel?.trim() || exerciseLabelById.get(id),
         shortDescription:
           exercise.shortDescription?.trim() ||
-          'Resistance training exercise used across the imported workout books.',
+          'Exercise in the local training library.',
         file: fileName,
       }
     }),

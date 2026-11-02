@@ -1,0 +1,46 @@
+{
+  "id": "kettlebell-pistol-squat",
+  "displayLabel": "Kettlebell Pistol Squat",
+  "shortDescription": "strength exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Pick up a kettlebell with two hands and hold it by the horns. Hold one leg off of the floor and squat down on the other.",
+    "Squat down by flexing the knee and sitting back with the hips, holding the kettlebell up in front of you.",
+    "Hold the bottom position for a second and then reverse the motion, driving through the heel and keeping your head and chest up.",
+    "Lower yourself again and repeat."
+  ],
+  "equipment": [
+    "kettlebells"
+  ],
+  "category": "strength",
+  "difficulty": "Advanced",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "deltoids",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

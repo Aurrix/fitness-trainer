@@ -1,0 +1,31 @@
+{
+  "id": "kneeling-hip-flexor",
+  "displayLabel": "Kneeling Hip Flexor",
+  "shortDescription": "stretching exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Kneel on a mat and bring your right knee up so the bottom of your foot is on the floor and extend your left leg out behind you so the top of your foot is on the floor.",
+    "Shift your weight forward until you feel a stretch in your hip. Hold for 15 seconds, then repeat for your other side."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static",
+    "isolation"
+  ],
+  "exerciseType": "continues"
+}

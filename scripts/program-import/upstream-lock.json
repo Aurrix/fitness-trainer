@@ -1,0 +1,250 @@
+{
+  "repository": "https://github.com/astashov/liftosaur",
+  "commit": "421ca47fc13031c5c1df894055525cf96e45a18c",
+  "programs": [
+    {
+      "file": "arnold-split.md",
+      "sha256": "89e4357fab60262e26225511b35cc378790fc48e99f375300281c4f137244188"
+    },
+    {
+      "file": "arnoldgoldensix.md",
+      "sha256": "211ebc49a8c351f2cd04290be5c4aef3d48741dc08acfc5ea65aaf69af91da46"
+    },
+    {
+      "file": "barbell-medicine-the-bridge.md",
+      "sha256": "8da914ec3e9bfb81da8c715cd67ee97cbd92b10e9197883fca82b51d9bcb0a5d"
+    },
+    {
+      "file": "basicBeginner.md",
+      "sha256": "2ab6882da4614f67c91fffe376cc063ae29d897b2f6c85bd19ae8db8a131bc8d"
+    },
+    {
+      "file": "bro-split.md",
+      "sha256": "240e583bdd63d894b609f59003af59cd47c622cefca2f20dda311d5926da864a"
+    },
+    {
+      "file": "bullmastiff.md",
+      "sha256": "cca1091a641bab19c4d1af3b64bdbdc0922eeae058fad2e5b8089afc2be7b9d2"
+    },
+    {
+      "file": "calgary-barbell-16-week.md",
+      "sha256": "f888d8803c7da1e8c5b3f18d1e12ab1d136db208788e26f6b57942a68b9c6498"
+    },
+    {
+      "file": "coolcicada-ppl.md",
+      "sha256": "1c201acc11578510aea53bd901ef8fb7e3e0eb110a67dbd4dca1078b6c362d24"
+    },
+    {
+      "file": "cube-method.md",
+      "sha256": "338194a5e84e5b593bc9543de90c2ae249295a60ab1fc95ecd2860f134debf29"
+    },
+    {
+      "file": "dbPpl.md",
+      "sha256": "6a56deb2426f0023b399a72d216c21767064c6bb1a0024b7ba87576cfec619c2"
+    },
+    {
+      "file": "deep-water.md",
+      "sha256": "ca7835045f42c42b9c2505015f428dbe803c899e0d70e0ec37f47941322f405d"
+    },
+    {
+      "file": "doggcrapp.md",
+      "sha256": "eeda6dac39f4cae3051ba7d0b86ad943672be120ca5a7f1762e33a2ca898a7db"
+    },
+    {
+      "file": "doug-hepburn-method.md",
+      "sha256": "f0afe9dca1badf8b83a3b71ea35821cefbd9e9bf49d5684a018cc9775a6b24d3"
+    },
+    {
+      "file": "easy-strength.md",
+      "sha256": "6c91a4b13b009cee5a5d492f112ad508a4fbd6730c69924b0d546b12bcebfbfa"
+    },
+    {
+      "file": "fierce-5.md",
+      "sha256": "51280f4c8ed9092c68a23c079a59cf1368850de050e94e1224df504e03985162"
+    },
+    {
+      "file": "german-volume-training.md",
+      "sha256": "1300dd14f383006307238213b0087df05d70bd2f79fc903f4e1b0a3b01710fc9"
+    },
+    {
+      "file": "gzcl-general-gainz-burrito-but-big.md",
+      "sha256": "94e2be0655e698fe3282547c6977a8fd8fc70e2ba347566007b53530078d7e8e"
+    },
+    {
+      "file": "gzcl-general-gainz-riptide.md",
+      "sha256": "9a4bc0ddae3224f741ca2a9ed0b7719279d1e0ca81ea00f00b7cc08acc76d43e"
+    },
+    {
+      "file": "gzcl-general-gainz.md",
+      "sha256": "5c1f4f203b2c5ef3e3f34b8a8074d9b6e5021f348e69c854bd61af79fcc3a942"
+    },
+    {
+      "file": "gzcl-ggbb.md",
+      "sha256": "6741c28586ac835cb7536f5d29651e123dbd785698121def1f619eb17e500718"
+    },
+    {
+      "file": "gzcl-jacked-and-tan-2.md",
+      "sha256": "e6825aea139d67edf345e16021593454d55f6531ef6f44327b7246a6f9073d1c"
+    },
+    {
+      "file": "gzcl-the-rippler.md",
+      "sha256": "080eb1e647e10f99077f5ed2053b7a4b7f4cead16770a0da19259266983a632b"
+    },
+    {
+      "file": "gzcl-uhf-5-weeks.md",
+      "sha256": "0c3192e2ddd2e2c0d9189ac91c17ec4d9afbfc0962f181c124c55599b715c6b4"
+    },
+    {
+      "file": "gzcl-uhf-9-weeks.md",
+      "sha256": "9123f06d28da913555e2fd73f4f08b8065459968d91438848ce0f9fc76e128c3"
+    },
+    {
+      "file": "gzcl-vdip.md",
+      "sha256": "db66f112d196d7b8ff6505edbc43772da9fd9c04e7efa5ec1c1616bfd07f410b"
+    },
+    {
+      "file": "gzclp-blacknoir.md",
+      "sha256": "039e03c288965c468ecd9c4f85f7a2833dad43b7a309c5d78abe103d2646c303"
+    },
+    {
+      "file": "gzclp.md",
+      "sha256": "adefe588faa43b01033a6d94dbe83f9c280a7fa4c0e974d4928ba8b203738247"
+    },
+    {
+      "file": "ice-cream-fitness-5x5.md",
+      "sha256": "9e19251dce466fc42be9717db13c7ccd42c4d8c8796118e1e42b7e899e573c8e"
+    },
+    {
+      "file": "ivysaur-4-4-8.md",
+      "sha256": "f4cd4ecffe2305f481f8a8233062c3d8fdb65f1d29504a1ceb227fad4f444de5"
+    },
+    {
+      "file": "jay-cutler-split.md",
+      "sha256": "76a7123830ab4e60d21f210ecf245e87cdc602a1fe275c0305170c1c55203f80"
+    },
+    {
+      "file": "juggernaut-method.md",
+      "sha256": "cb2f41fa282fe9c2f2fb79f4eec62e7fa4d78f92eda3cd954bb5bd63c3f2128b"
+    },
+    {
+      "file": "lylegenericbulking.md",
+      "sha256": "22a12e0d6484df4b6ef0533931daca473a9cf2ca9710ed7dda95028630242e83"
+    },
+    {
+      "file": "madcow.md",
+      "sha256": "76e819530ee647c450801342da3afd9b73970d63c46bfb606a308ed92103f893"
+    },
+    {
+      "file": "metallicadpappl.md",
+      "sha256": "3c49d3d71678eb9fc1f00b9963690c1a305ca6d88113b7d2d088bdfd3a337a9e"
+    },
+    {
+      "file": "mike-mentzer-consolidated.md",
+      "sha256": "23e7bac79c3c66dcd8784645504bbdf3f350c2c7046d6e07e3d9b418086957bd"
+    },
+    {
+      "file": "mike-mentzer-heavy-duty.md",
+      "sha256": "151fdfbe89bd8019a2fa09c987d14e439a9597901bacada554ee67105e52fe1c"
+    },
+    {
+      "file": "monolith531.md",
+      "sha256": "8b9156db44997098504b32f43e675772b7959435c5b136bb6d27d6eaf18fe24b"
+    },
+    {
+      "file": "nsuns.md",
+      "sha256": "ec6e7eed120fee29c58c0314f0315db707fd7dbe8a9ea44397af61e50386c224"
+    },
+    {
+      "file": "phat.md",
+      "sha256": "495431f45d438d7daaebcce078058bf619c6b9690536594689aa477dbc23fe1e"
+    },
+    {
+      "file": "phrakgreyskull.md",
+      "sha256": "159f5dc5af96ed18f4e8de69bf64922cad5be755da006203a5d8467dcf9a4a4f"
+    },
+    {
+      "file": "phul.md",
+      "sha256": "a5e8f9384fb49c39e187f29ce849cf0b13f5de70e8188d65d2d137d72528d70a"
+    },
+    {
+      "file": "planet-fitness-hypertrophy.md",
+      "sha256": "86b3759889dd14a857471d1c75877bba66400d31da803b8b77760a2723fb6a6e"
+    },
+    {
+      "file": "pzerofullbody.md",
+      "sha256": "7b87059c16abe1d6fc32f3b775eb678cfa4e13ed2add4ab679163a89d51061e9"
+    },
+    {
+      "file": "recommended-routine.md",
+      "sha256": "5f9cd96a24d5d7d72fd52af0691a0f8cea26080e73f0c487e4c2661744f4f20d"
+    },
+    {
+      "file": "sheiko-29-32.md",
+      "sha256": "1530b0d50660460e8b8f3c84002d8443cee9ad9eae12e033d3743c5bed9041d9"
+    },
+    {
+      "file": "shortcut-to-size.md",
+      "sha256": "413beae12a2459550f22b2b37467fbb5a1ec73dc0e5a7582f13fc2e8af29c951"
+    },
+    {
+      "file": "smolov-jr.md",
+      "sha256": "1f71b47e53b3123877071b316522151b60a1f1d2487691e5f79b0c324cb0a69f"
+    },
+    {
+      "file": "smolov-squat.md",
+      "sha256": "92d0931776433a0faf803417f3cfddb295af8805c13242cc2c971fa5e48deda7"
+    },
+    {
+      "file": "ss1.md",
+      "sha256": "1617289be96b21eea9242163fcfed0066fe3093873cf9bc2a49c0c0e94a813db"
+    },
+    {
+      "file": "ss2.md",
+      "sha256": "af5e8efa113bccf3b64aac93b763de03b71d3ce41be2fe96a5da707251725bc5"
+    },
+    {
+      "file": "ss3.md",
+      "sha256": "322e6204de31bd6670ae291e9181cea29762ff52eef7b90b7bd14ac3a500210b"
+    },
+    {
+      "file": "strongcurves.md",
+      "sha256": "2f098f633763616cf114cce7a70f35c0cac20e8090007eae92d18f08e76bb3a1"
+    },
+    {
+      "file": "super-squats.md",
+      "sha256": "865012e3c6bca668abe04a9225c1cdef8417d625026e44958404f906f443d504"
+    },
+    {
+      "file": "tactical-barbell-mass-protocol.md",
+      "sha256": "66e9ec635251c7a801b8bc7e89be4f4b5084abf85742a2e54cdc2e217e11b423"
+    },
+    {
+      "file": "tactical-barbell-operator.md",
+      "sha256": "e98892d1b3cb5248445c0bfa847e7b676e32e3a6a018fb3af768827f01779a5a"
+    },
+    {
+      "file": "texasmethod.md",
+      "sha256": "43c51b941a4146403105d68ab5d1a85b0190d79d5c9b8c2488474193da8179bf"
+    },
+    {
+      "file": "the5314b.md",
+      "sha256": "cd96e374b4ddd55cec815691538a71b2871a97e3565e36b9475613dd546dd42b"
+    },
+    {
+      "file": "the531bbb.md",
+      "sha256": "f6df48da7d47904cd957d4083015331b13e8c33b35ea43f0566241d17f34c4d5"
+    },
+    {
+      "file": "tsa-9-week-intermediate.md",
+      "sha256": "b550d5a56eaf4e96587588b081bbba981545664c47c7693c9bb8071e3c9f828d"
+    },
+    {
+      "file": "westside-conjugate-method.md",
+      "sha256": "3b082bc967801dcee3b63242de574b6b534ce426b06d005b220f811186d05af4"
+    },
+    {
+      "file": "westside-for-skinny-bastards.md",
+      "sha256": "d86048680c992fa9783cab912a3c11614999030b3ba5d25c53770b9a36de6383"
+    }
+  ]
+}

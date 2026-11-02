@@ -1,0 +1,46 @@
+{
+  "id": "single-leg-hop-progression",
+  "displayLabel": "Single-Leg Hop Progression",
+  "shortDescription": "plyometrics exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Arrange a line of cones in front of you. Assume a relaxed standing position, balanced on one leg. Raise the knee of your opposite leg. This will be your starting position.",
+    "Hop forward, jumping and landing with the same leg over the cone.",
+    "Use a countermovement jump to hop from cone to cone.",
+    "At the end, turn around and go back on the other leg."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "plyometrics",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "adductors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

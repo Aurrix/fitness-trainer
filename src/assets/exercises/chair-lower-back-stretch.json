@@ -1,0 +1,32 @@
+{
+  "id": "chair-lower-back-stretch",
+  "displayLabel": "Chair Lower Back Stretch",
+  "shortDescription": "stretching exercise targeting lats.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Sit upright on a chair.",
+    "Bend to one side with your arm over your head. You can hold onto the chair with your free hand.",
+    "Hold for 10 seconds, and repeat for your other side."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-back",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static",
+    "isolation"
+  ],
+  "exerciseType": "continues"
+}

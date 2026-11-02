@@ -1,0 +1,22 @@
+Fitness Trainer native training engine and imported program data
+
+All catalog programs execute in the app's native engine. No third-party
+interpreter, planner compiler, or compatibility runtime is shipped in this
+folder. Saved older definitions and state are imported as data by migrate.mjs.
+
+Existing source attribution and AGPL-3.0 notices remain attached to imported
+program/exercise records, converted rule data, and reference effort multipliers.
+Converting storage or replacing the interpreter does not replace those notices.
+
+Original program collection and numeric reference:
+https://github.com/astashov/liftosaur
+Pinned source revision: 421ca47fc13031c5c1df894055525cf96e45a18c
+Upstream authors: Anton Astashov and contributors. Individual program authors
+and original source URLs remain attached to each imported program.
+See LICENSE.txt for the complete AGPL-3.0 text.
+
+The pinned original interpreter and definitions are retained under
+ tests/reference/ solely for development-time conversion and conformance tests.
+They are outside the production public directory and are never loaded by
+workout execution. See scripts/program-import/native-migration-report.json
+for catalog execution status.

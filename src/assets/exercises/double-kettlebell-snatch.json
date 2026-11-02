@@ -1,0 +1,41 @@
+{
+  "id": "double-kettlebell-snatch",
+  "displayLabel": "Double Kettlebell Snatch",
+  "shortDescription": "strength exercise targeting shoulders.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Place two kettlebells behind your feet. Bend your knees and sit back to pick up the kettlebells.",
+    "Swing the kettlebells between your legs forcefully and reverse the direction.",
+    "Drive through with your hips and lock the ketttlebells overhead in one uninterrupted motion."
+  ],
+  "equipment": [
+    "kettlebells"
+  ],
+  "category": "strength",
+  "difficulty": "Advanced",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "deltoids",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "compound"
+  ]
+}

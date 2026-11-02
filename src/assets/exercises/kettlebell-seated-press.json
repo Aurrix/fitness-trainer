@@ -1,0 +1,33 @@
+{
+  "id": "kettlebell-seated-press",
+  "displayLabel": "Kettlebell Seated Press",
+  "shortDescription": "strength exercise targeting shoulders.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Sit on the floor and spread your legs out comfortably.",
+    "Clean one kettlebell to your shoulder.",
+    "Press the kettlebell up and out until it is locked out overhead. Return to the starting position."
+  ],
+  "equipment": [
+    "kettlebells"
+  ],
+  "category": "strength",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "deltoids",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

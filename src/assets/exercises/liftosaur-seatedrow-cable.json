@@ -1,0 +1,51 @@
+{
+  "id": "liftosaur-seatedrow-cable",
+  "displayLabel": "Seated Row (cable)",
+  "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
+  "equipment": [
+    "cable"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "upperBack",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "rearDelts",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lowerBack",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "rotatorCuff",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lats",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "Liftosaur",
+    "AGPL-3.0"
+  ],
+  "sourceUrl": "https://github.com/astashov/liftosaur",
+  "license": "AGPL-3.0"
+}

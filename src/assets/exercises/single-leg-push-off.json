@@ -1,0 +1,37 @@
+{
+  "id": "single-leg-push-off",
+  "displayLabel": "Single Leg Push-off",
+  "shortDescription": "plyometrics exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Stand on the ground with one foot resting on the box, heel close to the edge.",
+    "Push off with your foot on top of the box, trying to gain as much height as possible by extending through the hip and knee.",
+    "Land with the same foot on top of the box, returning your other foot back to the start position."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "plyometrics",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

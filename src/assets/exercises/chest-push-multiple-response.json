@@ -1,0 +1,42 @@
+{
+  "id": "chest-push-multiple-response",
+  "displayLabel": "Chest Push (multiple response)",
+  "shortDescription": "plyometrics exercise targeting chest.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Begin in a kneeling position facing a wall or utilize a partner. Hold the ball with both hands tight into the chest.",
+    "Execute the pass by exploding forward and outward with the hips while pushing the ball as hard as possible.",
+    "Follow through by falling forward, catching yourself with your hands.",
+    "Immediately return to an upright position. Repeat for the desired number of repetitions."
+  ],
+  "equipment": [
+    "medicine ball"
+  ],
+  "category": "plyometrics",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "deltoids",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

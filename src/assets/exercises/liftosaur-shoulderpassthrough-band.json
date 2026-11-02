@@ -1,0 +1,39 @@
+{
+  "id": "liftosaur-shoulderpassthrough-band",
+  "displayLabel": "Shoulder Pass Through (band)",
+  "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
+  "equipment": [
+    "band"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "frontDelts",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "rearDelts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "sideDelts",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "rotatorCuff",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upperBack",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "Liftosaur",
+    "AGPL-3.0"
+  ],
+  "sourceUrl": "https://github.com/astashov/liftosaur",
+  "license": "AGPL-3.0"
+}

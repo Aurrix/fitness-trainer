@@ -227,3 +227,48 @@ If browser menus change over time, these official guides are the best fallback:
 - Safari on iPhone: [Turn a website into an app in Safari on iPhone](https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/ios)
 - Safari on iPad: [Turn a website into an app in Safari on iPad](https://support.apple.com/en-tj/guide/ipad/ipad8f1f7a29/ipados)
 - Microsoft Edge: [Install, manage, or uninstall apps in Microsoft Edge](https://support.microsoft.com/en-us/topic/install-manage-or-uninstall-apps-in-microsoft-edge-0c156575-a94a-45e4-a54f-3a84846f6113)
+
+## Automatic training programs
+
+All 75 catalog programs execute in the app's native engine. Programs use the
+version 2 structure: weeks, days, local exercise IDs, individual set prescriptions,
+and data-only progression rules. Stable IDs preserve saved program selections.
+
+The engine supports rep ranges, double and linear progression, equipment steps,
+failure counters, deloads, percentage and RPE-derived loads, timed/unilateral sets,
+supersets, stateful custom progression, set and exercise variations, cross-week
+changes, prompted variables, and within-session set/target changes. Starting loads
+are inferred from completed work sets. The first completed valid work set for
+each exercise is saved as its baseline, including actual reps/load or duration.
+There is no starting-target setup step.
+
+Advanced rules are validated structured operations, not executable JavaScript.
+Their evaluator has operation, nesting, and set-count bounds. All native program
+definitions, including advanced rules, are editable as validated JSON. Required
+RPE is identified in set details; incomplete required inputs block finishing
+without changing saved progress.
+
+Saved version 1 sessions and older interpreter states are imported into native
+state on use. Run IDs, load settings, counters, and variation selections are
+retained; the original saved state is also kept as a non-executed backup.
+Unsupported or inconsistent imported data produces an error instead of deleting
+or overwriting the original workout.
+
+- `pnpm engine:build` validates all native programs without the reference engine.
+- `pnpm test:engine` runs catalog, progression, advanced-feature, and saved-state tests.
+- `pnpm test:engine:parity` compares all workout templates and full advanced-program
+  sequences with pinned development fixtures.
+- `pnpm import:programs` rebuilds original native program definitions and validates
+  the entire native catalog.
+- `pnpm programs:convert-native` refreshes converted rules from development fixtures;
+  `--dry-run` validates conversion without writing.
+- `node tests/training-browser.mjs` checks startup, completion, persistence, and cloning.
+
+The original interpreter and source inputs live only in `tests/reference`, outside
+production assets. `pnpm reference:engine:build` rebuilds that development fixture
+from a local pinned `third-party/liftosaur` checkout; normal builds, native program
+editing, and workout execution do not require that checkout or interpreter.
+
+Imported program/exercise attribution and license metadata are retained.
+See `public/engine/NOTICE.txt`, `public/engine/LICENSE.txt`, and
+`scripts/program-import/native-migration-report.json`.

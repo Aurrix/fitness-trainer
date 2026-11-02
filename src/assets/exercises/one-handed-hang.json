@@ -1,0 +1,31 @@
+{
+  "id": "one-handed-hang",
+  "displayLabel": "One Handed Hang",
+  "shortDescription": "stretching exercise targeting lats.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Grab onto a chinup bar with one hand, using a pronated grip. Keep your feet on the floor or a step. Allow the majority of your weight to hang from that hand, while keeping your feet on the ground. Hold for 10-20 seconds and switch sides."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static"
+  ],
+  "exerciseType": "continues"
+}

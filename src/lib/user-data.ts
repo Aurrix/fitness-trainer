@@ -1,3 +1,4 @@
+import type { EngineSession, EngineDefinition } from './training/types'
 import type { Exercise, Program } from './content'
 import type {
   ActiveWorkout,
@@ -35,6 +36,7 @@ export type EditableSection = {
 }
 
 export type ProgramDraft = {
+  engine?: EngineDefinition
   editingId: string | null
   sourceProgramId: string | null
   name: string
@@ -46,6 +48,7 @@ export type ProgramDraft = {
 }
 
 export type CustomProgram = {
+  engine?: EngineDefinition
   id: string
   sourceProgramId: string | null
   name: string
@@ -256,6 +259,7 @@ export function createActiveWorkoutFromLog(
     completedExerciseIds: Object.entries(exerciseLogs)
       .filter(([, entry]) => entry.completed)
       .map(([exerciseId]) => exerciseId),
+    engine: workoutLog.engine,
     exerciseLogs,
     exerciseOrder,
     exertionScale: workoutLog.exertionScale,
@@ -388,7 +392,7 @@ export function normalizeCustomPrograms(value: unknown): CustomProgram[] {
   }
 
   return value
-    .map((entry) => {
+    .map((entry): CustomProgram | null => {
       if (!isRecord(entry)) {
         return null
       }
@@ -402,7 +406,8 @@ export function normalizeCustomPrograms(value: unknown): CustomProgram[] {
       const updatedAt = toStringValue(entry.updatedAt) || createdAt
 
       return {
-        id: toStringValue(entry.id) || createId('program'),
+        engine: isRecord(entry.engine) && (entry.engine.version === 1 || entry.engine.version === 2) ? entry.engine as unknown as EngineDefinition : undefined,
+      id: toStringValue(entry.id) || createId('program'),
         sourceProgramId: toNullableStringValue(entry.sourceProgramId),
         name: toStringValue(entry.name, 'Custom Program'),
         description: toStringValue(entry.description),
@@ -437,6 +442,7 @@ export function normalizeWorkoutLog(value: unknown): WorkoutLog | null {
       value.cardioEntryCount,
       exerciseLogs.filter((entry) => entry.type === 'cardio').length,
     ),
+    engine: isRecord(value.engine) && value.engine.version === 1 ? value.engine as unknown as EngineSession : undefined,
     exerciseLogs,
     exertionScale: toEffortScale(value.exertionScale ?? value.effortScale),
     programId: toStringValue(value.programId),
@@ -511,6 +517,7 @@ export function normalizeActiveWorkout(value: unknown): ActiveWorkout | null {
   }
 
   return {
+    engine: isRecord(value.engine) && value.engine.version === 1 ? value.engine as unknown as EngineSession : undefined,
     exerciseLogs,
     exerciseOrder,
     exertionScale: toEffortScale(value.exertionScale ?? value.effortScale),
@@ -582,6 +589,7 @@ export function programToDraft(program: Program): ProgramDraft {
   return {
     editingId: null,
     sourceProgramId: program.id,
+    engine: program.engine,
     name: `${program.name} Copy`,
     description: program.description,
     goal: program.goal,
@@ -590,11 +598,11 @@ export function programToDraft(program: Program): ProgramDraft {
     sections: program.sections.map((section) => ({
       dayIndex: section.dayIndex,
       dayLabel: section.dayLabel,
-      id: createId('section'),
+      id: program.engine ? section.id : createId('section'),
       name: section.name,
       notes: section.notes,
       exercises: section.exercises.map((exercise) => ({
-        id: createId('exercise'),
+        id: program.engine ? exercise.id : createId('exercise'),
         exerciseName: exercise.exerciseName,
         sets: exercise.sets,
         reps: exercise.reps,
@@ -611,6 +619,7 @@ export function programToDraft(program: Program): ProgramDraft {
 export function customProgramToDraft(program: CustomProgram): ProgramDraft {
   return {
     editingId: program.id,
+    engine: program.engine,
     sourceProgramId: program.sourceProgramId,
     name: program.name,
     description: program.description,
@@ -620,7 +629,7 @@ export function customProgramToDraft(program: CustomProgram): ProgramDraft {
     sections: program.sections.map((section) => ({
       dayIndex: section.dayIndex,
       dayLabel: section.dayLabel,
-      id: createId('section'),
+      id: program.engine ? section.id : createId('section'),
       name: section.name,
       notes: section.notes,
       exercises: section.exercises.map((exercise) => ({
@@ -647,6 +656,7 @@ export function draftToCustomProgram(
     sourceProgramId: draft.sourceProgramId,
     name: draft.name.trim(),
     description: draft.description.trim(),
+    engine: draft.engine,
     goal: draft.goal.trim(),
     level: draft.level.trim(),
     tags: draft.tags
@@ -681,6 +691,10 @@ export function draftToCustomProgram(
 export function customProgramToProgram(program: CustomProgram): Program {
   return {
     id: program.id,
+    engine: program.engine,
+    author: program.engine?.provenance?.author,
+    license: program.engine?.provenance?.license,
+    sourceUrl: program.engine?.provenance?.sourceUrl,
     name: program.name,
     description: program.description,
     descriptionHtml: '',
@@ -707,7 +721,7 @@ export function customProgramToProgram(program: CustomProgram): Program {
         value: new Date(program.updatedAt).toLocaleDateString(),
       },
     ],
-    sections: program.sections.map((section, index) => ({
+    sections: program.engine?.sections ?? program.sections.map((section, index) => ({
       id: section.id,
       dayIndex: section.dayIndex || index + 1,
       dayLabel: section.dayLabel || `Day ${section.dayIndex || index + 1}`,

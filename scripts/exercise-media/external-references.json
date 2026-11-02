@@ -1,0 +1,234 @@
+[
+  {
+    "id": "pendulum-squat",
+    "sourcePage": "https://panattakorea.com/69/?idx=402",
+    "role": "manufacturer-equipment-photo",
+    "notes": "Existing Panatta pendulum squat photograph, reused from the earlier reference experiment. Preserve the actual fixed pivot, shoulder pads, supported torso and foot platform. The product photo identifies apparatus; it does not validate the generated joint motion.",
+    "images": [
+      {
+        "url": "https://panattakorea.com/69/?idx=402",
+        "localSource": "design/exercise-media/pendulum-squat/reference-v2/reference.jpg"
+      }
+    ]
+  },
+  {
+    "id": "lower-back-machine",
+    "sourcePage": "https://www.bftfitness.com/3000/BFT-3017-Lower-Back-stretch-machine-260.html",
+    "role": "representative-manufacturer-equipment-photo",
+    "notes": "Representative BFT-3017 seated selectorized lower-back machine. Remain seated with hips supported; torso moves against the back pad through a controlled comfortable range. This broad catalog entry does not identify a specific manufacturer.",
+    "images": [
+      "https://www.bftfitness.com/uploads/allimg/260821/1-260R1162912M6.jpg"
+    ]
+  },
+  {
+    "id": "machine-overhead-triceps-extension",
+    "sourcePage": "https://atlantisstrength.com/gym-equipment/t162",
+    "role": "representative-manufacturer-equipment-photo",
+    "notes": "Representative Atlantis T162 fixed-handle overhead triceps machine. Preserve its supported seated position and actual lever geometry; extend the elbows while keeping upper arms near the head. Do not turn this into a pushdown or elbow-pad preacher-style triceps machine. Product geometry reference only; motion approval remains pending.",
+    "images": [
+      "https://atlantisstrength.com/assets/api/photo.php?o=1&p=T162.png&v=1776191176&w=1000"
+    ]
+  },
+  {
+    "id": "kettlebell-halo",
+    "sourcePage": "https://www.skimble.com/exercises/1373-kettlebell-halo-how-to-do-exercise",
+    "role": "exercise-demonstration-photographs",
+    "notes": "Standing kettlebell halo demonstration, bell held upside down by horns and moved closely around head. Use the catalog's detailed instructions. Perform a complete circular path around the head; do not reverse halfway as though doing a curl.",
+    "images": [
+      "https://s3assets.skimble.com/assets/59938/skimble-workout-trainer-kettlebell-around-the-world-4_iphone.jpg",
+      "https://s3assets.skimble.com/assets/59924/skimble-workout-trainer-kettlebell-around-the-world-2_iphone.jpg"
+    ]
+  },
+  {
+    "id": "kettlebell-halo-with-overhead-extension",
+    "sourcePage": "https://www.skimble.com/exercises/1373-kettlebell-halo-how-to-do-exercise",
+    "role": "supporting-halo-component-only",
+    "notes": "Photos support the HALO COMPONENT only, not the combined sequence. Follow the catalog's detailed combined sequence: chest, around one ear, behind head, elbow extension overhead, lower behind head, around other ear, chest. A complete sequence is one cycle; do not omit the overhead extension or reverse the halo halfway. Composite movement needs manual review.",
+    "images": [
+      "https://s3assets.skimble.com/assets/59938/skimble-workout-trainer-kettlebell-around-the-world-4_iphone.jpg",
+      "https://s3assets.skimble.com/assets/59924/skimble-workout-trainer-kettlebell-around-the-world-2_iphone.jpg"
+    ]
+  },
+  {
+    "id": "liftosaur-lateralraise-leveragemachine",
+    "sourcePage": "https://atlantisstrength.com/gym-equipment/e352",
+    "role": "representative-manufacturer-equipment-photo",
+    "notes": "Representative Atlantis E352 used in its SIDE DELTOID setting, not rear-delt mode. Seated and facing sternum pad, upper arms move outward to approximately shoulder height against independent lever pads, then lower under control. Preserve fixed pivot/equipment geometry; do not turn movement into a shoulder press or reverse fly. Broad catalog entry does not identify a manufacturer. Equipment-only photo; generated human contact and motion require manual review.",
+    "images": [
+      "https://atlantisstrength.com/assets/api/photo.php?o=1&p=E352.png&v=1776191217&w=1000"
+    ]
+  },
+  {
+    "id": "lateral-raise-machine",
+    "sourcePage": "https://atlantisstrength.com/gym-equipment/e352",
+    "role": "representative-manufacturer-equipment-photo",
+    "notes": "Representative Atlantis E352 used in its SIDE DELTOID setting, not rear-delt mode. Seated and facing sternum pad, upper arms move outward to approximately shoulder height against independent lever pads, then lower under control. Preserve fixed pivot/equipment geometry; do not turn movement into a shoulder press or reverse fly. Broad catalog entry does not identify a manufacturer. Equipment-only photo; generated human contact and motion require manual review.",
+    "images": [
+      "https://atlantisstrength.com/assets/api/photo.php?o=1&p=E352.png&v=1776191217&w=1000"
+    ]
+  },
+  {
+    "id": "machine-lateral-raise",
+    "sourcePage": "https://atlantisstrength.com/gym-equipment/e352",
+    "role": "representative-manufacturer-equipment-photo",
+    "notes": "Representative Atlantis E352 used in its SIDE DELTOID setting, not rear-delt mode. Seated and facing sternum pad, upper arms move outward to approximately shoulder height against independent lever pads, then lower under control. Preserve fixed pivot/equipment geometry; do not turn movement into a shoulder press or reverse fly. Broad catalog entry does not identify a manufacturer. Equipment-only photo; generated human contact and motion require manual review.",
+    "images": [
+      "https://atlantisstrength.com/assets/api/photo.php?o=1&p=E352.png&v=1776191217&w=1000"
+    ]
+  },
+  {
+    "id": "rotary-torso-machine",
+    "sourcePage": "https://pulsefitness.com/product/strength-selectorised-club-line-rotary-torso-615h-abw/",
+    "role": "representative-manufacturer-equipment-photo",
+    "notes": "Representative Pulse 615H seated rotary torso machine. Use actual knee/torso supports and the correct single rotation axis from photo; rotate torso relative to pelvis under control and return. No side bending or abdominal forward crunch. Equipment-only reference; generated body placement and motion need manual review.",
+    "images": [
+      "https://pulsefitness.com/wp-content/uploads/2021/01/615H-ABW-1200.jpg"
+    ]
+  },
+  {
+    "id": "hollow-body-hold",
+    "sourcePage": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf",
+    "role": "exercise-demonstration-photograph-from-pdf-page-15",
+    "notes": "Extracted from CrossFit Gymnastics Training Guide page15, image003. Supine hollow HOLD with low back on floor, shoulder blades and straight legs raised, arms overhead by ears. STATIC hold with subtle breathing, not rocking, situps or leg raises. Private reference, all rights reserved by source.",
+    "images": [
+      {
+        "url": "https://assets.crossfit.com/pdfs/seminars/SMERefs/Gymnastics/GymnasticsCourse_SeminarGuide.pdf#page=15",
+        "localSource": ".exercise-media-references/remaining/research/hollow-body-hold/crossfit-page-15.png"
+      }
+    ]
+  },
+  {
+    "id": "liftosaur-shrimpsquat-bodyweight",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Single_leg_squat_1_of_2.png",
+    "role": "exercise-demonstration-photographs",
+    "notes": "Photos by RickyBennison (2022), Wikimedia Commons CC BY-SA4.0; attribution/sharealike review needed before publication. Basic shrimp-squat progression: free leg folded BEHIND, not forward as a pistol squat. Bend standing knee/hip to lower rear knee toward floor, rise controlled. Same fixed camera and limb identity.",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/1/15/Single_leg_squat_1_of_2.png",
+      "https://upload.wikimedia.org/wikipedia/commons/3/31/Single_leg_squat_2_of_2.png"
+    ]
+  },
+  {
+    "id": "liftosaur-shoulderpassthrough-band",
+    "sourcePage": "https://theprehabguys.com/vimeo-video/shoulder-pass-through-band/",
+    "role": "exercise-demonstration-thumbnail",
+    "notes": "Band shoulder pass-through demonstration. Keep both elbows straight and grip wide. Arms move together from band held before thighs through overhead to behind torso and return through overhead, no shoulder press or alternating arm threading. Respect comfortable range; fixed camera and band connection throughout.",
+    "images": [
+      "https://storage.googleapis.com/prehab-prod-marketing-media/wp-content/uploads/2020/06/shoulder-pass-through-band-vimeo-thumbnail-scaled.jpg"
+    ]
+  },
+  {
+    "id": "liftosaur-sidelyingclam-bodyweight",
+    "sourcePage": "https://www.skimble.com/exercises/31709-clamshell-how-to-do-exercise",
+    "role": "exercise-demonstration-photo",
+    "notes": "Side-lying bodyweight clamshell: hips stacked, knees bent, feet stay together while top knee opens upward and lowers; pelvis and lower leg stay still. Do not straighten leg into hip abduction or roll torso backward. No resistance band or hand weight for this bodyweight variant.",
+    "images": [
+      "https://s3assets.skimble.com/assets/1449285/image_iphone.jpg"
+    ]
+  },
+  {
+    "id": "horizontal-leg-press",
+    "sourcePage": "https://www.gosportsart.com/product/p756-horizontal-leg-press/",
+    "role": "representative-manufacturer-equipment-photo",
+    "notes": "Representative SportsArt P756 HORIZONTAL seated leg press, not angled45deg or vertical. Preserve supported seat/back, handles and linked press carriage. Both feet remain on footplate while hips/knees extend and flex under control; do not lift pelvis or hyperextend knees. Product geometry reference only, human/equipment contact requires manual review.",
+    "images": [
+      "https://www.gosportsart.com/wp-content/uploads/2017/02/Strength_Performance_P756-LegPress-1-600x600.jpg"
+    ]
+  },
+  {
+    "id": "machine-glute-kickback",
+    "sourcePage": "https://www.apus-sports.com/en/product/glute",
+    "role": "representative-manufacturer-equipment-photo",
+    "notes": "Representative APUS SA032 selectorized bent-over glute kickback machine. Use its forearm/chest support, stable hand grips, one standing foot and working foot against lower lever pad. Extend working hip backward against the lever, return under control; torso and supporting leg stay stable. Preserve actual machine pivot/footpad geometry, not a cable ankle-cuff exercise. Product-only geometry reference; generated human contact needs manual review.",
+    "images": [
+      "https://cdn.prod.website-files.com/6810bc8054eebb1d5141f3a2/6a0adf0b6d1506f7c6d0e27f_1920x700%20glute.webp"
+    ]
+  },
+  {
+    "id": "vertical-leg-press",
+    "sourcePage": "https://titan.fitness/products/vertical-leg-press",
+    "role": "representative-manufacturer-equipment-photographs",
+    "notes": "Representative Titan inverted vertical leg press, supine supported on horizontal back pad with feet pressing straight UP against guided overhead footplate. Preserve actual vertical rails and carriage, not a seated45degree sled. Keep back/pelvis supported and both feet on plate while knees bend/extend. Product-only references; generated apparatus contact needs manual review.",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0802/1508/1237/files/400573_01.jpg?v=1780514003",
+      "https://cdn.shopify.com/s/files/1/0802/1508/1237/files/400573_02.jpg?v=1780514007"
+    ]
+  },
+  {
+    "id": "plate-loaded-ab-crunch-machine",
+    "sourcePage": "https://us.primalstrength.com/products/primal-performance-series-plate-loaded-ab-crunch",
+    "role": "representative-manufacturer-equipment-photographs",
+    "notes": "Representative Primal plate-loaded abdominal crunch. Seated with feet anchored and hands holding upper handles, flex trunk against lever to bring ribs toward pelvis, return controlled. Seat set facing FORWARD for this standard crunch. Keep plate horns and lever pivot rigid; do not substitute a selectorized weight stack, sit-up bench or leg-press movement. Product photos identify equipment; generated human contacts need review.",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0583/1390/0131/files/PSSS0280-Performance_Plate_Loaded_Ab_Crunch-Plate_Loaded_Machines-Hero_Render_2.jpg?v=1784818146",
+      "https://cdn.shopify.com/s/files/1/0583/1390/0131/files/PSSS0280-Performance-Plate-Loaded-Ab-Crunch-Plate-Loaded-Machines-Lifestyle-Front-Image-2.jpg?v=1784818146"
+    ]
+  },
+  {
+    "id": "liftosaur-slingshotbenchpress-barbell",
+    "sourcePage": "https://markbellslingshot.com/collections/best-sellers/products/original-sling-shot",
+    "role": "manufacturer-photo-demonstrating-accessory-in-bench-press",
+    "notes": "Actual Sling Shot bench press photograph shows elastic sleeves around both upper arms near elbows, connected across front of chest. Preserve the accessory connection while generating a normal full-body flat barbell bench press. Bar lowers toward lower chest then presses up, feet planted, upper back supported, hands remain gripping same bar throughout. No brand text/likeness. Do not omit the elastic arm accessory, turn it into a bench shirt, or attach it to the bar/rack.",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/2233/5357/products/SLINGSHOT-ORIGINAL-01.jpg?v=1629831268"
+    ]
+  },
+  {
+    "id": "cybex-eagle-abdominal",
+    "sourcePage": "https://www.youtube.com/watch?v=wH1-AbwcMKo",
+    "role": "manufacturer-demonstration-video-thumbnail",
+    "notes": "Actual Cybex Eagle Abdominal demonstration thumbnail from Cybex video, not Eagle NX. Preserve this specific supported seated/back pad and forward handle mechanism; perform controlled torso/abdominal flexion and return without pulling with arms or substituting generic overhead crunch handles. Low-resolution setup reference; generated contacts and joint motion require manual review.",
+    "images": [
+      "https://i.ytimg.com/vi/wH1-AbwcMKo/hqdefault.jpg"
+    ]
+  },
+  {
+    "id": "leg-extension-machine-hip-thrust",
+    "sourcePage": "https://www.youtube.com/watch?v=jNDhX8TKYEo",
+    "role": "exercise-demonstration-video-thumbnail",
+    "notes": "Actual leg-extension-machine hip thrust setup shown in CeyonneFitness demonstration thumbnail. Shoulders/upper back brace against front edge of seat; feet stay on floor, knee-roller pad positioned across pelvis instead of shins. Extend hips to lift pelvis against pad and lower under control; do NOT sit in machine to perform knee extensions. Preserve machine pivot and pad contact, no barbell. One setup only; generated adaptation requires manual equipment/contact review.",
+    "images": [
+      "https://i.ytimg.com/vi/jNDhX8TKYEo/hqdefault.jpg"
+    ]
+  },
+  {
+    "id": "dumbbell-monkey-shrug",
+    "sourcePage": "https://hawkesphysiotherapy.co.uk/exercise/monkey-shrugs/",
+    "role": "physiotherapist-exercise-demonstration-image",
+    "notes": "Actual monkey shrug demonstration photo from Hawkes Physiotherapy, not an ordinary straight-arm shrug. Hold dumbbells close to sides, shrug shoulder girdle while bending elbows so dumbbells slide up lateral torso; lower shoulders and extend elbows under control. Preserve neutral grip and close dumbbell path, no overhead press or front upright row. Use only left photo for posture reference; generate no logos/text/reference-person likeness.",
+    "images": [
+      "https://hawkesphysiotherapy.co.uk/wp-content/uploads/2020/03/Monkey-Shrugs.png"
+    ]
+  },
+  {
+    "id": "machine-oblique-crunch",
+    "sourcePage": "https://www.youtube.com/watch?v=G9xL974AEJ0",
+    "role": "gym-operator-exercise-demonstration-video-thumbnails",
+    "notes": "Crunch Fitness demonstration of a seated oblique crunch machine: pelvis/knees positioned to one side, back supported, feet behind roller pads, hands grasp overhead handles. Preserve turned pelvis-to-chest setup while curling torso down and lower support rises, then return controlled. Show one side only in same camera; do NOT mirror between frames or create a separate axial-twist repetition. Source thumbnail hq3 shows working pose, hqdefault apparatus; omit all source branding/text in generated draft.",
+    "images": [
+      "https://i.ytimg.com/vi/G9xL974AEJ0/hq3.jpg",
+      "https://i.ytimg.com/vi/G9xL974AEJ0/hqdefault.jpg"
+    ]
+  },
+  {
+    "id": "barbell-hip-thrust-or-romanian-deadlift",
+    "sourcePage": "https://github.com/yuhonas/free-exercise-db/blob/main/exercises/Barbell_Hip_Thrust.json",
+    "role": "representative-alternative-exact-hip-thrust-reference",
+    "demonstratedVariant": "Barbell hip thrust only",
+    "notes": "This combined catalog label offers two DIFFERENT exercises. For this preview demonstrate ONLY BARBELL HIP THRUST, never a Romanian deadlift or hybrid. Upper back supported across bench edge, feet planted, padded barbell across hip crease; lower pelvis and extend hips while upper back stays supported. Do not stand with bar in hands. Gallery must identify the demonstrated alternative explicitly; catalog target labels cover the combined record.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Hip_Thrust/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Hip_Thrust/1.jpg"
+    ]
+  },
+  {
+    "id": "hex-bar-or-smith-machine-shrug",
+    "sourcePage": "https://github.com/yuhonas/free-exercise-db/blob/main/exercises/Trap_Bar_Deadlift.json",
+    "role": "representative-alternative-supporting-trap-bar-equipment-reference",
+    "demonstratedVariant": "Hex-bar shrug only",
+    "notes": "This combined label offers two equipment alternatives. Demonstrate ONLY HEX-BAR SHRUG, never Smith machine, deadlift or hybrid. Photos identify hex/trap-bar geometry only: stand inside hexagonal frame holding side handles with arms STRAIGHT. Stay standing tall with feet planted and knees softly extended; elevate shoulders toward ears then lower. No knee/hip hinge, no elbow curling, no barbell in front of shins. Ignore donor deadlift poses; use upright starting geometry throughout. Gallery must label the demonstrated alternative.",
+    "images": [
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Trap_Bar_Deadlift/0.jpg",
+      "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Trap_Bar_Deadlift/1.jpg"
+    ]
+  }
+]

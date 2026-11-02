@@ -1,0 +1,75 @@
+{
+  "id": "dragon-flag",
+  "displayLabel": "Dragon Flag",
+  "shortDescription": "Advanced bodyweight abs exercise: lower and raise a rigid body while supported on the upper back.",
+  "descriptionHtml": "<p>An advanced anti-extension exercise performed with a fixed grip behind the head. The upper back stays supported while the torso and straight legs move together as one lever.</p><p>Dragon fly and dragonfly are included as search aliases. This entry demonstrates the straight-leg variation; tucked and bent-knee versions are separate regressions.</p>",
+  "aliases": [
+    "Dragon Fly",
+    "Dragonfly",
+    "Dragon Flags",
+    "Straight-leg Dragon Flag"
+  ],
+  "substitutionExerciseIds": [
+    "hollow-body-hold",
+    "reverse-crunch",
+    "hanging-leg-raise",
+    "ab-wheel-rollout"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "lower-abs",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "transverse-abdominis",
+      "factor": 0.8
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "lats",
+      "factor": 0.4
+    },
+    {
+      "muscleGroup": "glute-max",
+      "factor": 0.3
+    }
+  ],
+  "difficulty": "Advanced",
+  "exerciseType": "strength",
+  "defaultSets": "3",
+  "defaultReps": "3-5",
+  "defaultRest": "120 sec",
+  "instructions": [
+    "Lie on a stable bench and secure both hands to its edge behind your head. Keep your head and upper back supported.",
+    "Brace the abdomen and glutes. Bring the straight legs and hips upward until the body is nearly vertical, balancing through the upper back and shoulders.",
+    "Keep the knees straight and the shoulders, hips, and ankles aligned as you lower the body slowly in one piece.",
+    "Stop before your lower back arches or your hips fold; only the upper back and shoulders should remain supported during the working movement.",
+    "Raise the same rigid body lever back toward the top without kicking or changing the grip. Repeat with control."
+  ],
+  "equipment": [
+    "bodyweight",
+    "flat bench"
+  ],
+  "category": "strength",
+  "tags": [
+    "abs",
+    "core",
+    "anti-extension",
+    "calisthenics",
+    "dragon fly",
+    "dragonfly"
+  ],
+  "notes": "Use a tucked or bent-knee regression if a straight-body repetition cannot be controlled. Avoid loading the neck. Targets and muscle factors are qualitative mappings, not measured activation. Default sets and reps are editable starter targets, not strength benchmarks.",
+  "referenceUrls": [
+    "https://www.strengthlog.com/dragon-flag/"
+  ]
+}

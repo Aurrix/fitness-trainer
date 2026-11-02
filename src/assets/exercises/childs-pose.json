@@ -1,0 +1,35 @@
+{
+  "id": "childs-pose",
+  "displayLabel": "Child's Pose",
+  "shortDescription": "stretching exercise targeting lower back.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Get on your hands and knees, walk your hands in front of you.",
+    "Lower your buttocks down to sit on your heels. Let your arms drag along the floor as you sit back to stretch your entire spine.",
+    "Once you settle onto your heels, bring your hands next to your feet and relax. \"breathe\" into your back. Rest your forehead on the floor. Avoid this position if you have knee problems."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-back",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upper-back",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static"
+  ],
+  "exerciseType": "continues"
+}

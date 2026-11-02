@@ -1184,7 +1184,7 @@ export default function WorkoutPage({
         previewExerciseOrder={previewExerciseOrder}
         resolveExerciseStatsRecord={resolveExerciseStatsRecord}
         resolveExerciseForDisplay={resolveExerciseForDisplay}
-        section={selectedWorkoutSection}
+        section={displayWorkout?.engine?.section ?? selectedWorkoutSection}
       />
 
       {pickerMode ? (

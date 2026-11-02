@@ -1,0 +1,2689 @@
+{
+  "id": "liftosaur-ss3",
+  "displayLabel": "Starting Strength Phase 3 — Liftosaur",
+  "shortDescription": "Beginner barbell program, Phase 3 — chin-ups added, deadlifts and power cleans alternate",
+  "descriptionHtml": "<p>Beginner barbell program, Phase 3 — chin-ups added, deadlifts and power cleans alternate</p>",
+  "author": "Mark Rippetoe",
+  "sourceUrl": "https://github.com/astashov/liftosaur/blob/421ca47fc13031c5c1df894055525cf96e45a18c/programs/builtin/ss3.md",
+  "license": "AGPL-3.0",
+  "goal": "strength",
+  "level": "less_than_3_months",
+  "duration": "1 weeks",
+  "tags": [
+    "Liftosaur",
+    "Automatic progression"
+  ],
+  "engine": {
+    "version": 2,
+    "revision": "native-v2:41e4c4e2758f7748",
+    "sections": [
+      {
+        "id": "engine-day-1",
+        "dayIndex": 1,
+        "dayLabel": "Day 1",
+        "name": "Week 1 — Day A 1",
+        "shortName": "Day A 1",
+        "notes": "",
+        "weekIndex": 1,
+        "weekLabel": "Week 1",
+        "exercises": [
+          {
+            "id": "engine-1-0",
+            "exerciseId": "back-squat",
+            "resolvedExerciseId": "back-squat",
+            "exerciseName": "Squat",
+            "sets": "3",
+            "reps": "5/5/5",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "warmup",
+                "unilateral": false,
+                "workFraction": 0.8125
+              }
+            ],
+            "superset": null,
+            "progressionKey": "back-squat:rule-0",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 2.5,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          },
+          {
+            "id": "engine-1-1",
+            "exerciseId": "barbell-bench-press",
+            "resolvedExerciseId": "barbell-bench-press",
+            "exerciseName": "Bench Press",
+            "sets": "3",
+            "reps": "5/5/5",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "warmup",
+                "unilateral": false,
+                "workFraction": 0.8125
+              }
+            ],
+            "superset": null,
+            "progressionKey": "barbell-bench-press:rule-1",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 1,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          },
+          {
+            "id": "engine-1-2",
+            "exerciseId": "deadlift",
+            "resolvedExerciseId": "deadlift",
+            "exerciseName": "Deadlift",
+            "sets": "1",
+            "reps": "5",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [],
+            "superset": null,
+            "progressionKey": "deadlift:rule-2",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 2.5,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "engine-day-2",
+        "dayIndex": 2,
+        "dayLabel": "Day 2",
+        "name": "Week 1 — Day B 1",
+        "shortName": "Day B 1",
+        "notes": "",
+        "weekIndex": 1,
+        "weekLabel": "Week 1",
+        "exercises": [
+          {
+            "id": "engine-2-0",
+            "exerciseId": "back-squat",
+            "resolvedExerciseId": "back-squat",
+            "exerciseName": "Squat",
+            "sets": "3",
+            "reps": "5/5/5",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "warmup",
+                "unilateral": false,
+                "workFraction": 0.8125
+              }
+            ],
+            "superset": null,
+            "progressionKey": "back-squat:rule-0",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 2.5,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          },
+          {
+            "id": "engine-2-1",
+            "exerciseId": "overhead-press",
+            "resolvedExerciseId": "overhead-press",
+            "exerciseName": "Overhead Press",
+            "sets": "3",
+            "reps": "5/5/5",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "warmup",
+                "unilateral": false,
+                "workFraction": 0.8125
+              }
+            ],
+            "superset": null,
+            "progressionKey": "overhead-press:rule-4",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 1,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          },
+          {
+            "id": "engine-2-2",
+            "exerciseId": "chin-up",
+            "resolvedExerciseId": "chin-up",
+            "exerciseName": "Chin Up",
+            "sets": "3",
+            "reps": "10/10/10",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 10,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 10,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 10,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [],
+            "superset": null,
+            "progressionKey": "chin-up:rule-5",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 1,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "engine-day-3",
+        "dayIndex": 3,
+        "dayLabel": "Day 3",
+        "name": "Week 1 — Day A 2",
+        "shortName": "Day A 2",
+        "notes": "",
+        "weekIndex": 1,
+        "weekLabel": "Week 1",
+        "exercises": [
+          {
+            "id": "engine-3-0",
+            "exerciseId": "back-squat",
+            "resolvedExerciseId": "back-squat",
+            "exerciseName": "Squat",
+            "sets": "3",
+            "reps": "5/5/5",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "warmup",
+                "unilateral": false,
+                "workFraction": 0.8125
+              }
+            ],
+            "superset": null,
+            "progressionKey": "back-squat:rule-0",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 2.5,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          },
+          {
+            "id": "engine-3-1",
+            "exerciseId": "overhead-press",
+            "resolvedExerciseId": "overhead-press",
+            "exerciseName": "Overhead Press",
+            "sets": "3",
+            "reps": "5/5/5",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "warmup",
+                "unilateral": false,
+                "workFraction": 0.8125
+              }
+            ],
+            "superset": null,
+            "progressionKey": "overhead-press:rule-4",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 1,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          },
+          {
+            "id": "engine-3-2",
+            "exerciseId": "liftosaur-powerclean-barbell",
+            "resolvedExerciseId": "liftosaur-powerclean-barbell",
+            "exerciseName": "Power Clean",
+            "sets": "5",
+            "reps": "3/3/3/3/3",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 3,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 3,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 3,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 3,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 3,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "warmup",
+                "unilateral": false,
+                "workFraction": 0.8125
+              }
+            ],
+            "superset": null,
+            "progressionKey": "liftosaur-powerclean-barbell:rule-8",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 1,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "engine-day-4",
+        "dayIndex": 4,
+        "dayLabel": "Day 4",
+        "name": "Week 1 — Day B 2",
+        "shortName": "Day B 2",
+        "notes": "",
+        "weekIndex": 1,
+        "weekLabel": "Week 1",
+        "exercises": [
+          {
+            "id": "engine-4-0",
+            "exerciseId": "back-squat",
+            "resolvedExerciseId": "back-squat",
+            "exerciseName": "Squat",
+            "sets": "3",
+            "reps": "5/5/5",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "warmup",
+                "unilateral": false,
+                "workFraction": 0.8125
+              }
+            ],
+            "superset": null,
+            "progressionKey": "back-squat:rule-0",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 2.5,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          },
+          {
+            "id": "engine-4-1",
+            "exerciseId": "barbell-bench-press",
+            "resolvedExerciseId": "barbell-bench-press",
+            "exerciseName": "Bench Press",
+            "sets": "3",
+            "reps": "5/5/5",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [
+              {
+                "reps": 5,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "warmup",
+                "unilateral": false,
+                "workFraction": 0.8125
+              }
+            ],
+            "superset": null,
+            "progressionKey": "barbell-bench-press:rule-1",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 1,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          },
+          {
+            "id": "engine-4-2",
+            "exerciseId": "chin-up",
+            "resolvedExerciseId": "chin-up",
+            "exerciseName": "Chin Up",
+            "sets": "3",
+            "reps": "10/10/10",
+            "duration": "",
+            "rest": "",
+            "notes": "",
+            "prescriptions": [
+              {
+                "reps": 10,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 10,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              },
+              {
+                "reps": 10,
+                "minReps": null,
+                "weightKg": null,
+                "formula": null,
+                "effort": null,
+                "amrap": false,
+                "durationSeconds": null,
+                "restSeconds": null,
+                "label": "",
+                "kind": "work",
+                "unilateral": false,
+                "unloaded": false,
+                "loadFactor": 1,
+                "percentage": null
+              }
+            ],
+            "warmups": [],
+            "superset": null,
+            "progressionKey": "chin-up:rule-5",
+            "progression": {
+              "kind": "linear",
+              "incrementKg": 1,
+              "successes": 1,
+              "failures": 2,
+              "decrement": {
+                "percent": 10,
+                "basis": "maximum"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "loads": {
+      "back-squat": {
+        "name": "Squat",
+        "bodyweight": false,
+        "incrementKg": 2.5
+      },
+      "barbell-bench-press": {
+        "name": "Bench Press",
+        "bodyweight": false,
+        "incrementKg": 2.5
+      },
+      "deadlift": {
+        "name": "Deadlift",
+        "bodyweight": false,
+        "incrementKg": 2.5
+      },
+      "overhead-press": {
+        "name": "Overhead Press",
+        "bodyweight": false,
+        "incrementKg": 2.5
+      },
+      "chin-up": {
+        "name": "Chin Up",
+        "bodyweight": true,
+        "incrementKg": 2.5
+      },
+      "liftosaur-powerclean-barbell": {
+        "name": "Power Clean",
+        "bodyweight": false,
+        "incrementKg": 2.5
+      }
+    },
+    "frequency": 3,
+    "provenance": {
+      "author": "Mark Rippetoe",
+      "license": "AGPL-3.0",
+      "sourceUrl": "https://github.com/astashov/liftosaur/blob/421ca47fc13031c5c1df894055525cf96e45a18c/programs/builtin/ss3.md",
+      "commit": "421ca47fc13031c5c1df894055525cf96e45a18c"
+    },
+    "migration": {
+      "bindings": {
+        "squat_barbell": "back-squat",
+        "benchPress_barbell": "barbell-bench-press",
+        "deadlift_barbell": "deadlift",
+        "overheadPress_barbell": "overhead-press",
+        "chinUp_bodyweight": "chin-up",
+        "powerClean_barbell": "liftosaur-powerclean-barbell"
+      },
+      "phases": {
+        "engine-day-1|engine-1-0": {
+          "name": "Squat",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {
+              "successCounter": 0,
+              "failureCounter": 0
+            },
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-1|engine-1-1": {
+          "name": "Bench Press",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {
+              "successCounter": 0,
+              "failureCounter": 0
+            },
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-1|engine-1-2": {
+          "name": "Deadlift",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 95,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {
+              "successCounter": 0,
+              "failureCounter": 0
+            },
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-2|engine-2-0": {
+          "name": "Squat",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {},
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-2|engine-2-1": {
+          "name": "Overhead Press",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {
+              "successCounter": 0,
+              "failureCounter": 0
+            },
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-2|engine-2-2": {
+          "name": "Chin Up",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 0,
+                    "unit": "lb"
+                  },
+                  "reps": 10,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 0,
+                    "unit": "lb"
+                  },
+                  "reps": 10,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 0,
+                    "unit": "lb"
+                  },
+                  "reps": 10,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {
+              "successCounter": 0,
+              "failureCounter": 0
+            },
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-3|engine-3-0": {
+          "name": "Squat",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {},
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-3|engine-3-1": {
+          "name": "Overhead Press",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {},
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-3|engine-3-2": {
+          "name": "Power Clean",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 95,
+                    "unit": "lb"
+                  },
+                  "reps": 3,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 95,
+                    "unit": "lb"
+                  },
+                  "reps": 3,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 95,
+                    "unit": "lb"
+                  },
+                  "reps": 3,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 95,
+                    "unit": "lb"
+                  },
+                  "reps": 3,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 95,
+                    "unit": "lb"
+                  },
+                  "reps": 3,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {
+              "successCounter": 0,
+              "failureCounter": 0
+            },
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-4|engine-4-0": {
+          "name": "Squat",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {},
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-4|engine-4-1": {
+          "name": "Bench Press",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 45,
+                    "unit": "lb"
+                  },
+                  "reps": 5,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {},
+            "stage": 1,
+            "exercise": 1
+          }
+        },
+        "engine-day-4|engine-4-2": {
+          "name": "Chin Up",
+          "descriptor": {
+            "stages": [
+              [
+                {
+                  "weight": {
+                    "value": 0,
+                    "unit": "lb"
+                  },
+                  "reps": 10,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 0,
+                    "unit": "lb"
+                  },
+                  "reps": 10,
+                  "minReps": null,
+                  "amrap": false
+                },
+                {
+                  "weight": {
+                    "value": 0,
+                    "unit": "lb"
+                  },
+                  "reps": 10,
+                  "minReps": null,
+                  "amrap": false
+                }
+              ]
+            ],
+            "variables": {},
+            "stage": 1,
+            "exercise": 1
+          }
+        }
+      },
+      "sourceHash": "aaf50fb4"
+    }
+  },
+  "weeks": [
+    {
+      "week": 1,
+      "days": [
+        {
+          "day": 1,
+          "displayLabel": "Day A 1",
+          "notes": "",
+          "items": [
+            {
+              "id": "engine-1-0",
+              "exerciseId": "back-squat",
+              "resolvedExerciseId": "back-squat",
+              "exerciseName": "Squat",
+              "sets": "3",
+              "reps": "5/5/5",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "warmup",
+                  "unilateral": false,
+                  "workFraction": 0.8125
+                }
+              ],
+              "superset": null,
+              "progressionKey": "back-squat:rule-0",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 2.5,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            },
+            {
+              "id": "engine-1-1",
+              "exerciseId": "barbell-bench-press",
+              "resolvedExerciseId": "barbell-bench-press",
+              "exerciseName": "Bench Press",
+              "sets": "3",
+              "reps": "5/5/5",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "warmup",
+                  "unilateral": false,
+                  "workFraction": 0.8125
+                }
+              ],
+              "superset": null,
+              "progressionKey": "barbell-bench-press:rule-1",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 1,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            },
+            {
+              "id": "engine-1-2",
+              "exerciseId": "deadlift",
+              "resolvedExerciseId": "deadlift",
+              "exerciseName": "Deadlift",
+              "sets": "1",
+              "reps": "5",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [],
+              "superset": null,
+              "progressionKey": "deadlift:rule-2",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 2.5,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "displayLabel": "Day B 1",
+          "notes": "",
+          "items": [
+            {
+              "id": "engine-2-0",
+              "exerciseId": "back-squat",
+              "resolvedExerciseId": "back-squat",
+              "exerciseName": "Squat",
+              "sets": "3",
+              "reps": "5/5/5",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "warmup",
+                  "unilateral": false,
+                  "workFraction": 0.8125
+                }
+              ],
+              "superset": null,
+              "progressionKey": "back-squat:rule-0",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 2.5,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            },
+            {
+              "id": "engine-2-1",
+              "exerciseId": "overhead-press",
+              "resolvedExerciseId": "overhead-press",
+              "exerciseName": "Overhead Press",
+              "sets": "3",
+              "reps": "5/5/5",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "warmup",
+                  "unilateral": false,
+                  "workFraction": 0.8125
+                }
+              ],
+              "superset": null,
+              "progressionKey": "overhead-press:rule-4",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 1,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            },
+            {
+              "id": "engine-2-2",
+              "exerciseId": "chin-up",
+              "resolvedExerciseId": "chin-up",
+              "exerciseName": "Chin Up",
+              "sets": "3",
+              "reps": "10/10/10",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 10,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 10,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 10,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [],
+              "superset": null,
+              "progressionKey": "chin-up:rule-5",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 1,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "displayLabel": "Day A 2",
+          "notes": "",
+          "items": [
+            {
+              "id": "engine-3-0",
+              "exerciseId": "back-squat",
+              "resolvedExerciseId": "back-squat",
+              "exerciseName": "Squat",
+              "sets": "3",
+              "reps": "5/5/5",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "warmup",
+                  "unilateral": false,
+                  "workFraction": 0.8125
+                }
+              ],
+              "superset": null,
+              "progressionKey": "back-squat:rule-0",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 2.5,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            },
+            {
+              "id": "engine-3-1",
+              "exerciseId": "overhead-press",
+              "resolvedExerciseId": "overhead-press",
+              "exerciseName": "Overhead Press",
+              "sets": "3",
+              "reps": "5/5/5",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "warmup",
+                  "unilateral": false,
+                  "workFraction": 0.8125
+                }
+              ],
+              "superset": null,
+              "progressionKey": "overhead-press:rule-4",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 1,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            },
+            {
+              "id": "engine-3-2",
+              "exerciseId": "liftosaur-powerclean-barbell",
+              "resolvedExerciseId": "liftosaur-powerclean-barbell",
+              "exerciseName": "Power Clean",
+              "sets": "5",
+              "reps": "3/3/3/3/3",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 3,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 3,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 3,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 3,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 3,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "warmup",
+                  "unilateral": false,
+                  "workFraction": 0.8125
+                }
+              ],
+              "superset": null,
+              "progressionKey": "liftosaur-powerclean-barbell:rule-8",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 1,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "displayLabel": "Day B 2",
+          "notes": "",
+          "items": [
+            {
+              "id": "engine-4-0",
+              "exerciseId": "back-squat",
+              "resolvedExerciseId": "back-squat",
+              "exerciseName": "Squat",
+              "sets": "3",
+              "reps": "5/5/5",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "warmup",
+                  "unilateral": false,
+                  "workFraction": 0.8125
+                }
+              ],
+              "superset": null,
+              "progressionKey": "back-squat:rule-0",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 2.5,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            },
+            {
+              "id": "engine-4-1",
+              "exerciseId": "barbell-bench-press",
+              "resolvedExerciseId": "barbell-bench-press",
+              "exerciseName": "Bench Press",
+              "sets": "3",
+              "reps": "5/5/5",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [
+                {
+                  "reps": 5,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "warmup",
+                  "unilateral": false,
+                  "workFraction": 0.8125
+                }
+              ],
+              "superset": null,
+              "progressionKey": "barbell-bench-press:rule-1",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 1,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            },
+            {
+              "id": "engine-4-2",
+              "exerciseId": "chin-up",
+              "resolvedExerciseId": "chin-up",
+              "exerciseName": "Chin Up",
+              "sets": "3",
+              "reps": "10/10/10",
+              "duration": "",
+              "rest": "",
+              "notes": "",
+              "prescriptions": [
+                {
+                  "reps": 10,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 10,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                },
+                {
+                  "reps": 10,
+                  "minReps": null,
+                  "weightKg": null,
+                  "formula": null,
+                  "effort": null,
+                  "amrap": false,
+                  "durationSeconds": null,
+                  "restSeconds": null,
+                  "label": "",
+                  "kind": "work",
+                  "unilateral": false,
+                  "unloaded": false,
+                  "loadFactor": 1,
+                  "percentage": null
+                }
+              ],
+              "warmups": [],
+              "superset": null,
+              "progressionKey": "chin-up:rule-5",
+              "progression": {
+                "kind": "linear",
+                "incrementKg": 1,
+                "successes": 1,
+                "failures": 2,
+                "decrement": {
+                  "percent": 10,
+                  "basis": "maximum"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

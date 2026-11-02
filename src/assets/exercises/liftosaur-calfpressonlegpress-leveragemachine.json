@@ -1,0 +1,27 @@
+{
+  "id": "liftosaur-calfpressonlegpress-leveragemachine",
+  "displayLabel": "Calf Press on Leg Press (leverageMachine)",
+  "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
+  "equipment": [
+    "leverageMachine"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "Liftosaur",
+    "AGPL-3.0"
+  ],
+  "sourceUrl": "https://github.com/astashov/liftosaur",
+  "license": "AGPL-3.0"
+}

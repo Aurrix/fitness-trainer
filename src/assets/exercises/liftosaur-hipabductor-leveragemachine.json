@@ -1,0 +1,31 @@
+{
+  "id": "liftosaur-hipabductor-leveragemachine",
+  "displayLabel": "Hip Abductor (leverageMachine)",
+  "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
+  "equipment": [
+    "leverageMachine"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "abductors",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abductors",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "Liftosaur",
+    "AGPL-3.0"
+  ],
+  "sourceUrl": "https://github.com/astashov/liftosaur",
+  "license": "AGPL-3.0"
+}

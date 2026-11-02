@@ -1,0 +1,35 @@
+{
+  "id": "scapular-pull-up",
+  "displayLabel": "Scapular Pull-Up",
+  "shortDescription": "strength exercise targeting traps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Take a pronated grip on a pull-up bar.",
+    "From a hanging position, raise yourself a few inches without using your arms. Do this by depressing your shoulder girdle in a reverse shrugging motion.",
+    "Pause at the completion of the movement, and then slowly return to the starting position before performing more repetitions."
+  ],
+  "equipment": [],
+  "category": "strength",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "trapezius",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upper-back",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "isolation"
+  ]
+}

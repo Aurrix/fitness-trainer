@@ -1,3 +1,4 @@
+import type { EngineDefinition, SetPrescription, ProgressionRule } from './training/types'
 import {
   clampExerciseMuscleTargetFactor,
   normalizeExerciseMuscleGroup,
@@ -138,6 +139,13 @@ export type Exercise = {
 }
 
 export type ProgramExerciseRef = {
+  unilateral?: boolean
+  engineKey?: string
+  progressionKey?: string
+  progression?: ProgressionRule
+  prescriptions?: SetPrescription[]
+  warmups?: SetPrescription[]
+  superset?: string | null
   id: string
   exerciseId: string | null
   exerciseName: string
@@ -150,6 +158,9 @@ export type ProgramExerciseRef = {
 }
 
 export type ProgramSection = {
+  restDay?: boolean
+  engineDay?: number
+  optional?: boolean
   id: string
   dayIndex: number
   dayLabel: string
@@ -162,6 +173,10 @@ export type ProgramSection = {
 }
 
 export type Program = {
+  sourceUrl?: string
+  author?: string
+  license?: string
+  engine?: EngineDefinition
   id: string
   name: string
   description: string
@@ -1013,6 +1028,7 @@ function extractProgramEntries(payload: unknown): Array<[string | undefined, unk
 
 function buildExerciseLookup(exercises: Exercise[]) {
   const exerciseLookup = new Map<string, Exercise>()
+  for(const exercise of exercises)exerciseLookup.set(slugify(exercise.id),exercise)
 
   for (const exercise of exercises) {
     const keys = [
@@ -1255,6 +1271,7 @@ function normalizeProgram(
   }
 
   const sections = normalizeProgramSections(record, exerciseLookup)
+  const engine = isRecord(record.engine) && (record.engine.version === 1 || record.engine.version === 2) ? record.engine as unknown as EngineDefinition : undefined
   const phaseNames = Array.isArray(record.phases)
     ? uniqueStrings(
         record.phases.map((phase) => {
@@ -1289,7 +1306,7 @@ function normalizeProgram(
     goal: pickFirstText(record.goal, record.focus) ?? '',
     level: pickFirstText(record.level, record.difficulty) ?? '',
     duration,
-    weekCount,
+    weekCount: engine ? new Set(engine.sections.map(section=>section.weekIndex)).size : weekCount,
     phaseNames,
     tags: uniqueStrings([
       ...toStringArray(record.tags),
@@ -1298,7 +1315,11 @@ function normalizeProgram(
       pickFirstText(record.level),
       pickFirstText(record.author),
     ]),
-    sections,
+    sourceUrl: pickFirstText(record.sourceUrl),
+    author: pickFirstText(record.author),
+    license: pickFirstText(record.license),
+    engine,
+    sections: engine?.sections ?? sections,
     source,
     details: normalizeDetailFields(record, [
       'author',
@@ -1311,6 +1332,7 @@ function normalizeProgram(
       'displayLabel',
       'duration',
       'exerciseFile',
+      'engine',
       'focus',
       'goal',
       'id',

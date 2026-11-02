@@ -1,0 +1,34 @@
+{
+  "id": "standing-concentration-curl",
+  "displayLabel": "Standing Concentration Curl",
+  "shortDescription": "strength exercise targeting biceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Taking a dumbbell in your working hand, lean forward. Allow your working arm to hang perpendicular to the ground with the elbow pointing out. This will be your starting position.",
+    "Flex the elbow to curl the weight, keeping the upper arm stationary. At the top of the repetition, flex the biceps and pause.",
+    "Lower the dumbbell back to the starting position.",
+    "Repeat the movement for the prescribed amount of repetitions."
+  ],
+  "equipment": [
+    "dumbbell"
+  ],
+  "category": "strength",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "forearm",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "isolation"
+  ]
+}

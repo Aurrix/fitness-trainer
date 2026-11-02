@@ -289,6 +289,7 @@ export function inferExerciseMuscleGroups({
 
 export function buildExerciseLookup(exercises: ExerciseLookupLike[]) {
   const lookup = new Map<string, ExerciseLookupLike>()
+  for(const exercise of exercises)lookup.set(slugify(exercise.id),exercise)
 
   for (const exercise of exercises) {
     const references = [
@@ -875,4 +876,58 @@ export function buildProgramMuscleBreakdown(
         .sort((left, right) => right.count - left.count),
     }))
     .sort((left, right) => right.count - left.count)
+}
+
+export type ProgramCoverageMetric = 'sets' | 'exercises' | 'sessions'
+export type ProgramCoverageRow = { slug: Slug; exercises: number; sessions: number; setsMin: number; setsMax: number; unknownSets: number; exerciseNames: string[] }
+
+/** Counts exercise slots and working sets, deduplicating anatomical subregions per slot. */
+export function buildProgramCoverage(sections: SectionLike[], exercises: ExerciseLookupLike[], primaryOnly = false) {
+  const lookup = buildExerciseLookup(exercises)
+  const rows = new Map<Slug, ProgramCoverageRow & { sessionIds: Set<number> }>()
+  let unmappedExercises = 0
+  let unclassifiedExercises = 0
+  sections.forEach((section, index) => {
+    for (const slot of section.exercises) {
+      const exercise = resolveExerciseReference(slot, lookup)
+      if (!exercise) unmappedExercises++
+      const primary = exercise?.primaryTargetMuscleGroups ?? []
+      if (!primary.length) unclassifiedExercises++
+      const targets = primaryOnly
+        ? [...new Set(primary.map(target => mapExerciseMuscleGroupToBodySlug(target.muscleGroup)).filter((slug): slug is Slug => Boolean(slug)))]
+        : resolveExerciseTargets(slot, lookup).map(target => target.slug)
+      const prescriptions = (slot as ExerciseReferenceLike & { prescriptions?: { kind: string }[] }).prescriptions
+      const text = (slot.sets ?? '').trim()
+      const range = text.match(/^(\d+)(?:\s*[-–]\s*(\d+))?$/)
+      const min = prescriptions?.length ? prescriptions.filter(set => set.kind !== 'warmup').length : range ? Number(range[1]) : 0
+      const max = prescriptions?.length ? min : range ? Number(range[2] ?? range[1]) : 0
+      for (const slug of targets) {
+        const row = rows.get(slug) ?? { slug, exercises: 0, sessions: 0, setsMin: 0, setsMax: 0, unknownSets: 0, exerciseNames: [], sessionIds: new Set<number>() }
+        row.exercises++
+        row.setsMin += Math.min(min, max)
+        row.setsMax += Math.max(min, max)
+        if (!range && !prescriptions?.length) row.unknownSets++
+        row.sessionIds.add(index)
+        row.sessions = row.sessionIds.size
+        if (!row.exerciseNames.includes(slot.exerciseName)) row.exerciseNames.push(slot.exerciseName)
+        rows.set(slug, row)
+      }
+    }
+  })
+  return { rows: [...rows.values()].map(row => ({ slug: row.slug, exercises: row.exercises, sessions: row.sessions, setsMin: row.setsMin, setsMax: row.setsMax, unknownSets: row.unknownSets, exerciseNames: row.exerciseNames })), unmappedExercises, unclassifiedExercises }
+}
+
+export function buildCoverageMuscleProfile(rows: ProgramCoverageRow[], metric: ProgramCoverageMetric) {
+  return buildMuscleProfileFromScores(new Map(rows.map(row => [row.slug, coverageMetricValue(row, metric)])))
+}
+
+export function coverageMetricValue(row: ProgramCoverageRow, metric: ProgramCoverageMetric) {
+  return metric === 'sets' ? (row.setsMin + row.setsMax) / 2 : row[metric]
+}
+
+export function formatCoverageMetric(row: ProgramCoverageRow, metric: ProgramCoverageMetric, sessionCount: number) {
+  if (metric === 'sessions') return `${row.sessions} / ${sessionCount} sessions`
+  if (metric === 'exercises') return `${row.exercises} exercise ${row.exercises === 1 ? 'slot' : 'slots'}`
+  const sets = row.setsMin === row.setsMax ? String(row.setsMin) : `${row.setsMin}–${row.setsMax}`
+  return `${sets}${row.unknownSets ? ' + ?' : ''} ${row.setsMax === 1 && !row.unknownSets ? 'set' : 'sets'}`
 }

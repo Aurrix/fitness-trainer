@@ -1,0 +1,27 @@
+{
+  "id": "pelvic-tilt-into-bridge",
+  "displayLabel": "Pelvic Tilt Into Bridge",
+  "shortDescription": "stretching exercise targeting lower back.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Lie down with your feet on the floor, heels directly under your knees.",
+    "Lift only your tailbone to the ceiling to stretch your lower back. (Don't lift the entire spine yet.) Pull in your stomach.",
+    "To go into a bridge, lift the entire spine except the neck."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-back",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "tags": [
+    "static",
+    "compound"
+  ],
+  "exerciseType": "continues"
+}

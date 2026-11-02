@@ -1,0 +1,41 @@
+{
+  "id": "chest-push-from-3-point-stance",
+  "displayLabel": "Chest Push from 3 point stance",
+  "shortDescription": "plyometrics exercise targeting chest.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Begin in a three point stance, squatted down with your back flat and one hand on the ground. Place the medicine ball directly in front of you.",
+    "To begin, take your first step as you pull the ball to your chest, positioning both hands to prepare for the throw.",
+    "As you execute the second step, explosively release the ball forward as hard as possible."
+  ],
+  "equipment": [
+    "medicine ball"
+  ],
+  "category": "plyometrics",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "deltoids",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

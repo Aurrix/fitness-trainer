@@ -1,0 +1,32 @@
+{
+  "id": "elbow-circles",
+  "displayLabel": "Elbow Circles",
+  "shortDescription": "stretching exercise targeting shoulders.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Sit or stand with your feet slightly apart.",
+    "Place your hands on your shoulders with your elbows at shoulder level and pointing out.",
+    "Slowly make a circle with your elbows. Breathe out as you start the circle and breathe in as you complete the circle."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "deltoids",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "trapezius",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "isolation"
+  ],
+  "exerciseType": "continues"
+}

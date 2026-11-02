@@ -1,0 +1,24 @@
+{
+  "id": "side-jackknife",
+  "displayLabel": "Side Jackknife",
+  "shortDescription": "strength exercise targeting abdominals.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [],
+  "equipment": [
+    "bodyweight"
+  ],
+  "category": "strength",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "tags": [
+    "pull",
+    "compound"
+  ]
+}

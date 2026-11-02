@@ -1,0 +1,39 @@
+{
+  "id": "one-arm-long-bar-row",
+  "displayLabel": "One-Arm Long Bar Row",
+  "shortDescription": "strength exercise targeting middle back.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Position a bar into a landmine or in a corner to keep it from moving. Load an appropriate weight onto your end.",
+    "Stand next to the bar, and take a grip with one hand close to the collar. Using your hips and legs, rise to a standing position.",
+    "Assume a bent-knee stance with your hips back and your chest up. Your arm should be extended. This will be your starting position.",
+    "Pull the weight to your side by retracting the shoulder and flexing the elbow. Do not jerk the weight or cheat during the movement.",
+    "After a brief pause, return to the starting position."
+  ],
+  "equipment": [
+    "barbell"
+  ],
+  "category": "strength",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-back",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lats",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "compound"
+  ]
+}

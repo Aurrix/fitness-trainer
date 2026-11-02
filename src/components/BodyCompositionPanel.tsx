@@ -63,7 +63,7 @@ type BodyCompositionPanelProps = {
   ) => void
   statsPreferences: StatsPreferences
   progressPhotos: ProgressPhoto[]
-  onAddProgressPhoto: (photo: ProgressPhoto) => void
+  onAddProgressPhoto: (photos: ProgressPhoto[]) => Promise<void>
   onRemoveProgressPhoto: (id: string) => void
 }
 

@@ -31,9 +31,9 @@ function fitnessTrainerPwa(): Plugin {
 
             await generateSW({
                 globDirectory: outDir,
-                globPatterns: ['**/*.{css,html,ico,js,json,md,png,svg,webmanifest}'],
-                // The library art assets exceed Workbox's 2 MiB default precache cap.
-                maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
+                globPatterns: ['**/*.{css,html,ico,js,mjs,json,md,png,svg,webmanifest}'],
+                // The complete structured program catalog is bundled with the offline app.
+                maximumFileSizeToCacheInBytes: 64 * 1024 * 1024,
                 swDest: resolve(outDir, 'sw.js'),
                 navigateFallback: 'index.html',
                 cleanupOutdatedCaches: true,

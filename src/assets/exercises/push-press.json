@@ -1,0 +1,33 @@
+{
+  "id": "push-press",
+  "displayLabel": "Push Press",
+  "shortDescription": "olympic weightlifting exercise targeting shoulders.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [],
+  "equipment": [
+    "barbell"
+  ],
+  "category": "olympic weightlifting",
+  "difficulty": "Advanced",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "deltoids",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

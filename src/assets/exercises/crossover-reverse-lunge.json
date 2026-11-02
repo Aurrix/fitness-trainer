@@ -1,0 +1,47 @@
+{
+  "id": "crossover-reverse-lunge",
+  "displayLabel": "Crossover Reverse Lunge",
+  "shortDescription": "stretching exercise targeting lower back.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Stand with your feet shoulder width apart. This will be your starting position.",
+    "Perform a rear lunge by stepping back with one foot and flexing the hips and front knee. As you do so, rotate your torso across the front leg.",
+    "After a brief pause, return to the starting position and repeat on the other side, continuing in an alternating fashion."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Intermediate",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lower-back",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull"
+  ],
+  "exerciseType": "continues"
+}

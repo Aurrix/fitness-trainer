@@ -1,0 +1,29 @@
+{
+  "id": "shoulder-raise",
+  "displayLabel": "Shoulder Raise",
+  "shortDescription": "stretching exercise targeting shoulders.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Relax your arms to your sides and raise your shoulders up toward your ears, then back down."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "deltoids",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull"
+  ],
+  "exerciseType": "continues"
+}

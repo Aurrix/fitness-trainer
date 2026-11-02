@@ -1,0 +1,26 @@
+{
+  "id": "side-neck-stretch",
+  "displayLabel": "Side Neck Stretch",
+  "shortDescription": "stretching exercise targeting neck.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Start with your shoulders relaxed, gently tilt your head towards your shoulder.",
+    "Assist stretch with a gentle pull on the side of the head."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "neck",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "tags": [
+    "static",
+    "isolation"
+  ],
+  "exerciseType": "continues"
+}

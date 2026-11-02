@@ -1,0 +1,50 @@
+{
+  "id": "double-leg-butt-kick",
+  "displayLabel": "Double Leg Butt Kick",
+  "shortDescription": "plyometrics exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Begin standing with your knees slightly bent.",
+    "Quickly squat a short distance, flexing the hips and knees, and immediately extend to jump for maximum vertical height.",
+    "As you go up, tuck your heels by flexing the knees, attempting to touch the buttocks.",
+    "Finish the motion by landing with the knees only partially bent, using your legs to absorb the impact."
+  ],
+  "equipment": [
+    "bodyweight"
+  ],
+  "category": "plyometrics",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-med",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "adductors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "push",
+    "compound"
+  ]
+}

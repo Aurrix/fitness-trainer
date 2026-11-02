@@ -1,0 +1,50 @@
+{
+  "id": "sledgehammer-swings",
+  "displayLabel": "Sledgehammer Swings",
+  "shortDescription": "plyometrics exercise targeting abdominals.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "You will need a tire and a sledgehammer for this exercise. Stand in front of the tire about two feet away from it with a staggered stance. Grip the sledgehammer.",
+    "If you are right handed, your left hand should be at the bottom of the handle, and your right hand should be choking up closer to the head.",
+    "As you bring the sledge up, your right hand slides toward the head; as you swing down, your right hand will slide down to join your left hand. Slam it down as hard as you can against the tire. Control the bounce of the hammer off of the tire.",
+    "Repeat on the other side."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "plyometrics",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearm",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lats",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upper-back",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "deltoids",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "compound"
+  ]
+}

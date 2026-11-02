@@ -73,7 +73,7 @@ type AppStoreState = {
   setStatsPreferences: (updater: StateUpdater<StatsPreferences>) => void
   setActiveWorkout: (updater: StateUpdater<ActiveWorkout | null>) => void
   setBodyCompositionEntries: (updater: StateUpdater<BodyCompositionEntry[]>) => void
-  setProgressPhotos: (updater: StateUpdater<ProgressPhoto[]>) => void
+  setProgressPhotos: (updater: StateUpdater<ProgressPhoto[]>) => Promise<void>
   setCustomPrograms: (updater: StateUpdater<CustomProgram[]>) => void
   setExerciseStatsStore: (updater: StateUpdater<ExerciseStatsStore>) => void
   setFitnessProfile: (updater: StateUpdater<FitnessProfile>) => void
@@ -138,6 +138,8 @@ async function safeRead(key: string) {
 async function persistMany(entries: Array<[string, unknown]>) {
   await Promise.allSettled(entries.map(([key, value]) => persistState(key, value)))
 }
+
+let photoWrites: Promise<void> = Promise.resolve()
 
 const defaultFitnessProfile = createDefaultFitnessProfile()
 const defaultExerciseStatsStore = createEmptyExerciseStatsStore()
@@ -336,11 +338,13 @@ export const useAppStore = create<AppStoreState>((set, get) => ({
     })
   },
   setProgressPhotos(updater) {
-    set((state) => {
-      const nextValue = resolveUpdater(state.progressPhotos, updater)
-      void persistState(LOCAL_STORAGE_KEYS.progressPhotos, nextValue)
-      return { progressPhotos: nextValue }
+    const write = photoWrites.then(async () => {
+      const nextValue = resolveUpdater(get().progressPhotos, updater)
+      await writePersistedState(LOCAL_STORAGE_KEYS.progressPhotos, nextValue)
+      set({ progressPhotos: nextValue })
     })
+    photoWrites = write.catch(() => undefined)
+    return write
   },
   setCustomPrograms(updater) {
     set((state) => {

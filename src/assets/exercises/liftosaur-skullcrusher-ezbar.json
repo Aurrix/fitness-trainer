@@ -1,0 +1,22 @@
+{
+  "id": "liftosaur-skullcrusher-ezbar",
+  "displayLabel": "Skullcrusher (ezbar)",
+  "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
+  "equipment": [
+    "ezbar"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "aliases": [],
+  "tags": [
+    "Liftosaur",
+    "AGPL-3.0"
+  ],
+  "sourceUrl": "https://github.com/astashov/liftosaur",
+  "license": "AGPL-3.0"
+}

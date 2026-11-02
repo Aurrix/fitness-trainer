@@ -1,0 +1,38 @@
+{
+  "id": "trap-bar-deadlift",
+  "displayLabel": "Trap Bar Deadlift",
+  "shortDescription": "strength exercise targeting quadriceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "For this exercise load a trap bar, also known as a hex bar, to an appropriate weight resting on the ground. Stand in the center of the apparatus and grasp both handles.",
+    "Lower your hips, look forward with your head and keep your chest up.",
+    "Begin the movement by driving through the heels and extend your hips and knees. Avoid rounding your back at all times.",
+    "At the completion of the movement, lower the weight back to the ground under control."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "strength",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "pull",
+    "compound"
+  ]
+}

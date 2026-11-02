@@ -1,12 +1,17 @@
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowRight, CopyPlus, Pencil, Play, Plus, Search, Star } from 'lucide-react'
-import MuscleVisualizer from '../components/MuscleVisualizer'
+import ExerciseFilters from '../components/ExerciseFilters'
+import { emptyExerciseFacets, matchesExerciseFacets } from '../lib/exercise-filters'
+import ProgramFilters from '../components/ProgramFilters'
+import ProgramMuscleCardOverview from '../components/ProgramMuscleCardOverview'
+import { emptyProgramFacets, getProgramSchedule, getProgramSplit, matchesProgramFacets, programFilterOptions, type ProgramFacets } from '../lib/program-filters'
+import ExerciseMedia from '../components/ExerciseMedia'
 import exercisesLibraryImage from '../assets/images/exercises.png'
 import programsLibraryImage from '../assets/images/programms.png'
 import { formatExerciseMuscleGroup } from '../entities/exercise-muscles'
 import { countExercises } from '../lib/app-utils'
 import type { AppProgram, ExerciseFilter, LibraryView, ProgramFilter } from '../lib/app-types'
 import type { Exercise } from '../lib/content'
-import { buildExerciseMuscleProfile } from '../lib/muscles'
 
 type LibraryPageProps = {
   contentExercises: Exercise[]
@@ -24,7 +29,7 @@ type LibraryPageProps = {
   onEditCustomProgram: (programId: string) => void
   onOpenExerciseDetails: (exercise: Exercise) => void
   onOpenManualBuilder: () => void
-  onOpenProgram: (program: AppProgram) => void
+  onOpenProgram: (program: AppProgram, view?: 'days' | 'muscles') => void
   onSetExerciseFilter: (filter: ExerciseFilter) => void
   onSetExerciseQuery: (value: string) => void
   onSetLibraryView: (view: LibraryView) => void
@@ -69,16 +74,57 @@ export default function LibraryPage({
   savedProgramIdSet,
   isCustomExercise,
 }: LibraryPageProps) {
+  const [programFacets, setProgramFacets] = useState<ProgramFacets>({ ...emptyProgramFacets })
+  const [programSort, setProgramSort] = useState('default')
+  const equipmentLookup = useMemo(() => new Map(contentExercises.map(exercise => [exercise.id, exercise])), [contentExercises])
+  const matchingPrograms = useMemo(() => {
+    const result = filteredPrograms.filter(program => matchesProgramFacets(program, programFacets, equipmentLookup))
+    if (programSort === 'name') result.sort((a, b) => a.name.localeCompare(b.name))
+    if (programSort === 'days') result.sort((a, b) => (getProgramSchedule(a).days[0] ?? Infinity) - (getProgramSchedule(b).days[0] ?? Infinity))
+    return result
+  }, [filteredPrograms, programFacets, programSort, equipmentLookup])
+  const [exerciseFacets, setExerciseFacets] = useState({ ...emptyExerciseFacets })
+  const mediaFiltered = filteredExercises.filter(exercise => matchesExerciseFacets(exercise, exerciseFacets))
+  const batchSize = 12
+  const [listing, setListing] = useState({ key: '', limit: batchSize })
+  const loadMoreRef = useRef<HTMLDivElement>(null)
+  const listingKey = JSON.stringify([exerciseQuery, exerciseFilter, libraryView, exerciseFacets])
+  const limit = listing.key === listingKey ? listing.limit : batchSize
+  if (listing.key !== listingKey) {
+    setListing({ key: listingKey, limit: batchSize })
+  }
+  const visibleExercises = mediaFiltered.slice(0, limit)
+  const hasMore = visibleExercises.length < mediaFiltered.length
+  const loadMore = () => setListing((current) => ({
+    key: listingKey,
+    limit: (current.key === listingKey ? current.limit : batchSize) + batchSize,
+  }))
+
+  useEffect(() => {
+    const target = loadMoreRef.current
+    if (libraryView !== 'exercises' || !hasMore || !target || !('IntersectionObserver' in window)) return
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        observer.disconnect()
+        setListing((current) => ({
+          key: listingKey,
+          limit: (current.key === listingKey ? current.limit : batchSize) + batchSize,
+        }))
+      }
+    }, { rootMargin: '600px 0px' })
+    observer.observe(target)
+    return () => observer.disconnect()
+  }, [hasMore, libraryView, listingKey, limit, mediaFiltered.length])
+
   return (
     <>
       {libraryView === 'home' ? (
-        <section className="section-card">
-          <div className="section-header">
-            <div>
-              <p className="kicker">Library</p>
-              <h2>Browse training content</h2>
-            </div>
-          </div>
+        <section className="section-card library-home" aria-labelledby="library-home-title">
+          <header className="library-home__header">
+            <p className="kicker">Library</p>
+            <h2 id="library-home-title">Find your next workout</h2>
+            <p className="muted">Explore a plan or find the right movement.</p>
+          </header>
 
           <div className="library-switch-grid">
             <button
@@ -86,20 +132,17 @@ export default function LibraryPage({
               className="library-switch-card"
               onClick={() => onSetLibraryView('programs')}
             >
-              <div className="library-switch-card__media">
+              <span className="library-switch-card__media">
                 <img src={programsLibraryImage} alt="" />
-              </div>
-              <div className="library-switch-card__copy">
-                <h3>Programs</h3>
-                <p className="muted">
-                  Browse built-in templates, saved picks, and custom plans.
-                </p>
-                <div className="tag-row">
-                  <span className="pill pill--subtle">{filteredPrograms.length} shown</span>
-                  <span className="pill pill--subtle">{customProgramCount} custom</span>
-                  <span className="pill pill--subtle">{favoriteProgramCount} favorites</span>
-                </div>
-              </div>
+              </span>
+              <span className="library-switch-card__copy">
+                <span className="library-switch-card__title">Programs</span>
+                <span className="library-switch-card__description">Follow a plan. Build a routine.</span>
+                <span className="library-switch-card__meta">
+                  {customProgramCount} custom · {favoriteProgramCount} saved
+                </span>
+              </span>
+              <ArrowRight className="library-switch-card__arrow" size={20} aria-hidden="true" />
             </button>
 
             <button
@@ -107,20 +150,28 @@ export default function LibraryPage({
               className="library-switch-card"
               onClick={() => onSetLibraryView('exercises')}
             >
-              <div className="library-switch-card__media">
+              <span className="library-switch-card__media">
                 <img src={exercisesLibraryImage} alt="" />
-              </div>
-              <div className="library-switch-card__copy">
-                <h3>Exercises</h3>
-                <p className="muted">
-                  Inspect movements, target muscles, and available alternatives.
-                </p>
-                <div className="tag-row">
-                  <span className="pill pill--subtle">{contentExercises.length} loaded</span>
-                  <span className="pill pill--subtle">{filteredExercises.length} shown</span>
-                  <span className="pill pill--subtle">{favoriteExerciseCount} favorites</span>
-                </div>
-              </div>
+              </span>
+              <span className="library-switch-card__copy">
+                <span className="library-switch-card__title">Exercises</span>
+                <span className="library-switch-card__description">Explore movements and muscles.</span>
+                <span className="library-switch-card__meta">
+                  {contentExercises.length} exercises · {favoriteExerciseCount} saved
+                </span>
+              </span>
+              <ArrowRight className="library-switch-card__arrow" size={20} aria-hidden="true" />
+            </button>
+          </div>
+
+          <div className="library-home__create">
+            <div>
+              <h3>Make it your own</h3>
+              <p className="muted">Build a program around your goals.</p>
+            </div>
+            <button type="button" className="primary-button icon-button" onClick={onOpenManualBuilder}>
+              <Plus size={18} aria-hidden="true" />
+              <span>Create a program</span>
             </button>
           </div>
         </section>
@@ -180,9 +231,11 @@ export default function LibraryPage({
             ))}
           </div>
 
-          {filteredPrograms.length ? (
+          <ProgramFilters value={programFacets} onChange={setProgramFacets} countMatches={facets => filteredPrograms.filter(program => matchesProgramFacets(program, facets, equipmentLookup)).length} sort={programSort} onSort={setProgramSort} />
+          <p className="muted" role="status">{matchingPrograms.length} {matchingPrograms.length === 1 ? 'program' : 'programs'}</p>
+          {matchingPrograms.length ? (
             <div className="card-stack">
-              {filteredPrograms.map((program) => (
+              {matchingPrograms.map((program) => (
                 <article
                   key={program.id}
                   className={`program-card program-card--${program.programSource}`}
@@ -233,7 +286,8 @@ export default function LibraryPage({
                   </p>
 
                   <div className="tag-row program-card__meta">
-                    <span className="pill pill--subtle">{program.sections.length} days</span>
+                    <span className="pill pill--subtle">{getProgramSchedule(program).label}</span>
+                    <span className="pill pill--subtle">{programFilterOptions.split.find(option => option[0] === getProgramSplit(program))?.[1]}</span>
                     <span className="pill pill--subtle">{countExercises(program)} exercises</span>
                     {program.duration ? (
                       <span className="pill pill--subtle">{program.duration}</span>
@@ -243,6 +297,8 @@ export default function LibraryPage({
                     ) : null}
                   </div>
 
+                  <ProgramMuscleCardOverview program={program} exercises={contentExercises} gender={fitnessGender} />
+                  <button type="button" className="ghost-button program-coverage-link" onClick={() => onOpenProgram(program, 'muscles')}>View muscle coverage <ArrowRight size={15} /></button>
                   <div className="row-actions">
                     <button
                       type="button"
@@ -278,7 +334,8 @@ export default function LibraryPage({
           ) : (
             <div className="empty-state">
               <h3>No matching programs</h3>
-              <p>Try a broader search or create your own program from scratch.</p>
+              <p>Try fewer filters, broaden your search, or create your own program.</p>
+              <button type="button" className="secondary-button" onClick={() => { setProgramFacets({ ...emptyProgramFacets }); onSetProgramQuery(''); onSetProgramFilter('all') }}>Clear search and filters</button>
             </div>
           )}
         </section>
@@ -326,9 +383,14 @@ export default function LibraryPage({
             ))}
           </div>
 
-          {filteredExercises.length ? (
-            <div className="card-stack">
-              {filteredExercises.map((exercise) => {
+          <ExerciseFilters value={exerciseFacets} onChange={setExerciseFacets} exercises={contentExercises} countMatches={facets => filteredExercises.filter(exercise => matchesExerciseFacets(exercise, facets)).length} />
+          <p className="muted exercise-list-count" role="status">
+            Showing {visibleExercises.length} of {mediaFiltered.length} exercises
+          </p>
+
+          {mediaFiltered.length ? (
+            <div className="card-stack exercise-infinite-list">
+              {visibleExercises.map((exercise) => {
                 const exerciseIsCustom = isCustomExercise(exercise)
 
                 return (
@@ -397,16 +459,7 @@ export default function LibraryPage({
                         <span className="pill pill--subtle">Custom Source</span>
                       ) : null}
                     </div>
-                    <MuscleVisualizer
-                      compact
-                      className="exercise-muscle-visualizer"
-                      detailsMode="sheet"
-                      gender={fitnessGender}
-                      hideHeader
-                      profile={buildExerciseMuscleProfile(exercise)}
-                      showSheetPreview={false}
-                      title={exercise.name}
-                    />
+                    <ExerciseMedia exercise={exercise} gender={fitnessGender} />
                     <div className="row-actions exercise-card__actions">
                       <button
                         type="button"
@@ -427,6 +480,15 @@ export default function LibraryPage({
               <p>Try a broader search or switch back to all exercises.</p>
             </div>
           )}
+          {hasMore ? (
+            <div ref={loadMoreRef} className="exercise-load-more">
+              <button type="button" className="chip-button" onClick={loadMore}>
+                Load more exercises
+              </button>
+            </div>
+          ) : mediaFiltered.length ? (
+            <p className="muted exercise-list-count">All matching exercises shown</p>
+          ) : null}
         </section>
       ) : null}
     </>

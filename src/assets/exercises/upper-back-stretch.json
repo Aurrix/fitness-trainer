@@ -1,0 +1,29 @@
+{
+  "id": "upper-back-stretch",
+  "displayLabel": "Upper Back Stretch",
+  "shortDescription": "stretching exercise targeting middle back.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Clasp fingers together with your thumbs pointing down, round your shoulders as you reach your hands forward."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-back",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "upper-back",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static"
+  ],
+  "exerciseType": "continues"
+}

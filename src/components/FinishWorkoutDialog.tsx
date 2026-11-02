@@ -1,6 +1,10 @@
+import type { ReactNode } from 'react'
 import BottomSheet from './BottomSheet'
 
 type FinishWorkoutDialogProps = {
+  children?:ReactNode
+  busy?:boolean
+  error?:string
   dayName: string | null
   onClose: () => void
   onConfirm: () => void
@@ -8,6 +12,9 @@ type FinishWorkoutDialogProps = {
 }
 
 export default function FinishWorkoutDialog({
+  children,
+  busy,
+  error,
   dayName,
   onClose,
   onConfirm,
@@ -22,14 +29,16 @@ export default function FinishWorkoutDialog({
           : 'Finish this workout day and save it to your history?'
       }
       kicker="Finish Day"
-      onClose={onClose}
+      onClose={busy ? () => {} : onClose}
       title="Confirm completion"
     >
+      {children}
+      {error ? <p role="alert">{error}</p> : null}
       <div className="row-actions finish-workout-dialog__actions">
-        <button type="button" className="secondary-button" onClick={onClose}>
+        <button type="button" className="secondary-button" disabled={busy} onClick={onClose}>
           Keep training
         </button>
-        <button type="button" className="primary-button" onClick={onConfirm}>
+        <button type="button" className="primary-button" disabled={busy} onClick={onConfirm}>
           Finish day
         </button>
       </div>

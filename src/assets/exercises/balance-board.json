@@ -1,0 +1,36 @@
+{
+  "id": "balance-board",
+  "displayLabel": "Balance Board",
+  "shortDescription": "strength exercise targeting calves.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Place a balance board in front of you.",
+    "Stand up on it and try to balance yourself.",
+    "Hold the balance for as long as desired."
+  ],
+  "equipment": [
+    "other"
+  ],
+  "category": "strength",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "compound"
+  ]
+}

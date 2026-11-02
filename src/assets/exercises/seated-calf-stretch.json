@@ -1,0 +1,36 @@
+{
+  "id": "seated-calf-stretch",
+  "displayLabel": "Seated Calf Stretch",
+  "shortDescription": "stretching exercise targeting calves.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Sit up straight on an exercise mat.",
+    "Bend one knee and put that foot on the floor to stabilize the torso.",
+    "Straighten your other leg and flex your ankle.",
+    "Using a band, towel, or your hand if you can reach, pull the toes toward you. Hold for 10 to 20 seconds, then switch sides."
+  ],
+  "equipment": [],
+  "category": "stretching",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "calves",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lower-back",
+      "factor": 0.5
+    }
+  ],
+  "tags": [
+    "static"
+  ],
+  "exerciseType": "continues"
+}

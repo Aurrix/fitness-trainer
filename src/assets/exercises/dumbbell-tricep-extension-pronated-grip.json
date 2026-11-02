@@ -1,0 +1,29 @@
+{
+  "id": "dumbbell-tricep-extension-pronated-grip",
+  "displayLabel": "Dumbbell Tricep Extension -Pronated Grip",
+  "shortDescription": "strength exercise targeting triceps.",
+  "aliases": [],
+  "substitutionExerciseIds": [],
+  "instructions": [
+    "Lie down on a flat bench holding two dumbbells directly above your shoulders. Your arms should be fully extended and form a 90 degree angle from your torso and the floor.",
+    "The palms of your hands should be facing forward, and your elbows should be tucked in. This will be your starting position.",
+    "Now, inhale and slowly lower the dumbbells until they are near your ears. Be sure to keep your upper arms stationary and your elbows tucked in.",
+    "Then, exhale and use your triceps to return the weight to the starting position."
+  ],
+  "equipment": [
+    "dumbbell"
+  ],
+  "category": "strength",
+  "difficulty": "Beginner",
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "triceps",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "tags": [
+    "push",
+    "isolation"
+  ]
+}

@@ -1,0 +1,7 @@
+# Program-first video delivery
+
+Program coverage is the immediate milestone. Audit every manifest in `src/assets/programms/index.json`, recursively collecting exercise IDs from all weeks, days and native structures. Prefer resolved IDs when present. Count an exercise once per program, so repeated weeks and snapshots do not inflate priority. Missing exercises used by the most programs come first; preserve separate catalog IDs and media mappings.
+
+`node scripts/exercise-media/program-coverage.mjs --write` saves all exercise-to-program associations, per-program gaps and priorities in `.exercise-media-references/program-coverage.json`. Add `--details` to print the full report. Missing public files, rejected mapped versions and unknown catalog IDs remain gaps. Every import refreshes this report. `catalog.mjs jobs` and `montage` use the live priority order without modifying the frozen reference inventory.
+
+After each batch, inspect the report. As soon as all program exercises are covered, run `node scripts/exercise-media/verify-delivery.mjs --programs` to decode and compare every program-used video and poster against its source. Report this milestone immediately after that gate passes. This verifies program coverage separately from full-library delivery: continue the full library afterward unless the user changes scope. Assets remain labeled AI drafts; technical checks and contact-sheet inspection do not approve biomechanics.
