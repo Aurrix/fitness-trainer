@@ -18,6 +18,9 @@ for(const root of roots){
   if(!fs.existsSync(dir+'/export.json')||!fs.existsSync(dir+'/demo.mp4')||!fs.existsSync(dir+'/poster.webp'))continue
   const review=fs.existsSync(dir+'/review.json')?read(dir+'/review.json'):{}
   if(rejected(review)){delete index[id];continue}
+  // Encoding may finish during another batch's import. New clips/replacements
+  // wait for inspection; preserve previously delivered legacy draft mappings.
+  if(review.sourceSheetInspected!==true&&(mappedVersion!==version||!index[id]))continue
   index[id]={video:`exercise-media/${id}/${version}/demo.mp4`,poster:`exercise-media/${id}/${version}/poster.webp`}
   if(!dry){
    const dest=`public/exercise-media/${id}/${version}`

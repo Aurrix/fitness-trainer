@@ -37,6 +37,17 @@ for(const id of ids){
  assert.equal(stream.pix_fmt,'yuv420p',id+' pixel format')
  assert.ok(Number(stream.duration)>0&&Number(stream.nb_read_frames)>0,id+' duration/frames')
  if(metadata){
+  if(metadata.sourceSha256)assert.equal(hash(source+'/source-sheet.png'),metadata.sourceSha256,id+' source sheet')
+  if(metadata.poseSequence){
+   const timeline=read(source+'/timeline.json')
+   assert.deepEqual(timeline.poseSequence,metadata.poseSequence,id+' pose sequence metadata')
+   assert.equal(timeline.poseDurationSeconds,0.25,id+' pose duration')
+   assert.equal(metadata.poseSequence.length,16,id+' timeline length')
+   for(const [position,cell] of metadata.poseSequence.entries()){
+    assert.ok(Number.isInteger(cell)&&cell>=0&&cell<16,id+' source cell')
+    assert.equal(hash(source+'/timeline/pose-'+String(position).padStart(2,'0')+'.png'),hash(source+'/frames/pose-'+String(cell).padStart(2,'0')+'.png'),id+' timeline cell '+position)
+   }
+  }
   assert.equal(stream.width,metadata.width,id+' width');assert.equal(stream.height,metadata.height,id+' height')
   assert.equal(Number(stream.duration),Number(metadata.duration),id+' duration')
   assert.equal(Number(stream.nb_read_frames),Number(metadata.nb_read_frames),id+' frame count')

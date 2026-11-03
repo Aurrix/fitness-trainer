@@ -145,17 +145,22 @@ function jobs(limit=5){
 }
 function encode(id){
  if(!inventory().entries.some(e=>e.id===id))throw Error('Unknown exercise ID')
- const e=read(root+'/'+id+'/manifest.json'),dir=root+'/'+id+'/'+versionFor(id),sheet=dir+'/source-sheet.png'
+ const e=read(root+'/'+id+'/manifest.json'),job=read(root+'/'+id+'/job.json'),dir=root+'/'+id+'/'+versionFor(id),sheet=dir+'/source-sheet.png'
  if(fs.existsSync(dir+'/export.json'))return
+ const sequence=job.poseSequence??Array.from({length:16},(_,i)=>i)
+ if(!Array.isArray(sequence)||sequence.length!==16||sequence.some(i=>!Number.isInteger(i)||i<0||i>15))throw Error('poseSequence must contain sixteen source-cell indices from 0 to 15')
  fs.mkdirSync(dir+'/frames',{recursive:true})
  execFileSync('magick',[sheet,'-crop','4x4@','+repage','-resize','512x512','-background','#f8f5ee','-gravity','center','-extent','512x512',dir+'/frames/pose-%02d.png'])
  if(fs.readdirSync(dir+'/frames').filter(s=>/^pose-\d+.png$/.test(s)).length!==16)throw Error('Expected sixteen source cells')
- execFileSync('magick',[dir+'/frames/pose-00.png','-quality','85',dir+'/poster.webp'])
- execFileSync('ffmpeg',['-v','error','-y','-framerate','4','-i',dir+'/frames/pose-%02d.png','-c:v','libx264','-crf','20','-pix_fmt','yuv420p','-r','24','-movflags','+faststart','-an',dir+'/demo.mp4'])
+ fs.mkdirSync(dir+'/timeline',{recursive:true})
+ for(const [position,index] of sequence.entries())fs.copyFileSync(dir+'/frames/pose-'+String(index).padStart(2,'0')+'.png',dir+'/timeline/pose-'+String(position).padStart(2,'0')+'.png')
+ write(dir+'/timeline.json',{source:'source-sheet.png',poseSequence:sequence,poseDurationSeconds:0.25,interpolation:false})
+ execFileSync('magick',[dir+'/timeline/pose-00.png','-quality','85',dir+'/poster.webp'])
+ execFileSync('ffmpeg',['-v','error','-y','-framerate','4','-i',dir+'/timeline/pose-%02d.png','-c:v','libx264','-crf','20','-pix_fmt','yuv420p','-r','24','-movflags','+faststart','-an',dir+'/demo.mp4'])
  const p=JSON.parse(execFileSync('ffprobe',['-v','error','-count_frames','-show_entries','stream=codec_name,width,height,pix_fmt,nb_read_frames,duration,r_frame_rate','-of','json',dir+'/demo.mp4'],{encoding:'utf8'})).streams[0]
  if(p.width!==512||p.height!==512||p.codec_name!=='h264'||Number(p.duration)!==4||Number(p.nb_read_frames)!==96)throw Error('Invalid media export')
  execFileSync('ffmpeg',['-v','error','-i',dir+'/demo.mp4','-f','null','-'])
- write(dir+'/export.json',{id,sourceSha256:hash(fs.readFileSync(sheet)),generator:'built-in image_gen',sourcePoses:16,distinctPosesPerSecond:4,containerFps:24,temporalInterpolation:false,sourceCells:'Aspect ratio preserved; letterboxed if necessary',muscleHighlights:{primary:'orange',secondary:'amber',accuracy:'Approximate schematic overlays on clothing'},referenceHashes:e.references.map(r=>hash(fs.readFileSync(root+'/'+id+'/'+r.file))),readyForProduction:false,bytes:fs.statSync(dir+'/demo.mp4').size,...p})
+ write(dir+'/export.json',{id,sourceSha256:hash(fs.readFileSync(sheet)),generator:'built-in image_gen',sourcePoses:16,poseSequence:sequence,distinctPosesPerSecond:4,containerFps:24,temporalInterpolation:false,sourceCells:'Aspect ratio preserved; letterboxed if necessary',muscleHighlights:{primary:'orange',secondary:'amber',accuracy:'Approximate schematic overlays on clothing'},referenceHashes:e.references.map(r=>hash(fs.readFileSync(root+'/'+id+'/'+r.file))),readyForProduction:false,bytes:fs.statSync(dir+'/demo.mp4').size,...p})
  if(!fs.existsSync(dir+'/review.json'))write(dir+'/review.json',{id,status:'draft-needs-review',readyForProduction:false,sourceSheetInspected:false,motionApproved:false,anatomyApproved:false,findings:['Encoding verified; individual pose/contact, loop and highlight placement review remains pending.'],referenceRights:'rights-pending'})
  console.log('EXPORTED '+e.order+' '+id)
 }

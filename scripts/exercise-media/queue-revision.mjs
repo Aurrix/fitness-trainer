@@ -25,6 +25,8 @@ const corrections={
 const prompt=originalPrompt+'\nREVISION PRIORITY: Correct the inspected defects: '+(review.findings??[]).join(' ')+'\n'+(corrections[id]??'Preserve one camera, body orientation, rigid equipment and contact points. Show the correct named movement with matching first/last working poses; no setup/exit or mirrored side changes.')
 if(!dry){
  const updated={...job,prompt,outputVersion,revisionOf:previous,revisionQueuedAt:new Date().toISOString()}
+ // A new generated sheet has its own cell order; never inherit a previous sheet's video edit.
+ delete updated.poseSequence
  fs.writeFileSync(jobFile+'.tmp',JSON.stringify(updated,null,2)+'\n');fs.renameSync(jobFile+'.tmp',jobFile)
  const failure=directory+'/generation-failed.json'
  if(fs.existsSync(failure))fs.renameSync(failure,directory+'/'+previous+'/generation-failed-'+Date.now()+'.json')
