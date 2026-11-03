@@ -169,10 +169,10 @@
       "file": "any-bent-leg-calf-raise.json"
     },
     {
-      "id": "liftosaur-archhang-bodyweight",
+      "id": "archhang-bodyweight",
       "displayLabel": "Arch Hang (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-archhang-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "archhang-bodyweight.json"
     },
     {
       "id": "arm-circles",
@@ -193,10 +193,10 @@
       "file": "arnold-press.json"
     },
     {
-      "id": "liftosaur-arnoldpress-dumbbell",
+      "id": "arnoldpress-dumbbell",
       "displayLabel": "Arnold Press (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-arnoldpress-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "arnoldpress-dumbbell.json"
     },
     {
       "id": "around-the-worlds",
@@ -223,10 +223,10 @@
       "file": "assisted-pull-up.json"
     },
     {
-      "id": "liftosaur-assistedsquat-bodyweight",
+      "id": "assistedsquat-bodyweight",
       "displayLabel": "Assisted Squat (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-assistedsquat-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "assistedsquat-bodyweight.json"
     },
     {
       "id": "atlas-stone-trainer",
@@ -253,16 +253,16 @@
       "file": "back-extension.json"
     },
     {
-      "id": "liftosaur-backextension-bodyweight",
+      "id": "backextension-bodyweight",
       "displayLabel": "Back Extension (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-backextension-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "backextension-bodyweight.json"
     },
     {
-      "id": "liftosaur-backextension-leveragemachine",
+      "id": "backextension-leveragemachine",
       "displayLabel": "Back Extension (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-backextension-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "backextension-leveragemachine.json"
     },
     {
       "id": "back-flyes-with-bands",
@@ -559,10 +559,10 @@
       "file": "behind-head-chest-stretch.json"
     },
     {
-      "id": "liftosaur-behindtheneckpress-barbell",
+      "id": "behindtheneckpress-barbell",
       "displayLabel": "Behind The Neck Press (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-behindtheneckpress-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "behindtheneckpress-barbell.json"
     },
     {
       "id": "behind-the-back-cable-curl",
@@ -595,22 +595,22 @@
       "file": "bench-press-with-bands.json"
     },
     {
-      "id": "liftosaur-benchpress-dumbbell",
+      "id": "benchpress-dumbbell",
       "displayLabel": "Bench Press (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-benchpress-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "benchpress-dumbbell.json"
     },
     {
-      "id": "liftosaur-benchpressclosegrip-barbell",
+      "id": "benchpressclosegrip-barbell",
       "displayLabel": "Bench Press Close Grip (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-benchpressclosegrip-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "benchpressclosegrip-barbell.json"
     },
     {
-      "id": "liftosaur-benchpresswidegrip-barbell",
+      "id": "benchpresswidegrip-barbell",
       "displayLabel": "Bench Press Wide Grip (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-benchpresswidegrip-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "benchpresswidegrip-barbell.json"
     },
     {
       "id": "bench-press-with-chains",
@@ -643,10 +643,10 @@
       "file": "bent-over-low-pulley-side-lateral.json"
     },
     {
-      "id": "liftosaur-bentoveronearmrow-dumbbell",
+      "id": "bentoveronearmrow-dumbbell",
       "displayLabel": "Bent Over One Arm Row (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-bentoveronearmrow-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "bentoveronearmrow-dumbbell.json"
     },
     {
       "id": "bent-over-one-arm-long-bar-row",
@@ -655,16 +655,16 @@
       "file": "bent-over-one-arm-long-bar-row.json"
     },
     {
-      "id": "liftosaur-bentoverrow-cable",
+      "id": "bentoverrow-cable",
       "displayLabel": "Bent Over Row (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-bentoverrow-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "bentoverrow-cable.json"
     },
     {
-      "id": "liftosaur-bentoverrow-dumbbell",
+      "id": "bentoverrow-dumbbell",
       "displayLabel": "Bent Over Row (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-bentoverrow-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "bentoverrow-dumbbell.json"
     },
     {
       "id": "bent-over-smith-row",
@@ -715,22 +715,22 @@
       "file": "bent-knee-hip-raise.json"
     },
     {
-      "id": "liftosaur-bicepcurl-band",
+      "id": "bicepcurl-band",
       "displayLabel": "Bicep Curl (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-bicepcurl-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "bicepcurl-band.json"
     },
     {
-      "id": "liftosaur-bicepcurl-cable",
+      "id": "bicepcurl-cable",
       "displayLabel": "Bicep Curl (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-bicepcurl-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "bicepcurl-cable.json"
     },
     {
-      "id": "liftosaur-bicepcurl-ezbar",
+      "id": "bicepcurl-ezbar",
       "displayLabel": "Bicep Curl (ezbar)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-bicepcurl-ezbar.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "bicepcurl-ezbar.json"
     },
     {
       "id": "bicycle-crunch",
@@ -835,16 +835,16 @@
       "file": "box-squat.json"
     },
     {
-      "id": "liftosaur-boxsquat-barbell",
+      "id": "boxsquat-barbell",
       "displayLabel": "Box Squat (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-boxsquat-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "boxsquat-barbell.json"
     },
     {
-      "id": "liftosaur-boxsquat-dumbbell",
+      "id": "boxsquat-dumbbell",
       "displayLabel": "Box Squat (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-boxsquat-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "boxsquat-dumbbell.json"
     },
     {
       "id": "box-squat-with-bands",
@@ -877,16 +877,16 @@
       "file": "bulgarian-split-squat.json"
     },
     {
-      "id": "liftosaur-bulgariansplitsquat-bodyweight",
+      "id": "bulgariansplitsquat-bodyweight",
       "displayLabel": "Bulgarian Split Squat (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-bulgariansplitsquat-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "bulgariansplitsquat-bodyweight.json"
     },
     {
-      "id": "liftosaur-bulgariansplitsquat-dumbbell",
+      "id": "bulgariansplitsquat-dumbbell",
       "displayLabel": "Bulgarian Split Squat (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-bulgariansplitsquat-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "bulgariansplitsquat-dumbbell.json"
     },
     {
       "id": "butt-lift-bridge",
@@ -931,10 +931,10 @@
       "file": "cable-crossover.json"
     },
     {
-      "id": "liftosaur-cablecrossover-cable",
+      "id": "cablecrossover-cable",
       "displayLabel": "Cable Crossover (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-cablecrossover-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "cablecrossover-cable.json"
     },
     {
       "id": "cable-crunch",
@@ -943,10 +943,10 @@
       "file": "cable-crunch.json"
     },
     {
-      "id": "liftosaur-cablecrunch-cable",
+      "id": "cablecrunch-cable",
       "displayLabel": "Cable Crunch (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-cablecrunch-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "cablecrunch-cable.json"
     },
     {
       "id": "cable-curl",
@@ -1021,10 +1021,10 @@
       "file": "cable-judo-flip.json"
     },
     {
-      "id": "liftosaur-cablekickback-cable",
+      "id": "cablekickback-cable",
       "displayLabel": "Cable Kickback (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-cablekickback-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "cablekickback-cable.json"
     },
     {
       "id": "cable-lateral-raise",
@@ -1051,10 +1051,10 @@
       "file": "cable-preacher-curl.json"
     },
     {
-      "id": "liftosaur-cablepullthrough-cable",
+      "id": "cablepullthrough-cable",
       "displayLabel": "Cable Pull Through (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-cablepullthrough-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "cablepullthrough-cable.json"
     },
     {
       "id": "cable-pull-over",
@@ -1165,16 +1165,16 @@
       "file": "cable-tricep-kickback.json"
     },
     {
-      "id": "liftosaur-cabletwist-band",
+      "id": "cabletwist-band",
       "displayLabel": "Cable Twist (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-cabletwist-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "cabletwist-band.json"
     },
     {
-      "id": "liftosaur-cabletwist-cable",
+      "id": "cabletwist-cable",
       "displayLabel": "Cable Twist (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-cabletwist-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "cabletwist-cable.json"
     },
     {
       "id": "cable-wrist-curl",
@@ -1189,10 +1189,10 @@
       "file": "calf-press.json"
     },
     {
-      "id": "liftosaur-calfpressonlegpress-leveragemachine",
+      "id": "calfpressonlegpress-leveragemachine",
       "displayLabel": "Calf Press on Leg Press (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-calfpressonlegpress-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "calfpressonlegpress-leveragemachine.json"
     },
     {
       "id": "calf-press-on-the-leg-press-machine",
@@ -1327,22 +1327,22 @@
       "file": "chest-and-front-of-shoulder-stretch.json"
     },
     {
-      "id": "liftosaur-chestdip-bodyweight",
+      "id": "chestdip-bodyweight",
       "displayLabel": "Chest Dip (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-chestdip-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "chestdip-bodyweight.json"
     },
     {
-      "id": "liftosaur-chestfly-dumbbell",
+      "id": "chestfly-dumbbell",
       "displayLabel": "Chest Fly (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-chestfly-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "chestfly-dumbbell.json"
     },
     {
-      "id": "liftosaur-chestpress-leveragemachine",
+      "id": "chestpress-leveragemachine",
       "displayLabel": "Chest Press (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-chestpress-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "chestpress-leveragemachine.json"
     },
     {
       "id": "chest-push-multiple-response",
@@ -1429,10 +1429,10 @@
       "file": "clean.json"
     },
     {
-      "id": "liftosaur-clean-barbell",
+      "id": "clean-barbell",
       "displayLabel": "Clean (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-clean-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "clean-barbell.json"
     },
     {
       "id": "clean-and-jerk",
@@ -1543,10 +1543,10 @@
       "file": "conans-wheel.json"
     },
     {
-      "id": "liftosaur-concentrationcurl-dumbbell",
+      "id": "concentrationcurl-dumbbell",
       "displayLabel": "Concentration Curl (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-concentrationcurl-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "concentrationcurl-dumbbell.json"
     },
     {
       "id": "concentration-curls",
@@ -1609,16 +1609,16 @@
       "file": "crunch-legs-on-exercise-ball.json"
     },
     {
-      "id": "liftosaur-crunch-bodyweight",
+      "id": "crunch-bodyweight",
       "displayLabel": "Crunch (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-crunch-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "crunch-bodyweight.json"
     },
     {
-      "id": "liftosaur-crunch-cable",
+      "id": "crunch-cable",
       "displayLabel": "Crunch (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-crunch-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "crunch-cable.json"
     },
     {
       "id": "crunches",
@@ -1651,10 +1651,10 @@
       "file": "dead-bug.json"
     },
     {
-      "id": "liftosaur-deadbug-bodyweight",
+      "id": "deadbug-bodyweight",
       "displayLabel": "Dead Bug (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-deadbug-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "deadbug-bodyweight.json"
     },
     {
       "id": "deadlift",
@@ -1693,16 +1693,16 @@
       "file": "decline-bench-press.json"
     },
     {
-      "id": "liftosaur-declinebenchpress-dumbbell",
+      "id": "declinebenchpress-dumbbell",
       "displayLabel": "Decline Bench Press (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-declinebenchpress-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "declinebenchpress-dumbbell.json"
     },
     {
-      "id": "liftosaur-declinebenchpress-smith",
+      "id": "declinebenchpress-smith",
       "displayLabel": "Decline Bench Press (smith)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-declinebenchpress-smith.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "declinebenchpress-smith.json"
     },
     {
       "id": "decline-close-grip-bench-to-skull-crusher",
@@ -1783,10 +1783,10 @@
       "file": "deficit-deadlift.json"
     },
     {
-      "id": "liftosaur-deficitdeadlift-barbell",
+      "id": "deficitdeadlift-barbell",
       "displayLabel": "Deficit Deadlift (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-deficitdeadlift-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "deficitdeadlift-barbell.json"
     },
     {
       "id": "deficit-push-up",
@@ -1801,10 +1801,10 @@
       "file": "depth-jump-leap.json"
     },
     {
-      "id": "liftosaur-diamondpushup-bodyweight",
+      "id": "diamondpushup-bodyweight",
       "displayLabel": "Diamond Push Up (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-diamondpushup-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "diamondpushup-bodyweight.json"
     },
     {
       "id": "dip",
@@ -2377,10 +2377,10 @@
       "file": "face-pull.json"
     },
     {
-      "id": "liftosaur-facepull-band",
+      "id": "facepull-band",
       "displayLabel": "Face Pull (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-facepull-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "facepull-band.json"
     },
     {
       "id": "farmers-walk",
@@ -2425,10 +2425,10 @@
       "file": "flat-dumbbell-press.json"
     },
     {
-      "id": "liftosaur-flatlegraise-bodyweight",
+      "id": "flatlegraise-bodyweight",
       "displayLabel": "Flat Leg Raise (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-flatlegraise-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "flatlegraise-bodyweight.json"
     },
     {
       "id": "flexor-incline-dumbbell-curls",
@@ -2557,10 +2557,10 @@
       "file": "front-plate-raise.json"
     },
     {
-      "id": "liftosaur-frontraise-cable",
+      "id": "frontraise-cable",
       "displayLabel": "Front Raise (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-frontraise-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "frontraise-cable.json"
     },
     {
       "id": "front-raise-and-pullover",
@@ -2611,16 +2611,16 @@
       "file": "glute-bridge.json"
     },
     {
-      "id": "liftosaur-glutebridge-bodyweight",
+      "id": "glutebridge-bodyweight",
       "displayLabel": "Glute Bridge (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-glutebridge-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "glutebridge-bodyweight.json"
     },
     {
-      "id": "liftosaur-glutebridgemarch-bodyweight",
+      "id": "glutebridgemarch-bodyweight",
       "displayLabel": "Glute Bridge March (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-glutebridgemarch-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "glutebridgemarch-bodyweight.json"
     },
     {
       "id": "glute-ham-raise",
@@ -2641,16 +2641,16 @@
       "file": "goblet-squat.json"
     },
     {
-      "id": "liftosaur-gobletsquat-dumbbell",
+      "id": "gobletsquat-dumbbell",
       "displayLabel": "Goblet Squat (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-gobletsquat-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "gobletsquat-dumbbell.json"
     },
     {
-      "id": "liftosaur-goodmorning-barbell",
+      "id": "goodmorning-barbell",
       "displayLabel": "Good Morning (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-goodmorning-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "goodmorning-barbell.json"
     },
     {
       "id": "good-morning-off-pins",
@@ -2683,10 +2683,10 @@
       "file": "hack-squat.json"
     },
     {
-      "id": "liftosaur-hacksquat-barbell",
+      "id": "hacksquat-barbell",
       "displayLabel": "Hack Squat (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-hacksquat-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "hacksquat-barbell.json"
     },
     {
       "id": "hammer-curl",
@@ -2779,10 +2779,10 @@
       "file": "hanging-leg-raise.json"
     },
     {
-      "id": "liftosaur-hanginglegraise-bodyweight",
+      "id": "hanginglegraise-bodyweight",
       "displayLabel": "Hanging Leg Raise (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-hanginglegraise-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "hanginglegraise-bodyweight.json"
     },
     {
       "id": "hanging-pike",
@@ -2827,22 +2827,22 @@
       "file": "high-cable-curls.json"
     },
     {
-      "id": "liftosaur-hipabductor-band",
+      "id": "hipabductor-band",
       "displayLabel": "Hip Abductor (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-hipabductor-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "hipabductor-band.json"
     },
     {
-      "id": "liftosaur-hipabductor-leveragemachine",
+      "id": "hipabductor-leveragemachine",
       "displayLabel": "Hip Abductor (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-hipabductor-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "hipabductor-leveragemachine.json"
     },
     {
-      "id": "liftosaur-hipadductor-leveragemachine",
+      "id": "hipadductor-leveragemachine",
       "displayLabel": "Hip Adductor (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-hipadductor-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "hipadductor-leveragemachine.json"
     },
     {
       "id": "hip-circles-prone",
@@ -2869,16 +2869,16 @@
       "file": "hip-lift-with-band.json"
     },
     {
-      "id": "liftosaur-hipthrust-barbell",
+      "id": "hipthrust-barbell",
       "displayLabel": "Hip Thrust (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-hipthrust-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "hipthrust-barbell.json"
     },
     {
-      "id": "liftosaur-hipthrust-bodyweight",
+      "id": "hipthrust-bodyweight",
       "displayLabel": "Hip Thrust (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-hipthrust-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "hipthrust-bodyweight.json"
     },
     {
       "id": "hollow-body-hold",
@@ -2953,10 +2953,10 @@
       "file": "incline-barbell-triceps-extension.json"
     },
     {
-      "id": "liftosaur-inclinebenchpresswidegrip-barbell",
+      "id": "inclinebenchpresswidegrip-barbell",
       "displayLabel": "Incline Bench Press Wide Grip (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-inclinebenchpresswidegrip-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "inclinebenchpresswidegrip-barbell.json"
     },
     {
       "id": "incline-bench-pull",
@@ -2977,28 +2977,28 @@
       "file": "incline-cable-flye.json"
     },
     {
-      "id": "liftosaur-inclinechestfly-cable",
+      "id": "inclinechestfly-cable",
       "displayLabel": "Incline Chest Fly (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-inclinechestfly-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "inclinechestfly-cable.json"
     },
     {
-      "id": "liftosaur-inclinechestfly-dumbbell",
+      "id": "inclinechestfly-dumbbell",
       "displayLabel": "Incline Chest Fly (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-inclinechestfly-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "inclinechestfly-dumbbell.json"
     },
     {
-      "id": "liftosaur-inclinechestpress-leveragemachine",
+      "id": "inclinechestpress-leveragemachine",
       "displayLabel": "Incline Chest Press (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-inclinechestpress-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "inclinechestpress-leveragemachine.json"
     },
     {
-      "id": "liftosaur-inclinecurl-dumbbell",
+      "id": "inclinecurl-dumbbell",
       "displayLabel": "Incline Curl (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-inclinecurl-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "inclinecurl-dumbbell.json"
     },
     {
       "id": "incline-dumbbell-bench-with-palms-facing-in",
@@ -3055,10 +3055,10 @@
       "file": "incline-pectoral-flye-dumbbell.json"
     },
     {
-      "id": "liftosaur-inclinepushup-bodyweight",
+      "id": "inclinepushup-bodyweight",
       "displayLabel": "Incline Push Up (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-inclinepushup-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "inclinepushup-bodyweight.json"
     },
     {
       "id": "incline-push-up",
@@ -3097,16 +3097,16 @@
       "file": "incline-push-up-wide.json"
     },
     {
-      "id": "liftosaur-inclinerow-bodyweight",
+      "id": "inclinerow-bodyweight",
       "displayLabel": "Incline Row (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-inclinerow-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "inclinerow-bodyweight.json"
     },
     {
-      "id": "liftosaur-inclinerow-dumbbell",
+      "id": "inclinerow-dumbbell",
       "displayLabel": "Incline Row (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-inclinerow-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "inclinerow-dumbbell.json"
     },
     {
       "id": "intermediate-groin-stretch",
@@ -3133,10 +3133,10 @@
       "file": "inverted-row.json"
     },
     {
-      "id": "liftosaur-invertedrow-bodyweight",
+      "id": "invertedrow-bodyweight",
       "displayLabel": "Inverted Row (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-invertedrow-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "invertedrow-bodyweight.json"
     },
     {
       "id": "inverted-row-with-straps",
@@ -3229,10 +3229,10 @@
       "file": "jogging-treadmill.json"
     },
     {
-      "id": "liftosaur-jumpsquat-bodyweight",
+      "id": "jumpsquat-bodyweight",
       "displayLabel": "Jump Squat (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-jumpsquat-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "jumpsquat-bodyweight.json"
     },
     {
       "id": "keg-load",
@@ -3325,10 +3325,10 @@
       "file": "kettlebell-sumo-high-pull.json"
     },
     {
-      "id": "liftosaur-kettlebellswing-kettlebell",
+      "id": "kettlebellswing-kettlebell",
       "displayLabel": "Kettlebell Swing (kettlebell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-kettlebellswing-kettlebell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "kettlebellswing-kettlebell.json"
     },
     {
       "id": "kettlebell-thruster",
@@ -3433,16 +3433,16 @@
       "file": "kneeling-jump-squat.json"
     },
     {
-      "id": "liftosaur-kneelingpulldown-band",
+      "id": "kneelingpulldown-band",
       "displayLabel": "Kneeling Pulldown (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-kneelingpulldown-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "kneelingpulldown-band.json"
     },
     {
-      "id": "liftosaur-kneelingringabrollout-bodyweight",
+      "id": "kneelingringabrollout-bodyweight",
       "displayLabel": "Kneeling Ring Ab Rollout (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-kneelingringabrollout-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "kneelingringabrollout-bodyweight.json"
     },
     {
       "id": "kneeling-single-arm-high-pulley-row",
@@ -3511,10 +3511,10 @@
       "file": "lateral-raise-with-bands.json"
     },
     {
-      "id": "liftosaur-lateralraise-cable",
+      "id": "lateralraise-cable",
       "displayLabel": "Lateral Raise (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-lateralraise-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "lateralraise-cable.json"
     },
     {
       "id": "lateral-raise-dumbbell",
@@ -3523,10 +3523,10 @@
       "file": "lateral-raise-dumbbell.json"
     },
     {
-      "id": "liftosaur-lateralraise-leveragemachine",
+      "id": "lateralraise-leveragemachine",
       "displayLabel": "Lateral Raise (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-lateralraise-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "lateralraise-leveragemachine.json"
     },
     {
       "id": "lateral-raise-machine",
@@ -3607,10 +3607,10 @@
       "file": "leg-up-hamstring-stretch.json"
     },
     {
-      "id": "liftosaur-legsupbenchpress-barbell",
+      "id": "legsupbenchpress-barbell",
       "displayLabel": "Legs Up Bench Press (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-legsupbenchpress-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "legsupbenchpress-barbell.json"
     },
     {
       "id": "leverage-chest-press",
@@ -3763,22 +3763,22 @@
       "file": "lower-back-smr.json"
     },
     {
-      "id": "liftosaur-lunge-barbell",
+      "id": "lunge-barbell",
       "displayLabel": "Lunge (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-lunge-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "lunge-barbell.json"
     },
     {
-      "id": "liftosaur-lunge-bodyweight",
+      "id": "lunge-bodyweight",
       "displayLabel": "Lunge (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-lunge-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "lunge-bodyweight.json"
     },
     {
-      "id": "liftosaur-lunge-dumbbell",
+      "id": "lunge-dumbbell",
       "displayLabel": "Lunge (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-lunge-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "lunge-dumbbell.json"
     },
     {
       "id": "lunge-pass-through",
@@ -3799,10 +3799,10 @@
       "file": "lying-bent-leg-groin.json"
     },
     {
-      "id": "liftosaur-lyingbicepcurl-cable",
+      "id": "lyingbicepcurl-cable",
       "displayLabel": "Lying Bicep Curl (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-lyingbicepcurl-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "lyingbicepcurl-cable.json"
     },
     {
       "id": "lying-cable-curl",
@@ -4171,16 +4171,16 @@
       "file": "neck-smr.json"
     },
     {
-      "id": "liftosaur-negativedip-bodyweight",
+      "id": "negativedip-bodyweight",
       "displayLabel": "Negative Dip (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-negativedip-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "negativedip-bodyweight.json"
     },
     {
-      "id": "liftosaur-negativepullup-bodyweight",
+      "id": "negativepullup-bodyweight",
       "displayLabel": "Negative Pull Up (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-negativepullup-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "negativepullup-bodyweight.json"
     },
     {
       "id": "neutral-grip-pull-up",
@@ -4195,22 +4195,22 @@
       "file": "neutral-grip-pulldown.json"
     },
     {
-      "id": "liftosaur-nordiccurl-band",
+      "id": "nordiccurl-band",
       "displayLabel": "Nordic Curl (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-nordiccurl-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "nordiccurl-band.json"
     },
     {
-      "id": "liftosaur-nordiccurl-bodyweight",
+      "id": "nordiccurl-bodyweight",
       "displayLabel": "Nordic Curl (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-nordiccurl-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "nordiccurl-bodyweight.json"
     },
     {
-      "id": "liftosaur-obliquecrunch-bodyweight",
+      "id": "obliquecrunch-bodyweight",
       "displayLabel": "Oblique Crunch (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-obliquecrunch-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "obliquecrunch-bodyweight.json"
     },
     {
       "id": "oblique-crunches",
@@ -4489,10 +4489,10 @@
       "file": "overhead-press.json"
     },
     {
-      "id": "liftosaur-overheadpress-dumbbell",
+      "id": "overheadpress-dumbbell",
       "displayLabel": "Overhead Press (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-overheadpress-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "overheadpress-dumbbell.json"
     },
     {
       "id": "overhead-slam",
@@ -4531,10 +4531,10 @@
       "file": "pallof-press.json"
     },
     {
-      "id": "liftosaur-pallofpress-band",
+      "id": "pallofpress-band",
       "displayLabel": "Pallof Press (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-pallofpress-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "pallofpress-band.json"
     },
     {
       "id": "pallof-press-with-rotation",
@@ -4579,10 +4579,10 @@
       "file": "pec-deck.json"
     },
     {
-      "id": "liftosaur-pecdeck-leveragemachine",
+      "id": "pecdeck-leveragemachine",
       "displayLabel": "Pec Deck (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-pecdeck-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "pecdeck-leveragemachine.json"
     },
     {
       "id": "pectoral-flye-cable",
@@ -4609,10 +4609,10 @@
       "file": "pendlay-row.json"
     },
     {
-      "id": "liftosaur-pendlayrow-barbell",
+      "id": "pendlayrow-barbell",
       "displayLabel": "Pendlay Row (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-pendlayrow-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "pendlayrow-barbell.json"
     },
     {
       "id": "pendulum-squat",
@@ -4663,10 +4663,10 @@
       "file": "plank.json"
     },
     {
-      "id": "liftosaur-plank-bodyweight",
+      "id": "plank-bodyweight",
       "displayLabel": "Plank (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-plank-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "plank-bodyweight.json"
     },
     {
       "id": "plate-pinch",
@@ -4729,10 +4729,10 @@
       "file": "power-clean.json"
     },
     {
-      "id": "liftosaur-powerclean-barbell",
+      "id": "powerclean-barbell",
       "displayLabel": "Power Clean (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-powerclean-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "powerclean-barbell.json"
     },
     {
       "id": "power-clean-from-blocks",
@@ -4777,22 +4777,22 @@
       "file": "preacher-curl.json"
     },
     {
-      "id": "liftosaur-preachercurl-barbell",
+      "id": "preachercurl-barbell",
       "displayLabel": "Preacher Curl (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-preachercurl-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "preachercurl-barbell.json"
     },
     {
-      "id": "liftosaur-preachercurl-dumbbell",
+      "id": "preachercurl-dumbbell",
       "displayLabel": "Preacher Curl (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-preachercurl-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "preachercurl-dumbbell.json"
     },
     {
-      "id": "liftosaur-preachercurl-ezbar",
+      "id": "preachercurl-ezbar",
       "displayLabel": "Preacher Curl (ezbar)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-preachercurl-ezbar.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "preachercurl-ezbar.json"
     },
     {
       "id": "preacher-hammer-dumbbell-curl",
@@ -4825,10 +4825,10 @@
       "file": "prowler-sprint.json"
     },
     {
-      "id": "liftosaur-pseudoplanchepushup-bodyweight",
+      "id": "pseudoplanchepushup-bodyweight",
       "displayLabel": "Pseudo Planche Push Up (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-pseudoplanchepushup-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "pseudoplanchepushup-bodyweight.json"
     },
     {
       "id": "pull-through",
@@ -4843,16 +4843,16 @@
       "file": "pull-up.json"
     },
     {
-      "id": "liftosaur-pullover-dumbbell",
+      "id": "pullover-dumbbell",
       "displayLabel": "Pullover (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-pullover-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "pullover-dumbbell.json"
     },
     {
-      "id": "liftosaur-pullover-ezbar",
+      "id": "pullover-ezbar",
       "displayLabel": "Pullover (ezbar)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-pullover-ezbar.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "pullover-ezbar.json"
     },
     {
       "id": "pullups",
@@ -4873,22 +4873,22 @@
       "file": "push-press-behind-the-neck.json"
     },
     {
-      "id": "liftosaur-pushpress-barbell",
+      "id": "pushpress-barbell",
       "displayLabel": "Push Press (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-pushpress-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "pushpress-barbell.json"
     },
     {
-      "id": "liftosaur-pushpress-kettlebell",
+      "id": "pushpress-kettlebell",
       "displayLabel": "Push Press (kettlebell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-pushpress-kettlebell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "pushpress-kettlebell.json"
     },
     {
-      "id": "liftosaur-pushup-bodyweight",
+      "id": "pushup-bodyweight",
       "displayLabel": "Push Up (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-pushup-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "pushup-bodyweight.json"
     },
     {
       "id": "push-up-to-side-plank",
@@ -5083,16 +5083,16 @@
       "file": "reverse-crunch.json"
     },
     {
-      "id": "liftosaur-reversecrunch-bodyweight",
+      "id": "reversecrunch-bodyweight",
       "displayLabel": "Reverse Crunch (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-reversecrunch-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "reversecrunch-bodyweight.json"
     },
     {
-      "id": "liftosaur-reversecurl-barbell",
+      "id": "reversecurl-barbell",
       "displayLabel": "Reverse Curl (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-reversecurl-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "reversecurl-barbell.json"
     },
     {
       "id": "reverse-dumbbell-flye",
@@ -5101,22 +5101,22 @@
       "file": "reverse-dumbbell-flye.json"
     },
     {
-      "id": "liftosaur-reversefly-band",
+      "id": "reversefly-band",
       "displayLabel": "Reverse Fly (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-reversefly-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "reversefly-band.json"
     },
     {
-      "id": "liftosaur-reversefly-dumbbell",
+      "id": "reversefly-dumbbell",
       "displayLabel": "Reverse Fly (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-reversefly-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "reversefly-dumbbell.json"
     },
     {
-      "id": "liftosaur-reversefly-leveragemachine",
+      "id": "reversefly-leveragemachine",
       "displayLabel": "Reverse Fly (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-reversefly-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "reversefly-leveragemachine.json"
     },
     {
       "id": "reverse-flyes",
@@ -5167,16 +5167,16 @@
       "file": "reverse-hyperextension.json"
     },
     {
-      "id": "liftosaur-reversehyperextension-band",
+      "id": "reversehyperextension-band",
       "displayLabel": "Reverse Hyperextension (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-reversehyperextension-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "reversehyperextension-band.json"
     },
     {
-      "id": "liftosaur-reversehyperextension-bodyweight",
+      "id": "reversehyperextension-bodyweight",
       "displayLabel": "Reverse Hyperextension (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-reversehyperextension-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "reversehyperextension-bodyweight.json"
     },
     {
       "id": "reverse-lunge",
@@ -5185,10 +5185,10 @@
       "file": "reverse-lunge.json"
     },
     {
-      "id": "liftosaur-reverselunge-dumbbell",
+      "id": "reverselunge-dumbbell",
       "displayLabel": "Reverse Lunge (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-reverselunge-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "reverselunge-dumbbell.json"
     },
     {
       "id": "reverse-machine-flyes",
@@ -5221,10 +5221,10 @@
       "file": "reverse-wrist-curl.json"
     },
     {
-      "id": "liftosaur-reversewristcurl-barbell",
+      "id": "reversewristcurl-barbell",
       "displayLabel": "Reverse Wrist Curl (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-reversewristcurl-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "reversewristcurl-barbell.json"
     },
     {
       "id": "rhomboids-smr",
@@ -5245,10 +5245,10 @@
       "file": "rickshaw-deadlift.json"
     },
     {
-      "id": "liftosaur-ringabrollout-bodyweight",
+      "id": "ringabrollout-bodyweight",
       "displayLabel": "Ring Ab Rollout (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-ringabrollout-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "ringabrollout-bodyweight.json"
     },
     {
       "id": "ring-dips",
@@ -5287,16 +5287,16 @@
       "file": "romanian-deadlift.json"
     },
     {
-      "id": "liftosaur-romaniandeadlift-bodyweight",
+      "id": "romaniandeadlift-bodyweight",
       "displayLabel": "Romanian Deadlift (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-romaniandeadlift-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "romaniandeadlift-bodyweight.json"
     },
     {
-      "id": "liftosaur-romaniandeadlift-dumbbell",
+      "id": "romaniandeadlift-dumbbell",
       "displayLabel": "Romanian Deadlift (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-romaniandeadlift-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "romaniandeadlift-dumbbell.json"
     },
     {
       "id": "romanian-deadlift-from-deficit",
@@ -5395,10 +5395,10 @@
       "file": "russian-twist.json"
     },
     {
-      "id": "liftosaur-safetysquatbarsquat-barbell",
+      "id": "safetysquatbarsquat-barbell",
       "displayLabel": "Safety Squat Bar Squat (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-safetysquatbarsquat-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "safetysquatbarsquat-barbell.json"
     },
     {
       "id": "sandbag-load",
@@ -5407,10 +5407,10 @@
       "file": "sandbag-load.json"
     },
     {
-      "id": "liftosaur-scapularpullup-bodyweight",
+      "id": "scapularpullup-bodyweight",
       "displayLabel": "Scapular Pull Up (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-scapularpullup-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "scapularpullup-bodyweight.json"
     },
     {
       "id": "scapular-pull-up",
@@ -5509,10 +5509,10 @@
       "file": "seated-calf-raise.json"
     },
     {
-      "id": "liftosaur-seatedcalfraise-barbell",
+      "id": "seatedcalfraise-barbell",
       "displayLabel": "Seated Calf Raise (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-seatedcalfraise-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "seatedcalfraise-barbell.json"
     },
     {
       "id": "seated-calf-stretch",
@@ -5647,10 +5647,10 @@
       "file": "seated-one-arm-dumbbell-palms-up-wrist-curl.json"
     },
     {
-      "id": "liftosaur-seatedoverheadpress-barbell",
+      "id": "seatedoverheadpress-barbell",
       "displayLabel": "Seated Overhead Press (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-seatedoverheadpress-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "seatedoverheadpress-barbell.json"
     },
     {
       "id": "seated-overhead-stretch",
@@ -5671,16 +5671,16 @@
       "file": "seated-palms-down-barbell-wrist-curl.json"
     },
     {
-      "id": "liftosaur-seatedrow-cable",
+      "id": "seatedrow-cable",
       "displayLabel": "Seated Row (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-seatedrow-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "seatedrow-cable.json"
     },
     {
-      "id": "liftosaur-seatedrow-leveragemachine",
+      "id": "seatedrow-leveragemachine",
       "displayLabel": "Seated Row (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-seatedrow-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "seatedrow-leveragemachine.json"
     },
     {
       "id": "seated-side-lateral-raise",
@@ -5707,10 +5707,10 @@
       "file": "seated-two-arm-palms-up-low-pulley-wrist-curl.json"
     },
     {
-      "id": "liftosaur-seatedwidegriprow-cable",
+      "id": "seatedwidegriprow-cable",
       "displayLabel": "Seated Wide Grip Row (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-seatedwidegriprow-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "seatedwidegriprow-cable.json"
     },
     {
       "id": "see-saw-press-alternating-side-press",
@@ -5731,10 +5731,10 @@
       "file": "shoulder-circles.json"
     },
     {
-      "id": "liftosaur-shoulderpassthrough-band",
+      "id": "shoulderpassthrough-band",
       "displayLabel": "Shoulder Pass Through (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-shoulderpassthrough-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "shoulderpassthrough-band.json"
     },
     {
       "id": "shoulder-press-with-bands",
@@ -5743,16 +5743,16 @@
       "file": "shoulder-press-with-bands.json"
     },
     {
-      "id": "liftosaur-shoulderpress-dumbbell",
+      "id": "shoulderpress-dumbbell",
       "displayLabel": "Shoulder Press (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-shoulderpress-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "shoulderpress-dumbbell.json"
     },
     {
-      "id": "liftosaur-shoulderpress-leveragemachine",
+      "id": "shoulderpress-leveragemachine",
       "displayLabel": "Shoulder Press (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-shoulderpress-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "shoulderpress-leveragemachine.json"
     },
     {
       "id": "shoulder-press-machine",
@@ -5773,34 +5773,34 @@
       "file": "shoulder-stretch.json"
     },
     {
-      "id": "liftosaur-shrimpsquat-bodyweight",
+      "id": "shrimpsquat-bodyweight",
       "displayLabel": "Shrimp Squat (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-shrimpsquat-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "shrimpsquat-bodyweight.json"
     },
     {
-      "id": "liftosaur-shrug-barbell",
+      "id": "shrug-barbell",
       "displayLabel": "Shrug (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-shrug-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "shrug-barbell.json"
     },
     {
-      "id": "liftosaur-shrug-dumbbell",
+      "id": "shrug-dumbbell",
       "displayLabel": "Shrug (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-shrug-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "shrug-dumbbell.json"
     },
     {
-      "id": "liftosaur-shrug-smith",
+      "id": "shrug-smith",
       "displayLabel": "Shrug (smith)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-shrug-smith.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "shrug-smith.json"
     },
     {
-      "id": "liftosaur-sidebend-dumbbell",
+      "id": "sidebend-dumbbell",
       "displayLabel": "Side Bend (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-sidebend-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "sidebend-dumbbell.json"
     },
     {
       "id": "side-bridge",
@@ -5809,22 +5809,22 @@
       "file": "side-bridge.json"
     },
     {
-      "id": "liftosaur-sidecrunch-bodyweight",
+      "id": "sidecrunch-bodyweight",
       "displayLabel": "Side Crunch (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-sidecrunch-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "sidecrunch-bodyweight.json"
     },
     {
-      "id": "liftosaur-sidecrunch-cable",
+      "id": "sidecrunch-cable",
       "displayLabel": "Side Crunch (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-sidecrunch-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "sidecrunch-cable.json"
     },
     {
-      "id": "liftosaur-sidehipabductor-bodyweight",
+      "id": "sidehipabductor-bodyweight",
       "displayLabel": "Side Hip Abductor (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-sidehipabductor-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "sidehipabductor-bodyweight.json"
     },
     {
       "id": "side-hop-sprint",
@@ -5857,10 +5857,10 @@
       "file": "side-leg-raises.json"
     },
     {
-      "id": "liftosaur-sidelyingclam-bodyweight",
+      "id": "sidelyingclam-bodyweight",
       "displayLabel": "Side Lying Clam (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-sidelyingclam-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "sidelyingclam-bodyweight.json"
     },
     {
       "id": "side-lying-groin-stretch",
@@ -5881,10 +5881,10 @@
       "file": "side-plank.json"
     },
     {
-      "id": "liftosaur-sideplank-bodyweight",
+      "id": "sideplank-bodyweight",
       "displayLabel": "Side Plank (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-sideplank-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "sideplank-bodyweight.json"
     },
     {
       "id": "side-standing-long-jump",
@@ -5935,16 +5935,16 @@
       "file": "single-leg-butt-kick.json"
     },
     {
-      "id": "liftosaur-singlelegdeadlift-bodyweight",
+      "id": "singlelegdeadlift-bodyweight",
       "displayLabel": "Single Leg Deadlift (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-singlelegdeadlift-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "singlelegdeadlift-bodyweight.json"
     },
     {
-      "id": "liftosaur-singlelegdeadlift-dumbbell",
+      "id": "singlelegdeadlift-dumbbell",
       "displayLabel": "Single Leg Deadlift (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-singlelegdeadlift-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "singlelegdeadlift-dumbbell.json"
     },
     {
       "id": "single-leg-extension",
@@ -5959,16 +5959,16 @@
       "file": "single-leg-glute-bridge.json"
     },
     {
-      "id": "liftosaur-singlelegglutebridgestraight-bodyweight",
+      "id": "singlelegglutebridgestraight-bodyweight",
       "displayLabel": "Single Leg Glute Bridge Straight Leg (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-singlelegglutebridgestraight-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "singlelegglutebridgestraight-bodyweight.json"
     },
     {
-      "id": "liftosaur-singleleghipthrust-bodyweight",
+      "id": "singleleghipthrust-bodyweight",
       "displayLabel": "Single Leg Hip Thrust (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-singleleghipthrust-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "singleleghipthrust-bodyweight.json"
     },
     {
       "id": "single-leg-press",
@@ -6097,10 +6097,10 @@
       "file": "sit-squats.json"
     },
     {
-      "id": "liftosaur-situp-bodyweight",
+      "id": "situp-bodyweight",
       "displayLabel": "Sit Up (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-situp-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "situp-bodyweight.json"
     },
     {
       "id": "sit-up",
@@ -6115,16 +6115,16 @@
       "file": "skating.json"
     },
     {
-      "id": "liftosaur-skullcrusher-cable",
+      "id": "skullcrusher-cable",
       "displayLabel": "Skullcrusher (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-skullcrusher-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "skullcrusher-cable.json"
     },
     {
-      "id": "liftosaur-skullcrusher-ezbar",
+      "id": "skullcrusher-ezbar",
       "displayLabel": "Skullcrusher (ezbar)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-skullcrusher-ezbar.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "skullcrusher-ezbar.json"
     },
     {
       "id": "sled-drag-harness",
@@ -6175,10 +6175,10 @@
       "file": "sliding-leg-curl.json"
     },
     {
-      "id": "liftosaur-slingshotbenchpress-barbell",
+      "id": "slingshotbenchpress-barbell",
       "displayLabel": "Sling Shot Bench Press (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-slingshotbenchpress-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "slingshotbenchpress-barbell.json"
     },
     {
       "id": "slow-eccentric-leg-press-toe-press",
@@ -6421,10 +6421,10 @@
       "file": "split-snatch.json"
     },
     {
-      "id": "liftosaur-splitsquat-bodyweight",
+      "id": "splitsquat-bodyweight",
       "displayLabel": "Split Squat (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-splitsquat-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "splitsquat-bodyweight.json"
     },
     {
       "id": "split-squat-with-dumbbells",
@@ -6439,16 +6439,16 @@
       "file": "split-squats.json"
     },
     {
-      "id": "liftosaur-squat-bodyweight",
+      "id": "squat-bodyweight",
       "displayLabel": "Squat (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-squat-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "squat-bodyweight.json"
     },
     {
-      "id": "liftosaur-squat-smith",
+      "id": "squat-smith",
       "displayLabel": "Squat (smith)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-squat-smith.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "squat-smith.json"
     },
     {
       "id": "squat-jerk",
@@ -6571,16 +6571,16 @@
       "file": "standing-calf-raise.json"
     },
     {
-      "id": "liftosaur-standingcalfraise-barbell",
+      "id": "standingcalfraise-barbell",
       "displayLabel": "Standing Calf Raise (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-standingcalfraise-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "standingcalfraise-barbell.json"
     },
     {
-      "id": "liftosaur-standingcalfraise-dumbbell",
+      "id": "standingcalfraise-dumbbell",
       "displayLabel": "Standing Calf Raise (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-standingcalfraise-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "standingcalfraise-dumbbell.json"
     },
     {
       "id": "standing-calf-raises",
@@ -6829,10 +6829,10 @@
       "file": "step-mill.json"
     },
     {
-      "id": "liftosaur-stepup-bodyweight",
+      "id": "stepup-bodyweight",
       "displayLabel": "Step up (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-stepup-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "stepup-bodyweight.json"
     },
     {
       "id": "step-up-with-knee-raise",
@@ -6847,10 +6847,10 @@
       "file": "stiff-leg-barbell-good-morning.json"
     },
     {
-      "id": "liftosaur-stifflegdeadlift-barbell",
+      "id": "stifflegdeadlift-barbell",
       "displayLabel": "Stiff Leg Deadlift (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-stifflegdeadlift-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "stifflegdeadlift-barbell.json"
     },
     {
       "id": "stiff-legged-barbell-deadlift",
@@ -6907,10 +6907,10 @@
       "file": "sumo-deadlift.json"
     },
     {
-      "id": "liftosaur-sumodeadlift-barbell",
+      "id": "sumodeadlift-barbell",
       "displayLabel": "Sumo Deadlift (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-sumodeadlift-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "sumodeadlift-barbell.json"
     },
     {
       "id": "sumo-deadlift-with-bands",
@@ -6931,10 +6931,10 @@
       "file": "superman.json"
     },
     {
-      "id": "liftosaur-superman-bodyweight",
+      "id": "superman-bodyweight",
       "displayLabel": "Superman (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-superman-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "superman-bodyweight.json"
     },
     {
       "id": "supinated-ez-bar-curl",
@@ -6967,10 +6967,10 @@
       "file": "supine-two-arm-overhead-throw.json"
     },
     {
-      "id": "liftosaur-supporthold-bodyweight",
+      "id": "supporthold-bodyweight",
       "displayLabel": "Support Hold (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-supporthold-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "supporthold-bodyweight.json"
     },
     {
       "id": "suspended-fallout",
@@ -7015,10 +7015,10 @@
       "file": "swiss-ball-leg-curl.json"
     },
     {
-      "id": "liftosaur-tbarrow-leveragemachine",
+      "id": "tbarrow-leveragemachine",
       "displayLabel": "T Bar Row (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-tbarrow-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "tbarrow-leveragemachine.json"
     },
     {
       "id": "t-bar-row",
@@ -7111,34 +7111,34 @@
       "file": "tricep-side-stretch.json"
     },
     {
-      "id": "liftosaur-tricepsdip-bodyweight",
+      "id": "tricepsdip-bodyweight",
       "displayLabel": "Triceps Dip (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-tricepsdip-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "tricepsdip-bodyweight.json"
     },
     {
-      "id": "liftosaur-tricepsdip-leveragemachine",
+      "id": "tricepsdip-leveragemachine",
       "displayLabel": "Triceps Dip (leverageMachine)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-tricepsdip-leveragemachine.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "tricepsdip-leveragemachine.json"
     },
     {
-      "id": "liftosaur-tricepsextension-band",
+      "id": "tricepsextension-band",
       "displayLabel": "Triceps Extension (band)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-tricepsextension-band.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "tricepsextension-band.json"
     },
     {
-      "id": "liftosaur-tricepsextension-cable",
+      "id": "tricepsextension-cable",
       "displayLabel": "Triceps Extension (cable)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-tricepsextension-cable.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "tricepsextension-cable.json"
     },
     {
-      "id": "liftosaur-tricepsextension-dumbbell",
+      "id": "tricepsextension-dumbbell",
       "displayLabel": "Triceps Extension (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-tricepsextension-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "tricepsextension-dumbbell.json"
     },
     {
       "id": "triceps-overhead-extension-with-rope",
@@ -7243,10 +7243,10 @@
       "file": "upright-row-with-bands.json"
     },
     {
-      "id": "liftosaur-uprightrow-barbell",
+      "id": "uprightrow-barbell",
       "displayLabel": "Upright Row (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-uprightrow-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "uprightrow-barbell.json"
     },
     {
       "id": "upright-row-cable",
@@ -7255,10 +7255,10 @@
       "file": "upright-row-cable.json"
     },
     {
-      "id": "liftosaur-uprightrow-dumbbell",
+      "id": "uprightrow-dumbbell",
       "displayLabel": "Upright Row (dumbbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-uprightrow-dumbbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "uprightrow-dumbbell.json"
     },
     {
       "id": "upright-row-ez-bar",
@@ -7279,10 +7279,10 @@
       "file": "v-sit-up.json"
     },
     {
-      "id": "liftosaur-vup-bodyweight",
+      "id": "vup-bodyweight",
       "displayLabel": "V Up (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-vup-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "vup-bodyweight.json"
     },
     {
       "id": "v-bar-pulldown",
@@ -7303,10 +7303,10 @@
       "file": "vertical-leg-press.json"
     },
     {
-      "id": "liftosaur-verticalrow-bodyweight",
+      "id": "verticalrow-bodyweight",
       "displayLabel": "Vertical Row (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-verticalrow-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "verticalrow-bodyweight.json"
     },
     {
       "id": "vertical-swing",
@@ -7327,10 +7327,10 @@
       "file": "walking-treadmill.json"
     },
     {
-      "id": "liftosaur-wallpushup-bodyweight",
+      "id": "wallpushup-bodyweight",
       "displayLabel": "Wall Push Up (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-wallpushup-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "wallpushup-bodyweight.json"
     },
     {
       "id": "weighted-ball-hyperextension",
@@ -7405,10 +7405,10 @@
       "file": "wide-grip-lat-pulldown.json"
     },
     {
-      "id": "liftosaur-widerow-bodyweight",
+      "id": "widerow-bodyweight",
       "displayLabel": "Wide Row (bodyweight)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-widerow-bodyweight.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "widerow-bodyweight.json"
     },
     {
       "id": "wide-stance-barbell-squat",
@@ -7489,10 +7489,10 @@
       "file": "wrist-curl.json"
     },
     {
-      "id": "liftosaur-wristcurl-barbell",
+      "id": "wristcurl-barbell",
       "displayLabel": "Wrist Curl (barbell)",
-      "shortDescription": "Exercise variant referenced by the Liftosaur program catalog.",
-      "file": "liftosaur-wristcurl-barbell.json"
+      "shortDescription": "Exercise variant referenced by the program program catalog.",
+      "file": "wristcurl-barbell.json"
     },
     {
       "id": "wrist-roller",

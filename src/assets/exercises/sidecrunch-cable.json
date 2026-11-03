@@ -1,0 +1,25 @@
+{
+  "id": "sidecrunch-cable",
+  "displayLabel": "Side Crunch (cable)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "cable"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "obliques",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abs",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "sidelyingclam-bodyweight",
+  "displayLabel": "Side Lying Clam (bodyweight)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "bodyweight"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abductors",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abductors",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

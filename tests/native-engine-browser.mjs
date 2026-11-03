@@ -20,7 +20,7 @@ async function ready(page){
 async function start(page){await page.getByRole('button',{name:'Start this day',exact:true}).click();const confirm=page.getByRole('button',{name:'Start day',exact:true});if(await confirm.isVisible())await confirm.click();await waitForApp(page,async()=>{const {useAppStore}=await import(window.__testStoreUrl);return Boolean(useAppStore.getState().activeWorkout?.engine)})}
 try{
  const page=await browser.newPage({viewport:{width:390,height:844}});await ready(page)
- await page.evaluate(async()=>{const {useAppStore}=await import(window.__testStoreUrl);useAppStore.getState().setMainProgramId('liftosaur-gzcl-general-gainz')})
+ await page.evaluate(async()=>{const {useAppStore}=await import(window.__testStoreUrl);useAppStore.getState().setMainProgramId('gzcl-general-gainz')})
  assert.equal(await page.getByRole('button',{name:'Set starting targets for a new run',exact:true}).count(),0)
  await start(page)
  assert.equal(await page.getByRole('dialog',{name:/Set up/}).count(),0)
@@ -52,14 +52,14 @@ try{
  assert.equal(active.engine.initialSection.exercises[0].prescriptions.length,1)
  assert.equal(active.engine.baselines[active.engine.section.exercises[0].exerciseId].weightKg,70);assert.equal(active.engine.baselines[active.engine.section.exercises[0].exerciseId].reps,5);assert.equal(active.engine.section.exercises[0].prescriptions.length,6);assert.equal(active.engine.before.version,2)
  console.log('Passed native adaptive sets in the workout UI, automatic load inference, and reload/resume.')
- const id='liftosaur-gzclp',legacy=definitions[id]
+ const id='gzclp',legacy=definitions[id]
  const state=reference.initialize({definition:legacy,id,name:id,values:Object.fromEntries(reference.inspect({definition:legacy,id,name:id}).map(f=>[f.key,{weightKg:f.bodyweight?0:40,maximumKg:100,incrementKg:f.increment}]))})
  const old=reference.prepare({definition:legacy,state,sectionId:legacy.sections[0].id}),logs=Object.fromEntries(old.section.exercises.map(ex=>[ex.id,{setLogs:ex.prescriptions.map(p=>({reps:'0',weightKg:String(p.weightKg??0),duration:String((p.durationSeconds??30)/60),effort:'8',completedAt:'2026-11-02T12:00:00Z'}))}]))
  const oldState=reference.finish({session:old,logs,effortScale:'rpe'}).state
  const migration=await browser.newPage({viewport:{width:390,height:844}});await ready(migration)
  await migration.evaluate(async({id,state,revision})=>{const {useAppStore}=await import(window.__testStoreUrl);const {useTrainingStore}=await import(window.__testTrainingUrl);useTrainingStore.getState().setRun(id,{state,revision,explanations:[]});useAppStore.getState().setMainProgramId(id)},{id,state:oldState,revision:legacy.revision})
  await start(migration)
- const result=await migration.evaluate(async()=>{const {useAppStore}=await import(window.__testStoreUrl);const {useTrainingStore}=await import(window.__testTrainingUrl);return {workout:useAppStore.getState().activeWorkout,run:useTrainingStore.getState().runs['liftosaur-gzclp']}})
+ const result=await migration.evaluate(async()=>{const {useAppStore}=await import(window.__testStoreUrl);const {useTrainingStore}=await import(window.__testTrainingUrl);return {workout:useAppStore.getState().activeWorkout,run:useTrainingStore.getState().runs['gzclp']}})
  assert.equal(result.workout.engine.before.version,2);assert.equal(result.workout.engine.before.runId,oldState.runId)
  assert.equal(result.workout.engine.section.exercises[0].prescriptions.length,6)
  assert.equal(result.run.revision,result.workout.engine.definition.revision)
@@ -68,7 +68,7 @@ try{
  const editorModules=await editor.evaluate(()=>({storeUrl:window.__testStoreUrl,trainingUrl:window.__testTrainingUrl}))
  await editor.goto('http://127.0.0.1:5176/library/programs',{waitUntil:'domcontentloaded'})
  await editor.evaluate(({storeUrl,trainingUrl})=>{window.__testStoreUrl=storeUrl;window.__testTrainingUrl=trainingUrl},editorModules)
- const original=JSON.parse(fs.readFileSync('src/assets/programms/liftosaur-gzcl-general-gainz.json'))
+ const original=JSON.parse(fs.readFileSync('src/assets/programms/gzcl-general-gainz.json'))
  await editor.getByRole('searchbox').fill(original.displayLabel)
  const card=editor.locator('.program-card').filter({has:editor.getByRole('heading',{name:original.displayLabel,exact:true})})
  await card.getByRole('button',{name:'Open',exact:true}).click()
@@ -86,7 +86,7 @@ try{
  const saved=await editor.evaluate(async()=>{const {useAppStore}=await import(window.__testStoreUrl);const {trainingEngine}=await import('/src/lib/training/client.ts');const program=useAppStore.getState().customPrograms[0],definition=program.engine;const state=await trainingEngine('initialize',{definition});const session=await trainingEngine('prepare',{definition,state,sectionId:definition.sections[0].id});return {rules:Object.keys(definition.rulePrograms).length,compatibility:definition.compatibility,rest:session.section.exercises[0].prescriptions[0].restSeconds}})
  assert.ok(saved.rules>0);assert.equal(saved.compatibility,undefined);assert.equal(saved.rest,150)
  console.log('Passed advanced-program cloning, JSON editing, validation, persistence, and native execution of the edited target.')
- assert.ok(!requests.some(url=>/\/engine\/(?:liftosaur|compatibility)/.test(url)))
+ assert.ok(!requests.some(url=>/\/engine\/(?:program|compatibility)/.test(url)))
  assert.deepEqual(errors,[])
  console.log('Passed saved-run upgrade in the real worker/UI with preserved run ID, stage and backup; no interpreter requests.')
 }finally{await browser.close()}

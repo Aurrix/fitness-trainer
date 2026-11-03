@@ -1,7 +1,7 @@
 // Offline conversion only: preserve source attribution, export data-only native rules.
 import fs from 'node:fs'
 import {createHash} from 'node:crypto'
-import * as E from '../../tests/reference/liftosaur.mjs'
+import * as E from '../../tests/reference/program.mjs'
 import {definitions} from '../../tests/reference/legacy/definitions.mjs'
 import * as legacy from '../../tests/reference/legacy/runtime.mjs'
 import {legacyHints} from '../../public/engine/migrate.mjs'

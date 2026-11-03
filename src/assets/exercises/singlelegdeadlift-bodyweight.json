@@ -1,0 +1,29 @@
+{
+  "id": "singlelegdeadlift-bodyweight",
+  "displayLabel": "Single Leg Deadlift (bodyweight)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "bodyweight"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "adductors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

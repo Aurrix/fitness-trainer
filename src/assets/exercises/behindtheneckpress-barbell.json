@@ -1,0 +1,33 @@
+{
+  "id": "behindtheneckpress-barbell",
+  "displayLabel": "Behind The Neck Press (barbell)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "barbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "frontDelts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "sideDelts",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upperBack",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

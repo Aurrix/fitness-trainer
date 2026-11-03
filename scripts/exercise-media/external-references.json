@@ -50,7 +50,7 @@
     ]
   },
   {
-    "id": "liftosaur-lateralraise-leveragemachine",
+    "id": "lateralraise-leveragemachine",
     "sourcePage": "https://atlantisstrength.com/gym-equipment/e352",
     "role": "representative-manufacturer-equipment-photo",
     "notes": "Representative Atlantis E352 used in its SIDE DELTOID setting, not rear-delt mode. Seated and facing sternum pad, upper arms move outward to approximately shoulder height against independent lever pads, then lower under control. Preserve fixed pivot/equipment geometry; do not turn movement into a shoulder press or reverse fly. Broad catalog entry does not identify a manufacturer. Equipment-only photo; generated human contact and motion require manual review.",
@@ -98,7 +98,7 @@
     ]
   },
   {
-    "id": "liftosaur-shrimpsquat-bodyweight",
+    "id": "shrimpsquat-bodyweight",
     "sourcePage": "https://commons.wikimedia.org/wiki/File:Single_leg_squat_1_of_2.png",
     "role": "exercise-demonstration-photographs",
     "notes": "Photos by RickyBennison (2022), Wikimedia Commons CC BY-SA4.0; attribution/sharealike review needed before publication. Basic shrimp-squat progression: free leg folded BEHIND, not forward as a pistol squat. Bend standing knee/hip to lower rear knee toward floor, rise controlled. Same fixed camera and limb identity.",
@@ -108,7 +108,7 @@
     ]
   },
   {
-    "id": "liftosaur-shoulderpassthrough-band",
+    "id": "shoulderpassthrough-band",
     "sourcePage": "https://theprehabguys.com/vimeo-video/shoulder-pass-through-band/",
     "role": "exercise-demonstration-thumbnail",
     "notes": "Band shoulder pass-through demonstration. Keep both elbows straight and grip wide. Arms move together from band held before thighs through overhead to behind torso and return through overhead, no shoulder press or alternating arm threading. Respect comfortable range; fixed camera and band connection throughout.",
@@ -117,7 +117,7 @@
     ]
   },
   {
-    "id": "liftosaur-sidelyingclam-bodyweight",
+    "id": "sidelyingclam-bodyweight",
     "sourcePage": "https://www.skimble.com/exercises/31709-clamshell-how-to-do-exercise",
     "role": "exercise-demonstration-photo",
     "notes": "Side-lying bodyweight clamshell: hips stacked, knees bent, feet stay together while top knee opens upward and lowers; pelvis and lower leg stay still. Do not straighten leg into hip abduction or roll torso backward. No resistance band or hand weight for this bodyweight variant.",
@@ -164,7 +164,7 @@
     ]
   },
   {
-    "id": "liftosaur-slingshotbenchpress-barbell",
+    "id": "slingshotbenchpress-barbell",
     "sourcePage": "https://markbellslingshot.com/collections/best-sellers/products/original-sling-shot",
     "role": "manufacturer-photo-demonstrating-accessory-in-bench-press",
     "notes": "Actual Sling Shot bench press photograph shows elastic sleeves around both upper arms near elbows, connected across front of chest. Preserve the accessory connection while generating a normal full-body flat barbell bench press. Bar lowers toward lower chest then presses up, feet planted, upper back supported, hands remain gripping same bar throughout. No brand text/likeness. Do not omit the elastic arm accessory, turn it into a bench shirt, or attach it to the bar/rack.",

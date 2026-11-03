@@ -8,15 +8,16 @@ import {
   useMemo,
   useRef,
   useState,
-  type CSSProperties,
   type MouseEvent as ReactMouseEvent,
   type PointerEvent as ReactPointerEvent,
 } from 'react'
 import { useDrag, useDrop } from 'react-dnd'
 import {
   ArrowDownRight,
+  ArrowDown,
   ArrowRight,
   ArrowUpRight,
+  ArrowUp,
   CheckCircle2,
   ChevronDown,
   GripVertical,
@@ -209,6 +210,8 @@ type WorkoutPerformanceIndicator = {
 }
 
 type SortableWorkoutRowProps = {
+  canMoveDown: boolean
+  canMoveUp: boolean
   isExpanded: boolean
   isReordering: boolean
   isUpNext: boolean
@@ -231,6 +234,7 @@ type SortableWorkoutRowProps = {
   }) => void
   onDragEnd: (draggedKey: string) => void
   onDragStart: (draggedKey: string) => void
+  onMove: (direction: 'up' | 'down') => void
   onOpenExerciseDetails: (exercise: Exercise, options?: WorkoutExerciseDetailsOptions) => void
   onPreviewReorder: (
     draggedLogId: string,
@@ -822,6 +826,8 @@ function WorkoutSetTarget({ prescription, setIndex, superset }: { prescription: 
 }
 
 function SortableWorkoutRow({
+  canMoveDown,
+  canMoveUp,
   isExpanded,
   isReordering,
   isUpNext,
@@ -835,6 +841,7 @@ function SortableWorkoutRow({
   onCommitWorkoutSet,
   onDragEnd,
   onDragStart,
+  onMove,
   onOpenExerciseDetails,
   onPreviewReorder,
   onOpenSetHistoryPicker,
@@ -874,11 +881,6 @@ function SortableWorkoutRow({
     startY: number
   } | null>(null)
   const setInputTapRef = useRef<{ at: number; target: HTMLInputElement } | null>(null)
-  const handleSwipeStateRef = useRef<{
-    pointerId: number
-    startX: number
-    startY: number
-  } | null>(null)
   const setLogs = ensureWorkoutSetLogs(row.log.setLogs, row.visibleSetCount)
   const loggedSetCount = setLogs.filter(setLog => Boolean(setLog.completedAt)).length
   const prescribedReps = row.prescriptions?.map(prescription => `${prescription.minReps && prescription.minReps !== prescription.reps ? `${prescription.minReps}–` : ''}${prescription.reps ?? ''}${prescription.amrap ? '+' : ''}`)
@@ -894,7 +896,6 @@ function SortableWorkoutRow({
   const [isTitleHolding, setIsTitleHolding] = useState(false)
   const [holdingSetIndex, setHoldingSetIndex] = useState<number | null>(null)
   const [showAdviceHelp, setShowAdviceHelp] = useState(false)
-  const [handleSwipeOffset, setHandleSwipeOffset] = useState(0)
   const performanceIndicator = getPerformanceIndicator(row.log, row.previousPerformance)
   const PerformanceIndicatorIcon = performanceIndicator.Icon
   const personalAverageTokens = buildPersonalAverageTokens(row.statsRecord, row.isContinuous)
@@ -1318,74 +1319,6 @@ function SortableWorkoutRow({
     row.title,
   ])
 
-  const resetHandleSwipe = useCallback(() => {
-    handleSwipeStateRef.current = null
-    setHandleSwipeOffset(0)
-  }, [])
-
-  const handleHandlePointerDown = useCallback(
-    (event: ReactPointerEvent<HTMLButtonElement>) => {
-      if (
-        !isSelectedWorkoutActive ||
-        isCompactResolvedRow ||
-        (event.pointerType === 'mouse' && event.button !== 0)
-      ) {
-        return
-      }
-
-      handleSwipeStateRef.current = {
-        pointerId: event.pointerId,
-        startX: event.clientX,
-        startY: event.clientY,
-      }
-      event.currentTarget.setPointerCapture?.(event.pointerId)
-    },
-    [isCompactResolvedRow, isSelectedWorkoutActive],
-  )
-
-  const handleHandlePointerMove = useCallback((event: ReactPointerEvent<HTMLButtonElement>) => {
-    const swipeState = handleSwipeStateRef.current
-
-    if (!swipeState || swipeState.pointerId !== event.pointerId) {
-      return
-    }
-
-    const deltaX = event.clientX - swipeState.startX
-    const deltaY = Math.abs(event.clientY - swipeState.startY)
-
-    if (deltaX <= 0 || deltaY > 34 || deltaY > Math.abs(deltaX)) {
-      setHandleSwipeOffset(0)
-      return
-    }
-
-    setHandleSwipeOffset(Math.min(72, deltaX))
-  }, [])
-
-  const handleHandlePointerEnd = useCallback(
-    (event: ReactPointerEvent<HTMLButtonElement>) => {
-      const swipeState = handleSwipeStateRef.current
-
-      if (!swipeState || swipeState.pointerId !== event.pointerId) {
-        resetHandleSwipe()
-        return
-      }
-
-      const deltaX = event.clientX - swipeState.startX
-      const deltaY = Math.abs(event.clientY - swipeState.startY)
-      const shouldRemove = deltaX >= 64 && deltaY <= 34
-
-      if (shouldRemove) {
-        event.preventDefault()
-        event.stopPropagation()
-        requestRemove()
-      }
-
-      resetHandleSwipe()
-    },
-    [requestRemove, resetHandleSwipe],
-  )
-
-
   return (
     <tr
       ref={attachRowRef}
@@ -1420,30 +1353,11 @@ function SortableWorkoutRow({
             <button
               ref={attachHandleRef}
               type="button"
-              className={`chip-button workout-table__icon-button workout-table__drag-handle ${
-                isDragging ? 'is-active' : ''
-              } ${handleSwipeOffset ? 'is-remove-swiping' : ''}`}
-              style={
-                {
-                  '--workout-handle-swipe': `${handleSwipeOffset}px`,
-                } as CSSProperties
-              }
-              onPointerCancel={resetHandleSwipe}
-              onPointerDown={handleHandlePointerDown}
-              onPointerMove={handleHandlePointerMove}
-              onPointerUp={handleHandlePointerEnd}
-              aria-label={
-                isSelectedWorkoutActive && !isCompactResolvedRow
-                  ? `Drag to reorder ${row.title}. Swipe right to remove.`
-                  : `Drag to reorder ${row.title}`
-              }
-              title={
-                isSelectedWorkoutActive && !isCompactResolvedRow
-                  ? 'Drag to reorder; swipe right to remove'
-                  : 'Drag to reorder'
-              }
+              className={`workout-table__icon-button workout-table__drag-handle ${isDragging ? 'is-active' : ''}`}
+              aria-label={`Drag to reorder ${row.title}`}
+              title="Drag to reorder"
             >
-              {handleSwipeOffset ? <Trash2 size={14} /> : <GripVertical size={14} />}
+              <GripVertical size={16} />
             </button>
 
             {row.resolvedExercise ? <ProgramExercisePreview key={row.resolvedExercise.id} exercise={row.resolvedExercise} gender={fitnessProfile.gender} videoOnly enabled={!isReordering} onOpen={() => { if (row.resolvedExercise) openRowExerciseDetails(row.resolvedExercise) }} /> : null}
@@ -1511,21 +1425,14 @@ function SortableWorkoutRow({
               <ChevronDown size={16} className="workout-card__chevron" aria-hidden="true" />
             </button>
 
-            {row.resolvedExercise ? (
-              <button
-                type="button"
-                className="chip-button workout-table__icon-button workout-table__info-button"
-                onClick={() => {
-                  if (row.resolvedExercise) {
-                    openRowExerciseDetails(row.resolvedExercise)
-                  }
-                }}
-                aria-label={`Open details for ${row.title}`}
-                title={`Open details for ${row.title}`}
-              >
-                <Info size={12} />
-              </button>
-            ) : null}
+            <div className="workout-table__row-controls">
+              {isSelectedWorkoutActive ? <>
+                <button type="button" className="workout-table__icon-button" aria-label={`Move ${row.title} up`} title="Move up" disabled={!canMoveUp} onClick={() => onMove('up')}><ArrowUp size={15} /></button>
+                <button type="button" className="workout-table__icon-button" aria-label={`Move ${row.title} down`} title="Move down" disabled={!canMoveDown} onClick={() => onMove('down')}><ArrowDown size={15} /></button>
+                <button type="button" className="workout-table__icon-button workout-table__remove-icon" aria-label={`Remove ${row.title}`} title="Remove exercise" onClick={requestRemove}><Minus size={16} /></button>
+              </> : null}
+              {row.resolvedExercise ? <button type="button" className="workout-table__icon-button workout-table__info-button" onClick={() => row.resolvedExercise && openRowExerciseDetails(row.resolvedExercise)} aria-label={`Open details for ${row.title}`} title={`Open details for ${row.title}`}><Info size={14} /></button> : null}
+            </div>
 
             {isSelectedWorkoutActive && isCompactResolvedRow ? (
               <span
@@ -1555,7 +1462,7 @@ function SortableWorkoutRow({
           </details>
           <button type="button" className="workout-compact-help-button" aria-label={`Explain next-time advice for ${row.title}`} aria-expanded={showAdviceHelp} aria-controls={`${cardId}-advice-help`} onClick={() => setShowAdviceHelp(current => !current)}><Info size={14} /></button>
         </div>
-        {showAdviceHelp ? <p className="workout-compact-help" id={`${cardId}-advice-help`}>Tap the next-time weight icon for challenging: keep this weight. Hold it, slide up for easy (increase) or down for too hard (decrease), then release to select. Slide away to cancel. These are personal notes; program targets stay the same. A dashed icon shows the last workout’s advice. Tap a set number for targets, effort, notes, history, or removal.</p> : null}
+        {showAdviceHelp ? <p className="workout-compact-help" id={`${cardId}-advice-help`}>Tap the next-time weight icon for challenging: keep this weight; tap again to clear. Hold it, slide up for easy (increase) or down for too hard (decrease), then release to select. Slide away to cancel. These are personal notes; program targets stay the same. A dashed icon shows the last workout’s advice. Tap a set number for targets, effort, notes, history, or removal.</p> : null}
         <div className={`workout-compact-columns${row.isContinuous ? ' is-timed' : ''}`} aria-hidden="true"><span>Set</span>{row.isContinuous ? <span className="workout-compact-time-label">{row.prescriptions?.some(prescription => prescription.durationSeconds !== null) ? 'Seconds' : 'Minutes'}</span> : <><span>kg</span><span>Reps</span></>}<span>Next time</span><span>✓</span></div>
       </td>
 
@@ -1768,6 +1675,7 @@ export default function WorkoutExerciseTable({
   const [orderedKeysBaseSignature, setOrderedKeysBaseSignature] = useState('')
   const orderedKeysRef = useRef<string[]>([])
   const dragBaseOrderRef = useRef<string[]>([])
+  const dragRestoreExpansionRef = useRef<{ context: string; key: string | null } | null>(null)
   const workoutExerciseLogs = displayWorkoutExerciseLogs ?? activeWorkoutExerciseLogs
   const workoutExtraEntries = displayWorkoutExtraEntries ?? activeWorkoutExtraEntries
   const explicitWorkoutOrder = displayWorkoutExerciseOrder
@@ -1970,11 +1878,13 @@ export default function WorkoutExerciseTable({
   const startDrag = useCallback(
     (currentDraggedKey: string) => {
       dragBaseOrderRef.current = baseOrder
+      dragRestoreExpansionRef.current = expandedExercise
+      setExpandedExercise({ context: expansionContext, key: null })
       setOrderedKeysBaseSignature(baseOrderSignature)
       setDraggedKey(currentDraggedKey)
       setOrderedKeys(currentOrder)
     },
-    [baseOrder, baseOrderSignature, currentOrder],
+    [baseOrder, baseOrderSignature, currentOrder, expandedExercise, expansionContext],
   )
 
   const endDrag = useCallback(
@@ -1995,9 +1905,12 @@ export default function WorkoutExerciseTable({
         }
       }
 
+      const restoreExpansion = dragRestoreExpansionRef.current
+      dragRestoreExpansionRef.current = null
+      if (restoreExpansion?.context === expansionContext) setExpandedExercise(restoreExpansion)
       setDraggedKey(null)
     },
-    [baseOrder, onReorderWorkoutExercise],
+    [baseOrder, expansionContext, onReorderWorkoutExercise],
   )
 
   const confirmRemoveExercise = useCallback(() => {
@@ -2071,7 +1984,7 @@ export default function WorkoutExerciseTable({
         </div>
 
         <p className="workout-card__hint" role="status">
-          {draggedKey ? 'Reordering exercises — drop to restore your open exercise.' : 'Tap an exercise to log sets. Drag its handle to reorder.'}
+          {draggedKey ? 'Reordering exercises — drop to place it.' : 'Tap an exercise to log sets. Use arrows or drag to reorder; use minus to remove.'}
         </p>
         <div className="workout-table-scroll">
           <table className="workout-table" role="table" aria-label="Workout exercises and sets">
@@ -2086,10 +1999,12 @@ export default function WorkoutExerciseTable({
               </tr>
             </thead>
             <tbody role="rowgroup">
-              {orderedRows.map((row) => (
+              {orderedRows.map((row, rowIndex) => (
                 <SortableWorkoutRow
                   key={`${row.actionKind}-${row.key}`}
-                  isExpanded={!draggedKey && expandedExercise.context === expansionContext && expandedExercise.key === row.key}
+                  canMoveUp={rowIndex > 0}
+                  canMoveDown={rowIndex < orderedRows.length - 1}
+                  isExpanded={expandedExercise.context === expansionContext && expandedExercise.key === row.key}
                   isReordering={Boolean(draggedKey)}
                   isUpNext={row.key === upNextKey}
                   onToggleExpansion={() => {
@@ -2104,6 +2019,10 @@ export default function WorkoutExerciseTable({
                   onCommitWorkoutSet={onCommitWorkoutSet}
                   onDragEnd={endDrag}
                   onDragStart={startDrag}
+                  onMove={(direction) => {
+                    const target = orderedRows[rowIndex + (direction === 'up' ? -1 : 1)]
+                    if (target) onReorderWorkoutExercise(row.key, target.key, direction === 'up' ? 'before' : 'after')
+                  }}
                   onOpenExerciseDetails={onOpenExerciseDetails}
                   onPreviewReorder={previewReorder}
                   onOpenSetHistoryPicker={setSetHistoryState}

@@ -352,7 +352,7 @@ export default function WorkoutPage({
       ),
   )
   const startThisDayAction =
-    launchProgram && selectedWorkoutSection && !isSelectedWorkoutActive
+    launchProgram && selectedWorkoutSection && !activeWorkout && !isSelectedWorkoutActive
       ? () => onStartWorkout(launchProgram, selectedWorkoutSection.id)
       : null
   const quickAddExercises = useMemo(() => {
@@ -1011,6 +1011,7 @@ export default function WorkoutPage({
           ) : null}
         </div>
       ) : null}
+      {activeWorkout && !isSelectedWorkoutActive ? <p className="workout-day-preview-hint" role="status">Previewing another day. Your active workout on {activeWorkout.sectionName} is still in progress.</p> : null}
 
       <MuscleVisualizer
         centerHeader

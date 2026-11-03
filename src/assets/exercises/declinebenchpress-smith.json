@@ -1,0 +1,33 @@
+{
+  "id": "declinebenchpress-smith",
+  "displayLabel": "Decline Bench Press (smith)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "smith"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "chest",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "frontDelts",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "triceps",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

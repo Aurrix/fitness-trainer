@@ -1,0 +1,41 @@
+{
+  "id": "deficitdeadlift-barbell",
+  "displayLabel": "Deficit Deadlift (barbell)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "barbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "adductors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lowerBack",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "hipadductor-leveragemachine",
+  "displayLabel": "Hip Adductor (leverageMachine)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "leverageMachine"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "adductors",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "adductors",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

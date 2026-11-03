@@ -1,0 +1,29 @@
+{
+  "id": "goodmorning-barbell",
+  "displayLabel": "Good Morning (barbell)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "barbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "adductors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

@@ -42,13 +42,13 @@
     "sections": 5
   },
   {
-    "id": "liftosaur-arnold-split",
+    "id": "arnold-split",
     "execution": "native",
     "features": [],
     "sections": 6
   },
   {
-    "id": "liftosaur-arnoldgoldensix",
+    "id": "arnoldgoldensix",
     "execution": "native",
     "features": [],
     "sections": 3,
@@ -62,7 +62,7 @@
     ]
   },
   {
-    "id": "liftosaur-barbell-medicine-the-bridge",
+    "id": "barbell-medicine-the-bridge",
     "execution": "native",
     "features": [],
     "sections": 32,
@@ -76,7 +76,7 @@
     ]
   },
   {
-    "id": "liftosaur-basic-beginner",
+    "id": "basic-beginner",
     "execution": "native",
     "features": [],
     "sections": 6,
@@ -90,13 +90,13 @@
     ]
   },
   {
-    "id": "liftosaur-bro-split",
+    "id": "bro-split",
     "execution": "native",
     "features": [],
     "sections": 5
   },
   {
-    "id": "liftosaur-bullmastiff",
+    "id": "bullmastiff",
     "execution": "native",
     "features": [],
     "sections": 72,
@@ -110,7 +110,7 @@
     ]
   },
   {
-    "id": "liftosaur-calgary-barbell-16-week",
+    "id": "calgary-barbell-16-week",
     "execution": "native",
     "features": [],
     "sections": 64,
@@ -124,19 +124,19 @@
     ]
   },
   {
-    "id": "liftosaur-coolcicada-ppl",
+    "id": "coolcicada-ppl",
     "execution": "native",
     "features": [],
     "sections": 6
   },
   {
-    "id": "liftosaur-cube-method",
+    "id": "cube-method",
     "execution": "native",
     "features": [],
     "sections": 40
   },
   {
-    "id": "liftosaur-dbppl",
+    "id": "dbppl",
     "execution": "native",
     "features": [],
     "sections": 6,
@@ -150,13 +150,13 @@
     ]
   },
   {
-    "id": "liftosaur-deep-water",
+    "id": "deep-water",
     "execution": "native",
     "features": [],
     "sections": 24
   },
   {
-    "id": "liftosaur-doggcrapp",
+    "id": "doggcrapp",
     "execution": "native",
     "features": [],
     "sections": 6,
@@ -170,7 +170,7 @@
     ]
   },
   {
-    "id": "liftosaur-doug-hepburn-method",
+    "id": "doug-hepburn-method",
     "execution": "native",
     "features": [],
     "sections": 4,
@@ -184,7 +184,7 @@
     ]
   },
   {
-    "id": "liftosaur-easy-strength",
+    "id": "easy-strength",
     "execution": "native",
     "features": [],
     "sections": 10,
@@ -198,13 +198,13 @@
     ]
   },
   {
-    "id": "liftosaur-fierce-5",
+    "id": "fierce-5",
     "execution": "native",
     "features": [],
     "sections": 6
   },
   {
-    "id": "liftosaur-german-volume-training",
+    "id": "german-volume-training",
     "execution": "native",
     "features": [],
     "sections": 3,
@@ -218,7 +218,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzcl-general-gainz-burrito-but-big",
+    "id": "gzcl-general-gainz-burrito-but-big",
     "execution": "native",
     "features": [],
     "sections": 48,
@@ -232,7 +232,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzcl-general-gainz-riptide",
+    "id": "gzcl-general-gainz-riptide",
     "execution": "native",
     "features": [],
     "sections": 32,
@@ -246,7 +246,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzcl-general-gainz",
+    "id": "gzcl-general-gainz",
     "execution": "native",
     "features": [],
     "sections": 4,
@@ -260,7 +260,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzcl-ggbb",
+    "id": "gzcl-ggbb",
     "execution": "native",
     "features": [],
     "sections": 4,
@@ -274,7 +274,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzcl-jacked-and-tan-2",
+    "id": "gzcl-jacked-and-tan-2",
     "execution": "native",
     "features": [],
     "sections": 48,
@@ -288,7 +288,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzcl-the-rippler",
+    "id": "gzcl-the-rippler",
     "execution": "native",
     "features": [],
     "sections": 48,
@@ -302,7 +302,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzcl-uhf-5-weeks",
+    "id": "gzcl-uhf-5-weeks",
     "execution": "native",
     "features": [],
     "sections": 25,
@@ -316,7 +316,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzcl-uhf-9-weeks",
+    "id": "gzcl-uhf-9-weeks",
     "execution": "native",
     "features": [],
     "sections": 45,
@@ -330,7 +330,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzcl-vdip",
+    "id": "gzcl-vdip",
     "execution": "native",
     "features": [],
     "sections": 5,
@@ -344,7 +344,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzclp-blacknoir",
+    "id": "gzclp-blacknoir",
     "execution": "native",
     "features": [],
     "sections": 4,
@@ -358,7 +358,7 @@
     ]
   },
   {
-    "id": "liftosaur-gzclp",
+    "id": "gzclp",
     "execution": "native",
     "features": [],
     "sections": 4,
@@ -372,13 +372,13 @@
     ]
   },
   {
-    "id": "liftosaur-ice-cream-fitness-5x5",
+    "id": "ice-cream-fitness-5x5",
     "execution": "native",
     "features": [],
     "sections": 6
   },
   {
-    "id": "liftosaur-ivysaur-4-4-8",
+    "id": "ivysaur-4-4-8",
     "execution": "native",
     "features": [],
     "sections": 6,
@@ -392,7 +392,7 @@
     ]
   },
   {
-    "id": "liftosaur-jay-cutler-split",
+    "id": "jay-cutler-split",
     "execution": "native",
     "features": [],
     "sections": 5,
@@ -406,7 +406,7 @@
     ]
   },
   {
-    "id": "liftosaur-juggernaut-method",
+    "id": "juggernaut-method",
     "execution": "native",
     "features": [],
     "sections": 64,
@@ -420,13 +420,13 @@
     ]
   },
   {
-    "id": "liftosaur-lylegenericbulking",
+    "id": "lylegenericbulking",
     "execution": "native",
     "features": [],
     "sections": 4
   },
   {
-    "id": "liftosaur-madcow",
+    "id": "madcow",
     "execution": "native",
     "features": [],
     "sections": 3,
@@ -440,25 +440,25 @@
     ]
   },
   {
-    "id": "liftosaur-metallicadpappl",
+    "id": "metallicadpappl",
     "execution": "native",
     "features": [],
     "sections": 6
   },
   {
-    "id": "liftosaur-mike-mentzer-consolidated",
+    "id": "mike-mentzer-consolidated",
     "execution": "native",
     "features": [],
     "sections": 2
   },
   {
-    "id": "liftosaur-mike-mentzer-heavy-duty",
+    "id": "mike-mentzer-heavy-duty",
     "execution": "native",
     "features": [],
     "sections": 3
   },
   {
-    "id": "liftosaur-monolith531",
+    "id": "monolith531",
     "execution": "native",
     "features": [],
     "sections": 18,
@@ -472,7 +472,7 @@
     ]
   },
   {
-    "id": "liftosaur-nsuns",
+    "id": "nsuns",
     "execution": "native",
     "features": [],
     "sections": 5,
@@ -486,7 +486,7 @@
     ]
   },
   {
-    "id": "liftosaur-phat",
+    "id": "phat",
     "execution": "native",
     "features": [],
     "sections": 5,
@@ -500,7 +500,7 @@
     ]
   },
   {
-    "id": "liftosaur-phrakgreyskull",
+    "id": "phrakgreyskull",
     "execution": "native",
     "features": [],
     "sections": 6,
@@ -514,19 +514,19 @@
     ]
   },
   {
-    "id": "liftosaur-phul",
+    "id": "phul",
     "execution": "native",
     "features": [],
     "sections": 4
   },
   {
-    "id": "liftosaur-planet-fitness-hypertrophy",
+    "id": "planet-fitness-hypertrophy",
     "execution": "native",
     "features": [],
     "sections": 4
   },
   {
-    "id": "liftosaur-pzerofullbody",
+    "id": "pzerofullbody",
     "execution": "native",
     "features": [],
     "sections": 4,
@@ -540,7 +540,7 @@
     ]
   },
   {
-    "id": "liftosaur-recommended-routine",
+    "id": "recommended-routine",
     "execution": "native",
     "features": [],
     "sections": 3,
@@ -554,13 +554,13 @@
     ]
   },
   {
-    "id": "liftosaur-sheiko-29-32",
+    "id": "sheiko-29-32",
     "execution": "native",
     "features": [],
     "sections": 47
   },
   {
-    "id": "liftosaur-shortcut-to-size",
+    "id": "shortcut-to-size",
     "execution": "native",
     "features": [],
     "sections": 48,
@@ -574,7 +574,7 @@
     ]
   },
   {
-    "id": "liftosaur-smolov-jr",
+    "id": "smolov-jr",
     "execution": "native",
     "features": [],
     "sections": 13,
@@ -588,7 +588,7 @@
     ]
   },
   {
-    "id": "liftosaur-smolov-squat",
+    "id": "smolov-squat",
     "execution": "native",
     "features": [],
     "sections": 39,
@@ -602,37 +602,37 @@
     ]
   },
   {
-    "id": "liftosaur-ss1",
+    "id": "ss1",
     "execution": "native",
     "features": [],
     "sections": 6
   },
   {
-    "id": "liftosaur-ss2",
+    "id": "ss2",
     "execution": "native",
     "features": [],
     "sections": 6
   },
   {
-    "id": "liftosaur-ss3",
+    "id": "ss3",
     "execution": "native",
     "features": [],
     "sections": 4
   },
   {
-    "id": "liftosaur-strongcurves",
+    "id": "strongcurves",
     "execution": "native",
     "features": [],
     "sections": 36
   },
   {
-    "id": "liftosaur-super-squats",
+    "id": "super-squats",
     "execution": "native",
     "features": [],
     "sections": 3
   },
   {
-    "id": "liftosaur-tactical-barbell-mass-protocol",
+    "id": "tactical-barbell-mass-protocol",
     "execution": "native",
     "features": [],
     "sections": 24,
@@ -646,7 +646,7 @@
     ]
   },
   {
-    "id": "liftosaur-tactical-barbell-operator",
+    "id": "tactical-barbell-operator",
     "execution": "native",
     "features": [],
     "sections": 18,
@@ -660,7 +660,7 @@
     ]
   },
   {
-    "id": "liftosaur-texasmethod",
+    "id": "texasmethod",
     "execution": "native",
     "features": [],
     "sections": 6,
@@ -674,7 +674,7 @@
     ]
   },
   {
-    "id": "liftosaur-the5314b",
+    "id": "the5314b",
     "execution": "native",
     "features": [],
     "sections": 9,
@@ -688,7 +688,7 @@
     ]
   },
   {
-    "id": "liftosaur-the531bbb",
+    "id": "the531bbb",
     "execution": "native",
     "features": [],
     "sections": 16,
@@ -702,7 +702,7 @@
     ]
   },
   {
-    "id": "liftosaur-tsa-9-week-intermediate",
+    "id": "tsa-9-week-intermediate",
     "execution": "native",
     "features": [],
     "sections": 36,
@@ -716,7 +716,7 @@
     ]
   },
   {
-    "id": "liftosaur-westside-conjugate-method",
+    "id": "westside-conjugate-method",
     "execution": "native",
     "features": [],
     "sections": 12,
@@ -730,7 +730,7 @@
     ]
   },
   {
-    "id": "liftosaur-westside-for-skinny-bastards",
+    "id": "westside-for-skinny-bastards",
     "execution": "native",
     "features": [],
     "sections": 24,

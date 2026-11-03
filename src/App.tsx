@@ -846,10 +846,11 @@ function App() {
       null
     : null
   const selectedWorkoutDay =
-    activeWorkout && activeWorkoutDay
-      ? activeWorkoutDay
-      : selectedWorkoutDayFromState ?? activeWorkoutDay ?? fallbackWorkoutDay
-  const selectedWorkoutSection = activeWorkout?.engine?.section ?? selectedWorkoutDay?.section ?? null
+    selectedWorkoutDayFromState ?? activeWorkoutDay ?? fallbackWorkoutDay
+  const selectedWorkoutSection =
+    activeWorkout?.engine?.section && selectedWorkoutDay?.section.id === activeWorkout.sectionId
+      ? activeWorkout.engine.section
+      : selectedWorkoutDay?.section ?? null
   const selectedWorkoutPreviewOrder = selectedWorkoutSection
     ? buildWorkoutExerciseOrder(
         workoutDayExerciseOrders[selectedWorkoutSection.id] ??
@@ -878,7 +879,9 @@ function App() {
     activeWorkout?.programId === launchProgram?.id &&
     activeWorkout.sectionId === selectedWorkoutSection?.id
   const isEditingCompletedWorkout = Boolean(
-    activeWorkout && workoutLogs.some((entry) => entry.id === activeWorkout.sessionId),
+    isSelectedWorkoutActive &&
+      activeWorkout &&
+      workoutLogs.some((entry) => entry.id === activeWorkout.sessionId),
   )
   const isLaunchProgramComplete = Boolean(
     !activeWorkout &&

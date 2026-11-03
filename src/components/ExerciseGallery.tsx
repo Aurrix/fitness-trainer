@@ -41,7 +41,6 @@ export default function ExerciseGallery({ exercise, gender }: { exercise: Exerci
         togglePlayback()
       }}>
         <video ref={videoRef} src={import.meta.env.BASE_URL + item.video} poster={import.meta.env.BASE_URL + item.poster} controls={false} disablePictureInPicture muted loop playsInline preload="none" onError={() => { setFailed(true); setView('front') }} />
-        <span className="exercise-gallery__ai-label">AI preview</span>
       </button> : null}
       {activeView !== 'video' ? <><span className="exercise-gallery__side-label">{activeView === 'front' ? 'Front targets' : 'Back targets'}</span><ExerciseMuscleMaps exercise={exercise} gender={gender} side={activeView} /></> : null}
     </div>

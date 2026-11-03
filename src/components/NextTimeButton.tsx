@@ -72,12 +72,12 @@ export default function NextTimeButton({ value, inherited, disabled, label, onCh
     <button type="button" className={`next-time-button${value ? ' is-active' : ''}${!value && inherited ? ' is-inherited' : ''}${picker ? ' is-selecting' : ''}`} data-progression={displayed ?? ''}
       aria-label={`Next time for ${label}: ${displayed ? labels[displayed] : 'not rated'}`}
       aria-describedby={hintId} aria-expanded={Boolean(picker)}
-      title={`${!value && inherited ? 'Last workout: ' : ''}${displayed ? labels[displayed] + '. ' : ''}Tap: challenging. Hold and slide up: increase; down: decrease.`}
+      title={`${!value && inherited ? 'Last workout: ' : ''}${displayed ? labels[displayed] + '. ' : ''}Tap: challenging. Tap again to clear. Hold and slide up: increase; down: decrease.`}
       disabled={disabled} onPointerDown={down} onPointerMove={move} onPointerUp={up}
       onPointerCancel={() => { suppressClick.current = true; cancel() }}
       onLostPointerCapture={() => { if (gesture.current) { suppressClick.current = true; cancel() } }}
       onContextMenu={event => event.preventDefault()}
-      onClick={event => { if (suppressClick.current && event.detail !== 0) { suppressClick.current = false; return } suppressClick.current = false; onChange('hold') }}
+      onClick={event => { if (suppressClick.current && event.detail !== 0) { suppressClick.current = false; return } suppressClick.current = false; onChange(value === 'hold' ? '' : 'hold') }}
       onKeyDown={event => {
         if (event.key === 'Escape') { suppressClick.current = true; cancel(); event.preventDefault() }
         else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') { event.preventDefault(); onChange(event.key === 'ArrowUp' ? 'increase' : 'decrease') }
@@ -86,10 +86,9 @@ export default function NextTimeButton({ value, inherited, disabled, label, onCh
       <NextTimeIcon choice={displayed ?? 'hold'} />
       <span className="next-time-button__grip" aria-hidden="true" />
     </button>
-    <span className="sr-only" id={hintId}>Tap for challenging weight. Hold, slide up for easy or down for too hard, then release. Slide away to cancel. Keyboard: up or down arrows choose; Enter keeps weight; Delete clears.</span>
+    <span className="sr-only" id={hintId}>Tap for challenging weight. Tap again to clear. Hold and slide up for easy or down for too hard. Slide away to cancel. Keyboard: up or down arrows choose; Enter toggles challenging; Delete clears.</span>
     {picker && !disabled ? createPortal(<div className="next-time-picker" style={{ left: picker.x, top: picker.y }} aria-hidden="true">
       {choices.map(choice => <div key={choice} className={`next-time-picker__option${picker.selection === choice ? ' is-selected' : ''}`} data-progression={choice}><NextTimeIcon choice={choice} /><span>{labels[choice]}</span></div>)}
-      <small>{picker.selection ? 'Release to select' : 'Release to cancel'}</small>
     </div>, document.body) : null}
   </div>
 }

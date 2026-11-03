@@ -13,7 +13,7 @@ assert.equal(M.getProgramSplit(native('phat-5-day-power-hypertrophy')), 'hybrid'
 assert.equal(M.getProgramSplit(native('torso-limbs-hypertrophy')), 'other')
 assert.ok(M.matchesProgramFacets(upper, { ...M.emptyProgramFacets, days: '4', split: 'upper-lower', length: 'medium' }, new Map()))
 assert.ok(!M.matchesProgramFacets(upper, { ...M.emptyProgramFacets, days: '7' }, new Map()))
-assert.equal(M.getProgramExperience(native('liftosaur-phul')), 'beginner')
+assert.equal(M.getProgramExperience(native('phul')), 'beginner')
 assert.equal(M.getProgramExperience({ level: 'more_than_year' }), 'intermediate')
 const slot = (id, sets) => ({exerciseId: id, exerciseName: id, sets})
 const exercise = (id, muscle, secondary = [], equipment = ['barbell']) => ({id, name:id, exerciseKey:id, equipment, muscleGroups:[muscle],primaryTargetMuscleGroups:[{muscleGroup:muscle,factor:1}],secondaryTargetMuscleGroups:secondary.map(muscleGroup=>({muscleGroup,factor:.5}))})

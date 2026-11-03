@@ -21,7 +21,7 @@ try{
  await page.evaluate(({storeUrl,trainingUrl})=>{window.__testStoreUrl=storeUrl;window.__testTrainingUrl=trainingUrl},{storeUrl,trainingUrl})
  const close=page.locator('.overlay').getByRole('button',{name:'Close',exact:true});try{await close.waitFor({timeout:5000});await close.click()}catch{}
  await waitForApp(page,async()=>{const {useAppStore}=await import(window.__testStoreUrl);return useAppStore.getState().isHydrated})
- const count=await page.evaluate(async()=>{const {getContentLibrary}=await import('/src/lib/content.ts');const {useAppStore}=await import(window.__testStoreUrl);useAppStore.getState().setMainProgramId('liftosaur-phul');return getContentLibrary().programs.length})
+ const count=await page.evaluate(async()=>{const {getContentLibrary}=await import('/src/lib/content.ts');const {useAppStore}=await import(window.__testStoreUrl);useAppStore.getState().setMainProgramId('phul');return getContentLibrary().programs.length})
  assert.ok(count > 0)
  await page.getByRole('button',{name:'Start this day',exact:true}).click()
  const startConfirmation=page.getByRole('button',{name:'Start day',exact:true});try{await startConfirmation.waitFor({timeout:5000});await startConfirmation.click()}catch{}

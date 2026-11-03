@@ -59,8 +59,8 @@ try {
  // Verify the real program-preview entry point uses the same autoplay behavior.
  await page.goto(`${appUrl}/library/programs`,{waitUntil:'domcontentloaded'})
  const releaseClose=page.locator('.overlay').getByRole('button',{name:'Close',exact:true});try{await releaseClose.waitFor({timeout:5000});await releaseClose.click()}catch{}
- await page.getByRole('searchbox').fill('PHUL — Liftosaur')
- const card=page.locator('.program-card').filter({has:page.getByRole('heading',{name:'PHUL — Liftosaur',exact:true})})
+ await page.getByRole('searchbox').fill('PHUL — program')
+ const card=page.locator('.program-card').filter({has:page.getByRole('heading',{name:'PHUL — program',exact:true})})
  await card.getByRole('button',{name:'Open',exact:true}).click()
  await page.locator('.program-day-card__exercise-link').first().click()
  await playing('.exercise-gallery video')

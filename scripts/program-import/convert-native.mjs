@@ -1,7 +1,7 @@
 // One-time, repeatable migration. The compatibility interpreter is only a conversion input.
 import fs from 'node:fs'
 import { createHash } from 'node:crypto'
-import * as E from '../../tests/reference/liftosaur.mjs'
+import * as E from '../../tests/reference/program.mjs'
 import * as legacy from '../../tests/reference/legacy/runtime.mjs'
 const directory='src/assets/programms'
 const archivePath='tests/reference/legacy/definitions.mjs'
@@ -11,7 +11,7 @@ const kg=w=>w?.unit==='%'?null:w?E.Weight_convertTo(w,'kg').value:null
 const persist=(p,value)=>{if(!dry)fs.writeFileSync(p,JSON.stringify(value,null,2)+'\n')}
 for(const file of fs.readdirSync(directory).filter(f=>f.endsWith('.json')&&f!=='index.json')){
  const raw=JSON.parse(fs.readFileSync(`${directory}/${file}`))
- if(raw.engine?.version===2&&(!process.argv.includes('--reconvert')||!raw.id.startsWith('liftosaur-'))){report.push({id:raw.id,execution:raw.engine.compatibility?'compatibility':'native',features:raw.engine.compatibility?.features??[],sections:raw.engine.sections.length});continue}
+ if(raw.engine?.version===2&&(!process.argv.includes('--reconvert')||!raw.id.startsWith(''))){report.push({id:raw.id,execution:raw.engine.compatibility?'compatibility':'native',features:raw.engine.compatibility?.features??[],sections:raw.engine.sections.length});continue}
  const old=raw.engine?.version===1?raw.engine:archives[raw.id]
  if(!old)throw new Error(`Missing migration input: ${raw.id}`)
  archives[raw.id]=old

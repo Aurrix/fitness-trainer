@@ -1,0 +1,29 @@
+{
+  "id": "lateralraise-cable",
+  "displayLabel": "Lateral Raise (cable)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "cable"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "sideDelts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "frontDelts",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upperBack",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

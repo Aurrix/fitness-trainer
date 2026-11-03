@@ -918,8 +918,10 @@ export default function InsightsPage({
                     {isWeekExpanded ? (
                       <>
                         <div className="program-builder-day-stack">
-                          {week.sections.map((section) => {
+                          {week.sections.map((section, dayIndex) => {
                             const isDayExpanded = section.id === visibleExpandedSectionId
+                            const previousDay = week.sections[dayIndex - 1]
+                            const nextDay = week.sections[dayIndex + 1]
 
                             return (
                               <DraggableProgramBuilderDay
@@ -970,6 +972,10 @@ export default function InsightsPage({
                                             <GripVertical size={15} />
                                           )}
                                         </button>
+                                        <div className="program-builder-day-step-controls">
+                                          <button type="button" aria-label={`Move ${section.dayLabel} up`} title="Move day up" disabled={!previousDay} onClick={() => previousDay && onReorderSection(section.id, previousDay.id)}><ArrowUp size={15} /></button>
+                                          <button type="button" aria-label={`Move ${section.dayLabel} down`} title="Move day down" disabled={!nextDay} onClick={() => nextDay && onReorderSection(section.id, nextDay.id)}><ArrowDown size={15} /></button>
+                                        </div>
                                         <button
                                           type="button"
                                           className="program-builder-accordion-button program-builder-accordion-button--day"

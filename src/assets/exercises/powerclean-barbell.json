@@ -1,0 +1,69 @@
+{
+  "id": "powerclean-barbell",
+  "displayLabel": "Power Clean (barbell)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "barbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "gluteal",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "frontDelts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hamstring",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upperBack",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "upperTraps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lats",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lowerBack",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "biceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearmFlexors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "abs",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "obliques",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

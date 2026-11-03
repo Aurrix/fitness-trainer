@@ -17,7 +17,6 @@ export default function ExerciseMedia({ exercise, gender = 'male' }: { exercise:
   return <section className="exercise-media">
     {item && !current.failed ? <div className="segmented-control"><button type="button" aria-pressed={!current.muscles} onClick={() => setState({ ...state, muscles: false })}>Demo</button><button type="button" aria-pressed={current.muscles} onClick={() => setState({ ...state, muscles: true })}>Muscles</button></div> : null}
     {item && !current.failed && !current.muscles ? <>
-      <span className="pill">AI preview</span>
       <button type="button" className="exercise-media__video" aria-label={`${isPlaying ? 'Pause' : 'Play'} ${exercise.name} demonstration`}
         onTouchStart={event => { start.current = event.touches[0].clientX; swiped.current = false }}
         onTouchEnd={event => { if (start.current - event.changedTouches[0].clientX > 45) { swiped.current = true; setState({ ...state, muscles: true }) } }}

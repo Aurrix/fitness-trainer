@@ -19,11 +19,11 @@ const aliases={
  'barbell-incline-press':['Barbell_Incline_Bench_Press_-_Medium_Grip','Conventional incline barbell bench press.'],
  'barbell-single-leg-squat':['One_Leg_Barbell_Squat','Barbell single-leg squat; verify actual stance from source.'],
  'barbell-stiff-leg-deadlift':['Stiff-Legged_Barbell_Deadlift','Stiff-legged barbell deadlift; do not substitute a conventional bent-knee deadlift.'],
- 'liftosaur-behindtheneckpress-barbell':['Standing_Barbell_Press_Behind_Neck','Standing strict barbell press from behind neck, not a push press.'],
- 'liftosaur-benchpress-dumbbell':['Dumbbell_Bench_Press','Flat dumbbell bench press.'],
- 'liftosaur-benchpressclosegrip-barbell':['Close-Grip_Barbell_Bench_Press','Flat close-grip barbell bench press.'],
- 'liftosaur-benchpresswidegrip-barbell':['Wide-Grip_Barbell_Bench_Press','Flat wide-grip barbell bench press.'],
- 'liftosaur-bentoveronearmrow-dumbbell':['One-Arm_Dumbbell_Row','One-arm dumbbell row supported on bench.']
+ 'behindtheneckpress-barbell':['Standing_Barbell_Press_Behind_Neck','Standing strict barbell press from behind neck, not a push press.'],
+ 'benchpress-dumbbell':['Dumbbell_Bench_Press','Flat dumbbell bench press.'],
+ 'benchpressclosegrip-barbell':['Close-Grip_Barbell_Bench_Press','Flat close-grip barbell bench press.'],
+ 'benchpresswidegrip-barbell':['Wide-Grip_Barbell_Bench_Press','Flat wide-grip barbell bench press.'],
+ 'bentoveronearmrow-dumbbell':['One-Arm_Dumbbell_Row','One-arm dumbbell row supported on bench.']
 }
 const style=`Use case: scientific-educational. Asset: one SQUARE contact sheet of SIXTEEN square animation cells, EXACT 4 columns × 4 rows, no gutters, numbers, arrows or text. White/warm ivory studio floor, soft shadows. Neutral ADULT gray mannequin fully clothed in opaque fitted workout top, shorts over leggings, shoes. Schematic muscle-color overlays ON THE CLOTHING: primary targets orange, secondary amber; primary wins overlap. No exposed anatomy or transparent clothing, no logos or likeness of reference person. Use reference photographs only for exact exercise setup, equipment geometry and endpoint poses. Choose one fixed three-quarter camera exposing primary target region; SAME camera, body orientation, framing, size, equipment and color placement in all 16 cells. Never mirror the body to switch sides.
 Read left-to-right top-to-bottom: frames1–8 gradually move from setup to endpoint; frames9–16 gradually return nearly to initial pose, one controlled complete cycle. Alternate limbs within the SAME camera for alternating exercises. Stretches/isometrics use a gentle setup and SUSTAINED stable hold, not pulses. Ballistic/traveling actions use one forward action and recovery; never reverse a projectile. Keep contacts, rigid lengths, pivots and planted feet fixed. No floating weights, extra limbs, equipment warping, torso teleporting, camera zoom, cropping outside cells or extra partial reps. Place all 16 cells at identical local floor height.

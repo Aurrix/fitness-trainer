@@ -43,370 +43,370 @@
       "file": "jefit-5-day-upper-lower-push-pull-legs.json"
     },
     {
-      "id": "liftosaur-arnold-split",
-      "displayLabel": "Arnold Split — Liftosaur",
+      "id": "arnold-split",
+      "displayLabel": "Arnold Split",
       "shortDescription": "Classic 6-day bodybuilding split pairing chest/back, shoulders/arms, and legs — each trained twice per week with high volume",
-      "file": "liftosaur-arnold-split.json"
+      "file": "arnold-split.json"
     },
     {
-      "id": "liftosaur-arnoldgoldensix",
-      "displayLabel": "Arnold's Golden Six — Liftosaur",
+      "id": "arnoldgoldensix",
+      "displayLabel": "Arnold's Golden Six",
       "shortDescription": "Arnold Schwarzenegger’s 3 day beginner hypertrophy program",
-      "file": "liftosaur-arnoldgoldensix.json"
+      "file": "arnoldgoldensix.json"
     },
     {
-      "id": "liftosaur-barbell-medicine-the-bridge",
-      "displayLabel": "Barbell Medicine: The Bridge — Liftosaur",
+      "id": "barbell-medicine-the-bridge",
+      "displayLabel": "Barbell Medicine: The Bridge",
       "shortDescription": "An 8-week post-novice program introducing RPE-based autoregulation across Squat, Bench, Deadlift, and OHP, designed to bridge the gap between linear progression and intermediate training.",
-      "file": "liftosaur-barbell-medicine-the-bridge.json"
+      "file": "barbell-medicine-the-bridge.json"
     },
     {
-      "id": "liftosaur-basic-beginner",
-      "displayLabel": "Basic Beginner Routine — Liftosaur",
+      "id": "basic-beginner",
+      "displayLabel": "Basic Beginner Routine",
       "shortDescription": "Simple 3-day barbell program to build your first foundation of strength",
-      "file": "liftosaur-basic-beginner.json"
+      "file": "basic-beginner.json"
     },
     {
-      "id": "liftosaur-bro-split",
-      "displayLabel": "Bro Split — Liftosaur",
+      "id": "bro-split",
+      "displayLabel": "Bro Split",
       "shortDescription": "Classic 5-day bodybuilding split — one muscle group per day for maximum volume and focus",
-      "file": "liftosaur-bro-split.json"
+      "file": "bro-split.json"
     },
     {
-      "id": "liftosaur-bullmastiff",
-      "displayLabel": "Bullmastiff — Liftosaur",
+      "id": "bullmastiff",
+      "displayLabel": "Bullmastiff",
       "shortDescription": "An 18-week base-to-peak strength program using wave periodization and AMRAP-driven auto-regulation across Squat, Bench, Deadlift, and OHP.",
-      "file": "liftosaur-bullmastiff.json"
+      "file": "bullmastiff.json"
     },
     {
-      "id": "liftosaur-calgary-barbell-16-week",
-      "displayLabel": "Calgary Barbell 16-Week — Liftosaur",
+      "id": "calgary-barbell-16-week",
+      "displayLabel": "Calgary Barbell 16-Week",
       "shortDescription": "A 16-week powerlifting peaking program using percentage-based and RPE-based loading across 4 phases, with very high bench frequency (4x/week) and competition-specific exercise selection.",
-      "file": "liftosaur-calgary-barbell-16-week.json"
+      "file": "calgary-barbell-16-week.json"
     },
     {
-      "id": "liftosaur-coolcicada-ppl",
-      "displayLabel": "Coolcicada PPL — Liftosaur",
+      "id": "coolcicada-ppl",
+      "displayLabel": "Coolcicada PPL",
       "shortDescription": "6-day Push/Pull/Legs with heavy compounds and higher-rep isolation accessories for hypertrophy",
-      "file": "liftosaur-coolcicada-ppl.json"
+      "file": "coolcicada-ppl.json"
     },
     {
-      "id": "liftosaur-cube-method",
-      "displayLabel": "The Cube Method — Liftosaur",
+      "id": "cube-method",
+      "displayLabel": "The Cube Method",
       "shortDescription": "A 10-week powerlifting peaking program rotating heavy, explosive, and rep work across squat, bench, and deadlift in 3-week waves.",
-      "file": "liftosaur-cube-method.json"
+      "file": "cube-method.json"
     },
     {
-      "id": "liftosaur-dbppl",
-      "displayLabel": "Dumbbell P/P/L — Liftosaur",
+      "id": "dbppl",
+      "displayLabel": "Dumbbell P/P/L",
       "shortDescription": "Dumbbell-only push/pull/legs split. Great if you only have dumbbells.",
-      "file": "liftosaur-dbppl.json"
+      "file": "dbppl.json"
     },
     {
-      "id": "liftosaur-deep-water",
-      "displayLabel": "Deep Water: Beginner — Liftosaur",
+      "id": "deep-water",
+      "displayLabel": "Deep Water: Beginner",
       "shortDescription": "A brutal 6-week high-volume program built around 10x10 compound lifts with progressively shorter rest periods — same weight, less rest, more suffering.",
-      "file": "liftosaur-deep-water.json"
+      "file": "deep-water.json"
     },
     {
-      "id": "liftosaur-doggcrapp",
-      "displayLabel": "DoggCrapp (DC Training) — Liftosaur",
+      "id": "doggcrapp",
+      "displayLabel": "DoggCrapp (DC Training)",
       "shortDescription": "Dante Trudel's high-intensity bodybuilding system using rest-pause sets, extreme stretching, and 3-exercise rotation to hit each muscle 3 times every 2 weeks.",
-      "file": "liftosaur-doggcrapp.json"
+      "file": "doggcrapp.json"
     },
     {
-      "id": "liftosaur-doug-hepburn-method",
-      "displayLabel": "Hepburn Method — Liftosaur",
+      "id": "doug-hepburn-method",
+      "displayLabel": "Hepburn Method",
       "shortDescription": "Eight heavy doubles building to triples over 8 sessions with submaximal weights - Doug Hepburn's patient power-pump system for serious strength.",
-      "file": "liftosaur-doug-hepburn-method.json"
+      "file": "doug-hepburn-method.json"
     },
     {
-      "id": "liftosaur-easy-strength",
-      "displayLabel": "Easy Strength — Liftosaur",
+      "id": "easy-strength",
+      "displayLabel": "Easy Strength",
       "shortDescription": "Five lifts, ten reps, forty workouts. Submaximal daily practice that builds serious strength without grinding.",
-      "file": "liftosaur-easy-strength.json"
+      "file": "easy-strength.json"
     },
     {
-      "id": "liftosaur-fierce-5",
-      "displayLabel": "Fierce 5 — Liftosaur",
+      "id": "fierce-5",
+      "displayLabel": "Fierce 5",
       "shortDescription": "Novice full-body program with built-in accessories for balanced muscle development - the aesthetic alternative to Starting Strength",
-      "file": "liftosaur-fierce-5.json"
+      "file": "fierce-5.json"
     },
     {
-      "id": "liftosaur-german-volume-training",
-      "displayLabel": "German Volume Training — Liftosaur",
+      "id": "german-volume-training",
+      "displayLabel": "German Volume Training",
       "shortDescription": "Charles Poliquin's high-volume 10x10 hypertrophy protocol using antagonist supersets at 60% of 1RM with controlled tempo to maximize time under tension.",
-      "file": "liftosaur-german-volume-training.json"
+      "file": "german-volume-training.json"
     },
     {
-      "id": "liftosaur-gzcl-general-gainz-burrito-but-big",
-      "displayLabel": "GZCL: General Gainz - Burrito But Big — Liftosaur",
+      "id": "gzcl-general-gainz-burrito-but-big",
+      "displayLabel": "GZCL: General Gainz - Burrito But Big",
       "shortDescription": "Hypertrophy adaptation of General Gainz, as a 12-week program.",
-      "file": "liftosaur-gzcl-general-gainz-burrito-but-big.json"
+      "file": "gzcl-general-gainz-burrito-but-big.json"
     },
     {
-      "id": "liftosaur-gzcl-general-gainz-riptide",
-      "displayLabel": "GZCL: General Gainz - Riptide — Liftosaur",
+      "id": "gzcl-general-gainz-riptide",
+      "displayLabel": "GZCL: General Gainz - Riptide",
       "shortDescription": "An 8-week General Gainz program that alternates between finding rep maxes and pushing them higher, biasing hypertrophy through lighter T1 work and higher volume.",
-      "file": "liftosaur-gzcl-general-gainz-riptide.json"
+      "file": "gzcl-general-gainz-riptide.json"
     },
     {
-      "id": "liftosaur-gzcl-general-gainz",
-      "displayLabel": "GZCL: General Gainz — Liftosaur",
+      "id": "gzcl-general-gainz",
+      "displayLabel": "GZCL: General Gainz",
       "shortDescription": "Latest GZCL program combining learnings from all other GZCL programs.",
-      "file": "liftosaur-gzcl-general-gainz.json"
+      "file": "gzcl-general-gainz.json"
     },
     {
-      "id": "liftosaur-gzcl-ggbb",
-      "displayLabel": "GZCL: General Gainz - Bodybuilding — Liftosaur",
+      "id": "gzcl-ggbb",
+      "displayLabel": "GZCL: General Gainz - Bodybuilding",
       "shortDescription": "General Gainz variation for hypertrophy/bodybuilding",
-      "file": "liftosaur-gzcl-ggbb.json"
+      "file": "gzcl-ggbb.json"
     },
     {
-      "id": "liftosaur-gzcl-jacked-and-tan-2",
-      "displayLabel": "GZCL: Jacked & Tan 2.0 — Liftosaur",
+      "id": "gzcl-jacked-and-tan-2",
+      "displayLabel": "GZCL: Jacked & Tan 2.0",
       "shortDescription": "Another good next step after GZCLP.",
-      "file": "liftosaur-gzcl-jacked-and-tan-2.json"
+      "file": "gzcl-jacked-and-tan-2.json"
     },
     {
-      "id": "liftosaur-gzcl-the-rippler",
-      "displayLabel": "GZCL: The Rippler — Liftosaur",
+      "id": "gzcl-the-rippler",
+      "displayLabel": "GZCL: The Rippler",
       "shortDescription": "A 12-week GZCL program optimizing bi-weekly undulation in intensity, weight and reps. A good next step after GZCLP.",
-      "file": "liftosaur-gzcl-the-rippler.json"
+      "file": "gzcl-the-rippler.json"
     },
     {
-      "id": "liftosaur-gzcl-uhf-5-weeks",
-      "displayLabel": "GZCL: UHF 5 weeks — Liftosaur",
+      "id": "gzcl-uhf-5-weeks",
+      "displayLabel": "GZCL: UHF 5 weeks",
       "shortDescription": "5-week GZCL program adopting a Daily Undulating Periodization model of progression. Ultra High Frequency.",
-      "file": "liftosaur-gzcl-uhf-5-weeks.json"
+      "file": "gzcl-uhf-5-weeks.json"
     },
     {
-      "id": "liftosaur-gzcl-uhf-9-weeks",
-      "displayLabel": "GZCL: UHF 9 weeks — Liftosaur",
+      "id": "gzcl-uhf-9-weeks",
+      "displayLabel": "GZCL: UHF 9 weeks",
       "shortDescription": "9-week GZCL program adopting a Daily Undulating Periodization model of progression. Ultra High Frequency.",
-      "file": "liftosaur-gzcl-uhf-9-weeks.json"
+      "file": "gzcl-uhf-9-weeks.json"
     },
     {
-      "id": "liftosaur-gzcl-vdip",
-      "displayLabel": "GZCL: VDIP — Liftosaur",
+      "id": "gzcl-vdip",
+      "displayLabel": "GZCL: VDIP",
       "shortDescription": "Beginner-intermediate program where each set is AMRAP.",
-      "file": "liftosaur-gzcl-vdip.json"
+      "file": "gzcl-vdip.json"
     },
     {
-      "id": "liftosaur-gzclp-blacknoir",
-      "displayLabel": "GZCLP: Blacknoir version — Liftosaur",
+      "id": "gzclp-blacknoir",
+      "displayLabel": "GZCLP: Blacknoir version",
       "shortDescription": "Variation of GZCLP from Reddit user u/blacknoir",
-      "file": "liftosaur-gzclp-blacknoir.json"
+      "file": "gzclp-blacknoir.json"
     },
     {
-      "id": "liftosaur-gzclp",
-      "displayLabel": "GZCLP — Liftosaur",
+      "id": "gzclp",
+      "displayLabel": "GZCLP",
       "shortDescription": "Another good “next step” program after Basic Beginner or Starting Strength..  Do it after 3-9 months in gym.",
-      "file": "liftosaur-gzclp.json"
+      "file": "gzclp.json"
     },
     {
-      "id": "liftosaur-ice-cream-fitness-5x5",
-      "displayLabel": "Ice Cream Fitness 5x5 — Liftosaur",
+      "id": "ice-cream-fitness-5x5",
+      "displayLabel": "Ice Cream Fitness 5x5",
       "shortDescription": "Novice strength and muscle-building program - StrongLifts 5x5 with added accessories for more complete development",
-      "file": "liftosaur-ice-cream-fitness-5x5.json"
+      "file": "ice-cream-fitness-5x5.json"
     },
     {
-      "id": "liftosaur-ivysaur-4-4-8",
-      "displayLabel": "Ivysaur 4-4-8 — Liftosaur",
+      "id": "ivysaur-4-4-8",
+      "displayLabel": "Ivysaur 4-4-8",
       "shortDescription": "3-day beginner barbell program with alternating heavy and light days for faster strength gains",
-      "file": "liftosaur-ivysaur-4-4-8.json"
+      "file": "ivysaur-4-4-8.json"
     },
     {
-      "id": "liftosaur-jay-cutler-split",
-      "displayLabel": "Jay Cutler's Simple Muscle Group Split — Liftosaur",
+      "id": "jay-cutler-split",
+      "displayLabel": "Jay Cutler's Simple Muscle Group Split",
       "shortDescription": "Cutler-inspired 5-day high-volume bro split - one major muscle group per day with calves trained twice weekly",
-      "file": "liftosaur-jay-cutler-split.json"
+      "file": "jay-cutler-split.json"
     },
     {
-      "id": "liftosaur-juggernaut-method",
-      "displayLabel": "The Juggernaut Method 2.0 — Liftosaur",
+      "id": "juggernaut-method",
+      "displayLabel": "The Juggernaut Method 2.0",
       "shortDescription": "A 16-week block periodized strength program using submaximal AMRAP-driven progression across four waves of decreasing reps.",
-      "file": "liftosaur-juggernaut-method.json"
+      "file": "juggernaut-method.json"
     },
     {
-      "id": "liftosaur-lylegenericbulking",
-      "displayLabel": "Lyle's Generic Bulking — Liftosaur",
+      "id": "lylegenericbulking",
+      "displayLabel": "Lyle's Generic Bulking",
       "shortDescription": "4-day upper/lower split for intermediate lifters on a bulk - moderate volume, double progression, twice-per-week frequency",
-      "file": "liftosaur-lylegenericbulking.json"
+      "file": "lylegenericbulking.json"
     },
     {
-      "id": "liftosaur-madcow",
-      "displayLabel": "Madcow 5x5 — Liftosaur",
+      "id": "madcow",
+      "displayLabel": "Madcow 5x5",
       "shortDescription": "Weekly linear progression for intermediates - Heavy/Light/Medium ramping sets across 3 full-body days",
-      "file": "liftosaur-madcow.json"
+      "file": "madcow.json"
     },
     {
-      "id": "liftosaur-metallicadpappl",
-      "displayLabel": "Metallicadpa PPL — Liftosaur",
+      "id": "metallicadpappl",
+      "displayLabel": "Metallicadpa PPL",
       "shortDescription": "6-day beginner Push/Pull/Legs with linear progression on main lifts",
-      "file": "liftosaur-metallicadpappl.json"
+      "file": "metallicadpappl.json"
     },
     {
-      "id": "liftosaur-mike-mentzer-consolidated",
-      "displayLabel": "Mike Mentzer's Consolidated Routine — Liftosaur",
+      "id": "mike-mentzer-consolidated",
+      "displayLabel": "Mike Mentzer's Consolidated Routine",
       "shortDescription": "Ultra-minimalist HIT program — just 2 exercises per workout, 1 set each to absolute failure, trained once per week.",
-      "file": "liftosaur-mike-mentzer-consolidated.json"
+      "file": "mike-mentzer-consolidated.json"
     },
     {
-      "id": "liftosaur-mike-mentzer-heavy-duty",
-      "displayLabel": "Mike Mentzer's Heavy Duty — Liftosaur",
+      "id": "mike-mentzer-heavy-duty",
+      "displayLabel": "Mike Mentzer's Heavy Duty",
       "shortDescription": "Minimalist HIT program with pre-exhaust supersets — 1 working set per exercise taken to absolute failure.",
-      "file": "liftosaur-mike-mentzer-heavy-duty.json"
+      "file": "mike-mentzer-heavy-duty.json"
     },
     {
-      "id": "liftosaur-monolith531",
-      "displayLabel": "5/3/1: Building the Monolith — Liftosaur",
+      "id": "monolith531",
+      "displayLabel": "5/3/1: Building the Monolith",
       "shortDescription": "Brutal 6-week 5/3/1 hypertrophy template with 20-rep squats, 100-rep accessory sets, and mandatory heavy eating.",
-      "file": "liftosaur-monolith531.json"
+      "file": "monolith531.json"
     },
     {
-      "id": "liftosaur-nsuns",
-      "displayLabel": "nSuns LP — Liftosaur",
+      "id": "nsuns",
+      "displayLabel": "nSuns LP",
       "shortDescription": "High-volume 5/3/1 variant with aggressive linear progression — 17 working sets per session across two barbell lifts.",
-      "file": "liftosaur-nsuns.json"
+      "file": "nsuns.json"
     },
     {
-      "id": "liftosaur-phat",
-      "displayLabel": "PHAT — Liftosaur",
+      "id": "phat",
+      "displayLabel": "PHAT",
       "shortDescription": "Layne Norton's 5-day powerbuilding split - two power days for strength, three hypertrophy days with explosive speed work to maximize both strength and muscle growth.",
-      "file": "liftosaur-phat.json"
+      "file": "phat.json"
     },
     {
-      "id": "liftosaur-phrakgreyskull",
-      "displayLabel": "Phrak's Greyskull LP — Liftosaur",
+      "id": "phrakgreyskull",
+      "displayLabel": "Phrak's Greyskull LP",
       "shortDescription": "Beginner barbell program with AMRAP sets and built-in upper back work",
-      "file": "liftosaur-phrakgreyskull.json"
+      "file": "phrakgreyskull.json"
     },
     {
-      "id": "liftosaur-phul",
-      "displayLabel": "PHUL — Liftosaur",
+      "id": "phul",
+      "displayLabel": "PHUL",
       "shortDescription": "Power Hypertrophy Upper Lower - 4-day split combining heavy compound work with higher-rep hypertrophy training",
-      "file": "liftosaur-phul.json"
+      "file": "phul.json"
     },
     {
-      "id": "liftosaur-planet-fitness-hypertrophy",
-      "displayLabel": "Planet Fitness Hypertrophy — Liftosaur",
+      "id": "planet-fitness-hypertrophy",
+      "displayLabel": "Planet Fitness Hypertrophy",
       "shortDescription": "4-day upper/lower split designed exclusively for Planet Fitness equipment — machines, dumbbells, cables, no barbell required",
-      "file": "liftosaur-planet-fitness-hypertrophy.json"
+      "file": "planet-fitness-hypertrophy.json"
     },
     {
-      "id": "liftosaur-pzerofullbody",
-      "displayLabel": "P-Zero Full Body — Liftosaur",
+      "id": "pzerofullbody",
+      "displayLabel": "P-Zero Full Body",
       "shortDescription": "Latest GZCL program, it's like GZCLP 2.0",
-      "file": "liftosaur-pzerofullbody.json"
+      "file": "pzerofullbody.json"
     },
     {
-      "id": "liftosaur-recommended-routine",
-      "displayLabel": "r/bodyweightfitness Recommended Routine — Liftosaur",
+      "id": "recommended-routine",
+      "displayLabel": "r/bodyweightfitness Recommended Routine",
       "shortDescription": "The community-designed full-body calisthenics routine - six paired progressions plus a core triplet, no weights required to start.",
-      "file": "liftosaur-recommended-routine.json"
+      "file": "recommended-routine.json"
     },
     {
-      "id": "liftosaur-sheiko-29-32",
-      "displayLabel": "Sheiko #29-32 — Liftosaur",
+      "id": "sheiko-29-32",
+      "displayLabel": "Sheiko #29-32",
       "shortDescription": "A 16-week competition-focused powerlifting program using high-volume submaximal training across 4 blocks - preparation, accumulation, transmutation, and peaking.",
-      "file": "liftosaur-sheiko-29-32.json"
+      "file": "sheiko-29-32.json"
     },
     {
-      "id": "liftosaur-shortcut-to-size",
-      "displayLabel": "Shortcut to Size — Liftosaur",
+      "id": "shortcut-to-size",
+      "displayLabel": "Shortcut to Size",
       "shortDescription": "12-week body part split using weekly undulating periodization — rep ranges cycle from 12-15 down to 3-5 every four weeks across three phases with rotating exercise selection.",
-      "file": "liftosaur-shortcut-to-size.json"
+      "file": "shortcut-to-size.json"
     },
     {
-      "id": "liftosaur-smolov-jr",
-      "displayLabel": "Smolov Jr — Liftosaur",
+      "id": "smolov-jr",
+      "displayLabel": "Smolov Jr",
       "shortDescription": "A 3-week high-frequency peaking cycle — 4 sessions per week at 70-85% of 1RM with weekly weight increases, commonly adding 15-25 lbs to your bench press",
-      "file": "liftosaur-smolov-jr.json"
+      "file": "smolov-jr.json"
     },
     {
-      "id": "liftosaur-smolov-squat",
-      "displayLabel": "Smolov Squat — Liftosaur",
+      "id": "smolov-squat",
+      "displayLabel": "Smolov Squat",
       "shortDescription": "A 13-week Russian squat specialization cycle — brutal high-volume base phase followed by heavy peaking, designed to add 40-100 lbs to your squat",
-      "file": "liftosaur-smolov-squat.json"
+      "file": "smolov-squat.json"
     },
     {
-      "id": "liftosaur-ss1",
-      "displayLabel": "Starting Strength Phase 1 — Liftosaur",
+      "id": "ss1",
+      "displayLabel": "Starting Strength Phase 1",
       "shortDescription": "Beginner barbell program, Phase 1 — squat, press, and deadlift every session",
-      "file": "liftosaur-ss1.json"
+      "file": "ss1.json"
     },
     {
-      "id": "liftosaur-ss2",
-      "displayLabel": "Starting Strength Phase 2 — Liftosaur",
+      "id": "ss2",
+      "displayLabel": "Starting Strength Phase 2",
       "shortDescription": "Beginner barbell program, Phase 2 — power cleans replace deadlifts on alternate days",
-      "file": "liftosaur-ss2.json"
+      "file": "ss2.json"
     },
     {
-      "id": "liftosaur-ss3",
-      "displayLabel": "Starting Strength Phase 3 — Liftosaur",
+      "id": "ss3",
+      "displayLabel": "Starting Strength Phase 3",
       "shortDescription": "Beginner barbell program, Phase 3 — chin-ups added, deadlifts and power cleans alternate",
-      "file": "liftosaur-ss3.json"
+      "file": "ss3.json"
     },
     {
-      "id": "liftosaur-strongcurves",
-      "displayLabel": "Strong Curves — Liftosaur",
+      "id": "strongcurves",
+      "displayLabel": "Strong Curves",
       "shortDescription": "Bootyful Beginnings - 12-week glute-focused beginner program, 3 days per week, progressing from bodyweight to barbell",
-      "file": "liftosaur-strongcurves.json"
+      "file": "strongcurves.json"
     },
     {
-      "id": "liftosaur-super-squats",
-      "displayLabel": "Super Squats — Liftosaur",
+      "id": "super-squats",
+      "displayLabel": "Super Squats",
       "shortDescription": "One brutal set of 20 breathing squats with your 10-rep max, plus 5lb every workout - the classic 6-week \"squats and milk\" mass program.",
-      "file": "liftosaur-super-squats.json"
+      "file": "super-squats.json"
     },
     {
-      "id": "liftosaur-tactical-barbell-mass-protocol",
-      "displayLabel": "Tactical Barbell: Mass Protocol — Liftosaur",
+      "id": "tactical-barbell-mass-protocol",
+      "displayLabel": "Tactical Barbell: Mass Protocol",
       "shortDescription": "6-week hypertrophy block from Tactical Barbell — Squat/Bench/Pull-Up 3x per week plus a dedicated Deadlift day",
-      "file": "liftosaur-tactical-barbell-mass-protocol.json"
+      "file": "tactical-barbell-mass-protocol.json"
     },
     {
-      "id": "liftosaur-tactical-barbell-operator",
-      "displayLabel": "Tactical Barbell: Operator — Liftosaur",
+      "id": "tactical-barbell-operator",
+      "displayLabel": "Tactical Barbell: Operator",
       "shortDescription": "Minimalist 3-day strength template — 3 lifts, 3 sets, submaximal percentages, designed to maintain strength alongside heavy conditioning",
-      "file": "liftosaur-tactical-barbell-operator.json"
+      "file": "tactical-barbell-operator.json"
     },
     {
-      "id": "liftosaur-texasmethod",
-      "displayLabel": "Texas Method — Liftosaur",
+      "id": "texasmethod",
+      "displayLabel": "Texas Method",
       "shortDescription": "Weekly linear progression for intermediates — Volume/Recovery/Intensity across 3 full-body days",
-      "file": "liftosaur-texasmethod.json"
+      "file": "texasmethod.json"
     },
     {
-      "id": "liftosaur-the5314b",
-      "displayLabel": "5/3/1 For Beginners — Liftosaur",
+      "id": "the5314b",
+      "displayLabel": "5/3/1 For Beginners",
       "shortDescription": "Beginner-friendly 3-day full-body program based on Jim Wendler's 5/3/1 system with FSL supplemental work.",
-      "file": "liftosaur-the5314b.json"
+      "file": "the5314b.json"
     },
     {
-      "id": "liftosaur-the531bbb",
-      "displayLabel": "5/3/1: Boring But Big — Liftosaur",
+      "id": "the531bbb",
+      "displayLabel": "5/3/1: Boring But Big",
       "shortDescription": "Volume-focused 5/3/1 variant pairing heavy main work with 5x10 supplemental sets for size and strength.",
-      "file": "liftosaur-the531bbb.json"
+      "file": "the531bbb.json"
     },
     {
-      "id": "liftosaur-tsa-9-week-intermediate",
-      "displayLabel": "TSA 9-Week Intermediate — Liftosaur",
+      "id": "tsa-9-week-intermediate",
+      "displayLabel": "TSA 9-Week Intermediate",
       "shortDescription": "A 9-week powerlifting peaking program with 4 days per week, using percentage-based main lifts with RPE-based peaking singles and accessories. Squat 2x/week, bench 3x/week, deadlift 2x/week.",
-      "file": "liftosaur-tsa-9-week-intermediate.json"
+      "file": "tsa-9-week-intermediate.json"
     },
     {
-      "id": "liftosaur-westside-conjugate-method",
-      "displayLabel": "Westside Conjugate Method — Liftosaur",
+      "id": "westside-conjugate-method",
+      "displayLabel": "Westside Conjugate Method",
       "shortDescription": "A 4-day powerlifting system combining Max Effort heavy singles, Dynamic Effort speed work, and high-volume accessories to build strength year-round.",
-      "file": "liftosaur-westside-conjugate-method.json"
+      "file": "westside-conjugate-method.json"
     },
     {
-      "id": "liftosaur-westside-for-skinny-bastards",
-      "displayLabel": "Westside for Skinny Bastards — Liftosaur",
+      "id": "westside-for-skinny-bastards",
+      "displayLabel": "Westside for Skinny Bastards",
       "shortDescription": "A 4-day conjugate-style program combining heavy max-effort work, jump training, and high-rep hypertrophy for athletes and skinny lifters.",
-      "file": "liftosaur-westside-for-skinny-bastards.json"
+      "file": "westside-for-skinny-bastards.json"
     },
     {
       "id": "phat-5-day-power-hypertrophy",

@@ -1,0 +1,69 @@
+{
+  "id": "clean-barbell",
+  "displayLabel": "Clean (barbell)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "barbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "hamstring",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "quadriceps",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "upperBack",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "frontDelts",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "sideDelts",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "adductors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "calves",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lowerBack",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "biceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "forearmFlexors",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

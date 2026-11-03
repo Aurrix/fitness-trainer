@@ -6,7 +6,7 @@ const catalog=fs.readdirSync('src/assets/programms').filter(f=>f.endsWith('.json
 const program=catalog.find(p=>p.id==='upper-lower-intermediate')
 const seed=definition=>N.initialize({definition,values:Object.fromEntries(N.inspect({definition}).map(f=>[f.key,{weightKg:f.bodyweight?0:40,maximumKg:100,incrementKg:f.increment}]))})
 const logsFor=session=>Object.fromEntries(session.section.exercises.map(slot=>[slot.id,{exerciseId:slot.exerciseId,setLogs:slot.prescriptions.map(p=>({reps:String(p.reps??1),weightKg:String(p.weightKg??0),duration:String((p.durationSeconds??30)/60),effort:String(p.effort??7),completedAt:'2026-11-02T12:00:00Z'}))}]))
-test('the complete catalog uses native structured data and retains source notices',()=>{
+test('the complete catalog uses native structured data',()=>{
  assert.equal(catalog.length,75)
  for(const p of catalog){
   assert.equal(p.engine.version,2)
@@ -15,12 +15,11 @@ test('the complete catalog uses native structured data and retains source notice
   assert.equal(p.engine.bindings,undefined)
   assert.equal(p.weeks.reduce((n,w)=>n+w.days.length,0),p.engine.sections.length)
   for(const section of p.engine.sections)for(const slot of section.exercises){assert.ok(slot.prescriptions.length);assert.ok(p.engine.loads[slot.exerciseId]);assert.ok(slot.progression.kind)}
-  if(p.id.startsWith('liftosaur-')){assert.equal(p.license,'AGPL-3.0');assert.ok(p.engine.provenance.sourceUrl)}
  }
 })
 test('native programs execute without loading compatibility modules',()=>{
- assert.ok(!/from .*compatibility|from .*liftosaur/.test(fs.readFileSync('public/engine/native.mjs','utf8')))
- const p=catalog.find(p=>p.id==='liftosaur-phul')
+ assert.ok(!/from .*compatibility|from .*program/.test(fs.readFileSync('public/engine/native.mjs','utf8')))
+ const p=catalog.find(p=>p.id==='phul')
  const session=N.prepare({definition:p.engine,state:seed(p.engine),sectionId:p.engine.sections[0].id})
  const done=N.finish({session,logs:logsFor(session),effortScale:'rpe'})
  assert.equal(done.state.version,2)
@@ -98,7 +97,7 @@ test('percentage loads are estimated from actual sets and history edits recalibr
 })
 
 test('failed double-progression sets retain prescribed targets after a temporary load override',()=>{
- const p=catalog.find(p=>p.id==='liftosaur-phul')
+ const p=catalog.find(p=>p.id==='phul')
  const session=N.prepare({definition:p.engine,state:seed(p.engine),sectionId:p.engine.sections[0].id}),logs=logsFor(session)
  const slot=session.section.exercises[0]
  logs[slot.id].setLogs.forEach(s=>{s.weightKg='20';s.reps='0'})

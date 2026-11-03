@@ -1,0 +1,33 @@
+{
+  "id": "hanginglegraise-bodyweight",
+  "displayLabel": "Hanging Leg Raise (bodyweight)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "bodyweight"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "hipFlexors",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "adductors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "hipFlexors",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "abductors",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

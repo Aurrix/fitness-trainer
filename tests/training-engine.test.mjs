@@ -24,7 +24,7 @@ test('all 75 programs compile, resolve mappings, seed, prepare and finish', asyn
     }
 });
 test('double progression changes future targets without changing the session snapshot', async () => {
-    const p = catalog.find(p => p.id === 'liftosaur-phul'), session = (await R.prepare({ definition: p.engine, state: (await setup(p)), sectionId: 'engine-day-1' }));
+    const p = catalog.find(p => p.id === 'phul'), session = (await R.prepare({ definition: p.engine, state: (await setup(p)), sectionId: 'engine-day-1' }));
     const original = JSON.stringify(session), a = (await R.finish({ session, logs: results(session), effortScale: 'rpe' })), b = (await R.finish({ session, logs: results(session), effortScale: 'rpe' }));
     assert.equal(JSON.stringify(session), original);
     assert.deepEqual(a.state, b.state);
@@ -35,7 +35,7 @@ test('native ranges expand and optional core is retained', async () => {
     const ppl = catalog.find(p => p.id === 'ppl-v2-intermediate').engine.sections;
     assert.equal(ppl.filter(s => !s.optional).length, 60);
     assert.equal(ppl.filter(s => s.optional).length, 10);
-    assert.equal(catalog.find(p => p.id === 'liftosaur-basic-beginner').engine.sections.length, 6);
+    assert.equal(catalog.find(p => p.id === 'basic-beginner').engine.sections.length, 6);
 });
 test('native progression increases load at the range ceiling and deloads after three failures', async () => {
     const p = catalog.find(p => p.id === 'upper-lower-intermediate');
@@ -54,7 +54,7 @@ test('native progression increases load at the range ceiling and deloads after t
     assert.ok((await R.prepare({ definition: p.engine, state, sectionId: 'engine-day-1' })).section.exercises[0].prescriptions[0].weightKg < 40);
 });
 test('percentage loads keep their explicit basis and skipped exercises do not progress', async () => {
-    const p = catalog.find(p => p.id === 'liftosaur-nsuns'), state = (await setup(p)), session = (await R.prepare({ definition: p.engine, state, sectionId: 'engine-day-1' }));
+    const p = catalog.find(p => p.id === 'nsuns'), state = (await setup(p)), session = (await R.prepare({ definition: p.engine, state, sectionId: 'engine-day-1' }));
     assert.equal(session.section.exercises[0].prescriptions[0].formula, '58% of 1RM');
     const logs = results(session);
     for (const log of Object.values(logs))
@@ -63,7 +63,7 @@ test('percentage loads keep their explicit basis and skipped exercises do not pr
     assert.equal((await R.prepare({ definition: p.engine, state: next.state, sectionId: 'engine-day-1' })).section.exercises[0].prescriptions[0].weightKg, session.section.exercises[0].prescriptions[0].weightKg);
 });
 test('supersets and timed variations survive preparation', async () => {
-    const p = catalog.find(p => p.id === 'liftosaur-recommended-routine'), session = (await R.prepare({ definition: p.engine, state: (await setup(p)), sectionId: 'engine-day-1' }));
+    const p = catalog.find(p => p.id === 'recommended-routine'), session = (await R.prepare({ definition: p.engine, state: (await setup(p)), sectionId: 'engine-day-1' }));
     assert.ok(session.section.exercises.some(e => e.superset));
     assert.ok(session.section.exercises.some(e => e.prescriptions.some(s => s.durationSeconds > 0)));
     assert.ok(session.section.exercises.every(e => e.prescriptions.every(s => s.kind === 'work')));
@@ -89,7 +89,7 @@ test('within-range reps are successful holds and fixed-rep failures deload', asy
     assert.ok((await R.prepare({ definition: def, state, sectionId: 'engine-day-1' })).section.exercises[0].prescriptions[0].weightKg < 40);
 });
 test('edited outcomes replay deterministically without mutating stored targets', async () => {
-    const p = catalog.find(p => p.id === 'liftosaur-phul'), seed = (await setup(p));
+    const p = catalog.find(p => p.id === 'phul'), seed = (await setup(p));
     const first = (await R.prepare({ definition: p.engine, state: seed, sectionId: 'engine-day-1' })), firstLogs = results(first);
     const original = JSON.stringify(first);
     const one = (await R.finish({ session: first, logs: firstLogs, effortScale: 'rpe' }));
@@ -127,7 +127,7 @@ test('automatic setup learns each exercise from completed sets and leaves skippe
 test('saved version 1 snapshots migrate to native execution without changing stored data', async()=>{
  const {definitions}=await import('./reference/legacy/definitions.mjs')
  const old=await import('./reference/legacy/runtime.mjs')
- const definition=definitions['liftosaur-phul'],migrationDefinition=catalog.find(p=>p.id==='liftosaur-phul').engine
+ const definition=definitions['phul'],migrationDefinition=catalog.find(p=>p.id==='phul').engine
  const fields=old.inspect({definition,id:'legacy',name:'Legacy PHUL'})
  const state=old.initialize({definition,id:'legacy',name:'Legacy PHUL',values:Object.fromEntries(fields.map(f=>[f.key,{weightKg:f.bodyweight?0:40,maximumKg:100,incrementKg:f.increment}]))})
  const session=old.prepare({definition,state,sectionId:definition.sections[0].id}),before=JSON.stringify(session)

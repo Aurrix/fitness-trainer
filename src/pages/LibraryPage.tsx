@@ -1,14 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowRight, CopyPlus, Pencil, Play, Plus, Search, Star } from 'lucide-react'
 import ExerciseFilters from '../components/ExerciseFilters'
+import ExerciseMuscleMaps from '../components/ExerciseMuscleMaps'
 import { emptyExerciseFacets, matchesExerciseFacets } from '../lib/exercise-filters'
 import ProgramFilters from '../components/ProgramFilters'
 import ProgramMuscleCardOverview from '../components/ProgramMuscleCardOverview'
 import { emptyProgramFacets, getProgramSchedule, getProgramSplit, matchesProgramFacets, programFilterOptions, type ProgramFacets } from '../lib/program-filters'
-import ExerciseMedia from '../components/ExerciseMedia'
+import ProgramExercisePreview from '../components/ProgramExercisePreview'
+import { formatExerciseMuscleGroup } from '../entities/exercise-muscles'
 import exercisesLibraryImage from '../assets/images/exercises.png'
 import programsLibraryImage from '../assets/images/programms.png'
-import { formatExerciseMuscleGroup } from '../entities/exercise-muscles'
 import { countExercises } from '../lib/app-utils'
 import type { AppProgram, ExerciseFilter, LibraryView, ProgramFilter } from '../lib/app-types'
 import type { Exercise } from '../lib/content'
@@ -394,81 +395,43 @@ export default function LibraryPage({
                 const exerciseIsCustom = isCustomExercise(exercise)
 
                 return (
-                  <article
-                    key={exercise.id}
-                    className={`exercise-card ${
-                      exerciseIsCustom ? 'exercise-card--custom' : 'exercise-card--library'
-                    }`}
-                  >
-                    <div className="section-header">
-                      <div>
-                        <h3>{exercise.name}</h3>
-                        <p className="muted">
-                          {exercise.source.label} / {exercise.source.group}
-                        </p>
-                      </div>
-                      <div className="row-actions">
+                  <article className={`exercise-library-card ${exerciseIsCustom ? 'is-custom' : ''}`} key={exercise.id}>
+                    <ProgramExercisePreview exercise={exercise} gender={fitnessGender} onOpen={() => onOpenExerciseDetails(exercise)} />
+                    <div className="exercise-library-card__body">
+                      <header className="exercise-library-card__header">
+                        <div className="exercise-library-card__heading">
+                          <p className="exercise-library-card__category">{exerciseIsCustom ? 'Custom exercise' : formatExerciseMuscleGroup(exercise.primaryTargetMuscleGroups[0]?.muscleGroup || exercise.category || 'Exercise')}</p>
+                          <h3>{exercise.name}</h3>
+                        </div>
                         <button
                           type="button"
-                          className={`program-card__star-button ${
-                            favoriteExerciseIdSet.has(exercise.id) ? 'is-active' : ''
-                          }`}
+                          className={`program-card__star-button ${favoriteExerciseIdSet.has(exercise.id) ? 'is-active' : ''}`}
                           onClick={() => onToggleSavedExercise(exercise.id)}
-                          aria-label={
-                            favoriteExerciseIdSet.has(exercise.id)
-                              ? `Remove ${exercise.name} from favorite exercises`
-                              : `Save ${exercise.name} as favorite exercise`
-                          }
+                          aria-label={favoriteExerciseIdSet.has(exercise.id) ? `Remove ${exercise.name} from favorite exercises` : `Save ${exercise.name} as favorite exercise`}
                           title={favoriteExerciseIdSet.has(exercise.id) ? 'Favorite' : 'Add favorite'}
                         >
-                          <Star
-                            size={17}
-                            fill={favoriteExerciseIdSet.has(exercise.id) ? 'currentColor' : 'none'}
-                          />
+                          <Star size={17} fill={favoriteExerciseIdSet.has(exercise.id) ? 'currentColor' : 'none'} />
                         </button>
-                        {exerciseIsCustom ? (
-                          <span className="pill">Custom</span>
-                        ) : exercise.category ? (
-                          <span className="pill">{exercise.category}</span>
-                        ) : null}
+                      </header>
+                      <p className="exercise-library-card__description">
+                        {exercise.description || exercise.notes || 'Exercise ready to be used in programs.'}
+                      </p>
+                      <div className="exercise-library-card__footer">
+                        <div className="exercise-library-card__metadata">
+                          {[...exercise.primaryTargetMuscleGroups, ...exercise.secondaryTargetMuscleGroups].map((target, index) => (
+                            <span className={`exercise-library-card__meta exercise-library-card__meta--muscle ${index < exercise.primaryTargetMuscleGroups.length ? 'is-primary' : ''}`} key={`${target.muscleGroup}-${index}`}>
+                              {formatExerciseMuscleGroup(target.muscleGroup)}
+                            </span>
+                          ))}
+                          {exercise.equipment.slice(0, 1).map(equipment => <span className="exercise-library-card__meta" key={equipment}>{equipment}</span>)}
+                          {exercise.difficulty ? <span className="exercise-library-card__meta">{exercise.difficulty}</span> : null}
+                          <button type="button" className="exercise-library-card__details" onClick={() => onOpenExerciseDetails(exercise)}>Details <ArrowRight size={14} /></button>
+                        </div>
+                        <div className="exercise-library-card__muscles" role="group" aria-label={`${exercise.name} front and back muscle targets`}>
+                          <div><ExerciseMuscleMaps exercise={exercise} gender={fitnessGender} side="front" miniature /><span>Front</span></div>
+                          <div><ExerciseMuscleMaps exercise={exercise} gender={fitnessGender} side="back" miniature /><span>Back</span></div>
+                        </div>
                       </div>
-                    </div>
-                    <p className="muted">
-                      {exercise.description ||
-                        exercise.notes ||
-                        exercise.muscleGroups
-                          .map((muscleGroup) => formatExerciseMuscleGroup(muscleGroup))
-                          .join(', ') ||
-                        'Exercise ready to be used in programs.'}
-                    </p>
-                    <div className="tag-row">
-                      {exercise.difficulty ? (
-                        <span className="pill pill--subtle">{exercise.difficulty}</span>
-                      ) : null}
-                      {exercise.muscleGroups.slice(0, 3).map((muscleGroup) => (
-                        <span key={muscleGroup} className="pill pill--subtle">
-                          {formatExerciseMuscleGroup(muscleGroup)}
-                        </span>
-                      ))}
-                      {exercise.equipment.slice(0, 2).map((equipment) => (
-                        <span key={equipment} className="pill pill--subtle">
-                          {equipment}
-                        </span>
-                      ))}
-                      {exerciseIsCustom ? (
-                        <span className="pill pill--subtle">Custom Source</span>
-                      ) : null}
-                    </div>
-                    <ExerciseMedia exercise={exercise} gender={fitnessGender} />
-                    <div className="row-actions exercise-card__actions">
-                      <button
-                        type="button"
-                        className="chip-button icon-button"
-                        onClick={() => onOpenExerciseDetails(exercise)}
-                      >
-                        <span>View exercise</span>
-                        <ArrowRight size={16} />
-                      </button>
                     </div>
                   </article>
                 )

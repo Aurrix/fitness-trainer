@@ -1,5 +1,5 @@
 import fs from 'node:fs'
-import * as E from '../../tests/reference/liftosaur.mjs'
+import * as E from '../../tests/reference/program.mjs'
 import { exerciseDescription } from '../../public/engine/descriptions.mjs'
 let repaired = 0
 for (const file of fs.readdirSync('src/assets/programms').filter(file => file.endsWith('.json') && file !== 'index.json')) {

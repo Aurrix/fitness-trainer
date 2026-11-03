@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import {adapt,compile} from '../../public/engine/native.mjs'
 const directory='src/assets/programms',dry=process.argv.includes('--dry-run')
 let count=0
-for(const file of fs.readdirSync(directory).filter(f=>f.endsWith('.json')&&f!=='index.json'&&!f.startsWith('liftosaur-'))){
+for(const file of fs.readdirSync(directory).filter(f=>f.endsWith('.json')&&f!=='index.json'&&!f.startsWith(''))){
  const raw=JSON.parse(fs.readFileSync(`${directory}/${file}`))
  if(raw.engine?.version!==2)throw new Error(`Convert ${raw.id} to the native format before rebuilding it.`)
  const previous=raw.engine.sections

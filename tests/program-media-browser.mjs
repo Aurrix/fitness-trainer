@@ -10,9 +10,9 @@ async function openProgram(page){
  await page.getByRole('heading',{name:'Programs',exact:true}).waitFor()
  const close=page.locator('.overlay').getByRole('button',{name:'Close',exact:true})
  try{await close.waitFor({timeout:3000});await close.click()}catch{}
- await page.getByRole('searchbox').fill('PHUL — Liftosaur')
- await page.locator('.program-card').filter({has:page.getByRole('heading',{name:'PHUL — Liftosaur',exact:true})}).getByRole('button',{name:'Open',exact:true}).click()
- return page.getByRole('dialog',{name:'PHUL — Liftosaur',exact:true})
+ await page.getByRole('searchbox').fill('PHUL — program')
+ await page.locator('.program-card').filter({has:page.getByRole('heading',{name:'PHUL — program',exact:true})}).getByRole('button',{name:'Open',exact:true}).click()
+ return page.getByRole('dialog',{name:'PHUL — program',exact:true})
 }
 async function playing(video){await video.evaluate(element=>new Promise((resolve,reject)=>{
  const deadline=Date.now()+15000
@@ -25,7 +25,7 @@ try{
  const previews=dialog.locator('.program-exercise-preview')
  const first=previews.first().locator('video')
  await playing(first)
- const missingIndex=JSON.parse(fs.readFileSync('src/assets/programms/liftosaur-phul.json')).engine.sections[0].exercises.findIndex(ex=>!JSON.parse(fs.readFileSync('src/assets/exercise-media/index.json'))[ex.exerciseId])
+ const missingIndex=JSON.parse(fs.readFileSync('src/assets/programms/phul.json')).engine.sections[0].exercises.findIndex(ex=>!JSON.parse(fs.readFileSync('src/assets/exercise-media/index.json'))[ex.exerciseId])
  assert.ok(missingIndex>=0)
  assert.equal(await previews.nth(missingIndex).locator('.exercise-muscle-maps svg').count(),2)
  const secondVideo=dialog.locator('.program-exercise-preview video').nth(1)

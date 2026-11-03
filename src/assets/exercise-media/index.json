@@ -219,25 +219,25 @@
     "video": "exercise-media/barbell-bench-press-medium-grip/video-v1/demo.mp4",
     "poster": "exercise-media/barbell-bench-press-medium-grip/video-v1/poster.webp"
   },
-  "liftosaur-archhang-bodyweight": {
-    "video": "exercise-media/liftosaur-archhang-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-archhang-bodyweight/video-v1/poster.webp"
+  "archhang-bodyweight": {
+    "video": "exercise-media/archhang-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/archhang-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-arnoldpress-dumbbell": {
-    "video": "exercise-media/liftosaur-arnoldpress-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-arnoldpress-dumbbell/video-v1/poster.webp"
+  "arnoldpress-dumbbell": {
+    "video": "exercise-media/arnoldpress-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/arnoldpress-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-assistedsquat-bodyweight": {
-    "video": "exercise-media/liftosaur-assistedsquat-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-assistedsquat-bodyweight/video-v1/poster.webp"
+  "assistedsquat-bodyweight": {
+    "video": "exercise-media/assistedsquat-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/assistedsquat-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-backextension-bodyweight": {
-    "video": "exercise-media/liftosaur-backextension-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-backextension-bodyweight/video-v1/poster.webp"
+  "backextension-bodyweight": {
+    "video": "exercise-media/backextension-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/backextension-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-backextension-leveragemachine": {
-    "video": "exercise-media/liftosaur-backextension-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-backextension-leveragemachine/video-v1/poster.webp"
+  "backextension-leveragemachine": {
+    "video": "exercise-media/backextension-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/backextension-leveragemachine/video-v1/poster.webp"
   },
   "barbell-bent-over-row": {
     "video": "exercise-media/barbell-bent-over-row/video-v1/demo.mp4",
@@ -1103,137 +1103,137 @@
     "video": "exercise-media/double-kettlebell-windmill/video-v1/demo.mp4",
     "poster": "exercise-media/double-kettlebell-windmill/video-v1/poster.webp"
   },
-  "liftosaur-behindtheneckpress-barbell": {
-    "video": "exercise-media/liftosaur-behindtheneckpress-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-behindtheneckpress-barbell/video-v1/poster.webp"
+  "behindtheneckpress-barbell": {
+    "video": "exercise-media/behindtheneckpress-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/behindtheneckpress-barbell/video-v1/poster.webp"
   },
-  "liftosaur-benchpress-dumbbell": {
-    "video": "exercise-media/liftosaur-benchpress-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-benchpress-dumbbell/video-v1/poster.webp"
+  "benchpress-dumbbell": {
+    "video": "exercise-media/benchpress-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/benchpress-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-benchpressclosegrip-barbell": {
-    "video": "exercise-media/liftosaur-benchpressclosegrip-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-benchpressclosegrip-barbell/video-v1/poster.webp"
+  "benchpressclosegrip-barbell": {
+    "video": "exercise-media/benchpressclosegrip-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/benchpressclosegrip-barbell/video-v1/poster.webp"
   },
-  "liftosaur-benchpresswidegrip-barbell": {
-    "video": "exercise-media/liftosaur-benchpresswidegrip-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-benchpresswidegrip-barbell/video-v1/poster.webp"
+  "benchpresswidegrip-barbell": {
+    "video": "exercise-media/benchpresswidegrip-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/benchpresswidegrip-barbell/video-v1/poster.webp"
   },
-  "liftosaur-bentoveronearmrow-dumbbell": {
-    "video": "exercise-media/liftosaur-bentoveronearmrow-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-bentoveronearmrow-dumbbell/video-v1/poster.webp"
+  "bentoveronearmrow-dumbbell": {
+    "video": "exercise-media/bentoveronearmrow-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/bentoveronearmrow-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-bentoverrow-cable": {
-    "video": "exercise-media/liftosaur-bentoverrow-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-bentoverrow-cable/video-v1/poster.webp"
+  "bentoverrow-cable": {
+    "video": "exercise-media/bentoverrow-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/bentoverrow-cable/video-v1/poster.webp"
   },
-  "liftosaur-bentoverrow-dumbbell": {
-    "video": "exercise-media/liftosaur-bentoverrow-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-bentoverrow-dumbbell/video-v1/poster.webp"
+  "bentoverrow-dumbbell": {
+    "video": "exercise-media/bentoverrow-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/bentoverrow-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-bicepcurl-band": {
-    "video": "exercise-media/liftosaur-bicepcurl-band/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-bicepcurl-band/video-v1/poster.webp"
+  "bicepcurl-band": {
+    "video": "exercise-media/bicepcurl-band/video-v1/demo.mp4",
+    "poster": "exercise-media/bicepcurl-band/video-v1/poster.webp"
   },
-  "liftosaur-bicepcurl-cable": {
-    "video": "exercise-media/liftosaur-bicepcurl-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-bicepcurl-cable/video-v1/poster.webp"
+  "bicepcurl-cable": {
+    "video": "exercise-media/bicepcurl-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/bicepcurl-cable/video-v1/poster.webp"
   },
-  "liftosaur-bicepcurl-ezbar": {
-    "video": "exercise-media/liftosaur-bicepcurl-ezbar/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-bicepcurl-ezbar/video-v1/poster.webp"
+  "bicepcurl-ezbar": {
+    "video": "exercise-media/bicepcurl-ezbar/video-v1/demo.mp4",
+    "poster": "exercise-media/bicepcurl-ezbar/video-v1/poster.webp"
   },
-  "liftosaur-boxsquat-barbell": {
-    "video": "exercise-media/liftosaur-boxsquat-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-boxsquat-barbell/video-v1/poster.webp"
+  "boxsquat-barbell": {
+    "video": "exercise-media/boxsquat-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/boxsquat-barbell/video-v1/poster.webp"
   },
-  "liftosaur-boxsquat-dumbbell": {
-    "video": "exercise-media/liftosaur-boxsquat-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-boxsquat-dumbbell/video-v1/poster.webp"
+  "boxsquat-dumbbell": {
+    "video": "exercise-media/boxsquat-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/boxsquat-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-bulgariansplitsquat-bodyweight": {
-    "video": "exercise-media/liftosaur-bulgariansplitsquat-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-bulgariansplitsquat-bodyweight/video-v1/poster.webp"
+  "bulgariansplitsquat-bodyweight": {
+    "video": "exercise-media/bulgariansplitsquat-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/bulgariansplitsquat-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-bulgariansplitsquat-dumbbell": {
-    "video": "exercise-media/liftosaur-bulgariansplitsquat-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-bulgariansplitsquat-dumbbell/video-v1/poster.webp"
+  "bulgariansplitsquat-dumbbell": {
+    "video": "exercise-media/bulgariansplitsquat-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/bulgariansplitsquat-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-cablecrossover-cable": {
-    "video": "exercise-media/liftosaur-cablecrossover-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-cablecrossover-cable/video-v1/poster.webp"
+  "cablecrossover-cable": {
+    "video": "exercise-media/cablecrossover-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/cablecrossover-cable/video-v1/poster.webp"
   },
-  "liftosaur-cablecrunch-cable": {
-    "video": "exercise-media/liftosaur-cablecrunch-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-cablecrunch-cable/video-v1/poster.webp"
+  "cablecrunch-cable": {
+    "video": "exercise-media/cablecrunch-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/cablecrunch-cable/video-v1/poster.webp"
   },
-  "liftosaur-cablekickback-cable": {
-    "video": "exercise-media/liftosaur-cablekickback-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-cablekickback-cable/video-v1/poster.webp"
+  "cablekickback-cable": {
+    "video": "exercise-media/cablekickback-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/cablekickback-cable/video-v1/poster.webp"
   },
-  "liftosaur-cablepullthrough-cable": {
-    "video": "exercise-media/liftosaur-cablepullthrough-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-cablepullthrough-cable/video-v1/poster.webp"
+  "cablepullthrough-cable": {
+    "video": "exercise-media/cablepullthrough-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/cablepullthrough-cable/video-v1/poster.webp"
   },
-  "liftosaur-cabletwist-band": {
-    "video": "exercise-media/liftosaur-cabletwist-band/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-cabletwist-band/video-v1/poster.webp"
+  "cabletwist-band": {
+    "video": "exercise-media/cabletwist-band/video-v1/demo.mp4",
+    "poster": "exercise-media/cabletwist-band/video-v1/poster.webp"
   },
-  "liftosaur-cabletwist-cable": {
-    "video": "exercise-media/liftosaur-cabletwist-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-cabletwist-cable/video-v1/poster.webp"
+  "cabletwist-cable": {
+    "video": "exercise-media/cabletwist-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/cabletwist-cable/video-v1/poster.webp"
   },
-  "liftosaur-calfpressonlegpress-leveragemachine": {
-    "video": "exercise-media/liftosaur-calfpressonlegpress-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-calfpressonlegpress-leveragemachine/video-v1/poster.webp"
+  "calfpressonlegpress-leveragemachine": {
+    "video": "exercise-media/calfpressonlegpress-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/calfpressonlegpress-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-chestdip-bodyweight": {
-    "video": "exercise-media/liftosaur-chestdip-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-chestdip-bodyweight/video-v1/poster.webp"
+  "chestdip-bodyweight": {
+    "video": "exercise-media/chestdip-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/chestdip-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-chestfly-dumbbell": {
-    "video": "exercise-media/liftosaur-chestfly-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-chestfly-dumbbell/video-v1/poster.webp"
+  "chestfly-dumbbell": {
+    "video": "exercise-media/chestfly-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/chestfly-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-chestpress-leveragemachine": {
-    "video": "exercise-media/liftosaur-chestpress-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-chestpress-leveragemachine/video-v1/poster.webp"
+  "chestpress-leveragemachine": {
+    "video": "exercise-media/chestpress-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/chestpress-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-clean-barbell": {
-    "video": "exercise-media/liftosaur-clean-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-clean-barbell/video-v1/poster.webp"
+  "clean-barbell": {
+    "video": "exercise-media/clean-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/clean-barbell/video-v1/poster.webp"
   },
-  "liftosaur-concentrationcurl-dumbbell": {
-    "video": "exercise-media/liftosaur-concentrationcurl-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-concentrationcurl-dumbbell/video-v1/poster.webp"
+  "concentrationcurl-dumbbell": {
+    "video": "exercise-media/concentrationcurl-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/concentrationcurl-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-crunch-bodyweight": {
-    "video": "exercise-media/liftosaur-crunch-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-crunch-bodyweight/video-v1/poster.webp"
+  "crunch-bodyweight": {
+    "video": "exercise-media/crunch-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/crunch-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-crunch-cable": {
-    "video": "exercise-media/liftosaur-crunch-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-crunch-cable/video-v1/poster.webp"
+  "crunch-cable": {
+    "video": "exercise-media/crunch-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/crunch-cable/video-v1/poster.webp"
   },
-  "liftosaur-deadbug-bodyweight": {
-    "video": "exercise-media/liftosaur-deadbug-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-deadbug-bodyweight/video-v1/poster.webp"
+  "deadbug-bodyweight": {
+    "video": "exercise-media/deadbug-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/deadbug-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-declinebenchpress-dumbbell": {
-    "video": "exercise-media/liftosaur-declinebenchpress-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-declinebenchpress-dumbbell/video-v1/poster.webp"
+  "declinebenchpress-dumbbell": {
+    "video": "exercise-media/declinebenchpress-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/declinebenchpress-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-declinebenchpress-smith": {
-    "video": "exercise-media/liftosaur-declinebenchpress-smith/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-declinebenchpress-smith/video-v1/poster.webp"
+  "declinebenchpress-smith": {
+    "video": "exercise-media/declinebenchpress-smith/video-v1/demo.mp4",
+    "poster": "exercise-media/declinebenchpress-smith/video-v1/poster.webp"
   },
-  "liftosaur-deficitdeadlift-barbell": {
-    "video": "exercise-media/liftosaur-deficitdeadlift-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-deficitdeadlift-barbell/video-v1/poster.webp"
+  "deficitdeadlift-barbell": {
+    "video": "exercise-media/deficitdeadlift-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/deficitdeadlift-barbell/video-v1/poster.webp"
   },
-  "liftosaur-diamondpushup-bodyweight": {
-    "video": "exercise-media/liftosaur-diamondpushup-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-diamondpushup-bodyweight/video-v1/poster.webp"
+  "diamondpushup-bodyweight": {
+    "video": "exercise-media/diamondpushup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/diamondpushup-bodyweight/video-v1/poster.webp"
   },
   "pendulum-squat": {
     "video": "exercise-media/pendulum-squat/reference-v2/demo.mp4",
@@ -1587,9 +1587,9 @@
     "video": "exercise-media/fast-skipping/video-v1/demo.mp4",
     "poster": "exercise-media/fast-skipping/video-v1/poster.webp"
   },
-  "liftosaur-facepull-band": {
-    "video": "exercise-media/liftosaur-facepull-band/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-facepull-band/video-v1/poster.webp"
+  "facepull-band": {
+    "video": "exercise-media/facepull-band/video-v1/demo.mp4",
+    "poster": "exercise-media/facepull-band/video-v1/poster.webp"
   },
   "drop-push": {
     "video": "exercise-media/drop-push/video-v5/demo.mp4",
@@ -1627,9 +1627,9 @@
     "video": "exercise-media/floor-press/video-v1/demo.mp4",
     "poster": "exercise-media/floor-press/video-v1/poster.webp"
   },
-  "liftosaur-flatlegraise-bodyweight": {
-    "video": "exercise-media/liftosaur-flatlegraise-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-flatlegraise-bodyweight/video-v1/poster.webp"
+  "flatlegraise-bodyweight": {
+    "video": "exercise-media/flatlegraise-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/flatlegraise-bodyweight/video-v1/poster.webp"
   },
   "floor-press-with-chains": {
     "video": "exercise-media/floor-press-with-chains/video-v1/demo.mp4",
@@ -1727,9 +1727,9 @@
     "video": "exercise-media/glute-bridge/video-v1/demo.mp4",
     "poster": "exercise-media/glute-bridge/video-v1/poster.webp"
   },
-  "liftosaur-frontraise-cable": {
-    "video": "exercise-media/liftosaur-frontraise-cable/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-frontraise-cable/video-v2/poster.webp"
+  "frontraise-cable": {
+    "video": "exercise-media/frontraise-cable/video-v2/demo.mp4",
+    "poster": "exercise-media/frontraise-cable/video-v2/poster.webp"
   },
   "front-dumbbell-raise": {
     "video": "exercise-media/front-dumbbell-raise/video-v3/demo.mp4",
@@ -1755,21 +1755,21 @@
     "video": "exercise-media/good-morning-off-pins/video-v1/demo.mp4",
     "poster": "exercise-media/good-morning-off-pins/video-v1/poster.webp"
   },
-  "liftosaur-glutebridge-bodyweight": {
-    "video": "exercise-media/liftosaur-glutebridge-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-glutebridge-bodyweight/video-v1/poster.webp"
+  "glutebridge-bodyweight": {
+    "video": "exercise-media/glutebridge-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/glutebridge-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-glutebridgemarch-bodyweight": {
-    "video": "exercise-media/liftosaur-glutebridgemarch-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-glutebridgemarch-bodyweight/video-v1/poster.webp"
+  "glutebridgemarch-bodyweight": {
+    "video": "exercise-media/glutebridgemarch-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/glutebridgemarch-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-gobletsquat-dumbbell": {
-    "video": "exercise-media/liftosaur-gobletsquat-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-gobletsquat-dumbbell/video-v1/poster.webp"
+  "gobletsquat-dumbbell": {
+    "video": "exercise-media/gobletsquat-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/gobletsquat-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-goodmorning-barbell": {
-    "video": "exercise-media/liftosaur-goodmorning-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-goodmorning-barbell/video-v1/poster.webp"
+  "goodmorning-barbell": {
+    "video": "exercise-media/goodmorning-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/goodmorning-barbell/video-v1/poster.webp"
   },
   "gorilla-chin-crunch": {
     "video": "exercise-media/gorilla-chin-crunch/video-v1/demo.mp4",
@@ -1807,9 +1807,9 @@
     "video": "exercise-media/hammer-strength-machine-incline-press/video-v1/demo.mp4",
     "poster": "exercise-media/hammer-strength-machine-incline-press/video-v1/poster.webp"
   },
-  "liftosaur-hacksquat-barbell": {
-    "video": "exercise-media/liftosaur-hacksquat-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-hacksquat-barbell/video-v1/poster.webp"
+  "hacksquat-barbell": {
+    "video": "exercise-media/hacksquat-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/hacksquat-barbell/video-v1/poster.webp"
   },
   "hammer-strength-machine-press": {
     "video": "exercise-media/hammer-strength-machine-press/video-v1/demo.mp4",
@@ -1879,9 +1879,9 @@
     "video": "exercise-media/high-cable-curls/video-v1/demo.mp4",
     "poster": "exercise-media/high-cable-curls/video-v1/poster.webp"
   },
-  "liftosaur-hanginglegraise-bodyweight": {
-    "video": "exercise-media/liftosaur-hanginglegraise-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-hanginglegraise-bodyweight/video-v1/poster.webp"
+  "hanginglegraise-bodyweight": {
+    "video": "exercise-media/hanginglegraise-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/hanginglegraise-bodyweight/video-v1/poster.webp"
   },
   "hip-circles-prone": {
     "video": "exercise-media/hip-circles-prone/video-v1/demo.mp4",
@@ -1903,25 +1903,25 @@
     "video": "exercise-media/hollow-body-hold/video-v1/demo.mp4",
     "poster": "exercise-media/hollow-body-hold/video-v1/poster.webp"
   },
-  "liftosaur-hipabductor-band": {
-    "video": "exercise-media/liftosaur-hipabductor-band/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-hipabductor-band/video-v1/poster.webp"
+  "hipabductor-band": {
+    "video": "exercise-media/hipabductor-band/video-v1/demo.mp4",
+    "poster": "exercise-media/hipabductor-band/video-v1/poster.webp"
   },
-  "liftosaur-hipabductor-leveragemachine": {
-    "video": "exercise-media/liftosaur-hipabductor-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-hipabductor-leveragemachine/video-v1/poster.webp"
+  "hipabductor-leveragemachine": {
+    "video": "exercise-media/hipabductor-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/hipabductor-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-hipadductor-leveragemachine": {
-    "video": "exercise-media/liftosaur-hipadductor-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-hipadductor-leveragemachine/video-v1/poster.webp"
+  "hipadductor-leveragemachine": {
+    "video": "exercise-media/hipadductor-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/hipadductor-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-hipthrust-barbell": {
-    "video": "exercise-media/liftosaur-hipthrust-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-hipthrust-barbell/video-v1/poster.webp"
+  "hipthrust-barbell": {
+    "video": "exercise-media/hipthrust-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/hipthrust-barbell/video-v1/poster.webp"
   },
-  "liftosaur-hipthrust-bodyweight": {
-    "video": "exercise-media/liftosaur-hipthrust-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-hipthrust-bodyweight/video-v1/poster.webp"
+  "hipthrust-bodyweight": {
+    "video": "exercise-media/hipthrust-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/hipthrust-bodyweight/video-v1/poster.webp"
   },
   "horizontal-leg-press": {
     "video": "exercise-media/horizontal-leg-press/video-v1/demo.mp4",
@@ -1979,25 +1979,25 @@
     "video": "exercise-media/incline-cable-flye/video-v1/demo.mp4",
     "poster": "exercise-media/incline-cable-flye/video-v1/poster.webp"
   },
-  "liftosaur-inclinebenchpresswidegrip-barbell": {
-    "video": "exercise-media/liftosaur-inclinebenchpresswidegrip-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-inclinebenchpresswidegrip-barbell/video-v1/poster.webp"
+  "inclinebenchpresswidegrip-barbell": {
+    "video": "exercise-media/inclinebenchpresswidegrip-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/inclinebenchpresswidegrip-barbell/video-v1/poster.webp"
   },
-  "liftosaur-inclinechestfly-cable": {
-    "video": "exercise-media/liftosaur-inclinechestfly-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-inclinechestfly-cable/video-v1/poster.webp"
+  "inclinechestfly-cable": {
+    "video": "exercise-media/inclinechestfly-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/inclinechestfly-cable/video-v1/poster.webp"
   },
-  "liftosaur-inclinechestfly-dumbbell": {
-    "video": "exercise-media/liftosaur-inclinechestfly-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-inclinechestfly-dumbbell/video-v1/poster.webp"
+  "inclinechestfly-dumbbell": {
+    "video": "exercise-media/inclinechestfly-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/inclinechestfly-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-inclinechestpress-leveragemachine": {
-    "video": "exercise-media/liftosaur-inclinechestpress-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-inclinechestpress-leveragemachine/video-v1/poster.webp"
+  "inclinechestpress-leveragemachine": {
+    "video": "exercise-media/inclinechestpress-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/inclinechestpress-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-inclinecurl-dumbbell": {
-    "video": "exercise-media/liftosaur-inclinecurl-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-inclinecurl-dumbbell/video-v1/poster.webp"
+  "inclinecurl-dumbbell": {
+    "video": "exercise-media/inclinecurl-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/inclinecurl-dumbbell/video-v1/poster.webp"
   },
   "incline-dumbbell-bench-with-palms-facing-in": {
     "video": "exercise-media/incline-dumbbell-bench-with-palms-facing-in/video-v1/demo.mp4",
@@ -2035,9 +2035,9 @@
     "video": "exercise-media/incline-pectoral-flye-dumbbell/video-v1/demo.mp4",
     "poster": "exercise-media/incline-pectoral-flye-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-inclinepushup-bodyweight": {
-    "video": "exercise-media/liftosaur-inclinepushup-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-inclinepushup-bodyweight/video-v1/poster.webp"
+  "inclinepushup-bodyweight": {
+    "video": "exercise-media/inclinepushup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/inclinepushup-bodyweight/video-v1/poster.webp"
   },
   "incline-push-up": {
     "video": "exercise-media/incline-push-up/video-v1/demo.mp4",
@@ -2067,13 +2067,13 @@
     "video": "exercise-media/intermediate-hip-flexor-and-quad-stretch/video-v1/demo.mp4",
     "poster": "exercise-media/intermediate-hip-flexor-and-quad-stretch/video-v1/poster.webp"
   },
-  "liftosaur-inclinerow-bodyweight": {
-    "video": "exercise-media/liftosaur-inclinerow-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-inclinerow-bodyweight/video-v1/poster.webp"
+  "inclinerow-bodyweight": {
+    "video": "exercise-media/inclinerow-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/inclinerow-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-inclinerow-dumbbell": {
-    "video": "exercise-media/liftosaur-inclinerow-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-inclinerow-dumbbell/video-v1/poster.webp"
+  "inclinerow-dumbbell": {
+    "video": "exercise-media/inclinerow-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/inclinerow-dumbbell/video-v1/poster.webp"
   },
   "incline-push-up-depth-jump": {
     "video": "exercise-media/incline-push-up-depth-jump/video-v2/demo.mp4",
@@ -2103,9 +2103,9 @@
     "video": "exercise-media/isometric-chest-squeezes/video-v1/demo.mp4",
     "poster": "exercise-media/isometric-chest-squeezes/video-v1/poster.webp"
   },
-  "liftosaur-invertedrow-bodyweight": {
-    "video": "exercise-media/liftosaur-invertedrow-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-invertedrow-bodyweight/video-v1/poster.webp"
+  "invertedrow-bodyweight": {
+    "video": "exercise-media/invertedrow-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/invertedrow-bodyweight/video-v1/poster.webp"
   },
   "isometric-neck-exercise-front-and-back": {
     "video": "exercise-media/isometric-neck-exercise-front-and-back/video-v2/demo.mp4",
@@ -2183,9 +2183,9 @@
     "video": "exercise-media/kettlebell-one-legged-deadlift/video-v1/demo.mp4",
     "poster": "exercise-media/kettlebell-one-legged-deadlift/video-v1/poster.webp"
   },
-  "liftosaur-jumpsquat-bodyweight": {
-    "video": "exercise-media/liftosaur-jumpsquat-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-jumpsquat-bodyweight/video-v1/poster.webp"
+  "jumpsquat-bodyweight": {
+    "video": "exercise-media/jumpsquat-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/jumpsquat-bodyweight/video-v1/poster.webp"
   },
   "leg-extension": {
     "video": "exercise-media/leg-extension/video-v1/demo.mp4",
@@ -2195,9 +2195,9 @@
     "video": "exercise-media/leg-press/video-v1/demo.mp4",
     "poster": "exercise-media/leg-press/video-v1/poster.webp"
   },
-  "liftosaur-seatedrow-cable": {
-    "video": "exercise-media/liftosaur-seatedrow-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-seatedrow-cable/video-v1/poster.webp"
+  "seatedrow-cable": {
+    "video": "exercise-media/seatedrow-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/seatedrow-cable/video-v1/poster.webp"
   },
   "lying-leg-curl": {
     "video": "exercise-media/lying-leg-curl/video-v1/demo.mp4",
@@ -2227,25 +2227,25 @@
     "video": "exercise-media/lat-pulldown/video-v2/demo.mp4",
     "poster": "exercise-media/lat-pulldown/video-v2/poster.webp"
   },
-  "liftosaur-reversefly-dumbbell": {
-    "video": "exercise-media/liftosaur-reversefly-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-reversefly-dumbbell/video-v1/poster.webp"
+  "reversefly-dumbbell": {
+    "video": "exercise-media/reversefly-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/reversefly-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-skullcrusher-ezbar": {
-    "video": "exercise-media/liftosaur-skullcrusher-ezbar/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-skullcrusher-ezbar/video-v1/poster.webp"
+  "skullcrusher-ezbar": {
+    "video": "exercise-media/skullcrusher-ezbar/video-v1/demo.mp4",
+    "poster": "exercise-media/skullcrusher-ezbar/video-v1/poster.webp"
   },
-  "liftosaur-standingcalfraise-dumbbell": {
-    "video": "exercise-media/liftosaur-standingcalfraise-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-standingcalfraise-dumbbell/video-v1/poster.webp"
+  "standingcalfraise-dumbbell": {
+    "video": "exercise-media/standingcalfraise-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/standingcalfraise-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-stifflegdeadlift-barbell": {
-    "video": "exercise-media/liftosaur-stifflegdeadlift-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-stifflegdeadlift-barbell/video-v1/poster.webp"
+  "stifflegdeadlift-barbell": {
+    "video": "exercise-media/stifflegdeadlift-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/stifflegdeadlift-barbell/video-v1/poster.webp"
   },
-  "liftosaur-tricepsextension-dumbbell": {
-    "video": "exercise-media/liftosaur-tricepsextension-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-tricepsextension-dumbbell/video-v1/poster.webp"
+  "tricepsextension-dumbbell": {
+    "video": "exercise-media/tricepsextension-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/tricepsextension-dumbbell/video-v1/poster.webp"
   },
   "reverse-grip-lat-pulldown": {
     "video": "exercise-media/reverse-grip-lat-pulldown/video-v1/demo.mp4",
@@ -2267,25 +2267,25 @@
     "video": "exercise-media/lat-prayer/video-v1/demo.mp4",
     "poster": "exercise-media/lat-prayer/video-v1/poster.webp"
   },
-  "liftosaur-lunge-barbell": {
-    "video": "exercise-media/liftosaur-lunge-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-lunge-barbell/video-v1/poster.webp"
+  "lunge-barbell": {
+    "video": "exercise-media/lunge-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/lunge-barbell/video-v1/poster.webp"
   },
-  "liftosaur-seatedcalfraise-barbell": {
-    "video": "exercise-media/liftosaur-seatedcalfraise-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-seatedcalfraise-barbell/video-v1/poster.webp"
+  "seatedcalfraise-barbell": {
+    "video": "exercise-media/seatedcalfraise-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/seatedcalfraise-barbell/video-v1/poster.webp"
   },
-  "liftosaur-shoulderpress-dumbbell": {
-    "video": "exercise-media/liftosaur-shoulderpress-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-shoulderpress-dumbbell/video-v1/poster.webp"
+  "shoulderpress-dumbbell": {
+    "video": "exercise-media/shoulderpress-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/shoulderpress-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-shrug-barbell": {
-    "video": "exercise-media/liftosaur-shrug-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-shrug-barbell/video-v1/poster.webp"
+  "shrug-barbell": {
+    "video": "exercise-media/shrug-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/shrug-barbell/video-v1/poster.webp"
   },
-  "liftosaur-shrug-dumbbell": {
-    "video": "exercise-media/liftosaur-shrug-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-shrug-dumbbell/video-v1/poster.webp"
+  "shrug-dumbbell": {
+    "video": "exercise-media/shrug-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/shrug-dumbbell/video-v1/poster.webp"
   },
   "machine-chest-press": {
     "video": "exercise-media/machine-chest-press/video-v1/demo.mp4",
@@ -2303,17 +2303,17 @@
     "video": "exercise-media/weighted-pull-up/video-v1/demo.mp4",
     "poster": "exercise-media/weighted-pull-up/video-v1/poster.webp"
   },
-  "liftosaur-overheadpress-dumbbell": {
-    "video": "exercise-media/liftosaur-overheadpress-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-overheadpress-dumbbell/video-v1/poster.webp"
+  "overheadpress-dumbbell": {
+    "video": "exercise-media/overheadpress-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/overheadpress-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-pullover-dumbbell": {
-    "video": "exercise-media/liftosaur-pullover-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-pullover-dumbbell/video-v1/poster.webp"
+  "pullover-dumbbell": {
+    "video": "exercise-media/pullover-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/pullover-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-pushup-bodyweight": {
-    "video": "exercise-media/liftosaur-pushup-bodyweight/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-pushup-bodyweight/video-v2/poster.webp"
+  "pushup-bodyweight": {
+    "video": "exercise-media/pushup-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/pushup-bodyweight/video-v2/poster.webp"
   },
   "machine-incline-chest-press": {
     "video": "exercise-media/machine-incline-chest-press/video-v1/demo.mp4",
@@ -2347,29 +2347,29 @@
     "video": "exercise-media/lateral-raise-machine/video-v1/demo.mp4",
     "poster": "exercise-media/lateral-raise-machine/video-v1/poster.webp"
   },
-  "liftosaur-lateralraise-cable": {
-    "video": "exercise-media/liftosaur-lateralraise-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-lateralraise-cable/video-v1/poster.webp"
+  "lateralraise-cable": {
+    "video": "exercise-media/lateralraise-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/lateralraise-cable/video-v1/poster.webp"
   },
-  "liftosaur-legsupbenchpress-barbell": {
-    "video": "exercise-media/liftosaur-legsupbenchpress-barbell/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-legsupbenchpress-barbell/video-v2/poster.webp"
+  "legsupbenchpress-barbell": {
+    "video": "exercise-media/legsupbenchpress-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/legsupbenchpress-barbell/video-v2/poster.webp"
   },
-  "liftosaur-pendlayrow-barbell": {
-    "video": "exercise-media/liftosaur-pendlayrow-barbell/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-pendlayrow-barbell/video-v2/poster.webp"
+  "pendlayrow-barbell": {
+    "video": "exercise-media/pendlayrow-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/pendlayrow-barbell/video-v2/poster.webp"
   },
-  "liftosaur-plank-bodyweight": {
-    "video": "exercise-media/liftosaur-plank-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-plank-bodyweight/video-v1/poster.webp"
+  "plank-bodyweight": {
+    "video": "exercise-media/plank-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/plank-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-tricepsdip-bodyweight": {
-    "video": "exercise-media/liftosaur-tricepsdip-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-tricepsdip-bodyweight/video-v1/poster.webp"
+  "tricepsdip-bodyweight": {
+    "video": "exercise-media/tricepsdip-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/tricepsdip-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-uprightrow-barbell": {
-    "video": "exercise-media/liftosaur-uprightrow-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-uprightrow-barbell/video-v1/poster.webp"
+  "uprightrow-barbell": {
+    "video": "exercise-media/uprightrow-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/uprightrow-barbell/video-v1/poster.webp"
   },
   "low-to-high-cable-flye": {
     "video": "exercise-media/low-to-high-cable-flye/video-v1/demo.mp4",
@@ -2383,33 +2383,33 @@
     "video": "exercise-media/single-arm-rope-tricep-extension/video-v1/demo.mp4",
     "poster": "exercise-media/single-arm-rope-tricep-extension/video-v1/poster.webp"
   },
-  "liftosaur-pecdeck-leveragemachine": {
-    "video": "exercise-media/liftosaur-pecdeck-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-pecdeck-leveragemachine/video-v1/poster.webp"
+  "pecdeck-leveragemachine": {
+    "video": "exercise-media/pecdeck-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/pecdeck-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-pushpress-barbell": {
-    "video": "exercise-media/liftosaur-pushpress-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-pushpress-barbell/video-v1/poster.webp"
+  "pushpress-barbell": {
+    "video": "exercise-media/pushpress-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/pushpress-barbell/video-v1/poster.webp"
   },
-  "liftosaur-reversehyperextension-band": {
-    "video": "exercise-media/liftosaur-reversehyperextension-band/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-reversehyperextension-band/video-v1/poster.webp"
+  "reversehyperextension-band": {
+    "video": "exercise-media/reversehyperextension-band/video-v1/demo.mp4",
+    "poster": "exercise-media/reversehyperextension-band/video-v1/poster.webp"
   },
-  "liftosaur-romaniandeadlift-dumbbell": {
-    "video": "exercise-media/liftosaur-romaniandeadlift-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-romaniandeadlift-dumbbell/video-v1/poster.webp"
+  "romaniandeadlift-dumbbell": {
+    "video": "exercise-media/romaniandeadlift-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/romaniandeadlift-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-shoulderpress-leveragemachine": {
-    "video": "exercise-media/liftosaur-shoulderpress-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-shoulderpress-leveragemachine/video-v1/poster.webp"
+  "shoulderpress-leveragemachine": {
+    "video": "exercise-media/shoulderpress-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/shoulderpress-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-tbarrow-leveragemachine": {
-    "video": "exercise-media/liftosaur-tbarrow-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-tbarrow-leveragemachine/video-v1/poster.webp"
+  "tbarrow-leveragemachine": {
+    "video": "exercise-media/tbarrow-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/tbarrow-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-tricepsextension-cable": {
-    "video": "exercise-media/liftosaur-tricepsextension-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-tricepsextension-cable/video-v1/poster.webp"
+  "tricepsextension-cable": {
+    "video": "exercise-media/tricepsextension-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/tricepsextension-cable/video-v1/poster.webp"
   },
   "overhead-cable-extension": {
     "video": "exercise-media/overhead-cable-extension/video-v1/demo.mp4",
@@ -2431,65 +2431,65 @@
     "video": "exercise-media/leg-press-calf-press/video-v1/demo.mp4",
     "poster": "exercise-media/leg-press-calf-press/video-v1/poster.webp"
   },
-  "liftosaur-kneelingpulldown-band": {
-    "video": "exercise-media/liftosaur-kneelingpulldown-band/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-kneelingpulldown-band/video-v1/poster.webp"
+  "kneelingpulldown-band": {
+    "video": "exercise-media/kneelingpulldown-band/video-v1/demo.mp4",
+    "poster": "exercise-media/kneelingpulldown-band/video-v1/poster.webp"
   },
-  "liftosaur-lunge-dumbbell": {
-    "video": "exercise-media/liftosaur-lunge-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-lunge-dumbbell/video-v1/poster.webp"
+  "lunge-dumbbell": {
+    "video": "exercise-media/lunge-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/lunge-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-powerclean-barbell": {
-    "video": "exercise-media/liftosaur-powerclean-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-powerclean-barbell/video-v1/poster.webp"
+  "powerclean-barbell": {
+    "video": "exercise-media/powerclean-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/powerclean-barbell/video-v1/poster.webp"
   },
-  "liftosaur-preachercurl-dumbbell": {
-    "video": "exercise-media/liftosaur-preachercurl-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-preachercurl-dumbbell/video-v1/poster.webp"
+  "preachercurl-dumbbell": {
+    "video": "exercise-media/preachercurl-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/preachercurl-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-preachercurl-ezbar": {
-    "video": "exercise-media/liftosaur-preachercurl-ezbar/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-preachercurl-ezbar/video-v1/poster.webp"
+  "preachercurl-ezbar": {
+    "video": "exercise-media/preachercurl-ezbar/video-v1/demo.mp4",
+    "poster": "exercise-media/preachercurl-ezbar/video-v1/poster.webp"
   },
-  "liftosaur-safetysquatbarsquat-barbell": {
-    "video": "exercise-media/liftosaur-safetysquatbarsquat-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-safetysquatbarsquat-barbell/video-v1/poster.webp"
+  "safetysquatbarsquat-barbell": {
+    "video": "exercise-media/safetysquatbarsquat-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/safetysquatbarsquat-barbell/video-v1/poster.webp"
   },
   "seated-hip-abduction": {
     "video": "exercise-media/seated-hip-abduction/video-v1/demo.mp4",
     "poster": "exercise-media/seated-hip-abduction/video-v1/poster.webp"
   },
-  "liftosaur-seatedwidegriprow-cable": {
-    "video": "exercise-media/liftosaur-seatedwidegriprow-cable/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-seatedwidegriprow-cable/video-v2/poster.webp"
+  "seatedwidegriprow-cable": {
+    "video": "exercise-media/seatedwidegriprow-cable/video-v2/demo.mp4",
+    "poster": "exercise-media/seatedwidegriprow-cable/video-v2/poster.webp"
   },
-  "liftosaur-sideplank-bodyweight": {
-    "video": "exercise-media/liftosaur-sideplank-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-sideplank-bodyweight/video-v1/poster.webp"
+  "sideplank-bodyweight": {
+    "video": "exercise-media/sideplank-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/sideplank-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-singlelegdeadlift-bodyweight": {
-    "video": "exercise-media/liftosaur-singlelegdeadlift-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-singlelegdeadlift-bodyweight/video-v1/poster.webp"
+  "singlelegdeadlift-bodyweight": {
+    "video": "exercise-media/singlelegdeadlift-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/singlelegdeadlift-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-singlelegdeadlift-dumbbell": {
-    "video": "exercise-media/liftosaur-singlelegdeadlift-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-singlelegdeadlift-dumbbell/video-v1/poster.webp"
+  "singlelegdeadlift-dumbbell": {
+    "video": "exercise-media/singlelegdeadlift-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/singlelegdeadlift-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-situp-bodyweight": {
-    "video": "exercise-media/liftosaur-situp-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-situp-bodyweight/video-v1/poster.webp"
+  "situp-bodyweight": {
+    "video": "exercise-media/situp-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/situp-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-slingshotbenchpress-barbell": {
-    "video": "exercise-media/liftosaur-slingshotbenchpress-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-slingshotbenchpress-barbell/video-v1/poster.webp"
+  "slingshotbenchpress-barbell": {
+    "video": "exercise-media/slingshotbenchpress-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/slingshotbenchpress-barbell/video-v1/poster.webp"
   },
-  "liftosaur-squat-bodyweight": {
-    "video": "exercise-media/liftosaur-squat-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-squat-bodyweight/video-v1/poster.webp"
+  "squat-bodyweight": {
+    "video": "exercise-media/squat-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/squat-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-standingcalfraise-barbell": {
-    "video": "exercise-media/liftosaur-standingcalfraise-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-standingcalfraise-barbell/video-v1/poster.webp"
+  "standingcalfraise-barbell": {
+    "video": "exercise-media/standingcalfraise-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/standingcalfraise-barbell/video-v1/poster.webp"
   },
   "machine-shoulder-press": {
     "video": "exercise-media/machine-shoulder-press/video-v1/demo.mp4",
@@ -2555,213 +2555,213 @@
     "video": "exercise-media/laterally-dumbbell-seated-shoulder-press/video-v2/demo.mp4",
     "poster": "exercise-media/laterally-dumbbell-seated-shoulder-press/video-v2/poster.webp"
   },
-  "liftosaur-kettlebellswing-kettlebell": {
-    "video": "exercise-media/liftosaur-kettlebellswing-kettlebell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-kettlebellswing-kettlebell/video-v1/poster.webp"
+  "kettlebellswing-kettlebell": {
+    "video": "exercise-media/kettlebellswing-kettlebell/video-v1/demo.mp4",
+    "poster": "exercise-media/kettlebellswing-kettlebell/video-v1/poster.webp"
   },
-  "liftosaur-kneelingringabrollout-bodyweight": {
-    "video": "exercise-media/liftosaur-kneelingringabrollout-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-kneelingringabrollout-bodyweight/video-v1/poster.webp"
+  "kneelingringabrollout-bodyweight": {
+    "video": "exercise-media/kneelingringabrollout-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/kneelingringabrollout-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-lateralraise-leveragemachine": {
-    "video": "exercise-media/liftosaur-lateralraise-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-lateralraise-leveragemachine/video-v1/poster.webp"
+  "lateralraise-leveragemachine": {
+    "video": "exercise-media/lateralraise-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/lateralraise-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-lunge-bodyweight": {
-    "video": "exercise-media/liftosaur-lunge-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-lunge-bodyweight/video-v1/poster.webp"
+  "lunge-bodyweight": {
+    "video": "exercise-media/lunge-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/lunge-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-lyingbicepcurl-cable": {
-    "video": "exercise-media/liftosaur-lyingbicepcurl-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-lyingbicepcurl-cable/video-v1/poster.webp"
+  "lyingbicepcurl-cable": {
+    "video": "exercise-media/lyingbicepcurl-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/lyingbicepcurl-cable/video-v1/poster.webp"
   },
-  "liftosaur-negativedip-bodyweight": {
-    "video": "exercise-media/liftosaur-negativedip-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-negativedip-bodyweight/video-v1/poster.webp"
+  "negativedip-bodyweight": {
+    "video": "exercise-media/negativedip-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/negativedip-bodyweight/video-v1/poster.webp"
   },
   "wide-grip-lat-pulldown": {
     "video": "exercise-media/wide-grip-lat-pulldown/video-v1/demo.mp4",
     "poster": "exercise-media/wide-grip-lat-pulldown/video-v1/poster.webp"
   },
-  "liftosaur-negativepullup-bodyweight": {
-    "video": "exercise-media/liftosaur-negativepullup-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-negativepullup-bodyweight/video-v1/poster.webp"
+  "negativepullup-bodyweight": {
+    "video": "exercise-media/negativepullup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/negativepullup-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-nordiccurl-band": {
-    "video": "exercise-media/liftosaur-nordiccurl-band/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-nordiccurl-band/video-v2/poster.webp"
+  "nordiccurl-band": {
+    "video": "exercise-media/nordiccurl-band/video-v2/demo.mp4",
+    "poster": "exercise-media/nordiccurl-band/video-v2/poster.webp"
   },
-  "liftosaur-obliquecrunch-bodyweight": {
-    "video": "exercise-media/liftosaur-obliquecrunch-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-obliquecrunch-bodyweight/video-v1/poster.webp"
+  "obliquecrunch-bodyweight": {
+    "video": "exercise-media/obliquecrunch-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/obliquecrunch-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-pallofpress-band": {
-    "video": "exercise-media/liftosaur-pallofpress-band/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-pallofpress-band/video-v1/poster.webp"
+  "pallofpress-band": {
+    "video": "exercise-media/pallofpress-band/video-v1/demo.mp4",
+    "poster": "exercise-media/pallofpress-band/video-v1/poster.webp"
   },
-  "liftosaur-preachercurl-barbell": {
-    "video": "exercise-media/liftosaur-preachercurl-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-preachercurl-barbell/video-v1/poster.webp"
+  "preachercurl-barbell": {
+    "video": "exercise-media/preachercurl-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/preachercurl-barbell/video-v1/poster.webp"
   },
-  "liftosaur-pseudoplanchepushup-bodyweight": {
-    "video": "exercise-media/liftosaur-pseudoplanchepushup-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-pseudoplanchepushup-bodyweight/video-v1/poster.webp"
+  "pseudoplanchepushup-bodyweight": {
+    "video": "exercise-media/pseudoplanchepushup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/pseudoplanchepushup-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-pushpress-kettlebell": {
-    "video": "exercise-media/liftosaur-pushpress-kettlebell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-pushpress-kettlebell/video-v1/poster.webp"
+  "pushpress-kettlebell": {
+    "video": "exercise-media/pushpress-kettlebell/video-v1/demo.mp4",
+    "poster": "exercise-media/pushpress-kettlebell/video-v1/poster.webp"
   },
-  "liftosaur-reversecrunch-bodyweight": {
-    "video": "exercise-media/liftosaur-reversecrunch-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-reversecrunch-bodyweight/video-v1/poster.webp"
+  "reversecrunch-bodyweight": {
+    "video": "exercise-media/reversecrunch-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/reversecrunch-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-nordiccurl-bodyweight": {
-    "video": "exercise-media/liftosaur-nordiccurl-bodyweight/video-v3/demo.mp4",
-    "poster": "exercise-media/liftosaur-nordiccurl-bodyweight/video-v3/poster.webp"
+  "nordiccurl-bodyweight": {
+    "video": "exercise-media/nordiccurl-bodyweight/video-v3/demo.mp4",
+    "poster": "exercise-media/nordiccurl-bodyweight/video-v3/poster.webp"
   },
-  "liftosaur-pullover-ezbar": {
-    "video": "exercise-media/liftosaur-pullover-ezbar/video-v3/demo.mp4",
-    "poster": "exercise-media/liftosaur-pullover-ezbar/video-v3/poster.webp"
+  "pullover-ezbar": {
+    "video": "exercise-media/pullover-ezbar/video-v3/demo.mp4",
+    "poster": "exercise-media/pullover-ezbar/video-v3/poster.webp"
   },
-  "liftosaur-reversecurl-barbell": {
-    "video": "exercise-media/liftosaur-reversecurl-barbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-reversecurl-barbell/video-v1/poster.webp"
+  "reversecurl-barbell": {
+    "video": "exercise-media/reversecurl-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/reversecurl-barbell/video-v1/poster.webp"
   },
-  "liftosaur-reversefly-band": {
-    "video": "exercise-media/liftosaur-reversefly-band/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-reversefly-band/video-v1/poster.webp"
+  "reversefly-band": {
+    "video": "exercise-media/reversefly-band/video-v1/demo.mp4",
+    "poster": "exercise-media/reversefly-band/video-v1/poster.webp"
   },
-  "liftosaur-reversefly-leveragemachine": {
-    "video": "exercise-media/liftosaur-reversefly-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-reversefly-leveragemachine/video-v1/poster.webp"
+  "reversefly-leveragemachine": {
+    "video": "exercise-media/reversefly-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/reversefly-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-reversehyperextension-bodyweight": {
-    "video": "exercise-media/liftosaur-reversehyperextension-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-reversehyperextension-bodyweight/video-v1/poster.webp"
+  "reversehyperextension-bodyweight": {
+    "video": "exercise-media/reversehyperextension-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/reversehyperextension-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-reverselunge-dumbbell": {
-    "video": "exercise-media/liftosaur-reverselunge-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-reverselunge-dumbbell/video-v1/poster.webp"
+  "reverselunge-dumbbell": {
+    "video": "exercise-media/reverselunge-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/reverselunge-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-reversewristcurl-barbell": {
-    "video": "exercise-media/liftosaur-reversewristcurl-barbell/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-reversewristcurl-barbell/video-v2/poster.webp"
+  "reversewristcurl-barbell": {
+    "video": "exercise-media/reversewristcurl-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/reversewristcurl-barbell/video-v2/poster.webp"
   },
-  "liftosaur-romaniandeadlift-bodyweight": {
-    "video": "exercise-media/liftosaur-romaniandeadlift-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-romaniandeadlift-bodyweight/video-v1/poster.webp"
+  "romaniandeadlift-bodyweight": {
+    "video": "exercise-media/romaniandeadlift-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/romaniandeadlift-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-scapularpullup-bodyweight": {
-    "video": "exercise-media/liftosaur-scapularpullup-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-scapularpullup-bodyweight/video-v1/poster.webp"
+  "scapularpullup-bodyweight": {
+    "video": "exercise-media/scapularpullup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/scapularpullup-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-seatedoverheadpress-barbell": {
-    "video": "exercise-media/liftosaur-seatedoverheadpress-barbell/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-seatedoverheadpress-barbell/video-v2/poster.webp"
+  "seatedoverheadpress-barbell": {
+    "video": "exercise-media/seatedoverheadpress-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/seatedoverheadpress-barbell/video-v2/poster.webp"
   },
-  "liftosaur-ringabrollout-bodyweight": {
-    "video": "exercise-media/liftosaur-ringabrollout-bodyweight/video-v5/demo.mp4",
-    "poster": "exercise-media/liftosaur-ringabrollout-bodyweight/video-v5/poster.webp"
+  "ringabrollout-bodyweight": {
+    "video": "exercise-media/ringabrollout-bodyweight/video-v5/demo.mp4",
+    "poster": "exercise-media/ringabrollout-bodyweight/video-v5/poster.webp"
   },
-  "liftosaur-seatedrow-leveragemachine": {
-    "video": "exercise-media/liftosaur-seatedrow-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-seatedrow-leveragemachine/video-v1/poster.webp"
+  "seatedrow-leveragemachine": {
+    "video": "exercise-media/seatedrow-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/seatedrow-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-shoulderpassthrough-band": {
-    "video": "exercise-media/liftosaur-shoulderpassthrough-band/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-shoulderpassthrough-band/video-v1/poster.webp"
+  "shoulderpassthrough-band": {
+    "video": "exercise-media/shoulderpassthrough-band/video-v1/demo.mp4",
+    "poster": "exercise-media/shoulderpassthrough-band/video-v1/poster.webp"
   },
-  "liftosaur-shrug-smith": {
-    "video": "exercise-media/liftosaur-shrug-smith/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-shrug-smith/video-v1/poster.webp"
+  "shrug-smith": {
+    "video": "exercise-media/shrug-smith/video-v1/demo.mp4",
+    "poster": "exercise-media/shrug-smith/video-v1/poster.webp"
   },
-  "liftosaur-sidebend-dumbbell": {
-    "video": "exercise-media/liftosaur-sidebend-dumbbell/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-sidebend-dumbbell/video-v2/poster.webp"
+  "sidebend-dumbbell": {
+    "video": "exercise-media/sidebend-dumbbell/video-v2/demo.mp4",
+    "poster": "exercise-media/sidebend-dumbbell/video-v2/poster.webp"
   },
-  "liftosaur-sidecrunch-bodyweight": {
-    "video": "exercise-media/liftosaur-sidecrunch-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-sidecrunch-bodyweight/video-v1/poster.webp"
+  "sidecrunch-bodyweight": {
+    "video": "exercise-media/sidecrunch-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/sidecrunch-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-sidecrunch-cable": {
-    "video": "exercise-media/liftosaur-sidecrunch-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-sidecrunch-cable/video-v1/poster.webp"
+  "sidecrunch-cable": {
+    "video": "exercise-media/sidecrunch-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/sidecrunch-cable/video-v1/poster.webp"
   },
-  "liftosaur-sidehipabductor-bodyweight": {
-    "video": "exercise-media/liftosaur-sidehipabductor-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-sidehipabductor-bodyweight/video-v1/poster.webp"
+  "sidehipabductor-bodyweight": {
+    "video": "exercise-media/sidehipabductor-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/sidehipabductor-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-sidelyingclam-bodyweight": {
-    "video": "exercise-media/liftosaur-sidelyingclam-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-sidelyingclam-bodyweight/video-v1/poster.webp"
+  "sidelyingclam-bodyweight": {
+    "video": "exercise-media/sidelyingclam-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/sidelyingclam-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-shrimpsquat-bodyweight": {
-    "video": "exercise-media/liftosaur-shrimpsquat-bodyweight/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-shrimpsquat-bodyweight/video-v2/poster.webp"
+  "shrimpsquat-bodyweight": {
+    "video": "exercise-media/shrimpsquat-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/shrimpsquat-bodyweight/video-v2/poster.webp"
   },
-  "liftosaur-singlelegglutebridgestraight-bodyweight": {
-    "video": "exercise-media/liftosaur-singlelegglutebridgestraight-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-singlelegglutebridgestraight-bodyweight/video-v1/poster.webp"
+  "singlelegglutebridgestraight-bodyweight": {
+    "video": "exercise-media/singlelegglutebridgestraight-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/singlelegglutebridgestraight-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-singleleghipthrust-bodyweight": {
-    "video": "exercise-media/liftosaur-singleleghipthrust-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-singleleghipthrust-bodyweight/video-v1/poster.webp"
+  "singleleghipthrust-bodyweight": {
+    "video": "exercise-media/singleleghipthrust-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/singleleghipthrust-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-skullcrusher-cable": {
-    "video": "exercise-media/liftosaur-skullcrusher-cable/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-skullcrusher-cable/video-v1/poster.webp"
+  "skullcrusher-cable": {
+    "video": "exercise-media/skullcrusher-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/skullcrusher-cable/video-v1/poster.webp"
   },
-  "liftosaur-splitsquat-bodyweight": {
-    "video": "exercise-media/liftosaur-splitsquat-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-splitsquat-bodyweight/video-v1/poster.webp"
+  "splitsquat-bodyweight": {
+    "video": "exercise-media/splitsquat-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/splitsquat-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-squat-smith": {
-    "video": "exercise-media/liftosaur-squat-smith/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-squat-smith/video-v1/poster.webp"
+  "squat-smith": {
+    "video": "exercise-media/squat-smith/video-v1/demo.mp4",
+    "poster": "exercise-media/squat-smith/video-v1/poster.webp"
   },
-  "liftosaur-stepup-bodyweight": {
-    "video": "exercise-media/liftosaur-stepup-bodyweight/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-stepup-bodyweight/video-v2/poster.webp"
+  "stepup-bodyweight": {
+    "video": "exercise-media/stepup-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/stepup-bodyweight/video-v2/poster.webp"
   },
-  "liftosaur-sumodeadlift-barbell": {
-    "video": "exercise-media/liftosaur-sumodeadlift-barbell/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-sumodeadlift-barbell/video-v2/poster.webp"
+  "sumodeadlift-barbell": {
+    "video": "exercise-media/sumodeadlift-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/sumodeadlift-barbell/video-v2/poster.webp"
   },
-  "liftosaur-superman-bodyweight": {
-    "video": "exercise-media/liftosaur-superman-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-superman-bodyweight/video-v1/poster.webp"
+  "superman-bodyweight": {
+    "video": "exercise-media/superman-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/superman-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-supporthold-bodyweight": {
-    "video": "exercise-media/liftosaur-supporthold-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-supporthold-bodyweight/video-v1/poster.webp"
+  "supporthold-bodyweight": {
+    "video": "exercise-media/supporthold-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/supporthold-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-tricepsdip-leveragemachine": {
-    "video": "exercise-media/liftosaur-tricepsdip-leveragemachine/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-tricepsdip-leveragemachine/video-v1/poster.webp"
+  "tricepsdip-leveragemachine": {
+    "video": "exercise-media/tricepsdip-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/tricepsdip-leveragemachine/video-v1/poster.webp"
   },
-  "liftosaur-tricepsextension-band": {
-    "video": "exercise-media/liftosaur-tricepsextension-band/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-tricepsextension-band/video-v1/poster.webp"
+  "tricepsextension-band": {
+    "video": "exercise-media/tricepsextension-band/video-v1/demo.mp4",
+    "poster": "exercise-media/tricepsextension-band/video-v1/poster.webp"
   },
-  "liftosaur-uprightrow-dumbbell": {
-    "video": "exercise-media/liftosaur-uprightrow-dumbbell/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-uprightrow-dumbbell/video-v1/poster.webp"
+  "uprightrow-dumbbell": {
+    "video": "exercise-media/uprightrow-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/uprightrow-dumbbell/video-v1/poster.webp"
   },
-  "liftosaur-verticalrow-bodyweight": {
-    "video": "exercise-media/liftosaur-verticalrow-bodyweight/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-verticalrow-bodyweight/video-v2/poster.webp"
+  "verticalrow-bodyweight": {
+    "video": "exercise-media/verticalrow-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/verticalrow-bodyweight/video-v2/poster.webp"
   },
-  "liftosaur-vup-bodyweight": {
-    "video": "exercise-media/liftosaur-vup-bodyweight/video-v1/demo.mp4",
-    "poster": "exercise-media/liftosaur-vup-bodyweight/video-v1/poster.webp"
+  "vup-bodyweight": {
+    "video": "exercise-media/vup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/vup-bodyweight/video-v1/poster.webp"
   },
-  "liftosaur-wallpushup-bodyweight": {
-    "video": "exercise-media/liftosaur-wallpushup-bodyweight/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-wallpushup-bodyweight/video-v2/poster.webp"
+  "wallpushup-bodyweight": {
+    "video": "exercise-media/wallpushup-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/wallpushup-bodyweight/video-v2/poster.webp"
   },
-  "liftosaur-wristcurl-barbell": {
-    "video": "exercise-media/liftosaur-wristcurl-barbell/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-wristcurl-barbell/video-v2/poster.webp"
+  "wristcurl-barbell": {
+    "video": "exercise-media/wristcurl-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/wristcurl-barbell/video-v2/poster.webp"
   },
   "low-incline-dumbbell-press": {
     "video": "exercise-media/low-incline-dumbbell-press/video-v1/demo.mp4",
@@ -2775,9 +2775,9 @@
     "video": "exercise-media/pectoral-flye-cable/video-v1/demo.mp4",
     "poster": "exercise-media/pectoral-flye-cable/video-v1/poster.webp"
   },
-  "liftosaur-widerow-bodyweight": {
-    "video": "exercise-media/liftosaur-widerow-bodyweight/video-v2/demo.mp4",
-    "poster": "exercise-media/liftosaur-widerow-bodyweight/video-v2/poster.webp"
+  "widerow-bodyweight": {
+    "video": "exercise-media/widerow-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/widerow-bodyweight/video-v2/poster.webp"
   },
   "pronated-pulldown": {
     "video": "exercise-media/pronated-pulldown/video-v1/demo.mp4",
@@ -3322,5 +3322,1333 @@
   "one-arm-floor-press": {
     "video": "exercise-media/one-arm-floor-press/video-v1/demo.mp4",
     "poster": "exercise-media/one-arm-floor-press/video-v1/poster.webp"
+  },
+  "one-arm-dumbbell-row": {
+    "video": "exercise-media/one-arm-dumbbell-row/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-dumbbell-row/video-v1/poster.webp"
+  },
+  "one-arm-high-pulley-cable-side-bends": {
+    "video": "exercise-media/one-arm-high-pulley-cable-side-bends/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-high-pulley-cable-side-bends/video-v1/poster.webp"
+  },
+  "one-arm-supinated-dumbbell-triceps-extension": {
+    "video": "exercise-media/one-arm-supinated-dumbbell-triceps-extension/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-supinated-dumbbell-triceps-extension/video-v1/poster.webp"
+  },
+  "one-handed-hang": {
+    "video": "exercise-media/one-handed-hang/video-v1/demo.mp4",
+    "poster": "exercise-media/one-handed-hang/video-v1/poster.webp"
+  },
+  "one-knee-to-chest": {
+    "video": "exercise-media/one-knee-to-chest/video-v1/demo.mp4",
+    "poster": "exercise-media/one-knee-to-chest/video-v1/poster.webp"
+  },
+  "one-leg-barbell-squat": {
+    "video": "exercise-media/one-leg-barbell-squat/video-v1/demo.mp4",
+    "poster": "exercise-media/one-leg-barbell-squat/video-v1/poster.webp"
+  },
+  "one-arm-incline-lateral-raise": {
+    "video": "exercise-media/one-arm-incline-lateral-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-incline-lateral-raise/video-v1/poster.webp"
+  },
+  "one-half-locust": {
+    "video": "exercise-media/one-half-locust/video-v3/demo.mp4",
+    "poster": "exercise-media/one-half-locust/video-v3/poster.webp"
+  },
+  "one-arm-flat-bench-dumbbell-flye": {
+    "video": "exercise-media/one-arm-flat-bench-dumbbell-flye/video-v2/demo.mp4",
+    "poster": "exercise-media/one-arm-flat-bench-dumbbell-flye/video-v2/poster.webp"
+  },
+  "one-arm-kettlebell-clean": {
+    "video": "exercise-media/one-arm-kettlebell-clean/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-clean/video-v1/poster.webp"
+  },
+  "one-arm-kettlebell-clean-and-jerk": {
+    "video": "exercise-media/one-arm-kettlebell-clean-and-jerk/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-clean-and-jerk/video-v1/poster.webp"
+  },
+  "one-arm-kettlebell-floor-press": {
+    "video": "exercise-media/one-arm-kettlebell-floor-press/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-floor-press/video-v1/poster.webp"
+  },
+  "one-arm-kettlebell-military-press-to-the-side": {
+    "video": "exercise-media/one-arm-kettlebell-military-press-to-the-side/video-v2/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-military-press-to-the-side/video-v2/poster.webp"
+  },
+  "one-arm-kettlebell-split-jerk": {
+    "video": "exercise-media/one-arm-kettlebell-split-jerk/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-split-jerk/video-v1/poster.webp"
+  },
+  "one-arm-kettlebell-split-snatch": {
+    "video": "exercise-media/one-arm-kettlebell-split-snatch/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-split-snatch/video-v1/poster.webp"
+  },
+  "one-arm-kettlebell-jerk": {
+    "video": "exercise-media/one-arm-kettlebell-jerk/video-v3/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-jerk/video-v3/poster.webp"
+  },
+  "one-arm-kettlebell-para-press": {
+    "video": "exercise-media/one-arm-kettlebell-para-press/video-v2/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-para-press/video-v2/poster.webp"
+  },
+  "one-arm-kettlebell-push-press": {
+    "video": "exercise-media/one-arm-kettlebell-push-press/video-v2/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-push-press/video-v2/poster.webp"
+  },
+  "one-arm-kettlebell-row": {
+    "video": "exercise-media/one-arm-kettlebell-row/video-v2/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-row/video-v2/poster.webp"
+  },
+  "one-arm-kettlebell-snatch": {
+    "video": "exercise-media/one-arm-kettlebell-snatch/video-v2/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-snatch/video-v2/poster.webp"
+  },
+  "liftosaur-archhang-bodyweight": {
+    "video": "exercise-media/liftosaur-archhang-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-archhang-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-arnoldpress-dumbbell": {
+    "video": "exercise-media/liftosaur-arnoldpress-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-arnoldpress-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-assistedsquat-bodyweight": {
+    "video": "exercise-media/liftosaur-assistedsquat-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-assistedsquat-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-backextension-bodyweight": {
+    "video": "exercise-media/liftosaur-backextension-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-backextension-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-backextension-leveragemachine": {
+    "video": "exercise-media/liftosaur-backextension-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-backextension-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-facepull-band": {
+    "video": "exercise-media/liftosaur-facepull-band/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-facepull-band/video-v1/poster.webp"
+  },
+  "liftosaur-flatlegraise-bodyweight": {
+    "video": "exercise-media/liftosaur-flatlegraise-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-flatlegraise-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-frontraise-cable": {
+    "video": "exercise-media/liftosaur-frontraise-cable/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-frontraise-cable/video-v2/poster.webp"
+  },
+  "liftosaur-glutebridge-bodyweight": {
+    "video": "exercise-media/liftosaur-glutebridge-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-glutebridge-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-glutebridgemarch-bodyweight": {
+    "video": "exercise-media/liftosaur-glutebridgemarch-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-glutebridgemarch-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-gobletsquat-dumbbell": {
+    "video": "exercise-media/liftosaur-gobletsquat-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-gobletsquat-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-goodmorning-barbell": {
+    "video": "exercise-media/liftosaur-goodmorning-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-goodmorning-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-hacksquat-barbell": {
+    "video": "exercise-media/liftosaur-hacksquat-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-hacksquat-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-hanginglegraise-bodyweight": {
+    "video": "exercise-media/liftosaur-hanginglegraise-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-hanginglegraise-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-hipabductor-band": {
+    "video": "exercise-media/liftosaur-hipabductor-band/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-hipabductor-band/video-v1/poster.webp"
+  },
+  "liftosaur-hipabductor-leveragemachine": {
+    "video": "exercise-media/liftosaur-hipabductor-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-hipabductor-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-hipadductor-leveragemachine": {
+    "video": "exercise-media/liftosaur-hipadductor-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-hipadductor-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-hipthrust-barbell": {
+    "video": "exercise-media/liftosaur-hipthrust-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-hipthrust-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-hipthrust-bodyweight": {
+    "video": "exercise-media/liftosaur-hipthrust-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-hipthrust-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-inclinebenchpresswidegrip-barbell": {
+    "video": "exercise-media/liftosaur-inclinebenchpresswidegrip-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-inclinebenchpresswidegrip-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-inclinechestfly-cable": {
+    "video": "exercise-media/liftosaur-inclinechestfly-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-inclinechestfly-cable/video-v1/poster.webp"
+  },
+  "liftosaur-inclinechestfly-dumbbell": {
+    "video": "exercise-media/liftosaur-inclinechestfly-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-inclinechestfly-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-inclinechestpress-leveragemachine": {
+    "video": "exercise-media/liftosaur-inclinechestpress-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-inclinechestpress-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-inclinecurl-dumbbell": {
+    "video": "exercise-media/liftosaur-inclinecurl-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-inclinecurl-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-inclinepushup-bodyweight": {
+    "video": "exercise-media/liftosaur-inclinepushup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-inclinepushup-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-inclinerow-bodyweight": {
+    "video": "exercise-media/liftosaur-inclinerow-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-inclinerow-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-inclinerow-dumbbell": {
+    "video": "exercise-media/liftosaur-inclinerow-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-inclinerow-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-invertedrow-bodyweight": {
+    "video": "exercise-media/liftosaur-invertedrow-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-invertedrow-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-jumpsquat-bodyweight": {
+    "video": "exercise-media/liftosaur-jumpsquat-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-jumpsquat-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-kettlebellswing-kettlebell": {
+    "video": "exercise-media/liftosaur-kettlebellswing-kettlebell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-kettlebellswing-kettlebell/video-v1/poster.webp"
+  },
+  "liftosaur-kneelingpulldown-band": {
+    "video": "exercise-media/liftosaur-kneelingpulldown-band/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-kneelingpulldown-band/video-v1/poster.webp"
+  },
+  "liftosaur-kneelingringabrollout-bodyweight": {
+    "video": "exercise-media/liftosaur-kneelingringabrollout-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-kneelingringabrollout-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-lateralraise-cable": {
+    "video": "exercise-media/liftosaur-lateralraise-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-lateralraise-cable/video-v1/poster.webp"
+  },
+  "liftosaur-lateralraise-leveragemachine": {
+    "video": "exercise-media/liftosaur-lateralraise-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-lateralraise-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-legsupbenchpress-barbell": {
+    "video": "exercise-media/liftosaur-legsupbenchpress-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-legsupbenchpress-barbell/video-v2/poster.webp"
+  },
+  "liftosaur-lunge-barbell": {
+    "video": "exercise-media/liftosaur-lunge-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-lunge-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-lunge-bodyweight": {
+    "video": "exercise-media/liftosaur-lunge-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-lunge-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-lunge-dumbbell": {
+    "video": "exercise-media/liftosaur-lunge-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-lunge-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-lyingbicepcurl-cable": {
+    "video": "exercise-media/liftosaur-lyingbicepcurl-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-lyingbicepcurl-cable/video-v1/poster.webp"
+  },
+  "liftosaur-negativedip-bodyweight": {
+    "video": "exercise-media/liftosaur-negativedip-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-negativedip-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-negativepullup-bodyweight": {
+    "video": "exercise-media/liftosaur-negativepullup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-negativepullup-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-nordiccurl-band": {
+    "video": "exercise-media/liftosaur-nordiccurl-band/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-nordiccurl-band/video-v2/poster.webp"
+  },
+  "liftosaur-nordiccurl-bodyweight": {
+    "video": "exercise-media/liftosaur-nordiccurl-bodyweight/video-v3/demo.mp4",
+    "poster": "exercise-media/liftosaur-nordiccurl-bodyweight/video-v3/poster.webp"
+  },
+  "liftosaur-obliquecrunch-bodyweight": {
+    "video": "exercise-media/liftosaur-obliquecrunch-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-obliquecrunch-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-overheadpress-dumbbell": {
+    "video": "exercise-media/liftosaur-overheadpress-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-overheadpress-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-pallofpress-band": {
+    "video": "exercise-media/liftosaur-pallofpress-band/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-pallofpress-band/video-v1/poster.webp"
+  },
+  "liftosaur-pecdeck-leveragemachine": {
+    "video": "exercise-media/liftosaur-pecdeck-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-pecdeck-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-pendlayrow-barbell": {
+    "video": "exercise-media/liftosaur-pendlayrow-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-pendlayrow-barbell/video-v2/poster.webp"
+  },
+  "liftosaur-plank-bodyweight": {
+    "video": "exercise-media/liftosaur-plank-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-plank-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-powerclean-barbell": {
+    "video": "exercise-media/liftosaur-powerclean-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-powerclean-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-preachercurl-barbell": {
+    "video": "exercise-media/liftosaur-preachercurl-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-preachercurl-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-preachercurl-dumbbell": {
+    "video": "exercise-media/liftosaur-preachercurl-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-preachercurl-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-preachercurl-ezbar": {
+    "video": "exercise-media/liftosaur-preachercurl-ezbar/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-preachercurl-ezbar/video-v1/poster.webp"
+  },
+  "liftosaur-pseudoplanchepushup-bodyweight": {
+    "video": "exercise-media/liftosaur-pseudoplanchepushup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-pseudoplanchepushup-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-pullover-dumbbell": {
+    "video": "exercise-media/liftosaur-pullover-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-pullover-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-pullover-ezbar": {
+    "video": "exercise-media/liftosaur-pullover-ezbar/video-v3/demo.mp4",
+    "poster": "exercise-media/liftosaur-pullover-ezbar/video-v3/poster.webp"
+  },
+  "liftosaur-pushpress-barbell": {
+    "video": "exercise-media/liftosaur-pushpress-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-pushpress-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-pushpress-kettlebell": {
+    "video": "exercise-media/liftosaur-pushpress-kettlebell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-pushpress-kettlebell/video-v1/poster.webp"
+  },
+  "liftosaur-pushup-bodyweight": {
+    "video": "exercise-media/liftosaur-pushup-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-pushup-bodyweight/video-v2/poster.webp"
+  },
+  "liftosaur-reversecrunch-bodyweight": {
+    "video": "exercise-media/liftosaur-reversecrunch-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-reversecrunch-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-reversecurl-barbell": {
+    "video": "exercise-media/liftosaur-reversecurl-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-reversecurl-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-reversefly-band": {
+    "video": "exercise-media/liftosaur-reversefly-band/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-reversefly-band/video-v1/poster.webp"
+  },
+  "liftosaur-reversefly-dumbbell": {
+    "video": "exercise-media/liftosaur-reversefly-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-reversefly-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-reversefly-leveragemachine": {
+    "video": "exercise-media/liftosaur-reversefly-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-reversefly-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-reversehyperextension-band": {
+    "video": "exercise-media/liftosaur-reversehyperextension-band/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-reversehyperextension-band/video-v1/poster.webp"
+  },
+  "liftosaur-reversehyperextension-bodyweight": {
+    "video": "exercise-media/liftosaur-reversehyperextension-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-reversehyperextension-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-reverselunge-dumbbell": {
+    "video": "exercise-media/liftosaur-reverselunge-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-reverselunge-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-reversewristcurl-barbell": {
+    "video": "exercise-media/liftosaur-reversewristcurl-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-reversewristcurl-barbell/video-v2/poster.webp"
+  },
+  "liftosaur-ringabrollout-bodyweight": {
+    "video": "exercise-media/liftosaur-ringabrollout-bodyweight/video-v5/demo.mp4",
+    "poster": "exercise-media/liftosaur-ringabrollout-bodyweight/video-v5/poster.webp"
+  },
+  "liftosaur-romaniandeadlift-bodyweight": {
+    "video": "exercise-media/liftosaur-romaniandeadlift-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-romaniandeadlift-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-romaniandeadlift-dumbbell": {
+    "video": "exercise-media/liftosaur-romaniandeadlift-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-romaniandeadlift-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-safetysquatbarsquat-barbell": {
+    "video": "exercise-media/liftosaur-safetysquatbarsquat-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-safetysquatbarsquat-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-scapularpullup-bodyweight": {
+    "video": "exercise-media/liftosaur-scapularpullup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-scapularpullup-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-seatedcalfraise-barbell": {
+    "video": "exercise-media/liftosaur-seatedcalfraise-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-seatedcalfraise-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-seatedoverheadpress-barbell": {
+    "video": "exercise-media/liftosaur-seatedoverheadpress-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-seatedoverheadpress-barbell/video-v2/poster.webp"
+  },
+  "liftosaur-seatedrow-cable": {
+    "video": "exercise-media/liftosaur-seatedrow-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-seatedrow-cable/video-v1/poster.webp"
+  },
+  "liftosaur-seatedrow-leveragemachine": {
+    "video": "exercise-media/liftosaur-seatedrow-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-seatedrow-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-seatedwidegriprow-cable": {
+    "video": "exercise-media/liftosaur-seatedwidegriprow-cable/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-seatedwidegriprow-cable/video-v2/poster.webp"
+  },
+  "liftosaur-shoulderpassthrough-band": {
+    "video": "exercise-media/liftosaur-shoulderpassthrough-band/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-shoulderpassthrough-band/video-v1/poster.webp"
+  },
+  "liftosaur-shoulderpress-dumbbell": {
+    "video": "exercise-media/liftosaur-shoulderpress-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-shoulderpress-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-shoulderpress-leveragemachine": {
+    "video": "exercise-media/liftosaur-shoulderpress-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-shoulderpress-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-shrimpsquat-bodyweight": {
+    "video": "exercise-media/liftosaur-shrimpsquat-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-shrimpsquat-bodyweight/video-v2/poster.webp"
+  },
+  "liftosaur-shrug-barbell": {
+    "video": "exercise-media/liftosaur-shrug-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-shrug-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-shrug-dumbbell": {
+    "video": "exercise-media/liftosaur-shrug-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-shrug-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-shrug-smith": {
+    "video": "exercise-media/liftosaur-shrug-smith/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-shrug-smith/video-v1/poster.webp"
+  },
+  "liftosaur-sidebend-dumbbell": {
+    "video": "exercise-media/liftosaur-sidebend-dumbbell/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-sidebend-dumbbell/video-v2/poster.webp"
+  },
+  "liftosaur-sidecrunch-bodyweight": {
+    "video": "exercise-media/liftosaur-sidecrunch-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-sidecrunch-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-sidecrunch-cable": {
+    "video": "exercise-media/liftosaur-sidecrunch-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-sidecrunch-cable/video-v1/poster.webp"
+  },
+  "liftosaur-sidehipabductor-bodyweight": {
+    "video": "exercise-media/liftosaur-sidehipabductor-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-sidehipabductor-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-sidelyingclam-bodyweight": {
+    "video": "exercise-media/liftosaur-sidelyingclam-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-sidelyingclam-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-sideplank-bodyweight": {
+    "video": "exercise-media/liftosaur-sideplank-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-sideplank-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-singlelegdeadlift-bodyweight": {
+    "video": "exercise-media/liftosaur-singlelegdeadlift-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-singlelegdeadlift-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-singlelegdeadlift-dumbbell": {
+    "video": "exercise-media/liftosaur-singlelegdeadlift-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-singlelegdeadlift-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-singlelegglutebridgestraight-bodyweight": {
+    "video": "exercise-media/liftosaur-singlelegglutebridgestraight-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-singlelegglutebridgestraight-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-singleleghipthrust-bodyweight": {
+    "video": "exercise-media/liftosaur-singleleghipthrust-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-singleleghipthrust-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-situp-bodyweight": {
+    "video": "exercise-media/liftosaur-situp-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-situp-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-skullcrusher-cable": {
+    "video": "exercise-media/liftosaur-skullcrusher-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-skullcrusher-cable/video-v1/poster.webp"
+  },
+  "liftosaur-skullcrusher-ezbar": {
+    "video": "exercise-media/liftosaur-skullcrusher-ezbar/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-skullcrusher-ezbar/video-v1/poster.webp"
+  },
+  "liftosaur-slingshotbenchpress-barbell": {
+    "video": "exercise-media/liftosaur-slingshotbenchpress-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-slingshotbenchpress-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-splitsquat-bodyweight": {
+    "video": "exercise-media/liftosaur-splitsquat-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-splitsquat-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-squat-bodyweight": {
+    "video": "exercise-media/liftosaur-squat-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-squat-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-squat-smith": {
+    "video": "exercise-media/liftosaur-squat-smith/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-squat-smith/video-v1/poster.webp"
+  },
+  "liftosaur-standingcalfraise-barbell": {
+    "video": "exercise-media/liftosaur-standingcalfraise-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-standingcalfraise-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-standingcalfraise-dumbbell": {
+    "video": "exercise-media/liftosaur-standingcalfraise-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-standingcalfraise-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-stepup-bodyweight": {
+    "video": "exercise-media/liftosaur-stepup-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-stepup-bodyweight/video-v2/poster.webp"
+  },
+  "liftosaur-stifflegdeadlift-barbell": {
+    "video": "exercise-media/liftosaur-stifflegdeadlift-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-stifflegdeadlift-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-sumodeadlift-barbell": {
+    "video": "exercise-media/liftosaur-sumodeadlift-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-sumodeadlift-barbell/video-v2/poster.webp"
+  },
+  "liftosaur-superman-bodyweight": {
+    "video": "exercise-media/liftosaur-superman-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-superman-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-supporthold-bodyweight": {
+    "video": "exercise-media/liftosaur-supporthold-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-supporthold-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-tbarrow-leveragemachine": {
+    "video": "exercise-media/liftosaur-tbarrow-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-tbarrow-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-tricepsdip-bodyweight": {
+    "video": "exercise-media/liftosaur-tricepsdip-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-tricepsdip-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-tricepsdip-leveragemachine": {
+    "video": "exercise-media/liftosaur-tricepsdip-leveragemachine/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-tricepsdip-leveragemachine/video-v1/poster.webp"
+  },
+  "liftosaur-tricepsextension-band": {
+    "video": "exercise-media/liftosaur-tricepsextension-band/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-tricepsextension-band/video-v1/poster.webp"
+  },
+  "liftosaur-tricepsextension-cable": {
+    "video": "exercise-media/liftosaur-tricepsextension-cable/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-tricepsextension-cable/video-v1/poster.webp"
+  },
+  "liftosaur-tricepsextension-dumbbell": {
+    "video": "exercise-media/liftosaur-tricepsextension-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-tricepsextension-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-uprightrow-barbell": {
+    "video": "exercise-media/liftosaur-uprightrow-barbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-uprightrow-barbell/video-v1/poster.webp"
+  },
+  "liftosaur-uprightrow-dumbbell": {
+    "video": "exercise-media/liftosaur-uprightrow-dumbbell/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-uprightrow-dumbbell/video-v1/poster.webp"
+  },
+  "liftosaur-verticalrow-bodyweight": {
+    "video": "exercise-media/liftosaur-verticalrow-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-verticalrow-bodyweight/video-v2/poster.webp"
+  },
+  "liftosaur-vup-bodyweight": {
+    "video": "exercise-media/liftosaur-vup-bodyweight/video-v1/demo.mp4",
+    "poster": "exercise-media/liftosaur-vup-bodyweight/video-v1/poster.webp"
+  },
+  "liftosaur-wallpushup-bodyweight": {
+    "video": "exercise-media/liftosaur-wallpushup-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-wallpushup-bodyweight/video-v2/poster.webp"
+  },
+  "liftosaur-widerow-bodyweight": {
+    "video": "exercise-media/liftosaur-widerow-bodyweight/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-widerow-bodyweight/video-v2/poster.webp"
+  },
+  "liftosaur-wristcurl-barbell": {
+    "video": "exercise-media/liftosaur-wristcurl-barbell/video-v2/demo.mp4",
+    "poster": "exercise-media/liftosaur-wristcurl-barbell/video-v2/poster.webp"
+  },
+  "long-lever-plank": {
+    "video": "exercise-media/long-lever-plank/video-v3/demo.mp4",
+    "poster": "exercise-media/long-lever-plank/video-v3/poster.webp"
+  },
+  "lunge-pass-through": {
+    "video": "exercise-media/lunge-pass-through/video-v3/demo.mp4",
+    "poster": "exercise-media/lunge-pass-through/video-v3/poster.webp"
+  },
+  "lying-close-grip-bar-curl-on-high-pulley": {
+    "video": "exercise-media/lying-close-grip-bar-curl-on-high-pulley/video-v2/demo.mp4",
+    "poster": "exercise-media/lying-close-grip-bar-curl-on-high-pulley/video-v2/poster.webp"
+  },
+  "low-incline-barbell-press": {
+    "video": "exercise-media/low-incline-barbell-press/video-v4/demo.mp4",
+    "poster": "exercise-media/low-incline-barbell-press/video-v4/poster.webp"
+  },
+  "lunge-sprint": {
+    "video": "exercise-media/lunge-sprint/video-v3/demo.mp4",
+    "poster": "exercise-media/lunge-sprint/video-v3/poster.webp"
+  },
+  "medicine-ball-full-twist": {
+    "video": "exercise-media/medicine-ball-full-twist/video-v5/demo.mp4",
+    "poster": "exercise-media/medicine-ball-full-twist/video-v5/poster.webp"
+  },
+  "moving-claw-series": {
+    "video": "exercise-media/moving-claw-series/video-v4/demo.mp4",
+    "poster": "exercise-media/moving-claw-series/video-v4/poster.webp"
+  },
+  "low-incline-machine-press": {
+    "video": "exercise-media/low-incline-machine-press/video-v6/demo.mp4",
+    "poster": "exercise-media/low-incline-machine-press/video-v6/poster.webp"
+  },
+  "one-arm-kettlebell-swings": {
+    "video": "exercise-media/one-arm-kettlebell-swings/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-kettlebell-swings/video-v1/poster.webp"
+  },
+  "one-arm-long-bar-row": {
+    "video": "exercise-media/one-arm-long-bar-row/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-long-bar-row/video-v1/poster.webp"
+  },
+  "one-arm-open-palm-kettlebell-clean": {
+    "video": "exercise-media/one-arm-open-palm-kettlebell-clean/video-v1/demo.mp4",
+    "poster": "exercise-media/one-arm-open-palm-kettlebell-clean/video-v1/poster.webp"
+  },
+  "one-legged-cable-kickback": {
+    "video": "exercise-media/one-legged-cable-kickback/video-v1/demo.mp4",
+    "poster": "exercise-media/one-legged-cable-kickback/video-v1/poster.webp"
+  },
+  "open-palm-kettlebell-clean": {
+    "video": "exercise-media/open-palm-kettlebell-clean/video-v1/demo.mp4",
+    "poster": "exercise-media/open-palm-kettlebell-clean/video-v1/poster.webp"
+  },
+  "muscle-up": {
+    "video": "exercise-media/muscle-up/video-v3/demo.mp4",
+    "poster": "exercise-media/muscle-up/video-v3/poster.webp"
+  },
+  "one-arm-medicine-ball-slam": {
+    "video": "exercise-media/one-arm-medicine-ball-slam/video-v2/demo.mp4",
+    "poster": "exercise-media/one-arm-medicine-ball-slam/video-v2/poster.webp"
+  },
+  "one-arm-overhead-kettlebell-squats": {
+    "video": "exercise-media/one-arm-overhead-kettlebell-squats/video-v2/demo.mp4",
+    "poster": "exercise-media/one-arm-overhead-kettlebell-squats/video-v2/poster.webp"
+  },
+  "one-arm-side-deadlift": {
+    "video": "exercise-media/one-arm-side-deadlift/video-v2/demo.mp4",
+    "poster": "exercise-media/one-arm-side-deadlift/video-v2/poster.webp"
+  },
+  "one-arm-side-laterals": {
+    "video": "exercise-media/one-arm-side-laterals/video-v2/demo.mp4",
+    "poster": "exercise-media/one-arm-side-laterals/video-v2/poster.webp"
+  },
+  "otis-up": {
+    "video": "exercise-media/otis-up/video-v1/demo.mp4",
+    "poster": "exercise-media/otis-up/video-v1/poster.webp"
+  },
+  "overhead-cable-curl": {
+    "video": "exercise-media/overhead-cable-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/overhead-cable-curl/video-v1/poster.webp"
+  },
+  "overhead-lat": {
+    "video": "exercise-media/overhead-lat/video-v1/demo.mp4",
+    "poster": "exercise-media/overhead-lat/video-v1/poster.webp"
+  },
+  "overhead-squat": {
+    "video": "exercise-media/overhead-squat/video-v1/demo.mp4",
+    "poster": "exercise-media/overhead-squat/video-v1/poster.webp"
+  },
+  "overhead-triceps": {
+    "video": "exercise-media/overhead-triceps/video-v1/demo.mp4",
+    "poster": "exercise-media/overhead-triceps/video-v1/poster.webp"
+  },
+  "pallof-press": {
+    "video": "exercise-media/pallof-press/video-v1/demo.mp4",
+    "poster": "exercise-media/pallof-press/video-v1/poster.webp"
+  },
+  "palms-down-dumbbell-wrist-curl-over-a-bench": {
+    "video": "exercise-media/palms-down-dumbbell-wrist-curl-over-a-bench/video-v1/demo.mp4",
+    "poster": "exercise-media/palms-down-dumbbell-wrist-curl-over-a-bench/video-v1/poster.webp"
+  },
+  "overhead-slam": {
+    "video": "exercise-media/overhead-slam/video-v2/demo.mp4",
+    "poster": "exercise-media/overhead-slam/video-v2/poster.webp"
+  },
+  "overhead-stretch": {
+    "video": "exercise-media/overhead-stretch/video-v2/demo.mp4",
+    "poster": "exercise-media/overhead-stretch/video-v2/poster.webp"
+  },
+  "pallof-press-with-rotation": {
+    "video": "exercise-media/pallof-press-with-rotation/video-v2/demo.mp4",
+    "poster": "exercise-media/pallof-press-with-rotation/video-v2/poster.webp"
+  },
+  "palms-down-wrist-curl-over-a-bench": {
+    "video": "exercise-media/palms-down-wrist-curl-over-a-bench/video-v1/demo.mp4",
+    "poster": "exercise-media/palms-down-wrist-curl-over-a-bench/video-v1/poster.webp"
+  },
+  "palms-up-barbell-wrist-curl-over-a-bench": {
+    "video": "exercise-media/palms-up-barbell-wrist-curl-over-a-bench/video-v1/demo.mp4",
+    "poster": "exercise-media/palms-up-barbell-wrist-curl-over-a-bench/video-v1/poster.webp"
+  },
+  "palms-up-dumbbell-wrist-curl-over-a-bench": {
+    "video": "exercise-media/palms-up-dumbbell-wrist-curl-over-a-bench/video-v1/demo.mp4",
+    "poster": "exercise-media/palms-up-dumbbell-wrist-curl-over-a-bench/video-v1/poster.webp"
+  },
+  "parallel-bar-dip": {
+    "video": "exercise-media/parallel-bar-dip/video-v1/demo.mp4",
+    "poster": "exercise-media/parallel-bar-dip/video-v1/poster.webp"
+  },
+  "pelvic-tilt-into-bridge": {
+    "video": "exercise-media/pelvic-tilt-into-bridge/video-v1/demo.mp4",
+    "poster": "exercise-media/pelvic-tilt-into-bridge/video-v1/poster.webp"
+  },
+  "peroneals-smr": {
+    "video": "exercise-media/peroneals-smr/video-v1/demo.mp4",
+    "poster": "exercise-media/peroneals-smr/video-v1/poster.webp"
+  },
+  "physioball-hip-bridge": {
+    "video": "exercise-media/physioball-hip-bridge/video-v2/demo.mp4",
+    "poster": "exercise-media/physioball-hip-bridge/video-v2/poster.webp"
+  },
+  "pin-press": {
+    "video": "exercise-media/pin-press/video-v2/demo.mp4",
+    "poster": "exercise-media/pin-press/video-v2/poster.webp"
+  },
+  "pin-presses": {
+    "video": "exercise-media/pin-presses/video-v1/demo.mp4",
+    "poster": "exercise-media/pin-presses/video-v1/poster.webp"
+  },
+  "piriformis-smr": {
+    "video": "exercise-media/piriformis-smr/video-v1/demo.mp4",
+    "poster": "exercise-media/piriformis-smr/video-v1/poster.webp"
+  },
+  "plate-loaded-ab-crunch-machine": {
+    "video": "exercise-media/plate-loaded-ab-crunch-machine/video-v1/demo.mp4",
+    "poster": "exercise-media/plate-loaded-ab-crunch-machine/video-v1/poster.webp"
+  },
+  "plate-loaded-hip-abduction": {
+    "video": "exercise-media/plate-loaded-hip-abduction/video-v1/demo.mp4",
+    "poster": "exercise-media/plate-loaded-hip-abduction/video-v1/poster.webp"
+  },
+  "platform-hamstring-slides": {
+    "video": "exercise-media/platform-hamstring-slides/video-v1/demo.mp4",
+    "poster": "exercise-media/platform-hamstring-slides/video-v1/poster.webp"
+  },
+  "plyo-push-up": {
+    "video": "exercise-media/plyo-push-up/video-v1/demo.mp4",
+    "poster": "exercise-media/plyo-push-up/video-v1/poster.webp"
+  },
+  "plate-pinch": {
+    "video": "exercise-media/plate-pinch/video-v2/demo.mp4",
+    "poster": "exercise-media/plate-pinch/video-v2/poster.webp"
+  },
+  "plate-twist": {
+    "video": "exercise-media/plate-twist/video-v2/demo.mp4",
+    "poster": "exercise-media/plate-twist/video-v2/poster.webp"
+  },
+  "plie-dumbbell-squat": {
+    "video": "exercise-media/plie-dumbbell-squat/video-v2/demo.mp4",
+    "poster": "exercise-media/plie-dumbbell-squat/video-v2/poster.webp"
+  },
+  "plyo-kettlebell-pushups": {
+    "video": "exercise-media/plyo-kettlebell-pushups/video-v1/demo.mp4",
+    "poster": "exercise-media/plyo-kettlebell-pushups/video-v1/poster.webp"
+  },
+  "power-clean-from-blocks": {
+    "video": "exercise-media/power-clean-from-blocks/video-v1/demo.mp4",
+    "poster": "exercise-media/power-clean-from-blocks/video-v1/poster.webp"
+  },
+  "power-partials": {
+    "video": "exercise-media/power-partials/video-v1/demo.mp4",
+    "poster": "exercise-media/power-partials/video-v1/poster.webp"
+  },
+  "power-clean": {
+    "video": "exercise-media/power-clean/video-v2/demo.mp4",
+    "poster": "exercise-media/power-clean/video-v2/poster.webp"
+  },
+  "power-jerk": {
+    "video": "exercise-media/power-jerk/video-v2/demo.mp4",
+    "poster": "exercise-media/power-jerk/video-v2/poster.webp"
+  },
+  "power-snatch": {
+    "video": "exercise-media/power-snatch/video-v2/demo.mp4",
+    "poster": "exercise-media/power-snatch/video-v2/poster.webp"
+  },
+  "power-snatch-from-blocks": {
+    "video": "exercise-media/power-snatch-from-blocks/video-v2/demo.mp4",
+    "poster": "exercise-media/power-snatch-from-blocks/video-v2/poster.webp"
+  },
+  "preacher-curl": {
+    "video": "exercise-media/preacher-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/preacher-curl/video-v1/poster.webp"
+  },
+  "preacher-hammer-dumbbell-curl": {
+    "video": "exercise-media/preacher-hammer-dumbbell-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/preacher-hammer-dumbbell-curl/video-v1/poster.webp"
+  },
+  "press-sit-up": {
+    "video": "exercise-media/press-sit-up/video-v1/demo.mp4",
+    "poster": "exercise-media/press-sit-up/video-v1/poster.webp"
+  },
+  "prone-manual-hamstring": {
+    "video": "exercise-media/prone-manual-hamstring/video-v1/demo.mp4",
+    "poster": "exercise-media/prone-manual-hamstring/video-v1/poster.webp"
+  },
+  "pull-through": {
+    "video": "exercise-media/pull-through/video-v2/demo.mp4",
+    "poster": "exercise-media/pull-through/video-v2/poster.webp"
+  },
+  "pullups": {
+    "video": "exercise-media/pullups/video-v2/demo.mp4",
+    "poster": "exercise-media/pullups/video-v2/poster.webp"
+  },
+  "push-ups-with-feet-elevated": {
+    "video": "exercise-media/push-ups-with-feet-elevated/video-v1/demo.mp4",
+    "poster": "exercise-media/push-ups-with-feet-elevated/video-v1/poster.webp"
+  },
+  "push-up-wide": {
+    "video": "exercise-media/push-up-wide/video-v1/demo.mp4",
+    "poster": "exercise-media/push-up-wide/video-v1/poster.webp"
+  },
+  "push-ups-close-triceps-position": {
+    "video": "exercise-media/push-ups-close-triceps-position/video-v1/demo.mp4",
+    "poster": "exercise-media/push-ups-close-triceps-position/video-v1/poster.webp"
+  },
+  "prowler-sprint": {
+    "video": "exercise-media/prowler-sprint/video-v3/demo.mp4",
+    "poster": "exercise-media/prowler-sprint/video-v3/poster.webp"
+  },
+  "push-press": {
+    "video": "exercise-media/push-press/video-v2/demo.mp4",
+    "poster": "exercise-media/push-press/video-v2/poster.webp"
+  },
+  "push-press-behind-the-neck": {
+    "video": "exercise-media/push-press-behind-the-neck/video-v2/demo.mp4",
+    "poster": "exercise-media/push-press-behind-the-neck/video-v2/poster.webp"
+  },
+  "push-ups-with-feet-on-an-exercise-ball": {
+    "video": "exercise-media/push-ups-with-feet-on-an-exercise-ball/video-v1/demo.mp4",
+    "poster": "exercise-media/push-ups-with-feet-on-an-exercise-ball/video-v1/poster.webp"
+  },
+  "pushups": {
+    "video": "exercise-media/pushups/video-v1/demo.mp4",
+    "poster": "exercise-media/pushups/video-v1/poster.webp"
+  },
+  "pushups-close-and-wide-hand-positions": {
+    "video": "exercise-media/pushups-close-and-wide-hand-positions/video-v1/demo.mp4",
+    "poster": "exercise-media/pushups-close-and-wide-hand-positions/video-v1/poster.webp"
+  },
+  "quadriceps-smr": {
+    "video": "exercise-media/quadriceps-smr/video-v1/demo.mp4",
+    "poster": "exercise-media/quadriceps-smr/video-v1/poster.webp"
+  },
+  "pyramid": {
+    "video": "exercise-media/pyramid/video-v1/demo.mp4",
+    "poster": "exercise-media/pyramid/video-v1/poster.webp"
+  },
+  "quad-stretch": {
+    "video": "exercise-media/quad-stretch/video-v2/demo.mp4",
+    "poster": "exercise-media/quad-stretch/video-v2/poster.webp"
+  },
+  "quick-leap": {
+    "video": "exercise-media/quick-leap/video-v2/demo.mp4",
+    "poster": "exercise-media/quick-leap/video-v2/poster.webp"
+  },
+  "rack-delivery": {
+    "video": "exercise-media/rack-delivery/video-v2/demo.mp4",
+    "poster": "exercise-media/rack-delivery/video-v2/poster.webp"
+  },
+  "rack-pull-with-bands": {
+    "video": "exercise-media/rack-pull-with-bands/video-v2/demo.mp4",
+    "poster": "exercise-media/rack-pull-with-bands/video-v2/poster.webp"
+  },
+  "rack-pulls": {
+    "video": "exercise-media/rack-pulls/video-v2/demo.mp4",
+    "poster": "exercise-media/rack-pulls/video-v2/poster.webp"
+  },
+  "rear-leg-raises": {
+    "video": "exercise-media/rear-leg-raises/video-v1/demo.mp4",
+    "poster": "exercise-media/rear-leg-raises/video-v1/poster.webp"
+  },
+  "return-push-from-stance": {
+    "video": "exercise-media/return-push-from-stance/video-v1/demo.mp4",
+    "poster": "exercise-media/return-push-from-stance/video-v1/poster.webp"
+  },
+  "reverse-band-deadlift": {
+    "video": "exercise-media/reverse-band-deadlift/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-band-deadlift/video-v1/poster.webp"
+  },
+  "reverse-band-sumo-deadlift": {
+    "video": "exercise-media/reverse-band-sumo-deadlift/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-band-sumo-deadlift/video-v1/poster.webp"
+  },
+  "reverse-barbell-curl": {
+    "video": "exercise-media/reverse-barbell-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-barbell-curl/video-v1/poster.webp"
+  },
+  "reverse-barbell-preacher-curls": {
+    "video": "exercise-media/reverse-barbell-preacher-curls/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-barbell-preacher-curls/video-v1/poster.webp"
+  },
+  "recumbent-bike": {
+    "video": "exercise-media/recumbent-bike/video-v2/demo.mp4",
+    "poster": "exercise-media/recumbent-bike/video-v2/poster.webp"
+  },
+  "reverse-band-bench-press": {
+    "video": "exercise-media/reverse-band-bench-press/video-v2/demo.mp4",
+    "poster": "exercise-media/reverse-band-bench-press/video-v2/poster.webp"
+  },
+  "reverse-band-box-squat": {
+    "video": "exercise-media/reverse-band-box-squat/video-v2/demo.mp4",
+    "poster": "exercise-media/reverse-band-box-squat/video-v2/poster.webp"
+  },
+  "reverse-band-power-squat": {
+    "video": "exercise-media/reverse-band-power-squat/video-v2/demo.mp4",
+    "poster": "exercise-media/reverse-band-power-squat/video-v2/poster.webp"
+  },
+  "reverse-cable-crossover": {
+    "video": "exercise-media/reverse-cable-crossover/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-cable-crossover/video-v1/poster.webp"
+  },
+  "reverse-cable-flye": {
+    "video": "exercise-media/reverse-cable-flye/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-cable-flye/video-v1/poster.webp"
+  },
+  "reverse-flyes": {
+    "video": "exercise-media/reverse-flyes/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-flyes/video-v1/poster.webp"
+  },
+  "reverse-flyes-with-external-rotation": {
+    "video": "exercise-media/reverse-flyes-with-external-rotation/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-flyes-with-external-rotation/video-v1/poster.webp"
+  },
+  "reverse-grip-bent-over-rows": {
+    "video": "exercise-media/reverse-grip-bent-over-rows/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-grip-bent-over-rows/video-v1/poster.webp"
+  },
+  "reverse-cable-curl": {
+    "video": "exercise-media/reverse-cable-curl/video-v2/demo.mp4",
+    "poster": "exercise-media/reverse-cable-curl/video-v2/poster.webp"
+  },
+  "reverse-grip-assisted-pull-up": {
+    "video": "exercise-media/reverse-grip-assisted-pull-up/video-v2/demo.mp4",
+    "poster": "exercise-media/reverse-grip-assisted-pull-up/video-v2/poster.webp"
+  },
+  "reverse-grip-triceps-pushdown": {
+    "video": "exercise-media/reverse-grip-triceps-pushdown/video-v2/demo.mp4",
+    "poster": "exercise-media/reverse-grip-triceps-pushdown/video-v2/poster.webp"
+  },
+  "reverse-hyper": {
+    "video": "exercise-media/reverse-hyper/video-v2/demo.mp4",
+    "poster": "exercise-media/reverse-hyper/video-v2/poster.webp"
+  },
+  "reverse-hyperextension": {
+    "video": "exercise-media/reverse-hyperextension/video-v2/demo.mp4",
+    "poster": "exercise-media/reverse-hyperextension/video-v2/poster.webp"
+  },
+  "reverse-lunge": {
+    "video": "exercise-media/reverse-lunge/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-lunge/video-v1/poster.webp"
+  },
+  "reverse-plate-curls": {
+    "video": "exercise-media/reverse-plate-curls/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-plate-curls/video-v1/poster.webp"
+  },
+  "reverse-wrist-curl": {
+    "video": "exercise-media/reverse-wrist-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-wrist-curl/video-v1/poster.webp"
+  },
+  "reverse-triceps-bench-press": {
+    "video": "exercise-media/reverse-triceps-bench-press/video-v1/demo.mp4",
+    "poster": "exercise-media/reverse-triceps-bench-press/video-v1/poster.webp"
+  },
+  "rickshaw-carry": {
+    "video": "exercise-media/rickshaw-carry/video-v1/demo.mp4",
+    "poster": "exercise-media/rickshaw-carry/video-v1/poster.webp"
+  },
+  "reverse-machine-flyes": {
+    "video": "exercise-media/reverse-machine-flyes/video-v2/demo.mp4",
+    "poster": "exercise-media/reverse-machine-flyes/video-v2/poster.webp"
+  },
+  "rhomboids-smr": {
+    "video": "exercise-media/rhomboids-smr/video-v2/demo.mp4",
+    "poster": "exercise-media/rhomboids-smr/video-v2/poster.webp"
+  },
+  "rocket-jump": {
+    "video": "exercise-media/rocket-jump/video-v2/demo.mp4",
+    "poster": "exercise-media/rocket-jump/video-v2/poster.webp"
+  },
+  "rickshaw-deadlift": {
+    "video": "exercise-media/rickshaw-deadlift/video-v2/demo.mp4",
+    "poster": "exercise-media/rickshaw-deadlift/video-v2/poster.webp"
+  },
+  "ring-dips": {
+    "video": "exercise-media/ring-dips/video-v2/demo.mp4",
+    "poster": "exercise-media/ring-dips/video-v2/poster.webp"
+  },
+  "rocking-standing-calf-raise": {
+    "video": "exercise-media/rocking-standing-calf-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/rocking-standing-calf-raise/video-v1/poster.webp"
+  },
+  "romanian-deadlift-from-deficit": {
+    "video": "exercise-media/romanian-deadlift-from-deficit/video-v1/demo.mp4",
+    "poster": "exercise-media/romanian-deadlift-from-deficit/video-v1/poster.webp"
+  },
+  "rope-jumping": {
+    "video": "exercise-media/rope-jumping/video-v1/demo.mp4",
+    "poster": "exercise-media/rope-jumping/video-v1/poster.webp"
+  },
+  "rope-crunch": {
+    "video": "exercise-media/rope-crunch/video-v2/demo.mp4",
+    "poster": "exercise-media/rope-crunch/video-v2/poster.webp"
+  },
+  "rope-straight-arm-pulldown": {
+    "video": "exercise-media/rope-straight-arm-pulldown/video-v2/demo.mp4",
+    "poster": "exercise-media/rope-straight-arm-pulldown/video-v2/poster.webp"
+  },
+  "round-the-world-shoulder-stretch": {
+    "video": "exercise-media/round-the-world-shoulder-stretch/video-v2/demo.mp4",
+    "poster": "exercise-media/round-the-world-shoulder-stretch/video-v2/poster.webp"
+  },
+  "rowing-ergometer": {
+    "video": "exercise-media/rowing-ergometer/video-v2/demo.mp4",
+    "poster": "exercise-media/rowing-ergometer/video-v2/poster.webp"
+  },
+  "rotary-torso-machine": {
+    "video": "exercise-media/rotary-torso-machine/video-v2/demo.mp4",
+    "poster": "exercise-media/rotary-torso-machine/video-v2/poster.webp"
+  },
+  "scapular-pull-up": {
+    "video": "exercise-media/scapular-pull-up/video-v1/demo.mp4",
+    "poster": "exercise-media/scapular-pull-up/video-v1/poster.webp"
+  },
+  "russian-twist": {
+    "video": "exercise-media/russian-twist/video-v1/demo.mp4",
+    "poster": "exercise-media/russian-twist/video-v1/poster.webp"
+  },
+  "seated-abdominal-crunch-machine": {
+    "video": "exercise-media/seated-abdominal-crunch-machine/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-abdominal-crunch-machine/video-v1/poster.webp"
+  },
+  "runners-stretch": {
+    "video": "exercise-media/runners-stretch/video-v2/demo.mp4",
+    "poster": "exercise-media/runners-stretch/video-v2/poster.webp"
+  },
+  "sandbag-load": {
+    "video": "exercise-media/sandbag-load/video-v2/demo.mp4",
+    "poster": "exercise-media/sandbag-load/video-v2/poster.webp"
+  },
+  "seal-row": {
+    "video": "exercise-media/seal-row/video-v2/demo.mp4",
+    "poster": "exercise-media/seal-row/video-v2/poster.webp"
+  },
+  "rowing-stationary": {
+    "video": "exercise-media/rowing-stationary/video-v2/demo.mp4",
+    "poster": "exercise-media/rowing-stationary/video-v2/poster.webp"
+  },
+  "scissor-kick": {
+    "video": "exercise-media/scissor-kick/video-v3/demo.mp4",
+    "poster": "exercise-media/scissor-kick/video-v3/poster.webp"
+  },
+  "seated-barbell-twist": {
+    "video": "exercise-media/seated-barbell-twist/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-barbell-twist/video-v1/poster.webp"
+  },
+  "seated-bent-over-one-arm-dumbbell-triceps-extension": {
+    "video": "exercise-media/seated-bent-over-one-arm-dumbbell-triceps-extension/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-bent-over-one-arm-dumbbell-triceps-extension/video-v1/poster.webp"
+  },
+  "seated-barbell-military-press": {
+    "video": "exercise-media/seated-barbell-military-press/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-barbell-military-press/video-v2/poster.webp"
+  },
+  "seated-barbell-overhead-press": {
+    "video": "exercise-media/seated-barbell-overhead-press/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-barbell-overhead-press/video-v2/poster.webp"
+  },
+  "seated-bent-over-rear-delt-raise": {
+    "video": "exercise-media/seated-bent-over-rear-delt-raise/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-bent-over-rear-delt-raise/video-v2/poster.webp"
+  },
+  "seated-biceps": {
+    "video": "exercise-media/seated-biceps/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-biceps/video-v2/poster.webp"
+  },
+  "seated-cable-rows": {
+    "video": "exercise-media/seated-cable-rows/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-cable-rows/video-v2/poster.webp"
+  },
+  "seated-cable-shoulder-press": {
+    "video": "exercise-media/seated-cable-shoulder-press/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-cable-shoulder-press/video-v2/poster.webp"
+  },
+  "seated-calf-stretch": {
+    "video": "exercise-media/seated-calf-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-calf-stretch/video-v1/poster.webp"
+  },
+  "seated-close-grip-concentration-barbell-curl": {
+    "video": "exercise-media/seated-close-grip-concentration-barbell-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-close-grip-concentration-barbell-curl/video-v1/poster.webp"
+  },
+  "seated-dumbbell-curl": {
+    "video": "exercise-media/seated-dumbbell-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-dumbbell-curl/video-v1/poster.webp"
+  },
+  "seated-dumbbell-inner-biceps-curl": {
+    "video": "exercise-media/seated-dumbbell-inner-biceps-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-dumbbell-inner-biceps-curl/video-v1/poster.webp"
+  },
+  "seated-flat-bench-leg-pull-in": {
+    "video": "exercise-media/seated-flat-bench-leg-pull-in/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-flat-bench-leg-pull-in/video-v1/poster.webp"
+  },
+  "seated-floor-hamstring-stretch": {
+    "video": "exercise-media/seated-floor-hamstring-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-floor-hamstring-stretch/video-v1/poster.webp"
+  },
+  "seated-glute": {
+    "video": "exercise-media/seated-glute/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-glute/video-v1/poster.webp"
+  },
+  "seated-dumbbell-palms-down-wrist-curl": {
+    "video": "exercise-media/seated-dumbbell-palms-down-wrist-curl/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-dumbbell-palms-down-wrist-curl/video-v2/poster.webp"
+  },
+  "seated-dumbbell-palms-up-wrist-curl": {
+    "video": "exercise-media/seated-dumbbell-palms-up-wrist-curl/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-dumbbell-palms-up-wrist-curl/video-v2/poster.webp"
+  },
+  "seated-bent-over-two-arm-dumbbell-triceps-extension": {
+    "video": "exercise-media/seated-bent-over-two-arm-dumbbell-triceps-extension/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-bent-over-two-arm-dumbbell-triceps-extension/video-v2/poster.webp"
+  },
+  "seated-front-deltoid": {
+    "video": "exercise-media/seated-front-deltoid/video-v3/demo.mp4",
+    "poster": "exercise-media/seated-front-deltoid/video-v3/poster.webp"
+  },
+  "seated-hamstring": {
+    "video": "exercise-media/seated-hamstring/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-hamstring/video-v1/poster.webp"
+  },
+  "seated-hamstring-and-calf-stretch": {
+    "video": "exercise-media/seated-hamstring-and-calf-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-hamstring-and-calf-stretch/video-v1/poster.webp"
+  },
+  "seated-leg-tucks": {
+    "video": "exercise-media/seated-leg-tucks/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-leg-tucks/video-v1/poster.webp"
+  },
+  "seated-overhead-stretch": {
+    "video": "exercise-media/seated-overhead-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-overhead-stretch/video-v1/poster.webp"
+  },
+  "seated-good-mornings": {
+    "video": "exercise-media/seated-good-mornings/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-good-mornings/video-v2/poster.webp"
+  },
+  "seated-one-arm-cable-pulley-rows": {
+    "video": "exercise-media/seated-one-arm-cable-pulley-rows/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-one-arm-cable-pulley-rows/video-v2/poster.webp"
+  },
+  "seated-one-arm-dumbbell-palms-down-wrist-curl": {
+    "video": "exercise-media/seated-one-arm-dumbbell-palms-down-wrist-curl/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-one-arm-dumbbell-palms-down-wrist-curl/video-v2/poster.webp"
+  },
+  "seated-one-arm-dumbbell-palms-up-wrist-curl": {
+    "video": "exercise-media/seated-one-arm-dumbbell-palms-up-wrist-curl/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-one-arm-dumbbell-palms-up-wrist-curl/video-v2/poster.webp"
+  },
+  "seated-head-harness-neck-resistance": {
+    "video": "exercise-media/seated-head-harness-neck-resistance/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-head-harness-neck-resistance/video-v2/poster.webp"
+  },
+  "seated-palm-up-barbell-wrist-curl": {
+    "video": "exercise-media/seated-palm-up-barbell-wrist-curl/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-palm-up-barbell-wrist-curl/video-v2/poster.webp"
+  },
+  "seated-side-lateral-raise": {
+    "video": "exercise-media/seated-side-lateral-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-side-lateral-raise/video-v1/poster.webp"
+  },
+  "seated-triceps-press": {
+    "video": "exercise-media/seated-triceps-press/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-triceps-press/video-v1/poster.webp"
+  },
+  "seated-two-arm-palms-up-low-pulley-wrist-curl": {
+    "video": "exercise-media/seated-two-arm-palms-up-low-pulley-wrist-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/seated-two-arm-palms-up-low-pulley-wrist-curl/video-v1/poster.webp"
+  },
+  "shoulder-raise": {
+    "video": "exercise-media/shoulder-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/shoulder-raise/video-v1/poster.webp"
+  },
+  "shotgun-row": {
+    "video": "exercise-media/shotgun-row/video-v2/demo.mp4",
+    "poster": "exercise-media/shotgun-row/video-v2/poster.webp"
+  },
+  "shoulder-press-machine": {
+    "video": "exercise-media/shoulder-press-machine/video-v2/demo.mp4",
+    "poster": "exercise-media/shoulder-press-machine/video-v2/poster.webp"
+  },
+  "shoulder-press-with-bands": {
+    "video": "exercise-media/shoulder-press-with-bands/video-v2/demo.mp4",
+    "poster": "exercise-media/shoulder-press-with-bands/video-v2/poster.webp"
+  },
+  "seated-palms-down-barbell-wrist-curl": {
+    "video": "exercise-media/seated-palms-down-barbell-wrist-curl/video-v2/demo.mp4",
+    "poster": "exercise-media/seated-palms-down-barbell-wrist-curl/video-v2/poster.webp"
+  },
+  "shoulder-circles": {
+    "video": "exercise-media/shoulder-circles/video-v2/demo.mp4",
+    "poster": "exercise-media/shoulder-circles/video-v2/poster.webp"
+  },
+  "see-saw-press-alternating-side-press": {
+    "video": "exercise-media/see-saw-press-alternating-side-press/video-v2/demo.mp4",
+    "poster": "exercise-media/see-saw-press-alternating-side-press/video-v2/poster.webp"
+  },
+  "seated-band-hamstring-curl": {
+    "video": "exercise-media/seated-band-hamstring-curl/video-v3/demo.mp4",
+    "poster": "exercise-media/seated-band-hamstring-curl/video-v3/poster.webp"
+  },
+  "shoulder-stretch": {
+    "video": "exercise-media/shoulder-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/shoulder-stretch/video-v1/poster.webp"
+  },
+  "side-bridge": {
+    "video": "exercise-media/side-bridge/video-v1/demo.mp4",
+    "poster": "exercise-media/side-bridge/video-v1/poster.webp"
+  },
+  "side-jackknife": {
+    "video": "exercise-media/side-jackknife/video-v1/demo.mp4",
+    "poster": "exercise-media/side-jackknife/video-v1/poster.webp"
+  },
+  "side-lateral-raise": {
+    "video": "exercise-media/side-lateral-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/side-lateral-raise/video-v1/poster.webp"
+  },
+  "side-laterals-to-front-raise": {
+    "video": "exercise-media/side-laterals-to-front-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/side-laterals-to-front-raise/video-v1/poster.webp"
+  },
+  "side-leg-raises": {
+    "video": "exercise-media/side-leg-raises/video-v1/demo.mp4",
+    "poster": "exercise-media/side-leg-raises/video-v1/poster.webp"
+  },
+  "side-neck-stretch": {
+    "video": "exercise-media/side-neck-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/side-neck-stretch/video-v1/poster.webp"
+  },
+  "side-lying-groin-stretch": {
+    "video": "exercise-media/side-lying-groin-stretch/video-v2/demo.mp4",
+    "poster": "exercise-media/side-lying-groin-stretch/video-v2/poster.webp"
+  },
+  "side-lying-floor-stretch": {
+    "video": "exercise-media/side-lying-floor-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/side-lying-floor-stretch/video-v1/poster.webp"
+  },
+  "side-wrist-pull": {
+    "video": "exercise-media/side-wrist-pull/video-v1/demo.mp4",
+    "poster": "exercise-media/side-wrist-pull/video-v1/poster.webp"
+  },
+  "single-dumbbell-raise": {
+    "video": "exercise-media/single-dumbbell-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/single-dumbbell-raise/video-v1/poster.webp"
+  },
+  "single-leg-glute-bridge": {
+    "video": "exercise-media/single-leg-glute-bridge/video-v1/demo.mp4",
+    "poster": "exercise-media/single-leg-glute-bridge/video-v1/poster.webp"
+  },
+  "side-to-side-chins": {
+    "video": "exercise-media/side-to-side-chins/video-v2/demo.mp4",
+    "poster": "exercise-media/side-to-side-chins/video-v2/poster.webp"
+  },
+  "single-arm-machine-row": {
+    "video": "exercise-media/single-arm-machine-row/video-v3/demo.mp4",
+    "poster": "exercise-media/single-arm-machine-row/video-v3/poster.webp"
+  },
+  "single-leg-butt-kick": {
+    "video": "exercise-media/single-leg-butt-kick/video-v3/demo.mp4",
+    "poster": "exercise-media/single-leg-butt-kick/video-v3/poster.webp"
+  },
+  "single-arm-cable-crossover": {
+    "video": "exercise-media/single-arm-cable-crossover/video-v1/demo.mp4",
+    "poster": "exercise-media/single-arm-cable-crossover/video-v1/poster.webp"
+  },
+  "single-arm-dumbbell-curl": {
+    "video": "exercise-media/single-arm-dumbbell-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/single-arm-dumbbell-curl/video-v1/poster.webp"
+  },
+  "single-arm-push-up": {
+    "video": "exercise-media/single-arm-push-up/video-v1/demo.mp4",
+    "poster": "exercise-media/single-arm-push-up/video-v1/poster.webp"
+  },
+  "single-leg-high-box-squat": {
+    "video": "exercise-media/single-leg-high-box-squat/video-v1/demo.mp4",
+    "poster": "exercise-media/single-leg-high-box-squat/video-v1/poster.webp"
+  },
+  "sit-squats": {
+    "video": "exercise-media/sit-squats/video-v1/demo.mp4",
+    "poster": "exercise-media/sit-squats/video-v1/poster.webp"
+  },
+  "sit-up": {
+    "video": "exercise-media/sit-up/video-v1/demo.mp4",
+    "poster": "exercise-media/sit-up/video-v1/poster.webp"
+  },
+  "skating": {
+    "video": "exercise-media/skating/video-v1/demo.mp4",
+    "poster": "exercise-media/skating/video-v1/poster.webp"
+  },
+  "single-arm-machine-biceps-curl": {
+    "video": "exercise-media/single-arm-machine-biceps-curl/video-v3/demo.mp4",
+    "poster": "exercise-media/single-arm-machine-biceps-curl/video-v3/poster.webp"
+  },
+  "single-arm-triceps-extension-machine": {
+    "video": "exercise-media/single-arm-triceps-extension-machine/video-v4/demo.mp4",
+    "poster": "exercise-media/single-arm-triceps-extension-machine/video-v4/poster.webp"
+  },
+  "sliding-leg-curl": {
+    "video": "exercise-media/sliding-leg-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/sliding-leg-curl/video-v1/poster.webp"
+  },
+  "slow-eccentric-leg-press-toe-press": {
+    "video": "exercise-media/slow-eccentric-leg-press-toe-press/video-v1/demo.mp4",
+    "poster": "exercise-media/slow-eccentric-leg-press-toe-press/video-v1/poster.webp"
+  },
+  "smith-machine-behind-the-back-shrug": {
+    "video": "exercise-media/smith-machine-behind-the-back-shrug/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-machine-behind-the-back-shrug/video-v1/poster.webp"
+  },
+  "smith-machine-close-grip-bench-press": {
+    "video": "exercise-media/smith-machine-close-grip-bench-press/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-machine-close-grip-bench-press/video-v1/poster.webp"
+  },
+  "smith-machine-decline-press": {
+    "video": "exercise-media/smith-machine-decline-press/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-machine-decline-press/video-v1/poster.webp"
+  },
+  "smith-machine-bent-over-row": {
+    "video": "exercise-media/smith-machine-bent-over-row/video-v2/demo.mp4",
+    "poster": "exercise-media/smith-machine-bent-over-row/video-v2/poster.webp"
   }
 }

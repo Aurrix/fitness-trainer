@@ -1,0 +1,20 @@
+{
+  "id": "singlelegglutebridgestraight-bodyweight",
+  "displayLabel": "Single Leg Glute Bridge Straight Leg (bodyweight)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "bodyweight"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "gluteal",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sidehipabductor-bodyweight",
+  "displayLabel": "Side Hip Abductor (bodyweight)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "bodyweight"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "abductors",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

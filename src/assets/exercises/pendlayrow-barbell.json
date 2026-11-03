@@ -1,0 +1,41 @@
+{
+  "id": "pendlayrow-barbell",
+  "displayLabel": "Pendlay Row (barbell)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "barbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rearDelts",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "rotatorCuff",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "upperBack",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "chest",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

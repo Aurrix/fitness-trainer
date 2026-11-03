@@ -1,0 +1,49 @@
+{
+  "id": "seatedrow-cable",
+  "displayLabel": "Seated Row (cable)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "cable"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "upperBack",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "rearDelts",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lowerBack",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "rotatorCuff",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "chest",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lats",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}

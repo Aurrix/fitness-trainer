@@ -5,7 +5,7 @@ import path from 'node:path'
 // Throwing exports make accidental use fail explicitly rather than silently changing training rules.
 const boundaries = /\/(ducks\/thunks|models\/(state|editProgram)|api\/service|migrations\/migrations|utils\/(dialog|exporter|liveActivityManager|log))$/
 const excluded = new Set()
-await build({entryPoints:['scripts/program-import/entry.ts'],bundle:true,format:'esm',platform:'browser',outfile:'tests/reference/liftosaur.mjs',logLimit:5,banner:{js:'/* Liftosaur interpreter, AGPL-3.0. Upstream commit 421ca47fc13031c5c1df894055525cf96e45a18c. See LICENSE.txt and third-party/liftosaur/NOTICE.txt. */'},define:{__HOST__:'""',__ENV__:'"local"',__VERSION__:'"local"',__COMMIT_HASH__:'"421ca47"'},treeShaking:true,plugins:[{name:'headless-boundaries',setup(b){
+await build({entryPoints:['scripts/program-import/entry.ts'],bundle:true,format:'esm',platform:'browser',outfile:'tests/reference/program.mjs',logLimit:5,banner:{js:'/* program interpreter, AGPL-3.0. Upstream commit 421ca47fc13031c5c1df894055525cf96e45a18c. See LICENSE.txt and third-party/program/NOTICE.txt. */'},define:{__HOST__:'""',__ENV__:'"local"',__VERSION__:'"local"',__COMMIT_HASH__:'"421ca47"'},treeShaking:true,plugins:[{name:'headless-boundaries',setup(b){
  b.onResolve({filter:/.*/},args=>{
   if(!args.path.startsWith('.')) return
   const absolute=path.resolve(args.resolveDir,args.path)
@@ -19,4 +19,4 @@ await build({entryPoints:['scripts/program-import/entry.ts'],bundle:true,format:
 }}]})
 writeFileSync('scripts/program-import/headless-boundaries.json',JSON.stringify([...excluded].sort(),null,2)+'\n')
 
-copyFileSync('third-party/liftosaur/LICENSE','tests/reference/LICENSE.txt')
+copyFileSync('third-party/program/LICENSE','tests/reference/LICENSE.txt')

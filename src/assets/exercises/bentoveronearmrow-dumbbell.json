@@ -1,0 +1,45 @@
+{
+  "id": "bentoveronearmrow-dumbbell",
+  "displayLabel": "Bent Over One Arm Row (dumbbell)",
+  "shortDescription": "Exercise variant referenced by the program program catalog.",
+  "equipment": [
+    "dumbbell"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "lats",
+      "factor": 1
+    },
+    {
+      "muscleGroup": "upperBack",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "rotatorCuff",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "lats",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "biceps",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "rearDelts",
+      "factor": 0.5
+    },
+    {
+      "muscleGroup": "chest",
+      "factor": 0.5
+    }
+  ],
+  "aliases": [],
+  "tags": [
+    "AGPL-3.0"
+  ],
+  "license": "AGPL-3.0"
+}
