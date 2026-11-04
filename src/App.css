@@ -6313,3 +6313,113 @@ button.trend-tile:hover,
 .next-time-picker__option.is-selected[data-progression=increase] { color: #27643d; background: #e1f0e4; }
 .next-time-picker__option.is-selected[data-progression=hold] { color: #214e75; background: #e1ecf5; }
 .next-time-picker__option.is-selected[data-progression=decrease] { color: #92431f; background: #ffe8d8; }
+
+/* Compact combined target and logged-work coverage for the workout day. */
+.workout-muscles { padding: 14px; }
+.workout-muscles .section-header { margin-bottom: 10px; gap: 6px; }
+.workout-muscles .visualizer-header__copy h3 { font-size: 17px; }
+.workout-muscles .visualizer-header__copy .kicker { font-size: 10px; }
+.workout-muscles .workout-day-nav-group { gap: 3px; }
+.workout-muscles .workout-visualizer-toolbar__button { width: 30px; min-width: 30px; height: 32px; min-height: 32px; }
+.workout-muscles__panel { position: relative; padding: 24px 8px 8px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(120deg, #f4f5f4, #fffaf4); }
+.workout-muscles__zoom { position: absolute; right: 3px; top: 1px; width: 32px; min-width: 32px; height: 32px; min-height: 32px; padding: 0; z-index: 1; }
+.workout-muscles__zoom > svg { flex-shrink: 0; }
+.workout-muscles__coverage { display: grid; grid-template-columns: minmax(0, 42fr) minmax(0, 58fr); align-items: center; gap: 8px; }
+.workout-muscles__maps { display: flex; min-width: 0; justify-content: center; align-items: center; }
+.workout-muscles__maps > svg { display: block; width: 50%; height: 140px; cursor: pointer; }
+.workout-muscles__summary { min-width: 0; }
+.workout-muscles__rows { display: grid; gap: 2px; }
+.workout-muscles__row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 5px; width: 100%; min-height: 32px; text-align: left; padding: 3px 0; background: none; color: var(--ink-strong); border: 0; cursor: pointer; font: inherit; font-size: 11px; font-weight: 600; }
+.workout-muscles__segments { display: flex; gap: 2px; }
+.workout-muscles__segments i { display: block; flex: 1; height: 5px; border-radius: 3px; }
+.workout-muscles__legend { display: flex; flex-wrap: wrap; gap: 4px 8px; margin-top: 7px; font-size: 9px; color: var(--muted); }
+.workout-muscles__legend > span { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 3px; }
+.workout-muscles__legend i { display: inline-block; width: 12px; height: 9px; border-radius: 3px; }
+.workout-muscles__target-swatch { background: linear-gradient(90deg, #fff0b3, #efc34c); }
+.workout-muscles__worked-swatch { background: linear-gradient(90deg, #9fd3ff, #2f8cff, #f97341, #9a3412); }
+.workout-muscles__more { border: 0; background: none; color: var(--accent-strong); font: inherit; font-size: 10px; padding: 7px 0 0; cursor: pointer; }
+.workout-muscles-dialog { box-sizing: border-box; position: fixed; inset: 0; width: 100%; max-width: none; height: 100%; height: 100dvh; max-height: none; margin: 0; padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); border: 0; background: #f8f3eb; color: var(--ink-strong); overflow: auto; }
+.workout-muscles-dialog::backdrop { background: #172b40a6; }
+.workout-muscles-dialog > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.workout-muscles-dialog h2 { margin: 0; }
+.workout-muscles-dialog .workout-muscles__coverage { max-width: 1000px; margin: 24px auto; }
+.workout-muscles-dialog .workout-muscles__maps > svg { height: min(70dvh, 650px); }
+.workout-muscles-dialog .workout-muscles__row { font-size: 14px; min-height: 44px; padding: 8px 0; }
+.workout-muscles-dialog .workout-muscles__segments i { height: 8px; }
+.workout-muscles-dialog .workout-muscles__legend { font-size: 12px; }
+.workout-exercise-cards .workout-table tbody tr.is-up-next .workout-table__title-button { padding-block: 14px; }
+.workout-exercise-cards .is-up-next .workout-table__title-label { font-size: 15px; }
+@media (min-width: 600px) {
+  .workout-muscles__maps > svg { height: 160px; }
+  .workout-muscles__row { grid-template-columns: minmax(90px, 1fr) minmax(0, 2fr); align-items: center; font-size: 13px; min-height: 40px; }
+  .workout-muscles__legend { font-size: 11px; }
+}
+@media (max-width: 480px) {
+  .workout-muscles-dialog .workout-muscles__coverage { grid-template-columns: 1fr; }
+  .workout-muscles-dialog .workout-muscles__maps > svg { width: 45%; height: 42dvh; }
+}
+
+/* Keep session title, day navigation, progress and coverage in one card. */
+.workout-muscles .floating-session-bar__panel--embedded {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+.workout-muscles > .floating-session-bar__panel--embedded:first-child {
+    margin-bottom: 14px;
+}
+.workout-muscles .floating-session-bar__progress-row {
+    margin: 0 0 12px;
+}
+.workout-muscles .floating-session-bar__panel--embedded.has-rest-timer {
+    border-radius: 10px;
+    background: rgba(249, 138, 75, 0.08);
+}
+
+/* Keep the current exercise demonstration large even when its sets are collapsed. */
+.workout-compact:not(.is-reordering) .is-up-next:has(.program-exercise-preview) .workout-table__title-row {
+    --current-video-size: clamp(96px, 30vw, 132px);
+    display: grid;
+    grid-template-columns: 20px var(--current-video-size) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 8px;
+    row-gap: 0;
+    align-items: center;
+}
+.workout-compact:not(.is-reordering) .is-up-next:has(.program-exercise-preview) .workout-table__drag-handle {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 20px;
+    min-width: 20px;
+}
+.workout-compact:not(.is-reordering) .is-up-next .program-exercise-preview {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    width: var(--current-video-size);
+    height: var(--current-video-size);
+    border-radius: 14px;
+}
+.workout-compact:not(.is-reordering) .is-up-next .program-exercise-preview > video {
+    object-fit: contain;
+    transform: none;
+}
+.workout-compact:not(.is-reordering) .is-up-next:has(.program-exercise-preview) .workout-table__title-button {
+    grid-column: 3;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 16px;
+    padding-block: 4px;
+    align-self: end;
+}
+.workout-compact:not(.is-reordering) .is-up-next:has(.program-exercise-preview) .workout-card__copy {
+    grid-column: 1 / -1;
+}
+.workout-compact:not(.is-reordering) .is-up-next:has(.program-exercise-preview) .workout-table__row-controls {
+    grid-column: 3;
+    grid-row: 2;
+    align-self: start;
+    flex-wrap: wrap;
+}

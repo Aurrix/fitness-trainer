@@ -10,7 +10,7 @@ import {
 } from 'lucide-react'
 import BottomSheet from '../components/BottomSheet'
 import FloatingSessionBar from '../components/FloatingSessionBar'
-import MuscleVisualizer from '../components/MuscleVisualizer'
+import WorkoutMuscleSummary from '../components/WorkoutMuscleSummary'
 import WorkoutDayPickerSheet from '../components/WorkoutDayPickerSheet'
 import WorkoutExercisePickerSheet from '../components/WorkoutExercisePickerSheet'
 import WorkoutExerciseTable, {
@@ -296,18 +296,6 @@ export default function WorkoutPage({
     warningNotified: false,
     timerId: null,
   })
-  const defaultMuscleView = isSelectedWorkoutActive ? 'completed' : 'planned'
-  const muscleViewKey = `${selectedWorkoutSection?.id ?? 'none'}:${defaultMuscleView}`
-  const [muscleViewState, setMuscleViewState] = useState<{
-    key: string
-    value: 'completed' | 'planned'
-  }>({
-    key: muscleViewKey,
-    value: defaultMuscleView,
-  })
-  const muscleView =
-    muscleViewState.key === muscleViewKey ? muscleViewState.value : defaultMuscleView
-  const visibleMuscleView = muscleView === 'completed' ? 'completed' : 'planned'
   const workoutDayLabel = useMemo(() => {
     if (!selectedWorkoutDay) {
       return null
@@ -845,7 +833,6 @@ export default function WorkoutPage({
     isSelectedWorkoutActive,
     resolveExerciseForDisplay,
   ])
-  const canShowCoveredMuscles = Boolean(displayWorkout)
 
   function dismissRestTimer() {
     setRestTimerSession(null)
@@ -974,17 +961,6 @@ export default function WorkoutPage({
 
   return (
     <>
-      <FloatingSessionBar
-        completedExerciseCount={handledPlannedExerciseCount}
-        completionRatio={completionRatio}
-        isSelectedWorkoutActive={isSelectedWorkoutActive}
-        launchProgram={launchProgram}
-        onDismissRestTimer={dismissRestTimer}
-        restTimer={restTimerView}
-        selectedWorkoutSectionName={selectedWorkoutSection.shortName || selectedWorkoutSection.name}
-        totalExerciseCount={displayedWorkoutPlannedExercises.length}
-      />
-
       {startThisDayAction || !activeWorkout ? (
         <div className="workout-day-action-row">
           {startThisDayAction ? (
@@ -1013,142 +989,109 @@ export default function WorkoutPage({
       ) : null}
       {activeWorkout && !isSelectedWorkoutActive ? <p className="workout-day-preview-hint" role="status">Previewing another day. Your active workout on {activeWorkout.sectionName} is still in progress.</p> : null}
 
-      <MuscleVisualizer
-        centerHeader
-        compact
-        className="workout-day-visualizer workout-day-visualizer--focused"
-        detailSheetDescription={
-          visibleMuscleView === 'completed'
-            ? 'All muscle groups hit by exercises already logged or completed during this day.'
-            : 'All muscle groups targeted by the current exercise list for this day.'
-        }
-        detailsMode="sheet"
-        gender={fitnessProfile.gender}
-        headerLeading={
-          <div className="workout-day-nav-group">
-            <button
-              type="button"
-              className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
-              onClick={() => selectAdjacentWorkoutDay(previousWorkoutDay)}
-              disabled={!previousWorkoutDay}
-              aria-label={
-                previousWorkoutDay
-                  ? `Go to previous day: ${previousWorkoutDay.weekLabel} / ${previousWorkoutDay.dayLabel}`
-                  : 'No previous workout day'
-              }
-              title={
-                previousWorkoutDay
-                  ? `Previous: ${previousWorkoutDay.weekLabel} / ${previousWorkoutDay.dayLabel}`
-                  : 'No previous day'
-              }
-            >
-              <ChevronLeft size={15} />
-            </button>
-            <button
-              type="button"
-              className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
-              onClick={() => setPickerMode('weeks')}
-              aria-label="Choose week"
-              title="Choose week"
-            >
-              <CalendarRange size={15} />
-            </button>
-          </div>
-        }
-        headerTrailing={
-          <div className="workout-day-nav-group">
-            <button
-              type="button"
-              className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
-              onClick={() => setPickerMode('days')}
-              aria-label="Choose day"
-              title="Choose day"
-            >
-              <CalendarDays size={15} />
-            </button>
-            <button
-              type="button"
-              className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
-              onClick={() => selectAdjacentWorkoutDay(nextWorkoutDay)}
-              disabled={!nextWorkoutDay}
-              aria-label={
-                nextWorkoutDay
-                  ? `Go to next day: ${nextWorkoutDay.weekLabel} / ${nextWorkoutDay.dayLabel}`
-                  : 'No next workout day'
-              }
-              title={
-                nextWorkoutDay
-                  ? `Next: ${nextWorkoutDay.weekLabel} / ${nextWorkoutDay.dayLabel}`
-                  : 'No next day'
-              }
-            >
-              <ChevronRight size={15} />
-            </button>
-          </div>
-        }
-        kicker={workoutDayLabel ?? 'Workout muscles'}
-        intensityLegendLabel="Very light blue means lighter relative activation in this day view, while darker blue through dark orange highlights higher weighted work."
-        onSelectMuscle={(slug) => {
-          console.debug('[WorkoutPage] onSelectMuscle received', {
-            isSelectedWorkoutActive,
-            slug,
-            workoutDayLabel,
-          })
+      <FloatingSessionBar
+        completedExerciseCount={handledPlannedExerciseCount}
+        completionRatio={completionRatio}
+        isSelectedWorkoutActive={isSelectedWorkoutActive}
+        launchProgram={launchProgram}
+        onDismissRestTimer={dismissRestTimer}
+        restTimer={restTimerView}
+        selectedWorkoutSectionName={selectedWorkoutSection.shortName || selectedWorkoutSection.name}
+        totalExerciseCount={displayedWorkoutPlannedExercises.length}
+        renderContent={(sessionTitle, sessionProgress) => (
+          <WorkoutMuscleSummary
+            sessionTitle={sessionTitle}
+            sessionProgress={sessionProgress}
+            gender={fitnessProfile.gender}
+            headerLeading={
+              <div className="workout-day-nav-group">
+                <button
+                  type="button"
+                  className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
+                  onClick={() => selectAdjacentWorkoutDay(previousWorkoutDay)}
+                  disabled={!previousWorkoutDay}
+                  aria-label={
+                    previousWorkoutDay
+                      ? `Go to previous day: ${previousWorkoutDay.weekLabel} / ${previousWorkoutDay.dayLabel}`
+                      : 'No previous workout day'
+                  }
+                  title={
+                    previousWorkoutDay
+                      ? `Previous: ${previousWorkoutDay.weekLabel} / ${previousWorkoutDay.dayLabel}`
+                      : 'No previous day'
+                  }
+                >
+                  <ChevronLeft size={15} />
+                </button>
+                <button
+                  type="button"
+                  className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
+                  onClick={() => setPickerMode('weeks')}
+                  aria-label="Choose week"
+                  title="Choose week"
+                >
+                  <CalendarRange size={15} />
+                </button>
+              </div>
+            }
+            headerTrailing={
+              <div className="workout-day-nav-group">
+                <button
+                  type="button"
+                  className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
+                  onClick={() => setPickerMode('days')}
+                  aria-label="Choose day"
+                  title="Choose day"
+                >
+                  <CalendarDays size={15} />
+                </button>
+                <button
+                  type="button"
+                  className="chip-button icon-button workout-visualizer-toolbar__button workout-visualizer-toolbar__button--round"
+                  onClick={() => selectAdjacentWorkoutDay(nextWorkoutDay)}
+                  disabled={!nextWorkoutDay}
+                  aria-label={
+                    nextWorkoutDay
+                      ? `Go to next day: ${nextWorkoutDay.weekLabel} / ${nextWorkoutDay.dayLabel}`
+                      : 'No next workout day'
+                  }
+                  title={
+                    nextWorkoutDay
+                      ? `Next: ${nextWorkoutDay.weekLabel} / ${nextWorkoutDay.dayLabel}`
+                      : 'No next day'
+                  }
+                >
+                  <ChevronRight size={15} />
+                </button>
+              </div>
+            }
+            kicker={workoutDayLabel ?? 'Workout muscles'}
+            onSelectMuscle={(slug) => {
+              console.debug('[WorkoutPage] onSelectMuscle received', {
+                isSelectedWorkoutActive,
+                slug,
+                workoutDayLabel,
+              })
 
-          if (!isSelectedWorkoutActive) {
-            console.debug('[WorkoutPage] ignoring selected muscle because workout is not active', {
-              slug,
-              workoutDayLabel,
-            })
-            return
-          }
+              if (!isSelectedWorkoutActive) {
+                console.debug('[WorkoutPage] ignoring selected muscle because workout is not active', {
+                  slug,
+                  workoutDayLabel,
+                })
+                return
+              }
 
-          console.debug('[WorkoutPage] opening quick add sheet for muscle', {
-            matchCount: quickAddExercises.length,
-            slug,
-            workoutDayLabel,
-          })
-          setSelectedQuickAddMuscle(slug)
-        }}
-        showIntensityLegend
-        showSheetPreview={false}
-        toolbar={
-          <div className="workout-visualizer-toolbar">
-            <div className="segmented-control segmented-control--two workout-coverage-toggle">
-              <button
-                type="button"
-                className={visibleMuscleView === 'planned' ? 'is-active' : ''}
-                onClick={() =>
-                  setMuscleViewState({
-                    key: muscleViewKey,
-                    value: 'planned',
-                  })
-                }
-              >
-                All targeted
-              </button>
-              <button
-                type="button"
-                className={visibleMuscleView === 'completed' ? 'is-active' : ''}
-                onClick={() =>
-                  setMuscleViewState({
-                    key: muscleViewKey,
-                    value: 'completed',
-                  })
-                }
-                disabled={!canShowCoveredMuscles}
-              >
-                Covered so far
-              </button>
-            </div>
-          </div>
-        }
-        profile={
-          visibleMuscleView === 'completed'
-            ? displayedWorkoutCoveredProfile
-            : displayedWorkoutTargetProfile
-        }
-        title={visibleMuscleView === 'completed' ? 'Covered muscles' : 'Target muscles'}
+              console.debug('[WorkoutPage] opening quick add sheet for muscle', {
+                matchCount: quickAddExercises.length,
+                slug,
+                workoutDayLabel,
+              })
+              setSelectedQuickAddMuscle(slug)
+            }}
+            targetProfile={displayedWorkoutTargetProfile}
+            workedProfile={displayedWorkoutCoveredProfile}
+          />
+        )}
       />
 
       <WorkoutExerciseTable

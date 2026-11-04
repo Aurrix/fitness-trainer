@@ -3,6 +3,7 @@ import {
   useRef,
   useState,
   type CSSProperties,
+  type ReactNode,
 } from 'react'
 import { Activity, CheckCircle2, CirclePlay, TimerReset, X } from 'lucide-react'
 import type { Program } from '../lib/content'
@@ -17,6 +18,7 @@ type RestTimerView = {
 }
 
 type FloatingSessionBarProps = {
+  renderContent?: (title: ReactNode, progress: ReactNode) => ReactNode
   completedExerciseCount: number
   completionRatio: number
   isSelectedWorkoutActive: boolean
@@ -28,6 +30,7 @@ type FloatingSessionBarProps = {
 }
 
 export default function FloatingSessionBar({
+  renderContent,
   completedExerciseCount,
   completionRatio,
   isSelectedWorkoutActive,
@@ -107,100 +110,105 @@ export default function FloatingSessionBar({
     }
   }, [visibleTitle])
 
-  return (
-    <section className="floating-session-bar">
-      <div
-        className={`floating-session-bar__panel ${
-          isRestTimerVisible ? 'has-rest-timer' : ''
-        } ${restTimer?.isWarning ? 'is-warning' : ''} ${restTimer?.isComplete ? 'is-rest-complete' : ''}`}
+  const titleContent = (
+    <div className="floating-session-bar__topline">
+      <span
+        className={`floating-session-bar__icon ${
+          isRestTimerVisible
+            ? restTimer?.isComplete
+              ? 'is-complete'
+              : restTimer?.isWarning
+                ? 'is-warning'
+                : 'is-resting'
+            : isSelectedWorkoutActive
+              ? completionRatio >= 100
+                ? 'is-complete'
+                : 'is-active'
+              : 'is-idle'
+        }`}
+        aria-hidden="true"
       >
-        <div className="floating-session-bar__topline">
-          <span
-            className={`floating-session-bar__icon ${
-              isRestTimerVisible
-                ? restTimer?.isComplete
-                  ? 'is-complete'
-                  : restTimer?.isWarning
-                    ? 'is-warning'
-                    : 'is-resting'
-                : isSelectedWorkoutActive
-                  ? completionRatio >= 100
-                    ? 'is-complete'
-                    : 'is-active'
-                : 'is-idle'
-            }`}
-            aria-hidden="true"
-          >
-            <StatusIcon size={16} />
+        <StatusIcon size={16} />
+      </span>
+
+      <div className="floating-session-bar__copy">
+        {restTimer ? (
+          <span className="floating-session-bar__eyebrow">
+            {restTimer.isComplete ? 'Rest complete' : `Rest after set ${restTimer.setNumber}`}
           </span>
-
-          <div className="floating-session-bar__copy">
-            {restTimer ? (
-              <span className="floating-session-bar__eyebrow">
-                {restTimer.isComplete ? 'Rest complete' : `Rest after set ${restTimer.setNumber}`}
-              </span>
-            ) : null}
-            <div className="floating-session-bar__title-viewport" ref={titleViewportRef}>
-              {marqueeState.isOverflowing ? (
-                <div
-                  className="floating-session-bar__title-track is-marquee"
-                  style={
-                    {
-                      '--marquee-distance': `${marqueeState.distance}px`,
-                    } as CSSProperties
-                  }
-                >
-                  <span ref={titleContentRef} className="floating-session-bar__title-copy">
-                    {visibleTitle}
-                  </span>
-                  <span
-                    className="floating-session-bar__title-gap"
-                    aria-hidden="true"
-                  >
-                    /
-                  </span>
-                  <span className="floating-session-bar__title-copy" aria-hidden="true">
-                    {visibleTitle}
-                  </span>
-                </div>
-              ) : (
-                <strong ref={titleContentRef}>{visibleTitle}</strong>
-              )}
-            </div>
-          </div>
-
-          {restTimer && onDismissRestTimer ? (
-            <button
-              type="button"
-              className="floating-session-bar__dismiss"
-              onClick={onDismissRestTimer}
-              aria-label="Dismiss rest timer"
-              title="Dismiss rest timer"
+        ) : null}
+        <div className="floating-session-bar__title-viewport" ref={titleViewportRef}>
+          {marqueeState.isOverflowing ? (
+            <div
+              className="floating-session-bar__title-track is-marquee"
+              style={
+                {
+                  '--marquee-distance': `${marqueeState.distance}px`,
+                } as CSSProperties
+              }
             >
-              <X size={14} />
-            </button>
-          ) : null}
-        </div>
-
-        <div className="floating-session-bar__progress-row">
-          <strong className="floating-session-bar__fraction">
-            {restTimer ? restTimer.remainingLabel : `${progressNumerator}/${progressDenominator}`}
-          </strong>
-          <div className="meter floating-session-bar__meter" aria-hidden="true">
-            <span
-              style={{
-                width: `${
-                  restTimer
-                    ? Math.min(100, Math.max(0, restTimer.totalProgressPercent))
-                    : isSelectedWorkoutActive
-                      ? completionRatio
-                      : 0
-                }%`,
-              }}
-            ></span>
-          </div>
+              <span ref={titleContentRef} className="floating-session-bar__title-copy">
+                {visibleTitle}
+              </span>
+              <span
+                className="floating-session-bar__title-gap"
+                aria-hidden="true"
+              >
+                /
+              </span>
+              <span className="floating-session-bar__title-copy" aria-hidden="true">
+                {visibleTitle}
+              </span>
+            </div>
+          ) : (
+            <strong ref={titleContentRef}>{visibleTitle}</strong>
+          )}
         </div>
       </div>
-    </section>
+
+      {restTimer && onDismissRestTimer ? (
+        <button
+          type="button"
+          className="floating-session-bar__dismiss"
+          onClick={onDismissRestTimer}
+          aria-label="Dismiss rest timer"
+          title="Dismiss rest timer"
+        >
+          <X size={14} />
+        </button>
+      ) : null}
+    </div>
   )
+  const progressContent = (
+    <div className="floating-session-bar__progress-row">
+      <strong className="floating-session-bar__fraction">
+        {restTimer ? restTimer.remainingLabel : `${progressNumerator}/${progressDenominator}`}
+      </strong>
+      <div className="meter floating-session-bar__meter" aria-hidden="true">
+        <span
+          style={{
+            width: `${
+              restTimer
+                ? Math.min(100, Math.max(0, restTimer.totalProgressPercent))
+                : isSelectedWorkoutActive
+                  ? completionRatio
+                  : 0
+            }%`,
+          }}
+        ></span>
+      </div>
+    </div>
+  )
+  const panelClassName = `floating-session-bar__panel ${isRestTimerVisible ? 'has-rest-timer' : ''} ${restTimer?.isWarning ? 'is-warning' : ''} ${restTimer?.isComplete ? 'is-rest-complete' : ''}`
+
+  if (renderContent) {
+    return renderContent(
+      <div className={`${panelClassName} floating-session-bar__panel--embedded`}>{titleContent}</div>,
+      <div className={`${panelClassName} floating-session-bar__panel--embedded`}>{progressContent}</div>,
+    )
+  }
+
+  return <section className="floating-session-bar">
+    <div className={panelClassName}>{titleContent}{progressContent}</div>
+  </section>
 }

@@ -4650,5 +4650,397 @@
   "smith-machine-bent-over-row": {
     "video": "exercise-media/smith-machine-bent-over-row/video-v2/demo.mp4",
     "poster": "exercise-media/smith-machine-bent-over-row/video-v2/poster.webp"
+  },
+  "smith-machine-hang-power-clean": {
+    "video": "exercise-media/smith-machine-hang-power-clean/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-machine-hang-power-clean/video-v1/poster.webp"
+  },
+  "smith-machine-hip-raise": {
+    "video": "exercise-media/smith-machine-hip-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-machine-hip-raise/video-v1/poster.webp"
+  },
+  "smith-machine-one-arm-upright-row": {
+    "video": "exercise-media/smith-machine-one-arm-upright-row/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-machine-one-arm-upright-row/video-v1/poster.webp"
+  },
+  "smith-machine-overhead-shoulder-press": {
+    "video": "exercise-media/smith-machine-overhead-shoulder-press/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-machine-overhead-shoulder-press/video-v1/poster.webp"
+  },
+  "smith-machine-split-squat": {
+    "video": "exercise-media/smith-machine-split-squat/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-machine-split-squat/video-v1/poster.webp"
+  },
+  "smith-machine-incline-bench-press": {
+    "video": "exercise-media/smith-machine-incline-bench-press/video-v2/demo.mp4",
+    "poster": "exercise-media/smith-machine-incline-bench-press/video-v2/poster.webp"
+  },
+  "smith-machine-pistol-squat": {
+    "video": "exercise-media/smith-machine-pistol-squat/video-v2/demo.mp4",
+    "poster": "exercise-media/smith-machine-pistol-squat/video-v2/poster.webp"
+  },
+  "smith-machine-squat": {
+    "video": "exercise-media/smith-machine-squat/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-machine-squat/video-v1/poster.webp"
+  },
+  "smith-machine-upright-row": {
+    "video": "exercise-media/smith-machine-upright-row/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-machine-upright-row/video-v1/poster.webp"
+  },
+  "smith-single-leg-split-squat": {
+    "video": "exercise-media/smith-single-leg-split-squat/video-v1/demo.mp4",
+    "poster": "exercise-media/smith-single-leg-split-squat/video-v1/poster.webp"
+  },
+  "snatch-deadlift": {
+    "video": "exercise-media/snatch-deadlift/video-v1/demo.mp4",
+    "poster": "exercise-media/snatch-deadlift/video-v1/poster.webp"
+  },
+  "snatch-pull": {
+    "video": "exercise-media/snatch-pull/video-v1/demo.mp4",
+    "poster": "exercise-media/snatch-pull/video-v1/poster.webp"
+  },
+  "snatch": {
+    "video": "exercise-media/snatch/video-v2/demo.mp4",
+    "poster": "exercise-media/snatch/video-v2/poster.webp"
+  },
+  "snatch-balance": {
+    "video": "exercise-media/snatch-balance/video-v3/demo.mp4",
+    "poster": "exercise-media/snatch-balance/video-v3/poster.webp"
+  },
+  "snatch-from-blocks": {
+    "video": "exercise-media/snatch-from-blocks/video-v2/demo.mp4",
+    "poster": "exercise-media/snatch-from-blocks/video-v2/poster.webp"
+  },
+  "speed-band-overhead-triceps": {
+    "video": "exercise-media/speed-band-overhead-triceps/video-v2/demo.mp4",
+    "poster": "exercise-media/speed-band-overhead-triceps/video-v2/poster.webp"
+  },
+  "speed-box-squat": {
+    "video": "exercise-media/speed-box-squat/video-v2/demo.mp4",
+    "poster": "exercise-media/speed-box-squat/video-v2/poster.webp"
+  },
+  "speed-squats": {
+    "video": "exercise-media/speed-squats/video-v2/demo.mp4",
+    "poster": "exercise-media/speed-squats/video-v2/poster.webp"
+  },
+  "spell-caster": {
+    "video": "exercise-media/spell-caster/video-v1/demo.mp4",
+    "poster": "exercise-media/spell-caster/video-v1/poster.webp"
+  },
+  "spider-curl": {
+    "video": "exercise-media/spider-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/spider-curl/video-v1/poster.webp"
+  },
+  "split-clean": {
+    "video": "exercise-media/split-clean/video-v2/demo.mp4",
+    "poster": "exercise-media/split-clean/video-v2/poster.webp"
+  },
+  "split-jerk": {
+    "video": "exercise-media/split-jerk/video-v2/demo.mp4",
+    "poster": "exercise-media/split-jerk/video-v2/poster.webp"
+  },
+  "split-jump": {
+    "video": "exercise-media/split-jump/video-v2/demo.mp4",
+    "poster": "exercise-media/split-jump/video-v2/poster.webp"
+  },
+  "split-squat-with-dumbbells": {
+    "video": "exercise-media/split-squat-with-dumbbells/video-v1/demo.mp4",
+    "poster": "exercise-media/split-squat-with-dumbbells/video-v1/poster.webp"
+  },
+  "squat-with-bands": {
+    "video": "exercise-media/squat-with-bands/video-v1/demo.mp4",
+    "poster": "exercise-media/squat-with-bands/video-v1/poster.webp"
+  },
+  "squat-with-chains": {
+    "video": "exercise-media/squat-with-chains/video-v1/demo.mp4",
+    "poster": "exercise-media/squat-with-chains/video-v1/poster.webp"
+  },
+  "squats-with-bands": {
+    "video": "exercise-media/squats-with-bands/video-v1/demo.mp4",
+    "poster": "exercise-media/squats-with-bands/video-v1/poster.webp"
+  },
+  "split-snatch": {
+    "video": "exercise-media/split-snatch/video-v2/demo.mp4",
+    "poster": "exercise-media/split-snatch/video-v2/poster.webp"
+  },
+  "squat-jerk": {
+    "video": "exercise-media/squat-jerk/video-v2/demo.mp4",
+    "poster": "exercise-media/squat-jerk/video-v2/poster.webp"
+  },
+  "standing-alternating-dumbbell-press": {
+    "video": "exercise-media/standing-alternating-dumbbell-press/video-v2/demo.mp4",
+    "poster": "exercise-media/standing-alternating-dumbbell-press/video-v2/poster.webp"
+  },
+  "standing-barbell-calf-raise": {
+    "video": "exercise-media/standing-barbell-calf-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-barbell-calf-raise/video-v1/poster.webp"
+  },
+  "standing-barbell-press-behind-neck": {
+    "video": "exercise-media/standing-barbell-press-behind-neck/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-barbell-press-behind-neck/video-v1/poster.webp"
+  },
+  "standing-bent-over-one-arm-dumbbell-triceps-extension": {
+    "video": "exercise-media/standing-bent-over-one-arm-dumbbell-triceps-extension/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-bent-over-one-arm-dumbbell-triceps-extension/video-v1/poster.webp"
+  },
+  "standing-bent-over-two-arm-dumbbell-triceps-extension": {
+    "video": "exercise-media/standing-bent-over-two-arm-dumbbell-triceps-extension/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-bent-over-two-arm-dumbbell-triceps-extension/video-v1/poster.webp"
+  },
+  "standing-biceps-cable-curl": {
+    "video": "exercise-media/standing-biceps-cable-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-biceps-cable-curl/video-v1/poster.webp"
+  },
+  "standing-cable-chest-press": {
+    "video": "exercise-media/standing-cable-chest-press/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-cable-chest-press/video-v1/poster.webp"
+  },
+  "standing-cable-hip-abduction": {
+    "video": "exercise-media/standing-cable-hip-abduction/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-cable-hip-abduction/video-v1/poster.webp"
+  },
+  "standing-bradford-press": {
+    "video": "exercise-media/standing-bradford-press/video-v2/demo.mp4",
+    "poster": "exercise-media/standing-bradford-press/video-v2/poster.webp"
+  },
+  "standing-cable-lift": {
+    "video": "exercise-media/standing-cable-lift/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-cable-lift/video-v1/poster.webp"
+  },
+  "standing-cable-wood-chop": {
+    "video": "exercise-media/standing-cable-wood-chop/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-cable-wood-chop/video-v1/poster.webp"
+  },
+  "standing-calf-raises": {
+    "video": "exercise-media/standing-calf-raises/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-calf-raises/video-v1/poster.webp"
+  },
+  "standing-concentration-curl": {
+    "video": "exercise-media/standing-concentration-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-concentration-curl/video-v1/poster.webp"
+  },
+  "standing-dumbbell-calf-raise": {
+    "video": "exercise-media/standing-dumbbell-calf-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-dumbbell-calf-raise/video-v1/poster.webp"
+  },
+  "standing-dumbbell-press": {
+    "video": "exercise-media/standing-dumbbell-press/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-dumbbell-press/video-v1/poster.webp"
+  },
+  "standing-dumbbell-reverse-curl": {
+    "video": "exercise-media/standing-dumbbell-reverse-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-dumbbell-reverse-curl/video-v1/poster.webp"
+  },
+  "standing-dumbbell-shoulder-press": {
+    "video": "exercise-media/standing-dumbbell-shoulder-press/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-dumbbell-shoulder-press/video-v1/poster.webp"
+  },
+  "standing-dumbbell-straight-arm-front-delt-raise-above-head": {
+    "video": "exercise-media/standing-dumbbell-straight-arm-front-delt-raise-above-head/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-dumbbell-straight-arm-front-delt-raise-above-head/video-v1/poster.webp"
+  },
+  "standing-dumbbell-triceps-extension": {
+    "video": "exercise-media/standing-dumbbell-triceps-extension/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-dumbbell-triceps-extension/video-v1/poster.webp"
+  },
+  "standing-dumbbell-upright-row": {
+    "video": "exercise-media/standing-dumbbell-upright-row/video-v2/demo.mp4",
+    "poster": "exercise-media/standing-dumbbell-upright-row/video-v2/poster.webp"
+  },
+  "standing-elevated-quad-stretch": {
+    "video": "exercise-media/standing-elevated-quad-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-elevated-quad-stretch/video-v1/poster.webp"
+  },
+  "standing-front-barbell-raise-over-head": {
+    "video": "exercise-media/standing-front-barbell-raise-over-head/video-v2/demo.mp4",
+    "poster": "exercise-media/standing-front-barbell-raise-over-head/video-v2/poster.webp"
+  },
+  "standing-gastrocnemius-calf-stretch": {
+    "video": "exercise-media/standing-gastrocnemius-calf-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-gastrocnemius-calf-stretch/video-v1/poster.webp"
+  },
+  "standing-hamstring-and-calf-stretch": {
+    "video": "exercise-media/standing-hamstring-and-calf-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-hamstring-and-calf-stretch/video-v1/poster.webp"
+  },
+  "standing-hip-circles": {
+    "video": "exercise-media/standing-hip-circles/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-hip-circles/video-v1/poster.webp"
+  },
+  "standing-hip-flexors": {
+    "video": "exercise-media/standing-hip-flexors/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-hip-flexors/video-v1/poster.webp"
+  },
+  "standing-inner-biceps-curl": {
+    "video": "exercise-media/standing-inner-biceps-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-inner-biceps-curl/video-v1/poster.webp"
+  },
+  "standing-lateral-stretch": {
+    "video": "exercise-media/standing-lateral-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-lateral-stretch/video-v1/poster.webp"
+  },
+  "standing-long-jump": {
+    "video": "exercise-media/standing-long-jump/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-long-jump/video-v1/poster.webp"
+  },
+  "standing-low-pulley-deltoid-raise": {
+    "video": "exercise-media/standing-low-pulley-deltoid-raise/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-low-pulley-deltoid-raise/video-v1/poster.webp"
+  },
+  "standing-low-pulley-one-arm-triceps-extension": {
+    "video": "exercise-media/standing-low-pulley-one-arm-triceps-extension/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-low-pulley-one-arm-triceps-extension/video-v1/poster.webp"
+  },
+  "standing-one-arm-cable-curl": {
+    "video": "exercise-media/standing-one-arm-cable-curl/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-one-arm-cable-curl/video-v1/poster.webp"
+  },
+  "standing-one-arm-dumbbell-curl-over-incline-bench": {
+    "video": "exercise-media/standing-one-arm-dumbbell-curl-over-incline-bench/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-one-arm-dumbbell-curl-over-incline-bench/video-v1/poster.webp"
+  },
+  "standing-overhead-barbell-triceps-extension": {
+    "video": "exercise-media/standing-overhead-barbell-triceps-extension/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-overhead-barbell-triceps-extension/video-v1/poster.webp"
+  },
+  "standing-military-press": {
+    "video": "exercise-media/standing-military-press/video-v2/demo.mp4",
+    "poster": "exercise-media/standing-military-press/video-v2/poster.webp"
+  },
+  "standing-olympic-plate-hand-squeeze": {
+    "video": "exercise-media/standing-olympic-plate-hand-squeeze/video-v2/demo.mp4",
+    "poster": "exercise-media/standing-olympic-plate-hand-squeeze/video-v2/poster.webp"
+  },
+  "standing-one-arm-dumbbell-triceps-extension": {
+    "video": "exercise-media/standing-one-arm-dumbbell-triceps-extension/video-v2/demo.mp4",
+    "poster": "exercise-media/standing-one-arm-dumbbell-triceps-extension/video-v2/poster.webp"
+  },
+  "standing-palm-in-one-arm-dumbbell-press": {
+    "video": "exercise-media/standing-palm-in-one-arm-dumbbell-press/video-v2/demo.mp4",
+    "poster": "exercise-media/standing-palm-in-one-arm-dumbbell-press/video-v2/poster.webp"
+  },
+  "standing-pelvic-tilt": {
+    "video": "exercise-media/standing-pelvic-tilt/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-pelvic-tilt/video-v1/poster.webp"
+  },
+  "standing-rope-crunch": {
+    "video": "exercise-media/standing-rope-crunch/video-v2/demo.mp4",
+    "poster": "exercise-media/standing-rope-crunch/video-v2/poster.webp"
+  },
+  "standing-soleus-and-achilles-stretch": {
+    "video": "exercise-media/standing-soleus-and-achilles-stretch/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-soleus-and-achilles-stretch/video-v1/poster.webp"
+  },
+  "standing-toe-touches": {
+    "video": "exercise-media/standing-toe-touches/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-toe-touches/video-v1/poster.webp"
+  },
+  "standing-towel-triceps-extension": {
+    "video": "exercise-media/standing-towel-triceps-extension/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-towel-triceps-extension/video-v1/poster.webp"
+  },
+  "standing-two-arm-overhead-throw": {
+    "video": "exercise-media/standing-two-arm-overhead-throw/video-v1/demo.mp4",
+    "poster": "exercise-media/standing-two-arm-overhead-throw/video-v1/poster.webp"
+  },
+  "star-jump": {
+    "video": "exercise-media/star-jump/video-v2/demo.mp4",
+    "poster": "exercise-media/star-jump/video-v2/poster.webp"
+  },
+  "static-lunge": {
+    "video": "exercise-media/static-lunge/video-v1/demo.mp4",
+    "poster": "exercise-media/static-lunge/video-v1/poster.webp"
+  },
+  "stiff-leg-barbell-good-morning": {
+    "video": "exercise-media/stiff-leg-barbell-good-morning/video-v1/demo.mp4",
+    "poster": "exercise-media/stiff-leg-barbell-good-morning/video-v1/poster.webp"
+  },
+  "stiff-legged-barbell-deadlift": {
+    "video": "exercise-media/stiff-legged-barbell-deadlift/video-v1/demo.mp4",
+    "poster": "exercise-media/stiff-legged-barbell-deadlift/video-v1/poster.webp"
+  },
+  "stiff-legged-dumbbell-deadlift": {
+    "video": "exercise-media/stiff-legged-dumbbell-deadlift/video-v1/demo.mp4",
+    "poster": "exercise-media/stiff-legged-dumbbell-deadlift/video-v1/poster.webp"
+  },
+  "stomach-vacuum": {
+    "video": "exercise-media/stomach-vacuum/video-v1/demo.mp4",
+    "poster": "exercise-media/stomach-vacuum/video-v1/poster.webp"
+  },
+  "straight-arm-dumbbell-pullover": {
+    "video": "exercise-media/straight-arm-dumbbell-pullover/video-v1/demo.mp4",
+    "poster": "exercise-media/straight-arm-dumbbell-pullover/video-v1/poster.webp"
+  },
+  "straight-bar-bench-mid-rows": {
+    "video": "exercise-media/straight-bar-bench-mid-rows/video-v2/demo.mp4",
+    "poster": "exercise-media/straight-bar-bench-mid-rows/video-v2/poster.webp"
+  },
+  "straight-raises-on-incline-bench": {
+    "video": "exercise-media/straight-raises-on-incline-bench/video-v2/demo.mp4",
+    "poster": "exercise-media/straight-raises-on-incline-bench/video-v2/poster.webp"
+  },
+  "sumo-deadlift-with-bands": {
+    "video": "exercise-media/sumo-deadlift-with-bands/video-v1/demo.mp4",
+    "poster": "exercise-media/sumo-deadlift-with-bands/video-v1/poster.webp"
+  },
+  "sumo-deadlift-with-chains": {
+    "video": "exercise-media/sumo-deadlift-with-chains/video-v1/demo.mp4",
+    "poster": "exercise-media/sumo-deadlift-with-chains/video-v1/poster.webp"
+  },
+  "supine-one-arm-overhead-throw": {
+    "video": "exercise-media/supine-one-arm-overhead-throw/video-v1/demo.mp4",
+    "poster": "exercise-media/supine-one-arm-overhead-throw/video-v1/poster.webp"
+  },
+  "supine-two-arm-overhead-throw": {
+    "video": "exercise-media/supine-two-arm-overhead-throw/video-v1/demo.mp4",
+    "poster": "exercise-media/supine-two-arm-overhead-throw/video-v1/poster.webp"
+  },
+  "straight-arm-pulldown": {
+    "video": "exercise-media/straight-arm-pulldown/video-v2/demo.mp4",
+    "poster": "exercise-media/straight-arm-pulldown/video-v2/poster.webp"
+  },
+  "superman": {
+    "video": "exercise-media/superman/video-v2/demo.mp4",
+    "poster": "exercise-media/superman/video-v2/poster.webp"
+  },
+  "supinated-pulldown": {
+    "video": "exercise-media/supinated-pulldown/video-v2/demo.mp4",
+    "poster": "exercise-media/supinated-pulldown/video-v2/poster.webp"
+  },
+  "supine-chest-throw": {
+    "video": "exercise-media/supine-chest-throw/video-v2/demo.mp4",
+    "poster": "exercise-media/supine-chest-throw/video-v2/poster.webp"
+  },
+  "suspended-push-up": {
+    "video": "exercise-media/suspended-push-up/video-v1/demo.mp4",
+    "poster": "exercise-media/suspended-push-up/video-v1/poster.webp"
+  },
+  "suspended-row": {
+    "video": "exercise-media/suspended-row/video-v2/demo.mp4",
+    "poster": "exercise-media/suspended-row/video-v2/poster.webp"
+  },
+  "suspended-split-squat": {
+    "video": "exercise-media/suspended-split-squat/video-v1/demo.mp4",
+    "poster": "exercise-media/suspended-split-squat/video-v1/poster.webp"
+  },
+  "svend-press": {
+    "video": "exercise-media/svend-press/video-v1/demo.mp4",
+    "poster": "exercise-media/svend-press/video-v1/poster.webp"
+  },
+  "t-bar-row": {
+    "video": "exercise-media/t-bar-row/video-v1/demo.mp4",
+    "poster": "exercise-media/t-bar-row/video-v1/poster.webp"
+  },
+  "t-bar-row-with-handle": {
+    "video": "exercise-media/t-bar-row-with-handle/video-v1/demo.mp4",
+    "poster": "exercise-media/t-bar-row-with-handle/video-v1/poster.webp"
+  },
+  "the-straddle": {
+    "video": "exercise-media/the-straddle/video-v1/demo.mp4",
+    "poster": "exercise-media/the-straddle/video-v1/poster.webp"
+  },
+  "thigh-abductor": {
+    "video": "exercise-media/thigh-abductor/video-v1/demo.mp4",
+    "poster": "exercise-media/thigh-abductor/video-v1/poster.webp"
   }
 }
