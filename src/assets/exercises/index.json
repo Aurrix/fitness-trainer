@@ -1897,6 +1897,12 @@
       "file": "drop-push.json"
     },
     {
+      "id": "dual-45-degree-hip-extension",
+      "displayLabel": "Dual 45° Hip Extension",
+      "shortDescription": "Bilateral hip extension on a 45-degree bench, using both legs together to train the glutes and hamstrings.",
+      "file": "dual-45-degree-hip-extension.json"
+    },
+    {
       "id": "dumbbell-alternate-bicep-curl",
       "displayLabel": "Dumbbell Alternate Bicep Curl",
       "shortDescription": "strength exercise targeting biceps.",

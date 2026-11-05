@@ -1,24 +1,69 @@
 {
   "id": "dual-45-degree-hip-extension",
   "displayLabel": "Dual 45° Hip Extension",
-  "shortDescription": "Plate-loaded hip extension on a supported 45-degree machine, targeting the glutes and hamstrings.",
-  "descriptionHtml": "<p>A supported, plate-loaded hip hinge on a dual 45-degree hip-extension machine. Foot-platform selection changes the emphasis between the glutes and hamstrings.</p><p>The demonstration shows the bent-knee, upper-foot-support setup. Adjust the machine to fit your body and follow its setup instructions.</p>",
-  "aliases": ["Dual 45 Hip Extension", "Dual 45 Degree Hip Extension", "Dual 45-Degree Hip Extension", "Glutebuilder Dual 45 Hip Extension", "Precor Dual 45 Hip Extension", "Plate Loaded 45 Degree Hip Extension"],
-  "category": "strength",
-  "difficulty": "Intermediate",
-  "equipment": ["machine", "plate-loaded dual 45-degree hip extension machine"],
-  "primaryTargetMuscleGroups": [{"muscleGroup": "glute-max", "factor": 1}],
-  "secondaryTargetMuscleGroups": [{"muscleGroup": "biceps-femoris", "factor": 0.6}, {"muscleGroup": "semitendinosus", "factor": 0.6}, {"muscleGroup": "semimembranosus", "factor": 0.6}, {"muscleGroup": "spinal-erectors", "factor": 0.3}],
-  "substitutionExerciseIds": ["back-extension", "hyperextension", "barbell-hip-thrust"],
-  "instructions": [
-    "Adjust the hip pad and starting handle to your height. Position the pad against your upper thighs so you can hinge freely at the hips.",
-    "Choose the machine's foot supports for your intended variation and plant both feet securely. The demonstration uses the upper supports with bent knees.",
-    "Hold the machine handles, brace your trunk, and keep your head in line with your spine.",
-    "Lower your torso by hinging at the hips through a comfortable range, keeping your feet planted and your thighs supported.",
-    "Contract your glutes to extend your hips and return to alignment with your thighs. Keep the movement controlled and stop before arching your lower back.",
-    "Return the lever to its supported starting position before releasing the handles or stepping off."
+  "shortDescription": "Bilateral hip extension on a 45-degree bench, using both legs together to train the glutes and hamstrings.",
+  "descriptionHtml": "<p>A bilateral hip hinge on a 45-degree Roman-chair bench. Both feet stay secured while the torso lowers and rises around the supported hips.</p><p>Keep your spine neutral and finish with your torso aligned with your legs. The demonstration uses bodyweight with arms crossed over the chest.</p>",
+  "aliases": [
+    "Dual 45 Degree Hip Extension",
+    "Dual 45 Hip Extension",
+    "Bilateral 45 Degree Hip Extension",
+    "45 Degree Hip Extension",
+    "45 Degree Back Extension",
+    "Roman Chair Hip Extension",
+    "45 Degree Hyperextension"
   ],
-  "tags": ["hip hinge", "glutes", "hamstrings", "plate loaded", "dual 45", "glutebuilder"],
-  "notes": "Log added plate weight consistently; unloaded lever resistance varies by machine. Muscle factors are app defaults, not measured activation. The generated demonstration is an illustrative draft with a limited range of motion.",
-  "sourceUrl": "https://www.precor.com/en-US/strength/glutebuilder/dual-45-hip-extension"
+  "category": "strength",
+  "difficulty": "Beginner",
+  "equipment": [
+    "bodyweight",
+    "45-degree hyperextension bench"
+  ],
+  "primaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "glute-max",
+      "factor": 1
+    }
+  ],
+  "secondaryTargetMuscleGroups": [
+    {
+      "muscleGroup": "biceps-femoris",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "semitendinosus",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "semimembranosus",
+      "factor": 0.6
+    },
+    {
+      "muscleGroup": "spinal-erectors",
+      "factor": 0.3
+    }
+  ],
+  "substitutionExerciseIds": [
+    "back-extension",
+    "hyperextension",
+    "barbell-hip-thrust"
+  ],
+  "instructions": [
+    "Adjust the hip pad so it supports your upper thighs just below the hip crease, leaving room to hinge at your hips.",
+    "Place both feet on the platform and secure both ankles beneath the padded supports. Keep your knees softly extended.",
+    "Cross your arms over your chest, brace your trunk, and start with your head, torso and legs aligned.",
+    "Hinge forward at your hips to lower your torso under control. Keep your feet fixed and your back neutral, stopping within your comfortable range.",
+    "Contract your glutes and hamstrings to bring your torso back into line with your legs. Stop at alignment rather than arching your lower back.",
+    "Repeat without bouncing or swinging. Hold the bench supports when getting on or off."
+  ],
+  "tags": [
+    "hip hinge",
+    "bilateral",
+    "glutes",
+    "hamstrings",
+    "bodyweight",
+    "roman chair",
+    "45 degree"
+  ],
+  "notes": "Both legs remain supported together throughout the movement. Start with bodyweight; log only added external weight when progressing. Muscle factors are app defaults, not measured activation. Generated media is an illustrative pose animation.",
+  "sourceUrl": "https://github.com/yuhonas/free-exercise-db/blob/main/exercises/Hyperextensions_Back_Extensions.json"
 }

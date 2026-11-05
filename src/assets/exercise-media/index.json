@@ -5394,5 +5394,121 @@
   "single-leg-stride-jump": {
     "video": "exercise-media/single-leg-stride-jump/video-v2/demo.mp4",
     "poster": "exercise-media/single-leg-stride-jump/video-v2/poster.webp"
+  },
+  "dual-45-degree-hip-extension": {
+    "video": "exercise-media/dual-45-degree-hip-extension/video-v2/demo.mp4",
+    "poster": "exercise-media/dual-45-degree-hip-extension/video-v2/poster.webp"
+  },
+  "kneeling-cable-crunch-with-alternating-oblique-twists": {
+    "video": "exercise-media/kneeling-cable-crunch-with-alternating-oblique-twists/video-v6/demo.mp4",
+    "poster": "exercise-media/kneeling-cable-crunch-with-alternating-oblique-twists/video-v6/poster.webp"
+  },
+  "lateral-cone-hops": {
+    "video": "exercise-media/lateral-cone-hops/video-v7/demo.mp4",
+    "poster": "exercise-media/lateral-cone-hops/video-v7/poster.webp"
+  },
+  "machine-glute-kickback": {
+    "video": "exercise-media/machine-glute-kickback/video-v7/demo.mp4",
+    "poster": "exercise-media/machine-glute-kickback/video-v7/poster.webp"
+  },
+  "power-stairs": {
+    "video": "exercise-media/power-stairs/video-v4/demo.mp4",
+    "poster": "exercise-media/power-stairs/video-v4/poster.webp"
+  },
+  "push-up-to-side-plank": {
+    "video": "exercise-media/push-up-to-side-plank/video-v4/demo.mp4",
+    "poster": "exercise-media/push-up-to-side-plank/video-v4/poster.webp"
+  },
+  "rocky-pull-ups-pulldowns": {
+    "video": "exercise-media/rocky-pull-ups-pulldowns/video-v6/demo.mp4",
+    "poster": "exercise-media/rocky-pull-ups-pulldowns/video-v6/poster.webp"
+  },
+  "rope-climb": {
+    "video": "exercise-media/rope-climb/video-v5/demo.mp4",
+    "poster": "exercise-media/rope-climb/video-v5/poster.webp"
+  },
+  "side-hop-sprint": {
+    "video": "exercise-media/side-hop-sprint/video-v3/demo.mp4",
+    "poster": "exercise-media/side-hop-sprint/video-v3/poster.webp"
+  },
+  "side-to-side-box-shuffle": {
+    "video": "exercise-media/side-to-side-box-shuffle/video-v5/demo.mp4",
+    "poster": "exercise-media/side-to-side-box-shuffle/video-v5/poster.webp"
+  },
+  "single-cone-sprint-drill": {
+    "video": "exercise-media/single-cone-sprint-drill/video-v16/demo.mp4",
+    "poster": "exercise-media/single-cone-sprint-drill/video-v16/poster.webp"
+  },
+  "single-leg-hop-progression": {
+    "video": "exercise-media/single-leg-hop-progression/video-v3/demo.mp4",
+    "poster": "exercise-media/single-leg-hop-progression/video-v3/poster.webp"
+  },
+  "sled-drag-harness": {
+    "video": "exercise-media/sled-drag-harness/video-v4/demo.mp4",
+    "poster": "exercise-media/sled-drag-harness/video-v4/poster.webp"
+  },
+  "sled-overhead-backward-walk": {
+    "video": "exercise-media/sled-overhead-backward-walk/video-v3/demo.mp4",
+    "poster": "exercise-media/sled-overhead-backward-walk/video-v3/poster.webp"
+  },
+  "sled-overhead-triceps-extension": {
+    "video": "exercise-media/sled-overhead-triceps-extension/video-v4/demo.mp4",
+    "poster": "exercise-media/sled-overhead-triceps-extension/video-v4/poster.webp"
+  },
+  "sled-reverse-flye": {
+    "video": "exercise-media/sled-reverse-flye/video-v5/demo.mp4",
+    "poster": "exercise-media/sled-reverse-flye/video-v5/poster.webp"
+  },
+  "sled-row": {
+    "video": "exercise-media/sled-row/video-v6/demo.mp4",
+    "poster": "exercise-media/sled-row/video-v6/poster.webp"
+  },
+  "sledgehammer-swings": {
+    "video": "exercise-media/sledgehammer-swings/video-v2/demo.mp4",
+    "poster": "exercise-media/sledgehammer-swings/video-v2/poster.webp"
+  },
+  "spinal-stretch": {
+    "video": "exercise-media/spinal-stretch/video-v7/demo.mp4",
+    "poster": "exercise-media/spinal-stretch/video-v7/poster.webp"
+  },
+  "squat-with-plate-movers": {
+    "video": "exercise-media/squat-with-plate-movers/video-v4/demo.mp4",
+    "poster": "exercise-media/squat-with-plate-movers/video-v4/poster.webp"
+  },
+  "stairmaster": {
+    "video": "exercise-media/stairmaster/video-v7/demo.mp4",
+    "poster": "exercise-media/stairmaster/video-v7/poster.webp"
+  },
+  "standing-leg-curl": {
+    "video": "exercise-media/standing-leg-curl/video-v6/demo.mp4",
+    "poster": "exercise-media/standing-leg-curl/video-v6/poster.webp"
+  },
+  "stationary-bike": {
+    "video": "exercise-media/stationary-bike/video-v3/demo.mp4",
+    "poster": "exercise-media/stationary-bike/video-v3/poster.webp"
+  },
+  "step-mill": {
+    "video": "exercise-media/step-mill/video-v5/demo.mp4",
+    "poster": "exercise-media/step-mill/video-v5/poster.webp"
+  },
+  "stride-jump-crossover": {
+    "video": "exercise-media/stride-jump-crossover/video-v5/demo.mp4",
+    "poster": "exercise-media/stride-jump-crossover/video-v5/poster.webp"
+  },
+  "suspended-fallout": {
+    "video": "exercise-media/suspended-fallout/video-v8/demo.mp4",
+    "poster": "exercise-media/suspended-fallout/video-v8/poster.webp"
+  },
+  "suspended-reverse-crunch": {
+    "video": "exercise-media/suspended-reverse-crunch/video-v6/demo.mp4",
+    "poster": "exercise-media/suspended-reverse-crunch/video-v6/poster.webp"
+  },
+  "tire-flip": {
+    "video": "exercise-media/tire-flip/video-v9/demo.mp4",
+    "poster": "exercise-media/tire-flip/video-v9/poster.webp"
+  },
+  "yoke-walk": {
+    "video": "exercise-media/yoke-walk/video-v3/demo.mp4",
+    "poster": "exercise-media/yoke-walk/video-v3/poster.webp"
   }
 }
